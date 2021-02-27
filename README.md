@@ -1,5 +1,5 @@
 Sean Ma, PhD
 
-LinkedIn: [http://linkedin.com/in/sean-sl-ma](http://linkedin.com/in/sean-sl-ma)
+LinkedIn: http://linkedin.com/in/sean-sl-ma
 
 my blogs and wiki
