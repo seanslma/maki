@@ -15,4 +15,4 @@ The content in this repository is a collection of knowledge from different sourc
 ## [VBA Notes](VBA.md)
 
 ## SQL
-###&emsp;MySQL
+### &emsp;MySQL
