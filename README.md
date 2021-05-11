@@ -6,7 +6,7 @@ WordPress: [https://shuiliang0ma.wordpress.com](https://shuiliang0ma.wordpress.c
 
 # My wiki and blogs
 
-The content in this repository is a collection of knowledge from different sources, including websites with or without a link to them, an improved version of the content on the websites and my own experiences and practices.
+The contents in this repository are a collection of knowledge from different sources, including websites with or without a link to them, an improved version of the contents on the websites and my own experiences and practices.
 
 ## [Python Notes](Python.ipynb)
 
