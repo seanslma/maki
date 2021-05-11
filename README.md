@@ -10,9 +10,9 @@ The content in this repository is a collection of knowledge from different sourc
 
 ## [Python Notes](Python.ipynb)
 
-### [Pandas](Python/Pandas.ipynb)
+&emsp;### [Pandas](Python/Pandas.ipynb)
 
 ## [VBA Notes](VBA.md)
 
 ## SQL
-### MySQL
+&emsp;### MySQL
