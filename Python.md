@@ -2,6 +2,10 @@
 
 ## datetime
 
-## new modules
+## numpy
 
 ## pandas
+
+## visual
+
+## modules
