@@ -1,3 +1,3 @@
 # config
 
-<configSections> should be the first section in <configuration>
+\<configSections> should be the first section in \<configuration>
