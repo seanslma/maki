@@ -1,5 +1,6 @@
 # include
 
-^include ^method ^
+|include |method |
+|---     |---    |
 |<iostream> |std:cout |
 |<algorithm> |std::replace |
