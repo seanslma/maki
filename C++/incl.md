@@ -2,5 +2,5 @@
 
 |include |method |
 |---     |---    |
-|<iostream> |std:cout |
-|<algorithm> |std::replace |
+|\<iostream> |std:cout |
+|\<algorithm> |std::replace |
