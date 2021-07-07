@@ -1,8 +1,8 @@
 # datetime
-
+```vb
 date = DateSerial(year, month, day)
-
 DateAdd("m", 12, FirstDate)
+```
 
 ## str2dt
 ```vb
