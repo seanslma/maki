@@ -22,3 +22,45 @@ var writer = File.Open("C:\\f.txt", FileMode.Create, FileAccess.Write, FileShare
 var reader = new StreamReader(File.Open("C:\\f.txt", 
                                       FileMode.Open, FileAccess.Read, FileShare.ReadWrite)));
 ```
+
+## append to log file
+```c#
+public static void ToFile(string msg, bool writeline = false)
+{
+    using (var w = File.AppendText(_logpath)) {
+        if (!writeline) {
+            w.Write(msg);
+        }
+        else {
+            w.WriteLine(msg);
+        }
+    }
+}
+```
+
+## color console
+```c#
+public static void ConsoleColorWLine(string msg, ConsoleColor? fgc = null, ConsoleColor? bgc = null)
+{
+    ConsoleColorWrite($"{msg}\n", fgc, bgc);
+}
+
+public static void ConsoleColorWrite(string msg, ConsoleColor? fgc = null, ConsoleColor? bgc = null)
+{
+    var fgColor = Console.ForegroundColor;
+    if (fgc.HasValue) {
+        Console.ForegroundColor = fgc.Value;
+    }
+    var bgColor = Console.BackgroundColor;
+    if (bgc.HasValue) {
+        Console.BackgroundColor = bgc.Value;
+    }
+    Console.Write(msg);
+    if (fgc.HasValue) {
+        Console.ForegroundColor = fgColor;
+    }
+    if (bgc.HasValue) {
+        Console.BackgroundColor = bgColor;
+    }
+}
+```
