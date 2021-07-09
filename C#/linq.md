@@ -5,7 +5,6 @@ class Customer
 {
     public int Id;
     public string Name;
-    public string Area;
     public string Region;
     public float[] Value;
 }
@@ -14,7 +13,6 @@ class Customer
 var lst = new List<Customer>();
 var qry = regPriceLst.GroupBy(r => new {
     r.Name,
-    r.Area,
     r.Region,
 }).Select(grp => new {
     Key = grp.Key,
@@ -27,7 +25,7 @@ for (int idx = 0; idx < qry.Count; ++idx) {
     var key = res.Key;
     List<int> ids = res.IDs;
     var firstCustomer = lst[ids[0]];
-    var record = new ClientRecord() { Id = idx, Name = key.Name, Area = key.Area, Region = key.Region, Ids = ids, FirstCustomer = firstCustomer };
+    var record = new ClientRecord() { Id = idx, Name = key.Namea, Region = key.Region, Ids = ids, FirstCustomer = firstCustomer };
     recordLst.Add(record);
 }
 ```
