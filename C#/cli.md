@@ -1,7 +1,7 @@
 #CLI
 
 ```c#
-class CliParam
+class CliArgs
 {
     string _dir;
     public string Dir =>_dir; 
@@ -9,13 +9,13 @@ class CliParam
     DateTime _date;
     public DateTime Date => _date;
 
-    public int ParseParam(string[] args)
+    public int ParseArgs(string[] args)
     {
         int ret = 0;
 
         List<string> pars;
         Dictionary<string, List<string>> clipars;
-        ret = CliArgs(args, out clipars);
+        ret = CliParams(args, out clipars);
 
         //dir
         if (clipars.TryGetValue("-dir", out pars) && par.Count > 0) {
@@ -45,7 +45,7 @@ class CliParam
         return ret;
     }
 
-    int CliArgs(string[] args, out Dictionary<string, List<string>> clipars)
+    int CliParams(string[] args, out Dictionary<string, List<string>> clipars)
     {
         int ret = 0;
         cli = null;
