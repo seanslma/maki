@@ -10,3 +10,6 @@ When running a Visual Studio application, the default Common Language Runtime (C
 
 ## .NET Framework 4.8 not showing in VS
 install .NET Framework 4.8 Developer Pack and restart VS
+
+## This application requires one of the following versions of .NET Framework
+but the .Net version exists. Solution: the .NET version in the **app.config** file is not correct
