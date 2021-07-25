@@ -1,0 +1,45 @@
+# basic
+
+## find the mpl_tools directory
+```python
+import importlib
+importlib.import_module('mpl_toolkits').__path__
+
+#check version
+python -m pip freeze | findstr matplotlib
+
+#check type
+isinstance(i, int)
+isinstance(s, str)
+
+#install module
+python -m pip install numpy
+```
+
+## list
+```python
+#nested list
+a = [[0] * 4 for i in range(3)]
+#remove empty strings
+str_list = list(filter(None, str_list))
+#check all None
+l.count(None)==len(l)
+all( v is None for v in l ) #10x slower
+```
+
+## transpose list of tuples
+```python
+list(zip(*list_of_tuples)) 
+```
+
+## pyinstaller
+It is possible to compile python scripts to an executable using the pyinstaller module. Helps with version control and not having to rely on module dependencies.
+
+Pyinstaller won't install nested dependencies that it can't see and it isn't obvious that it hasn't worked until runtime. You can work through package at a time and either add them to the hidden_imports list in the spec_file or in the command line or in hook files. All doable, just a little iterative:)
+
+## Install MySQLdb on Windows for Python 3
+To install MySQLdb on Windows go to this link \\
+https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient\\
+Download the appropriate .whl for your Python version.
+
+python -m pip install mysqlclient-1.3.13-cp36-cp36m-win_amd64.whl
