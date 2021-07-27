@@ -29,10 +29,10 @@ order by username;
 ## create db
 ```sql
 CREATE DATABASE test;
-<code>
+```
 
 ## show dbs
-<code sql>
+```sql
 SELECT name FROM master.sys.databases;
 SELECT name FROM master.dbo.sysdatabases;
 
