@@ -1,6 +1,6 @@
 # Python
 
-## [datetime](Python/datetime.md)
+## [datetime](datetime.md)
 
 ## numpy
 
