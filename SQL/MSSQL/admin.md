@@ -1,0 +1,42 @@
+# admin
+
+## stop server
+SQL Server agent is dependent on SQL Service. \\
+So before stopping MSSQL, Server agent service needs to be stopped. 
+```dos
+sc stop sqlserveragent
+sc stop mssqlserver
+```
+
+## create a user
+or use UI and add the roles: public and sysadmin 
+  CREATE USER Mary WITH PASSWORD = '********';
+  
+## show users
+```sql
+select name as username,
+       create_date,
+       modify_date,
+       type_desc as type,
+       authentication_type_desc as authentication_type
+from sys.database_principals
+where type not in ('A', 'G', 'R', 'X')
+      and sid is not null
+      and name != 'guest'
+order by username;  
+```
+
+## create db
+```sql
+CREATE DATABASE test;
+<code>
+
+## show dbs
+<code sql>
+SELECT name FROM master.sys.databases;
+SELECT name FROM master.dbo.sysdatabases;
+
+--exlude system dbs
+SELECT * FROM master.sys.databases d WHERE d.database_id > 4
+SELECT * FROM master.sys.databases d WHERE name NOT IN ('master', 'tempdb', 'model', 'msdb');
+```
