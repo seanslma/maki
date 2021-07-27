@@ -1,5 +1,25 @@
 # Access
 
+## Connect to Access DB
+```python
+# connect to db
+try:
+    drv = '{Microsoft Access Driver (*.mdb)}'
+    con = pyodbc.connect(f'DRIVER={drv};DBQ=' + dbpath)
+except pyodbc.InterfaceError:
+    drv = '{Microsoft Access Driver (*.mdb, *.accdb)}'
+    con = pyodbc.connect('DRIVER={drv};DBQ=' + dbpath)   
+cursor = con.cursor()
+
+# query
+cursor.execute("Select * from tbl")
+rows = cursor.fetchall()
+
+# close connection
+cursor.close()    
+con.close()
+```
+
 ## pyodbc LIKE wildcard
 LIKE wildcard characters between queries run in Access and from an external applications are different: Access uses the asterisk as the wildcard character, "2019-09-03*"; External application (like Python) uses the percent sign as the wildcard character, "2019-09-03%".
 
