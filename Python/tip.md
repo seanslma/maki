@@ -1,10 +1,19 @@
 # tip
 
 ## remove empty items
-  l2 = list(filter(None, l1))
+```python
+l2 = list(filter(None, l1))
+```
 
 ## diff between two lists
-  s1 = set(l1).difference(l2)
-  
+```python
+s1 = set(l1).difference(l2)
+```  
 ## list of lists to csv
-  csv.writer(open('out.csv', 'w', newline='')).writerows(lls)
+```python
+csv.writer(open('out.csv', 'w', newline='')).writerows(lls)
+```  
+## set index in each group starting from 0
+```python
+df['idx'] = df.groupby('grp_id').cumcount()
+```  
