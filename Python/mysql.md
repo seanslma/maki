@@ -8,26 +8,6 @@ python -m pip install sqlalchemy-access
 ## module 'time' has no attribute 'clock'
 update sqlalchemy to the latest version as time.clock is removed from python 3.8 and later versions
 
-## Connect to mdb
-```python
-# connect to db
-try:
-    drv = '{Microsoft Access Driver (*.mdb)}'
-    con = pyodbc.connect(f'DRIVER={drv};DBQ=' + dbpath)
-except pyodbc.InterfaceError:
-    drv = '{Microsoft Access Driver (*.mdb, *.accdb)}'
-    con = pyodbc.connect('DRIVER={drv};DBQ=' + dbpath)   
-cursor = con.cursor()
-
-# query
-cursor.execute("Select * from tbl")
-rows = cursor.fetchall()
-
-# close connection
-cursor.close()    
-con.close()
-```
-
 ## MySQL query to csv
 ```python
 import pandas as pd
