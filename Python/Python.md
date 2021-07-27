@@ -14,9 +14,9 @@
 
 ## pandas
 
-## [Regular Expression](regex)
+## [Regular Expression](regex.md)
 
-## [SQL](sql.md)
+## [MySQL](mysql.md)
 
 ## visual
 
