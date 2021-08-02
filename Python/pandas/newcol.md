@@ -6,6 +6,7 @@ df[['cola','colb']] = df['col'].str.rsplit('_', 1, expand=True)
 ```
 ## newcol based on conditions on another col
 ```python
+#use np.select
 cons = [(df['cnt'] <= 2), (df['cnt'] > 2) & (df['cnt'] <= 9), (df['cnt'] > 9) & (df['cnt'] <= 15), (df['cnt'] > 15)]
 lbls = ['band1', 'band2', 'band3', 'band4'] #label for each condition
 df['band'] = np.select(cons, lbls)
