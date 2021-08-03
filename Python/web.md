@@ -7,6 +7,29 @@ https://duo.com/decipher/driving-headless-chrome-with-python
 https://www.datacamp.com/community/tutorials/learn-build-dash-python
 **Dash** is Python framework for building web applications. It built on top of Flask, Plotly.js, React and React Js. It enables you to build dashboards using pure Python. Dash is open source, and its apps run on the web browser.
 
+## requests pool
+```python
+import requests
+from threading import Lock
+
+requestssessions = []
+threadlock = Lock()
+
+with threadlock:
+	if len(requestssessions) == 0:
+		s = requests.Session()
+	else:
+		s = requestssessions.pop()
+try:
+	resp = s.get(url)
+	resp.raise_for_status() #raise HTTP errors
+	data = resp.json()
+except requests.exceptions.HTTPError as e:
+	log('Error: ' + str(e)) #it wasn't a 200 error
+	data = None
+with threadlock:
+	requestssessions.append(s) #add to pool
+```
 
 ## requests_html
 requests_html serves as an alternative to Selenium and PhantomJS, and provides a clear syntax similar to the awesome requests package\\
