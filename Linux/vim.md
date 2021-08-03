@@ -1,5 +1,18 @@
 # vim
 
+## vi
+```
+esc #back to command mode
+i #insert characters
+I #to left and insert characters
+a #append characters
+A #to right and append characters
+r #replace character
+x #delete character
+:q! #force quit
+:wq! #force save and quit
+```
+
 ## vimtutor
 From the commandline you'll get "a 30 minute tutorial that teaches the most basic Vim functionality hands-on" as it calls itself.
 
