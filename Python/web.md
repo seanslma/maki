@@ -16,19 +16,19 @@ requestssessions = []
 threadlock = Lock()
 
 with threadlock:
-	if len(requestssessions) == 0:
-		s = requests.Session()
-	else:
-		s = requestssessions.pop()
+    if len(requestssessions) == 0:
+        s = requests.Session()
+    else:
+        s = requestssessions.pop()
 try:
-	resp = s.get(url)
-	resp.raise_for_status() #raise HTTP errors
-	data = resp.json()
+    resp = s.get(url)
+    resp.raise_for_status() #raise HTTP errors
+    data = resp.json()
 except requests.exceptions.HTTPError as e:
-	log('Error: ' + str(e)) #it wasn't a 200 error
-	data = None
+    log('Error: ' + str(e)) #it wasn't a 200 error
+    data = None
 with threadlock:
-	requestssessions.append(s) #add to pool
+    requestssessions.append(s) 
 ```
 
 ## requests_html
