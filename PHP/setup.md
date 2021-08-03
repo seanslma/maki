@@ -1,4 +1,4 @@
-# php
+# setup
 
 the NON Thread safe (nts) php does not support apache and you have to install thread safe versions
 
