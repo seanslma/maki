@@ -17,8 +17,28 @@ df['c1'].hist(bins=30, figsize=(10,4))
 df['c1'].iplot(kind='hist', bins=30)
 ```
 
+## bar
+```python
+sns.barplot(x='tip_pct', y='day', data=df, orient='h')
+sns.barplot(x='tip_pct', y='day', data=df, hue='time', orient='h')
+```
+
+## hist
+```python
+sns.distplot(values, bins=100, color='k')
+```
+  
+## scatter
+```python
+sns.regplot('m1', 'unemp', data=trans_data)
+sns.pairplot(trans_data, diag_kind='kde', plot_kws={'alpha': 0.2})
+```
+
 ## facetgrid
 ```python
+sns.factorplot(kind='bar', x='day', y='tip_pct', 
+               col='smoker', hue='time', data=tips[tips.tip_pct < 1])
+
 #split row and col
 g = sns.FacetGrid(tip, row='sex', col='time', hue='smoker', height=4)
 g.map(plt.scatter, "total_bill", "tip")
