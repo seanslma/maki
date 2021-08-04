@@ -46,8 +46,10 @@ print(*mylist, sep='')
 with open('path_file.csv', 'r', encoding='utf-8') as f:
     lines = f.read().splitlines()
         
-with open('somefile.txt', 'a') as f:
+with open('somefile.txt', 'a', newline='') as f:
     f.write('Hello\n') 
+    csv.writerow([1,2])
+    df.to_csv(f, index=False)
     
 #write array to csv file
 np.savetxt('myfile.csv', myarray, delimiter=',')    
