@@ -2,7 +2,7 @@
 
 ## Bokeh
 Bokeh supports interactive plots using its JavaScript API, BokehJS, to provide dynamic and interactive web-ready visualizations.
-It is based on The Grammar of Graphics like R’s ggplot2 and supports streaming, and real-time data.
+It is based on the grammar of graphics like R’s ggplot2 and supports streaming, and real-time data.
 
 ## Plotly
 Plotly is a JavaScript based data visualization tool, like Bokeh, with strength in making interactive plots with its robust API
