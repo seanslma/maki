@@ -1,7 +1,7 @@
 # DateTime
 
 ```php
-$tday = new DateTime("now");
+$tday = new DateTime('now');
 echo "today is: {$tday->format('Y-m-d H:i:s')}\n";
 
 $tday->sub(new DateInterval('P1D'));
