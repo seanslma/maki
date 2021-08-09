@@ -1,5 +1,7 @@
 # MySQL
 
+In MySQL query returned results in PHP, every field will be a string OR NULL - be careful about the integer and float.
+
 ## run query
 
 ```php
