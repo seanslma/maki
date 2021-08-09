@@ -61,12 +61,12 @@ xdebug.start_with_request=yes
   * in VS code, install extension PHP Debug
   * in VS code, debug -> add config file
   * run in debug mode
-
-## get previous day
-$dt = date("Y-m-d H:i:s", strtotime("-1 day")); //$dt is a string
   
 ## set local log date
 date_default_timezone_set('Australia/Brisbane');
+
+## set memory limit
+ini_set('memory_limit', '-1');
 
 ## log4php.xml
 ```xml
