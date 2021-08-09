@@ -1,11 +1,13 @@
 # DateTime
 
-## previous day
+## shift date (I)
 ```php
-$dt = date("Y-m-d H:i:s", strtotime("-1 day")); //$dt is a string
+$today = date("Y-m-d H:i:s", strtotime("now"));    //$today is a string
+$yestd = date("Y-m-d H:i:s", strtotime("-1 day")); //$yestd is a string
+$tomrw = date("Y-m-d H:i:s", strtotime("1 day"));  //$tomrw is a string
 ```
 
-## shift date
+## shift date (II)
 ```php
 $tday = new DateTime('now');
 echo "today is: {$tday->format('Y-m-d H:i:s')}\n";
