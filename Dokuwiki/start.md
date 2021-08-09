@@ -42,8 +42,8 @@ plugin → indexmenu → skip_file = /(^sidebar$)/
 
 ## Change data/conf folder
   - move the two folders to a new directory
-  - in conf/local.php add: $conf['savedir'] = 'C:/Users/mase/Desktop/doc/wiki/data';
-  - dokuwiki/inc/preload.php add: define('DOKU_CONF', 'C:/Users/mase/Desktop/doc/wiki/conf/');
+  - in conf/local.php add: $conf['savedir'] = 'C:/Users/usr/media/wiki/data';
+  - dokuwiki/inc/preload.php add: define('DOKU_CONF', 'C:/Users/usr/media/wiki/conf/');
   - Note that the relative path does not work and the bat file should also be updated
 
 ## Change default font size
