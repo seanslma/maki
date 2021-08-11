@@ -53,7 +53,11 @@ with open('somefile.txt', 'a', newline='') as f:
     df.to_csv(f, index=False)
     
 #write array to csv file
-np.savetxt('myfile.csv', myarray, delimiter=',')    
+np.savetxt('myfile.csv', myarray, delimiter=',')  
+
+#read and write together
+with open(file_in) as csv_in, with open(file_out, 'w') as csv_out:
+    xxx
 ```
 
 ## get first line of csv
