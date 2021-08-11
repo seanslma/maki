@@ -48,7 +48,8 @@ with open('path_file.csv', 'r', encoding='utf-8') as f:
         
 with open('somefile.txt', 'a', newline='') as f:
     f.write('Hello\n') 
-    csv.writerow([1,2])
+    w = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    w.writerow([1,2])
     df.to_csv(f, index=False)
     
 #write array to csv file
