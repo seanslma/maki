@@ -1,6 +1,6 @@
 # service
 
-if a service depends on another service, it might fail to start as the other service is not started yet. Perhaps need to consider using auto (DELAYED START) or using C# to start it if it is stopped.
+if a service depends on another service, it might fail to start as the other service is not started yet. Perhaps need to consider using auto (DELAYED START) or using C# to start it if it stopped.
 
 ## service
 Right click the 'service.cs' file and add installer.
