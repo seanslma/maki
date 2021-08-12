@@ -57,7 +57,13 @@ mysqldump dbname --single-transaction > dump.sql
 mysql -uroot -p --default-character-set=utf8 foo
 mysql> SET names 'utf8'
 mysql> SOURCE foo.dump
+```
 
+## Rename database name
+```dos
+mysqldump -u username -P 3306 -p -R oldDbname > oldDbname.sql
+mysqladmin -u username -P 3306 -p create newDbname
+mysql -u username -P 3306 -p newDbname < oldDbname.sql
 ```
 
 ## REPAIR TABLE Method
