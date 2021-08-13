@@ -68,9 +68,17 @@ ALTER TABLE tbl remove PARTITIONING;
 ## reorgnize partitions
 change the partitioning of a table without losing data
 ```sql
+#split
 ALTER TABLE tbl
 REORGANIZE PARTITION l2014 INTO (
         PARTITION n0 VALUES LESS THAN (2013),
         PARTITION n1 VALUES LESS THAN (2014)
+);
+
+#merge
+ALTER TABLE tbl 
+REORGANIZE PARTITION n0,n1 INTO (
+    PARTITION l2012 VALUES LESS THAN (2012),
+    PARTITION l2014 VALUES LESS THAN (2014)
 );
 ```
