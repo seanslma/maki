@@ -26,7 +26,7 @@ There are four partition types available: **RANGE**, **LIST**, **HASH** and **KE
 All columns used in the partition expression must be present in every unique key in the table, including the primary key. If the table does not have any unique keys (including primary keys), any column can be used in the partitioning expression that is compatible with the partitioning type.
 
 ```sql
-#range
+#range: do not add the MAXVALUE partition when you want to add more partitions later
 CREATE TABLE tbl (
     usr VARCHAR(20) NOT NULL,
     created DATETIME NOT NULL,
