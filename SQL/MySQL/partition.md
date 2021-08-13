@@ -1,5 +1,7 @@
 # Partition
 
+https://dev.mysql.com/doc/refman/8.0/en/partitioning.html
+
 https://www.vertabelo.com/blog/everything-you-need-to-know-about-mysql-partitions/
 
 MySQL supports horizontal partitioning, which means that all rows matching the partitioning function will be assigned to different physical partitions.
