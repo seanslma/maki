@@ -24,6 +24,7 @@ There are four partition types available: **RANGE**, **LIST**, **HASH** and **KE
 All columns used in the partition expression must be present in every unique key in the table, including the primary key. If the table does not have any unique keys (including primary keys), any column can be used in the partitioning expression that is compatible with the partitioning type.
 
 ```sql
+#range
 CREATE TABLE tbl (
     usr VARCHAR(20) NOT NULL,
     created DATETIME NOT NULL,
@@ -33,5 +34,11 @@ PARTITION BY RANGE( YEAR(created) )(
     PARTITION le2014 VALUES LESS THAN (2014),
     PARTITION le2015 VALUES LESS THAN (2015),
     PARTITION lemaxy VALUES LESS THAN MAXVALUE
+);
+
+#list
+PARTITION BY LIST(year(dt)) (
+    PARTITION p0 VALUES IN (2010,2011),
+    PARTITION p1 VALUES IN (2012,2013)
 );
 ```
