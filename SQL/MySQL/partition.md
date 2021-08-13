@@ -25,7 +25,7 @@ All columns used in the partition expression must be present in every unique key
 CREATE TABLE tbl (
     usr VARCHAR(20) NOT NULL,
     created DATETIME NOT NULL,
-    PRIMARY KEY(username, created)
+    PRIMARY KEY(usr, created)
 )
 PARTITION BY RANGE( YEAR(created) )(
     PARTITION le2014 VALUES LESS THAN (2014),
