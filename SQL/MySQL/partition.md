@@ -2,11 +2,9 @@
 
 https://dev.mysql.com/doc/refman/8.0/en/partitioning.html
 
+https://dev.mysql.com/doc/refman/8.0/en/partitioning-management-range-list.html
+
 MySQL 8.0 does not currently support partitioning of tables using any storage engine other than **InnoDB** or **NDB**, such as MyISAM.
-
-https://www.vertabelo.com/blog/everything-you-need-to-know-about-mysql-partitions/
-
-https://www.thegeeksearch.com/beginners-guide-to-mysql-partitioning/
 
 MySQL supports horizontal partitioning, which means that all rows matching the partitioning function will be assigned to different physical partitions.
 
