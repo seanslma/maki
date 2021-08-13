@@ -6,9 +6,11 @@ MySQL 8.0 does not currently support partitioning of tables using any storage en
 
 https://www.vertabelo.com/blog/everything-you-need-to-know-about-mysql-partitions/
 
+https://www.thegeeksearch.com/beginners-guide-to-mysql-partitioning/
+
 MySQL supports horizontal partitioning, which means that all rows matching the partitioning function will be assigned to different physical partitions.
 
-## check if MySQL supports partion
+## check if MySQL supports partition
 ```sql
 SHOW PLUGINS;
 
@@ -18,7 +20,7 @@ FROM INFORMATION_SCHEMA.PLUGINS
 WHERE PLUGIN_TYPE='STORAGE ENGINE';
 ```
 
-## create partion table
+## create partition table
 There are four partition types available: **RANGE**, **LIST**, **HASH** and **KEY**.
 
 All columns used in the partition expression must be present in every unique key in the table, including the primary key. If the table does not have any unique keys (including primary keys), any column can be used in the partitioning expression that is compatible with the partitioning type.
@@ -41,4 +43,23 @@ PARTITION BY LIST(year(dt)) (
     PARTITION p0 VALUES IN (2010,2011),
     PARTITION p1 VALUES IN (2012,2013)
 );
+```
+
+## redefine partition
+```sql
+ALTER TABLE tbl
+PARTITION BY HASH(id) PARTITIONS 4;
+```
+
+## add partition
+```sql
+ALTER TABLE tbl ADD PARTITION (PARTITION p3 VALUES LESS THAN (2002));
+```
+
+## drop partition
+```sql
+ALTER TABLE tbl DROP PARTITION p0,p2;
+
+#will remove all partitions
+ALTER TABLE tbl remove PARTITIONING;
 ```
