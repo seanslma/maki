@@ -57,6 +57,7 @@ ALTER TABLE tbl ADD PARTITION (PARTITION p3 VALUES LESS THAN (2002));
 ```
 
 ## drop partition
+**Note**: drop the partition will drop the data in the partition as well
 ```sql
 ALTER TABLE tbl DROP PARTITION p0,p2;
 
