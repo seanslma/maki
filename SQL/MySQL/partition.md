@@ -33,9 +33,9 @@ CREATE TABLE tbl (
     PRIMARY KEY(usr, created)
 )
 PARTITION BY RANGE( YEAR(created) )(
-    PARTITION le2014 VALUES LESS THAN (2014),
-    PARTITION le2015 VALUES LESS THAN (2015),
-    PARTITION lemaxy VALUES LESS THAN MAXVALUE
+    PARTITION l2014 VALUES LESS THAN (2014),
+    PARTITION l2015 VALUES LESS THAN (2015),
+    PARTITION lmaxy VALUES LESS THAN MAXVALUE
 );
 
 #list
@@ -63,4 +63,14 @@ ALTER TABLE tbl DROP PARTITION p0,p2;
 
 #will remove all partitions
 ALTER TABLE tbl remove PARTITIONING;
+```
+
+## reorgnize partitions
+change the partitioning of a table without losing data
+```sql
+ALTER TABLE tbl
+REORGANIZE PARTITION l2014 INTO (
+        PARTITION n0 VALUES LESS THAN (2013),
+        PARTITION n1 VALUES LESS THAN (2014)
+);
 ```
