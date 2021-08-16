@@ -1,13 +1,16 @@
 # Docker
 
+## command
+|command |comment |
+|:--|:--|
+|docker ps |List containers|
+
 ## map host directory
 ```
 # mount `/tmp` directory from host into `/container/dat` in the container, 
 # and run `ls` command to show the contents of that directory
-docker run \
-    -v /tmp:/container/dat \
-    my_image \
-    ls /container/directory
+docker run -v /tmp:/container/dat my_image \
+    ls /container/dat
 ```
 
 ## link containers
