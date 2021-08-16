@@ -74,5 +74,5 @@ Sub CopyNamedRanges()
     For Each x In ActiveWorkbook.Names
         Workbooks("Book2.xls").Names.Add Name:=x.Name, RefersTo:=x.Value
     Next
-End
+End Sub
 ```
