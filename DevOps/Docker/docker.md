@@ -4,6 +4,10 @@
 |command |comment |
 |:--|:--|
 |docker ps |List containers|
+|docker run |Run a command in a new container|
+|docker rm |Remove one or more containers|
+|docker rmi |Remove one or more images|
+|docker tag |Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE|
 
 ## map host directory
 ```
