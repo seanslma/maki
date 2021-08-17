@@ -13,7 +13,7 @@ def ExcelNumToLetter(num):
        dividend = int((dividend - modulo) / 26)
     return letter
 ```
-
+http://timgolden.me.uk/pywin32-docs/win32api.html
 
 ## win32com.client error
   python -m pip install pywin32 #this might be blocked by corporate firewall
