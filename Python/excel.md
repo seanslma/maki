@@ -28,7 +28,8 @@ When attributes on Excel.Application do not exist, it is usually because the Exc
 import win32api
 import win32con
 
-win32api.MessageBox(0, "My message", "title", win32con.MB_OK) #0 means on top of other windows
+win32api.MessageBox(0, 'My message', 'title', win32con.MB_OK) #0 means on top of other windows
+win32api.MessageBox(0, 'My message', 'title', win32con.MB_OKCANCEL | win32con.MB_ICONERROR) 
 ```
 
 ## py call vba
