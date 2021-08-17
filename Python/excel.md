@@ -15,13 +15,21 @@ def ExcelNumToLetter(num):
 ```
 
 
-## win32.com error
+## win32com.client error
   python -m pip install pywin32 #this might be blocked by corporate firewall
 
 raise AttributeError("%s.%s" % (self._username_, attr))
 AttributeError: Excel.Application.Workbooks
 
 When attributes on Excel.Application do not exist, it is usually because the Excel application is open (possibly hidden) and it is in a modal loop such as editing a cell or an open/save file dialog.
+
+## Python call VBA MessageBox
+```python
+import win32api
+import win32con
+
+win32api.MessageBox(0, "My message", "title", win32con.MB_OK) #0 means on top of other windows
+```
 
 ## py call vba
 ```python
