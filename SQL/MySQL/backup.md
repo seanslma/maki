@@ -126,14 +126,14 @@ while read db; do
     ftb=$dir/$db"_tbs.txt"
     if [ $create_list -eq 1 ]; then
         qry='select table_name from information_schema.tables where table_schema='\'${db}\'' order by table_name;'
-        mysql --defaults-extra-file=$dir/rcdp.cnf --skip-column-names -e "${qry}" > $ftb
+        mysql --defaults-extra-file=$dir/sqlsvr.cnf --skip-column-names -e "${qry}" > $ftb
     fi    
     echo $(timestamp) "  " db: $db
     j=0 
     while read tb; do
         ((++j))
         echo $(timestamp) "    "$j table: $tb 
-        mysqldump --defaults-extra-file=$dir/rcdp.cnf $op1 $op2 $db $tb
+        mysqldump --defaults-extra-file=$dir/sqlsvr.cnf $op1 $op2 $db $tb
         mv $tb".sql" $db"_"$tb".sql"
         mv $tb".txt" $db"_"$tb".txt"
     done <$ftb 
