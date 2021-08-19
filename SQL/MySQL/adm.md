@@ -137,11 +137,12 @@ The workaround which I found so far is really ugly, however I've seen users usin
 ## check database / table size
 ```sql
 --sizes of all of dbname
-SELECT table_schema AS database, 
+SELECT engine, table_schema AS db, 
        SUM(index_length) / 1024 / 1024 / 1024 AS ind_GB,
        SUM(data_length) / 1024 / 1024 / 1024 AS dat_GB,
        SUM(data_free) / 1024 / 1024 / 1024 AS dfr_GB
 FROM information_schema.TABLES 
+where table_Type = 'BASE TABLE' and (TABLE_SCHEMA != 'sys' and TABLE_SCHEMA != 'mysql')
 GROUP BY table_schema
 order by dat_GB;
 
