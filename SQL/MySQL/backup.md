@@ -67,7 +67,15 @@ FIELDS TERMINATED BY ',' ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 LINES;
 ```
-  
+
+This does not work in windows:
+```
+mysqldump --defaults-extra-file=D:\sqlbackup\sqlsvr.cnf --tab="D:\sqlbackup\dump_files" db tb --fields-terminated-by=',' --fields-optionally-enclosed-by='"' --fields-escaped-by='\' --lines-terminated-by='\n'
+```
+Must use hex in windows
+mysqldump --defaults-extra-file=D:\sqlbackup\sqlsvr.cnf --tab="D:\sqlbackup\dump_files" db tb --fields-terminated-by=0x2C --fields-optionally-enclosed-by=0x22 --fields-escaped-by=0x5C --lines-terminated-by=0x0a
+```
+
 ## dump db with each table in a separate file
 redirect the query to another database
 ```sh
