@@ -34,7 +34,7 @@ set sqlexe="C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe"
  
 echo %date% %time% table: %db%.%tb%_myisam  
       
-%sqlexe% --defaults-extra-file=%curdir%jona.cnf %db% < "%tbdef%"
+%sqlexe% --defaults-extra-file=%curdir%sql_svr.cnf %db% < "%tbdef%"
 echo %date% %time% created innodb table with partitions
 
 set sql_qry="LOAD DATA INFILE '%tbfile%' INTO TABLE %db%.%tb%_myisam %par%"
