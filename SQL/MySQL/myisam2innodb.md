@@ -6,8 +6,9 @@ RENAME TABLE old_table TO tmp_table, new_table TO old_table, tmp_table TO new_ta
 
 ## alter table
 ```sql
-ALTER TABLE next_day_offer_energy.closed_bids_test
-PARTITION BY RANGE (YEAR(settlementdate)) (
+ALTER TABLE db.tbl
+ENGINE=InnoDB
+PARTITION BY RANGE (YEAR(dt)) (
     PARTITION l2016 VALUES LESS THAN (2016),
     PARTITION l2019 VALUES LESS THAN (2019),
     PARTITION l2021 VALUES LESS THAN (2021),
