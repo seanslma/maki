@@ -6,7 +6,11 @@ https://dev.mysql.com/doc/refman/8.0/en/partitioning-management-range-list.html
 
 MySQL 8.0 does not currently support partitioning of tables using any storage engine other than **InnoDB** or **NDB**, such as MyISAM.
 
+Partitioning and repartitioning operations involving **InnoDB** tables may be made more efficient by enabling **innodb_file_per_table**.
+
 MySQL supports horizontal partitioning, which means that all rows matching the partitioning function will be assigned to different physical partitions.
+
+All columns used in the partition expression must be present in every unique key in the table, including the primary key (which is UNIQUE by definition). In other words, all unique keys in the table must use all the columns in the partitioning expression.
 
 ## check if MySQL supports partition
 ```sql
