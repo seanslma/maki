@@ -2,7 +2,7 @@
 
 ## read csv in zip file
 
-Disadvantages: if the zip file is huge, the memoery uage is also huge.
+**Disadvantages**: if the zip file is huge, the memory uage is also huge.
 
 ```php
 function OpenCsvInZip($zipfilename) {
