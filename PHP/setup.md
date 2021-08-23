@@ -105,20 +105,4 @@ ini_set('memory_limit', '-1');
 </log4php:configuration>
 ```
 
-## zip
-```php
-function OpenCsvInZip($zipfilename) {
-    $zip = new ZipArchive;
-    if ($zip->open($zipfilename)) {
-        if ($zip->numFiles > 0) {
-            $filename = $zip->getNameIndex(0);
-            $fp = $zip->getStream($filename);
-            if ($fp) {
-                return $fp;
-            }
-        }
-    }
-    return null;
-}
-```
 
