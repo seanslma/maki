@@ -1,5 +1,8 @@
 # other
 
+## doc
+https://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern
+
 ## check dll/exe .net version
 ``` powershell
 $path = "C:\scripts\my.dll"
