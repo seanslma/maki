@@ -1,5 +1,9 @@
 # Partition
 
+Practical Partitioning
+
+http://www.arubin.org/files/PracticalPartitioning_Webinar.pdf
+
 https://dev.mysql.com/doc/refman/8.0/en/partitioning.html
 
 https://dev.mysql.com/doc/refman/8.0/en/partitioning-management-range-list.html
