@@ -1,7 +1,5 @@
 # Content Delivery Network
 
-Amazon CloudFront
-
 An ideal service for web applications. Can distribute your websites content to users across the world.
   * users are directed on various Edge servers by the CDN service
   * edge servers will get website content and cache frequently accessed content
