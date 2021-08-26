@@ -37,3 +37,35 @@ for (int idx = 0; idx < qry.Count; ++idx) {
     recordLst.Add(record);
 }
 ```
+    
+## DataTable
+```c#
+var dt1 = new DataTable();
+dt1.Columns.Add("id", typeof(string));
+dt1.Columns.Add("name", typeof(string));
+dt1.Columns.Add("stock", typeof(int));
+    
+var dt2 = new DataTable();
+dt2.Columns.Add("id", typeof(string));
+dt2.Columns.Add("price", typeof(double));    
+
+var dta = from r1 in dt1.AsEnumerable()
+          join r2 in dt2.AsEnumerable()
+          on dt1.Field<string>("id") equals dt2.Field<string>("id")
+          select new {
+                r1.id,
+                r1.name,
+                r1.stock,
+                r2.price
+          };
+    
+ var res = from d in dta
+           group d by new { d.id, d.name } into grp
+           select new {
+                 id = grp.Key.id,
+                 name = grp.Key.name,
+                 SumOfStock = grp.Sum(g => g.stock),
+                 AvgOfPrice = grp.Average(g => g.price)
+           };
+var dtn = res.CopyToDataTable();    
+```
