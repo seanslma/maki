@@ -64,8 +64,8 @@ var dta = from r1 in dt1.AsEnumerable()
            select new {
                  id = grp.Key.id,
                  name = grp.Key.name,
-                 SumOfStock = grp.Sum(g => g.stock),
-                 AvgOfPrice = grp.Average(g => g.price)
+                 sumOfStock = grp.Sum(g => g.stock),
+                 avgOfPrice = grp.Average(g => g.price)
            };
 var dtn = res.CopyToDataTable();    
 ```
