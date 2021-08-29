@@ -17,3 +17,9 @@ Then logout and login again... Shutdown and Restart buttons should be enabled on
   * open /etc/default/grub
   * change GRUB_TIMEOUT=10 [value in second] and save it
   * sudo update-grub and reboot
+
+## Install PHP
+sudo apt install php php-cli php-fpm php-json php-common php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath
+php --version #check version
+php -m #listing all loaded PHP modules
+
