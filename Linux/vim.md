@@ -11,6 +11,10 @@ r #replace character
 x #delete character
 :q! #force quit
 :wq! #force save and quit
+
+esc
+type u to undo the last change
+type 2u to undo the two last changes
 ```
 
 ## vimtutor
