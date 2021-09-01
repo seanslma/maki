@@ -1,11 +1,19 @@
 # perf
 
+## show slow queries
+```sql
+select query_time, rows_sent, rows_examined, db, sql_text 
+from mysql.slow_log 
+order by query_time desc;
+```
+
 when use OPTIMIZE TABLE?
 
 https://downloads.mysql.com/presentations/MySQL_Perfornance__Tuning_Overview_jp.pdf
 
 http://porthos.ist.utl.pt/docs/mySQL/optimization.html#optimizing-myisam
 https://www.liquidweb.com/kb/mysql-performance-myisam/
+
 ## MyISAM optimization
 
 ### key_buffer_size
