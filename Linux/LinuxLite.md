@@ -13,6 +13,28 @@ Open Lite Tweaks --> Login & Logout Options... select "Show all Options" and App
 
 Then logout and login again... Shutdown and Restart buttons should be enabled once again.
 
+## Fix hibernation with swap partition
+```bash
+#1. copy swap UUID number
+$ cat /etc/fstab #UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+
+#2. edit file /etc/default/grub
+GRUB_CMDLINE_LINUX=""  -->
+GRUB_CMDLINE_LINUX="resume=UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+
+3. update grub
+$ sudo update-grub
+
+4. install initramfs-tools
+$ sudo apt-get update -y
+$ sudo apt-get install -y initramfs-tools
+
+5. update initramfs
+$ sudo update-initramfs -u
+
+6.- restart
+```
+
 ## Dual boot OS selecttion time
   * open /etc/default/grub
   * change GRUB_TIMEOUT=10 [value in second] and save it
