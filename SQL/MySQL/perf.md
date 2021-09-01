@@ -2,7 +2,7 @@
 
 ## show slow queries
 ```sql
-select query_time, rows_sent, rows_examined, db, sql_text 
+select time_to_sec(query_time) as query_time_sec, rows_sent, rows_examined, db, sql_text 
 from mysql.slow_log 
 order by query_time desc;
 ```
