@@ -1,5 +1,14 @@
 # sys command
 
+# RAM
+``` bash
+free
+free -m[-g]
+cat /proc/meminfo
+top #check memory and CPU usage per process
+htop #similar to top, more control with color
+```
+
 ## disk space
 ``` bash
 df -h
