@@ -1,5 +1,7 @@
 # basic
 
+Option Compare Text 'replace case insensitive
+
 VBA default is passing variable ByRef
 
 Use long not integer as integer will be converted to long and the performance will be affected
