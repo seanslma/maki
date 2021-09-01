@@ -41,7 +41,7 @@ $ sudo update-initramfs -u
   * sudo update-grub and reboot
 
 ## Colored terminal
-  1 Add this after the last 'fi' in .bashrc
+  * Add this after the last 'fi' in .bashrc
 ```bash
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -71,7 +71,7 @@ else
 fi
 unset color_prompt force_color_prompt
 ```
-  1 In terminal input
+  * In terminal input
 ```bash
 source ~/.bashrc
 ```
