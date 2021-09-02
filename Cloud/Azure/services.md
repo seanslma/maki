@@ -28,3 +28,14 @@
   * Enforce multi-factor authentication to activate any role
   * Get notifications when privileged roles are activated
   * Conduct access reviews to ensure users still require the roles
+
+## Azure Firewall
+  * Cloud-based network security service to protect network resources
+  * Can filter incoming requests and alert or deny traffic from/to malicious IP addresses and domains
+  * With built-in high availability, and can scale automatically based on network traffic flows
+  
+## Azure DDoS protection
+  * Protect against Distributed denial of service (DDoS) attacks
+
+## Role-based access control
+  * Assign access to resources in Azure based on roles
