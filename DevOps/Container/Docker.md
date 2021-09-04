@@ -1,5 +1,27 @@
 # Docker
 
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
+
+## install
+Install Docker from the official Docker repository to ensure we get the latest version. First to add a new package source, add the GPG key from Docker to ensure the downloads are valid, and then install the package.
+```bash
+sudo apt update
+#install prerequisite packages which let apt use packages over HTTPS
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+#add GPG key for the official Docker repository to the system
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+#add Docker repository to APT sources
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+#update package database again with Docker packages
+sudo apt update
+#install from Docker repo instead of default Ubuntu repo
+apt-cache policy docker-ce
+#install Docker
+sudo apt install docker-ce
+#check Docker status
+sudo systemctl status docker
+```
+
 ## command
 |command |comment |
 |:--|:--|
