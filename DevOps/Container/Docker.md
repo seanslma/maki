@@ -18,6 +18,7 @@ docker run -v /tmp:/container/dat my_image \
 ```
 
 ## link containers
+allow comunications between different containers; all containers can use the user defined network to comunicate
 ```
 #user defined network
 sudo docker network create my_network
