@@ -22,6 +22,16 @@ sudo apt install docker-ce
 sudo systemctl status docker
 ```
 
+By default, the docker command can only be run the root user or by a user in the docker group. So it is best to add your username to the docker group.
+```bash
+#add username to docker group
+sudo usermod -aG docker ${USER}
+#apply the new group membership
+su - ${USER}
+#confirm your user is added to docker group
+id -nG
+```
+
 ## command
 |command |comment |
 |:--|:--|
