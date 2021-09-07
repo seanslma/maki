@@ -50,7 +50,10 @@ sudo systemctl stop docker.socket
 sudo systemctl disable docker.service
 sudo systemctl disable docker.socket
 #check status
+systemctl status docker
+#check boot status
 systemctl list-unit-files | grep -i docker
+systemctl list-unit-files | grep -i 'state\|docker'
 ```
 
 ## Dual boot OS selection time
