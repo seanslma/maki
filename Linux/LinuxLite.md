@@ -41,6 +41,18 @@ systemd-analyze blame
 systemd-analyze critical-chain
 ```
 
+## prevent docker autostart
+```bash
+#stop docker
+sudo systemctl stop docker.service
+sudo systemctl stop docker.socket
+#disable docker
+sudo systemctl disable docker.service
+sudo systemctl disable docker.socket
+#check status
+systemctl list-unit-files | grep -i docker
+```
+
 ## Dual boot OS selection time
   * open /etc/default/grub
   * change GRUB_TIMEOUT=10 [value in second] and save it
