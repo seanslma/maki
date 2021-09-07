@@ -35,8 +35,11 @@ $ sudo update-initramfs -u
 6.- restart
 ```
 
-## atombios stuck in loop for more than 5secs
-https://github.com/aelveborn/vgaswitcheroo-systemd
+## slow boot
+```bash
+systemd-analyze blame
+systemd-analyze critical-chain
+```
 
 ## Dual boot OS selection time
   * open /etc/default/grub
