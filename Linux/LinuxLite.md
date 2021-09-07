@@ -35,7 +35,10 @@ $ sudo update-initramfs -u
 6.- restart
 ```
 
-## Dual boot OS selecttion time
+## atombios stuck in loop for more than 5secs
+https://github.com/aelveborn/vgaswitcheroo-systemd
+
+## Dual boot OS selection time
   * open /etc/default/grub
   * change GRUB_TIMEOUT=10 [value in second] and save it
   * sudo update-grub and reboot
