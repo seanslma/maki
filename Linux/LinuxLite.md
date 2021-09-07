@@ -41,6 +41,8 @@ systemd-analyze blame
 systemd-analyze critical-chain
 ```
 
+## delay service autostart
+
 ## prevent docker autostart
 ```bash
 #stop docker
