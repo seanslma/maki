@@ -37,6 +37,7 @@ $ sudo update-initramfs -u
 
 ## slow boot
 ```bash
+systemd-analyze
 systemd-analyze blame
 systemd-analyze critical-chain
 ```
