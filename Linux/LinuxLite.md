@@ -42,6 +42,25 @@ systemd-analyze critical-chain
 ```
 
 ## delay service autostart
+option 1: add an ExecStarPre command after the [service]
+```bash
+[Service]
+ExecStartPre=/bin/sleep 5
+EnvironmentFile=/etc/default/myservice
+```
+
+option 2: create a .timer systemd unit file to control the execution of the .service unit file. 
+
+Wait for 1 minute after boot-up before starting the foo.service. 
+```bash
+[Timer]
+OnBootSec=1min
+```
+It is important that the service is disabled, and the timer enabled
+```bash
+systemctl disable foo.service
+systemctl enable foo.timer
+```
 
 ## prevent docker autostart
 ```bash
