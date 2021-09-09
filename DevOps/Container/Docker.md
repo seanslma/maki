@@ -57,6 +57,10 @@ sudo docker network create my_network
 #run container using user defined network: 8080 is host port, 80 docker container port
 sudo docker run --name my_image -p 8080:80 -d --network my_network my_image
 ```
+
+## change docker instance port
+open file **docker-compose.yml** and change the ports
+
 ## start your Docker container with a different port
 1. Find a free TCP port: ss -ltn
 2. Delete existing container: docker rm my_container
