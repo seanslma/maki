@@ -35,7 +35,7 @@ id -nG
 ## command
 |command |comment |
 |:--|:--|
-|docker ps |List containers|
+|docker ps |List containers; -a show stopped containers as well|
 |docker run |Run a command in a new container|
 |docker rm |Remove one or more containers|
 |docker rmi |Remove one or more images|
