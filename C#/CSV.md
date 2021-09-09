@@ -22,3 +22,49 @@ public void ReadCsvInZip(string dirout, string zipfile)
     }
 }
 ```
+
+## Read specific col in row
+```c#
+string GetColInRow(string line, int icol)
+{
+    int i = -1;
+    int j = -1;
+    int k = -1;
+    while (++j < line.Length) {
+        switch (line[j]) {
+            case ',':
+                ++k;
+                if (k == icol) {
+                    return line.Substring(i + 1, j - i - 1);
+                }
+                i = j;
+                break;
+            case '"':
+                MoveToEndQuote(ref j, line);
+                break;
+            default:
+                break;
+        }
+    }
+    if (k == icol - 1) {
+        return line.Substring(i + 1, j - i - 1);
+    }
+    return null; //not found
+}      
+
+void MoveToEndQuote(ref int j, string line)
+{
+    while (++j < line.Length) {
+        if (line[j] == '"') {
+            if (line[j - 1] != '"') {
+                if (j + 1 == line.Length) {
+                    break;
+                }
+                else if (line[j + 1] != '"') {
+                    break;
+                }
+            }
+        }
+    }
+}
+```
