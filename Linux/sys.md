@@ -5,8 +5,9 @@
 free
 free -m[-g]
 cat /proc/meminfo
-top #check memory and CPU usage per process
-htop #similar to top, more control with color
+top #check memory and CPU usage per process, kill it by Ctrl + c
+top -b -n 1 > top.txt 
+htop #similar to top, more control with color, kill it by Ctrl + c
 ```
 
 ## disk space
