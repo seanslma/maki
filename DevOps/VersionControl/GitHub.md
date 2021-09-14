@@ -11,7 +11,7 @@ GitHub account, go to Settings
 * => Personal Access Token 
 * => Generate New Token (Give your password) 
 * => Fillup the form 
-* => click Generate token 
+* => Click Generate token 
 * => Copy the generated Token
 ### linux
 Configure the local GIT client with a username and email address
