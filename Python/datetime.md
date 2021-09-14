@@ -2,6 +2,18 @@
 
 [Dealing with datetimes like a pro in Pandas](https://medium.com/jbennetcodes/dealing-with-datetimes-like-a-pro-in-pandas-b80d3d808a7f)
 
+## pywintypes.datetime
+```python
+import pywintypes
+from datetime import datetime
+
+#check if dt is pywintypes.datetime
+isinstance(dt, pywintypes.TimeType)
+
+#change pywintypes.datetim to datetime
+dt2 = datetime.fromtimestamp(timestamp=dt.timestamp(), tz=dt.tzinfo)
+```
+
 ## datetime
 ```python
 import datetime
