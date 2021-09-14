@@ -36,6 +36,7 @@ $ sudo update-initramfs -u
 ```
 
 ## slow boot
+https://www.reddit.com/r/Ubuntu/comments/clu0lj/short_guide_to_improve_slow_boot_on_ubuntu_1804/
 ```bash
 systemd-analyze
 systemd-analyze blame
