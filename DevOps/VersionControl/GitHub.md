@@ -10,7 +10,7 @@ GitHub account, go to Settings
 * => Developer Settings 
 * => Personal Access Token 
 * => Generate New Token (Give your password) 
-* => Fillup the form 
+* => Fill up the form 
 * => Click Generate token 
 * => Copy the generated Token
 ### linux
