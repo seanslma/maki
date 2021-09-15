@@ -71,3 +71,14 @@ git pull --set-upstream origin main
 #stage, commit, and push all files local proj
 git add . && git commit -m "initial commit" && git push
 ```
+
+## one line add commit and push
+  * creat a makefile in repo folder
+  * add the lines to the file (tab not spaces)
+```bash
+ git:
+  git add .
+  git commit -m "$m"
+  git push -u origin main 
+```
+  * make git m="message"
