@@ -20,7 +20,8 @@ $ git config --global user.name "your_github_username"
 $ git config --global user.email "your_github_email"
 $ git config -l
 #after first use cache token
-git config --global credential.helper cache
+#git config --global credential.helper cache #not good
+git config credential.helper store 
 #delete cache record if needed
 git config --global --unset credential.helper
 git config --system --unset credential.helper
