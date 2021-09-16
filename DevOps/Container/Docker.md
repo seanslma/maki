@@ -2,8 +2,14 @@
 
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
 
+## start
+```bash
+sudo systemctl start docker
+```
+
 ## install
 Install Docker from the official Docker repository to ensure we get the latest version. First to add a new package source, add the GPG key from Docker to ensure the downloads are valid, and then install the package.
+
 ```bash
 sudo apt update
 #install prerequisite packages which let apt use packages over HTTPS
@@ -23,6 +29,7 @@ sudo systemctl status docker
 ```
 
 By default, the docker command can only be run the root user or by a user in the docker group. So it is best to add your username to the docker group.
+
 ```bash
 #add username to docker group
 sudo usermod -aG docker ${USER}
