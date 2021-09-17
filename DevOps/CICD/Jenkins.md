@@ -25,6 +25,9 @@ Note:
 Then open http://127.0.0.1:80 and follow the directions
 
 ## Integrate with github private repo 
+Do other steps same as the public repo.
+
+### setup ssh key
   * `docker exec -it jenkins /bin/bash`
   * `ssh-keygen -t rsa`
   * `cat id_rsa.pub` copy key to github: repo settings -> Deploy keys -> Add deploy key
@@ -35,7 +38,6 @@ Then open http://127.0.0.1:80 and follow the directions
   * configure Jenkins Job to use SSH keys:
     * job -> source code management
     * after repo url -> select credential (hithub-repo) -> apply
-### setup ssh key
 
 ### use the SSH repo URL, not the HTTPS URL on jenkins
   * HTTPS URL like https://github.com/user/repo.git
