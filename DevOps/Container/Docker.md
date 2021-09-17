@@ -7,6 +7,12 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-o
 sudo systemctl start docker
 ```
 
+## SSH into running container
+  * use `docker ps` to get the name of the existing container
+  * run `docker exec -it <container name> /bin/bash` to get a bash shell in the container
+  * run `docker exec -it <container name> <command>` to execute command in the container
+  * create a rsa key pair: `ssh-keygen -t rsa`
+
 ## install
 Install Docker from the official Docker repository to ensure we get the latest version. First to add a new package source, add the GPG key from Docker to ensure the downloads are valid, and then install the package.
 

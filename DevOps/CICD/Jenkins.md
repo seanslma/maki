@@ -23,3 +23,27 @@ Note:
   * jenkinsci/blueocean is the image maintained by jenkinsci.
 
 Then open http://127.0.0.1:80 and follow the directions
+
+## Integrate with github private repo 
+  * `docker exec -it jenkins /bin/bash`
+  * `ssh-keygen -t rsa`
+  * `cat id_rsa.pub` copy key to github: repo settings -> Deploy keys -> Add deploy key
+  * add ssh private key inside Jenkins: 
+    * manage jenkins -> manage credentials -> 
+    * Kind: ssh username with priavte key -> 
+    * Usename: github-repo
+  * configure Jenkins Job to use SSH keys:
+    * job -> source code management
+    * after repo url -> select credential (hithub-repo) -> apply
+### setup ssh key
+
+### use the SSH repo URL, not the HTTPS URL on jenkins
+  * HTTPS URL like https://github.com/user/repo.git
+  * SSH URL like git@github.com:user/repo.git
+
+### errors
+ERROR: Couldn't find any revision to build. Verify the repository and branch configuration for this job.
+
+Solution: job configuration -> Source Code Management -> Git -> Branches to build ->
+it is default to "*/master" -> change to "*/main" github repo project is under "main" branch 
+
