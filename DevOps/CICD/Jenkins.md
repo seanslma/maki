@@ -35,9 +35,9 @@ Do other steps same as the public repo.
     * manage jenkins -> manage credentials -> 
     * Kind: ssh username with priavte key -> 
     * Usename: github-repo
-  * configure Jenkins Job to use SSH keys:
+  * configure jenkins job to use SSH keys:
     * job -> source code management
-    * after repo url -> select credential (hithub-repo) -> apply
+    * after repo url -> select credential (github-repo) -> apply
 
 ### use the SSH repo URL, not the HTTPS URL on jenkins
   * HTTPS URL like https://github.com/user/repo.git
