@@ -77,3 +77,12 @@ with ZipFile(file,'r') as zip:
         f = TextIOWrapper(zipf)
         lines = f.read().splitlines()
 ```
+
+## show progress
+```python
+print('progress report started')
+for id, yr in enumerate(range(2000, 2021)):
+    print(f'id: {id:003} year: {yr}\r', end='')  
+print(' '.join('' for i in range(80)) + '\r', end='')
+print('progress report ended')
+```
