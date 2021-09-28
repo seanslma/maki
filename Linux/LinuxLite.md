@@ -135,7 +135,24 @@ sudo apt install code
 ```
 
 ## Install PHP
+```bash
 sudo apt install php php-cli php-fpm php-json php-common php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath
 php --version #check version
 php -m #listing all loaded PHP modules
+```
+
+## install Python3 custom version
+```bash
+cd ~
+mkdir tmp
+cd tmp
+wget https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tgz
+tar zxvf Python-3.9.7.tgz 
+cd Python-3.9.7 
+./configure --prefix=$HOME/opt/python-3.9.7
+make
+make install
+export PATH=$HOME/opt/python-3.9.7/bin:$PATH#add to .bash_profile 
+. ~/.bash_profile #update to active loacal python env
+```
 
