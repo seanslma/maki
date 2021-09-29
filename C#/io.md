@@ -5,7 +5,7 @@ if you use **StreamWriter** and **StreamReader** without the **FileStream**, Fil
 StreamWriter Writing NUL characters at the end of the file when system shutdown abruptly
 
 ## write to file
-```csharp
+```c#
 const int BufferSize = 65536;  // 64 kB
 var writer = new StreamWriter("filename", true, Encoding.UTF8, BufferSize);
 
@@ -16,8 +16,20 @@ using (var writer = new StreamWriter(filepath, true, Encoding.UTF8, 65536)) {
 }
 ```
 
+## write to zipped csv file
+```c#
+using(var zf = ZipFile.Open("file.zip", ZipArchiveMode.Create)) {
+   var ze = zf.CreateEntry("file.csv");
+   using(var zs = ze.Open()) {
+      using(var sw = new StreamWriter(zs, Encoding.UTF8)) {
+         sw.WriteLine("Name,Address,Email")
+      }
+   }
+}
+```
+
 ## concurrent write and read file
-```csharp
+```c#
 var writer = File.Open("C:\\f.txt", FileMode.Create, FileAccess.Write, FileShare.ReadWrite));
 var reader = new StreamReader(File.Open("C:\\f.txt", 
                                       FileMode.Open, FileAccess.Read, FileShare.ReadWrite)));
