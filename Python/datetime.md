@@ -40,6 +40,15 @@ td64 = np.timedelta64(5, 'D')
 td64 = dt64_1 - dt64_2
 ```
 
+## timedelta
+```python
+np.timedelta64(300000000000, 'ns')==timedelta(seconds=300)
+#return false
+
+np.timedelta64(300000000000, 'ns')==pd.Timedelta(hours=1/12)
+#return true
+```
+
 ## Timestamp
 ```python
 ts = pd.Timestamp(1239.1238934) #defautls to nanoseconds
