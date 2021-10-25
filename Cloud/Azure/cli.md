@@ -16,8 +16,8 @@ az vm list-sizes --location "westus" #list available vm sizes in a specific loca
 #create
 az storage account create --name <account-name> --resource-group rg01 --location australiaeast --sku Standard_RAGRS --kind StorageV2
   
-  #delete
-  az storage account delete --name <storage-account> --resource-group <resource-group>
+#delete
+az storage account delete --name <storage-account> --resource-group <resource-group>
 ```
 
 # Connect to VM
