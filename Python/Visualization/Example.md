@@ -1,6 +1,6 @@
 # Example
 
-##matplotlib
+## matplotlib
 ```python
 plt.plot(x, y, 'ko', label="Original Data")
 plt.plot(x_fit, y_fit, 'r-', label="Fitted Curve")
