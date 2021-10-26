@@ -4,11 +4,11 @@
   python -m pip install jupyter
   
 ## start jupyter notebook
-  python -m notebook
+  python -m notebook \
   python -m notebook example.ipynb
 
 ## change cell width  
-  from IPython.core.display import display, HTML
+  from IPython.core.display import display, HTML \
   display(HTML("<style>.container { width:100% !important; }</style>"))  
   
 ## get the Docstring and method list pop-ups in Jupyter Notebook
