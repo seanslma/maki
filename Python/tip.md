@@ -1,5 +1,12 @@
 # tip
 
+## astype(int)
+will only get the integer part, not rounding
+
+## np.where(cond, pd.Timestamp(), pd.Timestamp())
+will change pd.Timestamp() to inetger, the right way to use where\
+np.where(cond, pd.Timestamp(), np.datetime64())
+
 ## remove empty items
 ```python
 l2 = list(filter(None, l1))
