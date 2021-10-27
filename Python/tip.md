@@ -1,10 +1,11 @@
 # tip
 
 ## astype(int)
-will does a conversion toward zero, not rounding
+will does a conversion toward zero, not rounding, try this \
+s1.round().astype(int)
 
 ## np.where(cond, pd.Timestamp(), pd.Timestamp())
-will change pd.Timestamp() to inetger, the right way to use where\
+will change pd.Timestamp() to inetger, the right way to use where \
 np.where(cond, pd.Timestamp(), np.datetime64())
 
 ## remove empty items
