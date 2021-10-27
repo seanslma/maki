@@ -1,7 +1,7 @@
 # tip
 
 ## astype(int)
-will only get the integer part, not rounding
+will does a conversion toward zero, not rounding
 
 ## np.where(cond, pd.Timestamp(), pd.Timestamp())
 will change pd.Timestamp() to inetger, the right way to use where\
