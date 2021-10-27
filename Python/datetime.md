@@ -237,5 +237,8 @@ dt + MonthBegin(-1) #move backward till get the first month begin
 #['2002-07-01', '2002-10-01']
 dt + MonthEnd(1) #move forward till get the first month end
 #['2002-07-31', '2002-10-31']
+
+#get the first day of each date, MonthBegin does not work
+df['first_day_in_month'] = df['date'].to_numpy().astype('datetime64[M]')
 ```
 
