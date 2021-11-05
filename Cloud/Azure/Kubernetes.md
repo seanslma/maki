@@ -15,5 +15,13 @@ Fully managed Kubernetes service on Azure; easy to deploy and manage containeriz
 az aks get-credentials --resource-group rg01 --name aks01
 #verify have access
 kubectl get nodes
+#launch app
+kubectl create -f aks01.yaml
+#check deployment progress
+kubectl get pods
+#using alias
+alias k=kubectl
+#following pods status
+kubectl get pods --watch
 ```
 
