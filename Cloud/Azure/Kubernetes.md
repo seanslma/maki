@@ -9,3 +9,11 @@
 ## Azure Kubernetes
 Fully managed Kubernetes service on Azure; easy to deploy and manage containerized applications; remove the burden of managing the underlying infrastructure for the Kubernetes deployment.
 
+## Access cluster
+```
+#get credentials to access your cluster
+az aks get-credentials --resource-group rg01 --name aks01
+#verify have access
+kubectl get nodes
+```
+
