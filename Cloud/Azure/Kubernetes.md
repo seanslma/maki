@@ -58,4 +58,9 @@ kubectl delete configmap/example-redis-config
 kubectl get -o yaml configmap/example-redis-config
 #open a redis-cli session with the running pod
 kubectl exec -it redis-master-<pod-id> -- redis-cli
+kubectl exec -it redis-master-<pod-id> -- bash
+#create service from yaml
+kubectl apply -f redis-master-service.yaml
+#check service properties
+kubectl get service
 ```
