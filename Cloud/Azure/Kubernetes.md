@@ -23,5 +23,23 @@ kubectl get pods
 alias k=kubectl
 #following pods status
 kubectl get pods --watch
+##get credentials to access your cluster
+az aks get-credentials --resource-group rg01 --name aks01
+#verify have access
+kubectl get nodes
+#launch app
+kubectl create -f aks01.yaml
+#check deployment progress
+kubectl get pods
+#using alias
+alias k=kubectl
+#following pods status
+kubectl get pods --watch
+#get load balancer public IP
+kubectl get service aks01-front --watch
+#see all objects in Kubernetes
+kubectl get all
+#delete ctreated objects
+kubectl delete -f aks01.yaml
 ```
 
