@@ -76,4 +76,8 @@ kubectl delete service frontend redis-master redis-replica
 helm repo add bitnami https://charts.bitnami.com/bitnami
 #install WordPress
 helm install handsonakswp bitnami/wordpress
+#delete aks
+helm delete aks01
+#delete pvcs 
+kubectl delete pvc --all
 ```
