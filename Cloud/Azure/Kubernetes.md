@@ -39,9 +39,14 @@ kubectl get pods --watch
 kubectl get service aks01-front --watch
 #see all objects in Kubernetes
 kubectl get all
-#delete ctreated objects
+#delete created objects
 kubectl delete -f aks01.yaml
 ```
 
 ## app deployment
-
+```
+#show more details about a deployment
+kubectl describe deployment/redis-master #describe <object> <instance-name>
+#delete current deployment
+kubectl delete deployment/redis-master
+```
