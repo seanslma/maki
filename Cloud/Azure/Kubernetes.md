@@ -63,4 +63,7 @@ kubectl exec -it redis-master-<pod-id> -- bash
 kubectl apply -f redis-master-service.yaml
 #check service properties
 kubectl get service
+#delete deployment and service
+kubectl delete deployment frontend redis-master redis-replica
+kubectl delete service frontend redis-master redis-replica
 ```
