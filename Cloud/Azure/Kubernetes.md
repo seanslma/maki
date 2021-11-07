@@ -49,4 +49,13 @@ kubectl delete -f aks01.yaml
 kubectl describe deployment/redis-master #describe <object> <instance-name>
 #delete current deployment
 kubectl delete deployment/redis-master
+
+#create configmap
+kubectl create configmap example-redis-config --from-file=redis-config
+#delete configmap
+kubectl delete configmap/example-redis-config
+#output object to yaml
+kubectl get -o yaml configmap/example-redis-config
+#open a redis-cli session with the running pod
+kubectl exec -it redis-master-<pod-id> -- redis-cli
 ```
