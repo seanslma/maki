@@ -1,0 +1,116 @@
+# upgrade app
+
+## changing yaml file
+```
+kubectl apply -f guestbook-all-in-one.yaml
+#edit yaml
+code guestbook-all-in-one.yaml
+#apply changes
+kubectl apply -f guestbook-all-in-one.yaml
+#get service public IP
+kubectl get service
+#change version
+code guestbook-all-in-one.yaml
+#apply and check
+kubectl apply -f guestbook-all-in-one.yaml && kubectl get pods -w
+#show rolling update strategy
+kubectl get events | grep ReplicaSet
+#verify
+kubectl get replicaset
+#show rollout history
+kubectl rollout history deployment frontend
+#rollback deployment
+kubectl rollout undo deployment frontend
+#verify 
+kubectl get replicaset
+
+#clean up
+kubectl delete -f guestbook-all-in-one.yaml
+```
+
+## using kubectl edit
+This will not work in an automated environment.
+```
+#undo changes
+git reset --hard
+#deploy app
+kubectl create -f guestbook-all-in-one.yaml
+#edit service
+kubectl edit service frontend
+#watch service
+kubectl get svc -w
+```
+
+## using kubectl patch
+This can make automated changes, when don't have access to the original YAML file, e.g. in a script or in a **continuous integration/
+continuous deployment** system.
+
+### yaml patch file
+```
+#create ymal file
+code frontend-image-patch.yaml
+#yaml file
+spec:
+  template:
+    spec:
+      containers:
+      - name: php-redis
+        image: gcr.io/google-samples/gb-frontend:v3
+#apply the patch
+kubectl patch deployment frontend \
+  --patch "$(cat frontend-image-patch.yaml)"
+#verify changes
+kubectl describe deployment frontend  
+```
+
+### json inline 
+```
+kubectl patch deployment frontend \
+--patch='
+{
+    "spec": {
+        "template": {
+            "spec": {
+                "containers": [{
+                    "name": "php-redis",
+                    "image": "gcr.io/google-samples/gb-frontend:v4"
+                }]
+            }
+        }
+    }
+} 
+'
+#remove app from cluster
+kubectl delete -f guestbook-all-in-one.yaml
+```
+
+## using Helm
+```
+#force an update of the image of the MariaDB container
+helm install wp bitnami/wordpress
+#check current image version
+kubectl describe statefulset wp-mariadb | grep Image
+#get MariaDB passwords from secrets in aks
+kubectl get secret wp-mariadb -o yaml
+#get decoded password
+echo "<password>" | base64 -d
+#get WordPress password
+kubectl get secret wp-wordpress -o yaml
+echo "<WordPress password>" | base64 -d
+
+#update image tag with Helm and watch pods change 
+helm upgrade wp bitnami/wordpress \
+--set mariadb.image.tag=10.5.8-debian-10-r44\
+--set mariadb.auth.password="<decoded password>" \
+--set mariadb.auth.rootPassword="<decoded password>" \
+--set wordpressPassword="<decoded password>" \
+&& kubectl get pods -w
+
+#show new image version
+kubectl describe pod wp-mariadb-0 | grep Image
+
+#clean up
+helm delete wp
+kubectl delete pvc --all
+kubectl delete pv --all
+```
