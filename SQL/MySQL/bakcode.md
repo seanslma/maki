@@ -9,6 +9,7 @@ user=usr
 password=pwd
 
 [mysqld]
+connect_timeout = 7200
 net_read_timeout = 7200
 net_write_timeout = 7200
 
