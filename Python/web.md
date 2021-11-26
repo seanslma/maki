@@ -42,7 +42,22 @@ resp = session.get(url)
 resp.html.absolute_links #get absolute links
 resp.html.render() #run JavaScript code on webpage
 soup = bsoup(resp.html.html, 'lxml')
-```        
+``` 
+
+## soup example
+```python
+htmltext = get_url_text(url)
+soup = bsoup(htmltext, 'lxml')
+divs = soup.find_all('div', class_='my-dataset')
+for div in divs:
+	tbls = div.find_all('table')
+	if len(tbls) == 0:
+		reg = div.find('a').get_text().lower()
+	else:
+		for tbl in tbls:
+			tb = [[td.get_text() for td in tr.find_all('td')] for tr in tbl.find_all('tr')]
+			df = pd.DataFrame(columns=tb[0],data=tb[1:])
+```
 
 ## get with header
 ```python
