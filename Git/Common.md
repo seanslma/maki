@@ -5,7 +5,7 @@
 git clone https://github.com/usr/repo.git repo_name
 ```
 
-## local folder tp github repo
+## local folder to github repo
 ```
 #initialize local directory as a git repo
 git init -b main
