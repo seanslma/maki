@@ -1,5 +1,8 @@
 # Common
 
+## GitHub Standard Fork & Pull Request Workflow
+https://gist.github.com/Chaser324/ce0505fbed06b947d962
+
 ## clone repo to local folder
 ```
 git clone https://github.com/usr/repo.git repo_name
