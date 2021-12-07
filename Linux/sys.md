@@ -1,6 +1,11 @@
 # sys command
+## update time
+```
+sudo ntpd ntp.ubuntu.com
+sudo ntpdate ntp.ubuntu.com
+```
 
-# RAM
+## RAM
 ``` bash
 free
 free -m[-g]
