@@ -41,14 +41,16 @@ SELECT * FROM master.sys.databases d WHERE d.database_id > 4
 SELECT * FROM master.sys.databases d WHERE name NOT IN ('master', 'tempdb', 'model', 'msdb');
 ```
 
+## get table cols
+```sql
+Select table_name, column_name, data_type, ordinal_position 
+From INFORMATION_SCHEMA.COLUMNS 
+Where table_catalog = 'cat' and table_schema = 'sch' and TABLE_NAME = 'tbl';
+```
+
 ## get table keys
 ```sql
-SELECT 
-    TABLE_CATALOG,
-    TABLE_SCHEMA,
-    TABLE_NAME,
-    COLUMN_NAME,
-    CONSTRAINT_NAME
+SELECT TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME
 FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
 WHERE TABLE_CATALOG = 'CAT' AND TABLE_SCHEMA ='SCH' AND TABLE_NAME = 'TBL'
 order by ORDINAL_POSITION;
