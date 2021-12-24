@@ -1,16 +1,14 @@
 ## other
 
-### activate anaconda
+## python lecture notes
+https://codefellows.github.io/sea-python-401d4/lectures/
 
-  conda create -n py38 python=3.8 anaconda
-  set PATH=C:\Anaconda\envs\py33\Scripts;C:\Anaconda\envs\py33;%PATH%
-  conda env list
-  conda activate py38
-  conda env remove -n ENV_NAME
+## tree chart
+install code2flow from github:
 
+pip install git https://github.com/user/repo.git@branch
 
 ### vs code
-
 There are 4 levels of settings in VS Code, which in ascending order of priority are: Default, User, Workspace, and Workspace Folder. 
 
   Ctrl+Shift+P -> python: select interpreter
