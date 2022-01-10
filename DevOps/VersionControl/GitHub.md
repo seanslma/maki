@@ -13,6 +13,7 @@ GitHub account, go to Settings
 * => Fill up the form 
 * => Click Generate token 
 * => Copy the generated Token
+* 
 ### linux
 Configure the local GIT client with a username and email address
 ```bash
@@ -60,16 +61,18 @@ git merge upstream/master
 ```
 ## Add proj to GitHub
 ```bash
-#move to proj folder
-cd proj-folder
-#init local dir as git repo
-git init -b main
-#create proj repo on github
-gh repo create proj-name
-#pull changes from new github repo
-git pull --set-upstream origin main
-#stage, commit, and push all files local proj
-git add . && git commit -m "initial commit" && git push
+cd proj-folder #move to proj folder
+git init -b main #init local dir as git repo
+gh repo create proj-name #create proj repo on github
+git pull --set-upstream origin main #pull changes from new github repo
+git add . && git commit -m "initial commit" && git push #stage, commit, and push all files local proj
+
+#old git version
+git init
+git add . && git commit -m "initial commit"
+git remote add origin https://github.com/yourusername/your-repo-name.git
+git pull origin master
+git push origin master
 ```
 
 ## one line add commit and push
