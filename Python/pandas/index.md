@@ -26,3 +26,8 @@ df = df.reorder_levels([None,'Region','Scenario'], axis=1).reindex(mi) #columns
 ```python
 df = pd.concat([df], keys=['New_Idx'], names=['idx0'])
 ```
+
+## drop rows with duplicate index
+```python
+df.pipe(lambda x: x[~x.index.duplicated(keep='first')])
+```
