@@ -1,6 +1,6 @@
 # Sean Ma, PhD
 
-LinkedIn: [https://linkedin.com/in/sean-sl-ma](https://linkedin.com/in/seanslma)
+LinkedIn: [https://linkedin.com/in/seanslma](https://linkedin.com/in/seanslma)
 
 WordPress: [https://shuiliang0ma.wordpress.com](https://shuiliang0ma.wordpress.com/)
 
