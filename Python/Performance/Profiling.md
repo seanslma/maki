@@ -1,7 +1,7 @@
 # Profiling
 
 ## cProfile and snakeviz
-Draws a pie chart with the problem function in the biggest piece.
+SnakeViz has two visualization styles, 'icicle' and 'sunburst'.
 ```
 1. pip install snakeviz
 2. python -m cProfile -o temp.dat my.py
