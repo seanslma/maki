@@ -5,6 +5,9 @@
 Get-ComputerInfo -property "HyperV*"
 ```
 
+## install docker
+https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9
+
 ## System has not been booted with systemd as init system (PID 1). Can't operate.
 ```
 #do not use
