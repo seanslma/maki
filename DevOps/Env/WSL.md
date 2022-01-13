@@ -5,6 +5,12 @@
 Get-ComputerInfo -property "HyperV*"
 ```
 
+## install
+```
+wsl -l -o #show available Linux distributions
+wsl --install -d <Distribution Name> #install distribution
+```
+
 ## install docker
 https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9
 
