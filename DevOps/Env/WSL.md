@@ -9,6 +9,7 @@ Get-ComputerInfo -property "HyperV*"
 ```
 wsl -l -o #show available Linux distributions
 wsl --install -d <Distribution Name> #install distribution
+wsl -l -v #show installed Linux distributions
 ```
 
 ## install docker
