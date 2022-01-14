@@ -14,6 +14,11 @@ sudo service docker start
   * run `docker exec -it <container name> <command>` to execute command in the container
   * create a rsa key pair: `ssh-keygen -t rsa`
 
+## login to on-prem registry
+```
+docker login -u usr -p pwd mydocker.registry.com
+```
+
 ## Install from a package
 ```
 curl -LO https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/containerd.io_1.4.9-1_amd64.deb
