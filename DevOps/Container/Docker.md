@@ -14,7 +14,7 @@ sudo service docker start
   * run `docker exec -it <container name> <command>` to execute command in the container
   * create a rsa key pair: `ssh-keygen -t rsa`
 
-# Install from a package
+## Install from a package
 ```
 curl -LO https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/containerd.io_1.4.9-1_amd64.deb
 curl -LO https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce-cli_20.10.9~3-0~ubuntu-focal_amd64.deb
@@ -27,7 +27,7 @@ sudo dpkg -i ./docker-ce_20.10.9~3-0~ubuntu-focal_amd64.deb
 sudo docker run hello-world
 ```
 
-## install
+## install from repo
 Install Docker from the official Docker repository to ensure we get the latest version. First to add a new package source, add the GPG key from Docker to ensure the downloads are valid, and then install the package.
 
 ```bash
