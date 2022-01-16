@@ -1,5 +1,9 @@
 # Module
 
+## tools
+  - Redis: Redis' access libraries
+  - ElasticSearch: data search engine
+
 ## win32com
 install pywin32 for win32com: 
   python -m pip install pywin32
