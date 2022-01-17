@@ -15,6 +15,6 @@ mamba is faster but larger
 ### error: SSL certificate not OK
 in `.condarc`, we should delete this line
 ```
-ssl_verify: C:\Users\sma\conda-envs\my.crt
+ssl_verify: C:\Users\usr\conda-envs\my.crt
 ```
 
