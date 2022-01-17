@@ -11,3 +11,10 @@
 **ssh certificate error**: can be caused by bugs in mamba - try to use conda instead.
 
 mamba is faster but larger
+
+### error: SSL certificate not OK
+in `.condarc`, we should delete this line
+```
+ssl_verify: C:\Users\sma\conda-envs\my.crt
+```
+
