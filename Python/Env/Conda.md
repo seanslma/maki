@@ -1,16 +1,22 @@
 # Conda
 
-### activate anaconda/miniconda/conda-forge
-  conda create -n env-py38 python=3.8 anaconda
-  set PATH=C:\Anaconda\envs\py33\Scripts;C:\Anaconda\envs\py33;%PATH%
-  conda env list
-  conda activate env-py38
-  conda env remove -n ENV_NAME
-  
-## mamba
-**ssh certificate error**: can be caused by bugs in mamba - try to use conda instead.
+## activate anaconda/miniconda/conda-forge
+```
+conda create -n env-py38 python=3.8 anaconda
+set PATH=C:\Anaconda\envs\py33\Scripts;C:\Anaconda\envs\py33;%PATH%
+conda env list
+conda activate env-py38
+conda env remove -n ENV_NAME
+```
 
-mamba is faster but larger
+## create a notebook kernel
+```
+conda install -c anaconda ipykernel
+python -m ipykernel install --user --name=test-env
+```
+
+## mamba
+Compared to conda, mamba is faster but larger.
 
 ### error: SSL certificate not OK
 in `.condarc`, we should delete this line
