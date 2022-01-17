@@ -1,4 +1,4 @@
-## other
+# VS Code
 
 ## python lecture notes
 https://codefellows.github.io/sea-python-401d4/lectures/
@@ -8,7 +8,7 @@ install code2flow from github:
 
 pip install git https://github.com/user/repo.git@branch
 
-### vs code
+## vs code
 There are 4 levels of settings in VS Code, which in ascending order of priority are: Default, User, Workspace, and Workspace Folder. 
 
   Ctrl+Shift+P -> python: select interpreter
@@ -22,8 +22,12 @@ VS Code Conda issue fix:
 
 in launch.json of folder .vscode, add [this will ensure the parent path is added to the path search list]
   "env": {"PYTHONPATH": "${workspaceRoot}"},
+  
+### extension
+GitLens in VS code
+vscode-open-in-github
 
-### other
+## other
 
 ```python
 #not supported
