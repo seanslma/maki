@@ -1,4 +1,4 @@
-# Oracle
+# Env
 
 ## Naming Parameters
 By default, the `tnsnames.ora` file is located in the `ORACLE_HOME/network/admi`n directory. 
