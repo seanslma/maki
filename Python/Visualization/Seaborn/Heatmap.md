@@ -21,8 +21,12 @@ sns.heatmap(df, annot=True, annot_kws={'size': 6})
 #grid lines
 sns.heatmap(df, linewidths=1, linecolor='blue')
 
-#remove x labels
+#remove x-axis labels
 sns.heatmap(df, xticklabels=False)
+
+#replace x-axis labels
+xtls = ['q','r','s','t','u','v','w']
+sns.heatmap(df, xticklabels=xtls)
 
 #remove color bar
 sns.heatmap(df, cbar=False)
