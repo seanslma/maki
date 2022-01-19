@@ -10,6 +10,9 @@ set PATH=C:\Anaconda\envs\py33\Scripts;C:\Anaconda\envs\py33;%PATH%
 conda env list
 conda activate env-py38
 conda env remove -n ENV_NAME
+
+#clone an existing env
+conda create --name ENV_NAME_new --clone ENV_NAME_from
 ```
 
 ## create a notebook kernel
