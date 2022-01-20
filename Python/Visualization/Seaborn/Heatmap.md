@@ -36,12 +36,13 @@ sns.heatmap(df, xticklabels=3) #keep first in 3
 ```
 
 ## custom date labels
-`AxTransformer` enables conversion from data coordinates to tick locations, and `set_date_ticks` allows custom date ranges to be applied to plots.
-
-https://stackoverflow.com/questions/40925458/date-axis-in-heatmap-seaborn
 ```
-getattr(ax, f'set_{axis}ticks')(tks)
-getattr(ax, f'set_{axis}ticklabels')(dt_rng.strftime(date_format))
-
-ax.tick_params(axis=axis, which='both', bottom=True, top=False, labelbottom=True)
+#df date must be string
+fig, ax = plt.subplots(figsize=(10,8))
+g = sns.heatmap(df, ax=ax, cmap='coolwarm', vmin=df.min().min(), vmax=df.max().max())
+fig.suptitle('My first heatmap')
+#custom date labels
+getattr(ax, f'set_xticks')(xtks)      #locations of xtls in df.columns
+getattr(ax, f'set_xticklabels')(xtls) #a list of date strings
+ax.tick_params(axis='x', which='both', bottom=True, top=False, labelbottom=True)
 ```
