@@ -42,7 +42,7 @@ fig, ax = plt.subplots(figsize=(10,8))
 g = sns.heatmap(df, ax=ax, cmap='coolwarm', vmin=df.min().min(), vmax=df.max().max())
 fig.suptitle('My first heatmap')
 #custom date labels
-getattr(ax, f'set_xticks')(xtks)      #locations of xtls in df.columns
-getattr(ax, f'set_xticklabels')(xtls) #a list of date strings
+getattr(ax, 'set_xticks')(xtks)      #locations of xtls in df.columns
+getattr(ax, 'set_xticklabels')(xtls) #a list of date strings
 ax.tick_params(axis='x', which='both', bottom=True, top=False, labelbottom=True)
 ```
