@@ -62,7 +62,7 @@ git init -b main
 #stage and commit all files in your project
 git add . && git commit -m "initial commit"
 #link to github
-git remote add origin https://github.com/seanslma/aks.git
+git remote add origin https://github.com/usr/repo.git
 #push to github repo
 git push -u origin main
 ```
