@@ -3,6 +3,30 @@
 ## GitHub Standard Fork & Pull Request Workflow
 https://gist.github.com/Chaser324/ce0505fbed06b947d962
 
+git example
+https://forum.freecodecamp.org/t/push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too/13222
+
+## work example
+```
+git chechout master
+
+#create a new branch
+git checkout -b new-branch-name
+
+#make changes and first commit
+git add .
+git commit -m "my first commit"
+git push --set-upstream origin new-branch-name
+
+#submit a pr
+do it on github
+
+#make another commit
+git add .
+git commit -m "my commit after pr review"
+git push
+```
+
 ## create/delete branch
 ```
 #create and switch to
