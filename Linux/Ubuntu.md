@@ -12,6 +12,12 @@ sudo vi /etc/apt/sources.list
 ```
 
 ## Enable hibernate
+```
+systemctl hibernate
+Failed to hibernate system via logind: Sleep verb not supported
+```
+Perhaps the error should be: Failed to hibernate system via logind: Please use BIOS to `disable secure boot`.
+
 Disable swapfile and delete it
 ```
  sudo swapoff /swapfile  
