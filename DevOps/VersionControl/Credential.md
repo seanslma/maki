@@ -4,4 +4,7 @@
 ```
 cmdkey /generic:LegacyGeneric:target=git:https://github.com /user:username /pass:mypassword
 cmdkey /list #show all credentials
+
+# alternative
+rundll32.exe keymgr.dll, KRShowKeyMgr
 ```
