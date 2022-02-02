@@ -10,7 +10,7 @@ ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verif
 soluation:
   * set env var
   ```
-  set REQUESTS_CA_BUNDLE="path-to/my.crt"
+  set REQUESTS_CA_BUNDLE="path-to-my.crt"
   echo %REQUESTS_CA_BUNDLE%
   ```
   * pass crt to verify
