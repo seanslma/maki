@@ -7,7 +7,7 @@ https://github.com/Azure/azure-cli/issues/5099
 ## self signed certificate err
 ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1091)
 
-soluation:
+**soluation**:
   * set env var
   ```
   set REQUESTS_CA_BUNDLE="path-to-my.crt"
