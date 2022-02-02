@@ -2,3 +2,5 @@
 
 https://levelup.gitconnected.com/solve-the-dreadful-certificate-issues-in-python-requests-module-2020d922c72f
 
+https://github.com/Azure/azure-cli/issues/5099
+
