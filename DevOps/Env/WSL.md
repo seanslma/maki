@@ -20,7 +20,8 @@ https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m
 #do not use
 sudo systemctl status docker
 #instead
-sudo service docker-server-name start
+sudo service docker status
+sudo service docker start
 #get docker-server-name
 service --status-all
 ```
