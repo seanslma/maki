@@ -13,6 +13,11 @@ sudo service docker status
 sudo service docker start
 ```
 
+## run container from another entrypoint
+```
+sudo docker run -it --entrypoint /bin/bash [docker_image]
+```
+
 ## SSH into running container
   * use `docker ps` to get the name of the existing container
   * run `docker exec -it <container name> /bin/bash` to get a bash shell in the container
