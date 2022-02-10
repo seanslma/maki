@@ -6,6 +6,19 @@ https://gist.github.com/Chaser324/ce0505fbed06b947d962
 git example
 https://forum.freecodecamp.org/t/push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too/13222
 
+## drop unstaged files
+```
+git checkout -- .
+git checkout -- path-to-file #only one file
+```
+
+## commit changes
+```
+git add .
+git commit
+git push
+```
+
 ## work example
 ```
 git chechout master
@@ -34,13 +47,6 @@ git branch new-branch
 git checkout new-branch
 #delete branch
 git branch -d new-branch
-```
-
-## commit changes
-```
-git add .
-git commit
-git push
 ```
 
 ## merge from upstream to master
