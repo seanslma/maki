@@ -5,6 +5,14 @@
   * Security including additional features for enterprise customers
   * Project Management
   
+## PR review
+https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request
+```
+#search for review request
+review-requested:[USERNAME]
+
+```
+
 ## Add PAT (Personal Access Token) 
 GitHub account, go to Settings 
 * => Developer Settings 
