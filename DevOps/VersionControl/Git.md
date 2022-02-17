@@ -12,6 +12,12 @@ git checkout -- .
 git checkout -- path-to-file #only one file
 ```
 
+## drop commits not pushed
+```
+git reset --hard HEAD~3 #three commits
+git reset --hard HEAD{1} #revert previous command
+```
+
 ## commit changes
 ```
 git add .
