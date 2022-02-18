@@ -18,6 +18,22 @@ git reset --hard HEAD~3 #three commits
 git reset --hard HEAD{1} #revert previous command
 ```
 
+## Your branch is ahead of 'origin/master' by x commit
+```
+#origin/master is the remote forked branch
+# you need to push your changes to the forked branch (origin/master)
+#add the upstream repo if not (forked from)
+git remote add upstream https://github.com/whoever/whatever.git
+#get all change from the upstream
+git fetch upstream
+#go to local master branch
+git checkout master
+#rewrite master branch based on upstream
+git rebase upstream/master
+#push local chnages to forked repo (-f only needed the first time after rebased)
+git push -f origin master
+```
+
 ## commit changes
 ```
 git add .
