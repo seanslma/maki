@@ -1,5 +1,8 @@
 # Git
 
+## git tips
+https://wikihub.berkeley.edu/display/drupal/Git+Tips#GitTips-Gitmessage:Yourbranchisaheadof'upstream/develop'byXXcommits
+
 ## GitHub Standard Fork & Pull Request Workflow
 https://gist.github.com/Chaser324/ce0505fbed06b947d962
 
