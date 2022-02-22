@@ -1,5 +1,31 @@
 # Git
 
+## Sync a fork
+```
+#fetch the branches and their respective commits from the upstream repository
+git fetch upstream
+
+#check out fork's local default branch
+git checkout master
+
+#merge changes from upstream default branch, upstream/master, into local default branch, without losing local changes
+git merge upstream/master
+```
+
+## Merge upstream repo into fork
+```
+#check out branch to merge to
+git checkout branch-name
+
+#pull the desired branch from the upstream repo
+git pull https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git branch-name
+
+#commit the merge
+
+#push merge to GitHub repo
+git push origin branch-name
+```
+
 ## git tips
 https://wikihub.berkeley.edu/display/drupal/Git+Tips#GitTips-Gitmessage:Yourbranchisaheadof'upstream/develop'byXXcommits
 
