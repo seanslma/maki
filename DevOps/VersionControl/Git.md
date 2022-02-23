@@ -28,6 +28,17 @@ git merge upstream/master
 git push origin master
 ```
 
+## pull upstream change to local branch
+```
+ git checkout master
+ git fetch upstream
+ git merge upstream/master
+ #to master
+ git push origin master
+ #to my-branch
+ git push origin my-branch
+```
+
 ## merge upstream repo into fork
 ```
 #check out branch to merge to
