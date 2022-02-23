@@ -23,6 +23,9 @@ git checkout master
 
 #merge changes from upstream default branch, upstream/master, into local default branch, without losing local changes
 git merge upstream/master
+
+#push local chnages to forked repo
+git push origin master
 ```
 
 ## merge upstream repo into fork
