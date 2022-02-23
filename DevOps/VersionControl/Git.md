@@ -40,6 +40,7 @@ git push origin my-branch
 ```
 
 ## master to local branch
+```
 git checkout my-branch
 # git pull origin master, Ok but nbetter use
 git fetch origin
