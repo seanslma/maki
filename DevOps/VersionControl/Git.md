@@ -1,6 +1,19 @@
 # Git
 
-## Sync a fork
+## create branch from another branch
+```
+#checkout branch to copy
+git checkout dev
+
+#create new branch
+#git checkout -b dev-test [current_active_branch]
+git checkout -b dev-test
+
+#push changes in dev-test to remote
+git push origin dev-test
+```
+
+## sync a fork
 ```
 #fetch the branches and their respective commits from the upstream repository
 git fetch upstream
@@ -12,7 +25,7 @@ git checkout master
 git merge upstream/master
 ```
 
-## Merge upstream repo into fork
+## merge upstream repo into fork
 ```
 #check out branch to merge to
 git checkout branch-name
