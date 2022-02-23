@@ -121,6 +121,7 @@ git branch -d new-branch
 git checkout master
 git fetch upstream
 git merge upstream/master
+git push origin master
 ```
 
 ## clone repo to local folder
