@@ -40,10 +40,16 @@ git push origin master
 git checkout master
 git fetch upstream
 git merge upstream/master
-#to master
-git push origin master
-#to my-branch
-git push origin my-branch
+git push origin master #to master
+git push origin my-branch #to my-branch
+```
+
+## resolve conflict
+```
+git switch master
+git pull
+git switch my-branch
+git rebase master
 ```
 
 ## master to local branch
