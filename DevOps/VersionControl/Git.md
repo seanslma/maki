@@ -13,6 +13,13 @@ git checkout -b dev-test
 git push origin dev-test
 ```
 
+## repoint local master to upstream/master
+```
+git switch master
+git reset --hard upstream/master
+git branch --set-upstream-to upstream/master
+```
+
 ## sync a fork
 ```
 #fetch the branches and their respective commits from the upstream repository
