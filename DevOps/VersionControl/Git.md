@@ -52,6 +52,13 @@ git switch my-branch
 git rebase master
 ```
 
+## upstream to local branch
+```
+git checkout my-branch
+git fetch upstream
+git merge upstream/my-branch
+```
+
 ## master to local branch
 ```
 git checkout my-branch
@@ -63,7 +70,7 @@ git merge origin/master
 ## merge upstream repo into fork
 ```
 #check out branch to merge to
-git checkout branch-name
+git checkout my-branch
 
 #pull the desired branch from the upstream repo
 git pull https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git branch-name
