@@ -28,5 +28,5 @@ df.x[mask] += df.y[mask]
 # 1.04 ms ± 1.52 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 
 %timeit -r 7 -n 1000 nb_where(df.x.values, df.y.values)
-286 µs ± 2.32 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+# 286 µs ± 2.32 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 ```
