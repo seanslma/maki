@@ -7,3 +7,9 @@ INSERT INTO #tmp1 VALUES (1, 'John', 1.1), (2, 'Ana', 2.2)
 SELECT * FROM #tmp1
 DROP TABLE #tmp1
 ```
+
+## json variable
+```sql
+DECLARE @json1 nvarchar(100)
+SET @json1 = N'[{"a": "1"}, {"a": NULL}]'
+```
