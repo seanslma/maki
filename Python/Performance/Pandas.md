@@ -18,9 +18,9 @@ mask2 = mi2.isin(iboth)
 d1 = pd.DataFrame(index=mi1, data=np.arange(len(mi1)), columns=['id1'])
 d2 = pd.DataFrame(index=mi2, data=np.arange(len(mi2)), columns=['id2'])
 df = d1.merge(d2, how='inner', left_index=True, right_index=True)
-mask1 = np.full((len(mi1),), False, dtype=bool)
+mask1 = np.full(len(mi1), False, dtype=bool)
 mask1[df.id1] = True
-mask2 = np.full((len(mi2),), False, dtype=bool)
+mask2 = np.full(len(mi2), False, dtype=bool)
 mask2[dy.id2] = True
 ```
 
