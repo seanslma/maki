@@ -7,7 +7,7 @@ np.ravel() will avoid copy if possible and thus faster than flatten()
 when broadcasting is possible, we do not need to use np.tile()
 
 ## slow multiindex methods
-Get the mask of the index in both mi1 and mi2 - can be 50x slower.
+Get the mask of the index in both mi1 and mi2 - can be 2x faster.
 ```
 #slow
 iboth = mi1.intersection(mi2)
