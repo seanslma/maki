@@ -6,6 +6,24 @@ np.ravel() will avoid copy if possible and thus faster than flatten()
 ## broadcasting rules
 when broadcasting is possible, we do not need to use np.tile()
 
+## slow multiindex methods
+Get the mask of the index in both mi1 and mi2 - can be 50x slower.
+```
+#slow
+iboth = mi1.intersection(mi2)
+mask1 = mi1.isin(iboth)
+mask2 = mi2.isin(iboth)
+
+#fast
+d1 = pd.DataFrame(index=mi1, data=np.arange(len(mi1)), columns=['id1'])
+d2 = pd.DataFrame(index=mi2, data=np.arange(len(mi2)), columns=['id2'])
+df = d1.merge(d2, how='inner', left_index=True, right_index=True)
+mask1 = np.full((len(mi1),), False, dtype=bool)
+mask1[df.id1] = True
+mask2 = np.full((len(mi2),), False, dtype=bool)
+mask2[dy.id2] = True
+```
+
 ## pd.eval
 ```
 np.random.seed(0)
