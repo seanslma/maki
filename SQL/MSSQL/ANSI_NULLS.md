@@ -14,7 +14,7 @@ set @val=1;
 select * from #tmpx where v <> @val;
 GO
 
-# compare column with column does not work
+# column with column comparison does not work
 select t2.* from #tmpx as t2
 join (select * from #tmpx) as t1
 on t1.i = t2.i
