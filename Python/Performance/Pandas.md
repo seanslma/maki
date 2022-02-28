@@ -14,7 +14,7 @@ iboth = mi1.intersection(mi2)
 mask1 = mi1.isin(iboth)
 mask2 = mi2.isin(iboth)
 
-#fast
+#fast (joiing the index of both dfs will be 8x faster than joining normal cols)
 d1 = pd.DataFrame(index=mi1, data=np.arange(len(mi1)), columns=['id1'])
 d2 = pd.DataFrame(index=mi2, data=np.arange(len(mi2)), columns=['id2'])
 df = d1.merge(d2, how='inner', left_index=True, right_index=True)
