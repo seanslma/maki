@@ -1,6 +1,6 @@
 # Parallel
-reuse session\\
-err: only one usage of each socket address\\
+reuse session\
+err: only one usage of each socket address\
 Sessions are usually easy to use. Just wrap with requests.Session() as s: around your for loop, and then replace requests.get with s.get
 
 https://iliauk.wordpress.com/2016/03/07/high-performance-python-sessions-async-multi-tasking/
