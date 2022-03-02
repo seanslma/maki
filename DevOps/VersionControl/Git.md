@@ -1,5 +1,10 @@
 # Git
 
+## check the setup tracking branches
+```
+git branch -vv
+```
+
 ## create branch from another branch
 ```
 #checkout branch to copy
