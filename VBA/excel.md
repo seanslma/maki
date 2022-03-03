@@ -96,3 +96,6 @@ then perhaps need to check which user locks the file using cmd mmc (Microsoft Ma
 
 ### ArrayFormula does not work when including INDIRECT function
 why? do not need to input the brackets but use Shift + Ctrl + Enter
+
+### index match skip empty value
+{=INDEX(A:A,MATCH(1,(B:B=C1)*(A:A<>""),0))}
