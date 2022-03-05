@@ -6,7 +6,7 @@
   "name":"John",
   "country":[
     {"id":"US","prob":0.09},
-    {"id":"AU","prob":0.06
+    {"id":"AU","prob":0.06}
   ]
 }
 ```
