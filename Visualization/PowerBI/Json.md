@@ -1,17 +1,16 @@
 # Json
 
-## file
+## example1
+### file
 ```json
-{
-  "name":"John",
+{ "name":"John",
   "country":[
     {"id":"US","prob":0.09},
-    {"id":"AU","prob":0.06}
-  ]
+    {"id":"AU","prob":0.06}]
 }
 ```
 
-## mlang
+### mlang
 ```
 let
     Source = Json.Document(File.Contents("C:\tmp\name.json")),
@@ -23,7 +22,7 @@ in
     #"Changed Type"
 ```
 
-## table
+### table
 name | country.id | country.prob |
 :----|:-----------|:-------------|
 John | US         | 0.09         |
