@@ -22,7 +22,7 @@ con = duckdb.connect(database='my-db.duckdb', read_only=False) #database file (n
 con = duckdb.connect(database='my-db.duckdb', read_only=True)  #database file (shared between processes)
 ```
 
-###query
+### query
 ```
 con.execute("CREATE TABLE items(item VARCHAR, value DECIMAL(10,2), count INTEGER)")
 con.execute("INSERT INTO items VALUES ('jeans', 20.0, 1), ('hammer', 42.2, 2)")
