@@ -24,3 +24,23 @@ Disable swapfile and delete it
  sudo rm /swapfile
 ```
 https://ubuntuhandbook.org/index.php/2021/08/enable-hibernate-ubuntu-21-10/
+
+## dual boot wrong time
+https://itsfoss.com/wrong-time-dual-boot/
+
+A hardware clock which is also called RTC (real time clock) or CMOS/BIOS clock. By default, Linux assumes that the time stored in the hardware clock is in UTC, while Windows thinks that the time stored on the hardware clock is local time.
+
+### Solution 1 
+Setup for Linux system to use the local time for the hardware clock (RTC)
+```
+timedatectl set-local-rtc 1 #0 for UTC time standard,  1 for localtime time standard
+```
+
+### Solution 2
+Setup for Windows system to use the UTC for the hardware clock (RTC). 
+
+For 64-bit Windows, open regedit then browse to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation. 
+Create a new QWORD entry called RealTimeIsUniversal, then set its value to 1. Reboot the system. The clock should now be in UTC time.
+```
+Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_QWORD /d 1
+```
