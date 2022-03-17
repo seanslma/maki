@@ -31,3 +31,8 @@ df = pd.concat([df], keys=['New_Idx'], names=['idx0'])
 ```python
 df.pipe(lambda x: x[~x.index.duplicated(keep='first')])
 ```
+
+## get last day of each month in index
+```python
+df.loc[df.groupby(df.index.to_period('M')).apply(lambda x: x.index.max())]
+```
