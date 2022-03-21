@@ -2,7 +2,7 @@
 https://docs.microsoft.com/en-us/office/vba/api/excel.databar.showvalue
 
 ## conditional formatting
-```
+```VB
 Sub Formatting()
   Set RngTable1 = Range(“A1:A10”)
   RngTable1.FormatConditions.Delete
@@ -12,7 +12,7 @@ Sub Formatting()
 End Sub
 ```
 ## color scale 2
-```
+```VB
 Sub CondFmt_ColourScales2()
     Dim rg As Range: Set rg = Range("F5:I5")
     rg.FormatConditions.Delete
@@ -36,7 +36,7 @@ End Sub
 ```
 
 ## color scale 3
-```
+```VB
 Sub CondFmt_ColourScales3()
     Dim rg As Range: Set rg = Range("F5:I5")
     rg.FormatConditions.Delete
@@ -67,7 +67,7 @@ End Sub
 ```
 
 ## data bar
-```
+```VB
 Sub CondFmt_DataBar()
     Dim rg As Range: Set rg = Range("E30:E44")
     rg.FormatConditions.Delete
