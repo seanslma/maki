@@ -27,7 +27,7 @@ Sub CondFmt_ColourScales2()
         
         'the third colour is red
         With .ColorScaleCriteria(2)
-            .FormatColor.Color = RGB(255, 51, 0)
+            .FormatColor.Color = RGB(255, 0, 0)
             .Type = xlConditionValueHighestValue
         End With
     End With
@@ -58,7 +58,7 @@ Sub CondFmt_ColourScales3()
         
         'colour 3 is red
         With .ColorScaleCriteria(3)
-            .FormatColor.Color = RGB(255, 51, 0)
+            .FormatColor.Color = RGB(255, 0, 0)
             .Type = xlConditionValueHighestValue
         End With
     End With
