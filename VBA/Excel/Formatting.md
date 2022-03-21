@@ -1,4 +1,5 @@
 # Formatting
+https://docs.microsoft.com/en-us/office/vba/api/excel.databar.showvalue
 
 ## conditional formatting
 ```
@@ -62,5 +63,37 @@ Sub CondFmt_ColourScales3()
             .Type = xlConditionValueHighestValue
         End With
     End With
+End Sub
+```
+
+## data bar
+```
+Sub CondFmt_DataBar()
+    Dim rg As Range: Set rg = Range("E30:E44")
+    rg.FormatConditions.Delete
+    
+    Dim db As Databar: Set db = rg.FormatConditions.AddDatabar
+    With db
+        .ShowValue = False
+        
+        'positive bar with green gradient & green border
+        .BarColor.Color = RGB(0, 176, 80)
+        .BarFillType = xlDataBarFillGradient
+        .BarBorder.Type = xlDataBarBorderSolid
+        .BarBorder.Color.Color = RGB(0, 176, 80)
+        
+        'the axis positioned automatically and coloured black
+        .AxisPosition = xlDataBarAxisAutomatic
+        .AxisColor.Color = vbBalck
+        
+        'negative bar with a red gradient & red border
+        With .NegativeBarFormat
+            .ColorType = xlDataBarColor
+            .Color.Color = RGB(255, 0, 0)
+            .BorderColorType = xlDataBarColor
+            .BorderColor.Color = vbRed 'RGB(255, 0, 0)
+        End With
+    End With
+
 End Sub
 ```
