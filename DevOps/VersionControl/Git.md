@@ -9,7 +9,7 @@ git branch -vv
 
 ## repoint local master to upstream/master
 ```
-git switch master
+git checkout master
 git reset --hard upstream/master
 git branch --set-upstream-to upstream/master
 ```
