@@ -199,3 +199,8 @@ git switch -c new-branch
 # get commit from other branch using it's sha
 git cherry-pick <sha>
 ```
+
+## fatal: ambiguous argument 'upstream/master': unknown revision or path not in the working tree
+```
+git symbolic-ref refs/remotes/upstream/HEAD refs/remotes/upstream/master
+```
