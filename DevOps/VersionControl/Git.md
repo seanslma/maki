@@ -155,9 +155,11 @@ git push
 ```
 #create and switch to
 git branch new-branch
-git checkout new-branch
-#delete branch
+git checkout -b new-branch
+#delete local branch
 git branch -d new-branch
+#delete remote branch
+git push --delete <remote name> <branch name>
 ```
 
 ## merge from upstream to master
