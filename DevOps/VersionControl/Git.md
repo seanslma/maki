@@ -3,6 +3,15 @@
 ## check the setup tracking branches
 ```
 git branch -vv
+#if it shows that the tracking branch is not upstream/master
+# we need to fix it as below
+```
+
+## repoint local master to upstream/master
+```
+git switch master
+git reset --hard upstream/master
+git branch --set-upstream-to upstream/master
 ```
 
 ## create branch from another branch
@@ -16,13 +25,6 @@ git checkout -b dev-test
 
 #push changes in dev-test to remote
 git push origin dev-test
-```
-
-## repoint local master to upstream/master
-```
-git switch master
-git reset --hard upstream/master
-git branch --set-upstream-to upstream/master
 ```
 
 ## sync a fork
