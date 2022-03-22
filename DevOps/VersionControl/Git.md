@@ -202,5 +202,8 @@ git cherry-pick <sha>
 
 ## fatal: ambiguous argument 'upstream/master': unknown revision or path not in the working tree
 ```
-git symbolic-ref refs/remotes/upstream/HEAD refs/remotes/upstream/master
+git fetch upstream
+git checkout master
+git reset --hard upstream/master  
+git push origin master --force
 ```
