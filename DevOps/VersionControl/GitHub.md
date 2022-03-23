@@ -93,3 +93,8 @@ git push origin master
   git push -u origin main
 ```
   * make git m="message"
+
+## delete release
+- Delete the release from the Github UI
+- Delete local tag if the release failed: `git tag -d 0.1.0`
+- Delete the remote tag from local master: `git push --delete upstream 0.1.0`
