@@ -207,3 +207,10 @@ git checkout master
 git reset --hard upstream/master  
 git push origin master --force
 ```
+
+## fatal: repository not found
+- did not authenticate
+- password has changed
+- not a collaborator
+- incorrect case or a word misspelled
+- repo has been deleted
