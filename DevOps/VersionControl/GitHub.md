@@ -84,15 +84,15 @@ git push origin master
 ```
 
 ## one line add commit and push
-  * creat a makefile in repo folder
-  * add the lines to the file (tab not spaces)
-```bash
- git:
-  git add .
-  git commit -m "$m"
-  git push -u origin main
-```
-  * make git m="message"
+- creat a makefile in repo folder
+- add the lines to the file (tab not spaces)
+  ```bash
+   git:
+    git add .
+    git commit -m "$m"
+    git push -u origin main
+  ```
+- make git m="message"
 
 ## delete release
 - Delete the release from the Github UI
