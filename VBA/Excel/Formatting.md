@@ -3,8 +3,9 @@ https://docs.microsoft.com/en-us/office/vba/api/excel.databar.showvalue
 
 ## cell chars font size
 ```VB
-With Sheets("Test").Range("A1").Characters(Start:=13, Length:=25).Font
-    .Size = 6
+With Sheets("Test").Range("A1")
+    .Value = "Abc" & Chr(10) & "123" #new line
+    .Characters(Start:=3, Length:=4).Font.Size = 6
 End With
 ```
 
