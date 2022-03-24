@@ -5,6 +5,9 @@
   * Security including additional features for enterprise customers
   * Project Management
   
+Features:
+- branch protection rules
+  
 ## PR review
 https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request
 ```
