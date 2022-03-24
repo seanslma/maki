@@ -1,16 +1,13 @@
 # Formatting
 https://docs.microsoft.com/en-us/office/vba/api/excel.databar.showvalue
 
-## conditional formatting
+## cell chars font size
 ```VB
-Sub Formatting()
-  Set RngTable1 = Range(“A1:A10”)
-  RngTable1.FormatConditions.Delete
-  RngTable1.FormatConditions.Add Type:=xlCellValue, Operator:=xlBetween, _
-        Formula1:="=100", Formula2:="=200"
-  RngTable1.FormatConditions(1).Interior.Color = RGB(255, 0, 0)
-End Sub
+With Sheets("Test").Range("A1").Characters(Start:=13, Length:=25).Font
+    .Size = 6
+End With
 ```
+
 ## color scale 2
 ```VB
 Sub CondFmt_ColourScales2()
