@@ -2,6 +2,17 @@
 
 **Dig** is a network tool used to look up DNS servers.
 
+## create temp en var
+```
+export env_var_name=env_var_value
+```
+
+## create a new file and add content
+```
+cat > filename
+#input and then Ctrl+D to exit
+```
+
 ## copy folder
 ```bash
 cp -option1 -option2 source destination
