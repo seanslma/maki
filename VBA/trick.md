@@ -9,7 +9,7 @@ End If
 
 ## IsNumeric returns true for empty cell
 ```vb
-Private Function ValIsNumber(ByVal val As Variant) As Boolean
+Function ValIsNumber(ByVal val As Variant) As Boolean
     If IsError(val) Then
         ValIsNumber = False
     Else
