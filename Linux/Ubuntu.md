@@ -25,6 +25,11 @@ Disable swapfile and delete it
 ```
 https://ubuntuhandbook.org/index.php/2021/08/enable-hibernate-ubuntu-21-10/
 
+## auto hibernate after timeout
+https://unix.stackexchange.com/questions/645535/shutdown-system-by-timeout-during-suspend
+
+https://ubuntuhandbook.org/index.php/2021/06/automatic-shutdown-hibernate-on-idle-ubuntu/
+
 ## dual boot wrong time
 https://itsfoss.com/wrong-time-dual-boot/
 
