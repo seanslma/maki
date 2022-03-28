@@ -30,3 +30,8 @@ in `.condarc`, we should delete this line
 ssl_verify: C:\Users\usr\conda-envs\my.crt
 ```
 
+## install package
+```
+conda install -c conda-forge dash-bootstrap-components
+```
+
