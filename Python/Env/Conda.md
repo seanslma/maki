@@ -10,6 +10,7 @@ set PATH=C:\Anaconda\envs\py33\Scripts;C:\Anaconda\envs\py33;%PATH%
 conda env list
 conda activate env-py38
 conda env remove -n ENV_NAME
+conda clean -afy #remove cache
 
 #clone an existing env
 conda create --name ENV_NAME_new --clone ENV_NAME_from
@@ -23,6 +24,11 @@ python -m ipykernel install --user --name=test-env
 
 ## mamba
 Compared to conda, mamba is faster but larger.
+
+### clear cache
+```
+mamba clean --all
+```
 
 ### error: SSL certificate not OK
 in `.condarc`, we should delete this line
