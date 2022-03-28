@@ -9,6 +9,8 @@
 git update-index --assume-unchanged <file>
 #delete file from server
 git rm --cached <file>
+#delete folder from server
+git rm -r --cached path_to_folder/
 ```
 
 ## check the setup tracking branches
