@@ -112,3 +112,6 @@ open file **docker-compose.yml** and change the ports
 ```
 docker history image-id --no-trunc
 ```
+
+## reduce docker image size
+https://uwekorn.com/2021/03/01/deploying-conda-environments-in-docker-how-to-do-it-right.html
