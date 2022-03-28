@@ -3,6 +3,14 @@
 - **Rebase** will change history and best to use it in private branch.
 - **Merge** will not change history and is preferred to rebase in most cases.
 
+## untrack file
+```
+#keep file on server
+git update-index --assume-unchanged <file>
+#delete file from server
+git rm --cached <file>
+```
+
 ## check the setup tracking branches
 ```
 git branch -vv
