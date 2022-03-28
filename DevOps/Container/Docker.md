@@ -107,3 +107,8 @@ open file **docker-compose.yml** and change the ports
 1. Find a free TCP port: ss -ltn
 2. Delete existing container: docker rm my_container
 3. Restart with a different host port number: docker run -d -p 8083:8080 -p 55555:55555 jenkinsci/blueocean
+
+## show history with full commands
+```
+docker history image-id --no-trunc
+```
