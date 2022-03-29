@@ -13,6 +13,14 @@ git rm --cached <file>
 git rm -r --cached path_to_folder/
 ```
 
+## resolve conflict
+```
+git switch master
+git pull
+git switch my-branch
+git rebase master
+```
+
 ## check the setup tracking branches
 ```
 git branch -vv
@@ -62,21 +70,6 @@ git fetch upstream
 git merge upstream/master
 git push origin master #to master
 git push origin my-branch #to my-branch
-```
-
-## resolve conflict
-```
-git switch master
-git pull
-git switch my-branch
-git rebase master
-```
-
-## upstream to local branch
-```
-git checkout my-branch
-git fetch upstream
-git merge upstream/my-branch
 ```
 
 ## master to local branch
