@@ -227,3 +227,9 @@ git push origin master --force
 - not a collaborator
 - incorrect case or a word misspelled
 - repo has been deleted
+
+## delete last commit
+```
+git reset --hard HEAD^
+git push origin -f
+```
