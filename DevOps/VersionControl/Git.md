@@ -63,13 +63,19 @@ git merge upstream/master
 git push origin master
 ```
 
-## upstream to local branch
+## upstream to master
 ```
 git checkout master
 git fetch upstream
 git merge upstream/master
-git push origin master #to master
-git push origin my-branch #to my-branch
+git push origin master #master to origin/master
+```
+
+## upstream to local branch
+```
+git checkout my-branch
+git fetch upstream
+git merge
 ```
 
 ## master to local branch
@@ -168,14 +174,6 @@ git checkout -b new-branch
 git branch -d new-branch
 #delete remote branch
 git push --delete <remote name> <branch name>
-```
-
-## merge from upstream to master
-```
-git checkout master
-git fetch upstream
-git merge upstream/master
-git push origin master
 ```
 
 ## clone repo to local folder
