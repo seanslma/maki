@@ -233,3 +233,11 @@ git push origin master --force
 git reset --hard HEAD^
 git push origin -f
 ```
+
+## branch is out-of-date with the base branch
+```
+git remote add upstream remote-upstream-repo-url
+git checkout my-branch
+git pull upstream master
+git push origin my-branch
+```
