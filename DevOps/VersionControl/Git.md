@@ -75,7 +75,7 @@ git push origin master #master to origin/master
 ```
 git checkout my-branch
 git fetch upstream
-git merge
+git rebase upstream/my-branch
 ```
 
 ## master to local branch
