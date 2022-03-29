@@ -114,4 +114,6 @@ docker history image-id --no-trunc
 ```
 
 ## reduce docker image size
+https://jcristharif.com/conda-docker-tips.html
+
 https://uwekorn.com/2021/03/01/deploying-conda-environments-in-docker-how-to-do-it-right.html
