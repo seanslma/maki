@@ -59,7 +59,7 @@ def upsert_df(
     param_slots = ','.join(['?'] * df.shape[1])
     param_values = [fill_null(row.tolist()) for _, row in df.iterrows()]
 
-    cmd = f'''
+    sql_stmt = f'''
         MERGE INTO {table_name} WITH (XLOCK, ROWLOCK) AS T
         USING (
             SELECT * FROM
