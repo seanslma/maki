@@ -34,7 +34,7 @@ WHEN NOT MATCHED BY SOURCE THEN
 ;
 ```
 ```python
-def upsert_data(
+def upsert_df(
     df : pd.DataFrame,
     table_name : str,
     id_cols: Set[str],
