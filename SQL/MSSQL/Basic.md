@@ -50,7 +50,7 @@ def upsert_df(
     cols_val = ','.join([f'S.{c}' for c in cols])
 
     # fill `NULL` values with None
-    def fill_null(val: list) -> list:
+    def fill_null(val: list) -> tuple:
         def is_null(v):
             return isinstance(v, type(pd.NA)) or (v in ['NULL', np.nan, ''])
         return tuple(None if is_null(v) else v for v in val)
@@ -62,8 +62,7 @@ def upsert_df(
     sql_stmt = f'''
         MERGE INTO {table_name} WITH (XLOCK, ROWLOCK) AS T
         USING (
-            SELECT * FROM
-            (VALUES ({param_slots})) WITH ({cols_ins})
+            SELECT * FROM (VALUES ({param_slots})) as v ({cols_ins})
         ) AS S
             ON {stmt_on}
         WHEN MATCHED THEN
