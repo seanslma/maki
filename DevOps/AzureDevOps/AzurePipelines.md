@@ -4,6 +4,8 @@ https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-
 
 https://azuredevopslabs.com/labs/vstsextend/azurekeyvault/
 
+https://devblogs.microsoft.com/devops/demystifying-service-principals-managed-identities/
+
 ## build
 ### change pipeline name
 - Select pipeline and click edit
