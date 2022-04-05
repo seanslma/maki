@@ -2,6 +2,7 @@
 
 https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml
 
+https://azuredevopslabs.com/labs/vstsextend/azurekeyvault/
 
 ## build
 ### change pipeline name
