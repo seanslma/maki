@@ -24,7 +24,7 @@ https://unofficial-kubernetes.readthedocs.io/en/latest/user-guide/kubectl-cheats
 ## kubectl basic
 ```
 # setup config in windows
-$env:KUBECONFIG="C:\Users\usrname\.kube\your_aks_name"
+$env:KUBECONFIG="C:\Users\<user-name>\.kube\<your_aks_name>"
 # create credential
 az aks get-credentials --resource-group <aks-rg> --name <aks-name>
 # create a job, last one is the name
