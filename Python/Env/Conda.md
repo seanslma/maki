@@ -41,3 +41,9 @@ ssl_verify: C:\Users\usr\conda-envs\my.crt
 conda install -c conda-forge dash-bootstrap-components
 ```
 
+## from github
+```
+conda activate my-env
+conda install git pip
+pip install git+git://github.com/plotly/Kaleido@master
+```
