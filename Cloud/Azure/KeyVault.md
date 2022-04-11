@@ -16,4 +16,5 @@ az keyvault secret set \
 ## add multi-line secret
 ```
 az keyvault secret set --vault-name "<unique-keyvault-name>" --name "<keyvault-secret-name>" --file "secretfile.txt"
+az keyvault secret set-attributes --vault-name "<unique-keyvault-name>" --name "<keyvault-secret-name>" --content-type 'application/json'
 ```
