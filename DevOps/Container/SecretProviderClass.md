@@ -12,8 +12,8 @@ https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver
 After the pod starts:
 ```
 # show secrets held in secrets-store
-kubectl exec -n <namespace> <pod-name> -- ls /mnt/secrets-store/
+kubectl exec -n <namespace> <pod-name> -- ls <mountPath>
 
 # print a test secret 'ExampleSecret' held in secrets-store
-kubectl exec -n <namespace> <pod-name> -- cat /mnt/secrets-store/ExampleSecret
+kubectl exec -n <namespace> <pod-name> -- cat <mountPath>/ExampleSecret
 ```
