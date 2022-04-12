@@ -5,3 +5,6 @@ https://secrets-store-csi-driver.sigs.k8s.io/getting-started/usage.html
 Create a `SecretProviderClass` to use the Secrets Store CSI driver, and add the `SecretProviderClass` into the `Deployment` Yaml.
 
 On pod start and restart, the driver will communicate with the provider using gRPC to retrieve the secret content from the external Secrets Store you have specified in the SecretProviderClass custom resource. Then _**the volume is mounted in the pod**_ as tmpfs and the secret contents are written to the volume.
+
+## azure key vault provider
+https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver
