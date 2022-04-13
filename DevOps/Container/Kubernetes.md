@@ -1,5 +1,9 @@
 # Kubernetes
 
+kubectl commands:
+
+https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
+
 Container orchestration tool.
 
 https://github.com/kelseyhightower/intro-to-kubernetes-workshop/blob/master/labs/cluster-add-on-ui.md
