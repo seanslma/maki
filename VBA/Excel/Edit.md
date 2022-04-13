@@ -1,5 +1,10 @@
 # Edit
 
+## newline in cell text
+```vb
+"First Line" & Chr(10) & "Second Line"
+```
+
 ## insert/delete rows/columns
 ```VB
 Range("A4:A5").EntireRow.Insert/Delete
