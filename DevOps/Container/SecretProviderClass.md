@@ -9,6 +9,8 @@ On pod start and restart, the driver will communicate with the provider using gR
 ## azure key vault provider
 https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver
 
+https://github.com/Azure-Samples/secrets-store-csi-with-aks-akv
+
 After the pod starts:
 ```
 # show secrets held in secrets-store
