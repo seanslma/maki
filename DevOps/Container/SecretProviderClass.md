@@ -19,3 +19,8 @@ kubectl exec -n <namespace> <pod-name> -- ls <mountPath>
 # print a test secret 'ExampleSecret' held in secrets-store
 kubectl exec -n <namespace> <pod-name> -- cat <mountPath>/ExampleSecret
 ```
+or run into the pod:
+```
+kubectl exec -it -n <namespace> <pod-name> -- /bin/bash
+ls -l ~./<mountPath>
+```
