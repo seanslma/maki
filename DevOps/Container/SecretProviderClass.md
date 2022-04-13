@@ -22,5 +22,5 @@ kubectl exec -n <namespace> <pod-name> -- cat <mountPath>/ExampleSecret
 or run into the pod:
 ```
 kubectl exec -it -n <namespace> <pod-name> -- /bin/bash
-ls -l ~./<mountPath>
+ls -l ~/<mountPath>
 ```
