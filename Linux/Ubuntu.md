@@ -1,6 +1,6 @@
 # Ubuntu
 
-## change mirror site in sources.list
+## Change mirror site in sources.list
 ```
 sudo vi /etc/apt/sources.list
 #replace http://archive.ubuntu.com/ubuntu with another mirror
@@ -25,12 +25,17 @@ Disable swapfile and delete it
 ```
 https://ubuntuhandbook.org/index.php/2021/08/enable-hibernate-ubuntu-21-10/
 
-## auto hibernate after timeout
+## Auto hibernate after timeout
 https://unix.stackexchange.com/questions/645535/shutdown-system-by-timeout-during-suspend
 
 https://ubuntuhandbook.org/index.php/2021/06/automatic-shutdown-hibernate-on-idle-ubuntu/
 
-## dual boot wrong time
+Does not work
+```
+dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Hibernate boolean:true
+```
+
+## Dual boot wrong time
 https://itsfoss.com/wrong-time-dual-boot/
 
 A hardware clock which is also called RTC (real time clock) or CMOS/BIOS clock. By default, Linux assumes that the time stored in the hardware clock is in UTC, while Windows thinks that the time stored on the hardware clock is local time.
