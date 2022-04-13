@@ -1,4 +1,4 @@
-# Tool
+# GitOps
 
 Use `Terraform` to manage Cloud Provider services (Network, DNS, Compute, etc).
 
