@@ -30,9 +30,10 @@ https://unix.stackexchange.com/questions/645535/shutdown-system-by-timeout-durin
 
 https://ubuntuhandbook.org/index.php/2021/06/automatic-shutdown-hibernate-on-idle-ubuntu/
 
-Does not work
+Shortcut key does not work but works in terminal with pwd
 ```
 dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Hibernate boolean:true
+dbus-send --system --print-reply --type=method_call --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Hibernate boolean:true
 ```
 
 ## Dual boot wrong time
