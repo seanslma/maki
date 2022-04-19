@@ -15,3 +15,11 @@ let
 in
     ColumnATable
 ```
+
+## filter rows
+```
+Table.SelectRows(
+    __Table,
+    each [CustomerID] > 2
+)
+```
