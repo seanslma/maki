@@ -23,7 +23,7 @@ AttributeError: Excel.Application.Workbooks
 
 When attributes on Excel.Application do not exist, it is usually because the Excel application is open (possibly hidden) and it is in a modal loop such as editing a cell or an open/save file dialog.
 
-## Avoid hidden rows/cols
+## Avoid hidden rows/cols (DO NOT USE `openpyxl` -- TOO SLOW WHEN IT;S NOT READONLY)
 https://towardsdatascience.com/how-to-load-excel-files-with-hidden-rows-and-columns-into-pandas-19d445fa5c47
 ```python
 import openpyxl 
