@@ -2,6 +2,11 @@
 
 The .loc/[] operations can perform enlargement when setting a non-existent key for that axis.
 
+## cols to multiindex
+```python
+mi = df.columns.str.split('_', expand=True)
+```
+
 ## get level values
 ```python
 df.index.get_level_values(0)

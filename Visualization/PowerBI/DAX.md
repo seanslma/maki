@@ -12,3 +12,11 @@ A calculated column's values are calculated using DAX row by row.
 
 ## Calculated tables
 A calculated table is calculated using DAX based on other tables.
+
+## filter
+```
+TableNew =
+    VAR __IDsWihFlag = FILTER(__Table,[Flag])
+RETURN
+    FILTER('Table',[id] IN SELECTCOLUMNS(__IDsWithFlag,"id",[id]))
+```
