@@ -36,6 +36,13 @@ dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/
 dbus-send --system --print-reply --type=method_call --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Hibernate boolean:true
 ```
 
+Set the timeout value: 
+- https://wiki.archlinux.org/title/Power_management#Suspend_and_hibernate
+- https://man.archlinux.org/man/sleep.conf.d.5
+```
+/etc/systemd/sleep.conf
+```
+
 ## Dual boot wrong time
 https://itsfoss.com/wrong-time-dual-boot/
 
