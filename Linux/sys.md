@@ -37,5 +37,6 @@ ls /etc/rc3.d/S*
 ## folder permission
 ``` bash
 chmod 700 yourDirectory/
-ls -l #show
+ls -l #show all
+ls -1 #one line per file
 ```
