@@ -39,4 +39,6 @@ ls /etc/rc3.d/S*
 chmod 700 yourDirectory/
 ls -l #show all
 ls -1 #one line per file
+ls -t #sort latest changes to top
+ls -rt #sort latest to bottom
 ```
