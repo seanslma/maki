@@ -13,3 +13,8 @@ A `Deployment` is a higher-level concept that manages ReplicaSets and provides d
 kubectl -n <namespace> get rs #get current replicasets
 kubectl -n <namespace> describe rs/<replicaset-name> #check the status
 ```
+
+## run into replicaset
+```
+kubectl exec -it -n <name-space> <replicaset-name> -- /bin/bash
+```
