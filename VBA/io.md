@@ -18,7 +18,6 @@ End Function
 ```     
 
 ## vb original method
-
 ```vb
 Function ReadUtf8(fileName As String) As String
     On Error Resume Next
@@ -40,9 +39,7 @@ Function ReadUtf8(fileName As String) As String
 End Function
 ```
 
-
 ## ADODB stream method
-
 ```vb
 'need reference to ADODB
 'Tools > References > Check the checkbox in front of "Microsoft ActiveX Data Objects 6.1 Library"
@@ -68,7 +65,6 @@ End Function
 ```
 
 ## Export named ranges
-
 ```vb
 Sub CopyNamedRanges()
     For Each x In ActiveWorkbook.Names
