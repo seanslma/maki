@@ -13,6 +13,12 @@ df.index.get_level_values(0)
 df.index.get_level_values('level_2')
 ```
 
+get one value
+```python
+df.index[1][0]  #fast
+df.index.get_level_values(0)[1] #slow
+```
+
 ## rename levels
 ```python
 df = df.rename_axis(index={None:df.index.name})
