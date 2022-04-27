@@ -1,12 +1,33 @@
 # group
 
+## avoid using `df.index.levels[]`
+# Merge
+
+## join vs merge
+`merge` joins columns of left to columns of right, but `join`(... on=[...]) joins columns of left to **index keys** of right.
+
 ## group by month, quarter, year
+Test code:
 ```python
-freq = f'{summ_typ.upper()}S-JUL' #summ_typ = m,q,a [fy]
-bins = pd.date_range(f'2000-07-01', f'2020-07-01', freq=freq) #m,q,a start
-lbls = [dt.strftime('%Y-%m-%d') for dt in bins[:-1]]
-df['cut'] = pd.cut(x=df.index, bins=bins, right=False, labels=lbls) #category
-df.groupby(['id','cut']).agg(cnt=('val','count'), max=('val','max'), tot=('rev','sum'))
+def test(df):
+    print(f'df.index.levels[0]: {df.index.levels[0]}')
+    print(f'df.index.get_level_values(0): {df.index.get_level_values(0)}')
+    return df
+dx = (
+    pd.DataFrame(
+        data={'id':[1,2],'name':['a', 'b'],'value':[5,6]}
+    )
+    .set_index(['id', 'name'])
+    .groupby('id')
+    .apply(test)
+)
+```
+Results:
+```
+df.index.levels[0]: Int64Index([1, 2], dtype='int64', name='id')
+df.index.get_level_values(0): Int64Index([1], dtype='int64', name='id')
+df.index.levels[0]: Int64Index([1, 2], dtype='int64', name='id')
+df.index.get_level_values(0): Int64Index([2], dtype='int64', name='id')
 ```
 
 ## reshape to serials and group
