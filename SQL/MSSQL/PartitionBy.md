@@ -31,3 +31,11 @@ SELECT i, v,
        MIN(v) OVER(PARTITION BY i) AS MinV
 FROM #tmpx;
 ```
+
+## combine with groupby
+```sql
+SELECT i, j,
+    AVG(AVG(v)) OVER(PARTITION BY i order by j) AS AvgV
+FROM  #tmpx
+GROUP BY i;
+```
