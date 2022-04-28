@@ -37,5 +37,5 @@ FROM #tmpx;
 SELECT i, j,
     AVG(AVG(v)) OVER(PARTITION BY i order by j) AS AvgV
 FROM  #tmpx
-GROUP BY i;
+GROUP BY i, j;
 ```
