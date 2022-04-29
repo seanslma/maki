@@ -3,6 +3,8 @@
 ## fastAPI
 https://realpython.com/fastapi-python-web-apis/
 
+https://progressivecoder.com/a-guide-to-fastapi-request-body-using-pydantic-basemodel/
+
 ## REST API
 Most standard (json) for web-based APIs.
 
