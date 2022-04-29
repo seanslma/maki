@@ -23,3 +23,5 @@ RETURN
 
 ## diff between values of two dates
 https://www.fourmoo.com/2018/11/06/dax-measure-getting-difference-between-2-values-in-a-table/
+
+https://www.sqlservercentral.com/articles/month-over-month-calculation-using-dax-in-power-bi
