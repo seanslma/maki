@@ -3,9 +3,10 @@
 ## fastAPI
 https://realpython.com/fastapi-python-web-apis/
 
-### request body 
-**HTTP error 422: Unprocessable Entity**
+- `request body` is the data sent by client to server. 
+- `response body` is the data the API sends back to the client.
 
+### HTTP error 422: Unprocessable Entity
 https://progressivecoder.com/a-guide-to-fastapi-request-body-using-pydantic-basemodel/
 
 ## REST API
