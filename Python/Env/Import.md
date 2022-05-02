@@ -17,3 +17,7 @@ The names are stored in the module object's dictionary (available as m.__dict__)
 
 ## Regular packages
 If a directory contains a `__init__.py` file, it's considered to be a regular package.
+
+## Namespace packages
+- does not need the `__init__.py` file
+- can place contents of a package across multiple locations
