@@ -15,6 +15,10 @@ FastAPI will read the incoming request payload as JSON and convert the correspon
 ### HTTP error 422: Unprocessable Entity
 https://progressivecoder.com/a-guide-to-fastapi-request-body-using-pydantic-basemodel/
 
+https://fastapi.tiangolo.com/tutorial/body-multiple-params/
+
+When there is only one **Pydantic BaseModel** parameter, the name of the parameter should not be included in the data/json parameter.
+
 ## REST API
 Most standard (json) for web-based APIs.
 
