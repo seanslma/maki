@@ -1,6 +1,8 @@
 # API
 
 ## fastAPI
+https://fastapi.tiangolo.com/tutorial/body/
+
 https://realpython.com/fastapi-python-web-apis/
 
 - `request body` is the data sent by client to server. 
