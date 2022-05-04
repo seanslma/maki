@@ -15,6 +15,7 @@ df.index.get_level_values('level_2')
 
 get one value
 ```python
+df.index.values[1][0] #fastest
 df.index[1][0]  #fast
 df.index.get_level_values(0)[1] #slow
 ```
