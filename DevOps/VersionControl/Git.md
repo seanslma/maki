@@ -71,11 +71,13 @@ git merge upstream/master
 git push origin master #master to origin/master
 ```
 
-## upstream to local branch
+## upstream to local branch (rebase)
 ```
 git checkout my-branch
+git stash
 git fetch upstream
 git rebase upstream/master #rebase my-branch from the upstream’s master branch
+git stash pop
 ```
 
 ## master to local branch
