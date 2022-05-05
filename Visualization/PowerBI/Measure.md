@@ -1,5 +1,8 @@
 # Measure
 
+Note:
+- We can't reference the column as part of a measure without using one of the aggregation functions in DAX
+
 ## show one of measure based on slicer
 https://towardsdatascience.com/dynamic-filtering-in-power-bi-5a3e2d2c1856
 
