@@ -6,7 +6,8 @@
 { "name":"John",
   "country":[
     {"id":"US","prob":0.09},
-    {"id":"AU","prob":0.06}]
+    {"id":"AU","prob":0.06}
+  ]
 }
 ```
 
@@ -17,7 +18,7 @@ let
     #"Converted to Table" = Table.FromRecords({Source}),
     #"Expanded country" = Table.ExpandListColumn(#"Converted to Table", "country"),
     #"Expanded country1" = Table.ExpandRecordColumn(#"Expanded country", "country", {"id", "prob"}, {"country.id", "country.prob"}),
-    #"Changed Type" = Table.TransformColumnTypes(#"Expanded country1",{{"country.id", Text.Type}, {"country.prob", Number.Type}})
+    #"Changed Type" = Table.TransformColumnTypes(#"Expanded country1",{ {"country.id", Text.Type}, {"country.prob", Number.Type} })
 in
     #"Changed Type"
 ```
