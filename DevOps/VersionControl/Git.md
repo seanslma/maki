@@ -3,6 +3,11 @@
 - **Rebase** will change history and best to use it in private branch.
 - **Merge** will not change history and is preferred to rebase in most cases.
 
+## config git editor
+```
+git config --global core.editor "vim"
+```
+
 ## untrack file
 ```
 #keep file on server
