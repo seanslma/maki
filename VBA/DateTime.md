@@ -19,7 +19,7 @@ Application.Text(DateSerial(2016,7,1) - 1e-7,"d/MM/yyyy h:mm:ss AM/PM")
 Format(DateSerial(2016,7,1) - 1e-7,"d/MM/yyyy h:mm:ss AM/PM")
 ```
 
-## tiemstamp
+## timestamp
 ```vb
 Public Function TimestampID() As String
     dt = Strings.Format(Now, "yyyymmdd.hhnnss")
