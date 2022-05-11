@@ -16,7 +16,7 @@ Sub ToCSV(rng as Range, csvPath as String, optional visibleOnly as Boolean = Tru
         wsName = Nothing
         Set wb = Application.Workbooks.Add        
     Else
-        wsName = Format(Now, "tmp-ws-yyyyMMdd-hhmmss")
+        wsName = "tmp.ws-" & TimestampID
         wb.Sheets.Add.Name = wsName
     End If
     wb.ActiveSheet.Paste
