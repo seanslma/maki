@@ -18,3 +18,12 @@ Application.Text(DateSerial(2016,7,1) - 1e-7,"d/MM/yyyy h:mm:ss AM/PM")
 'depend on local settings: 1-07-2016 12:00:00 AM
 Format(DateSerial(2016,7,1) - 1e-7,"d/MM/yyyy h:mm:ss AM/PM")
 ```
+
+## tiemstamp
+```vb
+Public Function TimestampID() As String
+    dt = Strings.Format(Now, "yyyymmdd.hhnnss")
+    dtms = dt & Strings.Right(Strings.Format(Timer, "#0.00"), 3) 'timer error is +/- 15 ms
+    TimestampID = dtms & Strings.Right(Strings.Format(Rnd, "#0.0000000"), 7) 'add random number
+End Function
+```
