@@ -12,6 +12,19 @@ def ExcelNumToLetter(num):
        letter = chr(65 + modulo) + letter
        dividend = int((dividend - modulo) / 26)
     return letter
+    
+def num_to_col(n):
+    col = ''
+    while n > 0:
+        n, r = divmod (n - 1, 26)
+        col = chr(r + ord('A')) + col
+    return col
+
+def col_to_num(col):
+    n = 0
+    for c in col:
+        n = n * 26 + ord(c) - ord('A') + 1
+    return n    
 ```
 http://timgolden.me.uk/pywin32-docs/win32api.html
 
