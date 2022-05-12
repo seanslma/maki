@@ -1,5 +1,7 @@
 # API
 
+https://www.infoq.com/podcasts/api-showdown-rest-graphql-grpc/
+
 ## fastAPI
 https://fastapi.tiangolo.com/tutorial/body/
 
