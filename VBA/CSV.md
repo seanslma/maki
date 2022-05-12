@@ -18,7 +18,7 @@ Sub CSVToSheet()
     ReDim arr(0 To nrow - 1, 0 To ncol - 1) As Variant
     For i = 0 To nrow - 1
         vals = Split(csvRows(i - i0), ",") '0-based index
-        For j = 0 To ncolNew - 1
+        For j = 0 To ncol - 1
             arr(i, j) = vals(j)
         Next
     Next
