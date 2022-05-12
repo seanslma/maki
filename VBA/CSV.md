@@ -1,5 +1,34 @@
 # CSV
 
+## csv to sheet
+```vb
+Sub CSVToSheet()
+    strrngfr = "A1"
+    filename = "my.csv"
+
+    Dim csvRows As Variant: csvRows = ReadCsvRows(filename)
+    
+    Dim i0 As Long: i0 = LBound(csvRows)
+    Dim nrow As Long: nrow = UBound(csvRows) - i0 ' last row is empty, separated by crlf, also include header
+    Dim ncol As Long: ncol = ArrLen(Split(csvRows(LBound(csvRows)), ","))
+    
+    Dim i As Long
+    Dim j As Long
+    Dim vals As Variant
+    ReDim arr(0 To nrow - 1, 0 To ncol - 1) As Variant
+    For i = 0 To nrow - 1
+        vals = Split(csvRows(i - i0), ",") '0-based index
+        For j = 0 To ncolNew - 1
+            arr(i, j) = vals(j)
+        Next
+    Next
+    
+    Dim rg As Range
+    Set rg = Range(strrngfr).Offset(RowOffset:=0).Resize(RowSize:=nrow, ColumnSize:=ncol)
+    rg.Value = arr
+End Sub
+```
+
 ## sheet to csv
 ```vb
 Sub SheetsToCSV()
