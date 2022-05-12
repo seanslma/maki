@@ -90,7 +90,7 @@ def create_vbs(filepath):
            xxxxxxxxxxxx
     """    
     with open(filepath,'wb') as f:
-        f.write(vbscript.encode('utf-8'))
+        f.write(inspect.cleandoc(vbscript).encode('utf-8'))
     
 vbsfile = r'C:\SheetsToCsv.vbs'
 csv_dir = f'C:\output' 
