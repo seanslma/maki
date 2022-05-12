@@ -223,6 +223,7 @@ git fetch upstream
 git checkout master
 git reset --hard upstream/master  
 git push origin master --force
+git branch --set-upstream-to upstream/master
 ```
 
 ## fatal: repository not found
