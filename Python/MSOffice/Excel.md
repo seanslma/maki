@@ -81,35 +81,46 @@ xlApp.Run('macroName')
 
 RetVal = Shell("<full path to python.exe> " & "<full path to your python script>")
 
-
 ## Excel to csv
 ```python
-def create_vbs(filepath):
-    filepath = 'SheetsToCSV.vbs'
-    vbscript = """
-           xxxxxxxxxxxx
-    """    
-    with open(filepath,'wb') as f:
-        f.write(inspect.cleandoc(vbscript).encode('utf-8'))
-    
-vbsfile = r'C:\SheetsToCsv.vbs'
-csv_dir = f'C:\output' 
-xl_file = r'C:\WBook.xlsx'
-call(['cscript.exe', vbsfile, csv_dir, xl_file, "sheet1:sheet2"])
+def sheets_to_csv(
+    excel_filepath: str,
+    sheet_names: List[str],
+    csv_dir: str = None,
+) -> None:
+    """
+    Convert Excel sheets to csv files.
+    """
+    csv_dir = csv_dir or os.path.dirname(excel_filepath)
+    vbsfile = os.path.join(csv_dir, 'ExcelSheetsToCSV.vbs')
+    create_sheets2csv_vbs(vbsfile)
+
+    from subprocess import call
+    call(['cscript.exe', vbsfile, csv_dir, excel_filepath, ':'.join(sheet_names)])
+
+    if os.path.isfile(vbsfile):
+        os.remove(vbsfile)
 ```
+    
+```python
+with open(filepath,'wb') as f:
+    f.write(inspect.cleandoc(vbscript).encode('utf-8'))
+```    
 
 ```VBScript SheetsToCSV.vbs
 If WScript.Arguments.Count < 3 Then
     WScript.Echo "Parameters: <csv_dir> <xl_file> <sheet1:sheet2...>"
     WScript.Quit
 End If
+csv_dir = WScript.Arguments.Item(0)
 xl_file = WScript.Arguments.Item(1)
 sheet_names = WScript.Arguments.Item(2)
 Set xl = CreateObject("Excel.Application")
 Set wb = xl.Workbooks.Open(xl_file)
-csv_file = WScript.Arguments.Item(0) & "/" & xl_file
+Set fs = CreateObject("Scripting.FileSystemObject")
+csv_file = csv_dir & "/" & fs.GetFileName(xl_file)
 For Each sheet_name In Split(sheet_names, ":")
-    wb.Worksheets(worksheet_name).Activate
+    wb.Worksheets(sheet_name).Activate
     wb.SaveAs csv_file & sheet_name & ".csv", 6 'csv_format = 6
 Next
 wb.Close False
