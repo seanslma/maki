@@ -93,21 +93,21 @@ def create_vbs(filepath):
         f.write(vbscript.encode('utf-8'))
     
 vbsfile = r'C:\SheetsToCsv.vbs'
+csv_dir = f'C:\output' 
 xl_file = r'C:\WBook.xlsx'
-csvpath = f'C:\output' 
-call(['cscript.exe', vbsfile, xl_file, csvpath, "Sheet1:Sheet2"])
+call(['cscript.exe', vbsfile, csv_dir, xl_file, "sheet1:sheet2"])
 ```
 
 ```VBScript SheetsToCSV.vbs
 If WScript.Arguments.Count < 3 Then
-    WScript.Echo "Parameters: <xl_file> <csv_path> <sheet1:sheet2...>"
+    WScript.Echo "Parameters: <csv_dir> <xl_file> <sheet1:sheet2...>"
     WScript.Quit
 End If
-xl_file = WScript.Arguments.Item(0)
+xl_file = WScript.Arguments.Item(1)
 sheet_names = WScript.Arguments.Item(2)
 Set xl = CreateObject("Excel.Application")
 Set wb = xl.Workbooks.Open(xl_file)
-csv_file = WScript.Arguments.Item(1) & "/" & xl_file
+csv_file = WScript.Arguments.Item(0) & "/" & xl_file
 For Each sheet_name In Split(sheet_names, ":")
     wb.Worksheets(worksheet_name).Activate
     wb.SaveAs csv_file & sheet_name & ".csv", 6 'csv_format = 6
