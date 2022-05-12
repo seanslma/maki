@@ -183,6 +183,12 @@ git branch -d new-branch
 git push --delete <remote name> <branch name>
 ```
 
+## restore deleted branch
+```
+git reflog show --all #get sha1 of the deleted branch
+git branch <NewBranchName> <sha1> #restore the branch
+```
+
 ## clone repo to local folder
 ```
 git clone https://github.com/usr/repo.git repo_name
