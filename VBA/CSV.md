@@ -1,5 +1,9 @@
 # CSV
 
+WB.SaveAS issues:
+- will drop first empty line
+- will save only Range.Text (not value/value2)
+
 ## csv to sheet
 ```vb
 Sub CSVToSheet()
