@@ -55,6 +55,100 @@ Sub SheetsToCSV()
 End Sub
 ```
 
+## to_csv advanced
+```vb
+Sub SheetsToCSV()
+    csv_dir = ThisWorkbook.Path
+    xl_file = "my.xlsx"
+    sheet_names = "a:b:c"
+    
+    Set xl = CreateObject("Excel.Application")
+    xl.DisplayAlerts = False
+    xl.ScreenUpdating = False
+    
+    Debug.Print "Opening Excel file: " & xl_file
+    Set wb = xl.Workbooks.Open(csv_dir & "\" & xl_file)
+    Set ws_cpy_to = wb.Sheets.Add
+    
+    csv_file = csv_dir & "\" & xl_file
+    For Each sheet_name In Split(sheet_names, ":")
+        With wb.Sheets(sheet_name).UsedRange
+            arr = .Value
+            arr2 = .Value2
+        End With
+        s = ArrValCpy(arr, arr2)
+        With ws_cpy_to
+            .Cells.Clear
+            .Range("A1").Resize(RowSize:=s(2) - s(1) + 1, ColumnSize:=s(4) - s(3) + 1).Value = arr
+        End With
+        
+        csv_filepath = csv_file & sheet_name & ".csv"
+        Debug.Print "Saving csv file: " & csv_filepath
+        ws_cpy_to.Activate
+        'ConflictResolution: to overwrite the existing file
+        wb.SaveAs filename:=csv_filepath, FileFormat:=xlCSV, ConflictResolution:=xlLocalSessionChanges
+    Next
+    ws_cpy_to.Delete
+    wb.Close SaveChanges:=False
+    
+    xl.DisplayAlerts = True
+    xl.ScreenUpdating = True
+    xl.Quit
+    Debug.Print "Done"
+End Sub
+
+Function ArrValCpy(arr As Variant, arr2 As Variant) As Variant
+    s = ArrShape(arr)
+    If s(0) = 0 Then
+        If VarType(arr) <> vbDate Then
+            arr = arr2
+        End If
+    ElseIf s(0) = 1 Then
+        For i = s(1) To s(2)
+            If VarType(arr(i)) <> vbDate Then
+                arr(i) = arr2(i)
+            End If
+        Next
+    Else
+        For i = s(1) To s(2)
+            For j = s(3) To s(4)
+                If VarType(arr(i, j)) <> vbDate Then
+                    arr(i, j) = arr2(i, j)
+                End If
+            Next
+        Next
+        If IsEmpty(arr(s(1), s(3))) Then
+            arr(s(1), s(3)) = " " 'force save first empty row
+        End If
+    End If
+    ArrValCpy = s
+End Function
+
+Function ArrShape(arr As Variant) As Variant()
+    d = ArrDim(arr)
+    If d = 0 Then
+        ArrShape = Array(0, 1, 1, 1, 1)
+    ElseIf d = 1 Then
+        ArrShape = Array(1, LBound(arr), UBound(arr), 1, 1)
+    Else
+        ArrShape = Array(2, LBound(arr), UBound(arr), LBound(arr, 2), UBound(arr, 2))
+    End If
+End Function
+
+Function ArrDim(arr As Variant) As Long
+On Error GoTo Err
+    Dim i As Long
+    Dim tmp As Long
+    i = 0
+    Do While True
+        i = i + 1
+        tmp = UBound(arr, i)
+    Loop
+Err:
+    ArrDim = i - 1
+End Function
+```
+
 ## to_csv filtered only
 ```vb
 Sub ToCSV(rng as Range, csvPath as String, optional visibleOnly as Boolean = True, optional wb As Workbook = Nothing)
