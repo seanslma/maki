@@ -2,12 +2,12 @@
 
 ## download to current working folder
 ```
-wget http://mirror.ctan.org/<package path+packagename.zip>
+wget http://mirror.ctan.org/<package_path+package_name.zip>
 ```
 
 ## download to a target folder
 ```
-wget -O $HOME/Download http://mirror.ctan.org/<package path+packagename.zip>
+wget -O $HOME/Download http://mirror.ctan.org/<package_path+package_name.zip>
 ```
 
 ## unpack the archive
