@@ -1,4 +1,9 @@
-# newcol
+# Column
+
+## set columns in chained method
+```python
+df = df.set_axis(columns, axis=1)
+```
 
 ## split one col to two
 ```python
