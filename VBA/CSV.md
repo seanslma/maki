@@ -62,67 +62,83 @@ Sub SheetsToCSV()
     xl_file = "my.xlsx"
     sheet_names = "a:b:c"
     
-    Set xl = CreateObject("Excel.Application")
-    xl.DisplayAlerts = False
-    xl.ScreenUpdating = False
-    
+    Set xl = CreateObject("Excel.Application")    
     Debug.Print "Opening Excel file: " & xl_file
     Set wb = xl.Workbooks.Open(csv_dir & "\" & xl_file)
-    Set ws_cpy_to = wb.Sheets.Add
     
+    Dim rng As Range
     csv_file = csv_dir & "\" & xl_file
     For Each sheet_name In Split(sheet_names, ":")
         With wb.Sheets(sheet_name).UsedRange
-            arr = .Value
-            arr2 = .Value2
-        End With
-        s = ArrValCpy(arr, arr2)
-        With ws_cpy_to
-            .Cells.Clear
-            .Range("A1").Resize(RowSize:=s(2) - s(1) + 1, ColumnSize:=s(4) - s(3) + 1).Value = arr
-        End With
-        
-        csv_filepath = csv_file & sheet_name & ".csv"
-        Debug.Print "Saving csv file: " & csv_filepath
-        ws_cpy_to.Activate
-        'ConflictResolution: to overwrite the existing file
-        wb.SaveAs filename:=csv_filepath, FileFormat:=xlCSV, ConflictResolution:=xlLocalSessionChanges
+            nrow = .Rows.Count + .Row - 1
+            ncol = .Columns.Count + .Column - 1
+            Set rng = wb.Sheets(sheet_name).Range("A1").Resize(RowSize:=nrow, ColumnSize:=ncol)
+            arr = rng.Value
+            arr2 = rng.Value2
+        End With        
+        csv_filepath = csv_file & sheet_name & ".csv"       
+        ArrValToCSV arr, arr2, csv_filepath
+        Debug.Print "Saved csv file: " & csv_filepath
     Next
-    ws_cpy_to.Delete
-    wb.Close SaveChanges:=False
-    
-    xl.DisplayAlerts = True
-    xl.ScreenUpdating = True
+    wb.Close SaveChanges:=False    
     xl.Quit
     Debug.Print "Done"
 End Sub
 
-Function ArrValCpy(arr As Variant, arr2 As Variant) As Variant
+Sub ArrValToCSV(arr As Variant, arr2 As Variant, ByVal filename As String)
+    Set fs = CreateObject("Scripting.FileSystemObject")
+    If fs.FileExists(fielname) Then
+        Kill filename
+    End If
+    Open filename For Output As #1
+            
+    Dim Line As String
     s = ArrShape(arr)
     If s(0) = 0 Then
-        If VarType(arr) <> vbDate Then
-            arr = arr2
+        If VarType(arr) = vbDate Then
+            Line = CStr(arr)
+        ElseIf VarType(arr) = vbString Then
+            Line = """" & CStr(arr2) & """"
+        Else
+            Line = CStr(arr2)
         End If
+        Print #1, Line
     ElseIf s(0) = 1 Then
+        Line = ""
         For i = s(1) To s(2)
-            If VarType(arr(i)) <> vbDate Then
-                arr(i) = arr2(i)
+            If VarType(arr(i)) = vbDate Then
+                Line = Line & CStr(arr(i))
+            ElseIf VarType(arr(i)) = vbString Then
+                Line = Line & """" & CStr(arr2(i)) & """"
+            Else
+                Line = Line & CStr(arr2(i))
+            End If
+            If i < s(2) Then
+                Line = Line & ","
             End If
         Next
+        Print #1, Line
     Else
         For i = s(1) To s(2)
+            Line = ""
             For j = s(3) To s(4)
-                If VarType(arr(i, j)) <> vbDate Then
-                    arr(i, j) = arr2(i, j)
+                If VarType(arr(i, j)) = vbDate Then
+                    Line = Line & CStr(arr(i, j))
+                ElseIf VarType(arr(i, j)) = vbString Then
+                    Line = Line & """" & CStr(arr2(i, j)) & """"
+                Else
+                    Line = Line & CStr(arr2(i, j))
+                End If
+                If j < s(4) Then
+                    Line = Line & ","
                 End If
             Next
+            Print #1, Line
         Next
-        If IsEmpty(arr(s(1), s(3))) Then
-            arr(s(1), s(3)) = " " 'force save first empty row
-        End If
     End If
-    ArrValCpy = s
-End Function
+    
+    Close #1
+End Sub
 
 Function ArrShape(arr As Variant) As Variant()
     d = ArrDim(arr)
