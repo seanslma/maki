@@ -29,3 +29,5 @@ Client can specify just the information they need, which can greatly reduce dupl
  
 ## gRPC
 for fast transport, leveraging HTTP/2.
+
+https://www.velotio.com/engineering-blog/grpc-implementation-using-python
