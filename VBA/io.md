@@ -1,11 +1,4 @@
-# io
-
-## write to file
-```vb
-Open "C:\test.csv" For Output As #1
-Write #1, "xyz"
-Close #1
-```   
+# io 
 
 ## read csv file
 ```vb
