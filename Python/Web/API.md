@@ -28,6 +28,8 @@ Most standard (json) for web-based APIs.
 Client can specify just the information they need, which can greatly reduce duplicate or unnecessary data being transmitted.
 
 https://python.plainenglish.io/fastapi-microservice-patterns-graphql-api-b09ccb1de37f
+
+https://github.com/grpc-up-and-running/samples/tree/master/ch02/productinfo
  
 ## gRPC
 for fast transport, leveraging HTTP/2.
