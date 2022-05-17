@@ -3,6 +3,14 @@
 ## range from cell value
   INDIRECT(CONCATENATE("A",B2))
 
+## Get Range
+```vb
+Function Rng(ws as Sheet, r0 as long, c0 as long, r1 as long, c1 as long)
+  return ws.Range(Cells(r0,c0),Cells(r1,c1))
+End Function
+```
+
+
 ## get subrange
 ```vb
 'remove first row
