@@ -58,16 +58,16 @@ End Sub
 ## to_csv advanced
 ```vb
 Sub SheetsToCSV()
-    csv_dir = ThisWorkbook.Path
+    dir = ThisWorkbook.Path
     xl_file = "my.xlsx"
     sheet_names = "a:b:c"
     
     Set xl = CreateObject("Excel.Application")    
     Debug.Print "Opening Excel file: " & xl_file
-    Set wb = xl.Workbooks.Open(csv_dir & "\" & xl_file)
+    Set wb = xl.Workbooks.Open(dir & "\" & xl_file)
     
     Dim rng As Range
-    csv_file = csv_dir & "\" & xl_file
+    csv_file = dir & "\" & xl_file
     For Each sheet_name In Split(sheet_names, ":")
         With wb.Sheets(sheet_name).UsedRange
             nrow = .Rows.Count + .Row - 1
