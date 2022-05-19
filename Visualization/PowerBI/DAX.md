@@ -26,6 +26,12 @@ https://www.fourmoo.com/2018/11/06/dax-measure-getting-difference-between-2-valu
 
 https://www.sqlservercentral.com/articles/month-over-month-calculation-using-dax-in-power-bi
 
+Steps:
+- create two dates tables including the dates in that table
+- the first table has a relationship with the original table while the second is isolated
+- calculate the measure values for the first date as usual
+- calculate the measure values for the seonds date by ignore the slicer one
+- so the page has two single selcetion slicers 
 
 ## change values dynamicly based on slicer
 https://community.powerbi.com/t5/Desktop/Change-calculated-table-dynamically-on-slicer-selection/m-p/1195458#M535454
