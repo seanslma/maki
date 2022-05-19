@@ -6,6 +6,7 @@
 ## config git editor
 ```
 git config --global core.editor "vim"
+git config --global alias.acp '! git pull && git add . && git commit -m "d" && git push'
 ```
 
 ## untrack file
