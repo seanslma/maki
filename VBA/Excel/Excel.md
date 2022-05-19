@@ -31,7 +31,6 @@ show formulas: Ctrl + `
 forecast only works for perfectly linear spaced data for interpolation\\
 =FORECAST(f2,INDEX($c$2:$c$37,MATCH(f2,$b$2:$b$37,1)):INDEX($c$2:$c$37,MATCH(f2,$b$2:$b$37,1)+1),INDEX($b$2:$b$37,MATCH(f2,$b$2:$b$37,1)):INDEX($b$2:$b$37,MATCH(f2,$b$2:$b$37,1)+1))  f2:x_new, c:y, b:x
 
-  
 * copy cols to col (x is the matrix name, G1 is the first cell in destination)
   =OFFSET(x, MOD(ROW()-ROW($G$1),ROWS(x)), TRUNC((ROW()-ROW($G$1))/ROWS(x)), 1, 1)
   
