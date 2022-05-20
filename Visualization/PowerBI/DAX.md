@@ -73,8 +73,8 @@ PvtTable = SUMMARIZE(
     MyTable,
     MyTable[Date],
     MyTable[Type],
-    "CodeA",CALCULATE(SUM(MyTable[Value]),MyTable[Code]="CodeA"),
-    "CodeB",CALCULATE(SUM(MyTable[Value]),MyTable[Code]="CodeB")
+    "CodeA", CALCULATE(SUM(MyTable[Value]), MyTable[Code]="CodeA"),
+    "CodeB", CALCULATE(SUM(MyTable[Value]), MyTable[Code]="CodeB")
 ) 
 ```
 
@@ -86,6 +86,6 @@ GrpTable = ADDCOLUMNS(
         MyTable[Date],
         TypeTable[Type]
     ),
-    "Value", CALCULATE ( SUM ( MyTable[Value] ) )
+    "Value", CALCULATE(SUM(MyTable[Value]))
 )
 ```
