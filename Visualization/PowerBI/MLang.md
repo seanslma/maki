@@ -57,3 +57,16 @@ let
 in
     #"Convert Date To Local"
 ```
+
+## group and unpivot table
+```
+let
+    Source = Sql.Database(SQLHostName, "DatabaseName"),
+    MyTable = Source{[Schema="SchemaName",Item="TableName"]}[Data],
+    #"Expand Linked Table" = Table.ExpandRecordColumn(MyTable, "SchemaName.LinkedTable", {"LinkedId"}, {"LinkedId"}),
+    #"Remove Columns" = Table.RemoveColumns(#"Expand Linked Table",{"ColA", "ColB"}),        
+    #"Group Rows" = Table.Group(#"Remove Columns", {"Date", "LinkedId"}, {{"ValA", each List.Sum([ValA]), type nullable number}, {"ValB", each List.Sum([ValB]), type nullable number}}),
+    #"Unpivot Columns" = Table.UnpivotOtherColumns(#"Group Rows", {"Date", "LinkedId"}, "Attribute", "Value")
+in
+    #"Unpivot Columns"
+```
