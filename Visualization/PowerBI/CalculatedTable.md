@@ -26,6 +26,7 @@ It's better to directly get the data from SQL server (not use calculated table).
 Also, some calculated table not updated after incremental refresh.
 
 ### issue: calculated columns bsed on calculated table will not update after refresh
+Better to avoid calculated tables, either using DAX or Power Query
 
 ## Pivot columns
 ```
