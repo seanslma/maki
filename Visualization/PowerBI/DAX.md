@@ -32,6 +32,16 @@ Steps:
 - calculate the measure values for the first date as usual
 - calculate the measure values for the seonds date by ignore the slicer one
 - so the page has two single selcetion slicers 
+```
+NewDateValue = CALCULATE (
+    Sum(MyTable[Value])
+)
+OldDateValue = CALCULATE (
+    SUM(MyTable[Value]),
+    ALL(Dates[Date]),
+    MyTable[Date] = SELECTEDVALUE(Dates2[Date])
+)
+```
 
 ## change values dynamicly based on slicer
 https://community.powerbi.com/t5/Desktop/Change-calculated-table-dynamically-on-slicer-selection/m-p/1195458#M535454
