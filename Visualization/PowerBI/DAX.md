@@ -66,3 +66,26 @@ NewMeasure = CALCULATE (
     MyTable[ValueType] = "Good"
 )
 ```
+
+## pivot table
+```
+PvtTable = SUMMARIZE(
+    MyTable,
+    MyTable[Date],
+    MyTable[Type],
+    "CodeA",CALCULATE(SUM(MyTable[Value]),MyTable[Code]="CodeA"),
+    "CodeB",CALCULATE(SUM(MyTable[Value]),MyTable[Code]="CodeB")
+) 
+```
+
+## group table
+```
+GrpTable = ADDCOLUMNS(
+    SUMMARIZE (
+        MyTable,
+        MyTable[Date],
+        TypeTable[Type]
+    ),
+    "Value", CALCULATE ( SUM ( MyTable[Value] ) )
+)
+```
