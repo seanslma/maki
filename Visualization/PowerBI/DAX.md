@@ -38,7 +38,7 @@ https://community.powerbi.com/t5/Desktop/Change-calculated-table-dynamically-on-
 
 ## distinct column values to table
 ```
-NewTable DISTINCT(OldTable[ColName])
+NewTable = DISTINCT(OldTable[ColName])
 ```
 
 ## measure conditional on another column
@@ -46,7 +46,7 @@ NewTable DISTINCT(OldTable[ColName])
 DateStr = 
     VAR MaxDate = MAX(Dates[Date])
 Return 
-    If(Dates[Date]=MaxDate, "MaxEffectiveDate", FORMAT(Dates[Date], "yyyy-MM-dd hh:mm:ss"))
+    If(Dates[Date]=MaxDate, "MaxDate", FORMAT(Dates[Date], "yyyy-MM-dd hh:mm:ss"))
 ```
 
 ## measure by filtering column
