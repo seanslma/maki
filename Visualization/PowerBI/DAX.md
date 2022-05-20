@@ -35,3 +35,24 @@ Steps:
 
 ## change values dynamicly based on slicer
 https://community.powerbi.com/t5/Desktop/Change-calculated-table-dynamically-on-slicer-selection/m-p/1195458#M535454
+
+## distinct column values to table
+```
+NewTable DISTINCT(OldTable[ColName])
+```
+
+## measure conditional on another column
+```
+DateStr = 
+    VAR MaxDate = MAX(Dates[Date])
+Return 
+    If(Dates[Date]=MaxDate, "MaxEffectiveDate", FORMAT(Dates[Date], "yyyy-MM-dd hh:mm:ss"))
+```
+
+## measure by filtering column
+```
+NewMeasure = CALCULATE (
+    SUM(MyTable[Value]),
+    MyTable[ValueType] = "Good"
+)
+```
