@@ -24,7 +24,12 @@ GitHub account, go to Settings
 * => Fill up the form 
 * => Click Generate token 
 * => Copy the generated Token
-* 
+
+### clone with PAT
+```
+git clone https://username:ghp_MY-PERSONAL-ACCESS-TOKEN@github.com/username/my-repo.git
+```
+
 ### linux
 Configure the local GIT client with a username and email address
 ```bash
