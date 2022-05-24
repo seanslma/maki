@@ -32,7 +32,7 @@ az login
 # setup config in windows
 $env:KUBECONFIG="C:\Users\<user-name>\.kube\<your_aks_name>"
 # create credential
-az aks get-credentials --resource-group <aks-rg> --name <aks-name>
+az aks get-credentials --resource-group <aks-rg> --name <aks-name> --overwrite-existing
 # create a job, last one is the name
 kubectl -n <namespace> create job --from=cronjob/<crojob-name> <job-name>
 # show job status
