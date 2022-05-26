@@ -1,18 +1,28 @@
 ## perf (I)
 
-[Fast, Flexible, Easy and Intuitive: How to Speed Up Your Pandas Projects](https://realpython.com/fast-flexible-pandas/)
+https://llllllllll.github.io/principles-of-performance/index.html
 
-^Tariff Type ^Cents per kWh ^Time Range^
-|Peak |28 |17:00 to 24:00|
-|Shoulder |20 |7:00 to 17:00|
-|Off-Peak |12 |0:00 to 7:00|
+https://speakerdeck.com/pycon2018/jake-vanderplas-performance-python-seven-strategies-for-optimizing-your-numerical-code
 
-^method ^time^
-|.itertuples() |713 ms|
-|.apply() |272 ms|
-|.isin() |10 ms|
-|pd.cut() |3 ms|
-|np.digitize() |2 ms|
+Fast, Flexible, Easy and Intuitive: How to Speed Up Your Pandas Projects
+
+https://realpython.com/fast-flexible-pandas
+
+```
+Tariff Type   Cents per kWh   Time Range
+Peak          28              17:00 to 24:00
+Shoulder      20               7:00 to 17:00
+Off-Peak      12               0:00 to 7:00
+```
+
+```
+method        time
+.itertuples() 713 ms
+.apply()      272 ms
+.isin()        10 ms
+pd.cut()        3 ms
+np.digitize()   2 ms
+```
 
 ### DateTime
 ```python
