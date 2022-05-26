@@ -10,6 +10,42 @@ df = (
 )
 ```
 
+At least 10x faster:
+```
+def explode_date_range(
+    df: pd.DataFrame,
+    start_date_col: str,
+    end_date_col: str,
+    new_date_col: str = 'ts',
+    freq: str = '30T',
+    end_date_offset: pd.DateOffset = None,
+) -> pd.DataFrame:
+    df = df.reset_index(drop=True)
+    if end_date_offset is not None:
+        df[end_date_col] += end_date_offset
+    # Get exploded timestamp column
+    dt = (
+        pd.concat([
+            pd.DataFrame({
+                'i': i,
+                'ts': pd.date_range(start=s, end=e, freq=freq)
+            })
+            for i, (s, e) in enumerate(zip(df[start_date_col], df[end_date_col]))
+        ])
+        .set_index('i')
+        .rename_axis(None, axis=0)
+    )
+    # Re-sample df based on new timestamp column
+    df = (
+        df
+        .drop(columns=[start_date_col, end_date_col])
+        .reindex(dt.index)
+        .assign(ds=dt.ts)
+        .rename(columns={'ds': new_date_col})
+    )
+    return df
+```
+
 ## multiindex
 
 reindex with level can broadcast the level. also df.div can broadcast only one level.
