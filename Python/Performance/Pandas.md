@@ -6,6 +6,15 @@ np.ravel() will avoid copy if possible and thus faster than flatten()
 ## broadcasting rules
 when broadcasting is possible, we do not need to use np.tile()
 
+## iter rows
+```
+%timeit for row in df.iterrows(): pass
+2.18 ms ± 83.2 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+
+ %timeit for row in df.to_records(index=False): pass
+312 µs ± 9.1 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+```
+
 ## slow multiindex methods
 Get the mask of the index in both mi1 and mi2 - can be 2x faster.
 ```
