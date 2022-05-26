@@ -11,8 +11,8 @@ https://realpython.com/fast-flexible-pandas
 ```
 Tariff Type   Cents per kWh   Time Range
 Peak          28              17:00 to 24:00
-Shoulder      20               7:00 to 17:00
-Off-Peak      12               0:00 to 7:00
+Shoulder      20              07:00 to 17:00
+Off-Peak      12              00:00 to 07:00
 ```
 
 ```
@@ -42,10 +42,12 @@ df.loc[peak_hours, 'cost_cents'] = df.loc[peak_hours, 'energy_kwh'] * 28
 
 ### pd.cut()
 ```python
-cents_per_kwh = pd.cut(x=df.index.hour,
-                           bins=[0, 7, 17, 24],
-                           include_lowest=True,
-                           labels=[12, 20, 28]).astype(int)
+cents_per_kwh = pd.cut(
+    x=df.index.hour,
+    bins=[0, 7, 17, 24],
+    include_lowest=True,
+    labels=[12, 20, 28]
+).astype(int)
 df['cost_cents'] = cents_per_kwh * df['energy_kwh']
 ```
 
