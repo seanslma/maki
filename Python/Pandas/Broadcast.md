@@ -70,7 +70,7 @@ ic = df.index.get_level_values('c')
 mi = pd.MultiIndex.from_arrays([ia,ic],names=['a','c'])
 d2 = df.groupby(['a','c']).mean()/2
 d2.reindex(mi)
-d2.reindex(df.index.droplevel('b')) #better?
+d2.reindex(df.index.droplevel('b')) #better? it seems reindex is faster then loc for single index
 d2.loc[df.index.droplevel('b'),:] #best?
 ```
 
