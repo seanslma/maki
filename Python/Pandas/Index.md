@@ -9,6 +9,7 @@ mi = df.columns.str.split('_', expand=True)
 
 ## get level values
 ```python
+df.index.levels[0] #fastest
 df.index.get_level_values(0)
 df.index.get_level_values('level_2')
 ```
