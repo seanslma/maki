@@ -1,5 +1,11 @@
 # Kubernetes
 
+kubectl Cheat Sheet:
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+https://unofficial-kubernetes.readthedocs.io/en/latest/user-guide/kubectl-cheatsheet/
+
 kubectl commands:
 
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
@@ -22,9 +28,6 @@ export KUBECONFIG=/mnt/c/users/$WindowsUSER/.kube/kube_config_filename
 # Reopen wsl2 to re-read .profle file
 ```
 
-## kubectl cheatsheet
-https://unofficial-kubernetes.readthedocs.io/en/latest/user-guide/kubectl-cheatsheet/
-
 ## kubectl basic
 ```
 #login
@@ -37,6 +40,17 @@ az aks get-credentials --resource-group <aks-rg> --name <aks-name> --overwrite-e
 kubectl -n <namespace> create job --from=cronjob/<crojob-name> <job-name>
 # show job status
 kubectl -n <namespace> get job --sort-by=.status.startTime
-# show logs
-kubectl logs
 ```
+
+## logs
+```
+kubectl logs #show logs
+
+kubectl logs my-pod                                 # dump pod logs (stdout)
+kubectl logs -l name=myLabel                        # dump pod logs, with label name=myLabel (stdout)
+kubectl logs my-pod --previous                      # dump pod logs (stdout) for a previous instantiation of a container
+kubectl logs my-pod -c my-container                 # dump pod container logs (stdout, multi-container case)
+kubectl logs -l name=myLabel -c my-container        # dump pod logs, with label name=myLabel (stdout)
+kubectl logs my-pod -c my-container --previous      # dump pod container logs (stdout, multi-container case) for a previous instantiation of a container
+```
+
