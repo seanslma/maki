@@ -28,21 +28,20 @@ export KUBECONFIG=/mnt/c/users/$WindowsUSER/.kube/kube_config_filename
 # Reopen wsl2 to re-read .profle file
 ```
 
-## kubectl basic
+## credential
 ```
-#login
-az login
-# setup config in windows
-$env:KUBECONFIG="C:\Users\<user-name>\.kube\<your_aks_name>"
-# create credential
-az aks get-credentials --resource-group <aks-rg> --name <aks-name> --overwrite-existing
-# create a job, last one is the name
-kubectl -n <namespace> create job --from=cronjob/<crojob-name> <job-name>
-# show job status
-kubectl -n <namespace> get job --sort-by=.status.startTime
+az login #login
+$env:KUBECONFIG="C:\Users\<user-name>\.kube\<your_aks_name>" # setup config in windows
+az aks get-credentials --resource-group <aks-rg> --name <aks-name> --overwrite-existing #create credential
 ```
 
-## logs
+# job
+```
+kubectl -n <namespace> create job --from=cronjob/<crojob-name> <job-name> #create a job
+kubectl -n <namespace> get job --sort-by=.status.startTime #show job status
+```
+
+## log
 ```
 kubectl logs #show logs
 
