@@ -43,8 +43,6 @@ kubectl -n <namespace> get job --sort-by=.status.startTime #show job status
 
 ## log
 ```
-kubectl logs #show logs
-
 kubectl logs my-pod                                 # dump pod logs (stdout)
 kubectl logs -l name=myLabel                        # dump pod logs, with label name=myLabel (stdout)
 kubectl logs my-pod --previous                      # dump pod logs (stdout) for a previous instantiation of a container
