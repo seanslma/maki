@@ -2,5 +2,5 @@
 
 ## print query with binding values
 ```
-print(str(query.compile(dialect=None,compile_kwargs={'literal_binds': True})))
+print(query.statement.compile(dialect=None,compile_kwargs={'literal_binds': True}))
 ```
