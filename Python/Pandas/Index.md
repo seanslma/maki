@@ -14,9 +14,9 @@ df.index.get_level_values('level_2')
 ```
 
 ## get levle unique values
-caveat:  index.levels does not return updated contents if any rows or columns have been deleted.
+**caveat**:  `index.levels` does not return updated contents if any rows or columns have been deleted.
 ```python
-df.index.levels[0] #fastest
+df.index.levels[0] #fastest but should avoid to use
 df.index.unique(level='level_1') #suggested
 df.index.levels[df.index.names.index('level_1')] #do not use it
 df.index.get_level_values('Level_1').unique() #slow
