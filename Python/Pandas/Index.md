@@ -23,7 +23,7 @@ df.index.get_level_values('Level_1').unique() #slow
 df.index.unique(level='level_1') #suggested
 ```
 
-get one value
+## get one value
 ```python
 df.index.values[1][0] #fastest
 df.index.values[1][df.index.names.index('id')] #by level name
