@@ -14,12 +14,13 @@ df.index.get_level_values('level_2')
 ```
 
 ## get levle unique values
-**caveat**:  `index.levels` does not return updated contents if any rows or columns have been deleted.
+_**caveat**_:  `index.levels` does not return updated contents if any rows or columns have been deleted.
+The MultiIndex keeps all the defined levels of an index, **even if they are not actually used**, to avoid a recomputation of the levels in order to make slicing highly performant.
 ```python
 df.index.levels[0] #fastest but should avoid to use
-df.index.unique(level='level_1') #suggested
 df.index.levels[df.index.names.index('level_1')] #do not use it
 df.index.get_level_values('Level_1').unique() #slow
+df.index.unique(level='level_1') #suggested
 ```
 
 get one value
