@@ -113,6 +113,14 @@ open file **docker-compose.yml** and change the ports
 docker history image-id --no-trunc
 ```
 
+## push to docker registry
+```
+az acr login -n container-registry-name
+docker pull docker.example.com/image-name:0.0.1-linux
+docker tag docker.example.com/image-name:0.0.1-linux container-registry-name.azurecr.io/name-space/image-name:0.0.1
+docker push container-registry-name.azurecr.io/name-space/image-name:0.0.1
+```
+
 ## reduce docker image size
 https://jcristharif.com/conda-docker-tips.html
 
