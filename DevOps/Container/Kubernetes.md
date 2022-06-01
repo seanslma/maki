@@ -41,9 +41,9 @@ kubectl -n <namespace> create job --from=cronjob/<crojob-name> <job-name> #creat
 kubectl -n <namespace> get job --sort-by=.status.startTime #show job status
 ```
 
-## list all containers in a pod
+## gte pod info
 ```
-kubectl get pods <pod-name> -o jsonpath='{.spec.containers[*].name}'
+kubectl describe pod <pod-name> -n <namespace>
 ```
 
 ## log
