@@ -41,9 +41,15 @@ kubectl -n <namespace> create job --from=cronjob/<crojob-name> <job-name> #creat
 kubectl -n <namespace> get job --sort-by=.status.startTime #show job status
 ```
 
-## gte pod info
+## get pod info
 ```
 kubectl describe pod <pod-name> -n <namespace>
+```
+
+## open a shell in a running pod container
+```
+kubectl exec -it <pod-name> -n <namespace> -- /bin/bash
+kubectl exec -it <pod-name --container <container-name> -n <namespace> -- /bin/bash
 ```
 
 ## log
