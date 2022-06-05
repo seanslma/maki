@@ -8,7 +8,8 @@ https://cx-oracle.readthedocs.io/en/latest/user_guide/bind.html
 import cx_Oracle
 def get_oracle_connection():
     cnx = cx_Oracle.connect(
-        user='usr', password='pwd',
+        user='usr', 
+        password='pwd',
         dsn="svr.example.com",
         encoding="UTF-8",
     )
