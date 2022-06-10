@@ -10,3 +10,12 @@
   {"ColA"}
 ),
 ```
+
+## lookupvalue
+```
+#"Lookup Column" = Table.AddColumn(
+  #"Source", 
+  "NameId", 
+  each #"NameTypes"[Id]{List.PositionOf(#"NameTypes"[Name], [Name])}
+),
+```
