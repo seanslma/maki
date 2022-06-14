@@ -7,6 +7,8 @@ https://github.com/kubernetes/autoscaler/issues/248
 Fix: After many month of period debugging found the issue to be signal handling. Installed https://github.com/Yelp/dumb-init in all the pods and the issue as cleared. I am closing this.
 
 ## prevent autoscaler deleting node which runs a specific pod
+https://faun.pub/how-to-make-sure-kubernetes-autoscaler-not-deleting-the-nodes-which-run-a-specific-pod-8df3f2c28c46
+
 Solution 1:
 Can add the annotation to the critical pods or deployments:
 ```
