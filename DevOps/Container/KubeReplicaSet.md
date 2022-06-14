@@ -1,4 +1,4 @@
-# ReplicaSet
+# Kube ReplicaSet
 
 **Note**: ReplicaSet will not be updated automatically for the mounted objects such as key vault secrets - Need to delete the ReplicaSet to force creating a new pod. 
 
