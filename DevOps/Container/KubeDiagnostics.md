@@ -8,6 +8,7 @@ kubectl top pods -A
 kubectl get events
 kubectl get events -o wide
 kubectl get events | grep <this-string>
+kubectl get jobs/<job-name>
 kubectl describe job <job-name>
 kubectl describe jobs/<job-name> -n <namespace>
 ```
