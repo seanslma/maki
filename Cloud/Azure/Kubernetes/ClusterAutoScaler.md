@@ -2,6 +2,8 @@
 
 https://www.danielstechblog.io/azure-kubernetes-service-cluster-autoscaler-configurations/
 
+https://betterprogramming.pub/build-kubernetes-autoscaling-for-cluster-nodes-and-application-pods-bb7f2d716b07
+
 Pod not deleted preventing scaling down on all nodes:
 https://github.com/kubernetes/autoscaler/issues/248
 Fix: After many month of period debugging found the issue to be signal handling. Installed https://github.com/Yelp/dumb-init in all the pods and the issue as cleared. I am closing this.
