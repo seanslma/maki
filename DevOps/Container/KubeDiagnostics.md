@@ -5,7 +5,7 @@
 kubectl version
 kubectl get nodes --no-headers | wc -l #cluster node count
 kubectl top nodes
-kubectl top pods -A
+kubectl top pods -A | grep ScaleDown
 kubectl get events
 kubectl get events -o wide
 kubectl get events | grep <this-string>
