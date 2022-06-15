@@ -3,6 +3,7 @@
 ## check
 ```
 kubectl version
+kubectl get nodes --no-headers | wc -l #cluster node count
 kubectl top nodes
 kubectl top pods -A
 kubectl get events
@@ -11,6 +12,7 @@ kubectl get events | grep <this-string>
 kubectl get jobs/<job-name>
 kubectl describe job <job-name>
 kubectl describe jobs/<job-name> -n <namespace>
+
 ```
 
 ## logs
