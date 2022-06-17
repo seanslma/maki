@@ -11,8 +11,12 @@ var _Total=3
 return 
 IF (
     ISINSCOPE ( 'Table'[Region] ),
-    IF ( ISINSCOPE ( 'Table'[Territory] ), _territoty, _region ),
-    _Total
+    _region,
+    IF (
+        ISINSCOPE ( 'Table'[Territory] ), 
+        _territoty, 
+        _Total
+    )
 )
 ```
 
