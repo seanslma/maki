@@ -1,6 +1,40 @@
 # Matrix
 
 ## subtotal
+Will use the same measure to calculate value and total so sometimes the total can be incorrect. In this case, we need to use different measures for value and total calculation.
+```
+Measure = 
+    VAR __is_val = HASONEFILTER(Tb2[Col2])
+    VAR __tmp_va = CALCULATE(
+        SUM(Tb1[Value]), 
+        ALL(Tb2),
+        ALL(Tb1[Colx]),        
+        Tb2[Col2] = "CC",
+        Tb1[Colx] <= SELECTEDVALUE(Tb1[Colx])
+    )    
+RETURN    
+    IF(
+        __is_val,
+        SUMX(
+            Tb1,
+            SWITCH(
+                RELATED(Tb3[Col3]),
+                "AA", __val,
+                "BB", __val - __tmp_va,
+                BLANK()
+            )
+        ),
+        SUMX(
+            FILTER(
+                Tb1, 
+                RELATED(Tb2[Col2]) in {"AA", "CC"}
+                    && Tb1[Colx] <= SELECTEDVALUE(Tb1[Colx])
+            ),
+            Tb1[Value]
+        )
+    )
+```
+
 customize subtotals and totals:
 https://community.powerbi.com/t5/Desktop/Different-DAX-calculations-for-different-row-hierarchies-in-a/m-p/2136701#M788896
 ```
@@ -19,6 +53,8 @@ IF (
     )
 )
 ```
+
+Seems `ISINSCOPE` does not work. We need to use `HASONEFILTER(Tbl(Col))` to determine which row level the measure is.
 
 ## subtotal to sum values (city price) on cities
 ```
