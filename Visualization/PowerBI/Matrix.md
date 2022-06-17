@@ -16,6 +16,15 @@ IF (
 )
 ```
 
+## subtotal to sum values (city price) on cities
+```
+AvgPrice = 
+SUMX (
+    SUMMARIZE('Table', 'Table'[city], "Average", divide(sum('Table'[price]),SUM('Table'[quantity]))),
+    [Average]
+)
+```
+
 ## SUMX vs SWITCH CALCULATE
 `SUMX` will calculate the value for all row levels. If use `SWITCH` and CALCULATE based on a specific row level, the subtotal will not show up.
 ```
