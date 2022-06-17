@@ -15,3 +15,24 @@ IF (
     _Total
 )
 ```
+
+## SUMX vs SWITCH CALCULATE
+`SUMX` will calculate the value for all row levels. If use `SWITCH` and CALCULATE based on a specific row level, the subtotal will not show up.
+```
+Measure = SUMX(
+    Tb1,
+    SWITCH(
+        RELATED(Tb2[Col1]),
+        "AA", Tb1[Value],
+        "BB", Tb1[Value],
+        BLANK()
+    )
+)
+
+Measure = SWITCH(
+    SELECTEDVALUE(Tb2[Col1]),
+    "AA", CALCULATE(SUM(Tbl[Value])),
+    "BB", CALCULATE(SUM(Tbl[Value])),
+    BLANK()
+)
+```
