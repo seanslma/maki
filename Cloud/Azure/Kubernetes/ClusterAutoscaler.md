@@ -1,5 +1,7 @@
 # Cluster Autoscaler
 
+https://docs.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli
+
 https://www.danielstechblog.io/azure-kubernetes-service-cluster-autoscaler-configurations/
 
 https://betterprogramming.pub/build-kubernetes-autoscaling-for-cluster-nodes-and-application-pods-bb7f2d716b07
@@ -21,7 +23,6 @@ Update a running deployment with the below command:
 ```
 kubectl annotate deployment.apps/efs-provisioner cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
 ```
-
 
 ### Solution 2:
 Autoscaler provides an option to exclude nodes from the scale-down process.
