@@ -1,0 +1,31 @@
+# KubeConfig
+
+## set env var
+```
+export KUBECONFIG="/mnt/c/users/usr/.config/.kube/config"
+```
+
+## modify config files
+```
+kubectl config view
+kubectl config get-clusters
+kubectl config get-contexts
+kubectl config unset users.usr
+kubectl config delete-cluster <cluster-name>
+kubectl config delete-context <cluster-name>
+```
+
+## merge kubeconfig files
+```
+cp ~/.kube/config ~/.kube/config.bak #make a copy
+KUBECONFIG="~/.kube/config:~/.kube/config2" kubectl config view --flatten > /tmp/config #merge to a new file
+mv /tmp/config ~/.kube/config #replace the config file
+rm ~/.kube/config.bak #delete backup
+```
+
+## switch cluster
+```
+kubectl config get-contexts #display all contexts
+kubectl config current-context #display current context
+kubectl config use-context <cluster-name> #set default context
+```
