@@ -19,21 +19,21 @@ https://docs.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli
 az aks show --resource-group <resource-group> \
     --name <cluster-name> --query agentPoolProfiles
 az aks scale --resource-group <resource-group> \
-    --name <cluster-name> --node-count 1 --nodepool-name compute
+    --name <cluster-name> --node-count 1 --nodepool-name <nodepool-name>
 
 #disable ca
 az aks nodepool update --resource-group <resource-group> \
-    --cluster-name <cluster-name> --name compute \
+    --cluster-name <cluster-name> --name <nodepool-name> \
     --disable-cluster-autoscaler
 
 #enable ca
 az aks nodepool update --resource-group <resource-group> \
-    --cluster-name <cluster-name> --name compute \
+    --cluster-name <cluster-name> --name <nodepool-name> \
     --enable-cluster-autoscaler --min-count 0 --max-count 4
   
 #change node pool count
 az aks update --resource-group <resource-group> \
-    --cluster-name <cluster-name> --name compute \
+    --cluster-name <cluster-name> --name <nodepool-name> \
     --update-cluster-autoscaler --min-count 0 --max-count 4
 ```
 
