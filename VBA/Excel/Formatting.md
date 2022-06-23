@@ -9,6 +9,19 @@ With Sheets("Test").Range("A1")
 End With
 ```
 
+## cell formating color
+Get cell conditional formating background color:
+```vb
+Function BgHexColor(rng As Range)
+    i = rng.DisplayFormat.Interior.Color 'ColorIndex
+    r = (i Mod 256)
+    g = (i \ 256) Mod 256
+    b = (i \ 256 \ 256) Mod 256
+    
+    BgHexColor = "#" & Format(Hex(r), "00") & Format(Hex(g), "00") & Format(Hex(b), "00")
+End Function
+```
+
 ## color scale 2
 ```VB
 Sub CondFmt_ColourScales2()
