@@ -16,17 +16,25 @@ https://github.com/Azure/AKS/issues/2766
 ## manually scale down nodes
 https://docs.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli
 ```
-az aks show --resource-group <resource-group> --name <cluster-name> --query agentPoolProfiles
-az aks scale --resource-group <resource-group> --name <cluster-name> --node-count 1 --nodepool-name compute
+az aks show --resource-group <resource-group> \
+    --name <cluster-name> --query agentPoolProfiles
+az aks scale --resource-group <resource-group> \
+    --name <cluster-name> --node-count 1 --nodepool-name compute
 
 #disable ca
-az aks nodepool update --resource-group <resource-group> --cluster-name <cluster-name> --name compute --disable-cluster-autoscaler
+az aks nodepool update --resource-group <resource-group> \
+    --cluster-name <cluster-name> --name compute \
+    --disable-cluster-autoscaler
 
 #enable ca
-az aks nodepool update --resource-group <resource-group> --cluster-name <cluster-name> --name compute --enable-cluster-autoscaler --min-count 0 --max-count 8
+az aks nodepool update --resource-group <resource-group> \
+    --cluster-name <cluster-name> --name compute \
+    --enable-cluster-autoscaler --min-count 0 --max-count 4
   
 #change node pool count
-az aks update --resource-group <resource-group> --cluster-name <cluster-name> --name compute --update-cluster-autoscaler --min-count 0 --max-count 8
+az aks update --resource-group <resource-group> \
+    --cluster-name <cluster-name> --name compute \
+    --update-cluster-autoscaler --min-count 0 --max-count 4
 ```
 
 ## prevent autoscaler deleting node which runs a specific pod
