@@ -5,7 +5,7 @@ Not good:
 
 https://ipywidgets.readthedocs.io/en/latest/examples/Output%20Widget.html
 
-Simple and effective
+Simple and effective:
 ```
 import traceback
 def to_log(msg)
