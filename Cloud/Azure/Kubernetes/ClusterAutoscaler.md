@@ -10,8 +10,10 @@ Pod not deleted preventing scaling down on all nodes:
 https://github.com/kubernetes/autoscaler/issues/248
 Fix: After many month of period debugging found the issue to be signal handling. Installed https://github.com/Yelp/dumb-init in all the pods and the issue as cleared. I am closing this.
 
-## Cluster autoscaler settings:
+## Cluster autoscaler settings
 https://github.com/Azure/AKS/issues/2766
+
+https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview
 
 ## Manually scale down nodes
 https://docs.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli
