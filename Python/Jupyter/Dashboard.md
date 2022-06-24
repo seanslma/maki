@@ -1,6 +1,6 @@
 # Dashboard
 
-## output logging info from dashboard
+## Output logging info from dashboard
 https://ipywidgets.readthedocs.io/en/latest/examples/Output%20Widget.html
 ```
 import logging
