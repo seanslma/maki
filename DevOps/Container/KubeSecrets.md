@@ -4,6 +4,19 @@ https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/
 
 https://howchoo.com/kubernetes/read-kubernetes-secrets
 
+## get secret
+```
+kubectl get secrets
+kubectl get secret <secret-name> -o yaml
+kubectl get secret <secret-name> -o jsonpath="{.data.username}" | base64 --decode
+kubectl describe secret <secret-name>
+```
+
+## delete secret
+```
+kubectl delete secret <secret-name>
+```
+
 ## create secret
 ```
 kubectl create secret generic <secret-name> \
@@ -38,12 +51,4 @@ kubectl get secrets <secret-name> -n <namespace> -o json \
         
 kubectl patch secret <secret-name> -n <namespace> \
     -p "{\"data\":{\"a.key\":\"${dk}\",\"a.crt\":\"${dv}\"}}"        
-```
-
-## get secret
-```
-kubectl get secrets
-kubectl get secret <secret-name> -o yaml
-kubectl get secret <secret-name> -o jsonpath="{.data.username}" | base64 --decode
-kubectl describe secret <secret-name>
 ```
