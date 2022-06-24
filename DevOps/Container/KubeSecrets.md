@@ -9,6 +9,8 @@ https://howchoo.com/kubernetes/read-kubernetes-secrets
 kubectl get secrets
 kubectl get secret <secret-name> -o yaml
 kubectl get secret <secret-name> -o jsonpath="{.data.username}" | base64 --decode
+kubectl get secret <secret-name> -o jsonpath="{.data.user\.name}" | base64 --decode
+kubectl get secret <secret-name> -o jsonpath="{.data['user\.name']}" | base64 --decode
 kubectl describe secret <secret-name>
 ```
 
@@ -44,6 +46,7 @@ kubectl edit secrets <secret-name>
 
 dk=$(base64 < "./a.key" | tr -d '\n')
 dv=$(base64 < "./a.crt" | tr -d '\n')
+
 kubectl get secrets <secret-name> -n <namespace> -o json \
     | jq ".data[\"a.key\"] |= \"$dk\"" \
     | jq ".data[\"a.crt\"] |= \"$dv\"" \
