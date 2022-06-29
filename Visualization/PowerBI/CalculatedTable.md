@@ -64,3 +64,17 @@ T = ADDCOLUMNS (
     "V", CALCULATE ( SUM ( T1[V] ) )
 )
 ```
+
+## Constant table
+```
+NameQuarter = DATATABLE(
+    "Name",STRING,
+    "Quarter",INTEGER,
+    {
+        {"A", 1},
+        {"B", 2},
+        {"C", 3},
+        {"D", 4}
+    }
+)
+```
