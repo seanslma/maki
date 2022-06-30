@@ -55,3 +55,8 @@ FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
 WHERE TABLE_CATALOG = 'CAT' AND TABLE_SCHEMA ='SCH' AND TABLE_NAME = 'TBL'
 order by ORDINAL_POSITION;
 ```
+
+## show table info
+```
+sp_help '[database].[schema].[table]';
+```
