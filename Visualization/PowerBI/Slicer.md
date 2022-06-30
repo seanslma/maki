@@ -3,7 +3,12 @@
 home table
 https://forum.enterprisedna.co/t/applying-two-slicers-from-the-same-field-on-table-visual/7454/10
 
-## selected value
+## Forced value
+Chiclet Slicer can force select one of the existing values.
+
+For the default slicer, when source data changed, the last selected missing value will still in the slicer. 
+
+## Selected value
 ```
 VAR __val = CALCULATE(
     SUM(Tbl[Value]), 
@@ -12,7 +17,7 @@ VAR __val = CALCULATE(
 )
 ```
 
-## sync slicers
+## Sync slicers
 https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-slicers?tabs=powerbi-desktop#sync-and-use-slicers-on-other-pages
 
 ## Default max value
