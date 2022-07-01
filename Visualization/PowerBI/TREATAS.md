@@ -8,7 +8,7 @@ Applies the result of a table expression as filters to columns from an unrelated
 ### Problem
 ```
 Dim tables:
-Dm1: Date
+Dm1: Year
 Dm2: Company
 
 Fact tables:
