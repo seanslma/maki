@@ -3,6 +3,9 @@
 home table
 https://forum.enterprisedna.co/t/applying-two-slicers-from-the-same-field-on-table-visual/7454/10
 
+## Issue
+Sometimes the slicer will show blan() even all tables do not have blank values.
+
 ## Forced value
 Chiclet Slicer can force select one of the existing values.
 
