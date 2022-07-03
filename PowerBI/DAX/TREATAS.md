@@ -4,6 +4,9 @@ https://docs.microsoft.com/en-us/dax/treatas-function
 
 Applies the result of a table expression as filters to columns from an unrelated table.
 
+## special case
+https://community.powerbi.com/t5/Desktop/Unexpected-return-from-TREATAS-function/m-p/2068473#M771436
+
 ## Use case (join two fact tables)
 ### Problem
 ```
