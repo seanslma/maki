@@ -1,6 +1,6 @@
 # VPN
 
-VPN connectio ncan be blocked by company firewall.
+VPN connection can be blocked by company firewall.
 
 ## OpenConnect
 The group name should be put in the authgroup. 
