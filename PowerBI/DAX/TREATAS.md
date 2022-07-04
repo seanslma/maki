@@ -6,13 +6,15 @@ https://docs.microsoft.com/en-us/dax/treatas-function
 
 Applies the result of a table expression as filters to columns from an unrelated table.
 
-It gets the mapped column values in the expression and then get the `rows` with mapped column values. After that, it check other selected columns in the selected rows.
-
 ## detailed explanation
 https://www.sqlbi.com/articles/understanding-data-lineage-in-dax/
 
 ## special case
 https://community.powerbi.com/t5/Desktop/Unexpected-return-from-TREATAS-function/m-p/2068473#M771436
+
+It gets the mapped column values in the expression and then get the `rows` with mapped column values (only the ones inboth). After that, it check other selected columns in the selected rows.
+
+In this case, it first selects the rows with managers `John and Sam` in Sales, and then for each rows check the columns `Date` and `ID` - do the calculation if there is a match.  
 
 ## Use case (join two fact tables)
 ### Problem
