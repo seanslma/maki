@@ -6,7 +6,7 @@ https://docs.microsoft.com/en-us/dax/treatas-function
 
 Applies the result of a table expression as filters to columns from an unrelated table.
 
-It get the mapped column values based on the expression and apply the filter to the mapped column.
+It gets the mapped column values in the expression and then get the `rows` with mapped column values. After that, it check other selected columns in the selected rows.
 
 ## detailed explanation
 https://www.sqlbi.com/articles/understanding-data-lineage-in-dax/
