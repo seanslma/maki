@@ -2,7 +2,7 @@
 
 https://docs.microsoft.com/en-us/dax/treatas-function
 
-TREATAS(table expression, column[, other optional columns])
+`TREATAS(table expression, column[, other optional columns])`
 
 Applies the result of a table expression as filters to columns from an unrelated table.
 
