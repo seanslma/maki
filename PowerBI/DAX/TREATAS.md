@@ -2,7 +2,14 @@
 
 https://docs.microsoft.com/en-us/dax/treatas-function
 
+TREATAS(table expression, column[, other optional columns])
+
 Applies the result of a table expression as filters to columns from an unrelated table.
+
+It get the mapped column values based on the expression and apply the filter to the mapped column.
+
+## detailed explanation
+https://www.sqlbi.com/articles/understanding-data-lineage-in-dax/
 
 ## special case
 https://community.powerbi.com/t5/Desktop/Unexpected-return-from-TREATAS-function/m-p/2068473#M771436
