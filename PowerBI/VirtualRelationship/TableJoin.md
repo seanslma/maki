@@ -4,7 +4,7 @@
 can be used to join two tables without any relationships. The join will use the columns with the same name. T
 he join result is a temporal table but the table must be used in a DAX context (measure).
 
-### calculate the sumproduct of columns from two tables
+### Calculate the sumproduct of columns from two tables
 ```
 CalculatedTaxRate =
     VAR __avg_rate = Calculate(
