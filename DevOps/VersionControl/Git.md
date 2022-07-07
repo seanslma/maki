@@ -6,6 +6,9 @@
 ## config git editor
 ```
 git config --global core.editor "vim"
+
+#error: cannot spawn more: No such file or directory
+git config --global core.pager ""
 ```
 
 ## create git alias
