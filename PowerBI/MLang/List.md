@@ -30,7 +30,7 @@ in
     Result
 ```
 
-## add list as new table column
+## Add list as new table column
 ```
 let
     Source = Table,
