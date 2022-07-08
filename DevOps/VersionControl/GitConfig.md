@@ -16,6 +16,12 @@ git config --global core.editor "vim"
 git config --global --unset core.excludesfile #remove the setting
 ```
 
+Use windinds Credentials Manager, in the config file
+```
+[credential]
+	helper = wincred
+```
+
 ## system
 System level config file lives in the system root path: 
 - unix: `$(prefix)/etc/gitconfig` 
