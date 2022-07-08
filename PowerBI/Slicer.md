@@ -4,7 +4,7 @@ home table
 https://forum.enterprisedna.co/t/applying-two-slicers-from-the-same-field-on-table-visual/7454/10
 
 ## Issue
-Sometimes the slicer will show blan() even all tables do not have blank values.
+Sometimes the slicer will show blank() even all tables do not have blank values.
 
 This happens when a table on the n-side of a 1-to-n relationship contains values not present in the corresponding column of the table on the 1-side (with the slicer on a column from the table on the 1-side). Just like a Left Outer Join on the 1-side table.
 
