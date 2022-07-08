@@ -13,6 +13,7 @@ Global config file locates in user's home directory:
 - windows: `C:/Users/<usr>/.gitconfig`
 ```
 git config --global core.editor "vim"
+git config --global --unset core.excludesfile #remove the setting
 ```
 
 ## system
