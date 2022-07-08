@@ -128,7 +128,7 @@ xl.Quit
 ```
 
 ## Excel column letter to number
-```
+```python
 def col_num(col: str) -> int:
     n = 0
     for c in col:
