@@ -126,7 +126,7 @@ git checkout -- path-to-file #only one file
 ## drop commits not pushed
 ```
 git reset --hard HEAD~3 #three commits
-git reset --hard HEAD{1} #revert previous command
+git reset --hard HEAD~1 #revert previous commit
 ```
 
 ## Your branch is ahead of 'origin/master' by x commit
