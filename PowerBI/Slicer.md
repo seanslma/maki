@@ -9,7 +9,7 @@ Sometimes the slicer will show blank() even all tables do not have blank values.
 This happens when a table on the n-side of a 1-to-n relationship contains values not present in the corresponding column of the table on the 1-side (with the slicer on a column from the table on the 1-side). Just like a Left Outer Join on the 1-side table.
 
 ## Forced value
-Chiclet Slicer can force select one of the existing values.
+`Chiclet Slicer` can force select one of the existing values.
 
 For the default slicer, when source data changed, the last selected missing value will still in the slicer. 
 
