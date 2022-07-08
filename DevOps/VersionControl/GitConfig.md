@@ -21,6 +21,7 @@ Use windinds Credentials Manager, in the config file
 [credential]
 	helper = wincred
 ```
+Also ensure the credential is manully created in the Credentials Manager.
 
 ## system
 System level config file lives in the system root path: 
