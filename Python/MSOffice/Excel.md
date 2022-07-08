@@ -126,3 +126,19 @@ Next
 wb.Close False
 xl.Quit
 ```
+
+## Excel column letter to number
+```
+def col_num(col: str) -> int:
+    n = 0
+    for c in col:
+        n = n * 26 + ord(c) - 64 #ord('A')=65
+    return n - 1
+    
+def col_rng(colrng: str) -> Iterator[int]:
+    cols = colrng.split(':')
+    return range(xl_col_num(cols[0]), xl_col_num(cols[-1]) + 1)
+
+def col_ind(colstr: str) -> List[int]:
+    return [i for col in colstr.split(',') for i in xl_col_rng(col)]    
+```
