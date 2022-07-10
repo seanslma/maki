@@ -1,5 +1,7 @@
 # bash
 
+https://linuxize.com/post/bash-case-statement/
+
 ## Ch1 intro
 
 ### add dir to PATH variable
