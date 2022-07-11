@@ -2,6 +2,11 @@
 
 https://www.replex.io/blog/kubernetes-in-production-best-practices-for-cluster-autoscaler-hpa-and-vpa
 
+```
+kubectl get cm cluster-autoscaler-status -n kube-system
+kubectl get cm cluster-autoscaler-user-values -n kube-system
+```
+
 ## cluster austoscaler (CA)
 CA increases or decreases the size of a Kubernetes cluster (by adding or removing nodes), based on the presence of pending pods and node utilization metrics.
 - Adds nodes to a cluster whenever it detects pending pods that could not be scheduled due to resource shortages
