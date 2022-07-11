@@ -13,7 +13,7 @@ The contents in this repository are a collection of knowledge from different sou
 
 ### &emsp;[Pandas](Python/Pandas.ipynb)
 
-## [VBA Notes](VBA.md)
+## [VBA Notes](VBA/VBA.md)
 
 ## SQL
 ### &emsp;MySQL
