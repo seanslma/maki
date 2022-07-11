@@ -17,3 +17,7 @@ Best practice:
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
 
 ## vertical pod autoscaler (VPA)
+
+
+## Scale rules
+https://docs.giantswarm.io/advanced/cluster-autoscaler/
