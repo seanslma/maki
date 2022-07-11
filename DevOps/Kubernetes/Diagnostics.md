@@ -3,6 +3,7 @@
 ## check
 ```
 kubectl version
+kubectl get cm #ConfigMaps
 kubectl get nodes --no-headers | wc -l #cluster node count
 kubectl top nodes
 kubectl top pods -A
