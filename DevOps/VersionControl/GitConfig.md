@@ -16,9 +16,17 @@ git config --global core.editor "vim"
 git config --global --unset core.excludesfile #remove the setting
 ```
 
-Use windinds Credentials Manager, in the config file
+Avoid ssl error
 ```
-git config --global credential.helper manager-core
+[http]
+	sslbackend = schannel 
+```
+
+Use windinds Credentials Manager,
+`git config --global credential.helper manager-core`
+```
+[credential]
+	helper = manager-core
 ```
 
 ## system
