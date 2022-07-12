@@ -21,8 +21,8 @@ git branch --merged | egrep -v "(^\*|master|main|develop)" | xargs git branch -d
 git branch --no-merged | egrep -v "(^\*|master|main|develop)" | xargs git branch -D #UNIX, unmerged
 
 # `%` shortcut to foreach, `$_` is the piped variable
-git branch --merged | Where-Object { !($_ | Select-String "master|main|develop" -quiet) } | %{git branch -d $_}    #PowerShell, merged
-git branch --no-merged | Where-Object { !($_ | Select-String "master|main|develop" -quiet) } | %{git branch -D $_} #PowerShell, unmerged
+git branch --merged | Where-Object { !($_ | Select-String "master|main|develop" -quiet) } | %{git branch -d $_.Trim()}    #PowerShell
+git branch --no-merged | Where-Object { !($_ | Select-String "master|main|develop" -quiet) } | %{git branch -D $_.Trim()} #PowerShell
 ```
 
 ## Delete remote branches
