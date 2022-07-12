@@ -17,12 +17,13 @@ git branch -D <branch-name> #force delete branch (even if not merged)
 
 ## Delete multiple local branches
 ```
-git branch --merged | egrep -v "(^\*|master|main|develop)" | xargs git branch -d    #UNIX, merged
-git branch --no-merged | egrep -v "(^\*|master|main|develop)" | xargs git branch -D #UNIX, unmerged
+# UNIX
+git branch --merged | egrep -v "(^\*|master|main|develop)" | xargs git branch -d    #merged
+git branch --no-merged | egrep -v "(^\*|master|main|develop)" | xargs git branch -D #unmerged
 
-# `%` shortcut to foreach, `$_` is the piped variable
-git branch --merged | Where-Object { !($_ | Select-String "master|main|develop" -quiet) } | %{git branch -d $_.Trim()}    #PowerShell
-git branch --no-merged | Where-Object { !($_ | Select-String "master|main|develop" -quiet) } | %{git branch -D $_.Trim()} #PowerShell
+# PowerShell: `%` shortcut to foreach, `$_` is the piped variable
+git branch --merged | Where-Object { !($_ | Select-String "master|main|develop" -quiet) } | %{git branch -d $_.Trim()}
+git branch --no-merged | Where-Object { !($_ | Select-String "master|main|develop" -quiet) } | %{git branch -D $_.Trim()}
 ```
 
 ## Delete remote branches
