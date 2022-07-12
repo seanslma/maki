@@ -9,7 +9,7 @@ git branch --merged    #list all branches that have been merged
 git branch --no-merged #list all branches not merged
 ```
 
-## Delete branches
+## Delete local branches
 ```
 git branch -d <branch-name> #delete merged branch
 git branch -D <branch-name> #force delete branch (even if not merged)
