@@ -38,8 +38,17 @@ az aks update --resource-group <resource-group> \
     --cluster-name <cluster-name> --name <nodepool-name> \
     --update-cluster-autoscaler --min-count 0 --max-count 4
 ```
-## metrics
+## Metrics
 https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-common-metrics
+
+### scale-down-utilization-threshold
+https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler#set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster
+```
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --cluster-autoscaler-profile scale-down-utilization-threshold=<percentage value>
+```
 
 ## Prevent autoscaler deleting node which runs a specific pod
 https://faun.pub/how-to-make-sure-kubernetes-autoscaler-not-deleting-the-nodes-which-run-a-specific-pod-8df3f2c28c46
