@@ -1,4 +1,5 @@
 # Kube diagnostics
+https://thenewstack.io/living-with-kubernetes-12-commands-to-debug-your-workloads/
 
 ## check
 ```
@@ -13,7 +14,6 @@ kubectl get events | grep <this-string>
 kubectl get jobs/<job-name>
 kubectl describe job <job-name>
 kubectl describe jobs/<job-name> -n <namespace>
-
 ```
 
 ## logs
