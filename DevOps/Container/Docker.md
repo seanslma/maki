@@ -83,6 +83,11 @@ id -nG
 |docker rmi |Remove one or more images|
 |docker tag |Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE|
 
+### remove image with multiple repos/tags
+```
+docker rmi [repo-name1]:[tag1] [repo-name2]:[tag2]
+```
+
 ## map host directory
 ```
 # mount `/tmp` directory from host into `/container/dat` in the container, 
