@@ -85,6 +85,7 @@ id -nG
 
 ### remove image with multiple repos/tags
 ```
+docker rmi -f <image-id>
 docker rmi [repo-name1]:[tag1] [repo-name2]:[tag2]
 ```
 
