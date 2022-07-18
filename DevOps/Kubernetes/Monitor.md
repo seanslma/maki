@@ -21,3 +21,8 @@ Add $HOME/.krew/bin directory to PATH by appending the folowing line to `.bashrc
 ```
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 ```
+
+The restart the shell and check the version:
+```
+kubectl krew version
+```
