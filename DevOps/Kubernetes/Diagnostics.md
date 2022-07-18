@@ -28,3 +28,7 @@ kubectl logs --since=1h <pod-name> #display all logs written in the last hour
 ## drain a node
 Safely Drain a Node: 
 https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+## pending pods
+https://www.datadoghq.com/blog/debug-kubernetes-pending-pods/
+
