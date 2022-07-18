@@ -1,6 +1,6 @@
 # Monitor
 
-## install `krew`
+## Install `krew`
 `krew` is the plugin manager:
 https://krew.sigs.k8s.io/docs/user-guide/setup/install/
 
@@ -26,7 +26,7 @@ The restart the shell and check the version:
 kubectl krew version
 ```
 
-## resource capacity
+## Plugin `resource-capacity`
 Resource usage using `resource-capacity` plugin:
 https://www.middlewareinventory.com/blog/cpu-memory-usage-nodes-k8s/
 
