@@ -29,3 +29,19 @@ $ { date; top -b -n1 | head ; } >logfile
 i = $(( 20 + 5 ))   
 (( i++ ))
 ```
+
+## $(variable)
+${variable} is just a disambiguation mechanism, so `${var}text` can be different to `$vartext`.
+
+## ${command}
+$(command) is a modern synonym for `command` which stands for command substitution; it means run command and put its output here.
+```
+round_k() {
+    echo $(( ($1 + 500) / 1000 * 1000 ))
+}
+x=600
+y=$(round_k $x)
+echo $y
+```
+
+

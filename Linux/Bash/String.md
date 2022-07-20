@@ -18,3 +18,13 @@ Single quotes protect the text between them verbatim.
 Double quotes are suitable when variable interpolation is required or single quotes are required in the string.
 - want to suppress word splitting and globbing
 - ant the literal to be treated as a string, not a regex
+
+## sed
+replace `{"title":"` with nothing: `sed 's/{"title":"//g'`
+
+## cut
+```
+> (echo '"title":"Math & Physics"' | cut -d '"' -f 4)
+Math & Physics
+```
+
