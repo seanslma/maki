@@ -5,9 +5,11 @@
 k describe node <node-name>
 ```
 
-## cluster-autoscaler status
+## logs
 ```
->> kubectl get configmap -n kube-system cluster-autoscaler-status
-NAME                        DATA   AGE
-cluster-autoscaler-status   1      37h
+kubectl logs <pod-name> -n <namespace>
+kubectl logs -p -c <container-name> <pod-name> #logs from previous terminated container
+kubectl logs -f -c <container-name> <pod-name> #begin streaming logs from container
+kubectl logs --tail=20 <pod-name> #display only the most recent 20 lines of logd
+kubectl logs --since=1h <pod-name> #display all logs written in the last hour
 ```

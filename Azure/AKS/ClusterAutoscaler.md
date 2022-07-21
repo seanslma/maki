@@ -15,6 +15,31 @@ https://github.com/Azure/AKS/issues/2766
 
 https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview
 
+## Autoscale pods
+https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-scale?tabs=azure-cli#autoscale-pods
+
+Kubernetes supports horizontal pod autoscaling (HPA) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. 
+
+To use the autoscaler, all containers in your pods and your pods must have CPU requests and limits defined. 
+
+If average CPU utilization across all pods exceeds 50% of their requested usage, the autoscaler increases the pods up to a maximum of 10 instances.
+```
+Kubectl autoscale deployment <container-app-name> --cpu-percent=50 --min=3 --max=10
+```
+```
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: <container-app-name>-hpa
+spec:  
+  minReplicas: 3  # define min replica count
+  maxReplicas: 10 # define max replica count
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: <container-app-name>
+  targetCPUUtilizationPercentage: 50 # target CPU utilization
+```
 ## Manually scale down nodes
 https://docs.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli
 ```
@@ -38,6 +63,7 @@ az aks update --resource-group <resource-group> \
     --cluster-name <cluster-name> --name <nodepool-name> \
     --update-cluster-autoscaler --min-count 0 --max-count 4
 ```
+
 ## Metrics
 https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-common-metrics
 
