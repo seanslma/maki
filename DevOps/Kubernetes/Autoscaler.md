@@ -4,6 +4,7 @@ https://www.replex.io/blog/kubernetes-in-production-best-practices-for-cluster-a
 
 
 ## cluster-autoscaler status
+Basic info - not really useful
 ```
 >> kubectl get configmap -n kube-system cluster-autoscaler-status
 NAME                        DATA   AGE
@@ -11,6 +12,10 @@ cluster-autoscaler-status   1      37h
 
 kubectl get cm cluster-autoscaler-status -n kube-system
 kubectl get cm cluster-autoscaler-user-values -n kube-system
+```
+All info
+```
+kubectl describe configmap --namespace kube-system cluster-autoscaler-status
 ```
 
 ## cluster austoscaler (CA)
