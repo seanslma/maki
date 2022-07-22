@@ -1,6 +1,8 @@
 # Kube diagnostics
 https://thenewstack.io/living-with-kubernetes-12-commands-to-debug-your-workloads/
 
+https://kubernetes.io/docs/tasks/debug/debug-cluster/
+
 ## check
 ```
 kubectl version
