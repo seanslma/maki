@@ -32,7 +32,7 @@ Disable password requirement for starting cron service
 - run: `sudo visudo`
 - add: `%sudo<tab not space>ALL=NOPASSWD: usr/sbin/service cron start`
 - add an empty at the end
-- 
+
 ### Create a scheduled task
 - taskschd.msc
 - Actions > Create Basic Task
