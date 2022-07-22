@@ -25,3 +25,16 @@ sudo service docker start
 #get docker-server-name
 service --status-all
 ```
+
+## Auto start cron in wsl
+### create a scheduled task
+- taskschd.msc
+- Actions > Create Basic Task
+- Triggers: When the computer starts
+- Action: Start a program: `C:\Windows\System32\wsl.exe`, args: `sudo /usr/sbin/service start cron`
+- Finish: Run whether the user logged on or not
+
+### change wsl settings
+Disable password requirement for starting cron service
+- run: `sudo visudo`
+- add: `%sudo ALL=NOPASSWD: usr/ubin/service start cron`
