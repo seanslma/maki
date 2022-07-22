@@ -1,20 +1,57 @@
 # vim
 
+i ->insert before cursor
+I ->insert at line front
+
 ## vi
 ```
-esc #back to command mode
-i #insert characters
-I #to left and insert characters
-a #append characters
-A #to right and append characters
-r #replace character
-x #delete character
-:q! #force quit
-:wq! #force save and quit
+esc  -> back to command mode
+i    -> insert characters before cursor
+I    -> insert characters at line front
+a    -> append characters after cursor
+A    -> append characters at line end
+r    -> replace character
+x    -> delete character
+:q!  -> force quit without change
+:wq! -> force save and quit
 
-esc
-type u to undo the last change
-type 2u to undo the two last changes
+u    -> undo the last change
+2u   -> undo the two last changes
+U    -> undo a whole line 
+^R   -> redo (undo the undo's) 
+```
+
+## Move
+Here’s a handy tip: prefacing a movement command with a number will execute that movement multiple times. So, if you want to move up six lines, enter 6k and Vim will move the cursor up six lines. If you want to move over five words, enter 5w. To move 10 words back, use 10b.
+
+### char
+```
+<h jv k^ l>
+h ->left
+l ->right
+k ->up
+j ->down
+```
+### word
+```
+w  -> move forward one word
+b  -> move backward one word
+de -> move to end of current word  
+2w -> move to start of 2ed word  
+3e -> move to end of 3ed word
+```
+
+### line
+```
+0  -> moves to the beginning of the line
+$  -> moves to the end of the line
+```
+
+### file
+```
+gg -> move to the beginning of the file
+G  -> move to the end of the file
+`. -> move to the last edit
 ```
 
 ## vimtutor
