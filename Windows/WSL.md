@@ -30,7 +30,7 @@ service --status-all
 ### Change wsl settings
 Disable password requirement for starting cron service
 - run: `sudo visudo`
-- add: `%sudo ALL=NOPASSWD: usr/ubin/service start cron`
+- add: `%sudo ALL=NOPASSWD: usr/sbin/service start cron`
 ### Create a scheduled task
 - taskschd.msc
 - Actions > Create Basic Task
