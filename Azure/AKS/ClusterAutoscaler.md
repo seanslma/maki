@@ -43,10 +43,17 @@ spec:
 ## Manually scale down nodes
 https://docs.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli
 ```
+#show nodepool profiles
 az aks show --resource-group <resource-group> \
     --name <cluster-name> --query agentPoolProfiles
+    
+#scale nodepool    
 az aks scale --resource-group <resource-group> \
     --name <cluster-name> --node-count 1 --nodepool-name <nodepool-name>
+    
+#can scale user nodepool to zero node
+az aks nodepool scale --resource-group <resource-group> \
+    --name <nodepool-name> --node-count 0 --cluster-name <cluster-name>
 
 #disable ca
 az aks nodepool update --resource-group <resource-group> \
