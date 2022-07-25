@@ -23,7 +23,6 @@ U    -> undo a whole line
 
 ## Move
 Here’s a handy tip: prefacing a movement command with a number will execute that movement multiple times. So, if you want to move up six lines, enter 6k and Vim will move the cursor up six lines. If you want to move over five words, enter 5w. To move 10 words back, use 10b.
-
 ### char
 ```
 <h jv k^ l>
@@ -40,13 +39,11 @@ de -> move to end of current word
 2w -> move to start of 2ed word  
 3e -> move to end of 3ed word
 ```
-
 ### line
 ```
 0  -> moves to the beginning of the line
 $  -> moves to the end of the line
 ```
-
 ### file
 ```
 gg -> move to the beginning of the file
