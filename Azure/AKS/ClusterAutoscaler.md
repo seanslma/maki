@@ -18,6 +18,11 @@ https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overvie
 ## Autoscale pods
 https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-scale?tabs=azure-cli#autoscale-pods
 
+manually scale pods:
+```
+kubectl scale --replicas=5 deployment/<deployment-name>
+```
+
 Kubernetes supports horizontal pod autoscaling (HPA) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. 
 
 To use the autoscaler, all containers in your pods and your pods must have CPU requests and limits defined. 
