@@ -53,7 +53,8 @@ az aks scale --resource-group <resource-group> \
     
 #can scale user nodepool to zero node
 az aks nodepool scale --resource-group <resource-group> \
-    --name <nodepool-name> --node-count 0 --cluster-name <cluster-name>
+    --cluster-name <cluster-name> --name <nodepool-name> \
+    --node-count 0 
 
 #disable ca
 az aks nodepool update --resource-group <resource-group> \
