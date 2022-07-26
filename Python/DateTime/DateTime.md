@@ -241,3 +241,10 @@ dt + MonthEnd(1) #move forward till get the first month end
 #get the first day of each date, MonthBegin does not work
 df['first_day_in_month'] = df['date'].to_numpy().astype('datetime64[M]')
 ```
+
+## pd.Timestamp to month begin (datetime64[M])
+```
+#output: numpy.datetime64('2022-01')
+month_begin = pd.Timestamp('2022-01-05').to_datetime64().astype('datetime64[M]')
+month)begin_with_day = month_begin.astype('datetime64[D]')
+```
