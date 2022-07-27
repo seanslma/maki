@@ -51,68 +51,34 @@ G  -> move to the end of the file
 `. -> move to the last edit
 ```
 
-## vimtutor
-From the commandline you'll get "a 30 minute tutorial that teaches the most basic Vim functionality hands-on" as it calls itself.
-
-### 1.1 moving
-```
-h ->left
-l ->right
-k ->up
-j ->down
-```
-
-### 1.2 exit
-```
-:q! ->exit without change
- ```
- 
-### 1.3 delete
-```
-x ->delete a character
-```
-
-### 1.4 insert
-```
-i ->insert before cursor
-I ->insert at line front
-```
-
-### 1.5 append
-```
-a ->insert after cursor
-A ->insert at line end
-```
-
-### 1.6 save
-```
-:wq  ->save and exit
-```
-
+## Delete
 ### 2.1 delete
 ```
-dw -> delete until start of next word
+dw  -> delete until the start of next word
+de  -> delete after the end of current word
+d2w -> delete until start of 2ed word   
 ```
 
 ### 2.2 delete
 ```
 d0 -> delete to line front
 d$ -> delete to line end  
+dd -> delete current line 
+2dd -> delete 2 lines
 ```
 
 ### 2.3 motion
-  de -> move to end of current word  
+  
 
-### 2.4 count
-  2w -> move to start of 2ed word  
-  3e -> move to end of 3ed word
 
 ### 2.5 count delete
-  d2w -> delete until start of 2ed word  
+  
 
 ### 2.6 line
-  dd -> delete current line 
-  2dd -> delete 2 lines
+
+
+## vimtutor
+From the commandline you'll get "a 30 minute tutorial that teaches the most basic Vim functionality hands-on" as it calls itself.
   
 ### 2.7 undo
   u ->undo last commands
