@@ -18,8 +18,15 @@ qs = df['Quarter'].str.replace(r'(Q\d) (\d+)', r'\2-\1')
 ymd_quarter = pd.PeriodIndex(qs, freq='Q').to_timestamp()
 ymd_quarter = pd.to_datetime(qs, errors='coerce')
 ```
+
 ## pd.Timestamp to cal/fin year
 ```
 per = pd.Timestamp('2023-07-01').to_period('A-DEC') #cal year
 per = pd.Timestamp('2023-07-01').to_period('A-JUN') #fin year
+```
+
+## DateOffset
+```
+pd.DateOffset(months=12) #less options
+pd.tseries.frequencies.to_offset('A-JUN')
 ```
