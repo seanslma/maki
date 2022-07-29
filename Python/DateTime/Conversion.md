@@ -27,11 +27,19 @@ per = pd.Timestamp('2023-07-01').to_period('A-JUN') #fin year
 
 ## DateOffset
 ```
-pd.DateOffset(months=12) #within the same day
+#within the same day
 >>> pd.Timestamp("2021-08-25") - pd.DateOffset(months=1)
 Timestamp('2021-07-25 00:00:00')
 
-pd.tseries.frequencies.to_offset('A-JUN') #offset to the period start/end
->>> pd.Timestamp("2021-08-25") - pd.tseries.frequencies.to_offset('1M')
-Timestamp('2021-07-31 00:00:00')
+#offset to the period end
+>>> pd.Timestamp("2021-07-01") - pd.tseries.frequencies.to_offset('A-JUN')
+Timestamp('2022-06-30 00:00:00')
+
+#offset to the period start
+>>> pd.Timestamp("2021-07-01") + pd.tseries.frequencies.to_offset('AS-JUL')
+Timestamp('2022-07-01 00:00:00')
+
+#offset to the period start: Cal Year
+>>> pd.Timestamp("2021-01-01") + pd.tseries.frequencies.to_offset('AS-JAN')
+Timestamp('2022-01-01 00:00:00')
 ```
