@@ -9,6 +9,12 @@ df = df.set_axis(columns, axis=1)
 ```python
 df[['cola','colb']] = df['col'].str.rsplit('_', 1, expand=True)
 ```
+
+## newcol from two col levels (year and quarter)
+```
+qt_yr = [f'Q{quarter}{str(year)[2:]}' for year, quarter in df.columns]
+```
+
 ## newcol based on conditions on another col
 ```python
 #use np.select
