@@ -9,10 +9,10 @@ from graphviz import (
 )
 
 f = Graph('test', format='png')
-for k, v in data.item():
+for k, v in data.items():
   f.node(k, v)
 f.edges(['ab', 'ac', 'bd', 'ce', 'cf'])
-f.reder('test', view=True)
+f.render('test', view=True)
 
 f = Digraph(filename='c:/test.gv")
 
@@ -22,7 +22,7 @@ data = {
     'd': 'Staff-A', 'e': 'Staff-B', 'f': 'Staff-C', 
 }
 #nodes
-for k, v in data.item():
+for k, v in data.items():
     if k == 'a':
         f.node(k, v, shape='oval')        
     elif k in ['b', 'c']:
