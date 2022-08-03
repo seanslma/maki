@@ -1,19 +1,20 @@
 # Graph tool
 
 ## graphviz
+conda install graphviz python-graphviz pydot
 ```
 from graphviz import (
-    Graph
-    Digraph
+    Graph,
+    Digraph,
 )
 
 f = Graph('test', format='png')
 for k, v in data.item():
   f.node(k, v)
 f.edges(['ab', 'ac', 'bd', 'ce', 'cf'])
-f.reder('test', view=true)
+f.reder('test', view=True)
 
-f = graphviz.Digraph(filename='c:/test.gv")
+f = Digraph(filename='c:/test.gv")
 
 data = {
     'a': 'CEO',
