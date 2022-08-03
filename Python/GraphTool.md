@@ -11,14 +11,15 @@ from graphviz import (
     Digraph,
 )
 
+#Graph
 f = Graph('test', format='png')
 for k, v in data.items():
   f.node(k, v)
 f.edges(['ab', 'ac', 'bd', 'ce', 'cf'])
 f.render('test', view=True)
 
-f = Digraph(filename='c:/test.gv')
-
+#Digraph
+f = Digraph(filename='c:/test.gv', format='png')
 data = {
     'a': 'CEO',
     'b': 'Team-A', 'c': 'Team-B',
@@ -38,9 +39,12 @@ f.edge('a', 'c')
 f.edge('b', 'd')
 f.edge('c', 'e')
 f.edge('c', 'f', label='OK\nGo')
-    
+
+f.save()
+f.render(view=0, cleanup=1)
 f
 ```
+
 ## cloud inforstructure diagrams
 ```
 from diagrams import Diagram
