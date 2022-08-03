@@ -1,7 +1,10 @@
 # Graph tool
 
 ## graphviz
-conda install graphviz python-graphviz pydot
+Shapes: 
+https://graphviz.org/doc/info/shapes.html
+
+`conda install graphviz python-graphviz pydot`
 ```
 from graphviz import (
     Graph,
@@ -34,9 +37,19 @@ f.edge('a', 'b')
 f.edge('a', 'c')
 f.edge('b', 'd')
 f.edge('c', 'e')
-f.edge('c', 'f')
+f.edge('c', 'f', label='OK\nGo')
     
 f
+```
+## cloud inforstructure diagrams
+```
+from diagrams import Diagram
+from diagrams.aws.compute import EC2
+from diagrams.aws.network import ELB
+from diagrams.aws.database import RDS
+
+with Diagram("Web Service", show=False):
+    ELB("lb") >> EC2("web") >> RDS("userdb")
 ```
 
 ## schemdraw
