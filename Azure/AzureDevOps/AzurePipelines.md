@@ -13,3 +13,13 @@ https://devblogs.microsoft.com/devops/demystifying-service-principals-managed-id
 - Select either Triggers or Variables which will bring up the Visual Designer
 - Select the YAML tab
 - Specify the new build pipeline name
+
+## Azure CLI DevOps Extension
+https://adamtheautomator.com/azure-devops/#logging-in-with-the-azure-cli
+```
+az extension add --name azure-devops
+az devops configure --defaults organization=https://<website>
+
+az devops project create --name <project-name>
+az devops configure --defaults project=<project-name>
+```
