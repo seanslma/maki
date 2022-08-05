@@ -13,6 +13,9 @@ https://packaging.python.org/en/latest/guides/distributing-packages-using-setupt
 ### setup.cfg
 `setup.cfg` is an ini file that contains option defaults for setup.py commands.
 
+Use `git` versioneer:
+https://github.com/python-versioneer/python-versioneer/blob/master/INSTALL.md
+
 ### README.md
 All projects should contain a readme file that covers the goal of the project.
 
