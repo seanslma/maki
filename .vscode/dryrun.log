@@ -1,0 +1,6 @@
+make: Entering directory '/home/sma/dev/seanslma.github.io'
+git add .
+git commit -m "wiki"
+git push -u origin main
+make: Leaving directory '/home/sma/dev/seanslma.github.io'
+ 
