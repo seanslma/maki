@@ -20,8 +20,8 @@ az group delete --name rg01
 
 ## service principal
 ```
-$spIdUri = "http://<url>"
-$sp = az ad sp create-for-rbac --name $spIdUri | ConvertFrom-Json
+$sp = az ad sp create-for-rbac --name <sp-name> | ConvertFrom-Json
+az ad sp create-for-rbac --name <sp-name> --role Contributor --scopes /subscriptions/<subscription-id>
 ```
 
 ## storage account
