@@ -6,8 +6,8 @@ https://azuredevopslabs.com/labs/vstsextend/azurekeyvault/
 
 https://devblogs.microsoft.com/devops/demystifying-service-principals-managed-identities/
 
-## build
-### change pipeline name
+## Build
+### Change pipeline name
 - Select pipeline and click edit
 - Click the vertical ellipse, in the upper right corner to the right of the Run button
 - Select either Triggers or Variables which will bring up the Visual Designer
@@ -23,3 +23,6 @@ az devops configure --defaults organization=https://<website>
 az devops project create --name <project-name>
 az devops configure --defaults project=<project-name>
 ```
+
+## Bash task
+https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/bash?view=azure-devops
