@@ -41,3 +41,10 @@ The number of `retries` before considering a Job as failed. Default is 6.
 
 Failed Pods associated with the Job are recreated by the Job controller with an exponential back-off delay (10s, 20s, 40s ...) capped at six minutes. 
 The back-off count is reset when a Job's Pod is deleted or successful without any other Pods for the Job failing around that time.
+
+The number of retries is calculated in two ways:
+- The number of Pods with `.status.phase = "Failed"`
+- When using `restartPolicy = "OnFailure"`, the number of retries in all the containers of Pods with `.status.phase` equal to `Pending` or `Running`
+If either of the calculations reaches the .spec.backoffLimit, the Job is considered failed.
+
+When the JobTrackingWithFinalizers feature is disabled, the number of failed Pods is only based on Pods that are still present in the API.
