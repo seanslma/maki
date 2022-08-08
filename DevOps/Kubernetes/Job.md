@@ -19,12 +19,12 @@ spec:
       template:
         spec:
           containers:
-          - name: print-date
-            image: node:14-alpine
+          - name: hello-date
+            image: my-image
             imagePullPolicy: IfNotPresent
             args:
             - -e
-            - "console.log(new Date().toString());"
+            - "echo date;"
           restartPolicy: OnFailure
       parallelism: 1
       completions: 1
