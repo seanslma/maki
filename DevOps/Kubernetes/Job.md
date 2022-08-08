@@ -31,10 +31,12 @@ spec:
 ```
 
 ## `concurrencyPolicy`
-concurrencyPolicy set to Forbid means it will run 0 or 1 times.
+`concurrencyPolicy` set to Forbid means it will run 0 or 1 times.
 
 ## `restartPolicy`
-restartPolicy set to Never means it won't restart on failure.
+`restartPolicy` set to Never means it won't restart on failure. 
+- If restartPolicy is set to `OnFailure` then the pod will be restarted if it fails
+- with backoffLimit, a restartPolicy of `Never` ensures that when a pod fails it will eventually propagate and cause the job to fail
 
 ## `.spec.backoffLimit`
 The number of `retries` before considering a Job as failed. Default is 6. 
