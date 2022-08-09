@@ -4,8 +4,10 @@
 Shapes: 
 https://graphviz.org/doc/info/shapes.html
 
-`conda install graphviz python-graphviz pydot`
+- Install `Graphviz`
+- `conda install graphviz python-graphviz pydot`
 ```
+os.environ["PATH"] += os.pathsep + 'C:/Program Files/Graphviz/bin/'
 from graphviz import (
     Graph,
     Digraph,
@@ -33,6 +35,22 @@ for k, v in data.items():
         f.node(k, v, shape='box')
     else:
         f.node(k, v, shape='plaintext')
+        
+#labels
+with g.subgraph(name='clusterA') as s:
+    s.attr(rank='same')
+    s.node('a', 'AA', shape='rnastab')
+    s.node('b', 'BB', shape='signature')
+#labels
+with g.subgraph(name='clusterB') as s:
+    s.attr(rank='same')
+    s.node('c', 'CC', shape='trapezium')
+    s.node('d', 'DD', shape='Mdiamond')  
+#invisible edge    
+g.edge('a', 'c', ltail='clusterA', lhead='clusterB', style='invis')
+#not constrained
+#a2 -- a0 [constraint=false];
+
 #edges
 f.edge('a', 'b')
 f.edge('a', 'c')
