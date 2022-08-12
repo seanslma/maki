@@ -1,3 +1,4 @@
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/sma/dev/seanslma.github.io'
 git add .
 git commit -m "wiki"

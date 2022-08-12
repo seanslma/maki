@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jul 29 22:02:19 2022
+# Make data base, printed on Fri Aug 12 22:42:54 2022
 
 # Variables
 
@@ -26,8 +26,6 @@ DESKTOP_SESSION = ubuntu
 XDG_SESSION_CLASS = user
 # environment
 XDG_SESSION_TYPE = x11
-# environment
-VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -63,8 +61,6 @@ XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/d
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
 _ = /usr/bin/code
 # environment
 MANAGERPID = 1552
@@ -85,8 +81,6 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
-VSCODE_LOG_STACK = false
-# environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
 INVOCATION_ID = 59683272bc284c21a43c801861862f41
@@ -102,8 +96,6 @@ SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 %F = $(notdir $%)
 # environment
 DISPLAY = :0
-# environment
-VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /home/sma/dev/seanslma.github.io
 # default
@@ -123,7 +115,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
 LOGNAME = sma
 # environment
@@ -150,8 +142,6 @@ QT_IM_MODULE = ibus
 SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-95865859-9d60-4bfb-82a9-5f586856d388.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -165,7 +155,7 @@ XDG_CURRENT_DESKTOP = Unity
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/sma/dev/car
+OLDPWD = /home/sma/dev/cvm
 # default
 .VARIABLES := 
 # automatic
@@ -173,7 +163,7 @@ OLDPWD = /home/sma/dev/car
 # environment
 LANGUAGE = en_AU:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.67.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.69.2-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -215,9 +205,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 179013
+VSCODE_PID = 364148
 # variable set hash-table stats:
-# Load=102/1024=10%, Rehash=0, Collisions=14/127=11%
+# Load=97/1024=9%, Rehash=0, Collisions=13/122=11%
 
 # Pattern-specific Variable Values
 
@@ -278,6 +268,6 @@ makefile:
 # strcache performance: lookups = 41 / hit rate = 12%
 # hash-table stats:
 # Load=36/8192=0%, Rehash=0, Collisions=1/41=2%
-# Finished Make data base on Fri Jul 29 22:02:19 2022
+# Finished Make data base on Fri Aug 12 22:42:54 2022
 
  
