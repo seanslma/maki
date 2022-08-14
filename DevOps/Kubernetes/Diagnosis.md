@@ -27,4 +27,8 @@ https://docs.microsoft.com/en-us/azure/aks/node-access
 
 ## pending pods
 https://www.datadoghq.com/blog/debug-kubernetes-pending-pods/
+```
+kubectl get pods --all-namespaces=true --field-selector=status.phase=Pending
+kubectl delete pods -A  --field-selector='status.phase=Failed' #delete failed pods
+```
 
