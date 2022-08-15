@@ -23,7 +23,7 @@ sns.barplot(x='tip_pct', y='day', data=df, orient='h')
 sns.barplot(x='tip_pct', y='day', data=df, hue='time', orient='h')
 ```
 
-Use catplot() to combine a barplot() and a FacetGrid:
+Use catplot() to combine a barplot() and a FacetGrid - data should not be in index:
 ```python
 g = sns.catplot(
   kind="bar",
@@ -31,7 +31,9 @@ g = sns.catplot(
   x="sex", 
   y="total_bill",
   hue="smoker", 
-  col="time",    
+  col="time",  
+  sharey=False, 
+  ci=None,   #remove error bars
   height=4, 
   aspect=.7,
 )
