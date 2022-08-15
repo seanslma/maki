@@ -37,11 +37,14 @@ g = sns.catplot(
   height=4, 
   aspect=.7,
 )
-#ylim and gridline
-ylims = [[1,2], [1,2], [4,8], [3,6]]
+#ylim, gridline, annotation
+ylims = [[1.4,2], [1.2,1.8], [5,8],[3.5,5.5]]
 for i, ax in enumerate(g.axes.ravel()):
     ax.set_ylim(ylims[i])
     ax.grid(b=True, which='major', color='black', linewidth=0.075)
+    for c in ax.containers:
+        labels = [f'{v.get_height():.3f}' for v in c]
+        ax.bar_label(c, labels=labels, label_type='edge', rotation=90, fontsize=8) 
 ```
 
 ## hist
