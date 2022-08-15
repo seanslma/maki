@@ -30,7 +30,7 @@ g = sns.catplot(
   data=tips, 
   x="sex", 
   y="total_bill",
-  hue="smoker", 
+  row="smoker", 
   col="time",  
   sharey=False, 
   ci=None,                  #remove error bars
@@ -39,7 +39,17 @@ g = sns.catplot(
   aspect=.7,
 )
 #ylim, gridline, annotation
-ylims = [[1.4,2], [1.2,1.8], [5,8], [3.5,5.5]]
+ylims = (
+  d.groupby(['smoker','time'])
+  .agg(vmin=('val', 'min'), vmax=('val', 'max'))
+  .assign(
+    tmin=lambda x: x[['vmin']].groupby(['smoker']).transform('min'),
+    tmax=lambda x: x[['vmax']].groupby(['smiker']).transform('max'),
+  )
+  .drop(columns=['vmin','vmax'])
+  .assign(tmin=lambda x: x.tmin * 0.99)
+  .to_records(index=False)
+)
 for i, ax in enumerate(g.axes.ravel()):
     ax.set_ylim(ylims[i])
     ax.grid(b=True, which='major', color='black', linewidth=0.075)
