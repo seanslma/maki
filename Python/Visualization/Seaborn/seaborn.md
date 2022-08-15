@@ -33,12 +33,13 @@ g = sns.catplot(
   hue="smoker", 
   col="time",  
   sharey=False, 
-  ci=None,   #remove error bars
+  ci=None,                  #remove error bars
+  order=['1H', '2H', '4H'], #x order
   height=4, 
   aspect=.7,
 )
 #ylim, gridline, annotation
-ylims = [[1.4,2], [1.2,1.8], [5,8],[3.5,5.5]]
+ylims = [[1.4,2], [1.2,1.8], [5,8], [3.5,5.5]]
 for i, ax in enumerate(g.axes.ravel()):
     ax.set_ylim(ylims[i])
     ax.grid(b=True, which='major', color='black', linewidth=0.075)
