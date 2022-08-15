@@ -24,7 +24,7 @@ sns.barplot(x='tip_pct', y='day', data=df, hue='time', orient='h')
 ```
 
 Use catplot() to combine a barplot() and a FacetGrid:
-```
+```python
 g = sns.catplot(
   kind="bar",
   data=tips, 
