@@ -23,6 +23,20 @@ sns.barplot(x='tip_pct', y='day', data=df, orient='h')
 sns.barplot(x='tip_pct', y='day', data=df, hue='time', orient='h')
 ```
 
+Use catplot() to combine a barplot() and a FacetGrid:
+```
+g = sns.catplot(
+  kind="bar",
+  data=tips, 
+  x="sex", 
+  y="total_bill",
+  hue="smoker", 
+  col="time",    
+  height=4, 
+  aspect=.7,
+)
+```
+
 ## hist
 ```python
 sns.distplot(values, bins=100, color='k')
