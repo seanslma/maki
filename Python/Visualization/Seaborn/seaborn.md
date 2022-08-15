@@ -37,6 +37,11 @@ g = sns.catplot(
   height=4, 
   aspect=.7,
 )
+#ylim and gridline
+ylims = [[1,2], [1,2], [4,8], [3,6]]
+for i, ax in enumerate(g.axes.ravel()):
+    ax.set_ylim(ylims[i])
+    ax.grid(b=True, which='major', color='black', linewidth=0.075)
 ```
 
 ## hist
