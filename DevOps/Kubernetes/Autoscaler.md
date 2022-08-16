@@ -43,6 +43,8 @@ kubectl get hpa <hpa-name> --watch             #watch hpa
 kubectl get deployment <deployment-name>       #deployment
 kubectl describe hpa <hpa-name> -n <namespace> #hpa conditions
 kubectl delete hpa <hpa-name> -n <namespace>   #delete hpa
+kubectl scale deployment <deployment-name> \
+  --replicas=<replica-count> -n <namespace>    #scale replicasets
 ```
 
 Yaml file:
