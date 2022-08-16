@@ -32,6 +32,12 @@ Best practice:
 ## horizontal pod autoscaler (HPA)
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale
 
+Scaling formula: 
+https://github.com/kubernetes/kubernetes/issues/78761
+```
+desiredMetricValue = ceil[(currentReplicas * currentMetricValue) / desiredReplicas]
+```
+
 Kubernetes uses the horizontal pod autoscaler (HPA) to monitor the resource demand and automatically scale the number of replicas. 
 
 ```      
