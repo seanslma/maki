@@ -34,6 +34,56 @@ https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale
 
 Kubernetes uses the horizontal pod autoscaler (HPA) to monitor the resource demand and automatically scale the number of replicas. 
 
+```      
+kubectl autoscale deployment <hpa-name> \
+  --cpu-percent=50 --min=3 --max=10            #create hpa
+kubectl create -f ./hpa.yaml                   #create hpa from yaml
+kubectl get hpa                                #check hpa
+kubectl get hpa <hpa-name> --watch             #watch hpa
+kubectl get deployment <deployment-name>       #deployment
+kubectl describe hpa <hpa-name> -n <namespace> #hpa conditions
+kubectl delete hpa <hpa-name> -n <namespace>   #delete hpa
+```
+
+Yaml file:
+```
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: <hpa-name>
+  namespace: <deployment-namespace>
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: <deployment-name>
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: AverageValue
+          averageValue: 1000m
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+        - type: Pods
+          value: 4
+          periodSeconds: 60
+        - type: Percent
+          value: 10
+          periodSeconds: 60
+      selectPolicy: Max
+```
 
 ## vertical pod autoscaler (VPA)
 https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler
