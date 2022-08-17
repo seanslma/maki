@@ -1,5 +1,11 @@
 # Git Issue
 
+## No PR in github after push
+reset upstream to remote upstream/master
+```
+git branch --set-upstream-to upstream/master
+```
+
 ## fatal: repository not found
 - did not authenticate
 - password has changed
