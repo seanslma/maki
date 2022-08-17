@@ -1,4 +1,6 @@
 # Helm
+Template cheatsheet:
+https://lzone.de/cheat-sheet/Helm%20Templates
 
 ## type casting
 https://github.com/yaml/YAML2/wiki/Type-casting
