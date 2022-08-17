@@ -4,6 +4,7 @@
 reset upstream to remote upstream/master
 ```
 git branch --set-upstream-to upstream/master
+git push -u orgin <branch-name>
 ```
 
 ## fatal: repository not found
