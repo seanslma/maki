@@ -8,6 +8,7 @@ ports:
 ```
 
 ## if else
+https://github.com/bitnami/charts/blob/master/bitnami/apache/templates/hpa.yaml
 ```
 rollingUpdate:
   maxSurge: 1
