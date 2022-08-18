@@ -1,4 +1,4 @@
-# Graph tool
+# Chart
 
 ## graphviz
 Shapes: 
