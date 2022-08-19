@@ -45,6 +45,11 @@ df = df.reorder_levels([None,'Region','Scenario'], axis=0).reindex(mi) #index (d
 df = df.reorder_levels([None,'Region','Scenario'], axis=1).reindex(mi) #columns
 ```
 
+## modify one level
+```
+df.set_index(df.index.set_levels(df.index.get_level_values('a').dt.date, level='a'))
+```
+
 ## add a new index
 ```python
 df = pd.concat([df], keys=['New_Idx'], names=['idx0'])
