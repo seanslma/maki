@@ -5,7 +5,7 @@ using a move constructor, a std::vector could just copy its internal pointer to 
 
 ## local and global static variables
   * The name of the local is only accessible within the function, and has no linkage
-  * Local is initialised the first time execution reaches the definition, not necessarily during the program's initialisation phases
+  * Local is initialized the first time execution reaches the definition, not necessarily during the program's initialisation phases
 
 ## Const member functions
 A "const function", denoted with the keyword const after a function declaration, makes it a compiler error for this class function to change a **member variable** of the class.

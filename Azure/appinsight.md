@@ -1,2 +1,2 @@
-# Appplication Insights
+# Application Insights
 

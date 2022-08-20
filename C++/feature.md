@@ -21,7 +21,6 @@ public:
 }
 ```
 
-
 ## override
 When overriding a virtual function, introducing the override keyword will explicitly tell the compiler
 to overload, and the compiler will check if the base function has such a virtual function, otherwise it will

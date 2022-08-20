@@ -24,6 +24,7 @@ ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verif
   install local Certificate
   install python-certifi-win32
   ```
+  
 ## Unable to get local issuer certificate
 https://confluence.atlassian.com/bitbucketserverkb/ssl-certificate-problem-unable-to-get-local-issuer-certificate-816521128.html
  
