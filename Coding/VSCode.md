@@ -1,4 +1,4 @@
 # VS Code
 
-## line space
+## Line space
 settings > editor > line height > 15

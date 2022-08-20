@@ -19,7 +19,7 @@ Note:
   * -v $(pwd):/var/jenkins_home mounts the current directory to Jenkins home inside the container
   * -v /var/run/docker.sock:/var/run/docker.sock mounts Docker socks
   * -p 80:8080 maps port 80 in the host to port 8080 inside the container (if port 80 is used change to another port e.g., 8086)
-  * -p 50000:50000 maps ports 50000 which is the default port for angent registration
+  * -p 50000:50000 maps ports 50000 which is the default port for agent registration
   * jenkinsci/blueocean is the image maintained by jenkinsci.
 
 Then open http://127.0.0.1:80 and follow the directions
@@ -33,8 +33,8 @@ Do other steps same as the public repo.
   * `cat id_rsa.pub` copy key to github: repo settings -> Deploy keys -> Add deploy key
   * add ssh private key inside Jenkins: 
     * manage jenkins -> manage credentials -> 
-    * Kind: ssh username with priavte key -> 
-    * Usename: github-repo
+    * Kind: ssh username with private key -> 
+    * Username: github-repo
   * configure jenkins job to use SSH keys:
     * job -> source code management
     * after repo url -> select credential (github-repo) -> apply

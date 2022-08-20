@@ -2,43 +2,27 @@
 
 ## changing yaml file
 ```
-kubectl apply -f guestbook-all-in-one.yaml
-#edit yaml
-code guestbook-all-in-one.yaml
-#apply changes
-kubectl apply -f guestbook-all-in-one.yaml
-#get service public IP
-kubectl get service
-#change version
-code guestbook-all-in-one.yaml
-#apply and check
-kubectl apply -f guestbook-all-in-one.yaml && kubectl get pods -w
-#show rolling update strategy
-kubectl get events | grep ReplicaSet
-#verify
-kubectl get replicaset
-#show rollout history
-kubectl rollout history deployment frontend
-#rollback deployment
-kubectl rollout undo deployment frontend
-#verify 
-kubectl get replicaset
-
-#clean up
-kubectl delete -f guestbook-all-in-one.yaml
+code guestbook-all-in-one.yaml             #edit yaml
+kubectl apply -f guestbook-all-in-one.yaml #apply changes
+kubectl get service                        #get service public IP
+code guestbook-all-in-one.yaml             #change version
+kubectl apply -f guestbook-all-in-one.yaml \
+  && kubectl get pods -w                   #apply and check
+kubectl get events | grep ReplicaSet       #show rolling update strategy
+kubectl get replicaset                     #verify
+kubectl rollout history deployment frontend #show rollout history
+kubectl rollout undo deployment frontend   #rollback deployment
+kubectl get replicaset                     #verify 
+kubectl delete -f guestbook-all-in-one.yaml #clean up
 ```
 
 ## using kubectl edit
 This will not work in an automated environment.
 ```
-#undo changes
-git reset --hard
-#deploy app
-kubectl create -f guestbook-all-in-one.yaml
-#edit service
-kubectl edit service frontend
-#watch service
-kubectl get svc -w
+git reset --hard                            #undo changes
+kubectl create -f guestbook-all-in-one.yaml #deploy app
+kubectl edit service frontend               #edit service
+kubectl get svc -w                          #watch service
 ```
 
 ## using kubectl patch
@@ -100,11 +84,11 @@ echo "<WordPress password>" | base64 -d
 
 #update image tag with Helm and watch pods change 
 helm upgrade wp bitnami/wordpress \
---set mariadb.image.tag=10.5.8-debian-10-r44\
---set mariadb.auth.password="<decoded password>" \
---set mariadb.auth.rootPassword="<decoded password>" \
---set wordpressPassword="<decoded password>" \
-&& kubectl get pods -w
+  --set mariadb.image.tag=10.5.8-debian-10-r44\
+  --set mariadb.auth.password="<decoded password>" \
+  --set mariadb.auth.rootPassword="<decoded password>" \
+  --set wordpressPassword="<decoded password>" \
+  && kubectl get pods -w
 
 #show new image version
 kubectl describe pod wp-mariadb-0 | grep Image

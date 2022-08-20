@@ -12,34 +12,14 @@ Fully managed Kubernetes service on Azure; easy to deploy and manage containeriz
 
 ## aks basic
 ```
-#get credentials to access your cluster
-az aks get-credentials --resource-group rg01 --name aks01
-#verify have access
-kubectl get nodes
-#launch app
-kubectl create -f aks01.yaml
-#check deployment progress
-kubectl get pods
-#using alias
-alias k=kubectl
-#following pods status
-kubectl get pods --watch
-##get credentials to access your cluster
-az aks get-credentials --resource-group rg01 --name aks01
-#verify have access
-kubectl get nodes
-#launch app
-kubectl create -f aks01.yaml
-#check deployment progress
-kubectl get pods
-#using alias
-alias k=kubectl
-#following pods status
-kubectl get pods --watch
-#get load balancer public IP
-kubectl get service aks01-front --watch
-#see all objects in Kubernetes
-kubectl get all
-#delete created objects
-kubectl delete -f aks01.yaml
+alias k=kubectl                      #using alias
+az aks get-credentials \
+  --resource-group rg01 --name aks01 #get credentials to access your cluster
+kubectl get nodes                    #verify have access
+kubectl create -f aks01.yaml         #launch app
+kubectl get pods                     #check deployment progress
+kubectl get pods --watch             #following pods status
+kubectl get service aks01-front --watch #get load balancer public IP
+kubectl get all                      #see all objects in Kubernetes
+kubectl delete -f aks01.yaml         #delete created objects
 ```

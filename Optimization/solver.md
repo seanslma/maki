@@ -1,5 +1,5 @@
 # Solvers
 
-## Comercial solvers
+## Commercial solvers
 
 ## Open source solvers

@@ -9,8 +9,8 @@ With Sheets("Test").Range("A1")
 End With
 ```
 
-## cell formating color
-Get cell conditional formating background color:
+## cell formatting color
+Get cell conditional formatting background color:
 ```vb
 Function BgHexColor(rng As Range)
     i = rng.DisplayFormat.Interior.Color 'ColorIndex
@@ -24,20 +24,20 @@ End Function
 
 ## color scale 2
 ```VB
-Sub CondFmt_ColourScales2()
+Sub CondFmt_ColorScales2()
     Dim rg As Range: Set rg = Range("F5:I5")
     rg.FormatConditions.Delete
     
-    'colour scale will have 2 colours
+    'color scale will have 2 colors
     Dim cs As ColorScale: Set cs = rg.FormatConditions.AddColorScale(ColorScaleType:=2)
     With cs
-        'the first colour is white
+        'the first color is white
         With .ColorScaleCriteria(1)
             .FormatColor.Color = RGB(255, 255, 255)
             .Type = xlConditionValueLowestValue
         End With
         
-        'the third colour is red
+        'the third color is red
         With .ColorScaleCriteria(2)
             .FormatColor.Color = RGB(255, 0, 0)
             .Type = xlConditionValueHighestValue
@@ -48,27 +48,27 @@ End Sub
 
 ## color scale 3
 ```VB
-Sub CondFmt_ColourScales3()
+Sub CondFmt_ColorScales3()
     Dim rg As Range: Set rg = Range("F5:I5")
     rg.FormatConditions.Delete
     
-    'colour scale will have 3 colours
+    'color scale will have 3 colors
     Dim cs As ColorScale: Set cs = rg.FormatConditions.AddColorScale(ColorScaleType:=3)
     With cs
-        'colour 1 is blue
+        'color 1 is blue
         With .ColorScaleCriteria(1)
             .FormatColor.Color = RGB(102, 153, 255)
             .Type = xlConditionValueLowestValue
         End With
         
-        'colour 2 is yellow set at value 50
+        'color 2 is yellow set at value 50
         With .ColorScaleCriteria(2)
             .FormatColor.Color = RGB(255, 230, 153)
             .Type = xlConditionValueNumber
             .Value = 50
         End With
         
-        'colour 3 is red
+        'color 3 is red
         With .ColorScaleCriteria(3)
             .FormatColor.Color = RGB(255, 0, 0)
             .Type = xlConditionValueHighestValue

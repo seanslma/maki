@@ -26,7 +26,7 @@ else
 end if 
 ``` 
 
-then we need to check the dimension of the val,using 
+then we need to check the dimension of the val, using 
 ```vba
 Function VarDim(var As Variant) As Long
 On Error GoTo Err

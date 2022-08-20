@@ -18,7 +18,7 @@ Linker, Input, Additional Dependencies
 ## solution?
 Go to Project » Properties » Libraries » Use Intel Math Kernel Library and select Parallel, Sequential, or Cluster as appropriate. 
 
-If the switch don't work,  you may solve the problem by adding mkl header file path, library and library path manually 
+If the switch don't work, you may solve the problem by adding mkl header file path, library and library path manually 
 
 1. Select Project » Properties » Linker » General » Additional Library Directories. Add the architecture specific lib folder, for example, \lib\ia32. 
 

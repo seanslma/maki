@@ -39,7 +39,7 @@ Function RngLastCUsedXlRight(rng0 As Range, Optional colOffset As Long = 0) As R
 End Function
 
 Function GetRng(rng0 As Range, 
-                Optional nrow As Long = -1, Optional ncol As Long = -1, _
+    Optional nrow As Long = -1, Optional ncol As Long = -1, _
 		Optional rowOffset As Long = 0, Optional colOffset As Long = 0, _
 		Optional xlDown As Boolean = True, Optional xlRight As Boolean = False, _
 		Optional rowShift As Long = 0, Optional colShift As Long = 0) As Range
