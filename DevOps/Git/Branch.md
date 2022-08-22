@@ -1,5 +1,19 @@
 # Git Branch
 
+## check the setup tracking branches
+```
+git branch -vv
+#if it shows that the tracking branch is not upstream/master
+# we need to fix it as below
+```
+
+## point local master to upstream/master
+```
+git checkout master
+git reset --hard upstream/master
+git branch --set-upstream-to upstream/master
+```
+
 ## Show branches
 ```
 git branch             #list all local branches
@@ -7,6 +21,40 @@ git branch -r          #list all remote branches
 git branch -a          #list both local and remote branches
 git branch --merged    #list all branches that have been merged
 git branch --no-merged #list all branches not merged
+```
+
+## rename `master` to `main`
+```
+git branch -m master main       #local
+git push -u origin main         #remote
+git push origin --delete master #delete remote master
+```
+
+## create/delete branch
+```
+git branch new-branch
+git checkout -b new-branch                    #create and switch to
+git branch -d new-branch                      #delete local branch
+git push --delete <remote name> <branch name> #delete remote branch
+```
+
+## restore deleted branch
+```
+git reflog show --all             #get sha1 of the deleted branch
+git branch <NewBranchName> <sha1> #restore the branch
+```
+
+## Create branch from another branch
+```
+#checkout branch to copy
+git checkout dev
+
+#create new branch
+#git checkout -b dev-test [current_active_branch]
+git checkout -b dev-test
+
+#push changes in dev-test to remote
+git push origin dev-test
 ```
 
 ## Delete local branches

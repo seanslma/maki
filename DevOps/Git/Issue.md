@@ -14,6 +14,14 @@ git push upstream HEAD
 - incorrect case or a word misspelled
 - repo has been deleted
 
+## fatal: refusing to merge unrelated histories
+```
+git reset HEAD~ #unstage last commit
+git stash       #stash changes
+git pull        #fetch and merge remote branch
+git pop         #unstash changes
+```
+
 ## fatal: ambiguous argument 'upstream/master': unknown revision or path not in the working tree
 ```
 git fetch upstream

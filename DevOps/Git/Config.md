@@ -22,7 +22,7 @@ Avoid ssl error
 	sslbackend = schannel 
 ```
 
-Use windinds Credentials Manager,
+Use windows Credentials Manager,
 `git config --global credential.helper manager-core`
 ```
 [credential]
