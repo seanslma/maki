@@ -26,3 +26,9 @@ az devops configure --defaults project=<project-name>
 
 ## Bash task
 https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/bash?view=azure-devops
+
+## build not trigered
+Check triggers (maybe overwriten by UI or had connection issues):
+```
+Edit > three-dots > TRiggers
+```
