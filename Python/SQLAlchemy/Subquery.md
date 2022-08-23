@@ -1,5 +1,16 @@
 # Subquery
 
+## Subquery in column
+```
+stmt = select([t.c.a, subq.as_scaler()])
+stmt = select([t.c.a, subq.correlate(None).as_scaler()])
+```
+
+## Subquery in `In clause`
+```
+stmt = select([t.c.a, t.c.b]).whereclause(t.c.a.in_(subq))
+```
+
 ## Subquery in `from`
 ```
 query = session.query(t.Id, t.Name)
