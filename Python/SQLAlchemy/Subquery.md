@@ -17,6 +17,9 @@ stmt = select([t.c.a, t.c.b]).whereclause(t.c.a.in_(subq))
 ```
 
 ## Subquery in `from`
+***Caveat***: 
+- `window` function will only get the first one in the group
+- `inner join` will get all records with the same key columns
 ```
 query = session.query(t.Id, t.Name)
 row_number_column = func.row_number().over(
