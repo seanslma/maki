@@ -1,5 +1,9 @@
 # Commit 
 
+## multi-line comment
+```
+git commit -m "Head line" -m " * First content line" -m " * Second content line"
+```
 ## drop commits not pushed
 ```
 git reset --hard HEAD~3 #three commits
