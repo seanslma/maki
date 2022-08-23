@@ -1,5 +1,10 @@
 # Subquery
 
+# table alias
+```
+t = tbl.alias('t')
+```
+
 ## Subquery in column
 ```
 stmt = select([t.c.a, subq.as_scaler()])
