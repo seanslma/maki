@@ -13,6 +13,7 @@ kubectl top pods -A
 kubectl get events
 kubectl get events -o wide
 kubectl get events | grep <this-string>
+kubectl get events -A --sort-by='.lastTimestamp' | sed -r 's/ {2,}/,/g' > /mnt/c/tmp/aks_events.csv #fixed col to csv
 kubectl get jobs/<job-name>
 kubectl describe job <job-name>
 kubectl describe jobs/<job-name> -n <namespace>
