@@ -32,3 +32,6 @@ Check triggers (maybe overwriten by UI or had connection issues):
 ```
 Edit > three-dots > TRiggers
 ```
+
+## Anaconda pipeline
+https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/anaconda?view=azure-devops&tabs=ubuntu
