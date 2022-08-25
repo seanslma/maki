@@ -36,7 +36,7 @@ function convert_to {
         if (Test-Path -Path "$file_from" -PathType Leaf) {
             $file_to = "${file}${ext_to}"
             Write-Output "Converting <file>${ext_from} to: ${file_to}"
-            jupytext --to notebook "$file_from" > null
+            jupytext --to notebook "$file_from" > $null
         }
         else {
             Write-Output "Error: File does not exist: ${file_from}"
