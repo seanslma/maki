@@ -3,6 +3,9 @@
 Conda and Mamba Commands for Managing Virtual Environments\
 https://www.imranabdullah.com/2021-08-21/Conda-and-Mamba-Commands-for-Managing-Virtual-Environments
 
+## init
+Only need to run conda initialization when the CONDA_SHLVL variable is 0 - there are no activated envs.
+
 ## activate
 Conda puts each environment on a stack as it is activated and deactivating merely pops one item off the stack.
 The depth of the conda environment stack is stored in the environment variable CONDA_SHLVL. Running conda deactivate that many times should deactivate all environments.
