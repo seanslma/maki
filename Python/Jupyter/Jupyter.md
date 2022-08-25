@@ -20,6 +20,18 @@ Use Tab with your cursor directly after a defined variable to see the list of me
 ## markdown to cell
   Esc + y
   
+## source control
+use `jupytext` to synchronize `.py` and `.ipynb` files.
+```
+conda install jupytext                               #install
+jupytext --set-formats ipynb,py <file>.ipynb         #create ipynb file
+jupytext --set-formats ipynb,py <file>.ipynb --sync  #sync ipynb to .py file
+
+jupytext --to notebook <file>.py  #from .py to .ipynb file
+jupytext --to py <file>.ipynb     #from .ipynb to .py file
+jupytext --to python --output <file>.py <file>.ipynb 
+```
+  
 ## enable extension
   pip install jupyter_nbextensions_configurator
   jupyter nbextensions_configurator enable --user #not work
