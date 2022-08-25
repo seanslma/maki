@@ -16,7 +16,8 @@ git push upstream HEAD
 
 ## fatal: refusing to merge unrelated histories
 ```
-git reset HEAD~ #unstage last commit
+git reset HEAD~ #unstage last commit if not init commit, else
+git update-ref -d HEAD && git rm --cached -r .
 git stash       #stash changes
 git pull        #fetch and merge remote branch
 git pop         #unstash changes

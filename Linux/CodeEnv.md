@@ -31,3 +31,14 @@ rm ~/miniforge.sh
 echo "PATH=$PATH:$HOME/miniforge/bin" >> .bashrc
 source .bashrc
 ```
+
+## install powershell
+```
+sudo apt update
+sudo apt install -y wget apt-transport-https software-properties-common                               #install pre-requisite packages
+wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb" #download Microsoft repository GPG keys
+sudo dpkg -i packages-microsoft-prod.deb                                                              #register Microsoft repository GPG keys
+sudo apt update                           #update package list after adding packages.microsoft.com
+sudo apt-get install -y powershell        #install PowerShell
+pwsh                                      #start PowerShell
+```

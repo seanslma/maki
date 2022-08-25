@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 12 22:42:54 2022
+# Make data base, printed on Tue Aug 23 22:01:35 2022
 
 # Variables
 
@@ -71,13 +71,15 @@ VSCODE_CWD = /home/sma/dev
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/sma/miniforge/bin
+PATH = /home/sma/miniforge/bin:/home/sma/miniforge/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/sma/miniforge/bin
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1777,unix/mase:/tmp/.ICE-unix/1777
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
+# environment
+CONDA_PREFIX = /home/sma/miniforge
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -97,6 +99,8 @@ SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
 DISPLAY = :0
 # environment
+CONDA_EXE = /home/sma/miniforge/bin/conda
+# environment
 PWD = /home/sma/dev/seanslma.github.io
 # default
 .LOADED := 
@@ -115,11 +119,13 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
+VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/da76f93349a72022ca4670c1b84860304616aaa2
 # environment
 LOGNAME = sma
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+CONDA_PROMPT_MODIFIER = (base) 
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
@@ -130,6 +136,8 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
 MAKELEVEL := 0
+# environment
+CONDA_DEFAULT_ENV = base
 # environment
 COLORTERM = truecolor
 # default
@@ -152,10 +160,12 @@ USER = sma
 XDG_CURRENT_DESKTOP = Unity
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
+# environment
+CONDA_SHLVL = 1
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/sma/dev/cvm
+OLDPWD = /home/sma
 # default
 .VARIABLES := 
 # automatic
@@ -163,19 +173,23 @@ OLDPWD = /home/sma/dev/cvm
 # environment
 LANGUAGE = en_AU:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.69.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.70.0-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
+# environment
+PSModulePath = /home/sma/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/7/Modules
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
 GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
+# environment
+NO_AT_BRIDGE = 1
 # environment
 QT_ACCESSIBILITY = 1
 # default
@@ -185,13 +199,17 @@ MAKEFILES :=
 # environment
 LC_ALL = C
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/eed0c7e3_ce8f_4399_ad29_00d865ec1127
+CONDA_PYTHON_EXE = /home/sma/miniforge/bin/python
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/e4261a5b_e78a_4c68_9f7e_c6147b09f9db
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.83
+GNOME_TERMINAL_SERVICE = :1.7182
 # default
 SUFFIXES := 
+# environment
+_CE_M = 
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
@@ -205,9 +223,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 364148
+VSCODE_PID = 416377
+# environment
+_CE_CONDA = 
 # variable set hash-table stats:
-# Load=97/1024=9%, Rehash=0, Collisions=13/122=11%
+# Load=107/1024=10%, Rehash=0, Collisions=14/132=11%
 
 # Pattern-specific Variable Values
 
@@ -215,9 +235,9 @@ VSCODE_PID = 364148
 
 # Directories
 
-# . (device 66311, inode 6427991): 30 files, no impossibilities.
+# . (device 66311, inode 6427991): 29 files, no impossibilities.
 
-# 30 files, no impossibilities in 1 directories.
+# 29 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -262,12 +282,12 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 36 / storage = 252 B / avg = 7 B
-# current buf: size = 8162 B / used = 252 B / count = 36 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 35 / storage = 249 B / avg = 7 B
+# current buf: size = 8162 B / used = 249 B / count = 35 / avg = 7 B
 
-# strcache performance: lookups = 41 / hit rate = 12%
+# strcache performance: lookups = 40 / hit rate = 12%
 # hash-table stats:
-# Load=36/8192=0%, Rehash=0, Collisions=1/41=2%
-# Finished Make data base on Fri Aug 12 22:42:54 2022
+# Load=35/8192=0%, Rehash=0, Collisions=1/40=2%
+# Finished Make data base on Tue Aug 23 22:01:35 2022
 
  
