@@ -3,6 +3,9 @@
 Conda and Mamba Commands for Managing Virtual Environments\
 https://www.imranabdullah.com/2021-08-21/Conda-and-Mamba-Commands-for-Managing-Virtual-Environments
 
+## config
+https://docs.conda.io/projects/conda/en/latest/configuration.html
+
 ## activate anaconda/miniconda/conda-forge
 ```
 conda create -n env-py38 python=3.8 anaconda
