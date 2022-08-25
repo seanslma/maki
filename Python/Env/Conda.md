@@ -3,6 +3,15 @@
 Conda and Mamba Commands for Managing Virtual Environments\
 https://www.imranabdullah.com/2021-08-21/Conda-and-Mamba-Commands-for-Managing-Virtual-Environments
 
+## activate
+Conda puts each environment on a stack as it is activated and deactivating merely pops one item off the stack.
+The depth of the conda environment stack is stored in the environment variable CONDA_SHLVL. Running conda deactivate that many times should deactivate all environments.
+```
+for i in $(seq ${CONDA_SHLVL}); do
+    conda deactivate
+done
+```
+
 ## config
 https://docs.conda.io/projects/conda/en/latest/configuration.html
 
