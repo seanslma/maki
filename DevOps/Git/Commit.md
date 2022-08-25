@@ -6,13 +6,14 @@ git commit -m "Head line" -m " * First content line" -m " * Second content line"
 ```
 ## drop commits not pushed
 ```
-git reset --hard HEAD~3 #three commits
-git reset --hard HEAD~1 #revert previous commit
+git reset --hard HEAD~3 #delete last three commits
+git reset --hard HEAD~1 #delete previous commit
+git reset --soft HEAD~1 #revert previous commit to staging area
 ```
 
 ## delete last commit
 ```
-git reset --hard HEAD^
+git reset --hard HEAD^ #on windows: HEAD~1
 git push origin -f
 ```
 
