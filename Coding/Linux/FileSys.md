@@ -15,6 +15,7 @@ mkdir
 ```
 mv test/file-a /dev/file-b
 mv test/folder-a/ folder-b/
+mv /path/folder/* /anotherpath/folder/ #hidden files will be excluded
 ```
 
 ## Copy folder
