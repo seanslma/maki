@@ -7,7 +7,7 @@ https://howchoo.com/kubernetes/read-kubernetes-secrets
 ## get secret
 ```
 kubectl get secrets
-kubectl get secret <secret-name> -o yaml
+kubectl get secret <secret-name> -n <namespace> -o yaml
 kubectl get secret <secret-name> -o jsonpath="{.data.username}" | base64 --decode
 kubectl get secret <secret-name> -o jsonpath="{.data.user\.name}" | base64 --decode
 kubectl get secret <secret-name> -o jsonpath="{.data['user\.name']}" | base64 --decode
