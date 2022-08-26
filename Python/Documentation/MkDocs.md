@@ -7,3 +7,28 @@ mkdocs new proj-name #create a new docs project
 mkdocs build         #build the docs project
 mkdocs serve         #run in preview mode
 ```
+## navigation
+https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#instant-loading
+```
+theme:
+  name: material
+  custom_dir: theme
+  language: en
+  features:
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+  palette:
+    scheme: preference
+    primary: amber
+    accent: yellow
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: material/library
+    repo: fontawesome/brands/git-alt
+```
