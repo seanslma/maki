@@ -15,3 +15,6 @@
 - `Shift + F5` continue
 - `Shift + F7` step over
 - `Shift + F8` finish
+
+## Check var value
+In terminal `view(var_name)`
