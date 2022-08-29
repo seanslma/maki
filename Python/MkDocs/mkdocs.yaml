@@ -1,0 +1,37 @@
+# Project information
+site_name: Test-Math
+site_description: A template file.
+site_author: my.name@example.com
+site_url: https://github.com/usr/test-math
+
+# Configuration
+docs_dir: src
+
+theme:
+  name: material
+  custom_dir: theme
+  language: en
+  features:
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+
+  palette:
+    scheme: preference
+    primary: amber
+    accent: yellow
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: material/library
+    repo: fontawesome/brands/git-alt
+
+markdown_extensions:
+  - mdx_math #python-markdown-math
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
