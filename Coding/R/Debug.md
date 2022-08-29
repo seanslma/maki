@@ -17,4 +17,4 @@
 - `Shift + F8` finish
 
 ## Check var value
-In terminal `view(var_name)`
+In terminal `View(var_name)`
