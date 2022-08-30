@@ -23,9 +23,10 @@ df.plot(ax=ax, x='t', y=['v'])
 plt.setp(axes.get_xticklabels(), rotation = 15)
 ```
 
-## turn on minor grid
+## turn on grid
 ```
-ax.xaxis.grid(True, which="minor")
+ax.xaxis.grid(True, which="minor") #minor
+ax.xaxis.grid(which='both', linestyle='dotted') #both
 ```
 
 ## b\nY
@@ -34,4 +35,13 @@ ax.xaxis.grid(True, which="minor")
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%b\n%Y'))
 ```
 
-## 
+## time\ndate
+```
+ax.plot(df.t, df.v)
+dy_fmt=mdates.DateFormatter('%H:%M\n%Y-%m-%d')
+hr_fmt=mdates.DateFormatter('%H:%M')
+ax.xaxis.set_major_formatter(dy_fmt)
+ax.xaxis.set_major_locator(mdates.DayLocator())
+ax.xaxis.set_minor_formatter(hr_fmt)
+ax.xaxis.set_minor_locator(mdates.HourLocator(byhour=range(2,24,2)))
+```
