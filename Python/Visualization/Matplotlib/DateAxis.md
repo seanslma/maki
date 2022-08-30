@@ -23,8 +23,14 @@ df.plot(ax=ax, x='t', y=['v'])
 plt.setp(axes.get_xticklabels(), rotation = 15)
 ```
 
+## turn on minor grid
+```
+ax.xaxis.grid(True, which="minor")
+```
+
 ## b\nY
 ```
+#ax.xaxis.set_major_locator(mdates.MonthLocator())
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%b\n%Y'))
 ```
 
