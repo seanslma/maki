@@ -7,6 +7,7 @@ Install-Module Az.Resources
 Install-Module Az.Storage   #Get-AzStorageAccount, Set-AzStorageBlobContent
 Install-Module Az.Sql
 ```
+
 Install sqlcmd and bcp (bulk copy program):
 ```
 Install-Module -Name SqlServer #does not help
@@ -26,9 +27,13 @@ Then run pwsh to register resource providers:
 
 And create:
 - Resource group
-- Synapse Analytics workspace    
-    - SQL pools 
+- Synapse Analytics workspace        
     - Apache Spark pools
+    - Dedicated SQL pools 
     - Data Explorer pools
-    - Storage account for data lake
-    
+    - Storage account for datalake
+- Pause the Data Explorer Pool
+- Grant permissions on the datalake storage account
+- Create the SQL database
+- Pause the SQL Pool
+
