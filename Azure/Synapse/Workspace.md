@@ -37,3 +37,12 @@ And create:
 - Create the SQL database
 - Pause the SQL Pool
 
+## Injest data with a pipeline
+
+## Use a serverless SQL pool to analyze data
+
+## Use a Spark pool to analyze data
+
+## Use a dedicated SQL pool to query a data warehouse
+
+## Explore data with a Data Explorer pool
