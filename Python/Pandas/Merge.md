@@ -1,7 +1,8 @@
 # Merge
 
 ## join vs merge
-`merge` joins columns of left to columns of right, but `join`(... on=[...]) joins columns of left to **index keys** of right.
+- `join`(... on=[...]) joins **index/columns** of left to **index keys** of right
+- `merge` joins **index/columns** of left to **index/columns** of right - less restricted
 
 ## avoid `join` with duplicate index
 `join` with duplicate index will lead to m x n records.
