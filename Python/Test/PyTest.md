@@ -1,5 +1,10 @@
 # PyTest
 
+## run from vscode terminal 
+```
+pytest .
+```
+
 ## skip test method
 https://docs.pytest.org/en/latest/how-to/skipping.html#skipping-test-functions
 ```
