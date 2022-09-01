@@ -2,6 +2,28 @@
 
 The .loc/[] operations can perform enlargement when setting a non-existent key for that axis.
 
+## get values vs slice rows
+```
+id  name
+1   a       2.0
+2   a       4.0
+Name: val, dtype: float64
+```
+Sinle value in index returns results exclude the index:
+```
+>>> s[1]
+name
+a    2.0
+Name: val, dtype: float64
+```
+Multiple values in index returns results include the index:
+```
+>>> s[[1]]
+id  name
+1   a       2.0
+Name: val, dtype: float64
+```
+
 ## cols to multiindex
 ```python
 mi = df.columns.str.split('_', expand=True)
