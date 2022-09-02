@@ -6,6 +6,48 @@ https://azuredevopslabs.com/labs/vstsextend/azurekeyvault/
 
 https://devblogs.microsoft.com/devops/demystifying-service-principals-managed-identities/
 
+## Template
+https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops
+```
+#pipeline-template.yml
+parameters:
+- name: buildSteps # the name of the parameter is buildSteps
+  type: stepList # data type is StepList
+  default: [] # default value of buildSteps
+stages:
+- stage: secure_buildstage
+  pool:
+    vmImage: windows-latest
+  jobs:
+  - job: secure_buildjob
+    steps:
+    - script: echo This happens before code 
+      displayName: 'Base: Pre-build'
+    - script: echo Building
+      displayName: 'Base: Build'
+```
+
+```
+#azure-pipeline.yml
+trigger:
+- main
+
+extends:
+  template: start.yml
+  parameters:
+    buildSteps:  
+      - bash: echo Test #Passes
+        displayName: succeed
+      - bash: echo "Test"
+        displayName: succeed
+      # Step is rejected by raising a YAML syntax error: Unexpected value 'CmdLine@2'
+      - task: CmdLine@2
+        inputs:
+          script: echo "Script Test"
+      # Step is rejected by raising a YAML syntax error: Unexpected value 'CmdLine@2'
+      - script: echo "Script Test"
+```
+
 ## Build
 ### Change pipeline name
 - Select pipeline and click edit
