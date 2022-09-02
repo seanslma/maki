@@ -119,6 +119,11 @@ open file **docker-compose.yml** and change the ports
 docker history image-id --no-trunc
 ```
 
+## build image
+```
+docker build https://github.com/docker/rootfs.git#<container-branch>:<docker-dir>
+```
+
 ## push to docker registry
 ```
 az acr login -n container-registry-name
