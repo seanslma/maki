@@ -1,5 +1,7 @@
 # Synapse Workspace
 
+https://microsoftlearning.github.io/mslearn-synapse/Instructions/Labs/01-Explore-Azure-Synapse.html
+
 ## Create Azure Synapse Analytics workspace
 Install
 ```
@@ -27,11 +29,12 @@ Then run pwsh to register resource providers:
 
 And create:
 - Resource group
-- Synapse Analytics workspace        
+- Synapse Analytics workspace  
+    - Datalake storage account gen2      
     - Apache Spark pools
     - Dedicated SQL pools 
     - Data Explorer pools
-    - Storage account for datalake
+    
 - Pause the Data Explorer Pool
 - Grant permissions on the datalake storage account
 - Create the SQL database
