@@ -13,7 +13,10 @@ https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=a
 parameters:
 - name: test
   type: bool
-  default: false
+  default: False
+variables:
+- name: check
+  value: ok   
 stages:
 - stage: buildstage
   pool:
