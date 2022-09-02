@@ -3,8 +3,11 @@
 ## Line space
 settings > editor > line height > 15
 
+## Trim trailing whitespaces
+user settings > Trim Trailing Whitespace
+
 ## Settings
-Customizing IntelliSense: 
+Customizing IntelliSense:
 https://code.visualstudio.com/docs/editor/intellisense
 
 ## Wrap line

@@ -20,8 +20,8 @@ Perhaps the error should be: Failed to hibernate system via logind: Please use B
 
 Disable swapfile and delete it
 ```
- sudo swapoff /swapfile  
- sudo rm /swapfile
+sudo swapoff /swapfile  
+sudo rm /swapfile
 ```
 https://ubuntuhandbook.org/index.php/2021/08/enable-hibernate-ubuntu-21-10/
 

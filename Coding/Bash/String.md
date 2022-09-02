@@ -3,7 +3,7 @@
 ## Quotes or not
 Quote it if it can 
 - be empty
-- contain spaces (or any whitespace really)
+- contain spaces (or any whitespace)
 - contain special characters (wildcards)
 - not require word splitting and wildcard expansion
 

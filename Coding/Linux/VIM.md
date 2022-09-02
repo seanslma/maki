@@ -6,19 +6,23 @@ I ->insert at line front
 ## vi
 ```
 esc  -> back to command mode
+o    -> create a line below and insert
+O    -> create a line above and insert
 i    -> insert characters before cursor
 I    -> insert characters at line front
 a    -> append characters after cursor
 A    -> append characters at line end
 r    -> replace character
+R    -> replace more than one character from the cursor
 x    -> delete character
 :q!  -> force quit without change
 :wq! -> force save and quit
 
 u    -> undo the last change
 2u   -> undo the two last changes
-U    -> undo a whole line 
-^R   -> redo (undo the undo's) 
+U    -> undo a whole line
+-r   -> redo the last undo
+^R   -> redo (undo the undo's)
 ```
 
 ## Move
@@ -26,17 +30,17 @@ Here’s a handy tip: prefacing a movement command with a number will execute th
 ### char
 ```
 <h jv k^ l>
-h ->left
-l ->right
-k ->up
-j ->down
+h -> left
+l -> right
+k -> up
+j -> down
 ```
 ### word
 ```
 w  -> move forward one word
 b  -> move backward one word
-de -> move to end of current word  
-2w -> move to start of 2ed word  
+de -> move to end of current word
+2w -> move to start of 2ed word
 3e -> move to end of 3ed word
 ```
 ### line
@@ -48,63 +52,49 @@ $  -> moves to the end of the line
 ```
 gg -> move to the beginning of the file
 G  -> move to the end of the file
+#G -> move to line#
 `. -> move to the last edit
+^G ->cursor location and file status
 ```
 
 ## Delete
-### 2.1 delete
+### word delete
 ```
 dw  -> delete until the start of next word
 de  -> delete after the end of current word
-d2w -> delete until start of 2ed word   
+d2w -> delete until start of 2ed word
 ```
 
-### 2.2 delete
+### line delete
 ```
 d0 -> delete to line front
-d$ -> delete to line end  
-dd -> delete current line 
+d$ -> delete to line end
+dd -> delete current line
 2dd -> delete 2 lines
+
+dgg -> delete to the beginning of the file
+dG  -> delete to the end of the file
 ```
 
-### 2.3 motion
-  
+## change
+```
+ce  -> delete to word end and insert
+c2w -> delete to 3rd word front and insert
+c3e
+c0
+c$
+```
 
-
-### 2.5 count delete
-  
-
-### 2.6 line
-
-
-## vimtutor
-From the commandline you'll get "a 30 minute tutorial that teaches the most basic Vim functionality hands-on" as it calls itself.
-  
-### 2.7 undo
-  u ->undo last commands
-  U ->undo a whole line 
-  CTRL-R ->redo (undo the undo's) 
-        
-### 3.1 put
-  p ->insert delete after cursor                
-
-### 3.2 replace
-  r ->replace one character 
-  
-### 3.3 change
-  ce ->delete to word end and insert
-  
-### 3.4 more change
-  c2w ->delete to 3rd word front and insert 
-  c3e
-  c0
-  c$     
-
-### 4.1 location
-  gg ->move start of file
-  G  ->move bottom of file
-  #G ->move to line#
-  CTRL-G ->cursor location and file status
+## copy and paste
+```
+v  -> highlight one character at a time
+V  -> highlight one line at a time
+^v -> highlight by columns
+y  -> yank text into the copy buffer (copy)
+yw -> copy one word without v
+p  -> paste text after the current line
+P  -> paste text on the current line
+```
 
 ### 4.2 search
   / ->forward direction
@@ -116,56 +106,38 @@ From the commandline you'll get "a 30 minute tutorial that teaches the most basi
 
 ### 4.3 match
   % ->find a matching ), ], or }
-  
+
 ### 4.4 substitute
   :s/old/new   ->substitute first 'new' for 'old' in the line
   :s/old/new/g ->substitute all 'new' for 'old' in the line
   :#,#s/old/new/g ->substitute between line# and line#
   :%s/old/new/g   ->substitute all in the file
   :%s/old/new/gc  ->substitute all in the file with confirmation
-  
+
 ### 5.1 execute command
   :!cmd ->execute cmd
   :!ls  ->execute ls
-  
+
 ### 5.2 write file
-  :w filename   ->write current file to filename
-  :!rm filename ->delete file filename
-  
-### 5.3 write selection
-  v  ->select text
-  :w ->:'<,'>w filename, write selection to file
-  
+```
+:w filename   -> write current file to filename
+:!rm filename -> delete file filename
+:w            -> :'<,'>w filename, write selection to file
+```
+
 ### 5.4 merge files
   :r filename ->write file to line below
   :r !ls      ->read output of ls and put it below
-  
-### 6.1 open
-  o ->create a line below and insert
-  O ->create a line above and insert
 
-### 6.2 append
-  a ->insert text after the cursor
-  A ->insert text after the line
-
-### 6.3 replace
-  R ->replace more than one character from the cursor
-  
-### 6.4 copy and paste
-v ->highlight
-y ->copy
-p ->paste
-yw->copy one word without v
-  
 ### 6.5 set option
 :set ic     ->ignore case
 :set noic   ->disable ignoring case
 :set hls is ->highlight search and incremental search
-:nohlsearch ->remove highligting of searches 
+:nohlsearch ->remove highligting of searches
 /ignore\c   ->ignore case only in current search
-  
+
 ### 7.1 online help
-<F1> key    
+<F1> key
 :help
 CTRL-W CTRL-W   ->to jump from one window to another
 :q              ->close help window
@@ -175,37 +147,11 @@ CTRL-W CTRL-W   ->to jump from one window to another
 :help user-manual
 
 ### 7.2 startup script
-  <F1> key   
-  
+  <F1> key
+
 ## book
 Vim - Vi Improved - by Steve Oualline
 Learning the Vi Editor - by Linda Lamb
-    
-### Moving
-h moves the cursor one character to the left.
-j moves the cursor down one line.
-k moves the cursor up one line.
-l moves the cursor one character to the right.
-0 moves the cursor to the beginning of the line.
-$ moves the cursor to the end of the line.
-w move forward one word.
-b move backward one word.
-G move to the end of the file.
-gg move to the beginning of the file.
-`. move to the last edit.
-
-Here’s a handy tip: prefacing a movement command with a number will execute that movement multiple times. So, if you want to move up six lines, enter 6k and Vim will move the cursor up six lines. If you want to move over five words, enter 5w. To move 10 words back, use 10b.
-
-### Editing
-x delete the current character
-d starts the delete operation
-dw will delete a word
-d0 will delete to the beginning of a line
-d$ will delete to the end of a line
-dgg will delete to the beginning of the file
-dG will delete to the end of the file
-u will undo the last operation
-Ctrl-r will redo the last undo
 
 ### Searching and Replacing
 /text search for text in the document, going forward
@@ -220,22 +166,15 @@ N move the cursor to the previous instance
 :%s/a/a_text/gc #entire file and confirm before replacing
 replace with foo (y/n/a/q/l/^E/^Y)? #q-quit, l-stop, ^e-scroll up, ^y down
 
-### Copying and Pasting
-    v highlight one character at a time
-    V highlight one line at a time
-    Ctrl-v highlight by columns
-    p paste text after the current line
-    P paste text on the current line
-    y yank text into the copy buffer
-    
-### Saving and Quitting =====
-    esc back to command mode
-    :w save file
-    :w filename save to the file
-    :q! quit
-    ZZ save and quit
+### save and quit
+```
+esc -> back to command mode
+:w  -> save to file
+:q! -> quit
+ZZ  -> save and quit
+```
 
-### syntax highlighting =====
+### syntax highlight
 put it in .vimrc
   :sy enable
   :syn enable

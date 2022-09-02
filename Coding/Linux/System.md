@@ -6,7 +6,7 @@ sudo ntpdate ntp.ubuntu.com
 ```
 
 ## RAM
-``` bash
+```
 free
 free -m[-g]
 cat /proc/meminfo
@@ -16,26 +16,26 @@ htop #similar to top, more control with color, kill it by Ctrl + c
 ```
 
 ## disk space
-``` bash
+```
 df -h
 df -h /dev/sda
 ```
 
 ## w
 show who is logged on and what they are doing
-``` bash
+```
 w [options] user [...]
 -h no header
 -x
 ```
 
 ## services started up in runlevel 3
-``` bash
+```
 ls /etc/rc3.d/S*
 ```
   
 ## folder permission
-``` bash
+```
 chmod 700 yourDirectory/
 ls -l #show all
 ls -1 #one line per file
