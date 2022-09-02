@@ -3,6 +3,11 @@
 Conda and Mamba Commands for Managing Virtual Environments\
 https://www.imranabdullah.com/2021-08-21/Conda-and-Mamba-Commands-for-Managing-Virtual-Environments
 
+## create an env
+```
+conda create --name <env-name>
+```
+
 ## init
 Only need to run conda initialization when the CONDA_SHLVL variable is 0 - there are no activated envs.
 
