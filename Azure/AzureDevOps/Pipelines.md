@@ -26,6 +26,7 @@ stages:
     steps:
     - script: echo Building
       displayName: 'Base: Build'
+      condition: and(succeeded(), or(eq(variables['check'], 'ok'), eq('${{ parameters.test }}', True)))
 ```
 
 ```
