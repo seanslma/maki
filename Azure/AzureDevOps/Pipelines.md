@@ -11,41 +11,40 @@ https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=a
 ```
 #pipeline-template.yml
 parameters:
-- name: buildSteps # the name of the parameter is buildSteps
-  type: stepList # data type is StepList
-  default: [] # default value of buildSteps
+- name: test
+  type: bool
+  default: false
 stages:
-- stage: secure_buildstage
+- stage: buildstage
   pool:
     vmImage: windows-latest
   jobs:
-  - job: secure_buildjob
+  - job: buildjob
     steps:
-    - script: echo This happens before code 
-      displayName: 'Base: Pre-build'
     - script: echo Building
       displayName: 'Base: Build'
 ```
 
 ```
 #azure-pipeline.yml
+variables:
+  var1: v1
 trigger:
-- main
-
-extends:
-  template: start.yml
-  parameters:
-    buildSteps:  
-      - bash: echo Test #Passes
-        displayName: succeed
-      - bash: echo "Test"
-        displayName: succeed
-      # Step is rejected by raising a YAML syntax error: Unexpected value 'CmdLine@2'
-      - task: CmdLine@2
-        inputs:
-          script: echo "Script Test"
-      # Step is rejected by raising a YAML syntax error: Unexpected value 'CmdLine@2'
-      - script: echo "Script Test"
+  - master
+  - refs/tags/*
+pr:
+  - master
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: <namespace>/<pipeline-template>
+      endpoint: unkonwn
+      ref: refs/heads/v4
+jobs:
+  - template: jobs/pipeline-template.yml@templates
+    parameters:
+      test: True
 ```
 
 ## Build
