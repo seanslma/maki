@@ -1,8 +1,5 @@
 # vim
 
-i ->insert before cursor
-I ->insert at line front
-
 ## vi
 ```
 esc  -> back to command mode
@@ -46,6 +43,7 @@ de -> move to end of current word
 ### line
 ```
 0  -> moves to the beginning of the line
+^  -> first non empty of the line
 $  -> moves to the end of the line
 ```
 ### file
@@ -135,6 +133,8 @@ P  -> paste text on the current line
 :set hls is ->highlight search and incremental search
 :nohlsearch ->remove highligting of searches
 /ignore\c   ->ignore case only in current search
+:set number ->line number
+:set nonumber
 
 ### 7.1 online help
 <F1> key
