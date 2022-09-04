@@ -11,7 +11,7 @@ Customizing IntelliSense:
 https://code.visualstudio.com/docs/editor/intellisense
 
 ## Wrap line
-settings.json
+workspace > settings.json
 ```
 {
     "editor.rulers": [80, 120],
@@ -20,5 +20,16 @@ settings.json
     "[markdown]": {
         "editor.wordWrap": "wordWrapColumn",
     }
+}
+```
+
+## Vertical rulers
+`^,` user > settings.json > search for `ruler`
+```
+{
+    "editor.rulers": [80, 120],
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#4e525042"
+    },
 }
 ```
