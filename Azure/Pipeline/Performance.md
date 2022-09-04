@@ -10,3 +10,5 @@ The most important thing is to determine what projects are modified within the l
 https://stackoverflow.com/questions/69542082/dependency-caching-in-python-ci-pipeline-in-azure-devops
 
 https://medium.com/@andre.gensler/guide-how-to-speed-up-your-python-continuous-integration-pipeline-in-azure-devops-using-dependency-916d9cd792a0
+
+To also cache the installation rather just the wheels, we need to use virtual env and cache the entire environment.
