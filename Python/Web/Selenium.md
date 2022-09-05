@@ -12,6 +12,16 @@ except Exception as exc:
     driver.save_screenshot('screenshot.png')
 driver.close()
 ```
+## Get form
+```
+WebDriverWait(driver, timeout).until(
+    EC.presence_of_element_located((By.ID, 'username'))
+)
+form = driver.find_element_by_tag_name('form')
+form.find_element_by_id('username').send_keys('usr')
+form.find_element_by_id('password').send_keys('pwd')
+form.submit()
+```
 
 ## List all elments Ids - slow but works
 ```
@@ -27,9 +37,9 @@ for elem in elems:
 
 ## Input username/password and submit
 ```
-driver.find_element_by_name("login").send_keys("tutorialspoint")
+driver.find_element_by_name("login").send_keys("usr")
 time.sleep(0.2)
-driver.find_element_by_name("passwd").send_keys("pass123")
+driver.find_element_by_name("passwd").send_keys("pwd")
 time.sleep(0.4)
 driver.find_element_by_class_name("signinbtn").click()
 ```
