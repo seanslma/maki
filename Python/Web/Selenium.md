@@ -20,5 +20,5 @@ driver.get('http://example.com')
 
 ids = driver.find_elements_by_xpath('//*[@id]')
 for id in ids:
-    print id.get_attribute('id')
+    print(id.get_attribute('id'))
 ```
