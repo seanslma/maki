@@ -1,5 +1,10 @@
 # Merge
 
+## out merge 
+``
+d1.merge(d2, how='outer', on=['i', 'j'], suffixes=('_x', '_y'), indicator=True)`
+``
+
 ## join vs merge
 - `join`(... on=[...]) joins **index/columns** of left to **index keys** of right
 - `merge` joins **index/columns** of left to **index/columns** of right - less restricted
