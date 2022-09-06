@@ -1,5 +1,8 @@
 # Table info
 
+## Show tables
+right click > Schema Browser > sel3ct owner > all tables under the schema will show
+
 ## describe table
 ```sql
 describe schema_name.table_name;
