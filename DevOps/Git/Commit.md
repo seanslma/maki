@@ -15,7 +15,7 @@ git reset --soft HEAD~1 #revert previous commit to staging area
 
 ## revert last commit pushed 
 ```
-git revert <commit-hash>
+git revert <commit-hash> #will keep history
 git push
 ```
 
