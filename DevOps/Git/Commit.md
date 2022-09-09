@@ -13,7 +13,13 @@ git reset --hard HEAD~1 #delete previous commit
 git reset --soft HEAD~1 #revert previous commit to staging area
 ```
 
-## delete last commit
+## revert last commit pushed 
+```
+git revert <commit-hash>
+git push
+```
+
+## delete last commit pushed
 ```
 git reset --hard HEAD^
 git push origin -f
