@@ -1,5 +1,5 @@
 # Parameter
-Cheatsheet: https://devhints.io/bash
+Cheat sheet: https://devhints.io/bash
 
 ## Special parameter
 ```

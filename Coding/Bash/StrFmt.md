@@ -22,7 +22,7 @@ ${var~~}
 ## convert to camel case
 ```
 while read txt; do
-    a=($txt)      #treat as array init by parentheses,each word an element
+    a=($txt)      #treat as array init by parentheses, each word an element
     echo ${a[@]^} #[@] references all elements at once, and ^ converts first character to uppercase
 done
 ```
