@@ -9,3 +9,8 @@ https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
 - Tolerations are applied to pods. 
 - Tolerations allow the scheduler to schedule pods with matching taints. 
 - Tolerations allow scheduling but don't guarantee scheduling.
+
+## get tainted nodes
+```
+kubectl get node -o custom-columns=NAME:.metadata.name,TAINT:.spec.taints[*].effect
+```
