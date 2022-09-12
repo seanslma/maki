@@ -13,4 +13,5 @@ https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
 ## get tainted nodes
 ```
 kubectl get node -o custom-columns=NAME:.metadata.name,TAINT:.spec.taints[*].effect
+kubectl get node -o custom-columns=NAME:.metadata.name,TAINTS:.spec.taints #include keys
 ```
