@@ -2,14 +2,17 @@
 
 https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
 
-`Taints`
+https://blog.kubecost.com/blog/kubernetes-taints/
+
+## Taints
 - A node property
 - Allow a node to repel a set of pods
 
-`Tolerations`
+## Tolerations
 - A pod property, applied to pods 
-- Allow scheduling pods on node with matching taints 
-- Allow scheduling but don't guarantee scheduling
+- Allow scheduling pods on node with matching taints, but don't guarantee scheduling
+- `Equal` operator requires the taint value and will not match if the value is different
+- `Exists` operator will match any value as it only considers if the taint is defined regardless of the value
 
 ## Node affinity
 Taints and tolerations can be combined with node affinity to create dedicated nodes. 
