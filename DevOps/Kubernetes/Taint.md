@@ -20,6 +20,11 @@ Taints and tolerations can be combined with node affinity to create dedicated no
 - Can prevent schedulers from locating new pods on nodes where the label selector on the new pod matches the label on an existing pod
 - Relies on label key-value pairs on other pods to determine its scheduling behavior
 
+## Add taint to node
+```
+kubectl taint node <node-name> <taint-key>=<taint-value>:<taint-effect>
+```
+
 ## Get tainted nodes
 ```
 kubectl get node -o custom-columns=NAME:.metadata.name,TAINT:.spec.taints[*].effect
