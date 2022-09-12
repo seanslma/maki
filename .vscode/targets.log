@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug 23 22:01:35 2022
+# Make data base, printed on Mon Sep 12 22:22:08 2022
 
 # Variables
 
@@ -45,7 +45,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:50497
+JOURNAL_STREAM = 8:49274
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'makefile', line 1)
@@ -63,7 +63,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /usr/bin/code
 # environment
-MANAGERPID = 1552
+MANAGERPID = 1601
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -75,7 +75,7 @@ PATH = /home/sma/miniforge/bin:/home/sma/miniforge/condabin:/usr/local/sbin:/usr
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1777,unix/mase:/tmp/.ICE-unix/1777
+SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1820,unix/mase:/tmp/.ICE-unix/1820
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -85,7 +85,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 59683272bc284c21a43c801861862f41
+INVOCATION_ID = 2e07568698774ebeac7c93205a652cd1
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -105,7 +105,7 @@ PWD = /home/sma/dev/seanslma.github.io
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1739
+SSH_AGENT_PID = 1782
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -119,11 +119,11 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/da76f93349a72022ca4670c1b84860304616aaa2
+VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/784b0177c56c607789f9638da7b6bf3230d47a8c
 # environment
 LOGNAME = sma
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 CONDA_PROMPT_MODIFIER = (base) 
 # environment
@@ -173,23 +173,19 @@ OLDPWD = /home/sma
 # environment
 LANGUAGE = en_AU:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.70.0-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.71.0-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
-# environment
-PSModulePath = /home/sma/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/7/Modules
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
 GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
-# environment
-NO_AT_BRIDGE = 1
 # environment
 QT_ACCESSIBILITY = 1
 # default
@@ -201,11 +197,13 @@ LC_ALL = C
 # environment
 CONDA_PYTHON_EXE = /home/sma/miniforge/bin/python
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/e4261a5b_e78a_4c68_9f7e_c6147b09f9db
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/c58346b2_6ab1_4c5a_8da2_1da955f36f77
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.7182
+GNOME_TERMINAL_SERVICE = :1.96
 # default
 SUFFIXES := 
 # environment
@@ -216,6 +214,8 @@ CHROME_DESKTOP = code-url-handler.desktop
 WINDOWPATH = 2
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
 # environment
@@ -223,7 +223,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 416377
+VSCODE_PID = 5826
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -235,9 +235,9 @@ _CE_CONDA =
 
 # Directories
 
-# . (device 66311, inode 6427991): 29 files, no impossibilities.
+# . (device 66311, inode 6427991): 25 files, no impossibilities.
 
-# 29 files, no impossibilities in 1 directories.
+# 25 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -282,12 +282,13 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 35 / storage = 249 B / avg = 7 B
-# current buf: size = 8162 B / used = 249 B / count = 35 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 31 / storage = 229 B / avg = 7 B
+# current buf: size = 8162 B / used = 229 B / count = 31 / avg = 7 B
 
-# strcache performance: lookups = 40 / hit rate = 12%
+# strcache performance: lookups = 36 / hit rate = 13%
 # hash-table stats:
-# Load=35/8192=0%, Rehash=0, Collisions=1/40=2%
-# Finished Make data base on Tue Aug 23 22:01:35 2022
+ 
+# Load=31/8192=0%, Rehash=0, Collisions=1/36=3%
+# Finished Make data base on Mon Sep 12 22:22:08 2022
 
  
