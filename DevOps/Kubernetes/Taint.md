@@ -11,7 +11,11 @@ https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
 - Allow scheduling pods on node with matching taints 
 - Allow scheduling but don't guarantee scheduling
 
-## get tainted nodes
+## Node affinity
+
+## Pod anti-affinity
+
+## Get tainted nodes
 ```
 kubectl get node -o custom-columns=NAME:.metadata.name,TAINT:.spec.taints[*].effect
 kubectl get node -o custom-columns=NAME:.metadata.name,TAINTS:.spec.taints #include keys
