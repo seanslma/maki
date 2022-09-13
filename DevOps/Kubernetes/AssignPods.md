@@ -2,7 +2,7 @@
 
 https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
 
-`nodeSelector` field matching against node `labels`
+## `nodeSelector` field matching against node `labels`
 Pod `nodeSelector`
 ```
 nodeSelector:
@@ -17,7 +17,7 @@ node_config {
 }
 ```
 
-- `Affinity` and `anti-affinity`
+## `Affinity` and `anti-affinity`
 - nodeName field
 - Pod topology spread constraints
 - Node labels
