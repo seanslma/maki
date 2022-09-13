@@ -30,12 +30,10 @@ git push -u origin main         #remote
 git push origin --delete master #delete remote master
 ```
 
-## create/delete branch
+## create branch
 ```
 git branch new-branch
 git checkout -b new-branch                    #create and switch to
-git branch -d new-branch                      #delete local branch
-git push --delete <remote name> <branch name> #delete remote branch
 ```
 
 ## restore deleted branch
@@ -77,6 +75,7 @@ git branch --no-merged | Where-Object { !($_ | Select-String "master|main|develo
 ## Delete remote branches
 ```
 git push origin --delete <branch-name>
+git push --delete <remote name> <branch name> #delete remote branch
 ```
 
 ## Delete multiple remote branches
