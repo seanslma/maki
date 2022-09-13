@@ -1,14 +1,17 @@
 # VS Code
 
+## Settings
+Customizing IntelliSense:
+https://code.visualstudio.com/docs/editor/intellisense
+
 ## Line space
 settings > editor > line height > 15
 
 ## Trim trailing whitespaces
 user settings > Trim Trailing Whitespace
 
-## Settings
-Customizing IntelliSense:
-https://code.visualstudio.com/docs/editor/intellisense
+## New line at EOF
+File > Preference > Settings (^,) > 'insert final newline'
 
 ## Wrap line
 workspace > settings.json

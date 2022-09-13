@@ -81,6 +81,30 @@ git push --delete <remote name> <branch name> #delete remote branch
 ## Delete multiple remote branches
 ```
 git branch -r --merged | egrep -v "(^\*|master|main|develop)" | sed 's/origin\///' | xargs -n 1 git push origin --delete #UNIX
-git branch -r | Where-Object { !($_ | Select-String "HEAD|upstream|master|main|develop" -quiet) } | 
+git branch -r | Where-Object { !($_ | Select-String "HEAD|upstream|master|main|develop" -quiet) } |
   %{$_ -replace ([regex]::Escape('origin/'))} | %{git push origin --delete $_} #PowerShell
+```
+
+## branch is out-of-date with the base branch
+```
+git remote add upstream remote-upstream-repo-url
+git checkout my-branch
+git pull upstream master
+git push origin my-branch
+```
+
+## Your branch is ahead of 'origin/master' by x commit
+```
+#origin/master is the remote forked branch
+# you need to push your changes to the forked branch (origin/master)
+#add the upstream repo if not (forked from)
+git remote add upstream https://github.com/whoever/whatever.git
+#get all change from the upstream
+git fetch upstream
+#go to local master branch
+git checkout master
+#rewrite master branch based on upstream
+git rebase upstream/master
+#push local changes to forked repo (-f only needed the first time after rebased)
+git push -f origin master
 ```
