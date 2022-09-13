@@ -5,6 +5,14 @@
 pytest .
 ```
 
+## run test on file
+```
+pytest test_myfile.py -sv #print output and test name
+pytest test_myfile.py -sv -k "get"  #run test method matches 'get'
+pytest Test_myfile.py -sv -m "skip or login" #run test with specific mark or category, either
+pytest Test_myfile.py -sv -m "skip and login" #run test with specific mark or category, both, not can be used as well
+```
+
 ## skip test method
 https://docs.pytest.org/en/latest/how-to/skipping.html#skipping-test-functions
 ```
