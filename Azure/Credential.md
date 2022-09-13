@@ -5,7 +5,7 @@ SharedTokenCacheCredential: Azure Active Directory error '(invalid_grant) AADSTS
 The provided grant has expired due to it being revoked, a fresh auth token is needed. 
 The user might have changed or reset their password.
 
-Solution 1, delete the cache the credential uses: 
+Solution 1, delete the cache the credential uses
 ```
 %LOCALAPPDATA%\.IdentityService\msal.cache
 ```
@@ -14,3 +14,8 @@ Solution 2,
 ```
 credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)
 ```
+
+Solution 3, Clear Azure credential cache
+- Install `Az-Cmdlets` for powershell
+- Run `Clear-AzContext` to clear cached credentials in powershell
+
