@@ -36,3 +36,19 @@ workspace > settings.json
     },
 }
 ```
+
+## Active tab settings
+Search "workbench.action.openSettingsJson" > Open user settings.json
+```
+{
+    "editor.rulers": [80,120],
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#312f30",
+        "tab.inactiveForeground":"#ECECEC",
+        "tab.activeBackground": "#8f6155",
+        "tab.activeBorderTop": "#007acc",
+        "tab.activeBorder": "#ff0000",
+        "tab.unfocusedActiveBorder": "#000000"
+    },
+}
+```
