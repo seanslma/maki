@@ -32,4 +32,24 @@ kubectl taint node <node-name> <taint-key>=<taint-value>:<taint-effect>
 ```
 kubectl get node -o custom-columns=NAME:.metadata.name,TAINT:.spec.taints[*].effect
 kubectl get node -o custom-columns=NAME:.metadata.name,TAINTS:.spec.taints #include keys
+kubectl get node -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.taints[*].key}{"="}{.spec.taints[*].value}{":"}{.spec.taints[*].effect}{"\n"}{end}'  
 ```
+
+Node taints example:
+```
+node_taints = [
+ "key=value:effect"
+]
+```
+
+Pod tolerations example:
+```
+tolerations:
+- key: key
+  operator: Equal
+  value: value
+  effect: NoSchedule
+- key: key2
+  operator: Exists
+  effect: NoSchedule 
+ ```
