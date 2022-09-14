@@ -2,36 +2,40 @@
 
 https://stackoverflow.com/questions/2188199/how-to-use-double-or-single-brackets-parentheses-curly-braces
 
-## Test construct  
+## Test construct
+`[` is just a different name for the `test` command, and `]` is required
+as the last parameter, for readability and aesthetic reasons.
 ```
-VARIABLE=x
-if [ $VARIABLE == x ] ; then echo yes ; else echo no ; fi
+x=2
+v=x
+if [ $v == x ] ; then echo yes ; else echo no ; fi
+# if test $v == x ; then echo yes ; else echo no ; fi
 yes
 ```
 
-## Extended test construct 
+## Extended test construct
 ```
-VARIABLE=x
-if [[ $VARIABLE == 1 ]] ; then echo yes ; else echo no ; fi
+v=x
+if [[ $v == 1 ]] ; then echo yes ; else echo no ; fi
 no
 ```
 
 ```
-echo Variable: ${VARIABLE}1
-Variable: x1
+echo Variable: ${var}1
+var: x1
 
-{ date; top -b -n1 | head ; } >logfile 
+{ date; top -b -n1 | head ; } >logfile
 ```
 
 ## Double Parentheses: arithmetic operations
 ```
-(( i = 78 ))  
-i = $(( 20 + 5 ))   
+(( i = 78 ))
+i = $(( 20 + 5 ))
 (( i++ ))
 ```
 
-## ${variable}
-${variable} is just a disambiguation mechanism, so `${var}text` can be different to `$vartext`.
+## ${var}
+${var} is just a disambiguation mechanism, so `${var}text` can be different to `$vartext`.
 
 ## $(command)
 $(command) is a modern synonym for `command` which stands for command substitution; it means run command and put its output here.
