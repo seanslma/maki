@@ -10,10 +10,8 @@ nodeSelector:
 ```
 Node `label`
 ```
-node_config {
-    labels {
-        "disktype" = "ssd"
-    }
+node_labels {
+    "disktype" = "ssd"
 }
 ```
 
