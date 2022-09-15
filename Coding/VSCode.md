@@ -4,11 +4,17 @@
 Customizing IntelliSense:
 https://code.visualstudio.com/docs/editor/intellisense
 
-## Editor font size and Line space
+## Editor font size and line space
 settings > editor > line height > 15
 ```
 "editor.fontSize": 13,
 "editor.lineHeight": 13,
+```
+
+## Debug console font size and line space
+```
+"debug.console.fontSize": 13,
+"debug.console.lineHeight": 10,
 ```
 
 ## Terminal font size
