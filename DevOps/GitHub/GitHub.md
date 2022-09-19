@@ -104,6 +104,10 @@ git push origin master
   ```
 - make git m="message"
 
+## pr not shown
+open the link to create a pr:
+https://xyz.github.com/usr/<repo-name>/pull/new/<branch-name>
+
 ## delete release
 - Delete the release from the Github UI
 - Delete local tag if the release failed: `git tag -d 0.1.0`
