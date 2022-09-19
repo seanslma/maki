@@ -4,7 +4,5 @@ https://www.digitalocean.com/community/tutorials/how-to-deploy-to-kubernetes-usi
 
 ## Connect to private repo
 https://argo-cd.readthedocs.io/en/release-1.8/user-guide/private-repositories/
-- settings
-- repositories
-- connecting repo using https
-- url and pat
+
+settings > repositories > connecting repo using https > url and pat
