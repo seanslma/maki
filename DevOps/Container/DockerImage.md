@@ -1,5 +1,7 @@
 # Image
 
+Every statement like RUN, COPY or ADD in the dockerfile will add a layer into docker image.
+
 ## build image
 ```
 docker build https://github.com/docker/rootfs.git#<container-branch>:<docker-dir>
