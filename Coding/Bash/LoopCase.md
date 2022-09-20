@@ -1,4 +1,4 @@
-# Loop
+# Loop and Case
 
 ## while
 ```
