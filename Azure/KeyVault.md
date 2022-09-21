@@ -13,8 +13,22 @@ az keyvault secret set \
   --value "mysecretpassword" \
 ```
 
-## add multi-line secret
+## Save secret to file
 ```
-az keyvault secret set --vault-name "<unique-keyvault-name>" --name "<keyvault-secret-name>" --file "secretfile.txt"
-az keyvault secret set-attributes --vault-name "<unique-keyvault-name>" --name "<keyvault-secret-name>" --content-type 'application/json'
+az keyvault secret download \
+  --vault-name <keyvault-name> \
+  --name <secret-name> \
+  --file <filepath>
+```    
+
+## Add multi-line secret
+```
+az keyvault secret set \
+  --vault-name "<keyvault-name>" \
+  --name "<secret-name>" \
+  --file "secretfile.txt"
+az keyvault secret set-attributes \
+  --vault-name "<keyvault-name>" \
+  --name "<secret-name>" \
+  --content-type 'application/json'
 ```
