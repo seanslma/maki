@@ -7,4 +7,8 @@ https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#repo
 
 https://argo-cd.readthedocs.io/en/release-1.8/user-guide/private-repositories/
 
-settings > repositories > connecting repo using https > url and pat
+Error:
+- Unable to deploy revision: rpc error: code = Unknown desc = authentication required
+
+Solution:
+- settings > repositories > connecting repo using https > url and pat
