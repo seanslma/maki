@@ -32,11 +32,11 @@ done
 
 ## for with count
 ```
-for (( i=0 ; i < 10 ; i++ )) ; do
+for (( i=0 ; i < 10 ; i++ )); do
     echo $i
 done
 
-for (( i=0, j=0 ; i+j < 10 ; i++, j++ )) ; do
+for (( i=0, j=0 ; i+j < 10 ; i++, j++ )); do
     echo $(( i*j ))
 done
 ```
