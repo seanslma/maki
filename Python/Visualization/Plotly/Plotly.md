@@ -5,7 +5,7 @@ https://plotly.com/python-api-reference/
 ## stacked line chart
 ```python
 def plotly_fig(
-    df: pd.DataFrame,    
+    df: pd.DataFrame,
     title: str,
     xtitle: str,
     ytitle: str,
@@ -17,7 +17,7 @@ def plotly_fig(
     '''
     create a plotly figure based on inputs
     '''
-    
+
     xax_cfg = merge_dicts(xax_cfg, default_xax_cfg)
     yax_cfg = merge_dicts(yax_cfg, default_yax_cfg)
     lgd_cfg = merge_dicts(lgd_cfg, default_lgd_cfg_rv)
@@ -55,6 +55,7 @@ def plotly_fig(
 
     return fig
 ```
+
 ## layaout
 ```python
 default_font = 'DejaVu Sans'

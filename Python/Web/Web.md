@@ -1,4 +1,4 @@
-# web
+# Web
 
 https://towardsdatascience.com/data-science-skills-web-scraping-javascript-using-python-97a29738353f
 
@@ -28,7 +28,7 @@ except requests.exceptions.HTTPError as e:
     log('Error: ' + str(e)) #it wasn't a 200 error
     data = None
 with threadlock:
-    requestssessions.append(s) 
+    requestssessions.append(s)
 ```
 
 ## requests_html
@@ -38,11 +38,11 @@ http://theautomatic.net/2019/01/19/scraping-data-from-javascript-webpage-python
 ```python
 from requests_html import HTMLSession
 session = HTMLSession()
-resp = session.get(url)    
+resp = session.get(url)
 resp.html.absolute_links #get absolute links
 resp.html.render() #run JavaScript code on webpage
 soup = bsoup(resp.html.html, 'lxml')
-``` 
+```
 
 ## soup example
 ```python
@@ -118,7 +118,7 @@ if version == 'old':
     chrome_options.add_argument('accept="application/json"')
     chrome_options.add_argument('user-agent="Chrome"')
     chrome_options.add_argument('x-requested-with=XMLHttpRequest')
-    
+
     chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
     #chrome_options.binary_location = r'C:\Users\usr\AppData\Local\Google\Chrome\Application'
     chrome_driver = r'C:\chromedriver.exe'
@@ -205,4 +205,4 @@ elif version == 'new':
             vals = [ele.text.strip() for ele in cols]
             print(vals)
 
-```        
+```

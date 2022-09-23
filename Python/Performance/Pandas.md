@@ -50,7 +50,7 @@ def nb_and(x, y):
 np.allclose(nb_and(df.x.values, df.y.values), (df.x < 0.9) & (df.y < 0.9))
 
 %timeit -r 10 -n 100 nb_and(df.x.values, df.y.values)
-# 154 µs ± 2.57 µs per loop (mean ± std. dev. of 10 runs, 100 loops each)
+154 µs ± 2.57 µs per loop (mean ± std. dev. of 10 runs, 100 loops each)
 
 %timeit -r 10 -n 100 (df.x < 0.9) & (df.y < 0.9)
 483 µs ± 2.44 µs per loop (mean ± std. dev. of 10 runs, 100 loops each)

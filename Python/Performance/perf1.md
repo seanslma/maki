@@ -1,4 +1,4 @@
-## perf (I)
+# perf (I)
 
 https://scipy.github.io/old-wiki/pages/PerformanceTips
 
@@ -6,6 +6,7 @@ https://llllllllll.github.io/principles-of-performance/index.html
 
 https://speakerdeck.com/pycon2018/jake-vanderplas-performance-python-seven-strategies-for-optimizing-your-numerical-code
 
+## example
 Fast, Flexible, Easy and Intuitive: How to Speed Up Your Pandas Projects
 
 https://realpython.com/fast-flexible-pandas
