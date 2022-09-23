@@ -13,10 +13,10 @@ x + y
 ## run timeit in vscode debug
 import timeit
 ```
-def f1(df):
+def func(df):
   df.set_index('a')
   pass
-  
-t1 = timeit.Timer(lambda: f1(df))
+
+t1 = timeit.Timer(lambda: func(df))
 print(t1.timeit(5))
 ```

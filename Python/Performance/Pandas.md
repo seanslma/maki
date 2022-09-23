@@ -1,17 +1,17 @@
 # Pandas
 
 ## ravel() vs flatten()
-np.ravel() will avoid copy if possible and thus faster than flatten() 
+np.ravel() will avoid copy if possible and thus faster than flatten()
 
 ## broadcasting rules
 when broadcasting is possible, we do not need to use np.tile()
 
-## iter rows
+## iter rows, use `to_records`
 ```
 %timeit for row in df.iterrows(): pass
 2.18 ms ± 83.2 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 
- %timeit for row in df.to_records(index=False): pass
+%timeit for row in df.to_records(index=False): pass
 312 µs ± 9.1 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 ```
 
@@ -23,14 +23,14 @@ iboth = mi1.intersection(mi2)
 mask1 = mi1.isin(iboth)
 mask2 = mi2.isin(iboth)
 
-#fast (joiing the index of both dfs will be 8x faster than joining normal cols)
+#fast (joining the index of both dfs will be 8x faster than joining normal cols)
 d1 = pd.DataFrame(index=mi1, data=np.arange(len(mi1)), columns=['id1'])
 d2 = pd.DataFrame(index=mi2, data=np.arange(len(mi2)), columns=['id2'])
 df = d1.merge(d2, how='inner', left_index=True, right_index=True)
 mask1 = np.full(len(mi1), False, dtype=bool)
 mask1[df.id1] = True
 mask2 = np.full(len(mi2), False, dtype=bool)
-mask2[dy.id2] = True
+mask2[df.id2] = True
 ```
 
 ## pd.eval
@@ -46,7 +46,7 @@ def nb_and(x, y):
     for i in range(n):
         val[i] = (x[i] < 0.9) & (y[i] < 0.9)
     return val
-    
+
 np.allclose(nb_and(df.x.values, df.y.values), (df.x < 0.9) & (df.y < 0.9))
 
 %timeit -r 10 -n 100 nb_and(df.x.values, df.y.values)

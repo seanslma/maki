@@ -46,15 +46,15 @@ def main():
     X_shape = (16, 1000000)
     # Randomly generate some data
     data = np.random.randn(*X_shape)
-    
+
     X = RawArray('d', X_shape[0] * X_shape[1])
-    
+
     # Wrap X as an numpy array so we can easily manipulates its data.
     X_np = np.frombuffer(X).reshape(X_shape)
-    
+
     # Copy data to our shared array.
     np.copyto(X_np, data)
-    
+
     # Start the process pool and do the computation.
     # Here we pass X and X_shape to the initializer of each worker.
     # (Because X_shape is not a shared variable, it will be copied to each child process.)
@@ -63,5 +63,4 @@ def main():
         print('Results (pool):\n', np.array(result))
     # Should print the same results.
     print('Results (numpy):\n', np.sum(X_np, 1))
-    
 ```
