@@ -1,6 +1,8 @@
 # Process
 
 ## psutil
+`psutil` is a cross-platform library for retrieving information on running processes and system utilization (CPU, memory, disks, network, sensors) in Python.
+
 List process pid and name
 ```
 import psutil
