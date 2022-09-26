@@ -8,14 +8,14 @@ Under PowerShell, check the linked exe to git command:
 Get-Command git #will show the source path of git.exe
 ```
 Solution:
-- Run the command in terminal and it will show the error, e.g., msys-2.0.exe not found. 
-- This means the exe in the conda env is missing or corrupted.
-- reinstall or upgrade???
+- Run the command in terminal and it will show the error, e.g., msys-2.0.exe not found 
+- This means the exe in the conda env is missing or corrupted
+- upgrading `git` in the conda-env fixed the issue
 
 ## Procedure Entry Point Could Not Be Located in the Dynamic Link Library
 - dll not exists
 - dll path not included
-- dlll corrupted
+- dll corrupted
 
 ## No PR in github after push
 reset upstream to remote upstream/master
