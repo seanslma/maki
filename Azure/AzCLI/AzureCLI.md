@@ -16,6 +16,7 @@ az vm list-sizes --location "westus" #list available vm sizes in a specific loca
 
 ## resource group
 ```
+az group list
 az group create --name rg01 --location australiaeast
 az group delete --name rg01
 ```
@@ -31,7 +32,7 @@ az ad sp create-for-rbac --name <sp-name> --role Contributor --scopes /subscript
 #create
 az storage account create --name <storage-account-name> `
 --resource-group rg01 --location australiaeast --sku Standard_RAGRS --kind StorageV2
-  
+
 #delete
 az storage account delete --name <storage-account-name> --resource-group <resource-group>
 ```
@@ -40,7 +41,7 @@ az storage account delete --name <storage-account-name> --resource-group <resour
 ```
 az keyvault create --location $region --name <kv-name> `
 --resource-group <resource-group> --enabled-for-template-deployment true
-  
+
 az keyvault secret set --name <secret-name> --value $sp.password --vault-name <vault-name>
 az keyvault secret set --name <secret-name> --value "A string value" --vault-name <vault-name>
 
