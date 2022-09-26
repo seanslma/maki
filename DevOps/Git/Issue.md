@@ -1,5 +1,22 @@
 # Git Issue
 
+## No output from `git log` in PowerShell
+git command in conda env not show anything
+
+Under PowerShell, check the linked exe to git command:
+```
+Get-Command git #will show the source path of git.exe
+```
+Solution:
+- Run the command in terminal and it will show the error, e.g., msys-2.0.exe not found. 
+- This means the exe in the conda env is missing or corrupted.
+- reinstall or upgrade???
+
+## Procedure Entry Point Could Not Be Located in the Dynamic Link Library
+- dll not exists
+- dll path not included
+- dlll corrupted
+
 ## No PR in github after push
 reset upstream to remote upstream/master
 ```
