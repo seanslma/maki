@@ -2,6 +2,11 @@
 
 https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest
 
+## new line
+- bash: use backslash \
+- pwsh: use a backtick `
+- batch: use accent circonflexe ^
+
 ## List all subscriptions
 ```
 az account list --output table
@@ -11,12 +16,13 @@ az account set --subscription <subscription-id> #set default subscription
 ## List all regions
 ```
 az account list-locations --output table #list all locations
-az vm list-sizes --location "westus" #list available vm sizes in a specific location
+az vm list-sizes --location "westus"     #list available vm sizes in a specific location
 ```
 
 ## resource group
 ```
 az group list
+az group list -o table
 az group create --name rg01 --location australiaeast
 az group delete --name rg01
 ```

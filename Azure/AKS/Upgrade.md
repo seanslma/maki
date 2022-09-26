@@ -2,17 +2,17 @@
 
 ## changing yaml file
 ```
-code guestbook-all-in-one.yaml             #edit yaml
-kubectl apply -f guestbook-all-in-one.yaml #apply changes
-kubectl get service                        #get service public IP
-code guestbook-all-in-one.yaml             #change version
+code guestbook-all-in-one.yaml              #edit yaml
+kubectl apply -f guestbook-all-in-one.yaml  #apply changes
+kubectl get service                         #get service public IP
+code guestbook-all-in-one.yaml              #change version
 kubectl apply -f guestbook-all-in-one.yaml \
-  && kubectl get pods -w                   #apply and check
-kubectl get events | grep ReplicaSet       #show rolling update strategy
-kubectl get replicaset                     #verify
+  && kubectl get pods -w                    #apply and check
+kubectl get events | grep ReplicaSet        #show rolling update strategy
+kubectl get replicaset                      #verify
 kubectl rollout history deployment frontend #show rollout history
-kubectl rollout undo deployment frontend   #rollback deployment
-kubectl get replicaset                     #verify 
+kubectl rollout undo deployment frontend    #rollback deployment
+kubectl get replicaset                      #verify
 kubectl delete -f guestbook-all-in-one.yaml #clean up
 ```
 
@@ -44,25 +44,25 @@ spec:
 kubectl patch deployment frontend \
   --patch "$(cat frontend-image-patch.yaml)"
 #verify changes
-kubectl describe deployment frontend  
+kubectl describe deployment frontend
 ```
 
-### json inline 
+### json inline
 ```
 kubectl patch deployment frontend \
 --patch='
 {
-    "spec": {
-        "template": {
-            "spec": {
-                "containers": [{
-                    "name": "php-redis",
-                    "image": "gcr.io/google-samples/gb-frontend:v4"
-                }]
-            }
-        }
+  "spec": {
+    "template": {
+      "spec": {
+        "containers": [{
+          "name": "php-redis",
+          "image": "gcr.io/google-samples/gb-frontend:v4"
+        }]
+      }
     }
-} 
+  }
+}
 '
 #remove app from cluster
 kubectl delete -f guestbook-all-in-one.yaml
@@ -82,7 +82,7 @@ echo "<password>" | base64 -d
 kubectl get secret wp-wordpress -o yaml
 echo "<WordPress password>" | base64 -d
 
-#update image tag with Helm and watch pods change 
+#update image tag with Helm and watch pods change
 helm upgrade wp bitnami/wordpress \
   --set mariadb.image.tag=10.5.8-debian-10-r44\
   --set mariadb.auth.password="<decoded password>" \

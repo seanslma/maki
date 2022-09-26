@@ -6,10 +6,8 @@ Scale app using **Horizontal Pod Autoscaler (HPA)**. Scale the cluster using **c
 Scale dimensions include the number of pods a deployment has, and the number of nodes in the cluster.
 
 ```
-#edit service
-kubectl edit service frontend
-#watch service
-kubectl get service -w
+kubectl edit service frontend  #edit service
+kubectl get service -w         #watch service
 ```
 
 ## scale pods
@@ -17,10 +15,8 @@ kubectl get service -w
 ### mannual scale pods
 ```
 kubectl get pods
-#show Ip and running status
-kubectl get pods -o wide
-#scale deployment: add additional pods to the deployment
-kubectl scale deployment/frontend --replicas=6
+kubectl get pods -o wide                       #show Ip and running status
+kubectl scale deployment/frontend --replicas=6 #add additional pods to the deployment
 ```
 
 ### auto scale pods using hpa
@@ -38,13 +34,10 @@ spec:
   minReplicas: 1
   maxReplicas: 10
   targetCPUUtilizationPercentage: 50
-  
-#create hpa autoscaler
-kubectl create -f hpa.yaml
-#check hpa
-kubectl get hpa
-#watching pods
-kubectl get pods -w
+
+kubectl create -f hpa.yaml  #create hpa
+kubectl get hpa             #check hpa
+kubectl get pods -w         #watch pods
 
 #install and run hey (tiny program sending loads to web app) from cloud shell
 export GOPATH=~/go
@@ -52,10 +45,8 @@ export PATH=$GOPATH/bin:$PATH
 go get -u github.com/rakyll/hey
 hey -z 20m http://<external-ip> #create up to 20 million connections
 
-#closer look of hpa
-kubectl describe hpa
-#check hpa
-kubectl get hpa -w
+kubectl describe hpa  #closer look of hpa
+kubectl get hpa -w    #check hpa
 
 #clean up resources
 kubectl delete -f hpa.yaml
@@ -64,22 +55,17 @@ kubectl delete -f guestbook-all-in-one.yaml
 
 ## scale cluster
 ```
-#launch guestbook app 
-kubectl create -f guestbook-all-in-one.yaml
-#mannually scale out redis-replica
-kubectl scale deployment redis-replica --replicas 5
-#check pods
-kubectl get pods
+kubectl create -f guestbook-all-in-one.yaml          #launch guestbook app
+kubectl scale deployment redis-replica --replicas 5  #mannually scale out redis-replica
+kubectl get pods                                     #check pods
 
 #azure cli configure cluster autoscaler
 az aks nodepool update --enable-cluster-autoscaler \
   -g rg01 --cluster-name myaks \
   --name agentpool --min-count 1 --max-count 2
-  
-#watch nodes
-kubectl get nodes -w  
-#watch pods
-kubectl get pods
+
+kubectl get nodes -w  #watch nodes
+kubectl get pods      #watch pods
 
 #clean up resources
 kubectl delete -f guestbook-all-in-one.yaml
