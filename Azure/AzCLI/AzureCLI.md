@@ -2,6 +2,12 @@
 
 https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest
 
+## upgrade
+```
+az version
+az upgrade -y
+```
+
 ## new line
 - bash: use backslash \
 - pwsh: use a backtick `
