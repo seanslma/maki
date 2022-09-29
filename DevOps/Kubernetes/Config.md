@@ -9,6 +9,7 @@ export KUBECONFIG="/mnt/c/users/usr/.config/.kube/config"
 ```
 kubectl config view
 kubectl config get-clusters
+az aks get-credentials -n <aks-name> -g <resource-group-name>
 kubectl config get-contexts
 kubectl config unset users.usr
 kubectl config delete-cluster <cluster-name>
