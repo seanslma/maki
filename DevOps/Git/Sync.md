@@ -64,7 +64,16 @@ git merge other-branch #will merge to the local master
 
 ## remote `azure` branch to local branch
 ```
+git fetch <repo> <remote-branch>
 git checkout -b <local-branch> <repo>/<remote-branch>
+```
+
+## local branch to remote `azure` branch
+```
+# first time add upstream
+git push -u azure local-branch
+# git push <repo> <local-branch>:<remote-branch>
+git push azure local-branch:remote-branch
 ```
 
 ## merge upstream repo into fork
