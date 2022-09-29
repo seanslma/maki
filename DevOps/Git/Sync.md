@@ -54,11 +54,17 @@ git fetch origin
 git merge origin/master
 ```
 
-## remote `azure` branch to local
+## remote `azure` branch to local master
 ```
+# git pull <repo> <remote-branch-name>:<local-branch-name>
 # git pull azure other-branch, Ok but better use
 git fetch azure other-branch
-git merge other-branch
+git merge other-branch #will merge to the local master
+```
+
+## remote `azure` branch to local branch
+```
+git checkout -b <new-branch> <repo>/<new-branch>
 ```
 
 ## merge upstream repo into fork
