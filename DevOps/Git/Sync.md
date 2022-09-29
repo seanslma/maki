@@ -49,9 +49,16 @@ git stash pop
 ## master to local branch
 ```
 git checkout my-branch
-# git pull origin master, Ok but better use
+# git pull origin master, OK but better use
 git fetch origin
 git merge origin/master
+```
+
+## remote `azure` branch to local
+```
+# git pull azure other-branch, Ok but better use
+git fetch azure other-branch
+git merge other-branch
 ```
 
 ## merge upstream repo into fork
