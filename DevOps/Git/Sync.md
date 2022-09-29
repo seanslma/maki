@@ -5,6 +5,12 @@
 git clone https://github.com/usr/repo.git repo_name
 ```
 
+## clone local to azure repo
+```
+git remote add azure https://azure.com/repo-name
+git push -u azure --all
+```
+
 ## local folder to github repo
 ```
 #create a github repo first, do not add readme etc
