@@ -3,6 +3,14 @@
 Conda and Mamba Commands for Managing Virtual Environments\
 https://www.imranabdullah.com/2021-08-21/Conda-and-Mamba-Commands-for-Managing-Virtual-Environments
 
+## conda vs pip
+https://pythonspeed.com/articles/conda-vs-pip/#:~:text=The%20fundamental%20difference%20between%20pip,even%20the%20Python%20interpreter%20itself).
+
+- conda is more powerful
+- conda has more freedom to choose some tools like BLAS based on mkl
+- pip wheel can lead larger package size
+- pip wheel not include executables and tools
+
 ## create an env
 ```
 conda create --name <env-name>
