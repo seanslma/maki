@@ -70,3 +70,6 @@ Search "workbench.action.openSettingsJson" > Open user settings.json
     "tab.unfocusedActiveBorder": "#000000"
 },
 ```
+
+## Copy relative filepath separator setting
+Search `Explorer: Copy Relative Path Separator` in settings
