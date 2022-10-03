@@ -19,4 +19,4 @@ rollingUpdate:
   {{ else }}
   maxUnavailable: 1
   {{ end }}
-```  
+```
