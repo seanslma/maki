@@ -20,4 +20,7 @@ Uninstall-AzureRm
 
 module `Az.Compute` same error:
 
+```
 The 'Get-AzComputeResourceSku' command was found in the module 'Az.Compute', but the module could not be loaded. For more information, run 'Import-Module Az.Compute'.
+```
+Solution: run `Import-Module Az.Compute` to show the error details and solution.
