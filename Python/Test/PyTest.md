@@ -40,6 +40,7 @@ docutils = pytest.importorskip("docutils")
 
 ## check log message
 ```
+import logging
 from pytest import LogCaptureFixture
 from click.testing import CliRunner
 from myrepo import main
