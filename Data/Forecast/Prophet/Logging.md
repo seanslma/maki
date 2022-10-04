@@ -1,4 +1,4 @@
-# Setting
+# Logging
 
 ## disable prophet log
 ```
