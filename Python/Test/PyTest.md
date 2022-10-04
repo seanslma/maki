@@ -39,6 +39,7 @@ docutils = pytest.importorskip("docutils")
 ```
 
 ## check log message
+https://docs.pytest.org/en/7.1.x/how-to/logging.html
 ```
 import logging
 from pytest import LogCaptureFixture
@@ -47,15 +48,4 @@ from myrepo import main
 
 def test_cli(caplog: LogCaptureFixture) -> None:
     caplog.set_level(logging.INFO, logger=__name__)
-
-    runner = CliRunner()
-    with runner.isolated_filesystem():
-        result = runner.invoke(
-            main.cli, [
-                '--message', 'OK',
-            ],
-        )
-
-        assert result.exit_code == 0
-        assert ': `OK`' in caplog.text
 ```
