@@ -37,3 +37,24 @@ https://docs.pytest.org/en/stable/reference/reference.html#pytest-importorskip-r
 ```
 docutils = pytest.importorskip("docutils")
 ```
+
+## check log message
+```
+from pytest import LogCaptureFixture
+from click.testing import CliRunner
+from myrepo import main
+
+def test_cli(caplog: LogCaptureFixture) -> None:
+    caplog.set_level(logging.INFO, logger=__name__)
+
+    runner = CliRunner()
+    with runner.isolated_filesystem():
+        result = runner.invoke(
+            main.cli, [
+                '--message', 'OK',
+            ],
+        )
+
+        assert result.exit_code == 0
+        assert ': `OK`' in caplog.text
+```
