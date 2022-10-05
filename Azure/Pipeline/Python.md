@@ -76,7 +76,7 @@ https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/build/docker?view
     repository: $(imageRepository)
     containerRegistry: $(dockerRegistryServiceConnection)
     dockerfile: $(dockerfilePath)
-    arguments: '--platform linux/amd64'
+    arguments: '--platform linux/amd64 --build-arg ubuntu_version=20.04 --build-arg image_version=1.0.0'
     tags: |
         $(tag)
         latest
