@@ -4,7 +4,7 @@
 ```
 conda activate <env> && conda list --explicit
 ```
-The output can be used as the input env-file for creating an env.
+The output can be used as the input <env-file> for creating an env.
 
 ## create env
 ```
