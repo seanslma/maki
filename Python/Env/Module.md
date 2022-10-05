@@ -5,11 +5,10 @@
   - ElasticSearch: data search engine
 
 ## win32com
-install pywin32 for win32com: 
+install pywin32 for win32com:
   python -m pip install pywin32
 
 ## Plotly and Cufflinks
-
 cufflinks is the link between plotly and pandas.
 ```python
 import pandas as pd

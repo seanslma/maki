@@ -10,12 +10,14 @@ spark.catalog.createExternalTable #external table
 
 ## Spark SQL API
 ```
-df = spark.sql("
-    SELECT id, name, price \
-    FROM products \
+ds = spark.sql('''
+    SELECT id, name, price
+    FROM products
     WHERE category IN ('Mountain Bikes', 'Road Bikes')
-")
-display(df)
+''')
+display(ds)
+
+df = ds.toPandas()
 ```
 
 ## SQL magic
