@@ -2,6 +2,8 @@
 
 https://learn.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python?view=azure-devops
 
+https://medium.com/@anthonypjshaw/azure-pipelines-with-python-by-example-aa65f4070634
+
 ## Use Python Version
 https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/tool/use-python-version?view=azure-devops&viewFallbackFrom=vsts
 ```
