@@ -1,4 +1,9 @@
 # Logging
+https://docs.python.org/3/library/logging.handlers.html
+
+The `StreamHandler` class, located in the core logging package, sends logging output to streams such as sys.stdout, sys.stderr or any file-like object (or, more precisely, any object which supports write() and flush() methods).
+
+The `FileHandler` class inherits the output functionality from StreamHandler.
 
 ## log formatter
 ```
