@@ -5,6 +5,9 @@ Every statement like RUN, COPY or ADD in the dockerfile will add a layer into do
 ## build image
 ```
 docker build https://github.com/docker/rootfs.git#<container-branch>:<docker-dir>
+
+#manually build locally
+docker build -f ./docker/filepath/my.docker --platform linux/amd64 -t 1.0.0 -t latest .
 ```
 
 # check docker image layer sizes
