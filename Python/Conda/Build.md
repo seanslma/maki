@@ -12,7 +12,7 @@ Building a conda package requires a recipe. A conda-build recipe is a flat direc
 
 ## build conda package
 ```
-conda build recipe --no-anaconda-upload --python 3.9 --croot /build/path --no-test
+conda build recipe --no-anaconda-upload --python 3.9 --croot /build/path --no-test --channel ch1 --channel ch2
 ```
 
 ## install `conda-build`, not used???
