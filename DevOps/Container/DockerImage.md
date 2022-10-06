@@ -12,7 +12,8 @@ docker build . -f ./docker/filepath/my.docker --platform linux/amd64 -t 1.0.0 -t
 
 ## run image
 ```
-docker run -it <image-id>
+docker run -it <image-id>                        #from default entrypoint
+docker run -it --entrypoint /bin/bash <image-id> #from another entrypoint
 ```
 
 ## check docker image layer sizes
