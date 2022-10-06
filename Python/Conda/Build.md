@@ -3,7 +3,7 @@
 https://docs.conda.io/projects/conda-build/en/latest/concepts/recipe.html
 
 Building a conda package requires a recipe. A conda-build recipe is a flat directory that contains the following files:
-- meta.yaml: Only package/name and package/version are required
+- meta.yaml: Only `package/name` and `package/version` are required
 - build.sh: It is executed using the bash command for macOS and Linux.
 - bld.bat: It is executed using cmd for Windows.
 - run_test.[py,pl,sh,bat]: a test script that runs automatically if it is part of the recipe.
