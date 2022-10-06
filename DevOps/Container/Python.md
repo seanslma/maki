@@ -12,3 +12,6 @@ RUN pip --no-cache-dir install -r requirements.txt
 
 docker build -t my-api
 ```
+
+## Activate conda env in Dockerfile
+https://pythonspeed.com/articles/activate-conda-dockerfile/
