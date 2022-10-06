@@ -10,7 +10,12 @@ docker build https://github.com/docker/rootfs.git#<container-branch>:<docker-dir
 docker build -f ./docker/filepath/my.docker --platform linux/amd64 -t 1.0.0 -t latest .
 ```
 
-# check docker image layer sizes
+## run image
+```
+docker run -it <image-id>
+```
+
+## check docker image layer sizes
 ```
 docker history <image-id>
 docker history --no-trunc <image-id> #keep full created-by command
