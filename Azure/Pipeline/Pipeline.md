@@ -1,4 +1,6 @@
 # Azure Pipeline
+https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/parameters?view=azure-pipelines
+
 AZ-400: Implement CI with Azure Pipelines and GitHub Actions\
 https://docs.microsoft.com/learn/paths/az-400-implement-ci-azure-pipelines-github-actions/
 

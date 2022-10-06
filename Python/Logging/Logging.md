@@ -15,7 +15,7 @@ def get_log_formatter(message_prefix: str = None):
         '%(module)s',
         '%(funcName)s',
         '%(lineno)d',
-        f{message_prefix}'%(message)s',
+        f'{message_prefix}%(message)s',
     ])
     return logging.Formatter(log_format)
 ```
@@ -25,7 +25,7 @@ def get_log_formatter(message_prefix: str = None):
 import sys
 import logging
 
-log_formatter = get_log_formatter()
+formatter = get_log_formatter()
 
 #root logger
 root_logger = logging.getLogger()
@@ -39,7 +39,7 @@ package_logger.propagate = False
 #console handler
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
-console_handler.setFormatter(log_formatter)
+console_handler.setFormatter(formatter)
 root_logger.addHandler(concole_handler)
 package_logger.addHandler(console_handler)
 
