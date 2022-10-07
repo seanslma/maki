@@ -19,6 +19,7 @@ az acr import  -n <acr-name> --source docker.io/library/nginx:latest --image ngi
 ## Deploy docker image from ACR to AKS
 ```
 kubectl apply -f <path-to-deployment.yaml>
+kubectl delete deploy <deployment-name> -n <namespace>
 ```
 
 Deployment.yaml
@@ -40,7 +41,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: "<namespace>:<acr-name>.azurecr.io/myapp:latest"
+        image: "<acr-name>.azurecr.io/<namespace>/myapp:latest"
         ports:
         - containerPort: 80
         resources:
