@@ -4,9 +4,10 @@ https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environme
 ## create env from env.yml
 ```
 conda env create -f environment.yml
-conda env create --name conda-env --file environment.yml --force
+conda env create --name conda-env --file environment.yml --force #force creating new env with the input name if there is one
 ```
 
+conda env create --name basic-ml-env --file environment.yml --force
 environment.yml
 ```
 name: dev
