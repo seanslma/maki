@@ -12,8 +12,8 @@ az acr repository show-tags --name <acr-name> \
 https://learn.microsoft.com/en-us/learn/modules/publish-container-image-to-azure-container-registry/6-build-run-image-azure-container-registry
 ```
 az acr run \
---registry <myContainerRegistry> \
---cmd '$Registry/sample/hello-world:v1' /dev/null
+--registry <acr-name> \
+--cmd '<acr-name>.azurecr.io/sample/hello-world:v1' /dev/null
 ```
 `cmd` docs:
 
