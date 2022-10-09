@@ -8,6 +8,11 @@ az acr run \
 --registry <myContainerRegistry> \
 --cmd '$Registry/sample/hello-world:v1' /dev/null
 ```
+`cmd` docs:
+
+https://learn.microsoft.com/en-us/azure/container-registry/container-registry-tasks-reference-yaml#cmd
+
+Create instantance:
 
 https://learn.microsoft.com/en-us/training/modules/create-run-container-images-azure-container-instances/3-run-azure-container-instances-cloud-shell
 ```
