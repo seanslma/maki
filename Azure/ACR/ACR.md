@@ -1,6 +1,23 @@
 # Azure Container Registry
 https://learn.microsoft.com/en-us/azure/aks/cluster-container-registry-integration?tabs=azure-cli
 
+## Run an image from ACR
+https://learn.microsoft.com/en-us/learn/modules/publish-container-image-to-azure-container-registry/6-build-run-image-azure-container-registry
+```
+az acr run \
+--registry <myContainerRegistry> \
+--cmd '$Registry/sample/hello-world:v1' /dev/null
+```
+
+https://learn.microsoft.com/en-us/training/modules/create-run-container-images-azure-container-instances/3-run-azure-container-instances-cloud-shell
+```
+az container create --resource-group az204-aci-rg \
+    --name mycontainer \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
+    --ports 80 \
+    --dns-name-label $DNS_NAME_LABEL --location <myLocation> \
+```
+
 ## Integrate an existing ACR with existing AKS clusters
 ```
 az aks update -n <cluster-name> -g <resource-group> --attach-acr <acr-name/resource-id>
