@@ -3,7 +3,9 @@ https://learn.microsoft.com/en-us/azure/aks/cluster-container-registry-integrati
 
 ## List repos in ACR
 ```
-az acr repository list --name <acr-name> -o table
+az acr repository list --name <acr-name> --output table #list repos
+az acr repository show-tags --name <acr-name> \
+    --repository sample/hello-world --output table      #list repo tags
 ```
 
 ## Run an image from ACR
