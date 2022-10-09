@@ -12,7 +12,7 @@ az acr run \
 
 https://learn.microsoft.com/en-us/azure/container-registry/container-registry-tasks-reference-yaml#cmd
 
-Create instantance:
+Create a container instantance:
 
 https://learn.microsoft.com/en-us/training/modules/create-run-container-images-azure-container-instances/3-run-azure-container-instances-cloud-shell
 ```
