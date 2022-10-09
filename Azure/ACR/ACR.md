@@ -1,6 +1,11 @@
 # Azure Container Registry
 https://learn.microsoft.com/en-us/azure/aks/cluster-container-registry-integration?tabs=azure-cli
 
+## List repos in ACR
+```
+az acr repository list --name <acr-name> -o table
+```
+
 ## Run an image from ACR
 https://learn.microsoft.com/en-us/learn/modules/publish-container-image-to-azure-container-registry/6-build-run-image-azure-container-registry
 ```
