@@ -1,5 +1,13 @@
 # Pod
 
+## General
+```
+kubectl get pods                #check status
+kubectl describe pod <pod-name> #check events
+kubectl logs <pod-name>         #check logs
+kubectl exec -it <pod-name> -c <container-name> -- bash #connect to pod
+```
+
 ## Lifecycle
 https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#example-states
 
