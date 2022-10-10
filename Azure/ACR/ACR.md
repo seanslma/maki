@@ -1,5 +1,5 @@
 # Azure Container Registry
-https://learn.microsoft.com/en-us/azure/aks/cluster-container-registry-integration?tabs=azure-cli
+https://learn.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest
 
 ## List repos in ACR
 ```
@@ -31,6 +31,7 @@ az container create --resource-group az204-aci-rg \
 ```
 
 ## Integrate an existing ACR with existing AKS clusters
+https://learn.microsoft.com/en-us/azure/aks/cluster-container-registry-integration?tabs=azure-cli
 ```
 az aks update -n <cluster-name> -g <resource-group> --attach-acr <acr-name/resource-id>
 ```
