@@ -1,7 +1,13 @@
 # Job
 
-https://kubernetes.io/docs/concepts/workloads/controllers/job/
+## create job
+```
+kubectl -n <namespace> create job --from=cronjob/<crojob-name> <job-name> #create a job
+kubectl -n <namespace> get job --sort-by=.status.startTime                #show job status
+```
 
+## job deployment
+https://kubernetes.io/docs/concepts/workloads/controllers/job/
 ```
 apiVersion: batch/v1
 kind: CronJob
