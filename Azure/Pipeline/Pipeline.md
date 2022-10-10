@@ -1,6 +1,8 @@
 # Azure Pipeline
 https://levelup.gitconnected.com/up-and-running-with-azure-kubernetes-service-aks-and-devops-pipelines-deployment-40f054071477
 
+https://learn.microsoft.com/en-us/azure/aks/devops-pipeline?pivots=pipelines-yaml
+
 https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/parameters?view=azure-pipelines
 
 AZ-400: Implement CI with Azure Pipelines and GitHub Actions\
