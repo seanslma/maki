@@ -6,6 +6,8 @@ kubectl get pods                #check status
 kubectl describe pod <pod-name> #check events
 kubectl logs <pod-name>         #check logs
 kubectl exec -it <pod-name> -c <container-name> -- bash #connect to pod
+#create a pod by passing env vars
+kubectl run <pod-name> -n <namespace> --image=<acr-name>.azurecr.io/retail/app:latest --env="PREFIX_UPPER_CASE_PARAM=xyz"
 ```
 
 ## Lifecycle
