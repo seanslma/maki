@@ -1,13 +1,5 @@
 # Pod
 
-## General
-```
-kubectl get pods                #check status
-kubectl describe pod <pod-name> #check events
-kubectl logs <pod-name>         #check logs
-kubectl exec -it <pod-name> -c <container-name> -- bash #connect to pod
-```
-
 ## ImagePullBackOff
 The name of the image might be not correct. Test it:
 ```
