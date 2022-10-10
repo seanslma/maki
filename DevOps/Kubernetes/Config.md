@@ -1,5 +1,9 @@
 # KubeConfig
 
+## install kubectl on win
+- copy file to your folder: https://dl.k8s.io/release/v1.25.0/bin/windows/amd64/kubectl.exe
+- add the exe path to PATH var
+
 ## set env var
 ```
 export KUBECONFIG="/mnt/c/users/usr/.config/.kube/config"
