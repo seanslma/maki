@@ -4,9 +4,6 @@
 ```
 kubectl -n <namespace> create job --from=cronjob/<crojob-name> <job-name> #create a job
 kubectl -n <namespace> get job --sort-by=.status.startTime                #show job status
-
-#create a job by passing env vars
-kubectl run <job-name> -n <namespace> --image=<acr-name>.azurecr.io/retail/app:latest --env="PREFIX_UPPER_CASE_PARAM=xyz"
 ```
 
 ## job deployment
