@@ -6,8 +6,26 @@ kubectl get pods                #check status
 kubectl describe pod <pod-name> #check events
 kubectl logs <pod-name>         #check logs
 kubectl exec -it <pod-name> -c <container-name> -- bash #connect to pod
-#create a pod by passing env vars
+
+```
+
+## Kubectl run command
+https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#notes
+When you override the default Entrypoint and Cmd for a Container, these rules apply:
+- do not supply `command` or `args`, the defaults defined in the Docker image are used.
+- supply a `command` but no `args`, only the supplied command is used. The default EntryPoint and the default Cmd defined in the Docker image are ignored.
+- supply only `args`, the default Entrypoint defined in the Docker image is run with the args that you supplied.
+- supply a `command` and `args`, the default Entrypoint and the default Cmd defined in the Docker image are ignored. Your command is run with your args.
+
+create a pod by passing env vars
+```
 kubectl run <pod-name> -n <namespace> --image=<acr-name>.azurecr.io/retail/app:latest --env="PREFIX_UPPER_CASE_PARAM=xyz"
+```
+
+use another entrypoint: 
+https://stackoverflow.com/questions/59248318/kubectl-run-command-vs-arguments
+```
+kubectl run <pod-name> -n <namespace> --image=<image-path> --restart=Never -o yaml --dry-run -- /bin/sh -c 'echo hello;sleep 3600'
 ```
 
 ## Lifecycle
