@@ -22,10 +22,10 @@ create a pod by passing env vars
 kubectl run <pod-name> -n <namespace> --image=<acr-name>.azurecr.io/retail/app:latest --env="PREFIX_UPPER_CASE_PARAM=xyz"
 ```
 
-use another entrypoint: 
+use another entrypoint and let the pod run so can get into the container: 
 https://stackoverflow.com/questions/59248318/kubectl-run-command-vs-arguments
 ```
-kubectl run <pod-name> -n <namespace> --image=<image-path> --restart=Never -o yaml --dry-run -- /bin/sh -c 'echo hello;sleep 3600'
+kubectl run <pod-name> -n <namespace> --image=<image-path> --restart=Never -o yaml --dry-run -- /bin/sh -c "echo hello;sleep 3600"
 ```
 
 ## Lifecycle
