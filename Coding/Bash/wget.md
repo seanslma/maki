@@ -1,5 +1,7 @@
 # wget
 
+`wget <OPTION> <URL>`
+
 ## download to current working folder
 ```
 wget http://mirror.ctan.org/<package_path+package_name.zip>
@@ -24,7 +26,7 @@ tar -xvf filename.tar --directory /path/to/directory
 
 set wget="wget.exe"
 set despath="C:/Files"
-set website="https://www.example.com/data/" 
+set website="https://www.example.com/data/"
 
 %wget% -P %despath% -A .zip -N -nd -r -l1  %website%
 %wget% -P %despath% -A .ZIP -N -nd -r -l1  %website%

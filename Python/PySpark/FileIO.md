@@ -19,6 +19,7 @@ from pyspark.sql.functions import *
 csv_schema = StructType([
     StructField('id', IntegerType()),
     StructField('name', StringType()),
+    StructField("date", DateType()),
     StructField('price', FloatType()),
 ])
 
