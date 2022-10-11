@@ -1,5 +1,14 @@
 # File system
 
+## size of subfolders
+```
+du -M --max-depth=1           #current folder
+sudo du -sh /var              #only the total size
+sudo du -shc /var/*           #folder and subfolders, c for grand total
+sudo du -h --max-depth=1 /var #each folder in var folder
+sudo du -h /var/ | sort -rh | head -5 #top 5 largest directories
+```
+
 ## Create file and add content
 ```
 cat > filename
