@@ -4,7 +4,8 @@
 ```
 az config set defaults.location=westus2
 az group create --name <your-resource-group>
-az keyvault create --resource-group <your-resource-group> \
+az keyvault create \
+  --resource-group <your-resource-group> \
   --name <your-key-vault>
   
 az keyvault secret set \
@@ -32,3 +33,6 @@ az keyvault secret set-attributes \
   --name "<secret-name>" \
   --content-type 'application/json'
 ```
+
+## use secret in aks
+https://shailender-choudhary.medium.com/access-secrets-from-azure-key-vault-in-azure-kubernetes-service-e8efffe49427
