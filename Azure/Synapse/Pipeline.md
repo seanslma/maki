@@ -1,5 +1,8 @@
 # Pipeline
 
+## parameter and variable
+https://learn.microsoft.com/en-us/azure/data-factory/concepts-parameters-variables
+
 ## execute pipeline
 https://learn.microsoft.com/en-us/azure/data-factory/control-flow-execute-pipeline-activity
 
