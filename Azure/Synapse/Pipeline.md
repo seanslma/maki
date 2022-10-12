@@ -15,6 +15,12 @@ variables
 - not thread safe, e.g. accessed from within a parallel iteration activity
 - access variable value: `@variables('<variable-name>')`
 
+## activity user property
+https://www.techtalkcorner.com/monitor-azure-data-factory-user-properties/
+- Easily monitor pipelines, complements perfectly with Azure Data Factory annotations  
+- Find errors faster so you can solve them 
+- Enhance the governance of pipelines and datasets 
+
 ## execute pipeline
 https://learn.microsoft.com/en-us/azure/data-factory/control-flow-execute-pipeline-activity
 
