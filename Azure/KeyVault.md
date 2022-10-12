@@ -36,3 +36,33 @@ az keyvault secret set-attributes \
 
 ## use secret in aks
 https://shailender-choudhary.medium.com/access-secrets-from-azure-key-vault-in-azure-kubernetes-service-e8efffe49427
+Secret Provider Class (secret.yml)
+```
+#using system-assigned identity to access key vault
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: my-secret-csi
+  namespace: dev
+spec:
+  provider: azure
+  parameters:
+    usePodIdentity: "false"
+    useVMManagedIdentity: "true"      #Set to true for using managed identity
+    userAssignedIdentityID: ""        #If empty, then defaults to use clientId of the system assigned identity on the VM
+    keyvaultName: my-kv-name
+    cloudName: "AzurePublicCloud"     #[OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
+    objects:  |
+      array:
+        - |
+          objectName: database--mysql
+          objectType: secret          # object types: secret, key, or cert
+          objectAlias: "mysql.json"   # [OPTIONAL] name of the secret
+          objectVersion: ""           # [OPTIONAL] object versions, default to latest if empty
+    tenantId: XXXXXXXXXXXX            # The tenant ID of the key vault
+```
+
+job.yml
+```
+ok
+```
