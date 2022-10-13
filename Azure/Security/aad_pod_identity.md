@@ -4,7 +4,15 @@ https://azure.github.io/aad-pod-identity/docs/getting-started/installation/#quic
 
 https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/
 
+https://learn.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity
+
 AAD Pod Identity enables Kubernetes applications to access cloud resources securely with Azure Active Directory.
+```
+metadata:
+  name: demo
+  labels:
+    aadpodidbinding: $POD_IDENTITY_NAME
+```
 
 ## list identities
 ```
