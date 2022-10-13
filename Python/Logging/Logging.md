@@ -7,7 +7,7 @@ The `FileHandler` class inherits the output functionality from StreamHandler.
 
 ## log formatter
 ```
-def get_log_formatter(message_prefix: str = None):
+def get_log_formatter(message_prefix: str = None) -> logging.Formatter:
     log_format = ' | '.join([
         '%(asctime)s',
         '%(levelname)s',
@@ -18,6 +18,17 @@ def get_log_formatter(message_prefix: str = None):
         f'{message_prefix}%(message)s',
     ])
     return logging.Formatter(log_format)
+    
+def set_log_message_prefix(message_prefix: str = None) -> None:
+    """Set the log message prefix during run"""
+    logger = logging.getLogger()
+    log_formatter = get_log_formatter(message_prefix=message_prefix)
+
+    #set new format to each logger
+    #console_handler = logging.StreamHandler() #this handler is already in the handlers list
+    #console_handler.setFormatter(log_formatter)    
+    for handler in logger.handlers:
+        handler.setFormatter(log_formatter)    
 ```
 
 ## log to both stadout and file
@@ -49,16 +60,4 @@ file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
 root_logger.addHandler(file_handler)
 package_logger.addHandler(file_handler)
-```
-
-## Change logger formatter
-```
-logger = logging.getLogger()
-log_formatter = get_log_formatter('[OK] | ')
-
-#set new format to each logger
-console_handler = logging.StreamHandler()
-console_handler.setFormatter(log_formatter)
-for handler in logger.handlers:
-    handler.setFormatter(log_formatter)
 ```
