@@ -19,3 +19,8 @@ Solution 3, Clear Azure credential cache
 - Install `Az-Cmdlets` for powershell
 - Run `Clear-AzContext` to clear cached credentials in powershell
 
+## Add credentials via client app's registration
+Let container access the azure blob storage via `EnvironmentCredential`:
+https://learn.microsoft.com/en-us/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet
+
+https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-credentials-to-your-web-application
