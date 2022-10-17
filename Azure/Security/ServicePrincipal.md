@@ -8,7 +8,7 @@ Admins assign an Azure SP to an object, such as an automated tool, application o
 Then, they use role-based access controls to manage that object's access to Azure resources, 
 rather than use security credentials within scripts.
 
-## issues, ricks and management overhead
+## issues, risks and management overhead
 - App credentials has a limited lifetime and requires to be rolled from time to time
 - Expired credentials can lead to downtime for the services utilizing the credential
 - App credentials (especially client secrets ) sometimes are directly exposed as clear text to code
