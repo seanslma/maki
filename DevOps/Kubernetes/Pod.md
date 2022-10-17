@@ -18,12 +18,12 @@ When you override the default Entrypoint and Cmd for a Container, these rules ap
 - supply only `args`, the default Entrypoint defined in the Docker image is run with the args that you supplied.
 - supply a `command` and `args`, the default Entrypoint and the default Cmd defined in the Docker image are ignored. Your command is run with your args.
 
-create a pod by passing env vars
+## create a pod by passing env vars
 ```
 kubectl run <pod-name> -n <namespace> --image=<acr-name>.azurecr.io/retail/app:latest --env="PREFIX_UPPER_CASE_PARAM=xyz"
 ```
 
-use another entrypoint and let the pod run so can get into the container: 
+## use another entrypoint and let the pod run so can get into the container
 https://stackoverflow.com/questions/59248318/kubectl-run-command-vs-arguments
 ```
 kubectl run <pod-name> -n <namespace> --image=<image-path> --restart=Never -o yaml --dry-run -- /bin/sh -c "echo hello;sleep 3600"
