@@ -14,10 +14,14 @@ Fix: After many month of period debugging found the issue to be signal handling.
 - nodes are being removed starting from the highest IDs
 - You cannot control which node will be removed when scaling down the AKS cluster - the cordoned node will not be selected.
 
+**Workaround**: first manually scale the nodes to zero then scale back.
+
 ## Cluster autoscaler settings
 https://github.com/Azure/AKS/issues/2766
 
 https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview
+
+Cannot scale down to zero? seems fixed - test it
 
 ## Autoscale pods
 https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-scale?tabs=azure-cli#autoscale-pods
