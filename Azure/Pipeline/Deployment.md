@@ -16,3 +16,10 @@ Self-hosted agent will not automatically clear all the `workspace` directory
       clean: all
     environment: staging
 ```
+
+May delete needed files, can delete the files manually
+```
+  - powershell: |
+      Remove-Item *.whl
+    displayName: Delete whl files
+```
