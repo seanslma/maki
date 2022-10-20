@@ -9,6 +9,13 @@ kubectl get event --field-selector involvedObject.name=<pod-name>
 kubectl logs <pod-name>         #check logs
 kubectl exec -it <pod-name> -c <container-name> -- bash #connect to pod
 ```
+## port forward
+https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
+
+Use Port Forwarding to Access Applications in a Cluster.
+```
+kubectl port-forward pod/<pod-name> <local-port>:<pod-port>
+```
 
 ## check pod throttling rate
 - `nr_periods`: Total schedule period
