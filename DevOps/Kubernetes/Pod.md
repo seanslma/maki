@@ -8,7 +8,15 @@ kubectl describe pod <pod-name> #check events
 kubectl get event --field-selector involvedObject.name=<pod-name>
 kubectl logs <pod-name>         #check logs
 kubectl exec -it <pod-name> -c <container-name> -- bash #connect to pod
+```
 
+## check pod throttling rate
+- `nr_periods`: Total schedule period
+- `nr_throttled`: Total throttled period out of nr_periods
+- `throttled_time`: Total throttled time in ns
+```
+#run into the pod
+cat /sys/fs/cgroup/cpu/cpu.stat
 ```
 
 ## Kubectl run command
