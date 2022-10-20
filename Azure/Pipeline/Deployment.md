@@ -1,5 +1,9 @@
 # Deployment
 
+https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs?view=azure-devops
+
+A deployment job doesn't automatically `clone the source repo`. You can checkout the source repo within your job with checkout: self. Deployment jobs only support one checkout step.
+
 ## push image to aks
 https://learn.microsoft.com/en-us/azure/aks/devops-pipeline?pivots=pipelines-yaml
 
