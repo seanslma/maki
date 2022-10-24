@@ -1,8 +1,18 @@
 # Node
 
 ## show node agentpool
+Every node pool has a label `agentpool`. Get the node agentpool label
 ```
 kubectl get nodes -L agentpool
+```
+`agentpool` is a label on the nodepool. Can view them using `kubectl get nodes --show-labels`.
+```
+spec:
+  containers:
+  - name: <container-name>
+    image: <image-name>
+  nodeSelector:
+    agentpool: <pool-name>
 ```
 
 ## manually delete a node
