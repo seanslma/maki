@@ -16,3 +16,8 @@ select *
 from my_table
 where recorddate >= &date_start;
 ```
+
+## pipeline variable: ignore filter if null
+```
+(@{pipeline().parameters.p} is null OR p = @{pipeline().parameters.p})
+```
