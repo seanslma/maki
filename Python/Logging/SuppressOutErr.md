@@ -36,3 +36,5 @@ https://medium.com/swlh/python-recipes-suppress-stdout-and-stderr-messages-9141e
 
 ## redirect stdout and stderr to file
 https://eli.thegreenplace.net/2015/redirecting-all-kinds-of-stdout-in-python/
+
+https://dzone.com/articles/redirecting-all-kinds-stdout
