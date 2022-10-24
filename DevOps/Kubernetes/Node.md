@@ -1,5 +1,10 @@
 # Node
 
+## show node agentpool
+```
+kubectl get nodes -L agentpool
+```
+
 ## manually delete a node
 scaling up nodes first to make sure the cluster has enough nodes to accomodate the workloads
 ```
