@@ -2,7 +2,7 @@
 
 https://stackoverflow.com/questions/2188199/how-to-use-double-or-single-brackets-parentheses-curly-braces
 
-## Test construct
+## `[]` Test construct
 `[` is just a different name for the `test` command, and `]` is required
 as the last parameter, for readability and aesthetic reasons.
 ```
@@ -13,7 +13,7 @@ if [ $v == x ] ; then echo yes ; else echo no ; fi
 yes
 ```
 
-## Extended test construct
+## `[[]]` Extended test construct
 ```
 v=x
 if [[ $v == 1 ]] ; then echo yes ; else echo no ; fi
@@ -25,14 +25,14 @@ no
 - Arithmetic evaluation of octal / hexadecimal constants takes place automatically within a [[ ... ]] construct
 
 
-## Double Parentheses: arithmetic operations
+## `(())` Double Parentheses: arithmetic operations
 ```
 (( i = 78 ))
 i = $(( 20 + 5 ))
 (( i++ ))
 ```
 
-## ${var}
+## `${var}`
 ${var} is just a disambiguation mechanism, so `${var}text` can be different to `$vartext`.
 
 ```
@@ -42,7 +42,7 @@ var: x1
 { date; top -b -n1 | head ; } >logfile
 ```
 
-## $(command)
+## `$(command)`
 $(command) is a modern synonym for `command` which stands for command substitution; it means run command and put its output here.
 ```
 round_k() {
@@ -53,4 +53,5 @@ y=$(round_k $x)
 echo $y
 ```
 
-
+## `($x)`
+treat as array init by parentheses, each word an element

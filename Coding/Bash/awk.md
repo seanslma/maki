@@ -28,6 +28,7 @@ ls -l | awk '/^total/{next} {sum += $5}; END {print sum}'
 ## group another field by one field
 - delimiter is space
 - awk `associate array` is a dictionary
+- `NF > 8` only when the number of fields > 8
 ```
 awk -F" " 'NF > 8 {v[$1] += $2}; END {for (k in v) {printf "%s:%d\n", k, v[k]}}'
 ```
