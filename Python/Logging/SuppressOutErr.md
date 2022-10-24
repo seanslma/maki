@@ -1,6 +1,6 @@
 # Suppress stdout and stderr
 
-## works for stdout/err from c as well
+## works for stdout and stderr from c as well
 https://github.com/facebook/prophet/issues/223
 ```
 class SUPPRESS_STDOUT_STDERR(object):
@@ -34,4 +34,5 @@ class SUPPRESS_STDOUT_STDERR(object):
 
 https://medium.com/swlh/python-recipes-suppress-stdout-and-stderr-messages-9141ef4b1373
 
+## redirect stdout and stderr to file
 https://eli.thegreenplace.net/2015/redirecting-all-kinds-of-stdout-in-python/
