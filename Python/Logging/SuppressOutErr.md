@@ -38,3 +38,5 @@ https://medium.com/swlh/python-recipes-suppress-stdout-and-stderr-messages-9141e
 https://eli.thegreenplace.net/2015/redirecting-all-kinds-of-stdout-in-python/
 
 https://dzone.com/articles/redirecting-all-kinds-stdout
+
+https://devpress.csdn.net/python/62fd8a92c677032930803e01.html
