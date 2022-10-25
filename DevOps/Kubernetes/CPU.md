@@ -16,3 +16,5 @@ https://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html
 When the cpu is high, most likely the cpu stalls.
 
 Stalled means the processor was not making forward progress with instructions, and usually happens because it is waiting on memory I/O. 
+
+"I think many people interpret high %CPU to mean that the processing unit is the bottleneck, which is wrong."
