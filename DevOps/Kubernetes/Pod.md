@@ -9,6 +9,12 @@ kubectl get event --field-selector involvedObject.name=<pod-name>
 kubectl logs <pod-name>         #check logs
 kubectl exec -it <pod-name> -c <container-name> -- bash #connect to pod
 ```
+
+## pending pods
+```
+kubectl get pods --field-selector=status.phase=Pending
+```
+
 ## port forward
 https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
 
