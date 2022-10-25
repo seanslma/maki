@@ -3,8 +3,10 @@
 ## Valid `freq` values
 https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases
 
-## pd.Timestamp to month begin (dt)
+## pd.Timestamp to month datetime
 ```
+s.dt.to_period('M').dt.to_timestamp()
+
 df['mth'] = df['dt'].astype('datetime64[M]')
 ```
 
