@@ -10,3 +10,9 @@ vmstat [options][delay [count]]
 vmstat 1   #output every one second
 vmstat 1 5 #output every one second till 5 records
 ```
+
+## strace
+checks filesystem attributes
+```
+strace -c -- /bin/sh -c 'time  (let SUM=0; for i in $(seq 1 1000) ; do SUM+=$i ; stat / > /dev/null; done)'
+```
