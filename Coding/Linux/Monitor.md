@@ -1,5 +1,8 @@
 # Monitor
 
+## top
+Press "1" in the `top` command to show individual CPU statistics.
+
 ## vmstat
 https://phoenixnap.com/kb/vmstat-command#:~:text=The%20vmstat%20command%20(short%20for,by%20specifying%20a%20sampling%20period.
 ```
