@@ -23,6 +23,13 @@ Use Port Forwarding to Access Applications in a Cluster.
 kubectl port-forward pod/<pod-name> <local-port>:<pod-port>
 ```
 
+## pod cpu and memory usage
+run into the pod
+```
+cat /sys/fs/cgroup/cpu/cpuacct.usage  #nanosecond
+cat /sys/fs/cgroup/memory/memory.usage_in_bytes | awk '{ mem = $1 / 1024 / 1024 / 1024 ; print mem "GB" }'
+```
+
 ## check pod throttling rate
 - `nr_periods`: Total schedule period
 - `nr_throttled`: Total throttled period out of nr_periods
