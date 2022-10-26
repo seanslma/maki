@@ -13,9 +13,22 @@ cut parts of lines from specified files or piped data and print the result to st
 - `-s` (--only-delimited) not print lines without delimiters
 - `--complement` exclude selected
 
-## Example: get row field based on delimiter
+## get second field
+```
+> echo '192.168.0.2 #test' | cut -d'#' -f2 #eq: awk -F'#' '{print $2}'
+test
+```
+
+## get field based on delimiter
 Select field 4
 ```
-> (echo '"title":"Math & Physics"' | cut -d '"' -f 4)
+> echo '"title":"Math & Physics"' | cut -d '"' -f 4
 Math & Physics
 ```
+
+## get value in square brackets
+```
+> echo 'dev:[1.0.0]' | cut -d'[' -f2 | cut -d']' -f1
+1.0.0
+```
+
