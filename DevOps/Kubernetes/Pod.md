@@ -15,6 +15,11 @@ kubectl exec -it <pod-name> -c <container-name> -- bash #connect to pod
 kubectl get pods --field-selector=status.phase=Pending
 ```
 
+## delete failed pods
+```
+kubectl delete pods -A  --field-selector='status.phase=Failed'
+```
+
 ## port forward
 https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
 
