@@ -5,15 +5,19 @@ Every statement like RUN, COPY or ADD in the dockerfile will add a layer into do
 ## build image
 ```
 docker build https://github.com/docker/rootfs.git#<container-branch>:<docker-dir>
-
-#manually build locally
-docker build . -f ./docker/filepath/my.docker --platform linux/amd64 -t 1.0.0 -t latest
+docker build . -f ./docker/filepath/my.docker --platform linux/amd64 -t 1.0.0 -t latest #manually build locally
 ```
 
 ## run image
 ```
 docker run -it <image-id>                        #from default entrypoint
 docker run -it --entrypoint /bin/bash <image-id> #from another entrypoint
+```
+
+### remove image with multiple repos/tags
+```
+docker rmi -f <image-id>
+docker rmi [repo-name1]:[tag1] [repo-name2]:[tag2]
 ```
 
 ## check docker image layer sizes
