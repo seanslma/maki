@@ -17,10 +17,23 @@ END;
 ```
 
 ## define
+https://docs.oracle.com/cd/B19306_01/server.102/b14357/ch12017.htm
+
 `DEFINE` statement for simple `string` substitution variables.
 ```
 DEFINE start_date = "to_date('03/11/2011', 'dd/mm/yyyy')"
 SELECT COUNT(*) from my_table tab where tab.some_date < &start_date;
+```
+
+## print
+```
+DECLARE 
+    dt DATE := to_date('2022-08-01', 'yyyy-mm-dd');
+BEGIN
+   DBMS_OUTPUT.put_line (
+        dt + 1
+   );
+END;
 ```
 
 ## define and use variable
