@@ -10,6 +10,8 @@ vmstat [options][delay [count]]
 vmstat 1        #output every one second
 vmstat 1 5      #output every one second till 5 records
 vmstat 1 5 -S M #MBi
+vmstat -a       #active and inactive system memory
+vmstat -s -S M  #memory and scheduling statistics
 ```
 
 ## strace
