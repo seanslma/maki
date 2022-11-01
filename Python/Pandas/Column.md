@@ -1,5 +1,15 @@
 # Column
 
+## empty df with dtypes
+```
+df = pd.DataFrame({
+    'id': pd.Series(dtype='int'),
+    'name': pd.Series(dtype='str'),
+    'value': pd.Series(dtype='float'),
+    'datetime': pd.Series(dtype='datetime64[ns]'),
+ })
+```
+
 ## set columns in chained method
 ```python
 df = df.set_axis(columns, axis=1)
