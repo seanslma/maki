@@ -10,6 +10,18 @@ Pod not deleted preventing scaling down on all nodes:
 https://github.com/kubernetes/autoscaler/issues/248
 Fix: After many month of period debugging found the issue to be signal handling. Installed https://github.com/Yelp/dumb-init in all the pods and the issue as cleared. I am closing this.
 
+## reasons nodes not scaled down
+https://github.com/kubernetes/autoscaler/issues/525
+
+### autoscaler logs
+```
+kubectl -n kube-system logs --follow kube-dns-autoscaler-7xxxxb7-lxxxp
+```
+### Autoscaler configmap
+```
+kubectl get configmap cluster-autoscaler-status -n kube-system -o yaml
+```
+
 ## cannot control which node to delete
 - nodes are being removed starting from the highest IDs
 - You cannot control which node will be removed when scaling down the AKS cluster - the cordoned node will not be selected.
