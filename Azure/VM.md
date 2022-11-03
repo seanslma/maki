@@ -4,6 +4,9 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-host-memory-o
 https://www.cbtnuggets.com/blog/certifications/microsoft/how-to-choose-the-best-virtual-machine-for-your-workload-in-azure
 
 ## vm cpu quota
+https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quotas
+
+Subscription > Settings > Usage + quotas
 ```
 az vm list-usage --location "australiaeast" -o table
 ```
