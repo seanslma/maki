@@ -1,5 +1,6 @@
 # Container
 
+## list containers
 https://www.tutorialspoint.com/how-to-list-containers-in-docker
 
 Options:
@@ -8,14 +9,19 @@ Options:
 - `-q`: quiet
 - `-f`: filter on container ID, image, name, and status
 
-## list running containers
+List running containers
 ```
 docker ps
 docker conatiner ls
 ```
 
-## list stopped containers
+List stopped containers
 ```
 docker container ls --filter "status=exited"
 ```
 Status options: created, restarting, running, paused, exited, dead
+
+## delete containers
+```
+docker rm <container-id>
+```
