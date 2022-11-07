@@ -28,5 +28,7 @@ https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignmen
 ## Associate subscription to another directory
 https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory
 
+https://vmlabblog.com/2020/02/how-to-move-an-azure-subscription/
+
 ## Transfer subscription to another directory
 https://docs.microsoft.com/en-us/azure/role-based-access-control/transfer-subscription
