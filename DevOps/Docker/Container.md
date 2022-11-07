@@ -24,4 +24,5 @@ Status options: created, restarting, running, paused, exited, dead
 ## delete containers
 ```
 docker rm <container-id>
+docker rm $(docker ps -aq) #delete all containers
 ```
