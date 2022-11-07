@@ -16,4 +16,5 @@ terraform plan -out main.tfplan
 terraform apply main.tfplan
 echo "$(terraform output resource_group_name)" #check the name from the outputs
 terraform plan -destroy -out main.destroy.tfplan
+terraform destroy
 ```

@@ -20,9 +20,9 @@ az ad sp create-for-rbac \
   --role reader #Reader role
 
 az ad sp create-for-rbac \
-  --name "<service-principal-name>" \
-  --role "Contributor" \
-  --scopes "/subscriptions/<subscription-id>"
+  --name <service-principal-name> \
+  --role Contributor \
+  --scopes /subscriptions/<subscription-id>
 
 az login --service-principal \
   --username <app-id> --password <password> \
