@@ -52,7 +52,8 @@ console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
 console_handler.setFormatter(formatter)
 root_logger.addHandler(concole_handler)
-package_logger.addHandler(console_handler)
+#if previous console handler not deleted, log will output multiple times
+package_logger.addHandler(console_handler) 
 
 #file handler
 file_handler = logging.FileHandler('file.log')
