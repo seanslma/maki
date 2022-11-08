@@ -1,5 +1,7 @@
 # Delayed
 
+https://docs.dask.org/en/stable/delayed.html
+
 ## specify number of threads
 ```
 from multiprocessing.pool import ThreadPool
