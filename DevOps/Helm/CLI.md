@@ -1,17 +1,14 @@
 # CLI
 
-## add repo
+## repo
 ```
 helm repo list
 helm repo add kured https://kubereboot.github.io/charts
+helm repo remove kured
 ```
 
-## search chart
+## list chart
 ```
 helm search repo kured
-```
-
-## list all versions
-```
 helm search repo kured --versions
 ```
