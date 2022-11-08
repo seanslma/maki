@@ -2,6 +2,7 @@
 
 ## add repo
 ```
+helm repo list
 helm repo add kured https://kubereboot.github.io/charts
 ```
 
