@@ -1,5 +1,16 @@
 # Key Vault
 
+## when updated will take effect
+When the secret/key is updated in external secrets store after the initial pod deployment, the updated secret will be periodically updated in the pod mount and the Kubernetes Secret.
+
+Depending on how the application consumes the secret data:
+- Mount Kubernetes secret as a volume: Use auto rotation feature + Sync K8s secrets feature in Secrets Store CSI Driver, application will need to watch for changes from the mounted Kubernetes Secret volume. When the Kubernetes Secret is updated by the CSI Driver, the corresponding volume contents are automatically updated.
+- Application reads the data from container’s filesystem: Use rotation feature in Secrets Store CSI Driver, application will need to watch for the file change from the volume mounted by the CSI driver.
+- Using Kubernetes secret for environment variable: The pod needs to be restarted to get the latest secret as environment variable. Use something like https://github.com/stakater/Reloader to watch for changes on the synced Kubernetes secret and do rolling upgrades on pods.
+
+Additional configuration:
+https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/tutorial-akv-secrets-provider#additional-configuration-options
+
 ## basic
 ```
 az config set defaults.location=westus2
