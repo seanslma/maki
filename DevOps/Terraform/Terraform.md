@@ -18,3 +18,15 @@ echo "$(terraform output resource_group_name)" #check the name from the outputs
 terraform plan -destroy -out main.destroy.tfplan
 terraform destroy
 ```
+
+## best practices
+https://cloud.google.com/docs/terraform/best-practices-for-terraform#module-structure
+
+environment directory must contain:
+- `main.tf`: instantiate the service module
+- `backend.tf`: declare the Terraform backend state location (typically, Cloud Storage)
+
+module directory should contain:
+- `main.tf`
+- `variables.tf`
+- `outputs.tf`
