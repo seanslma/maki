@@ -22,6 +22,12 @@ class SUPPRESS_STDOUT_STDERR(object):
         # Assign the null pointers to stdout and stderr.
         os.dup2(self.null_fds[0], 1)
         os.dup2(self.null_fds[1], 2)
+        # https://stackoverflow.com/questions/66784941/dup2-and-pipe-shenanigans-with-python-and-windows
+        if sys.platform == 'win32':
+            sys.stdout.write = lambda z: os.write(
+                sys.stdout.fileno(),
+                z.encode() if hasattr(z, 'encode') else z
+            )        
 
     def __exit__(self, *_):
         # Re-assign the real stdout/stderr back to (1) and (2)
