@@ -2,6 +2,8 @@
 
 ## works for stdout and stderr from c as well
 https://github.com/facebook/prophet/issues/223
+
+This method will fail within multi-thread tasks (without output or with unexpected outputs)
 ```
 class SUPPRESS_STDOUT_STDERR(object):
     '''
