@@ -30,6 +30,8 @@ mv /path/folder/* /anotherpath/folder/ #hidden files will be excluded
 ## Copy folder
 ```bash
 cp -option1 -option2 source destination
+cp -r ./source/ /dest/   #copy folder source into dest folder
+cp -a ./source/. ./dest/ #content in source to dest, reserve all file attributes
 #example
 cp -avr /home/books /usb/backup
     -a: Preserve the specified attributes such as directory an file mode, ownership, timestamps, if possible additional attributes: context, links, xattr, all.
