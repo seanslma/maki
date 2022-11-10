@@ -13,8 +13,8 @@
 
 ## AKS credentials
 ```
-az aks get-credentials \
-  --resource-group rg01 --name aks01
+az aks list -o table
+az aks get-credentials --resource-group rg01 --name aks01
 ```
 
 ## kubectl basic
