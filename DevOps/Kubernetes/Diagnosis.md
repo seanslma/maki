@@ -3,6 +3,8 @@ https://thenewstack.io/living-with-kubernetes-12-commands-to-debug-your-workload
 
 https://kubernetes.io/docs/tasks/debug/debug-cluster/
 
+https://kubernetes.io/docs/tasks/debug/debug-application/determine-reason-pod-failure/
+
 ## check
 ```
 kubectl version
