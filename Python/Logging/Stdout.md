@@ -1,11 +1,13 @@
-# Suppress stdout and stderr
+# Stdout
 
-## works for stdout and stderr from c as well
+## Suppress stdout and stderr
 https://github.com/facebook/prophet/issues/223
 
 stdin/stdout are global variables, shared between threads, and so are file descriptors.
 
-This method will fail within multi-thread tasks (without output or with unexpected outputs)
+This method 
+- works for stdout and stderr from c as well
+- will fail within ***multi-thread*** tasks (without output or with unexpected outputs)
 ```
 class SUPPRESS_STDOUT_STDERR(object):
     '''
