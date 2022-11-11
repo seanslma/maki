@@ -9,3 +9,6 @@ https://www.testdome.com/tests
 
 ## Learning resources including videos for software developers and devops engineers
 https://roadmap.sh
+
+
+ningx cloud native devops with kubernetes pdf
