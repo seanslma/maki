@@ -10,7 +10,7 @@ https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=az
 ## user defined variable
 ```
 variables:
-  python_path: 'C:\Python\Python39\'
+  python_path: 'C:/Python/Python39/'
   artifact_feed: 'my/my_artifact_feed'
   fail_on_no_coverage: true
   dockerRegistryServiceConnection: 'dev'
