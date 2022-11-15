@@ -4,6 +4,7 @@
 ```
 git commit -m "Head line" -m " * First content line" -m " * Second content line"
 ```
+
 ## drop commits not pushed
 - `HEAD~1` the first parent of the commit
 - `HEAD^`means something different, on windows cane be escaped as `HEAD^^`
@@ -11,6 +12,13 @@ git commit -m "Head line" -m " * First content line" -m " * Second content line"
 git reset --hard HEAD~3 #delete last three commits
 git reset --hard HEAD~1 #delete previous commit
 git reset --soft HEAD~1 #revert previous commit to staging area
+```
+
+## take commits not pushed to new branch
+```
+git checkout -b <new-branch>
+git checkout <master>
+git reset --hard HEAD~<n>    #remove last n commits
 ```
 
 ## revert last commit pushed 
