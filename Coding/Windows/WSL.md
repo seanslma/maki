@@ -12,6 +12,17 @@ wsl --install -d <Distribution Name> #install distribution
 wsl -l -v #show installed Linux distributions
 ```
 
+## config to limit memory
+https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-setting-for-wslconfig
+- `vi editor "$(wslpath "C:\Users\<usr>\.wslconfig")"`
+add to `.wslconfig` file (unix newline): 
+```
+[wsl2]
+memory=4GB
+```
+- `wsl --shutdown` #restart
+- `free -h --giga` #check total memory
+
 ## install docker
 https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9
 
