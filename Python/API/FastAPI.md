@@ -13,5 +13,8 @@ If a parameter is not present in the path and it also uses **Pydantic BaseModel*
 
 FastAPI will read the incoming request payload as JSON and convert the corresponding data types if needed. Also, it will perform validation and return an appropriate error response.
 
+## postgresql
+https://www.educative.io/answers/how-to-use-postgresql-database-in-fastapi
+
 ## test
 https://fastapi.tiangolo.com/tutorial/testing/
