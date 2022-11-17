@@ -14,7 +14,7 @@ dask.config.set({"distributed.workers.memory.spill": 0.85})
 
 ## scheduler
 - `distributed.scheduler.work-stealing  True`
-  Whether or not to move tasks around to balance work between workers dynamically.\n
+  Whether or not to move tasks around to balance work between workers dynamically.\\
   https://dask.discourse.group/t/understanding-work-stealing/335/9
 - `distributed.scheduler.work-stealing-interval  100ms`
   How frequently to balance worker loads.
