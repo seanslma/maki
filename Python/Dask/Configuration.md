@@ -24,8 +24,9 @@ dask.config.config #show config
 
 ## worker
 - `distributed.worker.lifetime.duration  None`
-  The time after creation to close the worker, like "1 hour".
+  The time (seconds) after creation to close the worker, like "1 hour".
 - `distributed.worker.lifetime.stagger  0 seconds`
    Workers close with random variation time so not closed all at the same time.
 - `distributed.worker.lifetime.restart  False`
-  Do we try to resurrect the worker after the lifetime deadline? Mainly used to avoid stalls or memory leak
+  Do we try to resurrect the worker after the lifetime deadline?\
+  Mainly used to deal with worker stalls or memory leak
