@@ -6,6 +6,9 @@ https://docs.dask.org/en/stable/configuration.html
 ```
 export DASK_DISTRIBUTED__WORKERS__MEMORY__SPILL=0.85
 dask.config.set({"distributed.workers.memory.spill": 0.85})
+
+import dask
+dask.config.config #show config
 ```
 
 ## comm
