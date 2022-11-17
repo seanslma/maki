@@ -33,13 +33,18 @@ git reset --hard HEAD^
 git push origin -f
 ```
 
+## diff between two commits
+```
+git log --pretty=oneline                               #show commits
+git checkout -b <new-branch> <commit-sha-old>          #make a copy from old commit
+git diff <commit-sha-old>  <commit-sha-new> > my.patch #get diff between old and new commits
+git apply my.patch                                     #apply diff to copied branch
+```
+
 ## cherry pick
 ```
-# start from an updated master
-git checkout master
+git checkout master       #start from an updated master
 git pull
-# create a copy of master and switch to it
-git switch -c new-branch
-# get commit from other branch using it's sha
-git cherry-pick <sha>
+git switch -c new-branch  #create a copy of master and switch to it
+git cherry-pick <sha>     #get commit from other branch using it's sha
 ```
