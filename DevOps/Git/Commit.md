@@ -36,8 +36,8 @@ git push origin -f
 ## diff between two commits
 ```
 git log -5 --oneline                          #show commits
-git checkout -b <new-branch> <commit-sha-old> #make a copy from old commit
 git diff <sha-old>  <sha-new> > my.patch      #get diff between old and new commits
+git checkout -b <new-branch> <commit-sha-old> #make a copy from old commit
 git apply my.patch                            #apply diff to copied branch
 ```
 
