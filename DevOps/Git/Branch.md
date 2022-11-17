@@ -32,8 +32,13 @@ git push origin --delete master #delete remote master
 
 ## create branch
 ```
-git branch new-branch
-git checkout -b new-branch                    #create and switch to
+git branch <new-branch>
+git checkout -b <new-branch>  #create and switch to
+```
+
+## create branch from commit
+```
+git checkout -b <new-branch> <commit-hash or HEAD~i>
 ```
 
 ## restore deleted branch
