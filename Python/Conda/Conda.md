@@ -11,6 +11,11 @@ https://pythonspeed.com/articles/conda-vs-pip/#:~:text=The%20fundamental%20diffe
 - pip wheel can lead larger package size
 - pip wheel not include executables and tools
 
+## update conda
+```
+conda update -n base conda
+```
+
 ## create an env
 ```
 conda create --name <env-name>
@@ -27,9 +32,6 @@ for i in $(seq ${CONDA_SHLVL}); do
     conda deactivate
 done
 ```
-
-## config
-https://docs.conda.io/projects/conda/en/latest/configuration.html
 
 ## activate anaconda/miniconda/conda-forge
 ```
