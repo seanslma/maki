@@ -16,5 +16,7 @@ set contrpath=C:\Users\sma\AppData\Roaming\Python\Python38\site-packages\jupyter
 python %contrpath%application.py nbextension install --user #works
 ```
 
-## extensions
-- Add a Table of Content (Table of Content 2)
+## install extension
+- Add a Table of Content (Table of Content 2)\
+  `jupyter labextension install @jupyterlab/toc`
+  `jupyter labextension install "@jupyterlab/toc@2.0.0"`
