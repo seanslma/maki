@@ -32,18 +32,6 @@ jupytext --to py <file>.ipynb     #from .ipynb to .py file
 jupytext --to python --output <file>.py <file>.ipynb 
 ```
   
-## enable extension
-  pip install jupyter_nbextensions_configurator
-  jupyter nbextensions_configurator enable --user #not work
-  set cfigpath=C:\Users\sma\AppData\Roaming\Python\Python38\site-packages\jupyter_nbextensions_configurator\
-  python %cfigpath%application.py enable --user #works
-  pip install jupyter_contrib_nbextensions
-  jupyter contrib nbextension install --user #not work
-  set contrpath=C:\Users\sma\AppData\Roaming\Python\Python38\site-packages\jupyter_contrib_core\
-  python %contrpath%application.py nbextension install --user #works
-  
-  http://localhost:8889/nbextensions
-  
 ## lux
     jupyter nbextension install --py luxwidget
     jupyter nbextension enable --py luxwidget
