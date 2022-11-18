@@ -5,6 +5,11 @@ https://learnk8s.io/terraform-aks
 
 https://www.linkedin.com/pulse/one-hour-day-learn-terraform-microsoft-azure-gary-tong
 
+## blogs
+https://blog.gruntwork.io/terraform-tips-tricks-loops-if-statements-and-gotchas-f739bbae55f9
+
+https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca
+
 ## scheduled maintenance
 See: https://status.hashicorp.com/
 
