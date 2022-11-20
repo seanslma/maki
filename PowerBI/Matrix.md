@@ -1,5 +1,8 @@
 # Matrix
 
+## Turning off stepped layout
+Turn off stepped layout on the row headers card, to put each row label in a separate column not the default stepped (indented) layout.
+
 ## subtotal
 Will use the same measure to calculate value and total so sometimes the total can be incorrect. In this case, we need to use different measures for value and total calculation.
 ```
