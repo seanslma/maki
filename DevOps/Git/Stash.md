@@ -14,3 +14,9 @@ git stash apply n              #apply stash@{n}
 git stash drop <stash-id>      #remove one stash
 git stash clear                #remove all stashes
 ```
+
+## include new files in stash
+```
+git add .
+git stash --staged -m "stash-name"
+```
