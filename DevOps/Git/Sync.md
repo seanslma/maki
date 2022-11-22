@@ -1,8 +1,32 @@
 # Sync
 
+## push
+push local branch to remote branch with the same name
+```
+git push <remote> <local-branch>
+```
+
+## fetch
+fetch remote branch
+```
+git fetch <repo> <remote-branch>
+```
+
+## merge
+merge remote branch to current branch
+```
+git merge <repo>/<remote-branch>
+```
+
+## pull
+fetch remote branch and merge to local branch
+```
+git pull <repo> <remote-branch>:<local-branch>
+```
+
 ## remove a local repo
 ```
-rm -fr .git  #will keep all files
+rm -fr .git  #will keep all
 ```
 
 ## clone repo to local folder
@@ -26,27 +50,12 @@ git remote add origin https://github.com/usr/repo.git  #link to github
 git push -u origin main                     #push to github repo
 ```
 
-## sync a fork
+## upstream to master (sync a fork)
 ```
-#fetch the branches and their respective commits from the upstream repository
-git fetch upstream
-
-#check out fork's local default branch
-git checkout master
-
-#merge changes from upstream default branch, upstream/master, into local default branch, without losing local changes
-git merge upstream/master
-
-#push local changes to forked repo
-git push origin master
-```
-
-## upstream to master
-```
-git checkout master
-git fetch upstream
-git merge upstream/master
-git push origin master #master to origin/master
+git checkout master       #check out fork's local default branch
+git fetch upstream        #fetch upstream branches and commits
+git merge upstream/master #merge upstream/master into local current branch
+git push origin master    #push local changes to origin/master
 ```
 
 ## upstream to local branch (rebase)
@@ -61,8 +70,7 @@ git stash pop
 ## master to local branch
 ```
 git checkout my-branch
-# git pull origin master, OK but better use
-git fetch origin
+git fetch origin        #git pull origin master, OK but better use
 git merge origin/master
 ```
 
