@@ -12,24 +12,33 @@ Decorators dynamically alter the functionality of a `function`, `method`, or `cl
 
 ## Example
 ```
-def decorator_maker(dp):
+import inspect
+import functools
+def decorator_maker(dp: str):
     "Decorator maker function"
     def decorator(func):
         "Decorator function"
-        def wrapper(fp):
+        sig = inspect.signature(func)
+        @functools.wraps(func)        
+        def wrapper(*args, **kwargs):
             "Wrapper function"
-            print(f'decorator maker parameters: {dp}')
-            print(f'function call paremeters: {fp}')
-            fp = f'prefix_{fp.upper()}' #pre-processing
-            re = func(fp)               #function call
-            rt = f'{re}_appendix'       #post-processing
+            print(f'decorator maker args[0]: {dp}')
+            bound = sig.bind(*args, **kwargs)
+            kw = bound.arguments.get('kw')
+            print(f'function call kwargs[kw]: {kw}')                                   
+            kw = f'{dp}_{kw.upper()}'   #pre-processing kwargs
+            kwargs['kw'] = kw 
+            re = func(*args, **kwargs)  #function call
+            rt = f'{re}_appendix'       #post-processing results
+            kwargs['kw'] = kw 
             return rt
         return wrapper
     return decorator
 
-@decorator_maker('dm')
-def decorated_func(fp):
-    return f'decorated function parameters: {fp}'
+@decorator_maker('prefix')
+def decorated_func(*, kw: str):
+    print(f'decorated func preprocessed kwargs[kw]: {kw}')
+    return f'decorated func postprocessed result: {kw}'
 
-print(decorated_func('ok'))
+print(decorated_func(kw='ok'))
 ```
