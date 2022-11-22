@@ -25,6 +25,11 @@ VAR __val = CALCULATE(
 ## Sync slicers
 https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-slicers?tabs=powerbi-desktop#sync-and-use-slicers-on-other-pages
 
+## Visual interactions
+- slicer A -> column A, slicer B -> column B
+- value selected in slicer B should not affect slicer A (still show all values)
+- Format > Edit interactions > click `no impact` icon near slicer A
+
 ## Default max value
 PowerBI will remember a constant value so we need to replace the max with a constant, e.g.
 ```
