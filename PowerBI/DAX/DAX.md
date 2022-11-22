@@ -52,11 +52,13 @@ NewTable = DISTINCT(OldTable[ColName])
 ```
 
 ## measure conditional on another column
+If: `If(Dates[Date]=MaxDate, "MaxDate", FORMAT(Dates[Date], "yyyy-MM-dd hh:mm:ss"))`
 ```
 DateStr = 
     VAR MaxDate = MAX(Dates[Date])
-Return 
-    If(Dates[Date]=MaxDate, "MaxDate", FORMAT(Dates[Date], "yyyy-MM-dd hh:mm:ss"))
+    VAR SecondMaxDate = MAXX(FILTER(Dates,[Date]<MaxDate), Dates[Date])
+Return     
+    SWITCH(Dates[Date], MaxDate, "MaxDate", SecondMaxDate, "SecondMaxDate", FORMAT(Dates[Date], "yyyy-MM-dd hh:mm:ss"))
 ```
 
 ## measure by filtering column
