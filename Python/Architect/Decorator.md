@@ -11,7 +11,7 @@ Decorators dynamically alter the functionality of a `function`, `method`, or `cl
 - can do preprocessing and after processing of the function call
 
 ## Example
-```
+```py
 import inspect
 import functools
 def decorator_maker(dp: str):
