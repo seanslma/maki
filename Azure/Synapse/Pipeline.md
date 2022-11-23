@@ -1,5 +1,9 @@
 # Pipeline
 
+## paralell limitation
+we do need to specify the max parallel run number.
+Cannot run all jobs in real paralell mode - need to limit the number of jobs and there is the timeout limit in the automation pipeline.
+
 ## parameter and variable
 https://learn.microsoft.com/en-us/azure/data-factory/concepts-parameters-variables
 
