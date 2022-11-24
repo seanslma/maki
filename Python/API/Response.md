@@ -29,6 +29,29 @@ import io
 import requests
 import pandas as pd
 
+@router.get("/get_df",
+    status_code=status.HTTP_200_OK,
+    description='Test api get',
+)
+async def get_df(
+    request: Request,
+):
+    df = pd.DataFrame([['i',1],['j', 2]], columns=['k', 'v'])
+
+    if request.headers.get('Accept') == 'text/csv':
+        response = StreamingResponse(io.StringIO(df.to_csv(index=False)), media_type="text/csv")
+        response.headers["Content-Disposition"] = f"attachment; filename=meter_data.csv"
+        return response
+    elif request.headers.get('Accept') == 'bytes/parquet':
+        byio = io.BytesIO()
+        df.to_parquet(byio)
+        byio.seek(0)
+        response = StreamingResponse(byio, media_type="bytes/parquet")
+        response.headers["Content-Disposition"] = f"attachment; filename=file.parquet"
+        return response
+    else:
+        return df.fillna('').to_dict(orient='records')
+
 def api_headers(header_type):
     if header_type == 'json':
         return None
