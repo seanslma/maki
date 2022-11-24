@@ -1,7 +1,5 @@
 # FastAPI
-https://dev.to/jbrocher/fastapi-testing-a-database-5ao5
-
-https://ahmed-nafies.medium.com/fastapi-with-sqlalchemy-postgresql-and-alembic-and-of-course-docker-f2b7411ee396
+https://fastapi.tiangolo.com/tutorial
 
 ## bigger application structure
 https://fastapi.tiangolo.com/tutorial/bigger-applications/
@@ -19,7 +17,11 @@ If a parameter is not present in the path and it also uses **Pydantic BaseModel*
 FastAPI will read the incoming request payload as JSON and convert the corresponding data types if needed. Also, it will perform validation and return an appropriate error response.
 
 ## postgresql
+https://dev.to/jbrocher/fastapi-testing-a-database-5ao5
+
 https://www.educative.io/answers/how-to-use-postgresql-database-in-fastapi
+
+https://ahmed-nafies.medium.com/fastapi-with-sqlalchemy-postgresql-and-alembic-and-of-course-docker-f2b7411ee396
 
 ## test
 https://fastapi.tiangolo.com/tutorial/testing/
