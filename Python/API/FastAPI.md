@@ -3,6 +3,8 @@ https://dev.to/jbrocher/fastapi-testing-a-database-5ao5
 
 https://ahmed-nafies.medium.com/fastapi-with-sqlalchemy-postgresql-and-alembic-and-of-course-docker-f2b7411ee396
 
+## bigger application structure
+https://fastapi.tiangolo.com/tutorial/bigger-applications/
 
 ## model
 https://fastapi.tiangolo.com/tutorial/body/
