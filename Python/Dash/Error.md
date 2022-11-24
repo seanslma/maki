@@ -9,3 +9,6 @@ One of the file is dash.py - should not name file `dash.py` as that would shadow
 
 ## error handling
 https://flask.palletsprojects.com/en/2.2.x/errorhandling/
+
+https://code-maven.com/python-flask-catch-exception
+
