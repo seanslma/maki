@@ -24,6 +24,10 @@ return StreamingResponse(byte_im, media_type="image/jpeg")
 ```
 
 ## api get
+https://stackoverflow.com/questions/73564771/fastapi-is-very-slow-in-returning-a-large-amount-of-json-data
+To prevent browser show large amount of data
+- set `Content-Disposition` header to Response using the `attachment` parameter and passing a filename
+- 
 ```
 import io
 import requests
@@ -39,19 +43,20 @@ async def get_df(
     df = pd.DataFrame([['i',1],['j', 2]], columns=['k', 'v'])
 
     if request.headers.get('Accept') == 'text/csv':
-        response = StreamingResponse(io.StringIO(df.to_csv(index=False)), media_type="text/csv")
-        response.headers["Content-Disposition"] = f"attachment; filename=meter_data.csv"
-        return response
+        resp = StreamingResponse(io.StringIO(df.to_csv(index=False)), media_type='text/csv')
+        resp.headers['Content-Disposition'] = 'attachment; filename=data.csv'
     elif request.headers.get('Accept') == 'bytes/parquet':
         byio = io.BytesIO()
         df.to_parquet(byio)
         byio.seek(0)
-        response = StreamingResponse(byio, media_type="bytes/parquet")
-        response.headers["Content-Disposition"] = f"attachment; filename=file.parquet"
-        return response
+        resp = StreamingResponse(byio, media_type='bytes/parquet')
+        resp.headers['Content-Disposition'] = 'attachment; filename=file.parquet'
     else:
-        return df.fillna('').to_dict(orient='records')
-
+        df.fillna('').to_dict(orient='records') #defaultFastAPIencoder can be slow
+        resp = Response(df.to_json(orient="records"), media_type='application/json') 
+        resp.headers['Content-Disposition'] = 'attachment; filename=data.json'
+    return resp
+    
 def api_headers(header_type):
     if header_type == 'json':
         return None
