@@ -23,6 +23,14 @@ byte_im.seek(0)
 return StreamingResponse(byte_im, media_type="image/jpeg")
 ```
 
+Another solution: faster?
+
+https://stackoverflow.com/questions/66223811/how-to-increase-transfer-speed-when-posting-an-image-to-a-rest-api
+```
+data = {'shape': image.shape, 'img': base64.b64encode(image.tobytes())}
+image = np.frombuffer(base64.b64decode(data.img)).reshape(data.shape)
+```
+
 ## api get
 https://stackoverflow.com/questions/73564771/fastapi-is-very-slow-in-returning-a-large-amount-of-json-data
 To prevent browser show large amount of data
