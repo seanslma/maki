@@ -1,6 +1,13 @@
 # gRCP
+
+install packages
 ```
 pip install grpcio grpcio-tools googleapis-common-protos
+```
+
+compile protocols
+```
+python -m grpc_tools.protoc -I definitions/ --python_out=definitions/builds/ --grpc_python_out=definitions/builds/ definitions/service.proto
 ```
 
 ## comparison between gRCP and FastAPI
