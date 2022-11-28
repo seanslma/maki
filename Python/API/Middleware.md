@@ -5,6 +5,8 @@ https://fastapi.tiangolo.com/tutorial/middleware/
 A middleware is a function that works with every `request` before it is processed by any specific path operation. And also with every `response` before returning it.
 
 ## GZipMiddleware
+https://docs.djangoproject.com/en/4.1/ref/middleware/
+
 Handles GZip responses for any request that includes "gzip" in the Accept-Encoding header.
 
 This middleware should be placed before any other middleware that need to read or write the response body so that compression happens afterward.
