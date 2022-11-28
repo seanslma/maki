@@ -18,7 +18,7 @@ https://stackoverflow.com/questions/55873174/how-do-i-return-an-image-in-fastapi
 ```
 byte_im = BytesIO()
 image.save(byte_im, "JPEG")
-byte_im.seek(0)
+byte_im.seek(0)   #get byte_im size: byte_im.getbuffer().nbytes
 
 return StreamingResponse(byte_im, media_type="image/jpeg")
 ```
