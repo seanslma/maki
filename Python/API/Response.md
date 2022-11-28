@@ -51,7 +51,7 @@ async def get_df(
     df = pd.DataFrame([['i',1],['j', 2]], columns=['k', 'v'])
 
     if request.headers.get('Accept') == 'text/csv':
-        resp = StreamingResponse(io.StringIO(df.to_csv(index=False)), media_type='text/csv')
+        resp = StreamingResponse(io.StringIO(df.to_csv(index=False, compression='gzip')), media_type='text/csv')
         resp.headers['Content-Disposition'] = 'attachment; filename=data.csv'
     elif request.headers.get('Accept') == 'bytes/parquet':
         byio = io.BytesIO()
