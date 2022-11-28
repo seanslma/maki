@@ -35,7 +35,8 @@ image = np.frombuffer(base64.b64decode(data.img)).reshape(data.shape)
 https://stackoverflow.com/questions/73564771/fastapi-is-very-slow-in-returning-a-large-amount-of-json-data
 To prevent browser show large amount of data
 - set `Content-Disposition` header to Response using the `attachment` parameter and passing a filename
-- 
+
+parquet is 4x faster than json and 8x faster than csv. Why csv is slow?
 ```
 import io
 import requests
