@@ -15,5 +15,7 @@ python -m grpc_tools.protoc -I definitions/ --python_out=definitions/builds/ --g
 ## comparison between gRCP and FastAPI
 https://alek-cora-glez.medium.com/my-next-api-grpc-restful-5d888289acd
 
+https://betterprogramming.pub/grpc-file-upload-and-download-in-python-910cc645bcf0
+
 ## FastAPI and gRPC
 https://dev.to/ankitbrijwasi/connect-fastapi-golang-services-using-grpc-4k3d
