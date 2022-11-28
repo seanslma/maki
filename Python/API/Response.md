@@ -3,8 +3,6 @@
 ## custom response
 https://fastapi.tiangolo.com/advanced/custom-response/
 
-https://stackoverflow.com/questions/73564771/fastapi-is-very-slow-in-returning-a-large-amount-of-json-data
-
 ## FileResponse
 will save the file on disk and return a path.
 
@@ -33,6 +31,7 @@ image = np.frombuffer(base64.b64decode(data.img)).reshape(data.shape)
 
 ## api get
 https://stackoverflow.com/questions/73564771/fastapi-is-very-slow-in-returning-a-large-amount-of-json-data
+
 To prevent browser show large amount of data
 - set `Content-Disposition` header to Response using the `attachment` parameter and passing a filename
 
@@ -59,7 +58,7 @@ async def get_df(
         df.to_parquet(byio)
         byio.seek(0)
         resp = StreamingResponse(byio, media_type='bytes/parquet')
-        resp.headers['Content-Disposition'] = 'attachment; filename=file.parquet'
+        resp.headers['Content-Disposition'] = 'attachment; filename=data.parquet'
     else:
         df.fillna('').to_dict(orient='records') #defaultFastAPIencoder can be slow
         resp = Response(df.to_json(orient="records"), media_type='application/json') 
