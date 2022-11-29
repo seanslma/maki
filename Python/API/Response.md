@@ -97,7 +97,7 @@ def api_headers(header_type):
         
 def req_to_df(req, header_type):
     if header_type == 'json':
-        return pd.DataFrame.from_dict(req.json())
+        return pd.read_json(req.content.decode('utf-8'))
     elif header_type == 'csv':
         return pd.read_csv(io.StringIO(req.content.decode('utf-8')))
     elif header_type == 'parquet':
