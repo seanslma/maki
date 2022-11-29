@@ -20,7 +20,7 @@ requires an iterator object to send the results in chunks.
 
 https://cloudbytes.dev/snippets/received-return-a-file-from-in-memory-buffer-using-fastapi
 
-return a parquet file
+Return a parquet file (similar performance to json)
 ```
 bio = io.BytesIO()
 df.to_parquet(bio)
