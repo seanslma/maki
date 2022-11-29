@@ -6,10 +6,28 @@ https://fastapi.tiangolo.com/advanced/custom-response/
 ## FileResponse
 will save the file on disk and return a path.
 
+## Json response
+The default one useing `jsonable_encoder` is at least **5x** slower than `df.to_json`.
+```
+df.fillna('').to_dict(orient='records') #default
+JSONResponse(jsonable_encoder(df.fillna('').to_dict(orient='records'))) #default equvalent
+Response(df.fillna('').to_json(orient='records', date_format='iso', date_unit='s'), media_type="application/json") #df.to_json
+resp.headers['Accept-Encoding'] = "gzip"  #use gzip, can have similar performance compared to parquet file
+```
+
 ## StreamingResponse
 requires an iterator object to send the results in chunks.
 
 https://cloudbytes.dev/snippets/received-return-a-file-from-in-memory-buffer-using-fastapi
+
+return a parquet file
+```
+bio = io.BytesIO()
+df.to_parquet(bio)
+bio.seek(0)
+resp = StreamingResponse(bio, media_type="bytes/parquet")
+resp.headers["Content-Disposition"] = f"attachment; filename=data.parquet"
+```
 
 ## return an image
 https://stackoverflow.com/questions/55873174/how-do-i-return-an-image-in-fastapi
@@ -51,18 +69,20 @@ async def get_df(
     df = pd.DataFrame([['i',1],['j', 2]], columns=['k', 'v'])
 
     if request.headers.get('Accept') == 'text/csv':
-        resp = StreamingResponse(io.StringIO(df.to_csv(index=False, compression='gzip')), media_type='text/csv')
+        resp = StreamingResponse(io.StringIO(df.to_csv(index=False)), media_type='text/csv')
         resp.headers['Content-Disposition'] = 'attachment; filename=data.csv'
+        resp.headers['Accept-Encoding'] = 'gzip' #much slower than json - a bug?
     elif request.headers.get('Accept') == 'bytes/parquet':
         byio = io.BytesIO()
         df.to_parquet(byio)
         byio.seek(0)
         resp = StreamingResponse(byio, media_type='bytes/parquet')
         resp.headers['Content-Disposition'] = 'attachment; filename=data.parquet'
+        resp.headers['Accept-Encoding'] = 'gzip'
     else:
-        df.fillna('').to_dict(orient='records') #defaultFastAPIencoder can be slow
-        resp = Response(df.to_json(orient="records"), media_type='application/json') 
-        resp.headers['Content-Disposition'] = 'attachment; filename=data.json'
+        content = df.fillna('').to_json(orient='records', date_format='iso', date_unit='s')
+        resp = Response(content, media_type='application/json')       
+        resp.headers['Accept-Encoding'] = 'gzip'
     return resp
     
 def api_headers(header_type):
