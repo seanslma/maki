@@ -12,7 +12,7 @@ The default one useing `jsonable_encoder` is at least **5x** slower than `df.to_
 df.fillna('').to_dict(orient='records') #default
 JSONResponse(jsonable_encoder(df.fillna('').to_dict(orient='records'))) #default equvalent
 Response(df.fillna('').to_json(orient='records', date_format='iso', date_unit='s'), media_type="application/json") #df.to_json
-resp.headers['Accept-Encoding'] = "gzip"  #use gzip, can have similar performance compared to parquet file
+resp.headers['Accept-Encoding'] = "gzip"  #seems not required! use gzip, can have similar performance compared to parquet file
 ```
 
 ## StreamingResponse
