@@ -22,9 +22,10 @@ https://cloudbytes.dev/snippets/received-return-a-file-from-in-memory-buffer-usi
 
 Return a parquet file (similar performance to json)
 ```
-bio = io.BytesIO()
-df.to_parquet(bio)
-bio.seek(0)
+#bio = io.BytesIO()
+#df.to_parquet(bio)
+#bio.seek(0) #can use .getvalue() .getbuffer().nbytes
+bio = io.BytesIO(df.to_parquet(compression='brotli'))
 resp = StreamingResponse(bio, media_type="bytes/parquet")
 resp.headers["Content-Disposition"] = f"attachment; filename=data.parquet"
 ```
@@ -53,7 +54,7 @@ https://stackoverflow.com/questions/73564771/fastapi-is-very-slow-in-returning-a
 To prevent browser show large amount of data
 - set `Content-Disposition` header to Response using the `attachment` parameter and passing a filename
 
-parquet is 4x faster than json and 8x faster than csv. Why csv is slow?
+parquet similar to json and 8x faster than csv. Why csv is slow - not compressed?
 ```
 import io
 import requests
@@ -69,20 +70,16 @@ async def get_df(
     df = pd.DataFrame([['i',1],['j', 2]], columns=['k', 'v'])
 
     if request.headers.get('Accept') == 'text/csv':
-        resp = StreamingResponse(io.StringIO(df.to_csv(index=False)), media_type='text/csv')
+        content = io.StringIO(df.to_csv(index=False))
+        resp = StreamingResponse(content, media_type='text/csv')
         resp.headers['Content-Disposition'] = 'attachment; filename=data.csv'
-        resp.headers['Accept-Encoding'] = 'gzip' #much slower than json - a bug?
     elif request.headers.get('Accept') == 'bytes/parquet':
-        byio = io.BytesIO()
-        df.to_parquet(byio)
-        byio.seek(0)
-        resp = StreamingResponse(byio, media_type='bytes/parquet')
+        content = io.BytesIO(df.to_parquet(compression='brotli'))
+        resp = StreamingResponse(content, media_type='bytes/parquet')
         resp.headers['Content-Disposition'] = 'attachment; filename=data.parquet'
-        resp.headers['Accept-Encoding'] = 'gzip'
     else:
         content = df.fillna('').to_json(orient='records', date_format='iso', date_unit='s')
         resp = Response(content, media_type='application/json')       
-        resp.headers['Accept-Encoding'] = 'gzip'
     return resp
     
 def api_headers(header_type):
