@@ -18,6 +18,8 @@ resp.headers['Accept-Encoding'] = "gzip"  #seems not required! use gzip, can hav
 ```
 
 ## StreamingResponse
+When send a large amount of data, e.g., 50 MB, through API, weu might get timeout, other network issues for downloading such a data from the server. Streaming response will ensure the data being downloaded chunk by chunk to avoid these issues.
+
 requires an iterator object to send the results in chunks.
 
 https://cloudbytes.dev/snippets/received-return-a-file-from-in-memory-buffer-using-fastapi
