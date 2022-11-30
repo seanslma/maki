@@ -45,3 +45,7 @@ print(decorated_func(kw='ok'))
 
 ## class decorator
 https://builtin.com/software-engineering-perspectives/python-class-decorator
+
+Class must have 
+- `__init__`
+- `__call__`
