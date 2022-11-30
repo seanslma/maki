@@ -54,7 +54,7 @@ https://stackoverflow.com/questions/73564771/fastapi-is-very-slow-in-returning-a
 To prevent browser show large amount of data
 - set `Content-Disposition` header to Response using the `attachment` parameter and passing a filename
 
-json is 2x faster than parquet and 8x faster than csv. Why csv is slow - not compressed?
+json is 2x (5MB, 1x 50MB) faster than parquet and 8x faster than csv. Why csv is slow - not compressed?
 ```
 import io
 import requests
