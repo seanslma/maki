@@ -10,7 +10,7 @@ Decorators dynamically alter the functionality of a `function`, `method`, or `cl
 - application of decorators for a function is from the bottom up
 - can do preprocessing and after processing of the function call
 
-## Example
+## Function decorator
 ```py
 import inspect
 import functools
@@ -42,3 +42,6 @@ def decorated_func(*, kw: str):
 
 print(decorated_func(kw='ok'))
 ```
+
+## class decorator
+https://builtin.com/software-engineering-perspectives/python-class-decorator
