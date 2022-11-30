@@ -7,6 +7,8 @@ https://fastapi.tiangolo.com/advanced/custom-response/
 will save the file on disk and return a path.
 
 ## Json response
+`**caveat**`: For file larger than 250MB, when using `pd.read_json` will get error: `Could not reserve memory block`
+
 The default one useing `jsonable_encoder` is at least **5x** slower than `df.to_json`.
 ```
 df.fillna('').to_dict(orient='records') #default
