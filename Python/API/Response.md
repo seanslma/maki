@@ -9,12 +9,24 @@ will save the file on disk and return a path.
 ## Json response
 `**caveat**`: For file larger than 250MB, when using `pd.read_json` will get error: `Could not reserve memory block`
 
-The default one useing `jsonable_encoder` is at least **5x** slower than `df.to_json`.
+### Option 1: default
+The default one useing `jsonable_encoder` (return list of jsons) is at least **5x** slower than `df.to_json`.
 ```
-df.fillna('').to_dict(orient='records') #default
-JSONResponse(jsonable_encoder(df.fillna('').to_dict(orient='records'))) #default equvalent
-Response(df.fillna('').to_json(orient='records', date_format='iso', date_unit='s'), media_type="application/json") #df.to_json
-resp.headers['Accept-Encoding'] = "gzip"  #seems not required! use gzip, can have similar performance compared to parquet file
+resp = df.fillna('').to_dict(orient='records') #default
+df = pd.DataFrame.from_dict(req.json())        #a - 5-20% faster than b
+df = pd.read_json(io.BytesIO(req.content))     #b - 5-15% faster than c
+df = pd.read_json(req.content.decode('utf-8')) #c - slowest
+
+resp = JSONResponse(jsonable_encoder(df.fillna('').to_dict(orient='records'))) #default equvalent
+```
+
+### Option 2: df.to_json
+5 - 10x faster than default
+```
+content = df.fillna('').to_json(orient='records', date_format='iso', date_unit='s') #df.to_json
+resp = Response(content, media_type="application/json") 
+
+resp.headers['Accept-Encoding'] = "gzip"  #seems not required for gzip compression!
 ```
 
 ## StreamingResponse
@@ -24,7 +36,7 @@ requires an iterator object to send the results in chunks.
 
 https://cloudbytes.dev/snippets/received-return-a-file-from-in-memory-buffer-using-fastapi
 
-Return a parquet file (similar performance to json)
+### return a parquet file (similar performance to json)
 ```
 #bio = io.BytesIO()
 #df.to_parquet(bio)
@@ -32,9 +44,10 @@ Return a parquet file (similar performance to json)
 bio = io.BytesIO(df.to_parquet(compression='brotli'))
 resp = StreamingResponse(bio, media_type="bytes/parquet")
 resp.headers["Content-Disposition"] = f"attachment; filename=data.parquet"
+df = pd.read_parquet(io.BytesIO(req.content))
 ```
 
-## return an image
+### return an image
 https://stackoverflow.com/questions/55873174/how-do-i-return-an-image-in-fastapi
 ```
 byte_im = BytesIO()
@@ -87,9 +100,7 @@ async def get_df(
     return resp
     
 def api_headers(header_type):
-    if header_type == 'json':
-        return None
-    elif header_type == 'csv':
+    if header_type == 'csv':
         return {"Accept":"text/csv"}
     elif header_type == 'parquet':
         return {"Accept":"bytes/parquet"}
@@ -97,14 +108,12 @@ def api_headers(header_type):
         return None
         
 def req_to_df(req, header_type):
-    if header_type == 'json':
-        return pd.read_json(req.content.decode('utf-8'))
-    elif header_type == 'csv':
+    if header_type == 'csv':
         return pd.read_csv(io.StringIO(req.content.decode('utf-8')))
     elif header_type == 'parquet':
         return pd.read_parquet(io.BytesIO(req.content))
-    else:
-        return None
+    else: #json
+        return pd.DataFrame.from_dict(req.json()))
         
 def api_get(url, header_type='json'):
     headers = api_headers(header_type)
