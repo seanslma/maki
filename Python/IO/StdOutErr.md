@@ -1,5 +1,11 @@
 # StdOutErr
 
+## print message not shown
+can be caused by buffer
+```
+print('ok', flush=True)
+```
+
 ## dup, dup2, tmpfile and stdout in python
 https://stackoverflow.com/questions/8817993/dup-dup2-tmpfile-and-stdout-in-python/8825434#8825434
 
