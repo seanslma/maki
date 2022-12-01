@@ -113,3 +113,6 @@ git rebase upstream/master
 #push local changes to forked repo (-f only needed the first time after rebased)
 git push -f origin master
 ```
+
+## ambiguous argument 'upstream/master'
+should not use `git pull`, instead use `git getch upstream`
