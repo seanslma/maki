@@ -1,6 +1,6 @@
 # IO
 
-## asyn generator stream to file like object
+## Convert async generator stream to file like object
 https://stackoverflow.com/questions/59413796/how-to-convert-async-generator-stream-into-a-file-like-object-in-python3
 
 May be can use `io.BytesIO` as well instead of `SpooledTemporaryFile`.
