@@ -26,7 +26,7 @@ resp = JSONResponse(jsonable_encoder(df.fillna('').to_dict(orient='records'))) #
 content = df.fillna('').to_json(orient='records', date_format='iso', date_unit='s') #df.to_json
 resp = Response(content, media_type="application/json") 
 
-resp.headers['Accept-Encoding'] = "gzip"  #seems not required for gzip compression!
+resp.headers['Accept-Encoding'] = 'gzip'  #seems not required for gzip compression!
 ```
 
 ## StreamingResponse
@@ -43,7 +43,15 @@ https://cloudbytes.dev/snippets/received-return-a-file-from-in-memory-buffer-usi
 #bio.seek(0) #can use .getvalue() .getbuffer().nbytes
 bio = io.BytesIO(df.to_parquet(compression='brotli'))
 resp = StreamingResponse(bio, media_type="bytes/parquet")
-resp.headers["Content-Disposition"] = f"attachment; filename=data.parquet"
+resp.headers["Content-Disposition"] = 'attachment; filename=data.parquet'
+df = pd.read_parquet(io.BytesIO(req.content))
+```
+
+Use `Response` if cache is required
+```
+bio = io.BytesIO(df.to_parquet(compression='brotli')).getvalue()
+resp = Response(bio, media_type="bytes/parquet") #Response only support string or bytes
+resp.headers["Content-Disposition"] = 'attachment; filename=data.parquet'
 df = pd.read_parquet(io.BytesIO(req.content))
 ```
 
@@ -51,10 +59,10 @@ df = pd.read_parquet(io.BytesIO(req.content))
 https://stackoverflow.com/questions/55873174/how-do-i-return-an-image-in-fastapi
 ```
 byte_im = BytesIO()
-image.save(byte_im, "JPEG")
+image.save(byte_im, 'JPEG')
 byte_im.seek(0)   #get byte_im size: byte_im.getbuffer().nbytes
 
-return StreamingResponse(byte_im, media_type="image/jpeg")
+return StreamingResponse(byte_im, media_type='image/jpeg')
 ```
 
 Another solution: faster?
