@@ -2,6 +2,10 @@
 
 https://aiocache.readthedocs.io/en/latest/caches.html
 
+## Cache StreamingResponse
+How to cache StreamReponse or make a cache middleware\
+https://github.com/tiangolo/fastapi/issues/4751
+
 ## key_builder
 ```py
 def key_builder(f, **kwargs):
@@ -35,7 +39,7 @@ async def get_hello(
     return 'hello, Accept header is `{accept}`'
 ```
 
-## cache dataframe
+## Cache dataframe
 https://github.com/aio-libs/aiocache/issues/493
 ```py
 import zlib
