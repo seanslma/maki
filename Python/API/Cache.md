@@ -6,7 +6,9 @@ https://aiocache.readthedocs.io/en/latest/caches.html
 https://aiocache.readthedocs.io/en/latest/decorators.html
 
 When use cache in api, we should also consider the header. Otherwise different headers will get the same response.
-```
+
+**Issue**: StreamingResponse is not supported as data is sent chunk by chunk - only the last chunk (empty string) is cached. See `StreamingResponse` definition.
+```py
 from typing import Optional
 from aiocache import cached, Cache
 from fastapi import status, Request, Header
@@ -23,4 +25,37 @@ async def get_hello(
     accept: Optional[str] = Header(None), # header is `Accept`
 ):
     return 'hello, Accept header is `{accept}`'
+```
+
+## cache dataframe
+https://github.com/aio-libs/aiocache/issues/493
+```py
+import zlib
+import pickle
+import pandas as pd
+
+import asyncio
+from aiocache import Cache
+from aiocache.serializers import BaseSerializer
+
+class CompressionSerializer(BaseSerializer):
+    DEFAULT_ENCODING = None #zlib works with bytes
+
+    def dumps(self, value):
+        compressed = zlib.compress(pickle.dumps(value))
+        return compressed
+
+    def loads(self, value):
+        #if value is too large to read into memory
+        #use zlib.decompressobj instead of zlib.decompress 
+        decompressed = pickle.loads(zlib.decompress(value))
+        return decompressed
+
+cache = Cache(Cache.MEMORY, serializer=CompressionSerializer(), namespace='dev')
+
+df = pd.DataFrame({'x':[1,2], 'y':[3,4]})
+loop = asyncio.get_event_loop()
+loop.run_until_complete(cache.set("key", df))
+loop.run_until_complete(cache.get("key"))
+loop.run_until_complete(cache.delete("key"))
 ```
