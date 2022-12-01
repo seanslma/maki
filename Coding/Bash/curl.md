@@ -4,4 +4,5 @@
 ```
 curl 'https://my.api/hello?id=1&name=dev' -H 'Accept: text/csv'
 curl 'https://my.api/hello?id=1&name=dev' -H 'Accept: text/csv' -o my.csv
+curl `https://my.api/hello -H "X-Custom-Header: value" -H "Content-Type: application/json"
 ```
