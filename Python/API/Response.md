@@ -30,23 +30,14 @@ resp.headers['Accept-Encoding'] = 'gzip'  #seems not required for gzip compressi
 ```
 
 ## StreamingResponse
-**Note**: StreamingResponse is very slow compared to Response. Maybe due to the issue here (not using async): https://github.com/tiangolo/fastapi/issues/2302
+When send a large amount of data, e.g., 50 MB, through API, we might get timeout, other network issues for downloading such a data from the server. Streaming response will ensure the data being downloaded chunk by chunk to avoid these issues.
 
-Solution: Convert the content to async now ony a little slower than using Response.
-```py
-async def to_async(iterator):
-    for i in iterator:
-        yield i
-```
-
-When send a large amount of data, e.g., 50 MB, through API, weu might get timeout, other network issues for downloading such a data from the server. Streaming response will ensure the data being downloaded chunk by chunk to avoid these issues.
-
-requires an iterator object to send the results in chunks.
+**requires an iterator object to send the results in chunks.**
 
 https://cloudbytes.dev/snippets/received-return-a-file-from-in-memory-buffer-using-fastapi
 
 ### return a parquet file (similar performance to json)
-Super slow compared to Response.
+**Note**: StreamingResponse is very slow compared to Response.
 
 Due to the content BytesIO not `typing.AsyncIterable`? https://github.com/tiangolo/fastapi/issues/2302
 ```
@@ -57,6 +48,13 @@ bio = io.BytesIO(df.to_parquet(compression='brotli'))
 resp = StreamingResponse(bio, media_type="bytes/parquet")
 resp.headers["Content-Disposition"] = 'attachment; filename=data.parquet'
 df = pd.read_parquet(io.BytesIO(req.content))
+```
+
+Solution: Convert the content to async now ony a little slower than using Response.
+```py
+async def to_async(iterator):
+    for i in iterator:
+        yield i
 ```
 
 Use `Response` if cache is required (much faster)
