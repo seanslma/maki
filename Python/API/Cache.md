@@ -2,6 +2,14 @@
 
 https://aiocache.readthedocs.io/en/latest/caches.html
 
+## key_builder
+```py
+def key_builder(f, **kwargs):
+    return f.__name__ + json.dumps({
+        k: v for k, v in kwargs.items() if k not in ['request']
+    })
+```
+
 ## Cache decorator with request header
 https://aiocache.readthedocs.io/en/latest/decorators.html
 
