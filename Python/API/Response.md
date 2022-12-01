@@ -6,7 +6,7 @@ https://fastapi.tiangolo.com/advanced/custom-response/
 ## FileResponse
 will save the file on disk and return a path.
 
-## Json response
+## JSONResponse
 `**caveat**`: For file larger than 250MB, when using `pd.read_json` will get error: `Could not reserve memory block`
 
 ### Option 1: default
@@ -30,6 +30,8 @@ resp.headers['Accept-Encoding'] = 'gzip'  #seems not required for gzip compressi
 ```
 
 ## StreamingResponse
+Note that StreamingResponse is very slow compared to Response. Maybe due to the issue here: https://github.com/tiangolo/fastapi/issues/2302
+
 When send a large amount of data, e.g., 50 MB, through API, weu might get timeout, other network issues for downloading such a data from the server. Streaming response will ensure the data being downloaded chunk by chunk to avoid these issues.
 
 requires an iterator object to send the results in chunks.
@@ -37,6 +39,7 @@ requires an iterator object to send the results in chunks.
 https://cloudbytes.dev/snippets/received-return-a-file-from-in-memory-buffer-using-fastapi
 
 ### return a parquet file (similar performance to json)
+Super slow compared to Response
 ```
 #bio = io.BytesIO()
 #df.to_parquet(bio)
