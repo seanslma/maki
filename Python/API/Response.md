@@ -39,7 +39,9 @@ requires an iterator object to send the results in chunks.
 https://cloudbytes.dev/snippets/received-return-a-file-from-in-memory-buffer-using-fastapi
 
 ### return a parquet file (similar performance to json)
-Super slow compared to Response
+Super slow compared to Response.
+
+Due to the content BytesIO not `typing.AsyncIterable`? https://github.com/tiangolo/fastapi/issues/2302
 ```
 #bio = io.BytesIO()
 #df.to_parquet(bio)
@@ -50,9 +52,10 @@ resp.headers["Content-Disposition"] = 'attachment; filename=data.parquet'
 df = pd.read_parquet(io.BytesIO(req.content))
 ```
 
-Use `Response` if cache is required
+Use `Response` if cache is required (much faster)
 ```
 bio = io.BytesIO(df.to_parquet(compression='brotli')).getvalue()
+bio = io.BytesIO(df.to_parquet(compression=None)).getvalue() #compared to compression, faster but slower for cached data
 resp = Response(bio, media_type="bytes/parquet") #Response only support string or bytes
 resp.headers["Content-Disposition"] = 'attachment; filename=data.parquet'
 df = pd.read_parquet(io.BytesIO(req.content))
