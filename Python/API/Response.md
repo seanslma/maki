@@ -30,7 +30,14 @@ resp.headers['Accept-Encoding'] = 'gzip'  #seems not required for gzip compressi
 ```
 
 ## StreamingResponse
-**Note**: StreamingResponse is very slow compared to Response. Maybe due to the issue here: https://github.com/tiangolo/fastapi/issues/2302
+**Note**: StreamingResponse is very slow compared to Response. Maybe due to the issue here (not using async): https://github.com/tiangolo/fastapi/issues/2302
+
+Solution: Convert the content to async now ony a little slower than using Response.
+```py
+async def to_async(iterator):
+    for i in iterator:
+        yield i
+```
 
 When send a large amount of data, e.g., 50 MB, through API, weu might get timeout, other network issues for downloading such a data from the server. Streaming response will ensure the data being downloaded chunk by chunk to avoid these issues.
 
