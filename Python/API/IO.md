@@ -1,5 +1,12 @@
 # IO
 
+## Convert sync to async
+```
+async def to_async(iterator):
+    for i in iterator:
+        yield i
+```
+
 ## Convert async generator stream to file like object
 https://stackoverflow.com/questions/59413796/how-to-convert-async-generator-stream-into-a-file-like-object-in-python3
 
