@@ -23,5 +23,10 @@ uvicorn 'my_fastapi.fileapi:app' --host '127.0.0.1' --port 8000 --reload
 `Hypercorn` is an asynchronous ASGI web server. 
 It can use `uvloop` as Uvicorn does, or use other event loops. It supports HTTP/2. 
 
+https://levelup.gitconnected.com/deploy-fastapi-with-hypercorn-http-2-asgi-8cfc304e9e7a
+```py
+hypercorn 'my_fastapi.fileapi:app' --bind 0.0.0.0:8080 --debug --reload --workers 2 --worker-class 'uvloop'
+```
+
 ## gunicorn
 `gunicorn` is a synchronous web server.
