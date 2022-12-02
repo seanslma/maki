@@ -13,6 +13,7 @@ will save the file on disk and return a path.
 The default one useing `jsonable_encoder` (return list of jsons) is at least **5x** slower than `df.to_json`.
 ```
 resp = df.fillna('').to_dict(orient='records') #default
+df = pd.read_json(url)                         #v - ~ 30% faster than a
 df = pd.DataFrame.from_dict(req.json())        #a - 5-20% faster than b
 df = pd.read_json(io.BytesIO(req.content))     #b - 5-15% faster than c
 df = pd.read_json(req.content.decode('utf-8')) #c - slowest
