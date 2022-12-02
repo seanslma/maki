@@ -28,5 +28,8 @@ https://levelup.gitconnected.com/deploy-fastapi-with-hypercorn-http-2-asgi-8cfc3
 hypercorn 'my_fastapi.fileapi:app' --bind 0.0.0.0:8080 --debug --reload --workers 2 --worker-class 'uvloop'
 ```
 
+Config:
+https://pgjones.gitlab.io/hypercorn/how_to_guides/configuring.html
+
 ## gunicorn
 `gunicorn` is a synchronous web server.
