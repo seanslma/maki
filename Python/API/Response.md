@@ -13,7 +13,6 @@ will save the file on disk and return a path.
 The default one useing `jsonable_encoder` (return list of jsons) is at least **5x** slower than `df.to_json`.
 ```
 resp = df.fillna('').to_dict(orient='records') #default
-df = pd.read_json(url)                         #v - ~ 30% faster than a
 df = pd.DataFrame.from_dict(req.json())        #a - 5-20% faster than b
 df = pd.read_json(io.BytesIO(req.content))     #b - 5-15% faster than c
 df = pd.read_json(req.content.decode('utf-8')) #c - slowest
@@ -119,25 +118,29 @@ async def get_df(
         resp = Response(content, media_type='application/json')       
     return resp
     
-def api_headers(header_type):
+def url_to_df(url, header_type):
     if header_type == 'csv':
-        return {"Accept":"text/csv"}
+        return pd.read_csv(url, storage_options={'Accept':'text/csv'})
     elif header_type == 'parquet':
-        return {"Accept":"bytes/parquet"}
-    else:
-        return None
+        return pd.read_parquet(url, storage_options={'Accept':'bytes/parquets'})
+    else: #json
+        return pd.read_json(url, storage_options={'Accept':'application/json'})
         
-def req_to_df(req, header_type):
+def req_to_df(url, header_type):
     if header_type == 'csv':
+        req = requests.get(url, headers={"Accept":"text/csv"})
         return pd.read_csv(io.StringIO(req.content.decode('utf-8')))
     elif header_type == 'parquet':
+        req = requests.get(url, headers={"Accept":"bytes/parquet"})
         return pd.read_parquet(io.BytesIO(req.content))
     else: #json
+        req = requests.get(url, headers={'Accept':'application/json'})
         return pd.DataFrame.from_dict(req.json()))
         
-def api_get(url, header_type='json'):
-    headers = api_headers(header_type)
-    req = requests.get(url, headers=headers)
-    df = req_to_df(req, header_type)
+def api_get(url, header_type='json', faster=True):
+    if faster: #30% faster
+        df = url_to_df(url, header_type)
+    else:
+        df = req_to_df(url, header_type)
     return df
 ```
