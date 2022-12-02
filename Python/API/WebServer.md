@@ -21,6 +21,7 @@ uvicorn 'my_fastapi.fileapi:app' --host '127.0.0.1' --port 5000 --loop 'uvloop' 
 Settings:
 https://www.uvicorn.org/settings/
 - `--loop`: The `uvloop` implementation provides greater performance, but is **not compatible** with Windows or PyPy.
+- Underwindows windows can use loop `asyncio`.
 
 ## hypercorn
 `Hypercorn` is an asynchronous ASGI web server. 
