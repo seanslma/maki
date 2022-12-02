@@ -16,8 +16,11 @@ It uses `uvloop` if it can.
 Uvicorn supports HTTP/1.1 and WebSockets, but does not (yet) support HTTP/2.
 
 ```py
-uvicorn 'my_fastapi.fileapi:app' --host '127.0.0.1' --port 8000 --reload
+uvicorn 'my_fastapi.fileapi:app' --host '127.0.0.1' --port 8000 --loop 'uvloop' --workers 1 --reload --root-path '/api'
 ```
+Settings:
+https://www.uvicorn.org/settings/
+- `--loop`: The `uvloop` implementation provides greater performance, but is **not compatible** with Windows or PyPy.
 
 ## hypercorn
 `Hypercorn` is an asynchronous ASGI web server. 
@@ -25,7 +28,7 @@ It can use `uvloop` as Uvicorn does, or use other event loops. It supports HTTP/
 
 https://levelup.gitconnected.com/deploy-fastapi-with-hypercorn-http-2-asgi-8cfc304e9e7a
 ```py
-hypercorn 'my_fastapi.fileapi:app' --bind 0.0.0.0:8080 --debug --reload --workers 2 --worker-class 'uvloop'
+hypercorn 'my_fastapi.fileapi:app' --bind 127.0.0.1:8080 --worker-class 'uvloop' --workers 2 --root-path '/api' --reload --debug
 ```
 
 Config:
