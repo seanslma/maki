@@ -7,7 +7,7 @@ The number of threads and pool implementation can be controlled by keyword ardum
 
 Or set the number of workers via env var:
 ```
-config.set('num_workers', 4)
+dask.config.set('num_workers', 4)
 ```
 
 ## hanging
