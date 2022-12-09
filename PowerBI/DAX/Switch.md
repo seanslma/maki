@@ -3,8 +3,10 @@
 ```
 VAR __att = SWITCH(
     SELECTEDVALUE(InputTypes[Input]),
-    "Rate", 
+    "Avg", 
         AVERAGE(ValTable[Value]),
+    "Max", 
+        MAX(ValTable[Value]),        
     BLANK()
 )
 ```
