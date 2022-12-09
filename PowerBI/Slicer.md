@@ -8,6 +8,15 @@ Problem: slicer uses dim table column and some values are not in fact table 2 - 
 
 Solution: create a measure based on the values in fact table 2 and use it to filter the slicer.
 
+Limit the slicer to show values present in a fact table:
+```
+SlicerFilter =
+VAR _val_in_fact2 =
+    VALUES(fact_tbl2[col])
+RETURN
+    IF(MAX(dim_tbl[col]) IN _val_in_fact2, 1, 0)
+```
+
 ## `blank` value issue
 Sometimes the slicer will show blank() even all tables do not have blank values.
 
