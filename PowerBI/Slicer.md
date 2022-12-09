@@ -3,7 +3,12 @@
 home table
 https://forum.enterprisedna.co/t/applying-two-slicers-from-the-same-field-on-table-visual/7454/10
 
-## Issue
+## remove values not in fact table from slicer
+Problem: slicer uses dim table column and some values are not in fact table 2 - do not want to show the non-existent values in the slicer for table 2
+
+Solution: create a measure based on the values in fact table 2 and use it to filter the slicer.
+
+## `blank` value issue
 Sometimes the slicer will show blank() even all tables do not have blank values.
 
 This happens when a table on the n-side of a 1-to-n relationship contains values not present in the corresponding column of the table on the 1-side (with the slicer on a column from the table on the 1-side). Just like a Left Outer Join on the 1-side table.
