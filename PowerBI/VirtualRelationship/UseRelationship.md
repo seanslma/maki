@@ -1,6 +1,6 @@
 # USERELATIONSHIP
 
-Will activate the n-n relationshi. Best to set the filter direction.
+Will activate the n-n relationship. Best to set the filter direction.
 
 ```
 TotalFee = CALCULATE(
