@@ -36,7 +36,10 @@ VAR __val = Calculate(
 ```
 VAR __val = DIVIDE( 
     CALCULATE(
-        SUMX(__tmp,  Tab1[Quantity] * Tab2[Price]),
+        SUMX(
+            NATURALLEFTOUTERJOIN(Tab1, Tab2),  
+            Tab1[Quantity] * Tab2[Price]
+        ),
         TREATAS(
             SUMMARIZE(Tab1, Tab1[RegionId], Tab1[CountryId], Tab1[StateId]),
             Tab2[RegionId],
