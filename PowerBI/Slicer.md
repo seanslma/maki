@@ -11,8 +11,8 @@ Solution: create a measure based on the values in fact table 2 and use it to fil
 Limit the slicer to show values present in a fact table:
 ```
 SlicerFilter =
-VAR _val_in_fact2 =
-    VALUES(fact_tbl2[col])
+    VAR _val_in_fact2 =
+        VALUES(fact_tbl2[col])
 RETURN
     IF(MAX(dim_tbl[col]) IN _val_in_fact2, 1, 0)
 ```
