@@ -7,6 +7,7 @@ Filters = Table.SelectRows(Source, each List.Contains(List.Buffer(Tbl[Val]), [Qt
 ```
 
 ## List.Generator
+Get the list of quarters (4) not old than 5 years
 ```
 let
     Source = List.Generate(
