@@ -5,5 +5,11 @@ https://community.powerbi.com/t5/Desktop/DAX-query-to-compare-a-value-in-one-tab
 
 If just use COUNTROWS(Tab2) by itself, you'd get the total number of rows for that table showing up for every row in Tab1.
 ```
-InTable2 = CALCULATE(COUNTROWS(Tab2), FILTER(Tab2, Tab2[Id]=Tab1[Id], Tab2[Type]="Dev"))
+InTable2 = CALCULATE(
+    COUNTROWS(Tab2), 
+    FILTER(
+        ALL(Tab2[Id], Tab2[Type]),
+        Tab2[Id]=Tab1[Id] && Tab2[Type]="Dev"
+    )
+) > 0
 ```
