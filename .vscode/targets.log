@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Sep 14 21:35:15 2022
+# Make data base, printed on Tue Dec 13 06:56:06 2022
 
 # Variables
 
@@ -45,7 +43,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:49274
+JOURNAL_STREAM = 8:70858
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'makefile', line 1)
@@ -63,7 +61,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /usr/bin/code
 # environment
-MANAGERPID = 1601
+MANAGERPID = 3698
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -75,7 +73,7 @@ PATH = /home/sma/miniforge/bin:/home/sma/miniforge/condabin:/usr/local/sbin:/usr
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1820,unix/mase:/tmp/.ICE-unix/1820
+SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/3927,unix/mase:/tmp/.ICE-unix/3927
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -85,7 +83,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 2e07568698774ebeac7c93205a652cd1
+INVOCATION_ID = 0ebaca78742b41728b0e371af5d52db6
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -105,7 +103,7 @@ PWD = /home/sma/dev/maki
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1782
+SSH_AGENT_PID = 3889
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -119,7 +117,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/784b0177c56c607789f9638da7b6bf3230d47a8c
+VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/74b1f979648cc44d385a2286793c226e611f59e7
 # environment
 LOGNAME = sma
 # environment
@@ -173,7 +171,7 @@ OLDPWD = /home/sma
 # environment
 LANGUAGE = en_AU:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.71.0-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.71.2-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -197,13 +195,11 @@ LC_ALL = C
 # environment
 CONDA_PYTHON_EXE = /home/sma/miniforge/bin/python
 # environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/c58346b2_6ab1_4c5a_8da2_1da955f36f77
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/6dba890f_d9ae_430d_9ac9_2e54377aca27
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.96
+GNOME_TERMINAL_SERVICE = :1.78
 # default
 SUFFIXES := 
 # environment
@@ -214,8 +210,6 @@ CHROME_DESKTOP = code-url-handler.desktop
 WINDOWPATH = 2
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
-# environment
-GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
 # environment
@@ -223,11 +217,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 20341
+VSCODE_PID = 4807
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
-# Load=107/1024=10%, Rehash=0, Collisions=14/132=11%
+# Load=105/1024=10%, Rehash=0, Collisions=14/130=11%
 
 # Pattern-specific Variable Values
 
@@ -235,9 +229,9 @@ _CE_CONDA =
 
 # Directories
 
-# . (device 66311, inode 6427991): 25 files, no impossibilities.
+# . (device 66311, inode 6427991): 22 files, no impossibilities.
 
-# 25 files, no impossibilities in 1 directories.
+# 22 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -282,13 +276,14 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 31 / storage = 229 B / avg = 7 B
-# current buf: size = 8162 B / used = 229 B / count = 31 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 28 / storage = 218 B / avg = 7 B
+# current buf: size = 8162 B / used = 218 B / count = 28 / avg = 7 B
 
-# strcache performance: lookups = 36 / hit rate = 13%
+# strcache performance: lookups = 33 / hit rate = 15%
 # hash-table stats:
- 
-# Load=31/8192=0%, Rehash=0, Collisions=1/36=3%
-# Finished Make data base on Wed Sep 14 21:35:15 2022
+# Load=28/8192=0%, Rehash=0, Collisions=1/33=3%
+# Finished Make data base on Tue Dec 13 06:56:06 2022
 
  
+make: *** No rule to make target 'all'.  Stop.
+
