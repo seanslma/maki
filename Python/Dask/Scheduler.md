@@ -10,6 +10,12 @@ https://dask.pydata.org/en/latest/scheduler-overview.html#configuring-the-schedu
 
 ## synchronous scheduler
 good for debugging
-```
-dask.config.set(scheduler='single-threaded')
+```py
+# As a context manager
+with dask.config.set(scheduler='single-threaded'):
+    x.sum().compute()
+
+# Set globally
+dask.config.set(scheduler='single-threaded') #processes
+x.sum().compute()
 ```
