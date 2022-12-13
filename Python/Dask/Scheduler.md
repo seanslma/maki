@@ -15,7 +15,7 @@ good for debugging
 with dask.config.set(scheduler='single-threaded'):
     x.sum().compute()
 
-# Set globally
-dask.config.set(scheduler='single-threaded') #processes
+# Set globally: scheduler='processes', num_workers=4
+dask.config.set(scheduler='single-threaded')
 x.sum().compute()
 ```
