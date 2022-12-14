@@ -1,4 +1,6 @@
-# UFE and global settlement
+# global settlement and UFE
+
+https://aemo.com.au/initiatives/major-programs/nem-five-minute-settlement--program-and-global-settlement/global-settlement/how-gs-will-work
 
 https://aemo.com.au/-/media/files/electricity/nem/data/metering/ufe/2022/ufe-report-june-2022.pdf?la=en
 
