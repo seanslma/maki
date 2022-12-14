@@ -1,4 +1,5 @@
 # global settlement and UFE
+https://www.aemc.gov.au/sites/default/files/2018-12/Global%20Settlement%20and%20Market%20Reconciliation%20-%20For%20publication.pdf
 
 https://aemo.com.au/initiatives/major-programs/nem-five-minute-settlement--program-and-global-settlement/global-settlement/how-gs-will-work
 
