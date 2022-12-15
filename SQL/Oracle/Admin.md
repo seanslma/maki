@@ -21,10 +21,3 @@ SELECT view_name, text
 FROM all_views
 where lower(view_name) like '%data%';
 ```
-
-## find functions with specific string
-```sql
-SELECT * 
-FROM ALL_OBJECTS 
-WHERE OBJECT_TYPE IN ('FUNCTION','PROCEDURE','PACKAGE') and lower(object_name) like '%data%';
-```
