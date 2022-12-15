@@ -26,5 +26,5 @@ where lower(view_name) like '%data%';
 ```sql
 SELECT * 
 FROM ALL_OBJECTS 
-WHERE OBJECT_TYPE IN ('FUNCTION','PROCEDURE','PACKAGE') and object_name like '%data%';
+WHERE OBJECT_TYPE IN ('FUNCTION','PROCEDURE','PACKAGE') and lower(object_name) like '%data%';
 ```
