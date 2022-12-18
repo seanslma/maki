@@ -8,6 +8,10 @@ https://terragrunt.gruntwork.io/docs/reference/config-blocks-and-attributes/
 - make backend dry
 - will automatically determine dependencies
 
+## hcl
+- remote_state
+- generate "provider"
+
 ## commands
 ```
 terragrunt run-all init    #initialize
