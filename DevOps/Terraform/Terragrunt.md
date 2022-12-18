@@ -9,8 +9,14 @@ https://terragrunt.gruntwork.io/docs/reference/config-blocks-and-attributes/
 - will automatically determine dependencies
 
 ## hcl
+root
 - remote_state
 - generate "provider"
+
+subfolder
+- include
+- dependency
+- inputs
 
 ## commands
 ```
