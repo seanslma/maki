@@ -2,6 +2,10 @@
 
 https://repo1.dso.mil/platform-one/big-bang/customers/template/-/tree/main/terraform
 
+https://terragrunt.gruntwork.io/docs/reference/config-blocks-and-attributes/
+
+- make providers dry
+- make backend dry
 - will automatically determine dependencies
 
 ## commands
