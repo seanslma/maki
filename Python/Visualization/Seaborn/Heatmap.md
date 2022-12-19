@@ -4,7 +4,7 @@ ridge plot\
 https://python.plainenglish.io/ridge-plots-with-pythons-seaborn-4de5725881af
 
 ## create df
-```
+```py
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -14,7 +14,7 @@ sns.heatmap(df)
 ```
 
 ## special
-```
+```py
 #annotate each cell with value
 sns.heatmap(df, annot=True, annot_kws={'size': 6})
 
@@ -36,7 +36,7 @@ sns.heatmap(df, xticklabels=3) #keep first in 3
 ```
 
 ## custom date labels
-```
+```py
 #df date must be string
 fig, ax = plt.subplots(figsize=(10,8))
 g = sns.heatmap(df, ax=ax, cmap='coolwarm', vmin=df.min().min(), vmax=df.max().max())
