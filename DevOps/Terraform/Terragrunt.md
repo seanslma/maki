@@ -27,3 +27,7 @@ terragrunt run-all apply   #deploy, this incurs cost!
 terragrunt run-all destroy #destroy
 terragrunt run-all show -json planfile
 ```
+
+## execute terraform command on specific module
+- cd into that module and run command without run-all, or
+- use `--terragrunt-working-dir <module-path>` parameter
