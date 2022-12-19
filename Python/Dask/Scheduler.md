@@ -1,5 +1,7 @@
 # Scheduler
 
+https://docs.dask.org/en/latest/scheduling.html
+
 https://dask.pydata.org/en/latest/scheduler-overview.html#configuring-the-schedulers
 
 ## schedulers
