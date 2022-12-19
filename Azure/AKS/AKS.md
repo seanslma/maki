@@ -28,3 +28,9 @@ kubectl get service aks01-front --watch #get load balancer public IP
 kubectl get all                      #see all objects in Kubernetes
 kubectl delete -f aks01.yaml         #delete created objects
 ```
+
+## upgrade
+```
+az aks upgrade -g <resource-group> -g <cluster-name> --kubernetes-version  1.18.10  #upgrade
+az aks get-upgrades -g <resource-group> -g <cluster-name> --output table            #list available versions
+```
