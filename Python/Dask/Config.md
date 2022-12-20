@@ -15,15 +15,14 @@ dask.config.config #show config
 
 ## threads
 ```py
-dask.config.set(scheduler='threads', num_workers=2) #two workers
+from multiprocessing.pool import ThreadPool
+dask.config.set(scheduler='threads', pool=ThreadPool(2)) #num_workers has no effect
 ```
 
 ## processes
 ```py
-dask.config.set(scheduler='processes', num_workers=2, pool=ThreadPool(2)) #two workers, 2 threads per worker
-
 from multiprocessing.pool import ThreadPool
-dask.config.set(scheduler='threads', num_workers=1, pool=ThreadPool(2) #set threads via pool
+dask.config.set(scheduler='processes', num_workers=2, pool=ThreadPool(2)) #two workers, 2 threads per worker
 ```
 
 ## comm
