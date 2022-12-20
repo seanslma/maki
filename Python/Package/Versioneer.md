@@ -13,7 +13,7 @@ import versioneer
 setup(
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
-}    
+)   
 ```
 All other info can be put int the `setup.cfg` file.
 
