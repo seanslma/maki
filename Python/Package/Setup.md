@@ -36,4 +36,12 @@ console_scripts =
 [build-system]
 requires = ["setuptools>=42", "versioneer-518"]
 build-backend = "setuptools.build_meta"
+
+#black formatting
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+preview = false
+skip-string-normalization = true
 ```
