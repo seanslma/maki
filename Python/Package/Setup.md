@@ -14,17 +14,26 @@ if __name__ == '__main__':
 ```
 [metadata]
 name = dev
+url = https://github.com/usr/repo
+summary = My dev repo
 
 [options]
+include_package_data = True
 package_dir = 
-    src
-packages=find:
+    = src
+packages = find_namespaces:
 
 [options.packages.find]
-where=src
+where = src
+
+[options.entry_points]
+console_scripts =
+    pkg = my.pkg.main:cli
 ```
 
 ## pyproject.toml
 ```
-
+[build-system]
+requires = ["setuptools>=42", "versioneer-518"]
+build-backend = "setuptools.build_meta"
 ```
