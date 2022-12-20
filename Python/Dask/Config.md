@@ -11,6 +11,11 @@ import dask
 dask.config.config #show config
 ```
 
+## threads
+```py
+dask.config.set(scheduler='threads', num_workers=2) #two workers
+```
+
 ## comm
 - `distributed.comm.zstd.threads  0`
   Number of threads to use. 0 for single-threaded, -1 to infer from cpu count.
