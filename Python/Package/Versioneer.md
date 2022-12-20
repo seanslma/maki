@@ -1,4 +1,8 @@
 # Versioneer
+https://stackoverflow.com/questions/53724616/update-version-number-with-versioneer-and-github
+
+`versioneer` will get the version number from git tag + state of the repository.
+
 https://jacobtomlinson.dev/posts/2020/versioning-and-formatting-your-python-code/
 
 ## setup.py
