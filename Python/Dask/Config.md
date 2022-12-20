@@ -2,6 +2,8 @@
 
 https://docs.dask.org/en/stable/configuration.html
 
+- `num_workers` set the number of processes or threads to use (defaults to number of cores)
+
 ## Example
 ```
 export DASK_DISTRIBUTED__WORKERS__MEMORY__SPILL=0.85
@@ -14,6 +16,11 @@ dask.config.config #show config
 ## threads
 ```py
 dask.config.set(scheduler='threads', num_workers=2) #two workers
+```
+
+## processes
+```py
+dask.config.set(scheduler='processes', num_workers=2, pool=ThreadPool(2)) #two workers, 2 threads per worker
 
 from multiprocessing.pool import ThreadPool
 dask.config.set(scheduler='threads', num_workers=1, pool=ThreadPool(2) #set threads via pool
