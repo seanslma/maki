@@ -24,7 +24,7 @@ setup(
 ### setup.cfg
 `setup.cfg` is an ini file that contains option defaults for setup.py commands.
 
-Use `git` versioneer:
+Use `git` versioneer:\
 https://github.com/python-versioneer/python-versioneer/blob/master/INSTALL.md
 - 
 
