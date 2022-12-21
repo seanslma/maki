@@ -1,8 +1,9 @@
 # Format
 
 ## black
-formatting the code with `black`:
 https://black.readthedocs.io/
+
+formatting the code with `black`: `black <filepath>`. e.g., `black .`
 
 ## config
 https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#configuration-via-a-file
