@@ -1,5 +1,17 @@
 # Format
 
+## vscode black formatter extension
+do not install `black` in python env.
+
+In user settings, add
+```
+  "python.formatting.provider": "none"
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  }
+```
+
 ## black
 https://black.readthedocs.io/
 
