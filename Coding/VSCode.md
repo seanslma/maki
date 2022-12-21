@@ -22,17 +22,18 @@ Line height can't be scaled smaller than 1
 ```
 "terminal.integrated.fontSize": 12,
 ```
-## Trim trailing whitespaces
-user settings > Trim Trailing Whitespace
-```
-"files.trimTrailingWhitespace": true,
-```
 
 ## New line at EOF
 File > Preference > Settings (^,) > 'insert final newline'
 ```
 "files.insertFinalNewline": true,
 "files.trimFinalNewlines": true,
+```
+
+## Trim trailing whitespaces
+user settings > Trim Trailing Whitespace
+```
+"files.trimTrailingWhitespace": true,
 ```
 
 ## Wrap line
@@ -49,18 +50,19 @@ workspace > settings.json
 ## Vertical rulers
 `^,` user > settings.json > search for `ruler`
 ```
-{
-    "editor.rulers": [80, 120],
-    "workbench.colorCustomizations": {
-        "editorRuler.foreground": "#4e525042"
-    },
-}
+"editor.minimap.enabled": false,
+"editor.rulers": [80,88],
+"workbench.colorCustomizations": {
+    "editorRuler.foreground": "#2b2929e8", #"#4e525042"
+    "tab.activeBorderTop": "#066794",
+    "tab.unfocusedActiveBorder": "#000000"
+},
 ```
 
 ## Active tab settings
 Search "workbench.action.openSettingsJson" > Open user settings.json
 ```
-"editor.rulers": [80,120],
+"editor.rulers": [80,88],
 "workbench.colorCustomizations": {
     "editorRuler.foreground": "#312f30",
     "tab.inactiveForeground":"#ECECEC",
