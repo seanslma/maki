@@ -12,6 +12,7 @@ pyproject.toml
 [tool.black]
 line-length = 88
 target-version = ['py39']
+skip-string-normalization = true #disable string double quotes normalization
 include = '\.pyi?$'
 # 'extend-exclude' excludes files or directories in addition to the defaults
 extend-exclude = '''
