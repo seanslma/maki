@@ -41,7 +41,7 @@ build-backend = "setuptools.build_meta"
 [tool.black]
 line-length = 88
 target-version = ['py39']
+skip-string-normalization = true #disable string double quotes normalization
 include = '\.pyi?$'
 preview = false
-skip-string-normalization = true
 ```
