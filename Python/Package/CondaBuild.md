@@ -4,10 +4,11 @@
 https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html
 
 ```
+{% set name = "pkg" %}
 {% set version = "1.0.0" %}
 
 package:
-  name: pkg
+  name: {{ name }}
   version: {{ version }}
 
 source:
@@ -16,7 +17,7 @@ source:
 
 outputs:
 
-  - name: pkg
+  - name: {{ name }}
     build:
       noarch: python
       number: 0
@@ -31,7 +32,7 @@ outputs:
       home: https://github.com/usr/pkg
       summary: 'My python pkg'
   
-  - name: pkg.test
+  - name: {{ name }}.test
     requirements:
       run:
         - python
