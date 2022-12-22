@@ -2,15 +2,16 @@
 
 ## vscode black formatter extension
 ### option 1
-- install `black` in python env.
+- install `black` in python env
 - In user settings, add
 ```
     "python.formatting.provider": "black",
     "editor.formatOnSave": true,
 ```
 
-### option 2
-do not install `black` in python env.
+### option 2 (not work)
+- do not install `black` in python env
+- install black-formatter extension
 - In settings (where???), add
 ```
 "python.formatting.provider": "none",
