@@ -28,7 +28,13 @@ def set_log_message_prefix(message_prefix: str = None) -> None:
     #console_handler = logging.StreamHandler() #this handler is already in the handlers list
     #console_handler.setFormatter(log_formatter)    
     for handler in logger.handlers:
-        handler.setFormatter(log_formatter)    
+        handler.setFormatter(log_formatter)
+        
+def set_log_handler_level(log_level: int = logging.NOTSET) -> None:
+    logger = logging.getLogger()
+    for handler in logger.handlers:
+        if log_level != logging.NOTSET:
+            handler.setLevel(log_level)    
 ```
 
 ## log to both stadout and file
