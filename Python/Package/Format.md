@@ -11,10 +11,13 @@
 
 ### option 2
 do not install `black` in python env.
-- In user settings, add
+- In settings (where???), add
 ```
-    "python.formatting.provider": "black",
-    "editor.formatOnSave": true,
+"python.formatting.provider": "none",
+"[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+}
 ```
 
 ## black
