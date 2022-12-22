@@ -18,7 +18,7 @@ In YAML pipelines, we can set variables at the root, stage, and job level.
 ```
 variables:
   a: ${{ variables.var }} #evaluated when the YAML file is compiled into a plan
-  b: $(var) 	          #evaluated at runtime before a task executes
+  b: $(var)               #evaluated at runtime before a task executes
   b: $[variables.var]     #evaluated at runtime
 ```
 
