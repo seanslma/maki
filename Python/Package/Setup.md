@@ -7,9 +7,13 @@ https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
 ## setup.py
 ```py
 from setuptools import setup
+import versioneer
 
 if __name__ == '__main__':
-    setup()
+    setup(
+        version=versioneer.get_version(),
+        cmdclass=versioneer.get_cmdclass(),
+    )
 ```
 
 ## setup.cfg
