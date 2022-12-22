@@ -1,6 +1,6 @@
 # Property
 
-## get/set property
+## get and set property
 ```py
 class MyCls(object):
     def __init__(self):
