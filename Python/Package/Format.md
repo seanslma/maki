@@ -1,7 +1,7 @@
 # Format
 
 ## vscode black formatter extension
-### option 1
+### option 1: works but slow
 - install `black` in python env
 - In user settings, add
 ```
@@ -9,10 +9,9 @@
     "editor.formatOnSave": true,
 ```
 
-### option 2 (not work)
-- do not install `black` in python env
+### option 2 (works)
 - install black-formatter extension
-- In settings (where???), add
+- In user settings, add
 ```
 "python.formatting.provider": "none",
 "[python]": {
