@@ -12,6 +12,7 @@ Building a conda package requires a recipe. A conda-build recipe is a flat direc
 
 ## build conda package
 ```
+conda build recipe --no-anaconda-upload --python 3.9 --croot c:/pkg/conda --output --no-test
 conda build recipe --no-anaconda-upload --python 3.9 --croot /build/path --output --no-test --channel ch1 --channel ch2
 ```
 
@@ -19,4 +20,69 @@ conda build recipe --no-anaconda-upload --python 3.9 --croot /build/path --outpu
 ```
 conda install conda-build
 conda update conda-build
+```
+
+## meta.yaml
+https://stackoverflow.com/questions/38919840/get-package-version-for-conda-meta-yaml-from-source-file
+```
+{% set NAME = "pkg" %}
+{% set VERSION = load_setup_py_data().version %}
+{% set GITHUB_URL = load_setup_py_data().url %}
+{% set DESCRIPTION = load_setup_py_data().description %}
+
+package:
+  name: {{ NAME }}
+  version: {{ VERSION }}
+
+source:
+  path: ../
+
+outputs:
+  - name: {{ NAME }}
+    build:
+      number: 0
+      script: python -m pip install --no-deps --ignore-installed .
+      entry_points:
+        - pkg-run = pkg.main:cli
+    requirements:
+      host:
+        - pip
+        - python
+        - setuptools >=41.0.0
+      run:
+        - click
+        - numba
+        - numpy
+        - pandas
+        - python
+    about:
+      home: {{ GITHUB_URL }}
+      summary: {{ DESCRIPTION }}
+
+  - name: {{ NAME }}.test
+    requirements:
+      run:
+        - pytest
+        - pytest-cov
+        - coverage
+    test:
+      source_files:
+        - tests
+    about:
+      home: {{ GITHUB_URL }}
+      summary: Test dependencies for {{ NAME }}
+
+  - name: {{ NAME }}.doc
+    requirements:
+      run:
+        - docstring_parser
+        - mkdocs
+        - mkdocstrings <0.18
+        - mkdocs-click
+        - mkdocs-material
+        - mkdocs-material-extensions
+        - pytkdocs
+    about:
+      home: {{ GITHUB_URL }}
+      summary: Doc dependencies for {{ NAME }}
 ```
