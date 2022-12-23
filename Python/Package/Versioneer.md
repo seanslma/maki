@@ -13,9 +13,9 @@ import versioneer
 setup(
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
-)   
+)
 ```
-All other info can be put int the `setup.cfg` file.
+All other info can be put into the `setup.cfg` file.
 
 ## step 2: create `setup.cfg`
 Still not support pyproject.toml
