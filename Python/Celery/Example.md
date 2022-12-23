@@ -2,19 +2,21 @@
 ```py
 from celery import Task, registry, Celery
 
-class Task01(celery.Task):
-    _v = 0
-    def add(self, x):
+class Task01(Task):
+    _v: float
+    def __init__(self):
+        self._v = 0   
+    def execute(self, x):
         self._v += x
         return self._v
 
-cly = Celery(
+app = Celery(
     'tasks', 
     broker='redis://localhost:6379',
     backend='redis://localhost:6379',
 )
-@cly.task(base=Task01)
+@app.task(base=Task01)
 def task_01(x):
-    val = task_01.add(x)
+    val = task_01.execute(x)
     return val
 ```       
