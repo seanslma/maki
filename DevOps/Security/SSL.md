@@ -1,6 +1,11 @@
 # SSL
 https://www.keyfactor.com/resources/how-to-check-ssl-certificate/
 
+## Types of SSL certificates
+- Domain Validated Certificate (DV)
+- Organization Validated Certificate (OV)
+- Extended Validation Certificate (EV)
+
 ## Create self-signed SSL certificate
 create a `my-site.crt` file based on input `my-site.csr`
 ```
