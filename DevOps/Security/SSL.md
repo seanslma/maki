@@ -36,3 +36,14 @@ The `storeutl` command can be used to display the contents fetched from the give
 - `-noout` prevents output of the PEM data
 - `-text` prints out the objects in text form, like the -text output from openssl x509
 - `-certs` Only select the certificates from the given URI
+
+## ssl/tsl in kubernetes
+https://medium.com/avmconsulting-blog/how-to-secure-applications-on-kubernetes-ssl-tls-certificates-8f7f5751d788
+```
+#create ca private key
+opensslL genrsa -out ca.key 2048
+#create self-signed certificate
+openssl req -x509 -new -nodes -days 365 -key ca.key -out ca.crt -subj "/CN=yourdomain.com"
+#create tls secret using kubectl command
+kubectl create secret tls my-tls-secret --key ca.key --cert ca.crt
+```
