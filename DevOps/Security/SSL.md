@@ -26,3 +26,13 @@ openssl pkcs12 -in %pfx_filepath% -out cert.pem -nodes
 - Select your SSL certificate and enter the required details like the validity period you need and other details and submit it to the CA. 
 - You will get renewed certificate files which you can use on your server. 
 - Renewing SSL certificates will require you to complete the same procedures you did for getting a new SSL certificate. These could be domain validation, organizational validation, and other verifications as needed for the level of certificate you are applying to the CA for.
+
+## view all ssl certificates in a bundle
+https://serverfault.com/questions/590870/how-to-view-all-ssl-certificates-in-a-bundle/1079893#1079893
+```
+openssl storeutl -noout -text -certs bundle.crt
+```
+The `storeutl` command can be used to display the contents fetched from the given URIs.
+- `-noout` prevents output of the PEM data
+- `-text` prints out the objects in text form, like the -text output from openssl x509
+- `-certs` Only select the certificates from the given URI
