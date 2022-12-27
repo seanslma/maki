@@ -1,7 +1,12 @@
 # SSl Kubernetes
 
+## show cert details
+```
+openssl x509 -noout -text -in tls.crt
+```
+
 ## validate cert
-Will show Server certificate details
+Will show server certificate details
 ```
 curl https://my.example.com -kv
 ```
