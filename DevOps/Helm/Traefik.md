@@ -10,3 +10,6 @@ An open-source Edge Router receives requests on behalf of your system and finds 
 https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/
 - TLSStore is the CRD implementation of a Traefik "TLS Store".
 - Register the TLSStore kind in the Kubernetes cluster before creating TLSStore objects.
+
+## tsl
+https://doc.traefik.io/traefik/https/tls/
