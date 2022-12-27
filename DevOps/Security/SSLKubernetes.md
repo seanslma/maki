@@ -7,6 +7,8 @@ curl https://my.example.com -kv
 ```
 
 ## kube ingress tls
+Not show the details about creating the cert
+
 https://devopscube.com/configure-ingress-tls-kubernetes/
 
 ## create root crt with details
