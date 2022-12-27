@@ -1,5 +1,11 @@
 # SSl Kubernetes
 
+## validate cert
+Will show Server certificate details
+```
+curl https://my.example.com -kv
+```
+
 ## kube ingress tls
 https://devopscube.com/configure-ingress-tls-kubernetes/
 
