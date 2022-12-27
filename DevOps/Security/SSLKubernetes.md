@@ -22,6 +22,9 @@ https://kubernetes.io/docs/tasks/administer-cluster/certificates/
 ## kubernetes-ssl-certificates
 https://phoenixnap.com/kb/kubernetes-ssl-certificates
 
+## kubernetes-ssl/tls-certificates
+https://medium.com/avmconsulting-blog/how-to-secure-applications-on-kubernetes-ssl-tls-certificates-8f7f5751d788
+
 ### Generate Certificate Files
 produce a 2048-bit RSA encrypted key:
 ```
