@@ -29,4 +29,7 @@ Purpose
 - Some browsers also ship their own list of revoked certificates with every browser update (e.g. OneCRL from Mozilla). 
 - Other software, like Microsoft Windows, still fetches, caches and honors CRLs.
 
-## Authority Information Access
+## Issue different from subject
+https://stackoverflow.com/questions/21666516/openssl-how-do-i-set-the-issuer-details
+
+See this example: https://pages.cs.wisc.edu/~zmiller/ca-howto/
