@@ -16,7 +16,7 @@ openssl genrsa -des3 -passout pass:<pwd> -out root.key 2048
 
 ### generate root certificate
 ```
-openssl req -x509 -new -nodes -key root.key -sha256 -days 1024  -out root.pem
+openssl req -x509 -new -nodes -key root.key -sha256 -days 1000 -out root.pem
 ```
 Input info required:
 - Country Name (2 letter code) [AU]:NL
@@ -24,7 +24,7 @@ Input info required:
 - Locality Name (eg, city) []:<city>
 - Organization Name (eg, company) [Internet Widgits Pty Ltd]:<company name>
 - Organizational Unit Name (eg, section) []:<company unit name>
-- Common Name (e.g. server FQDN or YOUR name) []:<>
+- Common Name (e.g. server FQDN or YOUR name) []:<my.example.com>
 - Email Address []:<>
 
 ## Create SSL certificate
