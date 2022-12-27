@@ -1,4 +1,9 @@
 # Browser SSL self-signed
+
+renew ssl\
+https://www.golinuxcloud.com/renew-self-signed-certificate-openssl/
+
+
 create browser SSL self-signed certificate with details:
 
 https://medium.com/@tbusser/creating-a-browser-trusted-self-signed-ssl-certificate-2709ce43fd15
