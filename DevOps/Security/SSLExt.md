@@ -18,6 +18,9 @@ fullname=URI:http://myhost.com/myca.crl
 certificatePolicies=1.2.4.5, 1.1.3.4
 ```
 
+## Key usage
+https://superuser.com/questions/738612/openssl-ca-keyusage-extension
+
 ## CRL distribution points
 https://security.stackexchange.com/questions/226242/where-do-you-get-the-digicert-crl-distribution-point
 - Root certificates do not include a CRL (Certificate Revocation List) distribution point, because root certificates cannot be revoked.
