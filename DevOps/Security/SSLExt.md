@@ -1,5 +1,8 @@
 # SSL Ext
 
+## x509 Extensions for different types of certificates
+https://www.golinuxcloud.com/add-x509-extensions-to-certificate-openssl/
+
 ## x509v3 config
 https://www.openssl.org/docs/man1.0.2/man5/x509v3_config.html
 ```
