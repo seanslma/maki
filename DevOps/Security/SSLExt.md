@@ -35,6 +35,24 @@ Purpose
 - Some browsers also ship their own list of revoked certificates with every browser update (e.g. OneCRL from Mozilla). 
 - Other software, like Microsoft Windows, still fetches, caches and honors CRLs.
 
+https://stackoverflow.com/questions/11966123/howto-create-a-certificate-using-openssl-including-a-crl-distribution-point
+
+You can get the crlDistributionPoints into your certificate in (at least) these two ways:
+- Use openssl ca rather than x509 to sign the request. Pass -config as needed if your config is not in a default location. Most of your provided command can be used if you omit the options starting with -CA
+```
+openssl ca -in $NAME.csr -out certs/$NAME.pem -days 3650
+```
+- Use the command as you've provided in your question, but first create a file containing your v3 extensions (ie mycrl.cnf); add the option -extfile mycrl.cnf to your call to openssl x509
+```
+openssl x509 -req -in $NAME.csr -out certs/$NAME.pem -days 3650 \
+  -CAcreateserial -CA cacert.pem -CAkey private/cakey.pem \
+  -CAserial serial -extfile mycrl.cnf
+```
+Where mycrl.cnf contains the following:
+```
+crlDistributionPoints=URI:http://example.com/crl.pem
+```
+
 ## Issue different from subject
 https://stackoverflow.com/questions/21666516/openssl-how-do-i-set-the-issuer-details
 
