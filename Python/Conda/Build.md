@@ -1,4 +1,4 @@
-# Build 
+# Build
 
 https://docs.conda.io/projects/conda-build/en/latest/concepts/recipe.html
 
@@ -24,6 +24,8 @@ conda update conda-build
 
 ## meta.yaml
 https://stackoverflow.com/questions/38919840/get-package-version-for-conda-meta-yaml-from-source-file
+
+https://www.underworldcode.org/articles/build-conda-packages/
 ```
 {% set NAME = "pkg" %}
 {% set VERSION = load_setup_py_data().version %}
