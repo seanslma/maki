@@ -11,6 +11,8 @@ openssl req -new -x509 -days 365 -key ca_test.key -out ca_test.crt -config ca.cn
 ```
 
 ## ca.cnf
+A full example here: 
+https://mta.openssl.org/pipermail/openssl-users/2021-January/013291.html
 ```
 # OpenSSL configuration for Root CA
 
