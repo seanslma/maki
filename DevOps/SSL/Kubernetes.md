@@ -1,4 +1,4 @@
-# SSl Kubernetes
+# Kubernetes
 
 ## show cert details
 ```
@@ -15,7 +15,7 @@ curl https://my.example.com -kv
 Not show the details about creating the cert
 
 https://devopscube.com/configure-ingress-tls-kubernetes/
-  
+
 ## kube certi 3 methods
 https://kubernetes.io/docs/tasks/administer-cluster/certificates/
 
