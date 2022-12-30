@@ -1,4 +1,4 @@
-# SSl ca
+# CA
 
 ## create key
 ```
