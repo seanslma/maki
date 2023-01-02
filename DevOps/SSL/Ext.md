@@ -57,3 +57,5 @@ crlDistributionPoints=URI:http://example.com/crl.pem
 https://stackoverflow.com/questions/21666516/openssl-how-do-i-set-the-issuer-details
 
 See this example: https://pages.cs.wisc.edu/~zmiller/ca-howto/
+
+Need to use the certificate authority (ca)
