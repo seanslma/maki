@@ -1,5 +1,18 @@
 # OpenSSL
 
+## check cert
+```
+openssl rsa -check -in server.key 
+openssl x509 -noout -text -in server.crt
+openssl req -noout -text -verify -in server.csr
+```
+
+## check key / cert match
+```
+openssl rsa -noout -modulus -in server.key | openssl md5
+openssl x509 -noout -modulus -in server.crt | openssl md5
+```
+
 ## with config file
 ```
 openssl genrsa -out ca.key 2048
@@ -8,7 +21,6 @@ openssl req -x509 -new -nodes -days 365 -key ca.key -out ca.crt -subj "/CN=my.ex
 openssl genrsa -out server.key 2048
 openssl req -new -key server.key -out server.csr -config csr.conf
 openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -extensions v3_ext -extfile csr.conf
-openssl x509 -noout -text -in server.crt
 ```
 
 ## use passphrase
