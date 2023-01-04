@@ -1,5 +1,11 @@
 # KubeConfig
 
+## show config path
+run any kubectl command with verbose level 6+ to see the kubeconfig in use
+```
+kubectl get node -v6
+```
+
 ## install kubectl on win
 - copy file to your folder: https://dl.k8s.io/release/v1.25.0/bin/windows/amd64/kubectl.exe
 - add the exe path to PATH var
