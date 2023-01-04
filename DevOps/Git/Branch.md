@@ -8,6 +8,11 @@ git branch -vv
 ```
 
 ## point local master to upstream/master
+if has error: `fatal: ambiguous argument 'upstream/master': unknown revision or path not in the working tree`, run first
+```
+git fetch upstream
+```
+then run
 ```
 git checkout master
 git reset --hard upstream/master
