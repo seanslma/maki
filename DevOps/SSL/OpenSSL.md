@@ -20,6 +20,7 @@ openssl verify -CAfile RootCert.crt -untrusted Intermediate.crt UserCert.crt
 
 ## verify certificate
 ```
+openssl s_client -connect <hostname>:<port>
 openssl s_client -connect dev.example.com:443 -CApath /etc/ssl/certs
 ```
 
