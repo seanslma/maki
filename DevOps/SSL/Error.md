@@ -20,9 +20,14 @@ response = requests.post(url, files=files, headers=headers, verify='consolidate.
 ```
 
 ### [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129)
-Solution: `export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
 
-Solution case 2: If the ca has both root and intermediate cas, both ca crt files should be installed in the trust store
+Cause:
+- Could not find the root/intermediate ca crt files in the server
+
+
+Possible solution: `export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
+
+Possible solution, if the ca has both root and intermediate cas, both ca crt files should be installed in the trust store
 ```
 sudo cp root-ca.crt intermediate-ca.crt /usr/local/share/ca-certificates/extra/
 sudo update-ca-certificates
