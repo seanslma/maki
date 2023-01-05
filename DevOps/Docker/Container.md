@@ -21,6 +21,12 @@ docker container ls --filter "status=exited"
 ```
 Status options: created, restarting, running, paused, exited, dead
 
+## run containers
+```
+docker run -it --name=<image-name> ubuntu bash
+docker exec -it <image-name> bash #sh
+```
+
 ## delete containers
 ```
 docker rm <container-id>
