@@ -18,6 +18,11 @@ openssl x509 -noout -modulus -in server.crt | openssl md5
 openssl verify -CAfile RootCert.crt -untrusted Intermediate.crt UserCert.crt
 ```
 
+## verify certificate
+```
+openssl s_client -connect dev.example.com:443 -CApath /etc/ssl/certs
+```
+
 ## with config file
 ```
 openssl genrsa -out ca.key 2048
