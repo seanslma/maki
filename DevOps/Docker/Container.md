@@ -12,7 +12,7 @@ Options:
 List running containers
 ```
 docker ps
-docker conatiner ls
+docker container ls
 ```
 
 List stopped containers
