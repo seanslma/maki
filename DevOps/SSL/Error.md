@@ -11,5 +11,13 @@ https://stackoverflow.com/questions/62952004/local-issuer-certificate-error-uniq
 
 Solution: `export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt`
 
+Another case:\
+https://levelup.gitconnected.com/solve-the-dreadful-certificate-issues-in-python-requests-module-2020d922c72f
+
+The `consolidate.pem` should include all crt file in the chain
+```
+response = requests.post(url, files=files, headers=headers, verify='consolidate.pem')
+```
+
 ### [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129)
 Solution: `export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
