@@ -1,4 +1,5 @@
 # OpenSSL
+https://medium.com/@superseb/get-your-certificate-chain-right-4b117a9c0fce
 
 ## check cert
 ```
@@ -14,7 +15,10 @@ openssl x509 -noout -modulus -in server.crt | openssl md5
 ```
 
 ## verify certificate chain
+`-untrusted` to provide intermediate certificate
 ```
+openssl verify cert.pem
+openssl verify -CAfile ca.pem cert.pem
 openssl verify -CAfile RootCert.crt -untrusted Intermediate.crt UserCert.crt
 ```
 
@@ -64,4 +68,10 @@ openssl req -noout -text -in new-server.csr #check server.csr
 #generate crt from key and new csr
 openssl x509 -req -days 365 -in new-server.csr -signkey server.key -out new-server.crt -extfile v3.ext
 sha256sum server.crt #verify server.crt   
+```
+
+## get issuer/subject
+```
+openssl x509 -noout -issuer -in cert.pem
+openssl x509 -noout -subject -in ca.pem
 ```
