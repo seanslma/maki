@@ -21,18 +21,15 @@ response = requests.post(url, files=files, headers=headers, verify='consolidate.
 
 ### [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129)
 
-Cause:
-- Could not find the root/intermediate ca crt files in the server
+Cause: Could not find the root/intermediate ca crt files in the server
 
-
-Possible solution: `export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
-
-Possible solution, if the ca has both root and intermediate cas, both ca crt files should be installed in the trust store
-```
-sudo cp root-ca.crt intermediate-ca.crt /usr/local/share/ca-certificates/extra/
-sudo update-ca-certificates
-```
-
-Right solution:
-- must put the server crt and the intermediate crt into one file
-- server crt first then intermediate crt: `cat server.crt intermediate.crt > tls.crt`
+- Possible solution: `export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
+- Possible solution, if the ca has both root and intermediate cas, both ca crt files should be installed in the trust store
+  ```
+  sudo cp root-ca.crt intermediate-ca.crt /usr/local/share/ca-certificates/extra/
+  sudo update-ca-certificates
+  ```
+  If not will get the error: `certificate verify failed: self signed certificate in certificate chain`
+- Right solution:
+  - must put the server crt and the intermediate crt into one file
+  - server crt first then intermediate crt: `cat server.crt intermediate.crt > tls.crt`
