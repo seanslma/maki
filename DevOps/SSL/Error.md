@@ -32,3 +32,7 @@ Possible solution, if the ca has both root and intermediate cas, both ca crt fil
 sudo cp root-ca.crt intermediate-ca.crt /usr/local/share/ca-certificates/extra/
 sudo update-ca-certificates
 ```
+
+Right solution:
+- must put the server crt and the intermediate crt into one file
+- server crt first then intermediate crt: `cat server.crt intermediate.crt > tls.crt`
