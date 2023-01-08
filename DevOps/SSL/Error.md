@@ -6,7 +6,7 @@ The root certificates on the system are not working correctly, misconfigured, su
 ## IT department installed a firewall which intercepts SSL connections.
 https://serverfault.com/questions/1100480/wsl-docker-curl-60-unable-to-get-local-issuer-certificate
 
-## [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)
+## [SSL: CERTIFICATE_VERIFY_FAILED] unable to get local issuer certificate (_ssl.c:1108)
 https://stackoverflow.com/questions/62952004/local-issuer-certificate-error-uniquely-in-docker-with-python
 
 Solution: `export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt`
@@ -19,7 +19,7 @@ The `consolidate.pem` should include all level crt files (root, intermediate, an
 response = requests.post(url, files=files, headers=headers, verify='consolidate.pem')
 ```
 
-## [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129)
+## [SSL: CERTIFICATE_VERIFY_FAILED] unable to get local issuer certificate (_ssl.c:1129)
 
 Cause: Could not find the root/intermediate ca crt files in the server
 
@@ -40,3 +40,26 @@ https://pavolkutaj.medium.com/unable-to-verify-the-first-certificate-with-openss
 This error means that the certificate chain is broken for OpenSSL — but does not have to be for browsers.
 - The crt is not added to /etc/ssl/certs/ca-certificates.crt
 - The pem converted from crt does not exist in /etc/ssl/certs
+
+## [SSL: CERTIFICATE_VERIFY_FAILED] unsafe legacy renegotiation disabled
+https://pipeawk.com/index.php/2022/05/19/openssl-enable-legacy-renegotiation/
+
+Cause: openssl binaries are compiled with legacy renegotiation disabled by default. This disables any non TLS 1.3 libraries and certificates renegotiation to a lower standard.
+Solution: Update file `/etc/ssl/openssl.cnf`
+- At the very beginning, insert
+  ```
+  openssl_conf = openssl_init
+  ```
+- At the end, add
+  ```
+  [openssl_init]
+  ssl_conf = ssl_sect
+
+  [ssl_sect]
+  system_default = system_default_sect
+
+  [system_default_sect]
+  MinProtocol = TLSv1.2
+  CipherString = DEFAULT@SECLEVEL=1
+  Options = UnsafeLegacyRenegotiation  
+  ```
