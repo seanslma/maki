@@ -44,7 +44,7 @@ This error means that the certificate chain is broken for OpenSSL — but does n
 ## [SSL: CERTIFICATE_VERIFY_FAILED] unsafe legacy renegotiation disabled
 https://pipeawk.com/index.php/2022/05/19/openssl-enable-legacy-renegotiation/
 
-Cause: openssl binaries are compiled with legacy renegotiation disabled by default. This disables any non TLS 1.3 libraries and certificates renegotiation to a lower standard.
+Cause: `openssl` binaries are compiled with legacy renegotiation disabled by default. This disables any non TLS 1.3 libraries and certificates renegotiation to a lower standard.
 Solution: Update file `/etc/ssl/openssl.cnf`
 - At the very beginning, insert
   ```
