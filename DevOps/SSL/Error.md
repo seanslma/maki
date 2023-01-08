@@ -41,7 +41,7 @@ This error means that the certificate chain is broken for OpenSSL — but does n
 - The crt is not added to /etc/ssl/certs/ca-certificates.crt
 - The pem converted from crt does not exist in /etc/ssl/certs
 
-## [SSL: CERTIFICATE_VERIFY_FAILED] unsafe legacy renegotiation disabled
+## [SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled
 https://pipeawk.com/index.php/2022/05/19/openssl-enable-legacy-renegotiation/
 
 Cause: `openssl` binaries are compiled with legacy renegotiation disabled by default. This disables any non TLS 1.3 libraries and certificates renegotiation to a lower standard.
@@ -64,3 +64,10 @@ Solution: Update file `/etc/ssl/openssl.cnf`. Note: UnsafeLegacyRenegotiation (a
   CipherString = DEFAULT@SECLEVEL=1
   Options = UnsafeLegacyRenegotiation  
   ```
+  
+In dockerfile add:
+```
+# Update openssl.cnf to enable UnsafeLegacyRenegotiation (by default disabled in newer openssl versions)
+COPY docker/openssl.cnf /etc/ssl/openssl.cnf
+RUN update-ca-certificates
+```
