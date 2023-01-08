@@ -46,7 +46,7 @@ https://pipeawk.com/index.php/2022/05/19/openssl-enable-legacy-renegotiation/
 
 Cause: `openssl` binaries are compiled with legacy renegotiation disabled by default. This disables any non TLS 1.3 libraries and certificates renegotiation to a lower standard.
 
-Solution: Update file `/etc/ssl/openssl.cnf`. Note: UnsafeLegacyRenegotiation is a workaround, and should not be deployed to a production environment.
+Solution: Update file `/etc/ssl/openssl.cnf`. Note: UnsafeLegacyRenegotiation (allows for man in the middle attacks) is a workaround, and should not be deployed to a production environment.
 - At the very beginning, insert
   ```
   openssl_conf = openssl_init
