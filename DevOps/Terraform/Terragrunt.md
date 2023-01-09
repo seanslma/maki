@@ -8,6 +8,17 @@ https://terragrunt.gruntwork.io/docs/reference/config-blocks-and-attributes/
 - make backend dry
 - will automatically determine dependencies
 
+## install in linux from binary
+find the latest in the assets section in: https://github.com/gruntwork-io/terragrunt/releases
+```
+wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.42.5/terragrunt_linux_amd64
+mv terragrunt_linux_amd64 terragrunt
+chmod u+x terragrunt
+sudo mv terragrunt /usr/local/bin/terragrunt
+terragrunt --help
+```
+
+
 ## hcl
 root
 - remote_state
