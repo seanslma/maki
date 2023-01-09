@@ -7,9 +7,14 @@ Exchangelib is a Python client library (cross-platform) that provides an interfa
 ## Custom TLS Validation
 Supply a custom ‘requests’ transport adapter class, if custom TLS validation is needed.
 ```py
-class RootCAAdapter(requests.adapters.HTTPAdapter):
-...
-BaseProtocol.HTTP_ADAPTER_CLS = RootCAAdapter
+class CustomHTTPAdapter(requests.adapters.HTTPAdapter):
+  def cert_verify(self, conn, url, verify, cert):
+      cert_file = {
+          'example.com': '/path/to/example.com.crt',
+          'mail.internal': '/path/to/mail.internal.crt',
+      }[urlparse(url).hostname]
+      super(RootCAAdapter, self).cert_verify(conn=conn, url=url, verify=cert_file, cert=cert)
+BaseProtocol.HTTP_ADAPTER_CLS = CustomHttpAdapter
 
 class ProxyAdapter(requests.adapters.HTTPAdapter):
 ...
