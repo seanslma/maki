@@ -14,8 +14,17 @@ ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 - certificates provided by Ubuntu distribution and 
 - certificates added by user (/usr/local/share/ca-certificates/)
 
+Note: If `verify` is set to a path to a directory, the directory must have been processed using the c_rehash utility supplied with OpenSSL.
+```
+
+```
 
 ## check https call OK
+bash
+```
+curl -vvvv https://my.example.com/EWS/Exchange.asmx
+```
+
 ```py
 import requests
 requests.post('https://my.example.com/EWS/Exchange.asmx')
