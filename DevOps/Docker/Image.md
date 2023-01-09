@@ -14,7 +14,12 @@ docker run -it <image-id>                        #from default entrypoint
 docker run -it --entrypoint /bin/bash <image-id> #from another entrypoint
 ```
 
-### remove image with multiple repos/tags
+## list images with sort
+```
+docker images | sort -k1 -h #sort by col1 - repo
+```
+
+## remove image with multiple repos/tags
 ```
 docker rmi -f <image-id>
 docker rmi [repo-name1]:[tag1] [repo-name2]:[tag2]
