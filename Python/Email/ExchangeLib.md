@@ -5,9 +5,17 @@ https://www.activestate.com/resources/quick-reads/how-to-install-and-use-exchang
 Exchangelib is a Python client library (cross-platform) that provides an interface for accessing and working with Microsoft Exchange Web Services (EWS).
 
 ## test tls cert
+Very helpful with lots of info related to ssl: \
+https://github.com/ecederstrand/exchangelib/issues/798
 ```py
 import requests
 requests.post('https://owa.example.com/EWS/Exchange.asmx')
+```
+
+## supported tls version
+```py
+import requests
+print(requests.get('https://www.howsmyssl.com/a/check', verify=True).json()['tls_version'])
 ```
 
 ## Custom TLS Validation
