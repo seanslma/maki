@@ -42,6 +42,8 @@ This error means that the certificate chain is broken for OpenSSL — but does n
 - The pem converted from crt does not exist in /etc/ssl/certs
 
 ## [SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled
+disabled in OpenSSL 3: https://www.openssl.org/docs/manmaster/man7/migration_guide.html
+
 https://pipeawk.com/index.php/2022/05/19/openssl-enable-legacy-renegotiation/
 
 Cause: `openssl` binaries are compiled with legacy renegotiation disabled by default. This disables any non TLS 1.3 libraries and certificates renegotiation to a lower standard.
