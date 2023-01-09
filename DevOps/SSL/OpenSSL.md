@@ -1,6 +1,11 @@
 # OpenSSL
 https://medium.com/@superseb/get-your-certificate-chain-right-4b117a9c0fce
 
+## version
+```
+openssl version -d
+```
+
 ## check cert
 ```
 openssl rsa -check -in server.key 
