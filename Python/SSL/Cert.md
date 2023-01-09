@@ -1,5 +1,20 @@
 # Cert
 
+## requests certs
+`Requests` maintainers bundled their own certs.
+- Redhat `/etc/pki/ca-trust`
+- Ubuntu `/etc/ssl/certs/`
+- Windows `windows trust store`
+
+## force using certs from system 
+```
+ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+```
+`/etc/ssl/certs/ca-certificates.crt` includes both:
+- certificates provided by Ubuntu distribution and 
+- certificates added by user (/usr/local/share/ca-certificates/)
+
+
 ## check https call OK
 ```py
 import requests
