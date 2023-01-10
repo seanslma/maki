@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # Helm
 Template cheatsheet:
 https://lzone.de/cheat-sheet/Helm%20Templates
@@ -20,3 +21,5 @@ rollingUpdate:
   maxUnavailable: 1
   {{ end }}
 ```
+
+<!-- {% endraw %} -->

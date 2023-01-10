@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # Start
 
 {{cc.png|test}}
@@ -96,3 +97,5 @@ Solution:
 
 Solution
   * the data path should not have spaces
+
+<!-- {% endraw %} -->

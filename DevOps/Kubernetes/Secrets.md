@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # Secrets
 
 https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/
@@ -40,11 +41,11 @@ kubectl create secret <secret-name> \
   --key /etc/certs/{name}.com.key \
   --cert /etc/certs/{name}.com.crt \
   -n <namespace>
-  
+
 kubectl create secret tls <secret-name> \
   --namespace <namespace> \
   --key tls.key \
-  --cert tls.crt  
+  --cert tls.crt
 ```
 
 ### create secret using literals
@@ -162,3 +163,5 @@ volumes:
   secret:
     secretName: <secret-name>
 ```
+
+<!-- {% endraw %} -->
