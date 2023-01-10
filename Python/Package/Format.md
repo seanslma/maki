@@ -14,6 +14,7 @@
 - In user settings, add
 ```
 "python.formatting.provider": "none",
+"black-formatter.args": ["-S"]
 "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true
