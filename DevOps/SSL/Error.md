@@ -66,10 +66,16 @@ Solution: Update file `/etc/ssl/openssl.cnf`. Note: UnsafeLegacyRenegotiation (a
   CipherString = DEFAULT@SECLEVEL=1
   Options = UnsafeLegacyRenegotiation  
   ```
-  
+- `export OPENSSL_CONF=path_to_openssl.cnf`
+
+The previous solution might work 
+- but we might not realise that there are other issues, 
+- so we can get other errors like: `unable to get local issuer certificate`
+- it's possible the legacy checked first then check the local issuer certificate
+
+Even for cert that is not self-siged, we need to add the root and intermediat certs
 In dockerfile add:
 ```
-# Update openssl.cnf to enable UnsafeLegacyRenegotiation (by default disabled in newer openssl versions)
-COPY docker/openssl.cnf /etc/ssl/openssl.cnf
+COPY docker/root-ca.crt docker/itmd-ca.crt docker/server.crt /usr/local/share/ca-certificates/extra/
 RUN update-ca-certificates
 ```
