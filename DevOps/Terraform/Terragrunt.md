@@ -18,7 +18,6 @@ sudo mv terragrunt /usr/local/bin/terragrunt
 terragrunt --help
 ```
 
-
 ## hcl
 root
 - remote_state

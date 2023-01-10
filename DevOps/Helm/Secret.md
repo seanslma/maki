@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # Secret
 see also:
 Docker Container: SecretProviderClass
@@ -39,7 +40,7 @@ deployment.yaml
 containers:
   volumeMounts:
   - name: secrets-mount
-    mountPath: "/home/user/.config/secret"    
+    mountPath: "/home/user/.config/secret"
     readOnly: true
 volumes:
   - name: database
@@ -47,5 +48,7 @@ volumes:
       driver: secrets-store.csi.k8s.io
       readOnly: true
       volumeAttributes:
-        secretProviderClass: "{{ .Chart.Name }}-db"    
+        secretProviderClass: "{{ .Chart.Name }}-db"
 ```
+
+<!-- {% endraw %} -->

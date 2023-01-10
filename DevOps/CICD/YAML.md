@@ -1,4 +1,5 @@
-# YAML
+<!-- {% raw %} -->
+# YAML7
 
 ## pass var to yaml
 https://stackoverflow.com/questions/48296082/how-to-set-dynamic-values-with-kubernetes-yaml-file
@@ -18,3 +19,5 @@ https://stackoverflow.com/questions/63502743/pass-variables-to-yaml-template-lik
 ```
 $obj = ConvertFrom-Json '$(${{ parameters.listOfValuestInJson }})'
 ```
+
+<!-- {% endraw %} -->

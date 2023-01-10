@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # Parameter and Variable
 https://learn.microsoft.com/en-us/azure/devops/pipelines/security/inputs?view=azure-devops
 
@@ -24,3 +25,5 @@ variables:
 
 - compile-time expression `${{ <expression> }}`: have access to `parameters` and `statically defined variables`
 - runtime expression `$[ <expression> ]`: have access to `more variables` but `no parameters`
+
+<!-- {% endraw %} -->
