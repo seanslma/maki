@@ -39,11 +39,12 @@ user settings > Trim Trailing Whitespace
 ## Wrap line
 workspace > settings.json
 ```
-"editor.rulers": [80, 120],
+"editor.rulers": [80, 88, 120],
 "editor.wordWrap": "wordWrapColumn",
 "editor.wordWrapColumn": 80,
 "[markdown]": {
     "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 120
 }
 ```
 
@@ -53,7 +54,7 @@ workspace > settings.json
 "editor.minimap.enabled": false,
 "editor.rulers": [80,88],
 "workbench.colorCustomizations": {
-    "editorRuler.foreground": "#2b2929e8", #"#4e525042"
+    "editorRuler.foreground": "#222222",
     "tab.activeBorderTop": "#066794",
     "tab.unfocusedActiveBorder": "#000000"
 },
