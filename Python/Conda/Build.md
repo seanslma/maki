@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # Build
 
 https://docs.conda.io/projects/conda-build/en/latest/concepts/recipe.html
@@ -88,3 +89,5 @@ outputs:
       home: {{ GITHUB_URL }}
       summary: Doc dependencies for {{ NAME }}
 ```
+
+<!-- {% endraw %} -->
