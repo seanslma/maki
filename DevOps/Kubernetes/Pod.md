@@ -54,7 +54,7 @@ When you override the default Entrypoint and Cmd for a Container, these rules ap
 
 ## create a pod by passing env vars
 ```
-kubectl run <pod-name> -n <namespace> --image=<acr-name>.azurecr.io/retail/app:latest --env="PREFIX_UPPER_CASE_PARAM=xyz"
+kubectl run <pod-name> -n <namespace> --image=<acr-name>.azurecr.io/dev/app:latest --env="PREFIX_UPPER_CASE_PARAM=xyz"
 ```
 
 ## use another entrypoint and let the pod run so can get into the container
@@ -76,18 +76,18 @@ https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#example-states
 
 ## Pod and container failures
 ### Container
-A **container** in a Pod may fail for a number of reasons, such as 
-- the process in it exited with a non-zero exit code, or 
-- the container was killed for exceeding a memory limit, etc. 
-If this happens, and the .spec.template.spec.restartPolicy = "OnFailure", then the Pod stays on the node, but the container is re-run. 
+A **container** in a Pod may fail for a number of reasons, such as
+- the process in it exited with a non-zero exit code, or
+- the container was killed for exceeding a memory limit, etc.
+If this happens, and the .spec.template.spec.restartPolicy = "OnFailure", then the Pod stays on the node, but the container is re-run.
 
 Therefore, your program needs to handle the case when it is restarted locally, or else specify .spec.template.spec.restartPolicy = "Never".
 
 ### Pod
-An entire **Pod** can also fail, for a number of reasons, such as 
-- when the pod is kicked off the node (node is upgraded, rebooted, deleted, etc.), or 
-- if a container of the Pod fails and the .spec.template.spec.restartPolicy = "Never". 
-When a Pod fails, then the Job controller starts a new Pod. 
+An entire **Pod** can also fail, for a number of reasons, such as
+- when the pod is kicked off the node (node is upgraded, rebooted, deleted, etc.), or
+- if a container of the Pod fails and the .spec.template.spec.restartPolicy = "Never".
+When a Pod fails, then the Job controller starts a new Pod.
 
 This means that your application needs to handle the case when it is restarted in a new pod. In particular, it needs to handle temporary files, locks, incomplete output and the like caused by previous runs.
 

@@ -13,8 +13,8 @@
 - install black-formatter extension
 - In user settings, add
 ```
-"python.formatting.provider": "none",
 "black-formatter.args": ["-S"]
+"python.formatting.provider": "none",
 "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true

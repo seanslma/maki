@@ -41,7 +41,7 @@ workspace > settings.json
 ```
 "editor.rulers": [80, 88, 120],
 "editor.wordWrap": "wordWrapColumn",
-"editor.wordWrapColumn": 80,
+"editor.wordWrapColumn": 120,
 "[markdown]": {
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 120
@@ -54,7 +54,7 @@ workspace > settings.json
 "editor.minimap.enabled": false,
 "editor.rulers": [80,88],
 "workbench.colorCustomizations": {
-    "editorRuler.foreground": "#222222",
+    "editorRuler.foreground": "#333333",
     "tab.activeBorderTop": "#066794",
     "tab.unfocusedActiveBorder": "#000000"
 },
