@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # Conda build
 
 ## meta.yaml
@@ -31,15 +32,17 @@ outputs:
     about:
       home: https://github.com/usr/pkg
       summary: 'My python pkg'
-  
+
   - name: {{ name }}.test
     requirements:
       run:
         - python
     test:
       source_files:
-        - tests        
+        - tests
     about:
       home: https://github.com/usr/pkg
-      summary: 'My python pkg'  
+      summary: 'My python pkg'
 ```
+
+<!-- {% endraw %} -->
