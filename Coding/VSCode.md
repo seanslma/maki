@@ -4,6 +4,12 @@
 Customizing IntelliSense:
 https://code.visualstudio.com/docs/editor/intellisense
 
+## Hide title bar
+In user settings, add
+```
+"window.titleBarStyle": "custom",
+```
+
 ## Editor font size and line space
 settings > editor > line height > 15
 ```

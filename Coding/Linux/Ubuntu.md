@@ -11,6 +11,10 @@ sudo vi /etc/apt/sources.list
 :%s#search_string#replacement_string#g
 ```
 
+## gnome top bar to left
+https://askubuntu.com/questions/1162884/can-i-move-the-gnome-top-bar-and-status-icons-to-the-side
+
+
 ## Enable hibernate
 ```
 systemctl hibernate
@@ -20,7 +24,7 @@ Perhaps the error should be: Failed to hibernate system via logind: Please use B
 
 Disable swapfile and delete it
 ```
-sudo swapoff /swapfile  
+sudo swapoff /swapfile
 sudo rm /swapfile
 ```
 https://ubuntuhandbook.org/index.php/2021/08/enable-hibernate-ubuntu-21-10/
@@ -36,7 +40,7 @@ dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/
 dbus-send --system --print-reply --type=method_call --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Hibernate boolean:true
 ```
 
-Set the timeout value: 
+Set the timeout value:
 - https://wiki.archlinux.org/title/Power_management#Suspend_and_hibernate
 - https://man.archlinux.org/man/sleep.conf.d.5
 ```
@@ -48,16 +52,16 @@ https://itsfoss.com/wrong-time-dual-boot/
 
 A hardware clock which is also called RTC (real time clock) or CMOS/BIOS clock. By default, Linux assumes that the time stored in the hardware clock is in UTC, while Windows thinks that the time stored on the hardware clock is local time.
 
-### Solution 1 
+### Solution 1
 Setup for Linux system to use the local time for the hardware clock (RTC)
 ```
 timedatectl set-local-rtc 1 #0 for UTC time standard,  1 for localtime time standard
 ```
 
 ### Solution 2
-Setup for Windows system to use the UTC for the hardware clock (RTC). 
+Setup for Windows system to use the UTC for the hardware clock (RTC).
 
-For 64-bit Windows, open regedit then browse to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation. 
+For 64-bit Windows, open regedit then browse to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation.
 Create a new QWORD entry called RealTimeIsUniversal, then set its value to 1. Reboot the system. The clock should now be in UTC time.
 ```
 Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_QWORD /d 1

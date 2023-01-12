@@ -10,6 +10,7 @@ If resource-group could not be found, change default subscription
 az login
 az login --tenant tenant.onmicrosoft.com
 az account list --output table #list all subscriptions
+az account set -s <subscription-id>
 az account set --subscription <subscription-id> #set default subscription
 ```
 
