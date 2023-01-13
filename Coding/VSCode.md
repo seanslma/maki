@@ -82,3 +82,9 @@ Search "workbench.action.openSettingsJson" > Open user settings.json
 
 ## Copy relative filepath separator setting
 Search `Explorer: Copy Relative Path Separator` in settings
+
+## Auto closing quotes/brackets
+```
+"editor.autoClosingQuotes": "never",
+"editor.autoClosingBrackets": "never",
+```    
