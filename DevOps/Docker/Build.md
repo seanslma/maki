@@ -1,5 +1,10 @@
 # Build
 
+## build an image
+```
+docker build --no-cache --force-rm -t docker.example.com/image-name:linux .
+```
+
 ## how to show the created date of the based image in dockerfile?
 
 ## command output from dockerfile
