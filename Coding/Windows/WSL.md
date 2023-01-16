@@ -42,9 +42,8 @@ exit
 
 ### optimize-vhd
 only available in Windows 10 Pro with Hyper-v feature installed\
-C:\Users\usr\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc\LocalState\
 ```
-cd $env:LOCALAPPDATA/Packages/<DISTRO_FOLDERNAME>/LocalState/ 
+cd C:\Users\<usr>\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc\LocalState
 wsl --shutdown
 optimize-vhd -Path .\ext4.vhdx -Mode full
 ```
