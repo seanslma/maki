@@ -23,6 +23,32 @@ memory=4GB
 - `wsl --shutdown` #restart
 - `free -h --giga` #check total memory
 
+## release disk space back
+https://github.com/microsoft/WSL/issues/4699
+
+WSL2 will not automatically release used disk space - have to do it manually
+
+### compact option in diskpart
+```
+wsl --shutdown
+diskpart
+# open window Diskpart
+select vdisk file="C:\WSL-Distros\…\ext4.vhdx"
+attach vdisk readonly
+compact vdisk
+detach vdisk
+exit
+```
+
+### optimize-vhd
+only available in Windows 10 Pro with Hyper-v feature installed\
+C:\Users\usr\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc\LocalState\
+```
+cd $env:LOCALAPPDATA/Packages/<DISTRO_FOLDERNAME>/LocalState/ 
+wsl --shutdown
+optimize-vhd -Path .\ext4.vhdx -Mode full
+```
+
 ## install docker
 https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9
 
