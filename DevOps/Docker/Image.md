@@ -47,3 +47,22 @@ https://pythonspeed.com/articles/conda-docker-image-size/
 Use `conda-pack` to remove conda and use multistage build together to reduce image size.
 
 The base Conda environment is necessary for installation of packages, but once we’re running the code it really doesn’t add much.
+
+## check iamge packages/CVEs
+install `syft` and `grype`
+```
+curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s — -b /usr/local/bin
+```
+
+check packages
+```
+syft ubuntu:18.04
+syft <repo>:1.0.0
+```
+
+check CVEs
+```
+grype ubuntu:18.04
+grype <repo>:1.0.0
+```
