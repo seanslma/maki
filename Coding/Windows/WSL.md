@@ -41,7 +41,7 @@ exit
 ```
 
 ### optimize-vhd
-only available in Windows 10 Pro with Hyper-v feature installed\
+only available in Windows 10 Pro with Hyper-v feature installed
 ```
 cd C:\Users\<usr>\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc\LocalState
 wsl --shutdown
