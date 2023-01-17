@@ -66,3 +66,5 @@ check CVEs
 grype ubuntu:18.04
 grype <repo>:1.0.0
 ```
+
+## multiple versions of package in the same image, why???
