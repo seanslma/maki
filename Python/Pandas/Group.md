@@ -1,6 +1,22 @@
 # Group
 
-## avoid using `df.index.levels[]`
+## groupby([], group_keys=False)
+When
+- group_keys = True: the keys will be added into the results after `apply`
+- group_keys = False: the keys will be removed from the results after `apply`
+```py
+keys = ['x']
+d = pd.DataFrame([[0, 1, 3],[3, 1, 1],[3, 0, 0],[2, 3, 3],[2, 1, 0]], columns=list('xyz'))
+t = df.groupby(keys,group_keys=True).apply(lambda row: row[['y','z']])
+f = df.groupby(keys,group_keys=False).apply(lambda row: row[['y','z']])
+v = df.groupby(keys).apply(lambda row: row[['y','z']])
+print('Original DataFrame:\n',d)
+print('Result [True]:\n',t)
+print('Result [False]:\n',f)
+print('Result [None]:\n',v)
+```
+
+## avoid using `df.index.levels[]` - it contains all before the groupby.
 Test code:
 ```python
 def test(df):
