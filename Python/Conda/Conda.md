@@ -52,20 +52,6 @@ conda install -c anaconda ipykernel
 python -m ipykernel install --user --name=test-env
 ```
 
-## mamba
-Compared to conda, mamba is faster but larger.
-
-### clear cache
-```
-mamba clean --all
-```
-
-### error: SSL certificate not OK
-in `.condarc`, we should delete this line
-```
-ssl_verify: C:\Users\usr\conda-envs\my.crt
-```
-
 ## install package
 ```
 conda install -c conda-forge dash-bootstrap-components
