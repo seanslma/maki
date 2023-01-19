@@ -135,10 +135,10 @@ def col_num(col: str) -> int:
         n = n * 26 + ord(c) - 64 #ord('A')=65
     return n - 1
     
-def col_rng(colrng: str) -> Iterator[int]:
-    cols = colrng.split(':')
-    return range(xl_col_num(cols[0]), xl_col_num(cols[-1]) + 1)
+def col_rng(rng: str) -> Iterator[int]:
+    cols = rng.split(':')
+    return range(col_num(cols[0]), col_num(cols[-1]) + 1)
 
-def col_ind(colstr: str) -> List[int]:
-    return [i for col in colstr.split(',') for i in xl_col_rng(col)]    
+def col_ind(cols: str) -> List[int]:
+    return [i for col in colstr.split(',') for i in col_rng(col)]    
 ```
