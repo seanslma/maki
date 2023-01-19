@@ -1,9 +1,30 @@
 # Variable
 
+
+## define
+https://docs.oracle.com/cd/B19306_01/server.102/b14357/ch12017.htm
+
+`DEFINE` statement for simple **string** substitution variables.
+```
+DEFINE start_date = "to_date('03/11/2011', 'dd/mm/yyyy')"
+SELECT COUNT(*) from my_table tab where tab.some_date < &start_date;
+```
+
+```sql
+define col = 'date';
+define day = to_date('2022-07-01', 'YYYY-MM-DD');
+SELECT '&&col' from my_table where date > &&day;
+```
+
+```sql
+define val = 12;
+SELECT * from my_table where value > &&val;
+```
+
 ## declare
 https://stackoverflow.com/questions/8039907/simple-oracle-variable-sql-assignment
 
-The `DECLARE` keyword is used to define variables scoped in a PL/SQL block (whose body is delimited by BEGIN and END;).
+The `DECLARE` keyword is used to define variables scoped in a **PL/SQL** block (whose body is delimited by BEGIN and END;).
 ```
 DECLARE 
     startDate DATE := to_date('03/11/2011', 'dd/mm/yyyy');
@@ -16,15 +37,6 @@ BEGIN
 END;
 ```
 
-## define
-https://docs.oracle.com/cd/B19306_01/server.102/b14357/ch12017.htm
-
-`DEFINE` statement for simple `string` substitution variables.
-```
-DEFINE start_date = "to_date('03/11/2011', 'dd/mm/yyyy')"
-SELECT COUNT(*) from my_table tab where tab.some_date < &start_date;
-```
-
 ## print
 ```
 DECLARE 
@@ -34,16 +46,4 @@ BEGIN
         dt + 1
    );
 END;
-```
-
-## define and use variable
-```sql
-define col = 'date';
-define day = to_date('2022-07-01', 'YYYY-MM-DD');
-SELECT '&&col' from my_table where date > &&day;
-```
-
-```sql
-define val = 12;
-SELECT * from my_table where value > &&val;
 ```
