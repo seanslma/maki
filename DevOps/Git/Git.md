@@ -3,6 +3,11 @@
 - **Rebase** will change history and best to use it in private branch.
 - **Merge** will not change history and is preferred to rebase in most cases.
 
+## terms
+- `Untracked changes` are not in Git
+- `Unstaged changes` are in Git but not marked for commit
+- `Staged changes` are in Git and marked for commit
+
 ## update
 ```
 sudo apt update
@@ -24,14 +29,6 @@ git update-index --assume-unchanged <file>
 git rm --cached <file>
 #delete folder from server
 git rm -r --cached path_to_folder/
-```
-
-## resolve conflict
-```
-git switch master
-git pull
-git switch my-branch
-git rebase master
 ```
 
 ## git tips
