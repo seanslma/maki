@@ -1,6 +1,13 @@
 # Stash
+Save uncommitted changes (both staged and unstaged) for later use, and then revert them from working copy. 
 
-## All
+## include new files in stash
+```
+git add .
+git stash --staged -m "stash-name"
+```
+
+## all commands
 ```
 git stash list                 #list all stashes
 
@@ -15,8 +22,4 @@ git stash drop <stash-id>      #remove one stash
 git stash clear                #remove all stashes
 ```
 
-## include new files in stash
-```
-git add .
-git stash --staged -m "stash-name"
-```
+
