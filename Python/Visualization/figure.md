@@ -1,5 +1,23 @@
 # figure
 
+## save figure
+```
+fig = go.Figure()
+    fig.update_layout(
+        width=18, #pixel, CM_TO_PIXEL = 37.7952755906
+        height=9, #pixel
+        margin=go.layout.Margin(
+            l=10, #default 80
+            r=3, #default 80
+            b=5, #default 80
+            t=10  #default 100
+        ),
+        plot_bgcolor='white',
+        paper_bgcolor='white',
+    )
+fig.write_image(imgfile, scale=1.5)
+```
+
 ## rotate axis labels
 ```python
 import matplotlib.pyplot as plt
