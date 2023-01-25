@@ -9,6 +9,8 @@ def get_filesystem(
 ) -> AbstractFileSystem:
     from adlfs.spec import AzureBlobFileSystem
     from azure.identity.aio import DefaultAzureCredential
+    # Disable messages from azure.identity.aio
+    logging.getLogger('azure.identity.aio').setLevel(logging.ERROR)    
     credential = credential or DefaultAzureCredential()
     return AzureBlobFileSystem(
         account_name=account_name,
