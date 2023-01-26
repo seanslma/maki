@@ -1,10 +1,18 @@
 # Managed Identity
 https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview
 
+- Two types: `System assigned` (1:1) and `User assigned` (1:n)
 - Managed identities provide an automatically managed identity in Azure Active Directory for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication.
 - Applications can use managed identities to obtain Azure AD tokens without having to manage any credentials.
-- Two types: `System assigned` (1:1) and `User assigned` (1:n)
-- The key difference between Azure managed identities and service principals is that, with the former, admins do not have to manage credentials, including passwords.
+- The **key difference** between Azure `managed identities` and `service principals` is that, with the former, admins do not have to manage credentials, including passwords - so no one knows the credentials.
+
+## difference between service principal
+https://stackoverflow.com/questions/61322079/difference-between-service-principal-and-managed-identities-in-azure
+
+- Managed identities manage the creation and automatic renewal of a service principal on your behalf?
+- Managed identities are service principals of a special type, which are locked to only be used with Azure resources.
+- When the managed identity is deleted, the corresponding service principal is automatically removed.
+- When a User-Assigned or System-Assigned Identity is created, the Managed Identity Resource Provider (MSRP) issues a certificate internally to that identity.
 
 ## benifit
 https://learningbydoing.cloud/blog/stop-using-client-secrets-start-using-managed-identities/

@@ -11,7 +11,7 @@ rather than use security credentials within scripts.
 ## issues, risks and management overhead
 - App credentials has a limited lifetime and requires to be rolled from time to time
 - Expired credentials can lead to downtime for the services utilizing the credential
-- App credentials (especially client secrets ) sometimes are directly exposed as clear text to code
+- App credentials (especially client secrets) sometimes are directly exposed as clear text to code
 
 ## create
 ```
