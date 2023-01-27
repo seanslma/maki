@@ -1,7 +1,7 @@
 # Get latest records
 
 ## latest in each group
-daily revenue values for each state
+daily revenue values with update_date for each state
 ```sql
 SELECT region, country, year(value_timestamp) as [year], month(value_timestamp) as [month], sum(revenue) as revenue from (
     SELECT [state],[country],[region],DATEADD(HOUR,10,value_timestamp) as value_timestamp,[revenue]
