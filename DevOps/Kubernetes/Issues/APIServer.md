@@ -1,9 +1,15 @@
-# KubeAPI
+# kube-apiserver
 
-## check kube-api SSL cert
+## check kube-apiserver SSL cert
 https://stackoverflow.com/questions/67132520/kubelet-service-cant-access-kube-apiserver-at-port-6443-with-https-due-to-error
 ```
 curl -k -v https://172.24.4.159:6443
+```
+
+## check kube-apiserver health
+https://kubernetes.io/docs/reference/using-api/health-checks/
+```
+curl -k https://localhost:6443/livez?verbose
 ```
 
 ## Why disable swap on kubernetes
