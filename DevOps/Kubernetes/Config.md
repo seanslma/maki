@@ -6,13 +6,23 @@ run any kubectl command with verbose level 6+ to see the kubeconfig in use
 kubectl get node -v6
 ```
 
+## show config view
+```
+kubectl config view
+```
+
 ## install kubectl on win
 - copy file to your folder: https://dl.k8s.io/release/v1.25.0/bin/windows/amd64/kubectl.exe
 - add the exe path to PATH var
 
-## set env var
+## set config envvar
 ```
 export KUBECONFIG="/mnt/c/users/usr/.config/.kube/config"
+#default
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=$HOME/.kube/config
 ```
 
 ## modify config files
