@@ -6,6 +6,15 @@ https://stackoverflow.com/questions/67132520/kubelet-service-cant-access-kube-ap
 curl -k -v https://172.24.4.159:6443
 ```
 
+## Why disable swap on kubernetes
+https://serverfault.com/questions/881517/why-disable-swap-on-kubernetes
+
+- Support for swap is non-trivial. 
+- Guaranteed pods should never require swap. 
+- Burstable pods should have their requests met without requiring swap. 
+- BestEffort pods have no guarantee. 
+- The kubelet right now lacks the smarts to provide the right amount of predictable behavior here across pods.
+
 ## The connection to the server ip:6443 was refused - did you specify the right host or port?
 https://discuss.kubernetes.io/t/the-connection-to-the-server-host-6443-was-refused-did-you-specify-the-right-host-or-port/552
 
