@@ -6,15 +6,43 @@ https://stackoverflow.com/questions/67132520/kubelet-service-cant-access-kube-ap
 curl -k -v https://172.24.4.159:6443
 ```
 
-## connection was refused
+## The connection to the server ip:6443 was refused - did you specify the right host or port?
 https://discuss.kubernetes.io/t/the-connection-to-the-server-host-6443-was-refused-did-you-specify-the-right-host-or-port/552
 
 https://www.reddit.com/r/kubernetes/comments/10aya7n/master_node_not_accessible_after_a_few_minutes
 
-The connection to the server <ip>:6443 was refused - did you specify the right host or port?
+- has config setup correctly?
+  ```
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf HOME/.kube/config sudo chown (id -u):$(id -g) $HOME/.kube/config
+  export KUBECONFIG=$HOME/.kube/config
+  ```
 - disable SWAP `swapoff -a`
+  ```
+  #to make it permanent go to /etc/fstab
+  sudo -i
+  swapoff -a
+  exit
+  strace -eopenat kubectl version
+  sudo systemctl restart kubelet.service
+  ```
+  further steps?
+  ```
+  #remove the && and \ and copy and paste each line in the command line, this will ensure swap is disabled and persistent across a reboot.
+  sudo dphys-swapfile swapoff && \
+  sudo dphys-swapfile uninstall && \
+  sudo systemctl disable dphys-swapfile  
+  ```
 - check if docker was running
 - checked if kubelet was running, any log errors?
 - disk is under 20GB but it is 100GB already `df -H`
 - reboot the master
+- firewall blocks the port
+  ```
+  sudo systemctl status firewalld #redhat centos
+  sudo systemctl stop firewalld #redhat, centos
+  sudo ufw status verbose #ubuntu
+  sudo ufw disable #ubuntu
+  ```
 - looking with netstat to see if something is running on port 6443
+- `kubeadm reset` on master and worker nodes?
