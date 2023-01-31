@@ -15,6 +15,6 @@ The connection to the server <ip>:6443 was refused - did you specify the right h
 - disable SWAP `swapoff -a`
 - check if docker was running
 - checked if kubelet was running, any log errors?
-- disk is under 20GB but it is 100GB already
+- disk is under 20GB but it is 100GB already `df -H`
 - reboot the master
 - looking with netstat to see if something is running on port 6443
