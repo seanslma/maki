@@ -1,5 +1,10 @@
 # kube-apiserver
 
+## cluster info
+```
+kubectl cluster-info
+```
+
 ## check kube-apiserver is running and hasn't crashed
 https://discuss.kubernetes.io/t/the-connection-to-the-server-localhost-8080-was-refused-did-you-specify-the-right-host-or-port/1464/3
 ```
