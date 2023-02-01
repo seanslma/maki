@@ -1,8 +1,10 @@
 # kube-apiserver
 
 ## cluster info
+detailed information about the overall health of the cluster
 ```
 kubectl cluster-info
+kubectl cluster-info dump
 ```
 
 ## check kube-apiserver is running and hasn't crashed
