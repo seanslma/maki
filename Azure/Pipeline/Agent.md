@@ -15,6 +15,7 @@ https://github.com/Microsoft/azure-pipelines-agent/releases
 - Can run incremental builds - doesn't clean the repo or do a clean build so the builds will typically run faster
 
 ## Personal access token (PAT)
+The pat will be used when run `config.sh` in agent folder:
 - PAT is the only scheme that works with Azure Pipelines
 - PAT is used only when registering the agent and not for succeeding communication
 - Create a PAT: User settings > Security > Personal access tokens > New Token
