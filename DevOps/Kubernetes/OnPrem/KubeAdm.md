@@ -29,7 +29,8 @@ kubeadm certs renew <CERTIFICATE>       #new might not work
 https://www.oak-tree.tech/blog/k8s-cert-yearly-renewwal
 ```
 cd ~/.kube
-mv config config.old                 #archive old config
-cp /etc/kubernetes/admin.conf config #copy new config
-sudo chown $(id -u):$(id -g) con     #aplly permissions to admin user and group
+rm config.old
+mv config config.old                      #archive old config
+sudo cp /etc/kubernetes/admin.conf config #copy new config
+sudo chown $(id -u):$(id -g) config       #aplly permissions to admin user and group
 ```
