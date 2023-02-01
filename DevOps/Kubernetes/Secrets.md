@@ -73,8 +73,13 @@ data:
 ```
 kubectl edit secrets <secret-name>
 
+#from file
 dk=$(base64 < "./a.key" | tr -d '\n')
 dv=$(base64 < "./a.crt" | tr -d '\n')
+
+#from string
+dk=$(echo -n 'key-string' | base64)
+dv=$(echo -n 'crt-string' | base64)
 
 kubectl get secrets <secret-name> -n <namespace> -o json \
     | jq ".data[\"a.key\"] |= \"$dk\"" \
