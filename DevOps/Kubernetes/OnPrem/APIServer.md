@@ -37,10 +37,15 @@ https://discuss.kubernetes.io/t/the-connection-to-the-server-host-6443-was-refus
 
 https://www.reddit.com/r/kubernetes/comments/10aya7n/master_node_not_accessible_after_a_few_minutes
 
+- certs expired
+  ```
+  kubeadm alpha certs check-expiration
+  ```
 - has config setup correctly?
   ```
   mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf HOME/.kube/config sudo chown (id -u):$(id -g) $HOME/.kube/config
+  sudo cp -i /etc/kubernetes/admin.conf HOME/.kube/config 
+  sudo chown (id -u):$(id -g) $HOME/.kube/config
   export KUBECONFIG=$HOME/.kube/config
   ```
 - disable SWAP `swapoff -a`
