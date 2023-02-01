@@ -1,18 +1,18 @@
 # Logs
-https://theithollow.com/2020/02/12/kubernetes-logs-for-troubleshooting/#:~:text=Remember%20that%20any%20logs%20for,the%20container%20runtime%20logs%20commands.
+https://theithollow.com/2020/02/12/kubernetes-logs-for-troubleshooting
 
 ## service logs
-Any components deployed as systemd services can be found in the Linux journal on the host in which the service resides. 
+Any components deployed as systemd services can be found in the Linux journal on the host in which the service resides.
 This could include etcd logs, kubelet logs, or any of the components running as a service.
 
 The kubelet runs on every node in the cluster. Logs can be accessed by using the journalctl commands on the linux host:
 ```
 journalctl -xeu kubelet
-journalctl -xeu kubelet | less #do not truncate the lines
+journalctl -xeu kubelet | less #will not truncate lines
 ```
 
 ## container logs
-Using `kubectl` is possible
+If using `kubectl` is possible
 ```
 kubectl logs <pod-name>
 ```
