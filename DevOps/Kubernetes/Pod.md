@@ -20,6 +20,12 @@ kubectl get pods --field-selector=status.phase=Pending
 kubectl delete pods -A  --field-selector='status.phase=Failed'
 ```
 
+## forece delete
+```
+kubectl delete pod <pod-name> --grace-period=0 --force
+kubectl delete pod <pod-name> --grace-period=0 --force -n <namespace>
+```
+
 ## port forward
 https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
 
