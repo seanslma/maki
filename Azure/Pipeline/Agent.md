@@ -8,6 +8,7 @@ Agent can be run as either a service or an interactive process
 - Can take longer to start your build - Sometimes take several minutes for an agent to be allocated
 
 ## Self-hosted agent
+https://github.com/Microsoft/azure-pipelines-agent/releases
 - Set up and manage on your own
 - Might need to clear the env after each run
 - A self-hosted agent doesn't have job time limits
