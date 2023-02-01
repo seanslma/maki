@@ -19,7 +19,7 @@ The pat will be used when run `config.sh` in agent folder:
 - PAT is the only scheme that works with Azure Pipelines
 - PAT is used only when registering the agent and not for succeeding communication
 - Create a PAT: User settings > Security > Personal access tokens > New Token
-- scope: Agent Pools (read, manage); Deployment group (read, manage)
+- scope: Agent Pools (read & manage); Deployment group (read & manage)
 
 Check pat expiration:
 https://gist.github.com/ydkn/e4ee3da80b2d9f8714faa395c9c554ed
