@@ -21,6 +21,9 @@ The pat will be used when run `config.sh` in agent folder:
 - Create a PAT: User settings > Security > Personal access tokens > New Token
 - scope: Agent Pools (read, manage); Deployment group (read, manage)
 
+Check pat expiration:
+https://gist.github.com/ydkn/e4ee3da80b2d9f8714faa395c9c554ed
+
 ## Manage agent pools
 https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/AZ400_M03_L04_Configuring_Agent_Pools_and_Understanding_Pipeline_Styles.html
 
