@@ -25,7 +25,7 @@ Status options: created, restarting, running, paused, exited, dead
 ```
 docker run -it <image-name> bash #sh
 docker run -it --name=<image-name> ubuntu bash
-docker exec -it <image-name> bash #sh
+docker exec -it <image-name> bash #execute command on running container
 ```
 
 ## delete containers
