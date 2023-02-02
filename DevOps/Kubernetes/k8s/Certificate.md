@@ -16,6 +16,11 @@ kubectl certificate deny <csr-name>
 
 ## get-a-certificate-signing-request-every-15-minutes
 https://serverfault.com/questions/1112910/i-get-a-certificate-signing-request-every-15-minutes-kubernetes
+
+kubelet log: 
+certificate_manager.go:451] certificate request was not signed: timed out waiting for the condition
+
+kubernetes CSR in pending status
 ```
 user@example:$ k get csr -A
 NAME        AGE     SIGNERNAME                                    REQUESTOR               CONDITION
