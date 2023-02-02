@@ -1,5 +1,12 @@
 # vim
 
+## paste from clipboad
+Keep source format
+```
+:set paste   #before
+:set nopaste #after
+```
+
 ## vi
 ```
 esc  -> back to command mode
