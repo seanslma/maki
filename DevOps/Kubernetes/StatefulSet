@@ -11,3 +11,10 @@ The only ways in which a Pod in such a state can be removed from the apiserver a
 - The Node object is deleted (either by you, or by the Node Controller).
 - The kubelet on the unresponsive Node starts responding, kills the Pod and removes the entry from the apiserver.
 - Force deletion of the Pod by the user.
+
+## roolout restart stateful set
+`kubectl rollout restart` is applicable for deployments, daemonsets and statefulsets.
+```
+kubectl rollout restart statefulset demo -n dev
+kubectl rollout status statefulset demo -n dev     
+```
