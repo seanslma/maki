@@ -18,6 +18,8 @@ https://www.chernsan.com/2021/02/09/etcd-certificates-expired/
 
 Kubernetes certificates expire after one year.
 
+kubeadm creates certs under `/var/lib/kubelet/pki/kubelet.*` signed with a different CA from the one under `/etc/kubernetes/pki/ca.pem`.
+
 ### check certs
 ```
 kubeadm alpha certs check-expiration
