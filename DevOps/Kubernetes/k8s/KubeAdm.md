@@ -12,6 +12,8 @@ ssh username@machine.example.com
 - kube-scheduler.yaml
 
 ## CA path `/etc/kubernetes/pki`
+The `apiserver-kubelet-client` is the client cert that API server will present to a kubelet.
+check to determine that kubelet is configured to trust clients that are signed by the k8s CA `cat /var/lib/kubelet/config.yaml`.
 ```
 $ sudo ls -al /etc/kubernetes/pki
 total 68
