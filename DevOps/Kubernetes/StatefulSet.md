@@ -7,6 +7,10 @@ kubectl scale sts web --replicas=5                 #scale up
 kubectl patch sts web -p '{"spec":{"replicas":3}}' #scale down
 ```
 
+https://kubernetes.io/docs/tasks/run-application/scale-stateful-set/
+- You cannot scale down a StatefulSet when any of the stateful Pods it manages is `unhealthy`. 
+- Scaling down only takes place after those stateful Pods become running and ready.
+
 ## rollout restart StatefulSet
 Stateful set are removed following their ordinal index with the highest ordinal index first.
 
