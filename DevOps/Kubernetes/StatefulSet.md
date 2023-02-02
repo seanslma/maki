@@ -1,6 +1,6 @@
 # StatefulSet
 
-## Scaling StaefulSet
+## Scaling StatefulSet
 https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/
 ```
 kubectl scale sts web --replicas=5                 #scale up
@@ -21,8 +21,13 @@ kubectl rollout restart statefulset demo -n dev
 kubectl rollout status statefulset demo -n dev     
 ```
 
-## delete StatefulSet pod
+## Force delete StatefulSet pod
 https://kubernetes.io/docs/tasks/run-application/force-delete-stateful-set-pod/
+graceful pod deletion
+```
+kubectl delete pods <pod>
+```
+
 A Pod is not deleted automatically when a node is unreachable. 
 The Pods running on an unreachable Node enter the `Terminating` or `Unknown` state after a timeout. 
 Pods may also enter these states when the user attempts graceful deletion of a Pod on an unreachable Node. 
@@ -31,3 +36,10 @@ The only ways in which a Pod in such a state can be removed from the apiserver a
 - The Node object is deleted (either by you, or by the Node Controller).
 - The kubelet on the unresponsive Node starts responding, kills the Pod and removes the entry from the apiserver.
 - Force deletion of the Pod by the user.
+
+Force delete StatefulSet pod
+```
+kubectl delete pods <pod> --grace-period=0 --force
+#if the pod is stuck on Unknown state after delete, remove the pod from the cluster using
+kubectl patch pod <pod> -p '{"metadata":{"finalizers":null}}'
+```
