@@ -26,6 +26,12 @@ Select field 4
 Math & Physics
 ```
 
+Delimiter has multiple spaces
+```
+tr -s ' ' | cut -d ' ' -f 8
+```
+use `tr` command along with squeeze option (`-s` flag ) to convert all multiple consecutive spaces to a single space.
+
 ## get value in square brackets
 ```
 > echo 'dev:[1.0.0]' | cut -d'[' -f2 | cut -d']' -f1
