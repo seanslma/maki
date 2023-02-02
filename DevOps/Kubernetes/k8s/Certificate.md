@@ -28,3 +28,5 @@ starting the management cluster!
 
 ## auto approval for server CSRs was removed
 https://github.com/kubernetes/kubernetes/issues/73356
+
+The CSR approving controllers implemented in core Kubernetes do **not** approve node serving certificates for security reasons. To use RotateKubeletServerCertificate operators need to run a custom approving controller, or manually approve the serving certificate requests.
