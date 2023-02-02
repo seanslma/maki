@@ -40,3 +40,5 @@ argocd app sync helm-guestbook
 https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release
 
 https://github.com/argoproj/argo-helm/tree/master/charts/argo-cd
+
+https://www.bootiq.io/en/deploy-helm-charts-using-terraform-module
