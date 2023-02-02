@@ -18,3 +18,7 @@ kubectl certificate deny <csr-name>
 https://serverfault.com/questions/1112910/i-get-a-certificate-signing-request-every-15-minutes-kubernetes
 
 starting the management cluster!
+
+
+## auto approval for server CSRs was removed
+https://github.com/kubernetes/kubernetes/issues/73356
