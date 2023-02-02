@@ -14,6 +14,11 @@ kubectl certificate approve <csr-name>
 kubectl certificate deny <csr-name>
 ```
 
+## manually approve all pending CSRs
+```
+kubectl get csr -A | grep Pending | tr -s ' ' | cut -d' ' -f1 | while IFS= read -r csr; do kubectl certificate approve $csr; done
+```
+
 ## get-a-certificate-signing-request-every-15-minutes
 https://serverfault.com/questions/1112910/i-get-a-certificate-signing-request-every-15-minutes-kubernetes
 
