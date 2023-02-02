@@ -1,5 +1,11 @@
 # StatefulSet
 
+https://medium.com/avmconsulting-blog/deploying-statefulsets-in-kubernetes-k8s-5924e701d327
+StatefulSet Components
+- A Headless Service
+- A StatefulSet
+- A PersistentVolume
+
 ## Scaling StatefulSet
 https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/
 ```
