@@ -11,6 +11,42 @@ ssh username@machine.example.com
 - kube-controller-manager.yaml  
 - kube-scheduler.yaml
 
+## CA path `/etc/kubernetes/pki`
+```
+$ sudo ls -al /etc/kubernetes/pki
+total 68
+drwxr-xr-x 3 root root 4096 Aug  5  2020 .
+drwxr-xr-x 4 root root 4096 Aug  5  2020 ..
+-rw-r--r-- 1 root root 1025 Aug  5  2020 ca.crt
+-rw------- 1 root root 1679 Aug  5  2020 ca.key
+drwxr-xr-x 2 root root 4096 Aug  5  2020 etcd
+-rw-r--r-- 1 root root 1038 Aug  5  2020 front-proxy-ca.crt
+-rw------- 1 root root 1679 Aug  5  2020 front-proxy-ca.key
+-rw------- 1 root root 1675 Aug  5  2020 sa.key
+-rw------- 1 root root  451 Aug  5  2020 sa.pub
+-rw-r--r-- 1 root root 1220 Feb  1 11:08 apiserver.crt
+-rw------- 1 root root 1679 Feb  1 11:08 apiserver.key
+-rw-r--r-- 1 root root 1090 Feb  1 11:08 apiserver-etcd-client.crt
+-rw------- 1 root root 1679 Feb  1 11:08 apiserver-etcd-client.key
+-rw-r--r-- 1 root root 1099 Feb  1 11:08 apiserver-kubelet-client.crt
+-rw------- 1 root root 1679 Feb  1 11:08 apiserver-kubelet-client.key
+-rw-r--r-- 1 root root 1058 Feb  1 11:08 front-proxy-client.crt
+-rw------- 1 root root 1675 Feb  1 11:08 front-proxy-client.key
+```
+
+## cert path `/var/lib/kubelet/pki/kubelet.*`
+```
+$ sudo ls -al /var/lib/kubelet/pki
+total 27
+drwxr-xr-x 2 root root 4096 Mar 13  2023 .
+drwx------ 8 root root 4096 Aug  5  2021 ..
+-rw------- 1 root root 1070 May 20  2022 kubelet-client-2022-05-20-14-29-52.pem
+-rw------- 1 root root 1070 Mar 10  2023 kubelet-client-2023-03-10-03-43-08.pem
+lrwxrwxrwx 1 root root   59 Mar 10  2023 kubelet-client-current.pem -> /var/lib/kubelet/pki/kubelet-client-2022-03-10-03-43-08.pem
+-rw-r--r-- 1 root root 2173 Aug  5  2021 kubelet.crt
+-rw------- 1 root root 1679 Aug  5  2021 kubelet.key
+```
+
 ## kubeadm-certs
 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs
 
