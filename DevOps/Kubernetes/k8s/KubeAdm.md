@@ -11,7 +11,7 @@ ssh username@machine.example.com
 - kube-controller-manager.yaml  
 - kube-scheduler.yaml
 
-## certs info
+## kubeadm-certs
 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs
 
 https://www.chernsan.com/2021/02/09/etcd-certificates-expired/
