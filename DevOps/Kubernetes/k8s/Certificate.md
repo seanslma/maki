@@ -16,9 +16,15 @@ kubectl certificate deny <csr-name>
 
 ## get-a-certificate-signing-request-every-15-minutes
 https://serverfault.com/questions/1112910/i-get-a-certificate-signing-request-every-15-minutes-kubernetes
+```
+user@example:$ k get csr -A
+NAME        AGE     SIGNERNAME                                    REQUESTOR               CONDITION
+csr-2444s   13h     kubernetes.io/kube-apiserver-client-kubelet   system:node:node1       Pending
+```
+`kubernetes.io/kube-apiserver-client-kubelet`: signs client certificates that will be honored as client certificates by the API server. 
+May be auto-approved by `kube-controller-manager`.
 
 starting the management cluster!
-
 
 ## auto approval for server CSRs was removed
 https://github.com/kubernetes/kubernetes/issues/73356
