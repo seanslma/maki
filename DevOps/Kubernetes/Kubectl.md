@@ -4,6 +4,7 @@ https://kubernetes.io/docs/reference/kubectl/
 ## show all info
 ```
 kubectl get node -v=7
+kubectl get node -v=10
 ```
 
 ## list all resources in a namespace
