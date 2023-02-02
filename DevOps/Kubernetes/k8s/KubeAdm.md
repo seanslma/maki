@@ -5,6 +5,12 @@
 ssh username@machine.example.com
 ```
 
+## sudo ls /etc/kubernetes/manifests/
+- etcd.yaml  
+- kube-apiserver.yaml  
+- kube-controller-manager.yaml  
+- kube-scheduler.yaml
+
 ## certs info
 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs
 
