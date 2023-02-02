@@ -1,5 +1,18 @@
 # Loop and Case
 
+## each line in a variable
+```
+list=$'One\ntwo\nthree\nfour'
+echo "$list"
+
+while IFS= read -r line; do
+    echo "... $line ..."
+done <<< "$list"
+
+#one line
+echo "$list" | while IFS= read -r line; do echo $line; done
+```
+
 ## while
 ```
 #arithmetic condition
