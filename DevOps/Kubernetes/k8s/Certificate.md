@@ -16,9 +16,10 @@ https://www.leiyawu.com/2020/10/11/Untitled/
 - kubelet auto renew certs, when start add `–feature-gates=RotateKubeletClientCertificate=true,RotateKubeletServerCertificate=true`
 - controller manager auto approve CSRs, when start add `–feature-gates=RotateKubeletServerCertificate=true` and bind RBAC rules
 - from v1.8, to auto reload certs when start kubelet add option `–rotate-certificates`
-kubelet config `/var/lib/kubelet/config.yaml`
+**kubelet config** `/var/lib/kubelet/config.yaml`
 ```
-rotateCertificates: true
+rotateCertificates: true #enable client cert rotation
+serverTLSBootstrap: true  #enable server cert rotation
 featureGates:
   RotateKubeletClientCertificate: true  
   RotateKubeletServerCertificate: true  
@@ -28,43 +29,72 @@ featureGates:
 --feature-gates=RotateKubeletClientCertificate=true
 --feature-gates=RotateKubeletServerCertificate=true
 ```
-controller-manager config `/etc/kubernetes/manifests/kube-controller-manager.yaml` (10 years)
+
+**controller-manager config** `/etc/kubernetes/manifests/kube-controller-manager.yaml`
+```
+spec:
+  containers:
+  - command:
+    - --experimental-cluster-signing-duration=17520h0m0s  #2 years
+    - --feature-gates=RotateKubeletServerCertificate=true #auto approve csr
+```
 ```
 --experimental-cluster-signing-duration=87600h0m0s
 --feature-gates=RotateKubeletServerCertificate=true
 ```
-
-show all clusterroles `k get ClusterRole -A`. 
+ 
 **system:certificates.k8s.io:certificatesigningrequests:selfnodeserver**
 ```
-kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
 metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
   name: system:certificates.k8s.io:certificatesigningrequests:selfnodeserver
 rules:
-- apiGroups: ["certificates.k8s.io"]
-  resources: ["certificatesigningrequests/selfnodeserver"]
-  verbs: ["create"]
+- apiGroups:
+  - certificates.k8s.io
+  resources:
+  - certificatesigningrequests/selfnodeserver
+  verbs:
+  - create
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kubeadm:node-auto-approve-certificate-server
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:certificates.k8s.io:certificatesigningrequests:selfnodeserver
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: system:nodes
 ```
-create ClusterRole `kubectl apply -f tls-instructs-csr.yaml`
+create ClusterRole `kubectl apply -f ca-update.yaml`. 
+show all ClusterRoles `k get ClusterRole -A`.
 
 **certificatesigningrequests:nodeclient**: auto approve TLS bootstrapping first request by `kubelet-bootstrap` users
 ```
-kubectl create clusterrolebinding node-client-auto-approve-csr \
+kubectl create clusterrolebinding kubeadm:node-autoapprove-bootstrap \
   --clusterrole=system:certificates.k8s.io:certificatesigningrequests:nodeclient --user=kubelet-bootstrap
 ```
 
 **certificatesigningrequests:selfnodeclient**: auto renew certs for `kubelet` and `apiserver` in `system:nodes` group 
 ```
-kubectl create clusterrolebinding node-client-auto-renew-crt \
+kubectl create clusterrolebinding kubeadm:node-autoapprove-certificate-rotation \
   --clusterrole=system:certificates.k8s.io:certificatesigningrequests:selfnodeclient --group=system:nodes
 ```
 
 **certificatesigningrequests:selfnodeserver**: auto renew certs for `kubelet 10250 api` in `system:nodes` group 
 ```
-kubectl create clusterrolebinding node-server-auto-renew-crt \
+kubectl create clusterrolebinding node-auto-approve-certificate-server \
   --clusterrole=system:certificates.k8s.io:certificatesigningrequests:selfnodeserver --group=system:nodes
 ```
+Included in `ca-update.yaml`
 
 **Restart** `kube-controller-manager` and `kubelet` services
 ```
