@@ -24,6 +24,33 @@ controller-manager config (10 years)
 --feature-gates=RotateKubeletServerCertificate=true
 ```
 
+show all clusterroles `k get ClusterRole -A`. 
+**system:certificates.k8s.io:certificatesigningrequests:selfnodeserver**
+```
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: system:certificates.k8s.io:certificatesigningrequests:selfnodeserver
+rules:
+- apiGroups: ["certificates.k8s.io"]
+  resources: ["certificatesigningrequests/selfnodeserver"]
+  verbs: ["create"]
+```
+create ClusterRole `kubectl apply -f tls-instructs-csr.yaml`
+
+**certificatesigningrequests:nodeclient**: auto approve TLS bootstrapping first request by `kubelet-bootstrap` users
+```
+kubectl create clusterrolebinding node-client-auto-approve-csr \
+  --clusterrole=system:certificates.k8s.io:certificatesigningrequests:nodeclient --user=kubelet-bootstrap
+```
+
+**certificatesigningrequests:selfnodeclient**: auto approve certs for kubelet and apiserver in `system:nodes` group 
+```
+kubectl create clusterrolebinding node-client-auto-renew-crt \
+  --clusterrole=system:certificates.k8s.io:certificatesigningrequests:selfnodeclient --group=system:nodes
+```
+
+
 ## Control plane automated approval
 ```
 #get the list of CSRs
