@@ -2,6 +2,11 @@
 
 https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/
 
+## cert types
+There are two types of certs in kubernetes
+- for master、etcd
+- for kubelet: connection between node and master (usually 1 year expiration)
+
 ## Control plane automated approval
 ```
 #get the list of CSRs
