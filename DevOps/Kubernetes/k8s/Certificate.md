@@ -65,7 +65,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: kubeadm:node-auto-approve-certificate-server
+  name: kubeadm:node-autoapprove-certificate-server
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
