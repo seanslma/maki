@@ -67,6 +67,7 @@ kubeadm certs check-expiration        #new might not work
 ```
 
 ### renew certs
+`kubelet.conf` will **not** be renewed by `kubeadm alpha certs renew all`.
 ```
 #do we need this before renewal?
 kubeadm init phase kubelet-finalize all #'symlink' kebelet.conf to kubelet cert rotation
