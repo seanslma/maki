@@ -93,6 +93,7 @@ kubectl certificate deny <csr-name>
 
 ## manually approve all pending CSRs
 ```
+kubectl get csr -A | grep Pending | awk '{print $1}' | xargs kubectl certificate approve
 kubectl get csr -A | grep Pending | tr -s ' ' | cut -d' ' -f1 | while IFS= read -r csr; do kubectl certificate approve $csr; done
 ```
 
