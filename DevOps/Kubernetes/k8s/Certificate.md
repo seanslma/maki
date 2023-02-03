@@ -13,9 +13,10 @@ https://kubernetes.io/docs/tasks/tls/certificate-rotation/
 https://github.com/kubernetes/kubeadm/issues/2024
 
 https://www.leiyawu.com/2020/10/11/Untitled/
+- from v1.8, to auto reload certs when start kubelet add option `–rotate-certificates`
 - kubelet auto renew certs, when start add `–feature-gates=RotateKubeletClientCertificate=true,RotateKubeletServerCertificate=true`
 - controller manager auto approve CSRs, when start add `–feature-gates=RotateKubeletServerCertificate=true` and bind RBAC rules
-- from v1.8, to auto reload certs when start kubelet add option `–rotate-certificates`
+
 **kubelet config** `/var/lib/kubelet/config.yaml`
 ```
 rotateCertificates: true #enable client cert rotation
