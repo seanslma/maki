@@ -36,6 +36,8 @@ drwxr-xr-x 2 root root 4096 Aug  5  2020 etcd
 -rw------- 1 root root 1675 Feb  1 11:08 front-proxy-client.key
 ```
 
+`kubeadm certs check-expiration` will check certs in `/etc/kubernetes/pki` and cert in KUBECONFIG file used by kubeadm（admin.conf, controller-manager.conf and scheduler.conf.
+
 ## cert path `/var/lib/kubelet/pki/kubelet.*`
 ```
 $ sudo ls -al /var/lib/kubelet/pki
