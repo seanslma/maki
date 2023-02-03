@@ -19,7 +19,7 @@ https://www.leiyawu.com/2020/10/11/Untitled/
 **kubelet config** `/var/lib/kubelet/config.yaml`
 ```
 rotateCertificates: true #enable client cert rotation
-serverTLSBootstrap: true  #enable server cert rotation
+serverTLSBootstrap: true #enable server cert rotation
 featureGates:
   RotateKubeletClientCertificate: true  
   RotateKubeletServerCertificate: true  
@@ -36,7 +36,7 @@ spec:
   containers:
   - command:
     - --experimental-cluster-signing-duration=17520h0m0s  #2 years
-    - --feature-gates=RotateKubeletServerCertificate=true #auto approve csr
+    - --feature-gates=RotateKubeletClientCertificate=true,RotateKubeletServerCertificate=true #auto approve csr
 ```
 ```
 --experimental-cluster-signing-duration=87600h0m0s
