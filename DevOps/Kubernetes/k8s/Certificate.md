@@ -98,9 +98,11 @@ Included in `ca-update.yaml`
 
 **Restart** `kube-controller-manager` and `kubelet` services
 ```
+#restart controller-manager
 systemctl restart kube-controller-manager
+
 #delete kubelet certs in ssl
-rm -f kubelet-client-current.pem kubelet-client-2019-05-10-09-57-21.pem kubelet.key kubelet.crt
+rm -f kubelet-client-current.pem kubelet-client-2021-05-10-09-45-21.pem kubelet.key kubelet.crt
 
 #restart kubelet, new certs will be renewed
 systemctl restart kubelet
