@@ -2,10 +2,27 @@
 
 https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/
 
-## cert types
+## Cert types
 There are two types of certs in kubernetes
 - for master、etcd
 - for kubelet: connection between node and master (usually 1 year expiration)
+
+## Certs auto renewal settings
+https://www.leiyawu.com/2020/10/11/Untitled/
+- kubelet auto renew certs, when start add `–feature-gates=RotateKubeletClientCertificate=true,RotateKubeletServerCertificate=true`
+- controller manager auto approve CSRs, when start add `–feature-gates=RotateKubeletServerCertificate=true` and bind RBAC rules
+- from v1.8, to auto reload certs when start kubelet add option `–rotate-certificates`
+kubelet config
+```
+--feature-gates=RotateKubeletServerCertificate=true
+--feature-gates=RotateKubeletClientCertificate=true
+--rotate-certificates
+```
+controller-manager config (10 years)
+```
+--experimental-cluster-signing-duration=87600h0m0s
+--feature-gates=RotateKubeletServerCertificate=true
+```
 
 ## Control plane automated approval
 ```
