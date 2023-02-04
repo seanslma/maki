@@ -18,16 +18,6 @@ sudo mv terragrunt /usr/local/bin/terragrunt
 terragrunt --help
 ```
 
-## hcl
-root
-- remote_state
-- generate "provider"
-
-subfolder
-- include
-- dependency
-- inputs
-
 ## commands
 ```
 terragrunt run-all init    #initialize
@@ -41,3 +31,64 @@ terragrunt run-all show -json planfile
 ## execute terraform command on specific module
 - cd into that module and run command without run-all, or
 - use `--terragrunt-working-dir <module-path>` parameter
+
+## hcl
+root
+- remote_state
+- generate "provider"
+
+subfolder
+- include
+- dependency
+- inputs
+
+## provider
+```
+# root folder
+generate "provider" {
+  path      = "provider.tf"
+  if_exists = "overwrite"
+  contents  = <<EOF
+    terraform {
+      required_providers {
+        azurerm = {
+          source  = "hashicorp/azurerm"
+          version = "3.0.0"
+        }
+      }
+      #backend "azurerm" {}
+    }
+
+    provider "azurerm" {
+      features {}
+      subscription_id = "2445bc57-cb0e-448a-ac3a-c4c41c63eef2"
+    }
+ }
+
+# moduler terragrunt.hcl
+include {
+  path = find_in_parent_folders()
+}
+```
+
+## backend
+
+## dependency
+terragrunt.hcl
+```
+dependency "aks" {
+  config_path = "../aks"
+  mock_outputs = {
+    cluster_name           = "mock-name"
+    cluster_resource_group = "mock-rg"
+  }
+}
+
+inputs = {
+  aks_name           = dependency.aks.cluster_name
+  aks_resource_group = dependency.aks.cluster_resource_group
+}
+```
+
+## inputs
+get the dependency outputs as inputs of the variables in the current module
