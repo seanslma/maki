@@ -4,6 +4,7 @@
 A common reason for a file-system to be read-only is because it has errors, and needs `fsck` (file system check).
 ```
 sudo fsck -Af -M
+sudo fsck.ext4 -f /dev/sda1
 ```
 
 ## size of subfolders
