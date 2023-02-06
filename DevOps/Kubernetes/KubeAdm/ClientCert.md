@@ -2,6 +2,7 @@
 
 ## Kubelet client certificate rotation fails {#kubelet-client-cert}
 https://github.com/kubernetes/website/blob/6ea53189723803c363d4de1c0cc76dd0cd98ff39/content/en/docs/setup/production-environment/tools/kubeadm/troubleshooting-kubeadm.md#kubelet-client-certificate-rotation-fails-kubelet-client-cert
+
 By default, kubeadm configures a kubelet with automatic rotation of client certificates by using 
 the /var/lib/kubelet/pki/kubelet-client-current.pem symlink specified in /etc/kubernetes/kubelet.conf. 
 If this rotation process fails you might see errors such as x509: certificate has expired or is not yet valid in kube-apiserver logs. 
