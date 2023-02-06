@@ -97,6 +97,12 @@ kubectl create clusterrolebinding node-auto-approve-certificate-server \
 ```
 Included in `ca-update.yaml`
 
+**Edit kubelet-config-1.xx**
+```
+k get cm -A
+kubectl edit configmap -n <namespace> <config-map-name> -o yaml
+```
+
 **Restart** `kube-controller-manager` and `kubelet` services
 ```
 #restart controller-manager
