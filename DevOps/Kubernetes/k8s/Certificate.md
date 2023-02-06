@@ -4,8 +4,8 @@ https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requ
 
 ## Cert types
 There are two types of certs in kubernetes
-- for master、etcd
-- for kubelet: connection between node and master (usually 1 year expiration)
+- `kubeadm` for master、etcd: renew via `kubeadm alpha certs renew all`
+- `kubelet` for kubelet: connection between node and master (usually 1 year expiration)
 
 ## Enabling signed kubelet serving certificates
 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/
