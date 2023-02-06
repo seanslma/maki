@@ -1,5 +1,11 @@
 # File system
 
+## file-system became be read-only
+A common reason for a file-system to be read-only is because it has errors, and needs `fsck` (file system check).
+```
+sudo fsck -Af -M
+```
+
 ## size of subfolders
 ```
 du -M --max-depth=1           #current folder
