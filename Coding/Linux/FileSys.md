@@ -3,10 +3,11 @@
 ## file-system became be read-only
 A common reason for a file-system to be read-only is because it has errors, and needs `fsck` (file system check).
 ```
-mount | grep mpath0
+mount | grep sda1
 
 sudo fsck -Af -M
-sudo fsck.ext4 -f /dev/sda1
+sudo fsck.ext4 -f /dev/sda1 #if the file system is ext4
+sudo reboot
 ```
 
 ## size of subfolders
