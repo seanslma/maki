@@ -8,8 +8,7 @@ This could include etcd logs, kubelet logs, or any of the components running as 
 The kubelet runs on every node in the cluster. Logs can be accessed by using the journalctl commands on the linux host:
 ```
 journalctl -xeu kubelet
-journalctl -xeu kubelet | tail
-journalctl -xeu kubelet | less #will not truncate lines
+journalctl -xeu kubelet -n 100 --no-pager
 ```
 
 ## container logs
