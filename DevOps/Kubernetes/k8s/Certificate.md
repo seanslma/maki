@@ -7,6 +7,15 @@ There are two types of certs in kubernetes
 - for master、etcd
 - for kubelet: connection between node and master (usually 1 year expiration)
 
+## Enabling signed kubelet serving certificates
+https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/
+
+If you have already created the cluster you must adapt it by doing the following:
+  - Find and edit the `kubelet-config-1.xx` ConfigMap in the kube-system namespace. 
+    In that ConfigMap, the kubelet key has a KubeletConfiguration document as its value. 
+    Edit the KubeletConfiguration document to set `serverTLSBootstrap: true`.
+  - On each node, add the `serverTLSBootstrap: true` field in `/var/lib/kubelet/config.yaml` and restart the kubelet with `systemctl restart kubelet`.
+
 ## Certs auto renewal settings
 https://kubernetes.io/docs/tasks/tls/certificate-rotation/
 
