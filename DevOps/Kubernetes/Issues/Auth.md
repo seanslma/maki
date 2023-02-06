@@ -6,9 +6,13 @@ add configuration to cluster config
 kubectl create clusterrolebinding serviceaccounts-cluster-admin --clusterrole=cluster-admin --group=system:serviceaccounts
 ```
 
+## You must be logged in to the server (the server has asked for the client to provide credentials)
+maybe due to issues in `.kube/config` file
+
 ## The connection to the server xx.xx.xx.xx:port was refused - did you specify the right host or port?
 Possible reasons
 - config not set: `export KUBECONFIG=$HOME/.kube/config`
+- certs expired
 
 ## Kubectl connect: connection refused
 detailed steps to check the issues:
