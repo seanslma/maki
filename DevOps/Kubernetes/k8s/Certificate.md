@@ -26,6 +26,8 @@ https://www.leiyawu.com/2020/10/11/Untitled/
 - kubelet auto renew certs, when start add `–feature-gates=RotateKubeletClientCertificate=true,RotateKubeletServerCertificate=true`
 - controller manager auto approve CSRs, when start add `–feature-gates=RotateKubeletServerCertificate=true` and bind RBAC rules
 
+After enable the rotation `/var/lib/kubelet/pki/kubelet.crt` is no longer used, instead the symbolic link `/var/lib/kubelet/pki/kubelet-server-current.pem` is used and points to the latest rotated certificate.
+
 **kubelet config** `/var/lib/kubelet/config.yaml`
 ```
 rotateCertificates: true #enable client cert rotation
