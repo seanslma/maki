@@ -7,6 +7,12 @@ There are two types of certs in kubernetes
 - `kubeadm` for master、etcd: renew via `kubeadm alpha certs renew all`
 - `kubelet` for kubelet: connection between node and master (usually 1 year expiration)
 
+## check certs
+https://serverfault.com/questions/1068751/var-lib-kubelet-pki-kubelet-crt-is-expired-how-to-renew-it
+```
+echo -n | openssl s_client -connect localhost:10250 2>&1 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509 -text -noout | grep -A 2 Validity
+```
+
 ## Enabling signed kubelet serving certificates
 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/
 
