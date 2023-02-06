@@ -128,6 +128,8 @@ openssl x509 -noout -text -in kubelet-client-current.pem | grep "Not"
 ```
 
 ## Control plane approval
+`journalctl -xeu kubelet -n 100 --no-pager`
+error: no serving certificate available for the kubelet
 ```
 #get the list of CSRs
 kubectl get csr -A
