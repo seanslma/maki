@@ -1,6 +1,6 @@
 # File system
 
-## file-system became be read-only
+## file-system became read-only
 A common reason for a file-system to be read-only is because it has errors, and needs `fsck` (file system check).
 ```
 mount | grep sda1
