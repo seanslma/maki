@@ -1,6 +1,8 @@
 # Client Cert
 
 ## Kubelet client certificate rotation fails {#kubelet-client-cert}
+https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/troubleshooting-kubeadm/#kubelet-client-cert
+
 https://github.com/kubernetes/website/blob/6ea53189723803c363d4de1c0cc76dd0cd98ff39/content/en/docs/setup/production-environment/tools/kubeadm/troubleshooting-kubeadm.md#kubelet-client-certificate-rotation-fails-kubelet-client-cert
 
 By default, kubeadm configures a kubelet with automatic rotation of client certificates by using 
