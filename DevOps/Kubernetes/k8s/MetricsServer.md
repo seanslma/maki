@@ -14,8 +14,10 @@ serviceaccount/metrics-server
 deployment.apps/metrics-server
 apiservice.apiregistration.k8s.io/v1betal.metrics.k8s.io
 rolebinding.rbac.authorization.k8s.io/metrics-server-auth-reader
-clusterrole.rbac.authorization.k8s.io/system: aggregated-metrics-reader created clusterrole.rbac.authorization.k8s.io/system: metrics-server
-clusterrolebinding.rbac.authorization.k8s.io/metrics-server: system: auth-delegator created clusterrolebinding.rbac.authorization.k8s.io/system: metrics-server
+clusterrole.rbac.authorization.k8s.io/system: aggregated-metrics-reader
+clusterrole.rbac.authorization.k8s.io/system: metrics-server
+clusterrolebinding.rbac.authorization.k8s.io/metrics-server: system: auth-delegator
+clusterrolebinding.rbac.authorization.k8s.io/system: metrics-server
 ```
 
 ## error: the server could not find the requested resource (get services http:heapster:) 
