@@ -27,3 +27,26 @@ The Job started on the new node, told Azure to scale down the new node to 0, and
 **Fix**: I changed the spec and added a NodeSelector so that the Job would always run on the system pool, which is more stable than the user pool
 
 ## error determining status: Error response from daemon: readlink /var/lib/docker/overlay2/l/xxxxx: no such file or directory
+https://icode.best/i/32712543535032
+
+https://www.cnblogs.com/haoprogrammer/p/11534092.html
+
+Most likely due to disk error, solution (go to the node with issues)
+```
+# set node to be un-scheduable
+kubectl cordon <node-ip>
+kubectl drain <node-ip> --ignore-daemonsets
+
+# check file number
+cd /var/lib/docker
+ll overlay2 | wc -l
+
+# clean docker disk
+docker system prune --all
+
+# check file number again
+ll overlay2 | wc -l
+
+# reset node as scheduable
+kubectl uncordon <node-ip>
+```
