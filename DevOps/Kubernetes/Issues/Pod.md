@@ -26,3 +26,4 @@ The Job started on the new node, told Azure to scale down the new node to 0, and
 
 **Fix**: I changed the spec and added a NodeSelector so that the Job would always run on the system pool, which is more stable than the user pool
 
+## error determining status: Error response from daemon: readlink /var/lib/docker/overlay2/l/xxxxx: no such file or directory
