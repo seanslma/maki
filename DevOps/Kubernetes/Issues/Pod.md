@@ -7,7 +7,13 @@ docker pull <repository>/<image>:<tag>
 ```
 
 ## Pos stuck in Pending without events
-If kube-scheduler is not running on the master, Kubernetes will report everything as okay but will be unable to start containers in a pod.
+If `kube-scheduler` is not running on the master, Kubernetes will report everything as okay but will be unable to start containers in a pod.
+
+Check `kube-scheduler` log
+```
+kubectl get po -A | grep kube-schedule
+kubectl logs <kube-scheduler-name> -n kube-system --tail=20 --timestamps=true
+```
 
 ## Cronjob pod get killed while executing
 https://stackoverflow.com/questions/68643381/why-does-my-kubernetes-cronjob-pod-get-killed-while-executing
