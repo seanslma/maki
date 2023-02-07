@@ -27,6 +27,7 @@ docker logs <container-id>
 ```
 
 ## `kube-sheduler` pod log
-`kube-sheduler` log might be in `/var/log/kube-scheduler.log`
 - kube-scheduler pod's log: same as using `kubeclt logs`
 - kube-scheduler container's log: same as kube-scheduler pod's log.
+- `kube-controller-manager`
+- `kube-apiserver`
