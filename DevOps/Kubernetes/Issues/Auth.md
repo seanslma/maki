@@ -18,6 +18,11 @@ Possible reasons
 detailed steps to check the issues:
 https://medium.com/@texasdave2/troubleshoot-kubectl-connection-refused-6f5445a396ed
 
+## kube-apiserver log, but certs are renewed
+Unable to authenticate the request due to an error apiserver x509: certificate has expired or is not yet valid
+
+**solution**: after cert renewal restart the master node
+
 ### check component status
 ```
 kubectl get componentstatuses
