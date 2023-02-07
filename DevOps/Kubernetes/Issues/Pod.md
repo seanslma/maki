@@ -33,7 +33,7 @@ https://www.cnblogs.com/haoprogrammer/p/11534092.html
 
 Most likely due to disk error, solution (go to the node with issues)
 ```
-# set node to be un-scheduable
+# set node to be unschedulable
 kubectl cordon <node-ip>
 kubectl drain <node-ip> --ignore-daemonsets
 
@@ -47,6 +47,6 @@ docker system prune --all
 # check file number again
 ls -l overlay2 | wc -l
 
-# reset node as scheduable
+# reset node as schedulable
 kubectl uncordon <node-ip>
 ```
