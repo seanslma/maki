@@ -39,13 +39,13 @@ kubectl drain <node-ip> --ignore-daemonsets
 
 # check file number
 cd /var/lib/docker
-ll overlay2 | wc -l
+ls -l overlay2 | wc -l
 
 # clean docker disk
 docker system prune --all
 
 # check file number again
-ll overlay2 | wc -l
+ls -l overlay2 | wc -l
 
 # reset node as scheduable
 kubectl uncordon <node-ip>
