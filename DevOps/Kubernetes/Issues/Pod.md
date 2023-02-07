@@ -34,8 +34,8 @@ https://www.cnblogs.com/haoprogrammer/p/11534092.html
 Most likely due to disk error, solution (go to the node with issues)
 ```
 # set node to be unschedulable
-kubectl cordon <node-ip>
-kubectl drain <node-ip> --ignore-daemonsets
+kubectl cordon <node-name>
+kubectl drain <node-name> --ignore-daemonsets
 
 # check file number
 cd /var/lib/docker
@@ -48,5 +48,5 @@ docker system prune --all
 ls -l overlay2 | wc -l
 
 # reset node as schedulable
-kubectl uncordon <node-ip>
+kubectl uncordon <node-name>
 ```
