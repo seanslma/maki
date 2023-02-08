@@ -23,3 +23,16 @@ kubectl cordon <node-name>   #mark a node unschedulable
 kubectl drain <node-name> --ignore-daemonsets --delete-emptydir-data  #safely evict all pods from a node before perform maintenance on the node
 kubectl delete <node-name>   #delete the node after all pods are evicted from the node
 ```
+
+## cordon a node
+```
+# set node to be unschedulable
+kubectl cordon <node-name>
+kubectl drain <node-name> --ignore-daemonsets
+
+# clean docker disk or do other things
+docker system prune --all
+
+# reset node as schedulable
+kubectl uncordon <node-name>
+```
