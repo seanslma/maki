@@ -109,7 +109,7 @@ kubectl create clusterrolebinding kubeadm:node-autoapprove-certificate-rotation 
 
 **certificatesigningrequests:selfnodeserver**: auto renew certs for `kubelet 10250 api` in `system:nodes` group 
 ```
-kubectl create clusterrolebinding node-auto-approve-certificate-server \
+kubectl create clusterrolebinding kubeadm:node-autoapprove-certificate-server \
   --clusterrole=system:certificates.k8s.io:certificatesigningrequests:selfnodeserver --group=system:nodes
 ```
 Included in `ca-update.yaml`
