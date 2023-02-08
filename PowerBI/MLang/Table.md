@@ -1,5 +1,19 @@
 # MTable
 
+## const table
+```
+let
+    Source = Table.FromRows(
+        {    
+            {1, "A"},
+            {2, "B"}
+        },
+        type table [Id = Int64.Type, Code = text]
+    )
+in
+    Source
+```
+
 ## replacevalue
 ```
 #"Replaced Value" = Table.ReplaceValue(
