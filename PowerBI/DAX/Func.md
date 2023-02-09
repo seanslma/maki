@@ -11,3 +11,7 @@ Returns TRUE when the columnName parameter is filtered in the PivotTable (all si
 
 ## SUMMERIZE
 Returns a summary table for the requested totals over a set of groups. Similar to SQL `Group By`.
+
+## SUMX
+SUMX works on virtual table while SUM does not. 
+We can use SUMMERIZE and SUMX together to get sum of all groups `SUMX(SUMMERIZE(table, col_type, val_col_expr), [val_col])`.
