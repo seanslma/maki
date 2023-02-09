@@ -51,10 +51,10 @@ git cherry-pick <sha>     #get commit from other branch using it's sha
 
 ## add commit to john's pr
 ```
-git clone git@github.com:my/repo.git
-git remote add john git@github.com:john/repo.git
+git clone https://github.com/my/repo.git
+git remote add john https://github.com/john/repo.git
 git fetch john
-git checkout -b john-main john/main
+git checkout -b john-main john/main #git checkout -b john-feature john/feature
 git commit -am "my commit"
-git push john HEAD:main
+git push john HEAD:main #git push john john-feature:feature
 ```
