@@ -48,3 +48,13 @@ git pull
 git switch -c new-branch  #create a copy of master and switch to it
 git cherry-pick <sha>     #get commit from other branch using it's sha
 ```
+
+## add commit to john's pr
+```
+git clone git@github.com:my/repo.git
+git remote add john git@github.com:john/repo.git
+git fetch john
+git checkout -b john-main john/main
+git commit -am "my commit"
+git push john HEAD:main
+```
