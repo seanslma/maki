@@ -12,17 +12,28 @@ Using var defined outside of the calculation context will lead to wrong results.
 
 Wrong
 ```
-Total = 
-    VAR __val = [v1] + [v2]
+Cost =     
+    VAR __val = [Amount] * [Price]
     VAR __tbl = SUMMARIZE(tbl, tbl[yr], "@val", __val) //__val calculated for all years
+    VAR __tot = SUMX(__tbl, [@val]))
+    VAR __is_val = HASONEVALUE(tbl[yr])
+    VAR __ret = IF(__is_val, __val, __tot)
 RETURN
-    SUMX(__tbl, [@val]))
+    __ret
 ```
 
 Correct
 ```
-Total = 
-    VAR __tbl = SUMMARIZE(tbl, tbl[yr], "@val", [v1] + [v2])
+Cost__ = [Amount] * [Price]
+Cost = 
+    VAR __is_val = HASONEVALUE(tbl[yr])
+    VAR __ret = IF(
+        __is_val,
+        [Cost__],
+        VAR __tbl = SUMMARIZE(tbl, tbl[yr], "@val", [Cost__])
+        VAR __tot = SUMX(__tbl, [@val])
+        RETURN __tot
+    )     
 RETURN
-    SUMX(__tbl, [@val]))
+    __ret
 ```
