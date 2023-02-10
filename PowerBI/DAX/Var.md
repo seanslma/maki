@@ -30,9 +30,12 @@ Cost =
     VAR __ret = IF(
         __is_val,
         [Cost__],
-        VAR __tbl = SUMMARIZE(tbl, tbl[yr], "@val", [Cost__])
-        VAR __tot = SUMX(__tbl, [@val])
-        RETURN __tot
+        (
+            VAR __tbl = SUMMARIZE(tbl, tbl[yr], "@val", [Cost__])
+            VAR __tot = SUMX(__tbl, [@val])
+        RETURN 
+            __tot
+        )
     )     
 RETURN
     __ret
