@@ -50,3 +50,14 @@ VAR __val = DIVIDE(
     SUM( Tab1[Quantity] )
 )
 ```
+
+## calculated column in Records with filter
+```
+HasRecords = CALCULATE(
+    COUNTROWS(Tbl), 
+    FILTER(
+        ALL(Tbl[RecordId], Tbl[Year]), 
+        Tbl[RecordId]=Records[Id] && Tbl[Year] <= YEAR(TODAY())
+    )
+) > 0
+```
