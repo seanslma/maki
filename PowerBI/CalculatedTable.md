@@ -11,6 +11,8 @@ The rule of thumb is to push your Calculated Column/Table (basically anything th
 
 In short, it's because the PowerBI's Vertipaq engine compresses the data (before loading into the model) better than Calculated Column/Table, reducing memory usage and improving performance.
 
+But others disagree.
+
 ## Power query vs DAX calculated columns
 https://www.sqlbi.com/articles/comparing-dax-calculated-columns-with-power-query-computed-columns/
 
