@@ -37,9 +37,9 @@ spec:
 ```
 
 ## `concurrencyPolicy`
-- Allow (default): allow concurrently running jobs
-- Forbid: if previous job run hasn't finished yet, the cron job skips the new job run
-- Replace: if previous job run hasn't finished yet, the cron job replaces the previous running job with a new job run
+- **Allow** (default): allow concurrently running jobs
+- **Forbid**: if previous job run hasn't finished yet, the cron job skips the new job run
+- **Replace**: if previous job run hasn't finished yet, the cron job replaces the previous running job with a new job run
 
 ## `restartPolicy`
 `restartPolicy` set to Never means it won't restart on failure. 
