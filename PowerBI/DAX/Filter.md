@@ -4,6 +4,6 @@
 ```
 FILTER (
     Customer,
-    Customer[Continent] = "Europe"
+    Customer[Continent] = "Europe" && blabla
 )
 ```
