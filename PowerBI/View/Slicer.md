@@ -3,6 +3,9 @@
 home table
 https://forum.enterprisedna.co/t/applying-two-slicers-from-the-same-field-on-table-visual/7454/10
 
+## order
+click 3-dots and sort and change the sort order
+
 ## remove values not in fact table from slicer
 Problem: slicer uses dim table column and some values are not in fact table 2 - do not want to show the non-existent values in the slicer for table 2
 
