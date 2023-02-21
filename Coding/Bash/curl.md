@@ -1,5 +1,11 @@
 # curl
 
+## download to current folder
+`-O` keep remote filename
+```
+curl -O https://dev.com/api/hello.cpp
+```
+
 ## get with header
 ```
 curl 'https://my.api/hello?id=1&name=dev' -H 'Accept: text/csv'
