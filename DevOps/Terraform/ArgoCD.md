@@ -1,6 +1,8 @@
 # ArgoCD
 https://argoproj.github.io/
 
+https://argo-cd.readthedocs.io/en/stable/operator-manual/
+
 https://www.digitalocean.com/community/tutorials/how-to-deploy-to-kubernetes-using-argo-cd-and-gitops
 
 Argo CD provides Continuous Delivery tooling that automatically synchronizes and deploys applications whenever a change is made in GitHub repository.
