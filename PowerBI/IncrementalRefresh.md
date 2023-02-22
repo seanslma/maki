@@ -1,5 +1,8 @@
 # Incremental refresh
 
+## time zone
+Time zone used in Power BI incremental refresh is UTC.
+
 ## steps
 https://docs.microsoft.com/en-us/power-bi/connect-data/incremental-refresh-overview
 
