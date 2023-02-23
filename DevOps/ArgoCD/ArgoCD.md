@@ -7,13 +7,26 @@ https://www.digitalocean.com/community/tutorials/how-to-deploy-to-kubernetes-usi
 
 Argo CD provides Continuous Delivery tooling that automatically synchronizes and deploys applications whenever a change is made in GitHub repository.
 
-## install argocd to cluster
+## install ArgoCD to cluster
+https://medium.com/@talhaaziz37/argo-cd-installation-in-kubernetes-kubeadm-ubuntu-lts-22-04-b429df6d4655
 ```
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 watch kubectl get pods -n argocd
 kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl -n agrocd get secret argocd-initial-admin-secret -o yaml #Admin
 ```
+
+## Connect to private repo
+https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#repositories
+
+https://argo-cd.readthedocs.io/en/release-1.8/user-guide/private-repositories/
+
+Error:
+- Unable to deploy revision: rpc error: code = Unknown desc = authentication required
+
+Solution:
+- settings > repositories > connecting repo using https > url and pat
 
 ## argocd cli
 ```
