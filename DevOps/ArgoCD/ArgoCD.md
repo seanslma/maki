@@ -17,17 +17,6 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 kubectl -n agrocd get secret argocd-initial-admin-secret -o yaml #Admin
 ```
 
-## Connect to private repo
-https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#repositories
-
-https://argo-cd.readthedocs.io/en/release-1.8/user-guide/private-repositories/
-
-Error:
-- Unable to deploy revision: rpc error: code = Unknown desc = authentication required
-
-Solution:
-- settings > repositories > connecting repo using https > url and pat
-
 ## argocd cli
 ```
 #install argocd: https://argo-cd.readthedocs.io/en/stable/cli_installation
