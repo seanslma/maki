@@ -71,7 +71,7 @@ data:
 
 ## edit secret
 ```
-kubectl edit secrets <secret-name>
+EDITOR="vi"  kubectl edit secrets <secret-name>
 
 #from file
 dk=$(base64 < "./a.key" | tr -d '\n')
