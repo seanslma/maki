@@ -15,4 +15,4 @@ Solution:
 
 **Error**: ` x509: certificate signed by unknown authority`
 Solution:
-- add the server's certificate, or the certificate of the CA used to sign the server's certificate
+- add the server's certificate, or the certificate of the CA used to sign the server's certificate to `argocd-tls-cert-cm`.
