@@ -9,7 +9,7 @@ channels:
   - example/uat #!top
   - https://conda.anaconda.org/conda-forge #!top
   - https://repo.anaconda.com/pkgs/msys2
-ssl_verify: True
+ssl_verify: False #/etc/ssl/certs/ca-certificates.crt
 envs_dirs:
   - ~/conda-envs/
 pinned_packages:
