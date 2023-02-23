@@ -90,6 +90,11 @@ kubectl patch secret <secret-name> -n <namespace> \
     -p "{\"data\":{\"a.key\":\"${dk}\",\"a.crt\":\"${dv}\"}}"
 ```
 
+delete a key in data
+```
+kubectl patch configmap myconfigmap --type=json -p='[{"op": "remove", "path": "/data/mykey"}]'
+```
+
 ## ways of consuming secrets
 Kubernetes provides two ways of consuming secrets: env var and mounted file (preferred).
 
