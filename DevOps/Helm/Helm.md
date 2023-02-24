@@ -3,6 +3,12 @@
 Template cheatsheet:
 https://lzone.de/cheat-sheet/Helm%20Templates
 
+## install
+https://helm.sh/docs/intro/install/
+- download from: https://github.com/helm/helm/releases
+- unpack it: `tar -zxvf helm-v3.0.0-linux-amd64.tar.gz`
+- move to desired destination: `mv linux-amd64/helm /usr/local/bin/helm`
+
 ## type casting
 https://github.com/yaml/YAML2/wiki/Type-casting
 ```

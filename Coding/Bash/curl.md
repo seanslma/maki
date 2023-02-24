@@ -6,6 +6,16 @@
 curl -O https://dev.com/api/hello.cpp
 ```
 
+Sending a request with HEAD method (`-I`) to see the redirected url
+```
+curl -LI https://dev.com/api/hello.cpp
+```
+
+Sometimes downloadd file has 0 size. Need to tell `curl` to follow HTTP redirection by using `-L/--location`
+```
+curl -LO https://dev.com/api/hello.cpp
+```
+
 ## get with header
 ```
 curl 'https://my.api/hello?id=1&name=dev' -H 'Accept: text/csv'
