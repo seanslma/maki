@@ -1,4 +1,4 @@
-# Commit 
+# Commit
 
 ## multi-line comment
 ```
@@ -21,7 +21,7 @@ git checkout <master>
 git reset --hard HEAD~<n>    #remove last n commits
 ```
 
-## revert last commit pushed 
+## revert last commit pushed
 ```
 git revert <commit-hash> #will keep history
 git push
@@ -57,4 +57,12 @@ git fetch john
 git checkout -b john-main john/main #git checkout -b john-feature john/feature
 git commit -am "my commit"
 git push john HEAD:main #git push john john-feature:feature
+```
+
+## merge last n-1 commits
+```
+git rebase -i HEAD~n
+#change "pick" to "squash" except the first one and save the changes
+#update the new commit message and save
+git push -f
 ```
