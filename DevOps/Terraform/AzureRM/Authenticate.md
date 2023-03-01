@@ -14,3 +14,11 @@ when run on CI server, use the others
 ```
 az login --service-principal --username <client_id> --password <client_secret> --tenant <tenant_id>
 ```
+
+## run terraform using service principle
+```
+export ARM_SUBSCRIPTION_ID="<subscription_id>"
+export ARM_TENANT_ID="<tenant_id>"
+export ARM_CLIENT_ID="<client_id>"
+export ARM_CLIENT_SECRET="<client_secret>"
+```
