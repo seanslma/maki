@@ -4,6 +4,7 @@
 install `sudo apt install smartmontools`
 ```
 lsblk #list all hard drives, or use sudo fdisk -l
+lsblk -o NAME,MODEL,SIZE,TYPE #list type as well
 df /home/user/Documents #find the disk the folder belongs to
 sudo smartctl -a /dev/sda #check disk health
 ```
