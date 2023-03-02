@@ -1,4 +1,4 @@
-# Response
+# Response Types
 
 ## custom response
 https://fastapi.tiangolo.com/advanced/custom-response/
@@ -24,9 +24,22 @@ resp = JSONResponse(jsonable_encoder(df.fillna('').to_dict(orient='records'))) #
 5 - 10x faster than default
 ```
 content = df.fillna('').to_json(orient='records', date_format='iso', date_unit='s') #df.to_json
-resp = Response(content, media_type="application/json") 
+resp = Response(content, media_type="application/json")
 
 resp.headers['Accept-Encoding'] = 'gzip'  #seems not required for gzip compression!
+```
+
+## Response
+Use `Response` if cache is required (much faster than StreamingResponse)
+- Response only supports `string` or `bytes`
+- `io.BytesIO.getvalue()` changes file like object to bytes
+```
+bio = io.BytesIO(df.to_parquet(compression='brotli')).getvalue()
+bio = io.BytesIO(df.to_parquet(compression=None)).getvalue() #compared to compression, faster but slower for cached data
+resp = Response(bio, media_type="bytes/parquet") #Response only support string or bytes
+resp.headers["Content-Disposition"] = 'attachment; filename=data.parquet'
+
+df = pd.read_parquet(io.BytesIO(req.content)) #cannot use `pd.read_parquet(url)` expect url like a file object not bytes
 ```
 
 ## StreamingResponse
@@ -59,16 +72,7 @@ def generate():
             if not chunk:
                 break
             yield chunk
-resp = StreamingResponse(generate(), media_type="bytes/parquet")            
-```
-
-Use `Response` if cache is required (much faster)
-```
-bio = io.BytesIO(df.to_parquet(compression='brotli')).getvalue()
-bio = io.BytesIO(df.to_parquet(compression=None)).getvalue() #compared to compression, faster but slower for cached data
-resp = Response(bio, media_type="bytes/parquet") #Response only support string or bytes
-resp.headers["Content-Disposition"] = 'attachment; filename=data.parquet'
-df = pd.read_parquet(io.BytesIO(req.content))
+resp = StreamingResponse(generate(), media_type="bytes/parquet")
 ```
 
 ### return an image
@@ -95,7 +99,10 @@ https://stackoverflow.com/questions/73564771/fastapi-is-very-slow-in-returning-a
 To prevent browser show large amount of data
 - set `Content-Disposition` header to Response using the `attachment` parameter and passing a filename
 
-json is 2x (5MB, 1x 50MB) faster than parquet and 8x faster than csv. Why csv is slow - not compressed?
+**Performance**
+- parquet (Response) is 2x faster than json (Response)
+- json (Response) is 2x (5MB, 1x 50MB) faster than parquet (StreamingResponse), will return bytes
+- json is 8x faster than csv. Why csv is slow - not well compressed compared to json and require more time to parse?
 ```
 import io
 import requests
@@ -120,17 +127,18 @@ async def get_df(
         resp.headers['Content-Disposition'] = 'attachment; filename=data.parquet'
     else:
         content = df.fillna('').to_json(orient='records', date_format='iso', date_unit='s')
-        resp = Response(content, media_type='application/json')       
+        resp = Response(content, media_type='application/json')
     return resp
-    
+
 def url_to_df(url, header_type):
+    #only for StreamingResponse type except json
     if header_type == 'csv':
         return pd.read_csv(url, storage_options={'Accept':'text/csv'})
     elif header_type == 'parquet':
         return pd.read_parquet(url, storage_options={'Accept':'bytes/parquets'})
     else: #json
         return pd.read_json(url, storage_options={'Accept':'application/json'})
-        
+
 def req_to_df(url, header_type):
     if header_type == 'csv':
         req = requests.get(url, headers={"Accept":"text/csv"})
@@ -141,7 +149,7 @@ def req_to_df(url, header_type):
     else: #json
         req = requests.get(url, headers={'Accept':'application/json'})
         return pd.DataFrame.from_dict(req.json()))
-        
+
 def api_get(url, header_type='json', faster=True):
     if faster: #30% faster
         df = url_to_df(url, header_type)
