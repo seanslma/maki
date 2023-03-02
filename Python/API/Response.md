@@ -12,14 +12,9 @@ will save the file on disk and return a path.
 ### Option 1: default
 The default one useing `jsonable_encoder` (return list of jsons) is at least **5x** slower than `df.to_json`.
 
-Performance for `json`
+**Performance** for `json`
 ```
 resp = df.fillna('').to_dict(orient='records')                        #default response
-df = pd.read_json(url, storage_options={"Accept":"application/json"}) #x - best
-df = pd.DataFrame.from_dict(req.json())                               #a - 5-20% faster than b
-df = pd.read_json(io.BytesIO(req.content))                            #b - 5-15% faster than c
-df = pd.read_json(req.content.decode('utf-8'))                        #c - slowest
-
 resp = JSONResponse(jsonable_encoder(df.fillna('').to_dict(orient='records'))) #default equvalent
 ```
 
@@ -32,6 +27,18 @@ resp = Response(content, media_type="application/json")
 resp.headers['Accept-Encoding'] = 'gzip'  #seems not required for gzip compression!
 ```
 
+**Performance** for `json`
+```
+content = df.fillna('').to_json(orient='records', date_format='iso', date_unit='s')
+resp = Response(content, media_type="application/json")
+
+headers = {"Accept":"application/json"}
+df = pd.read_json(url, storage_options=headers)                                # 8.996
+df = pd.DataFrame.from_dict(requests.get(url, headers=headers).json())         #12.830
+df = pd.read_json(io.BytesIO(requests.get(url, headers=headers).content))      #13.907
+df = pd.read_json(requests.get(url, headers=headers).content.decode('utf-8'))  #15.657
+```
+
 ## Response
 Response is designed to handle complete responses that are generated in one go. Therefore, Response doesn't have a built-in way to directly accept an `io.BytesIO` object.
 
@@ -39,14 +46,18 @@ Use `Response` if cache is required (much faster than StreamingResponse)
 - Response only supports `string`, `json` data or `bytes` data
 - `io.BytesIO.getvalue()` gets the file like object (in memory) content as bytes
 
-Performance for `parquet`
+**Performance** for `parquet`
 ```
 bio = io.BytesIO(df.to_parquet(compression='brotli')).getvalue()
 bio = io.BytesIO(df.to_parquet(compression=None)).getvalue() #compared to compression, faster but slower for cached data
 resp = Response(bio, media_type="bytes/parquet")             #Response only support string or bytes
 resp.headers["Content-Disposition"] = 'attachment; filename=data.parquet'
 
-df = pd.read_parquet(io.BytesIO(req.content)) #cannot use `pd.read_parquet(url)` expect url like a file object not bytes
+headers = {"Accept": "bytes/parquet"}
+df = pd.read_parquet(url, storage_options=headers)                                #1.120
+df = pq.read_pandas(io.BytesIO(requests.get(url, headers=headers).content))       #2.125
+df = pd.read_parquet(pa.BufferReader(requests.get(url, headers=headers).content)) #2.273
+df = pd.read_parquet(io.BytesIO(requests.get(url, headers=headers).content))      #2.550
 ```
 
 ## StreamingResponse
