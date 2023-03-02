@@ -30,9 +30,11 @@ resp.headers['Accept-Encoding'] = 'gzip'  #seems not required for gzip compressi
 ```
 
 ## Response
+Response is designed to handle complete responses that are generated in one go. Therefore, Response doesn't have a built-in way to directly accept an `io.BytesIO` object.
+
 Use `Response` if cache is required (much faster than StreamingResponse)
-- Response only supports `string` or `bytes`
-- `io.BytesIO.getvalue()` changes file like object to bytes
+- Response only supports `string`, `json` data or `bytes` data
+- `io.BytesIO.getvalue()` gets the file like object (in memory) content as bytes
 ```
 bio = io.BytesIO(df.to_parquet(compression='brotli')).getvalue()
 bio = io.BytesIO(df.to_parquet(compression=None)).getvalue() #compared to compression, faster but slower for cached data
@@ -43,7 +45,11 @@ df = pd.read_parquet(io.BytesIO(req.content)) #cannot use `pd.read_parquet(url)`
 ```
 
 ## StreamingResponse
-When send a large amount of data, e.g., 50 MB, through API, we might get timeout, other network issues for downloading such a data from the server. Streaming response will ensure the data being downloaded chunk by chunk to avoid these issues.
+When send a large amount of data, e.g., 50 MB, through API, we might get timeout, other network issues for downloading such a data from the server.
+
+Streaming response will ensure the data being downloaded chunk by chunk to avoid these issues.
+
+`io.BytesIO` is a class that allows you to create an in-memory buffer for binary data, which can be used to read or write data in chunks. This makes it a natural fit for use with `StreamingResponse`.
 
 **requires an iterator object to send the results in chunks.**
 
@@ -65,14 +71,14 @@ df = pd.read_parquet(io.BytesIO(req.content))
 
 Solution: Convert the content to async now ony a little slower than using Response.
 ```py
-def generate():
+async def iterfile():
     with bio as f:
         while True:
-            chunk = f.read(1024)
+            chunk = f.read(1024) #chunk_size is 1024 bytes might be too small (1 MB better?)
             if not chunk:
                 break
             yield chunk
-resp = StreamingResponse(generate(), media_type="bytes/parquet")
+resp = StreamingResponse(iterfile(), media_type="bytes/parquet")
 ```
 
 ### return an image
