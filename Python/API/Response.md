@@ -11,11 +11,14 @@ will save the file on disk and return a path.
 
 ### Option 1: default
 The default one useing `jsonable_encoder` (return list of jsons) is at least **5x** slower than `df.to_json`.
+
+Performance for `json`
 ```
-resp = df.fillna('').to_dict(orient='records') #default
-df = pd.DataFrame.from_dict(req.json())        #a - 5-20% faster than b
-df = pd.read_json(io.BytesIO(req.content))     #b - 5-15% faster than c
-df = pd.read_json(req.content.decode('utf-8')) #c - slowest
+resp = df.fillna('').to_dict(orient='records')                        #default response
+df = pd.read_json(url, storage_options={"Accept":"application/json"}) #x - best
+df = pd.DataFrame.from_dict(req.json())                               #a - 5-20% faster than b
+df = pd.read_json(io.BytesIO(req.content))                            #b - 5-15% faster than c
+df = pd.read_json(req.content.decode('utf-8'))                        #c - slowest
 
 resp = JSONResponse(jsonable_encoder(df.fillna('').to_dict(orient='records'))) #default equvalent
 ```
@@ -35,10 +38,12 @@ Response is designed to handle complete responses that are generated in one go. 
 Use `Response` if cache is required (much faster than StreamingResponse)
 - Response only supports `string`, `json` data or `bytes` data
 - `io.BytesIO.getvalue()` gets the file like object (in memory) content as bytes
+
+Performance for `parquet`
 ```
 bio = io.BytesIO(df.to_parquet(compression='brotli')).getvalue()
 bio = io.BytesIO(df.to_parquet(compression=None)).getvalue() #compared to compression, faster but slower for cached data
-resp = Response(bio, media_type="bytes/parquet") #Response only support string or bytes
+resp = Response(bio, media_type="bytes/parquet")             #Response only support string or bytes
 resp.headers["Content-Disposition"] = 'attachment; filename=data.parquet'
 
 df = pd.read_parquet(io.BytesIO(req.content)) #cannot use `pd.read_parquet(url)` expect url like a file object not bytes
@@ -106,8 +111,8 @@ To prevent browser show large amount of data
 - set `Content-Disposition` header to Response using the `attachment` parameter and passing a filename
 
 **Performance**
-- parquet (Response) is 2x faster than json (Response)
-- json (Response) is 2x (5MB, 1x 50MB) faster than parquet (StreamingResponse), will return bytes
+- parquet (Response) is 2-4x faster than json (Response)
+- json (Response) is 2x (5MB, 1x 50MB) faster than parquet (StreamingResponse, defaul tchunk size), will return bytes
 - json is 8x faster than csv. Why csv is slow - not well compressed compared to json and require more time to parse?
 ```
 import io
