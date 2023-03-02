@@ -52,9 +52,14 @@ df = pd.read_parquet(io.BytesIO(req.content))
 
 Solution: Convert the content to async now ony a little slower than using Response.
 ```py
-async def to_async(iterator):
-    for i in iterator:
-        yield i
+def generate():
+    with bio as f:
+        while True:
+            chunk = f.read(1024)
+            if not chunk:
+                break
+            yield chunk
+resp = StreamingResponse(generate(), media_type="bytes/parquet")            
 ```
 
 Use `Response` if cache is required (much faster)
