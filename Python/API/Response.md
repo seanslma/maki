@@ -59,6 +59,8 @@ df = pd.read_parquet(io.BytesIO(requests.get(url, headers=headers).content))    
 ```
 
 ## StreamingResponse
+**caveat** cannot directly work with `aiocache import cached`
+
 When send a large amount of data, e.g., 50 MB, through API, we might get timeout, other network issues for downloading such a data from the server.
 
 Streaming response will ensure the data being downloaded chunk by chunk to avoid these issues.
