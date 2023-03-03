@@ -10,7 +10,7 @@ https://github.com/tiangolo/fastapi/issues/4751
 ```py
 def key_builder(f, **kwargs):
     return f.__name__ + json.dumps({
-        k: v for k, v in kwargs.items() if k not in ['request']
+        k: v for k, v in kwargs.items() if k != 'request'
     })
 ```
 
