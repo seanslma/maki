@@ -11,8 +11,6 @@ will save the file on disk and return a path.
 
 ### Option 1: default
 The default one useing `jsonable_encoder` (return list of jsons) is at least **5x** slower than `df.to_json`.
-
-**Performance** for `json`
 ```
 resp = df.fillna('').to_dict(orient='records')                        #default response
 resp = JSONResponse(jsonable_encoder(df.fillna('').to_dict(orient='records'))) #default equvalent
