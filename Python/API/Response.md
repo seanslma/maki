@@ -90,7 +90,7 @@ Solution: Convert the content to async now ony a little slower than using Respon
 async def iterfile():
     with bio as f:
         while True:
-            chunk = f.read(1024) #chunk_size is 1024 bytes (1 KB to MB good enough)
+            chunk = f.read(1024) #chunk_size is 1024 bytes (1 KB to 1 MB good enough)
             if not chunk:
                 break
             yield chunk
