@@ -22,3 +22,8 @@ export ARM_TENANT_ID="<tenant_id>"
 export ARM_CLIENT_ID="<client_id>"
 export ARM_CLIENT_SECRET="<client_secret>"
 ```
+
+## error: logged in using Azure CLI cannot use service principle
+solution:
+- Make sure logged in using the right directory
+- Must login use the terminal not the vs code terminal as vs code terminal has restricted permission
