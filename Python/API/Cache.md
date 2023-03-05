@@ -6,6 +6,12 @@ https://aiocache.readthedocs.io/en/latest/caches.html
 How to cache StreamReponse or make a cache middleware\
 https://github.com/tiangolo/fastapi/issues/4751
 
+Solution: https://github.com/krukov/cashews/issues/107
+
+my solution using aiocache
+```py
+```
+
 ## key_builder
 ```py
 def key_builder(f, **kwargs):
