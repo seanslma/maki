@@ -123,8 +123,9 @@ To prevent browser show large amount of data
 
 **Performance**
 - parquet (Response) is 2-4x faster than json (Response)
-- json (Response) is 2x (5MB, 1x 50MB) faster than parquet (StreamingResponse, defaul tchunk size), will return bytes
+- json (Response) is 2x (5MB, 1x 50MB) faster than parquet (StreamingResponse, defaul chunk size), will return bytes
 - json is 8x faster than csv. Why csv is slow - not well compressed compared to json and require more time to parse?
+- another test indicates that json has similar or slower performance than csv
 ```
 import io
 import requests
@@ -153,7 +154,6 @@ async def get_df(
     return resp
 
 def url_to_df(url, header_type):
-    #only for StreamingResponse type except json
     if header_type == 'csv':
         return pd.read_csv(url, storage_options={'Accept':'text/csv'})
     elif header_type == 'parquet':
