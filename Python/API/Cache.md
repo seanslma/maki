@@ -8,8 +8,97 @@ https://github.com/tiangolo/fastapi/issues/4751
 
 Solution: https://github.com/krukov/cashews/issues/107
 
-my solution using aiocache
+my solution using aiocache (borrowed code from the following link)
+https://github.com/Krukov/cashews/pull/123/files#diff-3df331569a7628a330e72e831d8f338342ef954c7cb3897c6195565a85c32b6fR1
 ```py
+class stream_cached(cached):
+    async def set_in_cache(self, key, value):
+        try:
+            if isinstance(value, StreamingResponse):
+                value = await stream_cached.encode_streaming_response(
+                    value=value,
+                    cache=self.cache,
+                    key=key,
+                    ttl=self.ttl,
+                )
+            await self.cache.set(key, value, ttl=self.ttl)
+        except Exception:
+            cached_logger.exception(
+                f"Unexpected error. Couldn't set {value} in key {key}"
+            )
+
+    async def get_from_cache(self, key):
+        try:
+            value = await self.cache.get(key)
+            is_streaming_response = (
+                value is not None and 'streamingresponse' in key
+            )
+            if is_streaming_response:
+                value = await stream_cached.decode_streaming_response(
+                    value=value,
+                    cache=self.cache,
+                    key=key,
+                )
+            return value
+        except Exception:
+            cached_logger.exception(
+                f"Unexpected error. Couldn't retrieve key {key}"
+            )
+
+    async def encode_streaming_response(
+        value: StreamingResponse,
+        cache: Cache,
+        key: str,
+        ttl: object,
+    ) -> bytes:
+        value.body_iterator = stream_cached.set_iterator(
+            cache, key, value.body_iterator, ttl
+        )
+        serialized_value = b''
+        serialized_value += bytes(value.media_type, 'utf-8') + b':'
+        serialized_value += bytes(str(value.status_code), 'utf-8') + b':'
+        for header_name, header_value in value.raw_headers:
+            serialized_value += header_name + b'=' + header_value + b';'
+        return serialized_value
+
+    async def decode_streaming_response(
+        value: bytes,
+        cache: Cache,
+        key: str,
+    ) -> StreamingResponse:
+        media_type, status_code, headers = value.split(b':')
+        media_type = str(media_type)
+        status_code = int(status_code)
+        raw_headers = []
+        for header in headers.split(b';'):
+            if not header:
+                continue
+            header_name, header_value = header.split(b'=')
+            raw_headers.append((header_name, header_value))
+        content = stream_cached.get_iterator(cache, key)
+        resp = StreamingResponse(
+            content=content,
+            media_type=media_type,
+            status_code=status_code,
+        )
+        resp.raw_headers = raw_headers
+        return resp
+
+    async def set_iterator(cache: Cache, key: str, iterator, ttl):
+        chunk_number = 0
+        async for chunk in iterator:
+            await cache.set(f'{key}:chunk:{chunk_number}', chunk, ttl=ttl)
+            yield chunk
+            chunk_number += 1
+
+    async def get_iterator(cache: Cache, key: str):
+        chunk_number = 0
+        while True:
+            chunk = await cache.get(f'{key}:chunk:{chunk_number}')
+            if not chunk:
+                return
+            yield chunk
+            chunk_number += 1
 ```
 
 ## key_builder
