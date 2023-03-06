@@ -17,7 +17,7 @@ Uvicorn supports HTTP/1.1 and WebSockets, but does not (yet) support HTTP/2.
 
 cli
 ```
-uvicorn 'my_fastapi.fileapi:app' --host '127.0.0.1' --port 5000 --loop 'uvloop' --workers 1 --root-path '/api' --reload
+uvicorn 'my_fastapi.fileapi:app' --host '127.0.0.1' --port 7000 --loop 'uvloop' --workers 1 --root-path '/api' --reload
 ```
 
 ```py
