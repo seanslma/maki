@@ -6,7 +6,11 @@ https://aiocache.readthedocs.io/en/latest/caches.html
 How to cache StreamReponse or make a cache middleware\
 https://github.com/tiangolo/fastapi/issues/4751
 
-Solution: https://github.com/krukov/cashews/issues/107
+Solution: 
+- https://github.com/krukov/cashews/issues/107
+- cache each chunk of the StreamingResponse content with a separate key
+- cache other StreamingResponse properties into a bytes object
+- then recreate the StreamingResponse based on the cached content and properties
 
 my solution using aiocache (borrowed code from the following link)
 https://github.com/Krukov/cashews/pull/123/files#diff-3df331569a7628a330e72e831d8f338342ef954c7cb3897c6195565a85c32b6fR1
