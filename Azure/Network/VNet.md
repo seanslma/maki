@@ -6,3 +6,10 @@
 ## SubNet
 - Subnets provide isolation within a virtual network
 - Ssubnet IP range should not be too large or too small
+
+## connection
+- resources within the same region and subscription 
+  - VNet peering
+- resources within the same region in another subscription
+  - VNet peering
+  - Gateway: extra charges but allow encryption
