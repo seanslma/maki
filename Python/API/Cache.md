@@ -5,6 +5,11 @@ https://aiocache.readthedocs.io/en/latest/caches.html
 ## question
 if there are multiple servers and the next call might not be go to the same server- cache cannot be used!
 
+Solution?
+use a distributed cache, like Redis or Memcached, to share data across the pods:
+- deploy a memory cache service as a Kubernetes service
+- install cache client library in app - use the cache client to store and retrieve data
+
 ## Cache StreamingResponse
 How to cache StreamReponse or make a cache middleware\
 https://github.com/tiangolo/fastapi/issues/4751
