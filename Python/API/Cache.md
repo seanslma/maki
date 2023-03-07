@@ -2,6 +2,9 @@
 
 https://aiocache.readthedocs.io/en/latest/caches.html
 
+## question
+if there are multiple servers and the next call might not be go to the same server- cache cannot be used!
+
 ## Cache StreamingResponse
 How to cache StreamReponse or make a cache middleware\
 https://github.com/tiangolo/fastapi/issues/4751
