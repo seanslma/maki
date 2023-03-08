@@ -10,6 +10,10 @@
 ## connection
 - resources within the same region and subscription 
   - VNet peering
-- resources within the same region in another subscription
+- resources within the same (different) region in another subscription
   - VNet peering
   - Gateway: extra charges but allow encryption
+- to on-premises resources
+  - Site-to-site VPN
+  - Point-to-site VPN
+  - ExpressRoute: not through public internet but costly
