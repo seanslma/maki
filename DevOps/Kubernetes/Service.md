@@ -11,6 +11,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: <service-name>
+  namespace: <namespace>
 spec:
   ports:
     - port: 8000
