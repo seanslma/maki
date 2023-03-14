@@ -31,3 +31,18 @@ subquery = query.subquery()
 columns = [col for col in subquery.c where col.name != 'row_number']
 stmt = select(columns).select_from(subquery).where(subquery.c.row_number == 1)
 ```
+
+## Subquery with `join`
+```
+subq = (
+    session
+    .query(blabla)
+    .subquery()
+)
+query = query.join(
+    subq, sql.and_(
+        subq.c.a == t1.a,
+        subq.c.b == t2.b,
+    )
+)
+```
