@@ -47,6 +47,9 @@ argocd app get helm-guestbook
 argocd app sync helm-guestbook
 ```
 
+## project and application
+https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/
+
 ## terraform
 https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release
 
