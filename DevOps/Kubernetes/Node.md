@@ -36,3 +36,12 @@ docker system prune --all
 # reset node as schedulable
 kubectl uncordon <node-name>
 ```
+
+## error: /var/lib/docker/overlay2/xxx: no such file or directory
+This might be caused `docker system prune`. Solution:
+```
+systemctl stop docker
+umount /var/lib/docker/overlay2
+rm -rf /var/lib/docker
+systemctl start docker
+```
