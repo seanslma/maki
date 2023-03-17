@@ -1,4 +1,5 @@
 # Lock
+For resources in production environments that should not be modified or deleted accidentally.
 
 Azure locks can:
 - lock resources such that they cannot be deleted, even for owner access
