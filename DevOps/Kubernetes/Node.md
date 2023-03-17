@@ -37,6 +37,11 @@ docker system prune --all
 kubectl uncordon <node-name>
 ```
 
+## find the mount of of a path
+```
+findmnt --target /var/lib/docker
+```
+
 ## error: /var/lib/docker/overlay2/xxx: no such file or directory
 This might be caused `docker system prune`. Solution:
 ```
