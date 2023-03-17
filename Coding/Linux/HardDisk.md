@@ -18,3 +18,7 @@ sudo fsck -Af -M
 sudo fsck.ext4 -f /dev/sda1 #if the file system is ext4
 sudo reboot
 ```
+
+## /var/lib/docker: Device or resource busy
+When run `rm -rf /var/lib/docker` or `umount /dev/xxx` got the error.
+Possible reason: still in the mounted device.
