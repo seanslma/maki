@@ -10,3 +10,16 @@ Locks can be applied at the levels of
 - resource group
 - management group
 - individual resource
+
+## cli create lock to resource
+```
+az lock create --name LockSite --lock-type CanNotDelete \
+ --resource-group <resource-group> --resource-name <resource-name> \
+ --resource-type Microsoft.Web/sites
+```
+
+## cli create lock to resource group
+```
+az lock create --name LockGroup --lock-type CanNotDelete \ 
+  --resource-group <resource-group>
+```
