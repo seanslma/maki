@@ -4,8 +4,8 @@
 https://leopathu.com/content/string-quotes-yaml-file
 
 Strings containing any of the following characters must be quoted
+- `{ } [ ] < > = ! @ # % & * - ? : , | \`
 - it's more convenient to use single quotes, without escaping any backslash \
-  `{ } [ ] < > = ! @ # % & * - ? : , | \`
 - double quotes provide a way to express arbitrary strings, by using \ to escape characters and sequences
   `"Add new line\n"`
 
