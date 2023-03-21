@@ -2,4 +2,4 @@
 
 - backup
 - scalability
-- security
+- security: firewall, encrypted databases
