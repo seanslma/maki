@@ -27,3 +27,12 @@ export ARM_CLIENT_SECRET="<client_secret>"
 solution:
 - Make sure logged in using the right directory
 - Must login use the terminal not the vs code terminal as vs code terminal has restricted permission
+
+## Error while retrieving OAuth token: Code Expired
+```
+Error: 
+Get "https://<aks-name>.hcp.australiaeast.azmk8s.io:443/api/v1/namespaces/<namespace>": 
+  acquiring a token for authorization header: failed acquiring new token: waiting for device code authentication to complete: 
+  autorest/adal/devicetoken: Error while retrieving OAuth token: Code Expired
+```  
+Reason: the aks config file not in the right path so could not connetc to the aks.
