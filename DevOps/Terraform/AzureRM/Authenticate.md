@@ -31,7 +31,7 @@ solution:
 ## Error while retrieving OAuth token: Code Expired
 ```
 Error: 
-Get "https://<aks-name>.hcp.australiaeast.azmk8s.io:443/api/v1/namespaces/<namespace>": 
+Get "https://<aks-name>.hcp.<region>.azmk8s.io:443/api/v1/namespaces/<namespace>": 
   acquiring a token for authorization header: failed acquiring new token: waiting for device code authentication to complete: 
   autorest/adal/devicetoken: Error while retrieving OAuth token: Code Expired
 ```  
