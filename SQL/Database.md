@@ -2,4 +2,4 @@
 
 - backup
 - scalability
-- security: firewall, encrypted databases
+- security: firewall, encrypted databases, dynamic data masking
