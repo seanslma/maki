@@ -29,6 +29,12 @@ Line height can't be scaled smaller than 1
 "terminal.integrated.fontSize": 12,
 ```
 
+## terminal line number
+Default is 1000
+```
+"terminal.integrated.scrollback": 5000,
+```
+
 ## New line at EOF
 File > Preference > Settings (^,) > 'insert final newline'
 ```
