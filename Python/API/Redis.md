@@ -1,4 +1,8 @@
 # Redis
 
 ## helm chart
-https://medium.com/@thanawitsupinnapong/setting-up-redis-in-kubernetes-with-helm-and-manual-persistent-volume-f1d52fa1919f
+https://github.com/bitnami/charts/tree/main/bitnami/redis/#installing-the-chart
+
+chart url: https://charts.bitnami.com/bitnami
+
+## deploy
