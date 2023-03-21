@@ -1,6 +1,20 @@
 # Kubectl
 https://kubernetes.io/docs/reference/kubectl/
 
+## install
+https://kubernetes.io/docs/tasks/tools/
+```
+curl -LO https://dl.k8s.io/release/v1.24.9/bin/linux/amd64/kubectl
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+```
+
+https://github.com/Azure/kubelogin
+```
+export KUBECONFIG=/path/to/kubeconfig
+kubelogin convert-kubeconfig
+kubectl get no
+```
+
 ## show all info
 ```
 kubectl get node -v=7
