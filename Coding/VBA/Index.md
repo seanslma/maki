@@ -8,4 +8,5 @@ arr = rng.Value
 ```
 
 ## zero-based
-`Application.Transpose` will return a 1-D `zero-based` array of a single column or single row.
+- `Split("x,y,z", ",")` '0-based index
+- `Application.Transpose` will return a 1-D `zero-based` array of a single column or single row.
