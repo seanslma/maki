@@ -36,12 +36,17 @@ Problem:
 - Slicer-quarter points to quarters
 - In the table there are two records: (A, 2000, 1) and (B, 2001, 3)
 - When the values for the sclicers are 2000 and 1, it's not possible to show the second record
-- 
+
 Workaround
 - Let one of the slicer to be a multi-select and un-select all, so the other slicer will show all values
-- 
+
 Solution:
-- ???
+- see `Visual interactions`
+
+## Visual interactions
+- slicer A -> column A, slicer B -> column B
+- value selected in slicer B should not affect slicer A (still show all values)
+- Format > Edit interactions > click `no impact` icon near slicer A
 
 ## Selected value
 ```
@@ -54,11 +59,6 @@ VAR __val = CALCULATE(
 
 ## Sync slicers
 https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-slicers?tabs=powerbi-desktop#sync-and-use-slicers-on-other-pages
-
-## Visual interactions
-- slicer A -> column A, slicer B -> column B
-- value selected in slicer B should not affect slicer A (still show all values)
-- Format > Edit interactions > click `no impact` icon near slicer A
 
 ## Default max value
 PowerBI will remember a constant value so we need to replace the max with a constant, e.g.
