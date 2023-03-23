@@ -30,6 +30,15 @@ This happens when a table on the n-side of a 1-to-n relationship contains values
 
 For the default slicer, when source data changed, the last selected missing value will still in the slicer. 
 
+## Slicers stuck on non-existing values
+Problem:
+- Slicer-year points to years
+- Slicer-quarter points to quarters
+- In the table there are two records: (A, 2000, 1) and (B, 2001, 3)
+- When the values for the sclicers are 2000 and 1, it's not possible to show the second record
+Solution:
+- ???
+
 ## Selected value
 ```
 VAR __val = CALCULATE(
