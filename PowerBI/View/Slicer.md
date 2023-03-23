@@ -36,8 +36,10 @@ Problem:
 - Slicer-quarter points to quarters
 - In the table there are two records: (A, 2000, 1) and (B, 2001, 3)
 - When the values for the sclicers are 2000 and 1, it's not possible to show the second record
+- 
 Workaround
 - Let one of the slicer to be a multi-select and un-select all, so the other slicer will show all values
+- 
 Solution:
 - ???
 
