@@ -7,7 +7,7 @@ Azure resources related to monitoring are
 ## Azure Monitor
 - A central tool and resource that allows to monitor an Azure subscription
 - as a dashboard and management resource for all other monitoring capabilities
-- provides management features for activity logs, diagnostic logs, metrics, Application Insights, and Log Analytics
+- provides management features for activity logs, operation logs, diagnostic settings, metrics, Application Insights, and Log Analytics
 
 ## Azure Application Insights
 - get metrics, logs, and other telemetry information from custom applications 
