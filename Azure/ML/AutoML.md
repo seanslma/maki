@@ -1,5 +1,8 @@
 # Automated ML
 
+## models 
+AutoML's forecasting regression models assume that all features provided by the user are `known into the future`, at least up to the forecast horizon.
+
 ## rerun failed experiment
 ```py
 from azureml.core import Workspace, Experiment
