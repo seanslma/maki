@@ -26,7 +26,7 @@ resp.headers['Accept-Encoding'] = 'gzip'  #seems not required for gzip compressi
 ```
 
 **Performance** for `json`
-```
+```py
 content = df.fillna('').to_json(orient='records', date_format='iso', date_unit='s')
 resp = Response(content, media_type="application/json")
 
@@ -45,7 +45,7 @@ Use `Response` if cache is required (much faster than StreamingResponse)
 - `io.BytesIO.getvalue()` gets the file like object (in memory) content as bytes
 
 **Performance** for `parquet`
-```
+```py
 bio = io.BytesIO(df.to_parquet(compression='brotli')).getvalue()
 bio = io.BytesIO(df.to_parquet(compression=None)).getvalue() #compared to compression, faster but slower for cached data
 resp = Response(bio, media_type="bytes/parquet")             #Response only support string or bytes
@@ -75,7 +75,7 @@ https://cloudbytes.dev/snippets/received-return-a-file-from-in-memory-buffer-usi
 **Note**: StreamingResponse is very slow compared to Response.
 
 Due to the content BytesIO not `typing.AsyncIterable`? https://github.com/tiangolo/fastapi/issues/2302
-```
+```py
 #bio = io.BytesIO()
 #df.to_parquet(bio)
 #bio.seek(0) #can use .getvalue() .getbuffer().nbytes
@@ -126,7 +126,8 @@ To prevent browser show large amount of data
 - json (Response) is 2x (5MB, 1x 50MB) faster than parquet (StreamingResponse, defaul chunk size), will return bytes
 - json is 8x faster than csv. Why csv is slow - not well compressed compared to json and require more time to parse?
 - another test indicates that json has similar or slower performance than csv
-```
+- 
+```py
 import io
 import requests
 import pandas as pd
