@@ -43,3 +43,35 @@ https://towardsdatascience.com/how-to-deploy-scikit-learn-models-to-azure-contai
         "workspace_name": "workspace-name"
     }
   ```
+  
+## experiment
+```py
+    import time
+
+    automl_settings = {
+        "name": f'auto_feature_engineering_{time.time()}',
+        "task": "regression",
+        "iterations": 10,
+        "iteration_timeout_minutes": 10,    
+        "max_cores_per_iteration": 1,
+        "max_concurrent_iterations": 10,
+        "primary_metric": 'r2_score',    
+        "experiment_exit_score": 0.985,
+        "debug_log": f'automl_errors{time.time()}.log',
+        "verbosity": logging.ERROR,
+    }
+# Local compute
+automl_config = AutoMLConfig(
+   preprocess = False,
+   X = X_train,
+   y = y_train,
+   X_valid = X_valid,
+   y_valid = y_valid,
+   path=project_folder,
+   **automl_settings,
+)
+
+# Training the model
+experiment = Experiment(ws, experiment_name)
+local_run = experiment.submit(automl_config, show_output=True)
+```
