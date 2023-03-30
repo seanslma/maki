@@ -33,3 +33,6 @@ Trigger can
 
 ## Function Proxies
 can be used to call multiple functions with with a single function URL 
+
+## Durable Functions
+output can be saved to local variable and the state is preserved
