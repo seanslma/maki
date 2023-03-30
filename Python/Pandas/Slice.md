@@ -1,5 +1,12 @@
 # slice
 
+## filter performance
+https://medium.com/@thomas-jewson/faster-pandas-what-is-the-most-performant-filtering-method-a5dbb8f694dc
+```py
+df[df.col.values > 1] #fastest
+df.query('col > 1')   #slowest
+```
+
 ## slicing
 ```python
 df.ix[[0, 2], 'A'] #obsolete
