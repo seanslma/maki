@@ -1,5 +1,10 @@
 # Function
 
+## type
+- On-demand functions
+- Scheduled functions
+- Event-based functions
+
 ## runtime
 - Functions are hosted within Azure App Service
 - App Service loads the Azure runtime
