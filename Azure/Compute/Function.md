@@ -30,3 +30,6 @@ Connection type
 Trigger can 
 - invoke a function based on external events
 - pass the incoming data, payload, and metadata to the function
+
+## Function Proxies
+can be used to call multiple functions with with a single function URL 
