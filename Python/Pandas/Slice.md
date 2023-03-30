@@ -3,8 +3,8 @@
 ## filter performance
 https://medium.com/@thomas-jewson/faster-pandas-what-is-the-most-performant-filtering-method-a5dbb8f694dc
 ```py
-df[df.get('col').values > 1]  #fastest
-df[df['col'].values > 1]      #similar
+df[df.get('col').values == 'x']  #fastest for short string
+df[df['col'].values == 'xxxxxx'] #fastest for long string
 df.query('col > 1')           #slowest
 ```
 
