@@ -1,5 +1,8 @@
 # Group
 
+## df.groupby(lambda x: True)
+group the entire df as one group. used when want to calculate agg values based on all rows.
+
 ## groupby([], group_keys=False)
 When
 - group_keys = True: the keys will be added into the results after `apply`
