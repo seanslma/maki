@@ -5,6 +5,11 @@ https://kubernetes.io/docs/tasks/debug/debug-cluster/
 
 https://kubernetes.io/docs/tasks/debug/debug-application/determine-reason-pod-failure/
 
+## run every 2 seconds
+```
+watch -n 2 kubectl top node
+```
+
 ## check
 ```
 kubectl version
