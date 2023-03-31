@@ -26,6 +26,11 @@ Excel `7s`, `8m` or `5m8s` to seconds
 =IFERROR(LEFT(B2,FIND("m",B2)-1)*60 + IF(LEN(RIGHT(B2,LEN(B2)-FIND("m",B2)))=0, 0, LEFT(RIGHT(B2,LEN(B2)-FIND("m",B2)), LEN(RIGHT(B2,LEN(B2)-FIND("m",B2)))-1)), LEFT(B2,FIND("s",B2)-1))
 ```
 
+## get node events
+```
+kubectl get events --field-selector involvedObject.kind=Node,involvedObject.name=<node-name> --sort-by=.metadata.creationTimestamp
+```
+
 ## drain a node
 Safely Drain a Node: 
 https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
