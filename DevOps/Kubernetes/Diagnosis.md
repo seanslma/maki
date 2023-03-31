@@ -21,9 +21,9 @@ kubectl describe job <job-name>
 kubectl describe jobs/<job-name> -n <namespace>
 ```
 
-Excel `7s` or `5m8s` to seconds
+Excel `7s`, `8m` or `5m8s` to seconds
 ```
-=IFERROR(LEFT(B2,FIND("m",B2)-1)*60 + LEFT(RIGHT(B2,LEN(B2)-FIND("m",B2)), LEN(RIGHT(B2,LEN(B2)-FIND("m",B2)))-1), LEFT(B2,FIND("s",B2)-1))
+=IFERROR(LEFT(B2,FIND("m",B2)-1)*60 + IF(LEN(RIGHT(B2,LEN(B2)-FIND("m",B2)))=0, 0, LEFT(RIGHT(B2,LEN(B2)-FIND("m",B2)), LEN(RIGHT(B2,LEN(B2)-FIND("m",B2)))-1)), LEFT(B2,FIND("s",B2)-1))
 ```
 
 ## drain a node
