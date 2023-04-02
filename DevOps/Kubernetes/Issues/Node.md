@@ -1,5 +1,8 @@
 # Node
 
+## taint
+The node controller **automatically** taints a Node when certain conditions are true. 
+
 ## 0/x nodes are available y node(s) were unschedulable
 Node might have issues:
 - `Taint: node.kubernetes.io/unschedulable:NoSchedule`
