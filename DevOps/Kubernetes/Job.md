@@ -36,6 +36,12 @@ spec:
       completions: 1
 ```
 
+## suspend cronjob
+```
+kubectl patch cronjobs <cronjob-name> -p '{"spec" : {"suspend" : true }}'
+kubectl patch cronjobs <cronjob-name> -p '{"spec" : {"suspend" : false }}'
+```
+
 ## `concurrencyPolicy`
 - **Allow** (default): allow concurrently running jobs
 - **Forbid**: if previous job run hasn't finished yet, the cron job skips the new job run
