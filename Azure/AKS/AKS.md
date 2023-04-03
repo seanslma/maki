@@ -36,6 +36,6 @@ kubectl delete -f aks01.yaml         #delete created objects
 
 ## upgrade
 ```
-az aks upgrade -g <resource-group> -g <cluster-name> --kubernetes-version  1.18.10  #upgrade
-az aks get-upgrades -g <resource-group> -g <cluster-name> --output table            #list available versions
+az aks upgrade -n <cluster-name> -g <resource-group> --kubernetes-version  1.18.10  #upgrade
+az aks get-upgrades -n <cluster-name> -g <resource-group> --output table            #list available versions
 ```
