@@ -1,6 +1,6 @@
 # index
 
-The .loc/[] operations can perform enlargement when setting a non-existent key for that axis.
+The `.loc/[]` operations can perform enlargement when setting a non-existent key for that axis.
 
 ## get values vs slice rows
 ```
@@ -9,14 +9,14 @@ id  name
 2   a       4.0
 Name: val, dtype: float64
 ```
-Sinle value in index returns results exclude the index:
+Singe value in index returns results excluding the index:
 ```
 >>> s[1]
 name
 a    2.0
 Name: val, dtype: float64
 ```
-Multiple values in index returns results include the index:
+Multiple values in index returns results including the index:
 ```
 >>> s[[1]]
 id  name
@@ -25,12 +25,12 @@ Name: val, dtype: float64
 ```
 
 ## cols to multiindex
-```python
+```py
 mi = df.columns.str.split('_', expand=True)
 ```
 
 ## get level values
-```python
+```py
 df.index.get_level_values(0)
 df.index.get_level_values('level_2')
 ```
@@ -38,15 +38,15 @@ df.index.get_level_values('level_2')
 ## get levle unique values
 _**caveat**_:  `index.levels` does not return updated contents if any rows or columns have been deleted.
 The MultiIndex keeps all the defined levels of an index, **even if they are not actually used**, to avoid a recomputation of the levels in order to make slicing highly performant.
-```python
-df.index.levels[0] #fastest but should avoid to use
+```py
+df.index.levels[0]                               #fastest but should avoid to use
 df.index.levels[df.index.names.index('level_1')] #do not use it
-df.index.get_level_values('Level_1').unique() #slow
-df.index.unique(level='level_1') #suggested
+df.index.get_level_values('Level_1').unique()    #slow
+df.index.unique(level='level_1')                 #suggested
 ```
 
 ## get one value
-```python
+```py
 df.index.values[1][0] #fastest
 df.index.values[1][df.index.names.index('id')] #by level name
 df.index[1][0]  #fast
@@ -54,13 +54,13 @@ df.index.get_level_values(0)[1] #slow
 ```
 
 ## rename levels
-```python
+```py
 df = df.rename_axis(index={None:df.index.name})
 df = df.rename_axis(columns={None:df.index.name})
 ```
 
 ## reorder levels
-```python
+```py
 #custom reorder MultiIndex
 mi = pd.MultiIndex.from_product([['Value'],regions,scens], names=[None,'Region','Scenario'])
 df = df.reorder_levels([None,'Region','Scenario'], axis=0).reindex(mi) #index (default)
@@ -73,16 +73,16 @@ df.set_index(df.index.set_levels(df.index.get_level_values('a').dt.date, level='
 ```
 
 ## add a new index
-```python
+```py
 df = pd.concat([df], keys=['New_Idx'], names=['idx0'])
 ```
 
 ## drop rows with duplicate index
-```python
+```py
 df.pipe(lambda x: x[~x.index.duplicated(keep='first')])
 ```
 
 ## get last day of each month in index
-```python
+```py
 df.loc[df.groupby(df.index.to_period('M')).apply(lambda x: x.index.max())]
 ```
