@@ -5,3 +5,7 @@
 - store
 - analyze
 - visualize
+
+
+## learn
+Data Quality Fundamentals
