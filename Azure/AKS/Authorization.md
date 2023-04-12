@@ -16,6 +16,10 @@ az aks get-credentials -g <resource-group> -n <cluster-name>
 ## install kubelogin
 https://github.com/Azure/kubelogin
 ```
+curl -LO https://github.com/Azure/kubelogin/releases/latest/download/kubelogin-linux-amd64.zip
+unzip kubelogin-linux-amd64.zip
+sudo mv ./bin/linux_amd64/kubelogin /usr/local/bin/
+
 export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig
 kubectl get nodes
