@@ -3,9 +3,20 @@
 ## latest in each group
 daily revenue values with update_date for each state
 ```sql
-SELECT region, country, year(value_timestamp) as [year], month(value_timestamp) as [month], sum(revenue) as revenue from (
-    SELECT [state],[country],[region],DATEADD(HOUR,10,value_timestamp) as value_timestamp,[revenue]
-		,row_number() over(partition by state, update_date order by update_date desc) as rn
+SELECT 
+    region, 
+    country, 
+    year(value_timestamp) as [year], 
+    month(value_timestamp) as [month], 
+    sum(revenue) as revenue 
+FROM (
+    SELECT 
+        [state],
+	[country],
+	[region],
+	DATEADD(HOUR,10,value_timestamp) as value_timestamp,
+	[revenue],
+	row_number() over(partition by state, update_date order by update_date desc) as rn
     FROM [dev].[annual_revenue]
     WHERE value_type = 'forecast'
 ) t
