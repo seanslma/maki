@@ -136,8 +136,7 @@ Azure resource manager template.
          "networkProfile": {
          "networkInterfaces": [
              {
-               "id": "[resourceId('Microsoft.Network/networkInterfaces',
-               variables('nicName'))]"
+               "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
              }
           ]
        }
