@@ -123,11 +123,11 @@ Azure resource manager template.
          "copy": [
             {
                "name": "dataDisks",
-               "count": 3,
+               "count": 2,
                "input": {
                   "lun": "[copyIndex('dataDisks')]",
                   "createOption": "Empty",
-                  "diskSizeGB": "1023",
+                  "diskSizeGB": "512",
                   "name": "[concat(variables('vmName'), '-datadisk', copyIndex('dataDisks'))]"
                 }
              }
