@@ -49,6 +49,7 @@ https://community.powerbi.com/t5/Desktop/Change-calculated-table-dynamically-on-
 ## distinct column values to table
 ```
 NewTable = DISTINCT(OldTable[ColName])
+NewTable = DISTINCT(SELECTCOLUMNS(OldTable, "NewColName", [OldColName]))
 ```
 
 ## measure conditional on another column
