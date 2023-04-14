@@ -6,6 +6,11 @@ https://forum.enterprisedna.co/t/applying-two-slicers-from-the-same-field-on-tab
 ## order
 click 3-dots and sort and change the sort order
 
+## use fact or dim col for slicer
+Generally we should use col in dim table for slicer
+- dim col can control another dim table so will only show values related to the slicer
+- will not affect another slicer - avoid deadlock
+
 ## remove values not in fact table from slicer
 Problem: slicer uses dim table column and some values are not in fact table 2 - do not want to show the non-existent values in the slicer for table 2
 
