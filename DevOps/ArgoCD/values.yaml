@@ -1,0 +1,32 @@
+# https://github.com/argoproj/argo-helm/blob/master/charts/argo-cd/values.yaml
+
+configs:
+
+  # Argo CD RBAC policy configuration
+  ## Ref: https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/rbac.md
+  rbac:
+    # -- Create the argocd-rbac-cm configmap with ([Argo CD RBAC policy]) definitions.
+    # If false, it is expected the configmap will be created by something else.
+    # Argo CD will not work if there is no configmap created with the name above.
+    create: true
+
+    # -- Annotations to be added to argocd-rbac-cm configmap
+    annotations: {}
+
+    # -- The name of the default role which Argo CD will falls back to, when authorizing API requests (optional).
+    # If omitted or empty, users may be still be able to login, but will see no apps, projects, etc...
+    policy.default: "role:readonly"
+    
+  # Repository TLS certificates
+  # Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#repositories-using-self-signed-tls-certificates-or-are-signed-by-custom-ca
+  tls:
+    # -- Annotations to be added to argocd-tls-certs-cm configmap
+    annotations: {}
+
+    # -- TLS certificates for Git repositories
+    # @default -- `{}` (See [values.yaml])
+    certificates: {}
+      # server.example.com: |
+      #   -----BEGIN CERTIFICATE-----
+      #   ...
+      #   -----END CERTIFICATE-----    
