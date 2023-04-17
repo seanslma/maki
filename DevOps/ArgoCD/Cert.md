@@ -3,6 +3,8 @@ https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 
 https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#repositories
 
+ArgoCD uses certs (public and private keys) to connect to private repos.
+
 ## add cert into `argocd-tls-cert-cm`
 https://github.com/argoproj/argo-cd/issues/6048
 
