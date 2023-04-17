@@ -1,5 +1,10 @@
 # Monitor
 
+## azure monitor
+- Best to enable azure monitor. 
+- It provides valuable insights into the health and performance of your aks resources. 
+- The specific cost will depend on the amount of data you collect and the retention period you choose.
+
 ## Commands for monitoring
 ```
 kubectl get <resource type> <resource name>
