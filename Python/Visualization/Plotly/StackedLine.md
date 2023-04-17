@@ -2,8 +2,14 @@
 
 https://plotly.com/python-api-reference/
 
+## example
+```py
+fig = plotly_fig(df, 'fig', 'x', 'y')
+fig.write_image('c:/dev/my_figure.png', scale=1.5)
+```
+
 ## chart
-```python
+```py
 def plotly_fig(
     df: pd.DataFrame,
     title: str,
@@ -57,7 +63,7 @@ def plotly_fig(
 ```
 
 ## layaout
-```python
+```py
 default_font = 'DejaVu Sans'
 default_fig_cfg = dict(
     width=680,
@@ -84,7 +90,7 @@ default_fig_cfg = dict(
 ```
 
 ## x-axis
-```python
+```py
 default_xax_cfg = dict(
     title=dict(
         #text=xtitle,
@@ -106,7 +112,7 @@ default_xax_cfg = dict(
 ```
 
 ## y-axis
-```python
+```py
 deafult_yax_cfg = dict(
     title=dict(
         text=ytitle,
@@ -124,7 +130,7 @@ deafult_yax_cfg = dict(
 
 ## legend
 https://plotly.com/python/reference/#layout-legend
-```python
+```py
 default_lgd_cfg_th = dict(
     x=0.0,
     y=0.955,
