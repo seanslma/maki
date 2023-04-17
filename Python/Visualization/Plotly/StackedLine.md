@@ -1,8 +1,8 @@
-# Plotly
+# stacked line chart
 
 https://plotly.com/python-api-reference/
 
-## stacked line chart
+## chart
 ```python
 def plotly_fig(
     df: pd.DataFrame,
