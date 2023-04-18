@@ -35,3 +35,10 @@ module "dev" {
     values = file("${path.module}/values.yaml")
 }
 ```
+
+## Failed to construct REST client
+https://github.com/hashicorp/terraform-provider-kubernetes/issues/1775
+
+The kubernetes_manifest resource needs access to the API server of the cluster during planning (cluster must exist).
+
+This is because, in order to support CRDs in Terraform ecosystem, we need to pull the schema information for each manifest resource at runtime (during planing).
