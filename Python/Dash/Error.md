@@ -10,6 +10,9 @@ One of the file is dash.py - should not name file `dash.py` as that would shadow
 ## A nonexistent object was used in an Input of a Dash callback
 https://community.plotly.com/t/a-nonexistent-object-was-used-in-an-input-of-a-dash-callback-an-multipage-app/52007
 
+in a multipage dashboard:
+https://stackoverflow.com/questions/71361010/a-nonexistent-object-was-used-in-an-input-of-a-dash-callback-an-multipage-app
+
 Solution???
 ```py
 app.config['suppress_callback_exceptions'] = True
