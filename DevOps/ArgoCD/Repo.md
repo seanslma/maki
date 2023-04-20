@@ -13,8 +13,8 @@ https://rderik.com/blog/setting-up-access-to-a-private-repository-in-argocd-with
 Setup ArgoCD and Github so argocd can have access to private github repos.
 
 ### Generate ssh key-pair
-```
-ssh-keygen -t rsa -b 4096 -C "key for argocd to access private repo" -f id_rsa_argocd_repo
+```sh
+ssh-keygen -t rsa -b 4096 -C "argocd key for private repo" -f id_rsa_argocd_repo
 ```
 
 ### Add deploy key on GitHub repo
@@ -62,3 +62,76 @@ Here are some best practices to consider when using Azure Key Vault to retrieve 
 - Use Managed Identity. Use Managed Identity to authenticate to Azure Key Vault instead of using a client ID and secret, if possible. Managed Identity provides a secure way to access Azure resources without requiring any explicit credentials.
 - Store the Azure Key Vault secrets in encrypted form. Ensure that the secrets stored in the Azure Key Vault are encrypted at rest and in transit. This will prevent unauthorized access to the secrets.
 - Use Azure Key Vault with TLS. Configure your Azure Key Vault to use TLS, which will encrypt data in transit between the client and the vault.
+
+## Setup ssh authentication for ArgoCD
+Encoding private key via base64:
+```sh
+cat id_rsa_argocd_repo | base64
+```
+
+Store the private key secret using Kubernetes `Secret`
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-repo-key
+  namespace: argocd
+type: Opaque
+data:
+  privateKey: one line base64 private key
+```
+```
+resource "kubernetes_secret" "argocd" {
+  metadata {
+    name = "argocd-repo-key"
+  }
+
+  data = {
+    privateKey = base64encode("<privatekey>")
+  }
+
+  type = "helm.sh/private"
+}
+```
+
+Link the secret by `ConfigMap`
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+data:
+  repositories: |
+    - url: git@github.com:<user>/repo
+      sshPrivateKeySecret:
+        name: argocd-repo-key
+        key: privateKey
+```
+```
+resource "kubernetes_config_map" "argocd" {
+  metadata {
+    name = "argocd-cm"
+  }
+
+  data = {
+    "repositories.yaml" = <<-EOT
+    apiVersion: v1
+    repositories:
+    - name: my-private-repo
+      url: https://my-private-repo.com/charts
+      username: ${kubernetes_secret.private_helm_repo_creds.data["username"]}
+      password: ${kubernetes_secret.private_helm_repo_creds.data["password"]}
+    EOT
+  }
+}
+```
+
+Change `repoURL` from https to ssh and apply
+```
+https://github.com/<user>/repo.git
+git@github.com:<user>/repo
+```
