@@ -1,4 +1,4 @@
 # Presentation
 
-## https://www.beautiful.ai/
+## https://www.beautiful.ai
 Create slides quickly

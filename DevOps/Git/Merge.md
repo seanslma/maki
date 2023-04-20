@@ -1,5 +1,13 @@
 # Merge
 
+## how to merge
+```
+#edit conflict file
+git add <file-path>
+git commit -m "Updated"
+git push
+```
+
 ## in conflict state accept `theirs`
 ```
 git checkout --theirs <file-path>
