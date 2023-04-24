@@ -54,3 +54,59 @@ def file_to_blob(local_filepath, blob_filepath, chunk_size = 4 * 1024 * 1024):
     except Exception as exc:
         print('Upload file error')
 ```
+
+## write df to parquet file
+Method 1: using pandas (seems not working 100% when file too large)
+```py
+from adlfs import AzureBlobFileSystem
+# create file system
+fs = AzureBlobFileSystem(
+    account_name = '<AZURE_STORAGE_ACCOUNT>',
+    credential = DefaultAzureCredential(),
+)
+# read parquet from azure blob storage
+with fs.open(filepath) as f:
+    df = pd.read_parquet(f)
+df = pq.read_table(filepath, filesystem=fs).to_pandas() #another way
+# write parquet to azure blob storage
+with fs.open(filepath, mode='wb') as f:
+    df.to_parquet(f)
+```
+
+Method 2: convert df to bytes first
+https://stackoverflow.com/questions/54664712/how-to-store-pandas-dataframe-data-to-azure-blobs-using-python
+
+- use `io.BytesIO`
+- Apache Arrow `BufferOutputStream`: writes to the stream without the overhead of going through Python, less copies are made and the GIL is released
+```py
+import io
+import pandas as pd
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+
+# get blob client
+credential = DefaultAzureCredential()
+blob_service = BlobServiceClient(
+    account_url="https://<my_account_name>.blob.core.windows.net",
+    credential=credential,
+)
+blob_client = blob_service.get_blob_client(
+    container=container_name, 
+    blob=blob_path,
+)
+
+# upload file: method 1
+parquet_bytes = io.BytesIO()
+df.to_parquet(parquet_bytes, engine='pyarrow')
+parquet_bytes.seek(0)  # change the stream position back to the beginning after writing
+blob_client.upload_blob(data=parquet_bytes)
+
+# upload file: method 2
+table = pa.Table.from_pandas(df)
+buf = pa.BufferOutputStream()
+pq.write_table(table=table, where=buf)
+blob = buf.getvalue()
+buf = pa.py_buffer(blob) #buf.to_pybytes() will make a copy of the data
+with fs.open(filepath, mode='wb') as f:
+    f.write(buf)
+```
