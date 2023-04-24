@@ -104,7 +104,7 @@ blob_client.upload_blob(data=parquet_bytes)
 # upload file: method 2
 table = pa.Table.from_pandas(df)
 buf = pa.BufferOutputStream()
-pq.write_table(table=table, where=buf)
+pq.write_table(table=table, where=buf, compression='zstd')
 blob = buf.getvalue()
 buf = pa.py_buffer(blob) #buf.to_pybytes() will make a copy of the data
 with fs.open(filepath, mode='wb') as f:
