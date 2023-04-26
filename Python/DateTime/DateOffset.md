@@ -27,6 +27,6 @@ DatetimeIndex(['2022-08-01', '2022-09-01'], dtype='datetime64[ns]', freq='MS')
 `pd.Timestamp.floor('D')` sets the time component to midnight (00:00:00) in the `UTC time zone`, and then converts the timestamp to the local time zone if necessary.
 
 ## pd.DateOffset vs pd.Timedleta vs pd.tseries.offsets.Day
-- `DateOffset` respect calendar arithmetic while `Timedelta` respects absolute time arithmetic
+- `DateOffset` respect calendar arithmetic while `Timedelta` respects absolute time arithmetic, might be different for datetime with timezone info
 - pd.DateOffset(days=1) increments a date by 1 calendar day (23, 24, or 25 hours depending on day light savings time)
 - pd.Timedelta(days=1) increments a date by 24 hours.
