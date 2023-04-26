@@ -20,3 +20,8 @@ DatetimeIndex(['2022-08-01', '2022-09-01'], dtype='datetime64[ns]', freq='MS')
 >>> pd.date_range(pd.Timestamp('2022-08-01 23:59:59') + pd.DateOffset(days=0, normalize=True), '2022-09-16', freq=pd.tseries.frequencies.to_offset('MS'))
 DatetimeIndex(['2022-08-01', '2022-09-01'], dtype='datetime64[ns]', freq='MS')
 ```
+
+## normalize vs floor('D')
+`pd.Timestamp.normalize()` sets the time component to midnight (00:00:00) in the `local time zone`, but does not change the time zone itself.
+
+`pd.Timestamp.floor('D')` sets the time component to midnight (00:00:00) in the `UTC time zone`, and then converts the timestamp to the local time zone if necessary.
