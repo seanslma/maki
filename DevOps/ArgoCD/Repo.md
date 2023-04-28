@@ -1,9 +1,11 @@
 # Private repo
 
+https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
+
 There are three options to set the key used to connect to the private helm repo
+- use username/password, or github user/token (PAT)
+- get the user/pass from secret store such as Azure KeyVault using manged identity
 - use a ssh key pair
-- use a github user and token (PAT)
-- get the user/token from secret store such as Azure KeyVault using manged identity
 
 ## ssh key pair
 https://levelup.gitconnected.com/connect-argocd-to-your-private-github-repository-493b1483c01e
@@ -45,7 +47,7 @@ data:
 ```
 
 ## get user/pass from azure key vault
-in resource "helm_release"
+in resource `helm_release`
 ```yaml
   set {
     name  = "configs.repositories.dev.username"
@@ -80,7 +82,9 @@ type: Opaque
 data:
   privateKey: one line base64 private key
 ```
-```
+
+Terraform
+```yaml
 resource "kubernetes_secret" "argocd" {
   metadata {
     name = "argocd-repo-key"
@@ -111,7 +115,9 @@ data:
         name: argocd-repo-key
         key: privateKey
 ```
-```
+
+Terraform
+```yaml
 resource "kubernetes_config_map" "argocd" {
   metadata {
     name = "argocd-cm"
