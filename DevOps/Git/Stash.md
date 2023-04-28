@@ -35,3 +35,9 @@ git stash clear                #remove all stashes
 git stash -u #--include-untracked stash untracked files
 git stash -a #--all stash untracked files and ignored files
 ```
+
+## error: unknown switch `e`
+Curly braces have special meaning in PowerShell. 
+```
+git stash pop 'stash@{0}'
+```
