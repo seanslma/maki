@@ -9,6 +9,35 @@ ContainerClient.list_blob_names #only blob name
 ContainerClient.walk_blobs      #hierarchical listing
 ```
 
+example
+```py
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient, BlobLeaseClient, BlobPrefix, ContentSettings
+
+account_name = '<account_name>'
+container_name = '<container_name>'
+
+account_url = f"https://{account_name}.blob.core.windows.net"
+credential = DefaultAzureCredential()
+
+# Create the BlobServiceClient object
+blob_service_client = BlobServiceClient(account_url, credential=credential)
+container_client = blob_service_client.get_container_client(container=container_name)
+
+m =0
+n =0
+for blob in container_client.walk_blobs(name_starts_with='2021/', delimiter='/'):
+    if isinstance(blob, BlobPrefix):
+        m +=1
+        if m < 4:
+            print(f'hierarchical: {blob.name}')
+        #list_blobs_hierarchical(container_client, prefix=blob.name)
+    else:
+        n +=1
+        if n < 4:
+            print(f'normal blob: {blob.name}')
+```
+
 ## blob with Python
 ```py
 import os, uuid
