@@ -1,4 +1,5 @@
 # Blob
+https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py
 
 ## list blobs
 https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-list-python
