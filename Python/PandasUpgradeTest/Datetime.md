@@ -1,12 +1,12 @@
 # Datetime
 
 ## to_datetime
-From pandas 2.0, cannot use `datfirst` separatedly. 
+From pandas 2.0, cannot use `dayfirst` separatedly. 
 ```py
-# dayfirst applies to all formats (previouslt not yyyy-mm-dd)
+# dayfirst applies to all formats (previously not yyyy-mm-dd)
 to_datetime('2023-02-01', dayfirst=True)
 >>> 2023-01-02
-# dayfirst does not apply to yyyy-mm-dd format
+# dayfirst does not apply to yyyy-mm-dd format when use mixed (not compatable with old versions)
 to_datetime('2023-02-01', dayfirst=True, format='mixed')
 >>> 2023-02-01
 ```
