@@ -1,5 +1,13 @@
 # Blob
 
+## list blobs
+https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-list-python
+```py
+ContainerClient.list_blobs      #name and metadata, tags, and other information associated with each blob
+ContainerClient.list_blob_names #only blob name
+ContainerClient.walk_blobs      #hierarchical listing
+```
+
 ## blob with Python
 ```py
 import os, uuid
