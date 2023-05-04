@@ -41,7 +41,7 @@ for blob in container_client.walk_blobs(name_starts_with='2021/', delimiter='/')
 ## move blob
 limitations: creation_time and last_modified cannot be preserved and cannot be updated
 
-can we do this?
+can we do this? No! 'BlobClient' object has no attribute 'set_blob_properties'
 ```py
 # Set the creation time of the destination blob to match the creation time of the source blob
 dest_blob_properties = dest_blob_client.get_blob_properties()
