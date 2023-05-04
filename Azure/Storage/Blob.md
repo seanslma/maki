@@ -39,12 +39,21 @@ for blob in container_client.walk_blobs(name_starts_with='2021/', delimiter='/')
 ```
 
 ## move blob
-limitations: creation_time and last_updated cannot be preserved and cannot be updated
+limitations: creation_time and last_modified cannot be preserved and cannot be updated
+
+can we do this?
+```py
+# Set the creation time of the destination blob to match the creation time of the source blob
+dest_blob_properties = dest_blob_client.get_blob_properties()
+dest_blob_properties.creation_time = blob_properties.creation_time
+dest_blob_client.set_blob_properties(blob_properties=dest_blob_properties)
+```
+
 ```py
 def move_blob(
     container_client: ContainerClient,
     source_blob_fullpath: str,
-    dest_blob_path: str,    
+    dest_blob_path: str,
 ):
     """
     Move blob file to another folder in the same blob container
@@ -67,10 +76,10 @@ def move_blob(
         # Break source blob lease
         if source_blob_properties.lease.state == "leased":
             lease.break_lease()
-        
+
         # Delete source blob
-        #source_blob.delete_blob() 
-        
+        #source_blob.delete_blob()
+
         return source_blob_properties
 ```
 
@@ -106,13 +115,13 @@ with open(download_file, "wb") as file:
 container.delete_container()
 ```
 
-## upload file 
+## upload file
 ```py
 import uuid
 def file_to_blob(local_filepath, blob_filepath, chunk_size = 4 * 1024 * 1024):
     """
     Upload file to blob storage
-    """    
+    """
     try:
         blob_client = self.container_client.get_blob_client(blob_filepath)
         block_list = []
@@ -122,7 +131,7 @@ def file_to_blob(local_filepath, blob_filepath, chunk_size = 4 * 1024 * 1024):
                 if not chunk:
                     break
                 blk_id = str(uuid.uuid4())
-                blob_client.stage_block(block_id=blk_id, data=chunk) 
+                blob_client.stage_block(block_id=blk_id, data=chunk)
                 block_list.append(BlobBlock(block_id=blk_id))
         blob_client.commit_block_list(block_list)
     except Exception as exc:
@@ -165,7 +174,7 @@ blob_service = BlobServiceClient(
     credential=credential,
 )
 blob_client = blob_service.get_blob_client(
-    container=container_name, 
+    container=container_name,
     blob=blob_path,
 )
 
