@@ -38,6 +38,42 @@ for blob in container_client.walk_blobs(name_starts_with='2021/', delimiter='/')
             print(f'normal blob: {blob.name}')
 ```
 
+## move blob
+limitations: creation_time and last_updated cannot be preserved and cannot be updated
+```py
+def move_blob(
+    container_client: ContainerClient,
+    source_blob_fullpath: str,
+    dest_blob_path: str,    
+):
+    """
+    Move blob file to another folder in the same blob container
+    """
+    # Make sure source blob exists
+    source_blob = container_client.get_blob_client(blob=source_blob_fullpath)
+    if source_blob.exists():
+        # Lease source blob during copy to prevent other clients from modifying it
+        lease = BlobLeaseClient(client=source_blob)
+        lease.acquire(-1) # Create an infinite lease
+
+        # Get source blob properties
+        source_blob_properties = source_blob.get_blob_properties()
+
+        # Copy blob
+        blob_filename = source_blob_fullpath.rsplit('/', 1)[-1]
+        dest_blob = container_client.get_blob_client(blob=f'{dest_blob_path}/{blob_filename}')
+        dest_blob.start_copy_from_url(source_url=source_blob.url)
+
+        # Break source blob lease
+        if source_blob_properties.lease.state == "leased":
+            lease.break_lease()
+        
+        # Delete source blob
+        #source_blob.delete_blob() 
+        
+        return source_blob_properties
+```
+
 ## blob with Python
 ```py
 import os, uuid
