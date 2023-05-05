@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # Incremental refresh
 
 ## web api
@@ -13,3 +14,4 @@ let
 in
     #"Filtered Rows"
 ```
+<!-- {% endraw %} -->
