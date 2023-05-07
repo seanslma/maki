@@ -54,3 +54,11 @@ https://github.com/argoproj/argo-cd/issues/9607
   insecure: true
   url: https://private-repo.com
   ```
+
+## x509: certificate signed by unknown authority
+https://github.com/argoproj/argo-cd/issues/6048
+
+The `ssh-known-hosts` and `tls-certs` ConfigMaps need to be mounted to the argocd-repo-server pods.
+```sh
+kubectl -n argocd describe deployments.apps argocd-repo-server 
+```
