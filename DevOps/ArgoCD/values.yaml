@@ -2,6 +2,15 @@
 
 configs:
 
+  # Repositories list to be used by applications
+  repositories:
+    <private-helm-repo-name>:
+      url: https://my-private-chart-repo.internal
+      #   name: private-repo
+      #   type: helm
+      #   password: my-password
+      #   username: my-username
+      
   # Argo CD RBAC policy configuration
   ## Ref: https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/rbac.md
   rbac:
@@ -15,8 +24,8 @@ configs:
 
     # -- The name of the default role which Argo CD will falls back to, when authorizing API requests (optional).
     # If omitted or empty, users may be still be able to login, but will see no apps, projects, etc...
-    policy.default: "role:readonly"
-    
+    policy.default: "role:readonly"   
+
   # Repository TLS certificates
   # Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#repositories-using-self-signed-tls-certificates-or-are-signed-by-custom-ca
   tls:
@@ -24,9 +33,8 @@ configs:
     annotations: {}
 
     # -- TLS certificates for Git repositories
-    # @default -- `{}` (See [values.yaml])
     certificates: {}
       # server.example.com: |
       #   -----BEGIN CERTIFICATE-----
       #   ...
-      #   -----END CERTIFICATE-----    
+      #   -----END CERTIFICATE----- 
