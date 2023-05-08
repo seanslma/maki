@@ -10,6 +10,8 @@ https://github.com/argoproj/argo-cd/issues/6048
 
 https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#repositories-using-self-signed-tls-certificates-or-are-signed-by-custom-ca
 
+The `argocd-tls-certs-cm` ConfigMap will be mounted as a volume at the mount path `/app/config/tls` in the pods of `argocd-server` and `argocd-repo-server`.
+
 The certs should be added in the values.yaml file
 ```
 configs:
