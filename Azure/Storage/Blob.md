@@ -78,7 +78,7 @@ def move_blob(
             lease.break_lease()
 
         # Delete source blob
-        #source_blob.delete_blob()
+        source_blob.delete_blob()
 
         return source_blob_properties
 ```
