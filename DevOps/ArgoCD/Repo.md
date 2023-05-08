@@ -47,6 +47,18 @@ data:
 ```
 
 ## get user/pass from azure key vault
+in values.yaml
+```yaml
+configs:
+  repositories:
+    private-helm-repo:
+      url: https://my-private-chart-repo.internal
+      #   name: private-repo
+      #   type: helm
+      #   password: my-password
+      #   username: my-username
+```
+
 in resource `helm_release`
 ```yaml
   set {
