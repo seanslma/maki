@@ -8,6 +8,8 @@ ArgoCD uses certs (public and private keys) to connect to private repos.
 ## add cert into `argocd-tls-cert-cm`
 https://github.com/argoproj/argo-cd/issues/6048
 
+https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#repositories-using-self-signed-tls-certificates-or-are-signed-by-custom-ca
+
 The certs should be added in the values.yaml file
 ```
 configs:
