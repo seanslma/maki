@@ -8,4 +8,4 @@ Advantages for applying regularization to regression:
 
 Variable selection methods:
 - Ridge method: shrink coefficients of correlated variables 
-- LASSO method: pick one variable and discard the others
+- LASSO (Least Absolute Shrinkage and Selection Operator) method: pick one variable and discard the others
