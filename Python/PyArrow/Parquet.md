@@ -1,7 +1,28 @@
 # Parquet
 
-## compression
+## save pa.table to parquet file
+```py
+import pyarrow as pa
+table = pa.table({
+    'n_legs': [2, 2, 4, 4],
+    'animal': ['Flamingo', 'Parrot', 'Dog', 'Horse],
+})
+
+# directly write to file
+pq.write_table(table=table, where='data.parquet', compression='zstd')
+
+# write to buffer first
+buf = pa.BufferOutputStream()
+pq.write_table(table=table, where=buf, compression='zstd')
+
+blob = buf.getvalue()
+buf = pa.py_buffer(blob)
+with fs.open('data.parquet', mode='wb') as f:
+    f.write(buf)
 ```
+
+## compression
+```py
 size = []
 tims = []
 import time
