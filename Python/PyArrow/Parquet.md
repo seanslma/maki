@@ -3,6 +3,7 @@
 ## save pa.table to parquet file
 ```py
 import pyarrow as pa
+import pyarrow.parquet as pq
 table = pa.table({
     'n_legs': [2, 2, 4, 4],
     'animal': ['Flamingo', 'Parrot', 'Dog', 'Horse],
