@@ -7,3 +7,9 @@ Use `standalone_mode=False`:
 ```
 print(main(standalone_mode=False))
 ```
+
+## Multiple Values from Environment Values
+https://click.palletsprojects.com/en/7.x/options/
+
+- The default implementation for all types is to split on `whitespace`
+- The exceptions to this rule are the `File` and `Path` types: Unix systems `colon` (:), and Windows `semicolon` (;)
