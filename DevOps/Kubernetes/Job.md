@@ -6,6 +6,13 @@ kubectl -n <namespace> create job --from=cronjob/<crojob-name> <job-name> #creat
 kubectl -n <namespace> get job --sort-by=.status.startTime                #show job status
 ```
 
+## create job from yaml
+```
+kubectl apply -f <job-name>.yaml
+kubectl get jobs -n <namespace>
+kubectl delete -f <job-name>.yaml #kubectl delete job <job-name> -n <namespace>
+```
+
 ## job deployment
 https://kubernetes.io/docs/concepts/workloads/controllers/job/
 ```
