@@ -6,7 +6,6 @@
 
 ## types
 https://db-engines.com/en/ranking/time+series+dbms
-- Complete ranking
 - Relational DBMS
 - Key-value stores
 - Document stores
