@@ -6,12 +6,12 @@
 
 ## types
 https://db-engines.com/en/ranking/time+series+dbms
-- Relational DBMS
-- Key-value stores
-- Document stores
-- Time Series DBMS
-- Graph DBMS
-- Search engines
+- Relational DBMS: Oracle, MySQL, SQLServer, PostgreSQL
+- Key-value stores: Redis, Amazon DynamoDB, Azure CosmosDB, Memcached
+- Document stores: MongoDB, Amazon DynamoDB, Databricks
+- Time Series DBMS: InfluxDB, IoTDB, Prometheus
+- Graph DBMS: Neo4j, Azure CosmosDB
+- Search engines: ElasticSearch, OpenSearch
 - Object oriented DBMS
 - RDF stores
 - Wide column stores
