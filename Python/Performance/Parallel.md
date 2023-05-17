@@ -12,7 +12,7 @@ Ray is decentralized, meaning each machine runs its own scheduler, so any issues
 Dask uses a centralized scheduler that handles all tasks for a cluster.
 
 ## joblib
-```python
+```py
 #r = Parallel(n_jobs=1)(delayed(sqrt)(i**2) for i in range(10)) #one return value
 #r = Parallel(n_jobs=1)(delayed(modf)(i/2.) for i in range(10)) #several return values
 #res, i = zip(*r)
@@ -22,10 +22,23 @@ Parallel(n_jobs=-3, backend=meth)(
 )
 ```
 
+Another format
+```py
+from joblib import cpu_count, delayed, Parallel
+delayed_func = [
+    delayed(my_func)(p1, p2, yr)
+    for yr in range(2000, 2022)
+]
+
+n_jobs = min(cpu_count(), len(delayed_func))
+with Parallel(n_jobs=n_jobs, prefer='threads') as parallel_pool:
+    dfs = parallel_pool(delayed_func)
+```
+
 ## multi-processing
 https://research.wmz.ninja/articles/2018/03/on-sharing-large-arrays-when-using-pythons-multiprocessing.html
 
-```python
+```py
 import numpy as np
 import multiprocessing as mp
 
