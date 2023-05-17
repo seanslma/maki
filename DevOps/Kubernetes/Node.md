@@ -50,3 +50,14 @@ umount /var/lib/docker/overlay2
 rm -rf /var/lib/docker
 systemctl start docker
 ```
+
+## Node stays on `Ready,SchedulingDisabled`
+Solution
+```
+kubectl uncordon <node-name>
+```
+https://github.com/kubereboot/kured/issues/63
+- incompatibility between the version of kubectl in the kured images you're using and AKS???
+- when there is only 1 node in AKS, because the pod cannot be re-created after node rebooted
+- this happens when the reboot can not occur because a `Pod Disruption Budget` does not allow pods to be killed on the node `kured` is trying to drain
+- scheduling disabled represents that node got into maintenance mode - due to maintainance???
