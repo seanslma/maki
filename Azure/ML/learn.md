@@ -8,3 +8,5 @@ https://github.com/PracticalAutomatedMachineLearning/Azure/tree/master/notebook
 
 ## Python sdk
 https://learn.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py
+
+https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-pipeline-python-sdk?view=azureml-api-2
