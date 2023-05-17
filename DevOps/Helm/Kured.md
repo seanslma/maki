@@ -8,6 +8,11 @@ To protect clusters, security updates are automatically applied to Linux nodes i
 
 With kured, a DaemonSet is deployed that runs a pod on each Linux node in the cluster. These pods in the DaemonSet watch for existence of the /var/run/reboot-required file, and then initiate a process to reboot the nodes.
 
+## cli
+```
+helm install kured stable/kured --namespace kured --set extraArgs.reboot-days="Mon\,Tue"
+```
+
 ## check logs
 ```
 kubectl -n <namespace> logs <kured-pod-name>
@@ -35,10 +40,11 @@ https://kured.dev/docs/configuration/
 In values.yaml
 ```
 extraArgs:
-  foo: 1
-  bar-baz: 2
+  start-time: "0:00"
+  end-time: "23:59"
+  reboot-days: "Mon,Tue"
 ```
 becomes
 ```
-/usr/bin/kured ... --foo=1 --bar-baz=2
+/usr/bin/kured ... --start-time="0:00" --end_time="23:59" --reboot-days="Mon\,Tue"
 ```
