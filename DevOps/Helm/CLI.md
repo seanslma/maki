@@ -32,6 +32,7 @@ helm status <release-name>
 ## list releases installed on cluster
 ```
 helm list --namespace <namespace>
+helm list --all-namespaces
 ```
 
 ## uninstall
