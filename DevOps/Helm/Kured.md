@@ -48,3 +48,9 @@ becomes
 ```
 /usr/bin/kured ... --start-time="0:00" --end_time="23:59" --reboot-days="Mon\,Tue"
 ```
+
+## error: DaemonSet.apps "kured" is invalid: spec.selector: ... field is immutable
+https://github.com/kubereboot/kured/issues/610
+
+Solution:
+uninstall the release and install it again - cannot simply upgrade
