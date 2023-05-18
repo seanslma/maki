@@ -2,9 +2,14 @@
 
 Compared to conda, mamba is faster but larger.
 
+## list env
+```
+mamba env list
+```
+
 ## update package
 ```
-mamb update pandas
+mamba update pandas
 ```
 
 ## clear cache
