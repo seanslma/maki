@@ -24,12 +24,18 @@ helm install jenkins https://example.com/charts/jenkins-1.2.3.tgz   #url
 helm install jenkins --repo https://example.com/charts/jenkins-prd  #repo url
 ```
 
-## uninstall
-```
-helm uninstall <release-name> [...] [flags]
-```
-
 ## check deployment status
 ```
 helm status <release-name>
+```
+
+## list releases installed on cluster
+```
+helm list --namespace <namespace>
+```
+
+## uninstall
+```
+helm uninstall <release-name> [...] [flags]
+helm uninstall --namespace <namespace> ingress-nginx
 ```
