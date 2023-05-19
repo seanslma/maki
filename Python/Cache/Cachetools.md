@@ -1,6 +1,8 @@
 # Cachetools
 
 ## example
+`maxsize`: max number of items in the cache
+`ttl`: unit is second
 ```py
 import time
 import numpy as np
