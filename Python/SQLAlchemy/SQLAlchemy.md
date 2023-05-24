@@ -1,7 +1,6 @@
 # SQLAlchemy
 
 ## print query with binding values
-
 sql.text
 ```
 print(query.compile(dialect=None,compile_kwargs={'literal_binds': True}))
@@ -10,6 +9,8 @@ print(query.compile(dialect=None,compile_kwargs={'literal_binds': True}))
 sql statement
 ```
 print(query.statement.compile(dialect=None,compile_kwargs={'literal_binds': True}))
+# mssql, mysql, oracle, postgresql, sqlite
+print(query.statement.compile(dialect==sqlalchemy.dialects.mssql.dialect(),compile_kwargs={'literal_binds': True}))
 ```
 
 ## query template
