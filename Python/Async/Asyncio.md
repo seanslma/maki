@@ -15,3 +15,11 @@ if __name__ == '__main__':
     finally:
         loop.close()
 ```
+
+## async to sync
+```py
+def sync(coro):
+    loop = asyncio.new_event_loop()
+    future = asyncio.run_coroutine_threadsafe(coro, loop)
+    return future.result()
+```
