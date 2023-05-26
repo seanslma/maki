@@ -31,3 +31,46 @@ t0 = time.time()
 d3 = f1(100000,10)
 print(f'time: {time.time() - t0:.3f}')    
 ```
+
+## custom key
+```py
+from cachetools import cached, TTLCache
+
+CACHE_TIME_LIMIT = 1 * 60 * 60 # one hour
+cachetools_cache = TTLCache(maxsize=float('inf'), ttl=CACHE_TIME_LIMIT)
+
+def key_builder(f, *args, **kwargs):
+    params = {}
+    special_type = ''
+    for i, v in enumerate(args):
+        params[f'arg{i}'] = v
+    for k, v in kwargs.items():
+        if k == 'special' and isinstance(v, Request):
+            special_type = v.headers.get('Accept')
+        else:
+            if isinstance(v, AzureBlobFileSystem):
+                v = {
+                    'account_url': v.account_url,
+                    'account_name': v.account_name,
+                }
+            params[k] = v
+    return f.__name__ + json.dumps(params) + f'`{special_type}'
+
+def cachetools_cached(f):
+    return cached(
+        cachetools_cache,
+        key=lambda *args, **kwargs: (key_builder(f, **kwargs)),
+    )(f)
+    
+@cachetools_cached
+def read_parquet_cache(
+    namespace: str,
+    *,
+    fs: AzureBlobFileSystem,
+    path: str,
+    columns: list[str],    
+) -> pd.DataFrame:
+    with fs.open(path) as f:
+        df = pd.read_parquet(path=f, columns=columns)
+    return df   
+```
