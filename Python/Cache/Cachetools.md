@@ -56,13 +56,22 @@ def key_builder(f, *args, **kwargs):
             params[k] = v
     return f.__name__ + json.dumps(params) + f'`{special_type}'
 
-def cachetools_cached(f):
+def cachetools_cachedx(f):
     return cached(
         cachetools_cache,
-        key=lambda *args, **kwargs: (key_builder(f, **kwargs)),
+        key=lambda *args, **kwargs: (key_builder(f, *args, **kwargs)),
     )(f)
     
-@cachetools_cached
+def cachetools_cached(namespace: str, key_builder: Callable):
+    def decorator(f):
+        return cached(
+            cachetools_cache,
+            key=lambda *args, **kwargs:
+                (key_builder(f, *args, namespace=namespace, **kwargs)),
+        )(f)
+    return decorator    
+    
+@cachetools_cached(namespace='dev', key_builder=key_builder)
 def read_parquet_cache(
     namespace: str,
     *,
