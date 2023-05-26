@@ -2,6 +2,7 @@
 
 ## multiprocessing
 ```py
+# not support asyncio
 from multiprocessing.pool import ThreadPool
 n_jobs = min(cpu_count(), len(safe_paths))
 
@@ -20,6 +21,7 @@ with ThreadPool(processes=n_jobs) as pool:
 
 ## concurrent
 ```py
+# support both sync and async
 from concurrent.futures import ThreadPoolExecutor
 
 with ThreadPoolExecutor(max_workers=cpu_count()) as executor:
