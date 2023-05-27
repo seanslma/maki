@@ -21,6 +21,7 @@ terragrunt --help
 ## commands
 ```
 terragrunt run-all init    #initialize
+terragrunt run-all init -upgrade   #upgrade providers
 terragrunt run-all plan    #pre-check
 terragrunt run-all plan *> c:/terragrunt.plan.output #had issues
 terragrunt run-all apply   #deploy, this incurs cost!

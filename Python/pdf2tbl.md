@@ -9,7 +9,7 @@ https://github.com/jsvine/pdfplumber#extracting-tables
 examples\\
 https://github.com/jsvine/pdfplumber/blob/stable/examples/notebooks/extract-table-nics.ipynb
 
-```python
+```py
 pdf = pdfplumber.open(file_input)
 pg = pdf.pages[34]
 #pg.to_image()
@@ -29,7 +29,7 @@ lines = pg.extract_text().splitlines()
 #seems the settings only works for first table
 tbs = page.find_tables(table_settings)
 height = min(page.height, tb.bbox[3])
-tp = page.within_bbox((0, tb.bbox[1], page.width, height)) 
+tp = page.within_bbox((0, tb.bbox[1], page.width, height))
 ts = tp.find_tables(table_settings)
 if len(ts) == 0:
     continue
@@ -44,11 +44,11 @@ camelot: extract tables from pdf files. also works for scanned files. cannot get
 #install Ghostscript from: https://www.ghostscript.com/download/gsdnld.html\\
 #pip install "camelot-py[cv]"
 
-```python
+```py
 tbls = camelot.read_pdf(file_input, pages='all', process_background=True)
 for tbl in tbls:
     df = tbl.df
     print(f'Page: {tbl.page}')
     print(df.head(3))
     print('\n')
-```    
+```
