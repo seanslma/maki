@@ -13,4 +13,7 @@ Modify configuration values in .condarc.
 conda config --add channels conda-canary
 conda config --env --add pinned_packages conda=$conda_version
 conda config --env --set verbosity 3
+
+# not activate conda's base environment on startup
+conda config --set auto_activate_base false
 ```

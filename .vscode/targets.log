@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Apr 12 22:16:33 2023
+# Make data base, printed on Tue May 30 12:31:12 2023
 
 # Variables
 
@@ -47,9 +47,11 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","osLocale":"en-au","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:49647
+JOURNAL_STREAM = 8:41947
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# environment
+CONDA_PREFIX_1 = /home/sma/mambaforge
 # makefile (from 'makefile', line 1)
 MAKEFILE_LIST :=  makefile
 # automatic
@@ -65,7 +67,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /usr/share/code/code
 # environment
-MANAGERPID = 1608
+MANAGERPID = 1594
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -73,21 +75,21 @@ VSCODE_CWD = /home/sma
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/sma/miniforge/bin:/home/sma/miniforge/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/sma/miniforge/bin
+PATH = /home/sma/mambaforge/envs/dev/bin:/home/sma/mambaforge/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/sma/miniforge/bin
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1831,unix/mase:/tmp/.ICE-unix/1831
+SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1817,unix/mase:/tmp/.ICE-unix/1817
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-CONDA_PREFIX = /home/sma/miniforge
+CONDA_PREFIX = /home/sma/mambaforge/envs/dev
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 479c76725fcb44e7987114f637ae9d4b
+INVOCATION_ID = 3b42c11c1f7c4677abbafa791cdebdb3
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -95,19 +97,19 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5584
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4212
 # automatic
 %F = $(notdir $%)
 # environment
 DISPLAY = :0
 # environment
-CONDA_EXE = /home/sma/miniforge/bin/conda
+CONDA_EXE = /home/sma/mambaforge/bin/conda
 # environment
 PWD = /home/sma/dev/maki
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1793
+SSH_AGENT_PID = 1779
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -119,13 +121,13 @@ HOME = /home/sma
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
-VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/b7886d7461186a5eac768481578c1d7ca80e2d21
+VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/b3e4e68a0bc097f0ae7907b217c1119af9e03435
 # environment
 LOGNAME = sma
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
-CONDA_PROMPT_MODIFIER = (base) 
+CONDA_PROMPT_MODIFIER = (dev) 
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # environment
@@ -135,7 +137,7 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # environment
 MAKELEVEL := 0
 # environment
-CONDA_DEFAULT_ENV = base
+CONDA_DEFAULT_ENV = dev
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -159,7 +161,7 @@ XDG_CURRENT_DESKTOP = Unity
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
-CONDA_SHLVL = 1
+CONDA_SHLVL = 2
 # default
 MAKE_COMMAND := make
 # default
@@ -169,7 +171,7 @@ MAKE_COMMAND := make
 # environment
 LANGUAGE = en_AU:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.77-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.78-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -193,7 +195,7 @@ MAKEFILES :=
 # environment
 LC_ALL = C
 # environment
-CONDA_PYTHON_EXE = /home/sma/miniforge/bin/python
+CONDA_PYTHON_EXE = /home/sma/mambaforge/bin/python
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
@@ -213,9 +215,9 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 5584
+VSCODE_PID = 4212
 # variable set hash-table stats:
-# Load=101/1024=10%, Rehash=0, Collisions=13/126=10%
+# Load=102/1024=10%, Rehash=0, Collisions=13/127=10%
 
 # Pattern-specific Variable Values
 
@@ -223,9 +225,9 @@ VSCODE_PID = 5584
 
 # Directories
 
-# . (device 66311, inode 6427991): 21 files, no impossibilities.
+# . (device 66311, inode 6427991): 22 files, no impossibilities.
 
-# 21 files, no impossibilities in 1 directories.
+# 22 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -270,12 +272,12 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 27 / storage = 215 B / avg = 7 B
-# current buf: size = 8162 B / used = 215 B / count = 27 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 28 / storage = 218 B / avg = 7 B
+# current buf: size = 8162 B / used = 218 B / count = 28 / avg = 7 B
 
-# strcache performance: lookups = 32 / hit rate = 15%
+# strcache performance: lookups = 33 / hit rate = 15%
 # hash-table stats:
-# Load=27/8192=0%, Rehash=0, Collisions=1/32=3%
-# Finished Make data base on Wed Apr 12 22:16:33 2023
+# Load=28/8192=0%, Rehash=0, Collisions=1/33=3%
+# Finished Make data base on Tue May 30 12:31:12 2023
 
  
