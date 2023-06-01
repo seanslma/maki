@@ -19,6 +19,7 @@ source ~/.bashrc
 ## install package
 ```
 mamba install scipy black numpy pandas
+mamba install sqlalchemy=1.* #install latest version of 1.x
 ```
 
 ## update package
