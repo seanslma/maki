@@ -45,4 +45,8 @@ pip install redis[hiredis] #faster performance
 ```
 
 ## Windows
-Redis is not officially supported on Windows. Had to install it on WSL2.
+Redis is not officially supported on Windows. 
+
+Had to install it on WSL2. See Linux section.
+
+After start the redis-server from WSL2, we can use the server from windows (Need to install redis-py in windows).
