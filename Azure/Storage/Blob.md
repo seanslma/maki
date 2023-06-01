@@ -43,7 +43,7 @@ for blob in container_client.walk_blobs(name_starts_with='2021/', delimiter='/')
 total_size = 0
 for blob in container_client.walk_blobs(name_starts_with='2021/', delimiter='/'):
     total_size += blob.size
-print(f'Total size: {total_size}')
+print(f'Total size: {total_size / 1024 / 1024} MB')
 ```
 
 ## move blob
