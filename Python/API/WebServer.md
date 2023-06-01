@@ -66,5 +66,54 @@ config.accesslog = '-'
 asyncio.run(serve(app, config))
 ```
 
+more example
+```py
+import click
+#import uvloop
+import asyncio
+from hypercorn.config import Config
+from hypercorn.asyncio import serve
+
+from fastapi import FastAPI
+from fastapi.middleware.gzip import GZipMiddleware
+
+from . import __version__
+from .routers import (
+    dev,
+    tst,
+)
+
+app = FastAPI(
+    title='Dev REST API',
+    version=__version__,
+    docs_url='/',
+)
+
+app.add_middleware(GZipMiddleware, minimum_size=100000)
+
+app.include_router(retail.router, prefix='/dev', tags=['Dev'])
+app.include_router(trading.router, prefix='/tst', tags=['Tst'])
+
+import os
+os.environ['HYPERCORN_WORKERS'] = '2'
+os.environ['HYPERCORN_DEBUG'] = 'False'
+os.environ['HYPERCORN_ROOT_PATH'] = 'c:/test/api'
+
+@click.command()
+@click.option('--host', type=click.STRING, default='127.0.0.1')
+@click.option('--port', type=click.INT, default=7000)
+@click.option('--auto-reload/--no-auto-reload', default=True)
+def cli(**kwargs):
+    host = kwargs['host']
+    port = kwargs['port']
+    auto_reload = kwargs['auto_reload']
+    config = Config()
+    config.bind = [f'{host}:{port}']
+    #config.worker_class = uvloop.Loop # uvloop only for linux
+    #config.use_reload = auto_reload
+    #config.accesslog = '-'
+    asyncio.run(serve(app, config))
+```
+
 ## gunicorn
 `gunicorn` is a synchronous web server.
