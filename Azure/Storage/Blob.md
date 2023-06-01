@@ -24,18 +24,26 @@ credential = DefaultAzureCredential()
 blob_service_client = BlobServiceClient(account_url, credential=credential)
 container_client = blob_service_client.get_container_client(container=container_name)
 
-m =0
-n =0
+m = 0
+n = 0
 for blob in container_client.walk_blobs(name_starts_with='2021/', delimiter='/'):
     if isinstance(blob, BlobPrefix):
-        m +=1
+        m += 1
         if m < 4:
             print(f'hierarchical: {blob.name}')
         #list_blobs_hierarchical(container_client, prefix=blob.name)
     else:
-        n +=1
+        n += 1
         if n < 4:
             print(f'normal blob: {blob.name}')
+```
+
+## blob size in a folder
+```py
+total_size = 0
+for blob in container_client.walk_blobs(name_starts_with='2021/', delimiter='/'):
+    total_size += blob.size
+print(f'Total size: {total_size}')
 ```
 
 ## move blob
