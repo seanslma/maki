@@ -26,7 +26,7 @@ pip install redis[hiredis]
 ## create server
 ```py
 import redis
-r = redis.Redis('localhost', 6379, 0)
+r = redis.Redis(host='localhost', port=6379, db=0)
 print(r.ping()) 
 print(r.keys("*"))
 ```
