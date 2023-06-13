@@ -23,3 +23,10 @@ substring commands:
 - `setbit key idx val`: set bit value at idx
 - `bitcount key [start, end]`: count the bits in the sub/string
 - `bitop op des-key key-name [key-name2 ...]`: bitwise operations, `AND`, `OR`, `XOR`, or `NOT`, on provided strings, storing result in destination key
+
+## list
+- `l/rpush key val [val ...]`: pushe  value(s) onto the left/right end of the list
+- `l/rpop key`: remove and return left/right most item from the list
+- `lindex key offset`: return item at the given offset
+- `lrange key start end-incl`: return items from start to end inclusive
+- `ltrim key start end-incl`: trim the list to only include items between start and end inclusive
