@@ -8,7 +8,7 @@ Will use the same measure to calculate value and total so sometimes the total ca
 ```
 Measure = 
     VAR __is_val = HASONEFILTER(Tb2[Col2])
-    VAR __tmp_va = CALCULATE(
+    VAR __tmp_val = CALCULATE(
         SUM(Tb1[Value]), 
         ALL(Tb2),
         ALL(Tb1[Colx]),        
@@ -23,7 +23,7 @@ RETURN
             SWITCH(
                 RELATED(Tb3[Col3]),
                 "AA", __val,
-                "BB", __val - __tmp_va,
+                "BB", __val - __tmp_val,
                 BLANK()
             )
         ),
@@ -42,27 +42,26 @@ customize subtotals and totals:
 https://community.powerbi.com/t5/Desktop/Different-DAX-calculations-for-different-row-hierarchies-in-a/m-p/2136701#M788896
 ```
 Switch = 
-var _territoty=1
-var _region=2
-var _Total=3
+    var _territoty=1
+    var _region=2
+    var _Total=3
 return 
-IF (
-    ISINSCOPE ( 'Table'[Region] ),
-    _region,
-    IF (
-        ISINSCOPE ( 'Table'[Territory] ), 
-        _territoty, 
-        _Total
+    IF(
+        ISINSCOPE('Table'[Region]),
+        _region,
+        IF(
+            ISINSCOPE('Table'[Territory]), 
+            _territoty, 
+            _Total
+        )
     )
-)
 ```
 
 Seems `ISINSCOPE` does not work. We need to use `HASONEFILTER(Tbl(Col))` to determine which row level the measure is.
 
 ## subtotal to sum values (city price) on cities
 ```
-AvgPrice = 
-SUMX (
+AvgPrice = SUMX(
     SUMMARIZE('Table', 'Table'[city], "Average", divide(sum('Table'[price]),SUM('Table'[quantity]))),
     [Average]
 )
