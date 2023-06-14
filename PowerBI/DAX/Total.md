@@ -5,7 +5,7 @@ https://community.powerbi.com/t5/Quick-Measures-Gallery/Measure-Totals-The-Final
 https://community.powerbi.com/t5/DAX-Commands-and-Tips/Dealing-with-Measure-Totals/td-p/63376
 
 ## calculate total use a different formula
-The total is the sum of the values in each row for a value of AnotherTbl[AnotherCol]
+The total is the sum of the values in each row for a value of `AnotherTbl[AnotherCol]`
 ```
 MyCalculatedCol = 
     VAR __row_val = MyMeasure    
