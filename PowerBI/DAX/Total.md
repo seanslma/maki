@@ -6,10 +6,12 @@ https://community.powerbi.com/t5/DAX-Commands-and-Tips/Dealing-with-Measure-Tota
 
 ## calculate total use a different formula
 The total is the sum of the values in each row for a value of `AnotherTbl[AnotherCol]`
+- `HASONEVALUE` check if a specific column `has only one distinct value` within the current evaluation context
+- `HASONEFILTER` check if a specific column is being `filtered by a single value` within the current evaluation context
 ```
 MyCalculatedCol = 
     VAR __row_val = MyMeasure    
-    VAR __is_row = HASONEFILTER(MyTable[MyColInTbl])
+    VAR __is_row = HASONEVALUE(MyTable[MyColInTbl])
 RETURN
     if(__is_row, 
         __row_val, 
