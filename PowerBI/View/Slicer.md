@@ -76,3 +76,10 @@ DateStr =
 Return 
     SWITCH(Dates[Date], MaxDate, "Today", SecondMaxDate, "Yesterday", FORMAT(Dates[Date], "yyyy-MM-dd hh:mm:ss"))
 ```
+
+## Slicer not showing all values in a table
+https://community.fabric.microsoft.com/t5/Desktop/Slicer-not-showing-all-values-that-are-shown-in-visual/m-p/2580206#M910972
+
+Scenario: both the slicer and view table column refer to the same table column
+
+Solution: one of the relationships in the dataset had the cross-filter direction set to both which resulted in the date filter affecting the product group dimension.
