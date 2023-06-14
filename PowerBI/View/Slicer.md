@@ -83,3 +83,5 @@ https://community.fabric.microsoft.com/t5/Desktop/Slicer-not-showing-all-values-
 Scenario: both the slicer and view table column refer to the same table column
 
 Solution: one of the relationships in the dataset had the cross-filter direction set to both which resulted in the date filter affecting the product group dimension.
+
+Need to filter out empty records based on another column.
