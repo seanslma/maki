@@ -29,6 +29,3 @@ fs = get_filesystem(account_name='azure_blob_storage')
 files = fs.glob('az://dev/2021/01/data*].parquet')
 files = fs.glob('az://dev/2021/01/data[0-9][0-9].parquet')
 ```
-
-## move files in blob storage using AzCopy
-https://gist.github.com/ehrnst/bb63af04541060af7bdde66f926ac849
