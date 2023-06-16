@@ -5,3 +5,11 @@
 az login --scope https://management.azure.com//.default
 az login --scope https://management.core.windows.net//.default
 ```
+
+## Error: Credential authentication unavailable
+Run the command first:
+```
+az account list
+az account set --subscription <subscription-id>
+az login
+```
