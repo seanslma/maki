@@ -30,3 +30,12 @@ for i in xrange(5):
     threading.Thread(target=trans).start()
     time.sleep(.5)
 ```
+
+## expiration commands
+- `persist key`: remove expiration from key
+- `ttl key`: return time remaining in seconds before key expires
+- `expire key seconds`: set key to expire in seconds
+- `expireat key timestamp`: set expiration time of unix timestamp in seconds
+- `pttl key`: return time remaining in illiseconds before key expires
+- `pexpire key milliseconds`: set key to expire in ms
+- `pexpireat key timestamp-milliseconds`: set expiration time of unix timestamp in ms
