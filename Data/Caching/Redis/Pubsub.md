@@ -1,6 +1,6 @@
 # Publish/subscribe
 
-pub/sub events mode
+pub/sub events mode. can cause high memory usage in redis and sub can lost a little data.
 
 commands
 - `publish channel message`: publishe a message to channel
