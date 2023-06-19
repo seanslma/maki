@@ -39,3 +39,11 @@ for i in xrange(5):
 - `pttl key`: return time remaining in illiseconds before key expires
 - `pexpire key milliseconds`: set key to expire in ms
 - `pexpireat key timestamp-milliseconds`: set expiration time of unix timestamp in ms
+
+## info command
+`INFO` command can offer a wide range of information about the current status of a Redis server:
+- memory used,
+- number of connected clients,
+- number of keys in each database,
+- number of commands executed since the last snapshot, and so on
+- `aof_pending_bio_fsync`: is 0 if all data that the server knows about has been written to disk
