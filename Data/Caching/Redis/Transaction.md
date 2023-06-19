@@ -7,3 +7,22 @@ These commands will protect us from data corruption. They ensure that the data d
 or abort the operation)
 - UNWATCH: reset connection if sent after WATCH but before MULTI
 - DISCARD: similar to unwatch
+
+## example of watch
+```py
+pipe = conn.pipeline()
+while time.time() < end:
+    try:
+        pipe.watch('key-a', 'key-b')
+        if not pipe.sismember('key-a', 'itemid'):
+            pipe.unwatch()
+            return None # condotion not satisfied
+        # do the transaction
+        pipe.multi()
+        pipe.zadd('key-x', 'item', 100)
+        pipe.srem('key-a', 'itemid')
+        pipe.execute()
+        return True
+    except redis.exceptions.WatchError:
+        pass # values in key-a or key-b were changed
+```
