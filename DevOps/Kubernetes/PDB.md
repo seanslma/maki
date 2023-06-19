@@ -1,6 +1,11 @@
 # PDB (Pod Disruption Budget)
 https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 
+A PodDisruptionBudget has three fields:
+- A label selector `.spec.selector` to specify the set of pods to which it applies
+- `.spec.minAvailable` which is a description of the number of pods from that set that must still be available after the eviction, even in the absence of the evicted pod. absolute number or a percentage.
+- `.spec.maxUnavailable` which is a description of the number of pods from that set that can be unavailable after the eviction. absolute number or a percentage.
+
 ## `minAvailable` or `maxUnavailable`
 - `minAvailable`:  the number of Pods that must be available during a disruption
 - `maxUnavailable`:  the number of Pods that may be disrupted
