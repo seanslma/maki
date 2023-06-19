@@ -1,4 +1,5 @@
 # Mode
+`multi-master replication` is not supported.
 
 ## master-slave chain
 when there are too many slaves, the master might be too busy to write to or be connected by slaves. 
