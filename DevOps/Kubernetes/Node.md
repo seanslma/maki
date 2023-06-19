@@ -60,4 +60,6 @@ https://github.com/kubereboot/kured/issues/63
 - incompatibility between the version of kubectl in the kured images you're using and AKS???
 - when there is only 1 node in AKS, because the pod cannot be re-created after node rebooted
 - this happens when the reboot can not occur because a `Pod Disruption Budget` does not allow pods to be killed on the node `kured` is trying to drain
+  `error when evicting pods/"user-scheduler-xxxxx-xxx" -n "jhub" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.`
+  check the `pdb` settings - some settings are invalid
 - scheduling disabled represents that node got into maintenance mode - due to maintainance???
