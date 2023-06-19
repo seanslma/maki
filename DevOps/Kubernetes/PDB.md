@@ -9,8 +9,8 @@ https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 - a percentage as a string (e.g. "50%") represents a percentage of total Pods. If `minAvailable = 50%"`, then at least 50% of the Pods (rounded) remain available during a disruption.
 
 ## `ALLOWED DISRUPTIONS`
-- `ALLOWED DISRUPTIONS = 1` when there are no pods matching `app: my-app` in the namespace
 - `ALLOWED DISRUPTIONS = 0` when there are not any pods matching `app: my-app` in the namespace
+  `ALLOWED DISRUPTIONS = 1` disruption controller has seen the pods, counted the matching pods, and updated the status of the PDB
 ```
 kubectl -n <namespace> get pdb <pdb-name>
 kubectl -n <namespace> get pdb <pdb-name> -o yaml
