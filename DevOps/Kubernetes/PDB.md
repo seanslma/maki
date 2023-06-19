@@ -20,3 +20,11 @@ A PodDisruptionBudget has three fields:
 kubectl -n <namespace> get pdb <pdb-name>
 kubectl -n <namespace> get pdb <pdb-name> -o yaml
 ```
+
+## Cannot evict pod as it would violate the pod's disruption budget
+```
+NAMESPACE     NAME                 MIN AVAILABLE   MAX UNAVAILABLE   ALLOWED DISRUPTIONS   AGE
+jhub          user-placeholder     0               N/A               0                     10d
+jhub          user-scheduler       N/A             1                 1                     10d
+```
+PDBs are a feature for HA deployments, and HA deployments imply 2+ replicas. To avoid the error and failure of node reboot, the replicaSet must be larger than 1.
