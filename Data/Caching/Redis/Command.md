@@ -17,20 +17,6 @@ can be used to
 
 `MULTI` and `EXEC` can be used for a client to execute multiple commands without being interrupted by other clients.
 
-example
-```py
-def trans():
-    pipeline = r.pipeline()
-    pipeline.incr('trans:', 2)
-    time.sleep(.1)
-    pipeline.incr('trans:', -1)
-    ret = pipeline.execute()
-    print(ret[0])
-for i in xrange(5):
-    threading.Thread(target=trans).start()
-    time.sleep(.5)
-```
-
 ## expiration commands
 - `persist key`: remove expiration from key
 - `ttl key`: return time remaining in seconds before key expires
@@ -46,3 +32,6 @@ for i in xrange(5):
 - server/clients, such has number of connected clients,
 - stats, number of keys in each database, number of commands executed since the last snapshot, and so on
 - persistence, such as `aof_pending_bio_fsync`: is 0 if all data that the server knows about has been written to disk
+
+## perf command
+`redis-benchmark` will show the time for some commands
