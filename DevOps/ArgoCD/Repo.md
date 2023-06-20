@@ -3,9 +3,11 @@
 https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 
 There are three options to set the key used to connect to the private helm repo
-- use username/password, or github user/token (PAT)
-- get the user/pass from secret store such as Azure KeyVault using manged identity
-- use a ssh key pair
+- HTTPS using username/password, or github user/token (PAT)
+  - get the user/pass from secret store such as Azure KeyVault using managed identity
+- using a ssh key pair
+
+One is via HTTPS using username and password. The other and recommended way is using SSH using a private-public key-pair.
 
 ## ssh key pair
 https://levelup.gitconnected.com/connect-argocd-to-your-private-github-repository-493b1483c01e
