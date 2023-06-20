@@ -2,6 +2,8 @@
 
 similar to hash or dict, but will sort ans manipulate the values (numeric).
 
+By setting all scores to 0 in a ZSET, Redis will sort by member name.
+
 commands
 - `zadd key score member [score member ...]`: add members with scores
 - `zrem key member [member ...]`: remove members, return number of members removed
@@ -19,4 +21,4 @@ other commands
 - `zinterstore dest-key nkey key [key ...] [weights weight [weight ...]] [aggregate sum|min|max]`: save intersection of zsets to new zset, default sum scores
 - `zunionstore dest-key nkey key [key ...] [weights weight [weight ...]] [aggregate sum|min|max]`: save union of zsets to new zset, default sum scores
 
-zinterstore/zunionstore can also work together with sets by assuming the scores are 1
+zinterstore/zunionstore can also work together with sets by assuming the scores are 1. 
