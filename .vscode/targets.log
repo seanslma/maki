@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue May 30 12:31:12 2023
+# Make data base, printed on Tue Jun 20 21:27:21 2023
 
 # Variables
 
@@ -47,7 +47,7 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","osLocale":"en-au","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:41947
+JOURNAL_STREAM = 8:43592
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -67,7 +67,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /usr/share/code/code
 # environment
-MANAGERPID = 1594
+MANAGERPID = 1649
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -79,7 +79,7 @@ PATH = /home/sma/mambaforge/envs/dev/bin:/home/sma/mambaforge/condabin:/usr/loca
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1817,unix/mase:/tmp/.ICE-unix/1817
+SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1868,unix/mase:/tmp/.ICE-unix/1868
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -89,7 +89,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 3b42c11c1f7c4677abbafa791cdebdb3
+INVOCATION_ID = ec508e5d518a4b2ebc9cc1e0f057b85b
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -97,7 +97,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 4212
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2346
 # automatic
 %F = $(notdir $%)
 # environment
@@ -109,7 +109,7 @@ PWD = /home/sma/dev/maki
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1779
+SSH_AGENT_PID = 1830
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -215,7 +215,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 4212
+VSCODE_PID = 2346
 # variable set hash-table stats:
 # Load=102/1024=10%, Rehash=0, Collisions=13/127=10%
 
@@ -278,6 +278,6 @@ makefile:
 # strcache performance: lookups = 33 / hit rate = 15%
 # hash-table stats:
 # Load=28/8192=0%, Rehash=0, Collisions=1/33=3%
-# Finished Make data base on Tue May 30 12:31:12 2023
+# Finished Make data base on Tue Jun 20 21:27:21 2023
 
  

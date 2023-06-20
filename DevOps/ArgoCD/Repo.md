@@ -2,27 +2,10 @@
 
 https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 
-There are three options to set the key used to connect to the private helm repo
+There are two options to set the key used to connect to the private helm repo
 - HTTPS using username/password, or github user/token (PAT)
   - get the user/pass from secret store such as Azure KeyVault using managed identity
-- using a ssh key pair
-
-One is via HTTPS using username and password. The other and recommended way is using SSH using a private-public key-pair.
-
-## ssh key pair
-https://levelup.gitconnected.com/connect-argocd-to-your-private-github-repository-493b1483c01e
-
-https://rderik.com/blog/setting-up-access-to-a-private-repository-in-argocd-with-ssm-parameter-store-and-external-secrets-operator/
-
-Setup ArgoCD and Github so argocd can have access to private github repos.
-
-### Generate ssh key-pair
-```sh
-ssh-keygen -t rsa -b 4096 -C "argocd key for private repo" -f id_rsa_argocd_repo
-```
-
-### Add deploy key on GitHub repo
-On the repository settings, Deploy keys -> Add deploy key -> add the generated public key
+- SSH private-public key pair with github deplotment key (recommended more secure but one only for one repo)
 
 ## github user and token
 ### Store PAT as a Kubernetes secret in the same namespace as your ArgoCD installation
@@ -48,7 +31,7 @@ data:
         key: password
 ```
 
-## get user/pass from azure key vault
+### get user/pass from azure key vault
 in values.yaml
 ```yaml
 configs:
@@ -79,7 +62,22 @@ Here are some best practices to consider when using Azure Key Vault to retrieve 
 - Store the Azure Key Vault secrets in encrypted form. Ensure that the secrets stored in the Azure Key Vault are encrypted at rest and in transit. This will prevent unauthorized access to the secrets.
 - Use Azure Key Vault with TLS. Configure your Azure Key Vault to use TLS, which will encrypt data in transit between the client and the vault.
 
-## Setup ssh authentication for ArgoCD
+## ssh key pair
+https://levelup.gitconnected.com/connect-argocd-to-your-private-github-repository-493b1483c01e
+
+https://rderik.com/blog/setting-up-access-to-a-private-repository-in-argocd-with-ssm-parameter-store-and-external-secrets-operator/
+
+Setup ArgoCD and Github so argocd can have access to private github repos.
+
+### Generate ssh key-pair
+```sh
+ssh-keygen -t rsa -b 4096 -C "argocd key for private repo" -f id_rsa_argocd_repo
+```
+
+### Add deploy key on GitHub repo
+On the repository settings, Deploy keys -> Add deploy key -> add the generated public key
+
+### Setup ssh authentication for ArgoCD
 Encoding private key via base64:
 ```sh
 cat id_rsa_argocd_repo | base64
@@ -129,6 +127,9 @@ data:
         name: argocd-repo-key
         key: privateKey
 ```
+
+how to get the privateKey from Azure Key Vault???
+https://github.com/argoproj/argo-cd/issues/7878
 
 Terraform
 ```yaml
