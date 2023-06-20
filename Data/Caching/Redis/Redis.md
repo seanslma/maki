@@ -1,5 +1,7 @@
 # Redis
 
+Redis can be used for caching, logging, statistics, cookies, and so on.
+
 ## data structure
 - STRING: Strings, integers, or floating point values
   command: set, get, del
