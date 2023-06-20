@@ -61,3 +61,33 @@ def my_update(url_search):
     else:
         return '?userid=100', no_update
 ```
+
+## clientside callback
+```py
+app.layout = html.Div(
+    html.Div(id='my-div'),
+    dcc.Tabs(
+        id='tabs-a',
+        value=None,
+        children=[
+            dcc.Tab(label='Tab 1', value='tab1'),
+            dcc.Tab(label='Tab 2', value='tab2'),
+        ],
+    )
+)
+
+app.clientside_callback(
+    '''
+    function(tab_value) {
+        if (tab_value === 'tab1') {
+            document.title = 'Tab DEV'
+        }
+        else if (tab_value === 'tab2') {
+            document.title = 'Tab PRD'
+        }
+    }
+    ''',
+    Output('my-div', 'children'),
+    [Input('tabs-a', 'value')],
+)
+```
