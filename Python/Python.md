@@ -18,7 +18,7 @@ https://github.com/ml-tooling/best-of-python
 - typing
 - class: method, property, abstract class
 - generator
-- decorator
+- decorator (can be used in debugging, and more)
 - how to deal with exceptions
 - how to log info and error messages including stacktrace
 - parallel
@@ -42,9 +42,9 @@ https://github.com/ml-tooling/best-of-python
 - how to containerize your apps (dockerfile)
 
 ## special topics
-- performance (caching)
 - jupyter notebook 
 - web scraping
 - web api (fastapi)
 - dashboard (dash)
 - useful packages: click, dask, pyarrow
+- performance (timeit, caching)
