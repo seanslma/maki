@@ -12,13 +12,22 @@ https://github.com/ml-tooling/best-of-python
 ## python essentials
 - basic data structure: list, set, dict and associated functions
 - advanced data structure: numpy, pandas and associated functions
+- datetime (python, numpy, pandas datatime formats)
+- fileio
+- typing
 - class: method, property, abstract class
 - generator
 - decorator
-
-## exceptions and logs
 - how to deal with exceptions
 - how to log info and error messages including stacktrace
+- parallel
+- async
+- excel
+- sql (sqlalchemy)
+
+## testing
+- pytest (ignore)
+- unittest (mock)
 
 ## documentation
 - how to write document in code (function, class, module)
@@ -30,3 +39,11 @@ https://github.com/ml-tooling/best-of-python
 
 ## containerization
 - how to containerize your apps (dockerfile)
+
+## special topics
+- performance (caching)
+- jupyter notebook 
+- web scraping
+- web api (fastapi)
+- dashboard (dash)
+- useful packages: click, dask, pyarrow
