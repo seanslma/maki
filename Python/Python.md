@@ -10,6 +10,7 @@ https://codefellows.github.io/sea-python-401d4/lectures/
 https://github.com/ml-tooling/best-of-python
 
 ## python essentials
+- env: install, editor etc
 - basic data structure: list, set, dict and associated functions
 - advanced data structure: numpy, pandas and associated functions
 - datetime (python, numpy, pandas datatime formats)
