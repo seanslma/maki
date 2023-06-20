@@ -1,6 +1,6 @@
 # Redis
 
-Redis can be used for caching, logging, statistics, cookies, and so on.
+Redis can be used for caching, logging, statistics, cookies, and so on. Each can be on a separate Redis server on a single machine on different ports.
 
 ## data structure
 - STRING: Strings, integers, or floating point values
