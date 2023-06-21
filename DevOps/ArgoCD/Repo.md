@@ -122,7 +122,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
 data:
   repositories: |
-    - url: git@github.com:<user>/repo
+    - url: git@github.com:<user>/repo.git
       sshPrivateKeySecret:
         name: argocd-repo-key
         key: privateKey
