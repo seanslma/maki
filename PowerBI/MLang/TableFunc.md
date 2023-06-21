@@ -21,8 +21,23 @@ Table.RenameColumns(Data, {{"TypeId","Id"}, {"CountryName", "Country"}})
 ## TransformColumns
 Table.TransformColumns(Data, {"Date", each Date.AddDays(_,1), type datetime})
 
+## SplitColumn
+Table.SplitColumn(Data, "YearMonth", Splitter.SplitTextByPositions({0, 4}, false), {"Year", "Month"})
+
+## ExpandRecordColumn
+Table.ExpandRecordColumn(Data, "dbo.Sales", {"Name", "Quantity"}, {"Sales.Name", "Sales.Quantity"})
+
 ## UnpivotOtherColumns
 Table.UnpivotOtherColumns(Data, {"Date", "Year", "Quarter", "Type"}, "Attribute", "Value")
 
 ## SelectRows
 Table.SelectRows(Data, each [Date] > RangeStart and [Date] <= RangeEnd)
+
+## ReplaceValue
+Table.ReplaceValue(Data, each [Type], each if Text.Contains([Make],"Toyota") then "Car" else if Text.Contains([Make],"Apple") then "Mobile" else [Type], Replacer.ReplaceValue, {"Type"})
+
+## Distinct
+Table.Distinct(Data)
+
+## Join
+Table.Join(Data, "DataId", SalesTable, "SaleId")
