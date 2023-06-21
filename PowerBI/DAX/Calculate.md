@@ -52,6 +52,7 @@ VAR __val = DIVIDE(
 ```
 
 ## calculated column in Records with filter
+The Id in Records table has at least one row in Tbl table
 ```
 HasRecords = CALCULATE(
     COUNTROWS(Tbl), 
