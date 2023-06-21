@@ -1,7 +1,7 @@
 # Table Functions
 
 ## SelectColumns
-Table.SelectColumns(Data, {"Date"})
+Table.SelectColumns(Data, {"Date", "Value"})
 
 ## AddColumn
 Table.AddColumn(Data, "YearMonth", each Date.Year([Date])*100+Date.Month([Date]), Int64.Type)
