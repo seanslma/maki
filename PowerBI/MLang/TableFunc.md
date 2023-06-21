@@ -20,5 +20,8 @@ Table.RenameColumns(Data, {{"TypeId","Id"}, {"CountryName", "Country"}})
 ## TransformColumns
 Table.TransformColumns(Data, {"Date", each Date.AddDays(_,1), type datetime})
 
+## UnpivotOtherColumns
+Table.UnpivotOtherColumns(Data, {"Date", "Year", "Quarter", "Type"}, "Attribute", "Value")
+
 ## SelectRows
 Table.SelectRows(Data, each [Date] > RangeStart and [Date] <= RangeEnd)
