@@ -1,4 +1,5 @@
 # Table Functions
+data types: INt64.Type, type text, type logical, type datetime
 
 ## SelectColumns
 Table.SelectColumns(Data, {"Date", "Value"})
@@ -8,7 +9,7 @@ Table.AddColumn(Data, "YearMonth", each Date.Year([Date])*100+Date.Month([Date])
 
 Table.AddColumn(Data, "FinYear", each 
   if Date.Month([Date]) >= 7 then Date.Year([Date]) + "-" + Text.End(Text.From(Date.Year([Date]) + 1), 2) 
-  else (Date.Year([Date]) - 1) + "-" + Text.End(Text.From(Date.Year([Date])), 2), text
+  else (Date.Year([Date]) - 1) + "-" + Text.End(Text.From(Date.Year([Date])), 2), type text
 )
 
 ## RemoveColumns
