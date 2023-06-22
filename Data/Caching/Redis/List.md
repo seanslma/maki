@@ -6,6 +6,7 @@ commonly used comnmands
 - `lindex key offset`: return item at the given offset
 - `lrange key start end-incl`: return items from start to end inclusive
 - `ltrim key start end-incl`: trim the list to only include items between start and end inclusive
+- `lrem key n element`: remove first n occurrences of elements: n>0:head->tail, n<0:tail->head, n=0:all
 
 block pop and item move
 - `bl/rpop key- [key ...] timeout`: pop left/right most item from first non-empty LIST, or wait timeout in seconds for an item
