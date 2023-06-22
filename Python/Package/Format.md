@@ -39,5 +39,7 @@ include = '\.pyi?$'
 preview = false
 ```
 
-## flake8 (PyLint, Ruff)
-Flake8 is a Python linting tool that checks your Python codebase for errors, styling issues and complexity.
+## Ruff (flake8, PyLint)
+https://github.com/astral-sh/ruff
+
+Ruff is a Python linting tool that checks your Python codebase for errors, styling issues and complexity.
