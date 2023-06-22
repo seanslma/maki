@@ -6,12 +6,36 @@ https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/
 
 https://learn.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity
 
-AAD Pod Identity enables Kubernetes applications to access cloud resources securely with Azure Active Directory.
+## create `AzureIdentity` and `AzureIdentityBinding`
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentity
+metadata:
+  name: "{{ .Values.azureIdentity.name }}"
+  namespace: "{{ .Values.namespace }}"
+spec:
+  type: 0
+  resourceID: "{{ .Values.azureIdentity.resourceID }}"
+  clientID: "{{ .Values.azureIdentity.clientID }}"
+---
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentityBinding
+metadata:
+  name: "{{ .Values.azureIdentity.name }}"
+  namespace: "{{ .Values.namespace }}"
+spec:
+  azureIdentity: "{{ .Values.azureIdentity.name }}"
+  selector: "{{ .Values.azureIdentity.name }}"
 ```
+
+## reference the created AzureIdentity
+AAD Pod Identity enables Kubernetes applications to access cloud resources securely with Azure Active Directory.
+```yaml
 metadata:
   name: demo
   labels:
-    aadpodidbinding: $POD_IDENTITY_NAME
+    app: "{{ .Chart.Name }}"
+    aadpodidbinding: "{{ .Values.azureIdentity.name }}"    
 ```
 
 ## list identities
