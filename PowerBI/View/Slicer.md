@@ -51,7 +51,7 @@ Solution:
 ## Visual interactions
 - slicer A -> column A, slicer B -> column B
 - value selected in slicer B should not affect slicer A (still show all values)
-- Format > Edit interactions > click `no impact` icon near slicer A
+- Select slicer B > Format > Edit interactions > click `no impact` icon near slicer A
 
 ## Selected value
 ```
