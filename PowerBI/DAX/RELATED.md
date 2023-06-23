@@ -1,6 +1,8 @@
 # RELATED
 https://learn.microsoft.com/en-us/dax/related-function-dax
 
+RELATED(Tbl[Col]) must be in the head (from) side of the relatioship.
+
 The RELATED function is used to retrieve values from a related table in a data model. 
 It allows you to navigate from one table to another based on a defined relationship between them.
 
