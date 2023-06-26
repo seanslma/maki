@@ -20,3 +20,9 @@ hash-max-ziplist-value 64
 zset-max-ziplist-entries 128
 zset-max-ziplist-value 64
 ```
+
+## intset
+will change intset to hashtable after the limit.
+```
+set-max-intset-entries 512
+```
