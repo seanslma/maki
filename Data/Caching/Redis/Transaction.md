@@ -9,6 +9,7 @@ or abort the operation)
 - DISCARD: similar to unwatch
 
 ## example of watch
+WATCH/MULTI/EXEC transactions sometimes don't scale at load.
 ```py
 pipe = conn.pipeline()
 while time.time() < end:
