@@ -8,6 +8,9 @@ An open-source Edge Router receives requests on behalf of your system and finds 
 
 Traefik is a popular Kubernetes ingress controller that acts as a reverse proxy and load balancer for routing external traffic to services running within a cluster.
 
+## routing
+https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/
+
 ## TLSStore
 https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-tlsstore
 - TLSStore is the CRD implementation of a Traefik "TLS Store".
