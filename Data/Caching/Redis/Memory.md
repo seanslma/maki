@@ -7,6 +7,9 @@
 
 ## ziplist
 ziplist is more compact then general list, hash and zset.
+After a ziplist is converted to a regular structure, it doesn't get re-encoded as a ziplist if the structure later meets the criteria.
+
+check the object info: `r.debug_object('key')`
 ```
 list-max-ziplist-entries 512
 list-max-ziplist-value 64
