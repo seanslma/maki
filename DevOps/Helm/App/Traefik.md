@@ -32,3 +32,8 @@ The default value is false and will get this error when the `auth` MiddleWare is
 "msg":"Failed to create middleware keys: middleware traefik/auth is not in the IngressRoute namespace dev",
 "namespace":"dev","providerName":"kubernetescrd","time":"2023-06-22T22:37:12Z"}
 ```
+
+## self-signed certificate
+https://community.traefik.io/t/internal-server-error-when-proxing-to-https-with-self-signed-cert/11087/5
+
+When proxying to a server that uses a self-signed certificate, we need to configure a `serversTransport` to tell Traefik how to handle the certificate. 
