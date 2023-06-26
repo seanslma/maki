@@ -71,6 +71,8 @@ The middleware, attached to the router, provides a means of tweaking the request
 
 In Traefik, there are several available middleware, some can modify the request, the headers, some are in charge of redirections, some add authentication, and so on.
 
+Use a `StripPrefix` middleware if your backend listens on the root path (/) but should be exposed on a specific prefix.
+
 ```yaml
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
