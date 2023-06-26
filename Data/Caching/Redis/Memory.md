@@ -26,3 +26,9 @@ will change intset to hashtable after the limit.
 ```
 set-max-intset-entries 512
 ```
+
+## sharding
+not good for zset.
+
+## packing bits and bytes
+commands: `getrange`, `setrange`, `getbit`, and `setbit`
