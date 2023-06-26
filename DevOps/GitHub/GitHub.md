@@ -4,16 +4,13 @@
   * Automation / CI & CD
   * Security including additional features for enterprise customers
   * Project Management
-  
+
 Features:
 - branch protection rules
 
 ## Github vs Gitlab
 https://automateinfra.com/2023/05/05/gitlab-vs-github
 
-## Error: {'message': 'Bad credentials'}
-The PAT expired and should be updated.
-  
 ## PR review
 https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request
 ```
@@ -21,54 +18,8 @@ https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/review
 review-requested:[USERNAME]
 ```
 
-## Add PAT (Personal Access Token) 
-GitHub account, go to Settings 
-* => Developer Settings 
-* => Personal Access Token 
-* => Generate New Token (Give your password) 
-* => Fill up the form 
-* => Click Generate token 
-* => Copy the generated Token
-
-### clone with PAT
-```
-git clone https://username:ghp_MY-PERSONAL-ACCESS-TOKEN@github.com/username/my-repo.git
-```
-
-### linux
-Configure the local GIT client with a username and email address
-```bash
-$ git config --global user.name "your_github_username"
-$ git config --global user.email "your_github_email"
-$ git config -l
-#after first use cache token
-#git config --global credential.helper cache #not good
-git config credential.helper store 
-#delete cache record if needed
-git config --global --unset credential.helper
-git config --system --unset credential.helper
-#pull verify
-git pull -v
-```
-### windows
-Credential Manager from Control Panel 
-* => Windows Credentials 
-* => find git:https://github.com => Edit 
-* => On Password replace with GitHub Personal Access Token
-
-If you cannot find git:https://github.com 
-* => Click on Add a generic credential 
-* => Internet address will be git:https://github.com 
-* => type in username and password (GitHub Personal Access Token)
-
-### macos
-launch app eychain access
-* => In Keychain Access, search for github.com 
-* => Find the internet password entry for github.com 
-* => Edit or delete the entry accordingly
-
 ## Sync proj
-```bash
+```sh
 #clone project
 git clone https://github.com/usr/proj.git
 cd repo
@@ -81,7 +32,7 @@ git checkout master
 git merge upstream/master
 ```
 ## Add proj to GitHub
-```bash
+```sh
 cd proj-folder #move to proj folder
 git init -b main #init local dir as git repo
 gh repo create proj-name #create proj repo on github
