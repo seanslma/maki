@@ -37,3 +37,38 @@ The default value is false and will get this error when the `auth` MiddleWare is
 https://community.traefik.io/t/internal-server-error-when-proxing-to-https-with-self-signed-cert/11087/5
 
 When proxying to a server that uses a self-signed certificate, we need to configure a `serversTransport` to tell Traefik how to handle the certificate. 
+
+## example of IngressRoute and MiddleWare
+```yaml
+# https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-ingressroute
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: "my-api"
+  namespace: "dev"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: "Host(`dashboards.example.com`) && PathPrefix(`/dev/api`)"
+      middlewares:
+        - name: "my-api-stripprefix"
+      services:
+        - kind: Service
+          name: "my-api"
+          namespace: "dev"
+          passHostHeader: true
+          port: 5000
+  tls: {}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: "my-api-stripprefix"
+  namespace: "dev"
+spec:
+  stripPrefix:
+    prefixes:
+      - "/dev/api"
+```
