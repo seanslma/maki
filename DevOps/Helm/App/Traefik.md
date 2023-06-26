@@ -15,3 +15,18 @@ https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-tlsstore
 
 ## tsl
 https://doc.traefik.io/traefik/https/tls/
+
+## allowCrossNamespace
+Allow IngressRoute to reference resources in namespaces other than theirs.
+
+https://doc.traefik.io/traefik/providers/kubernetes-crd/
+```yaml
+providers:
+  kubernetesCRD:
+    allowCrossNamespace: true
+```
+
+The default value is false and will get this error when the `auth` MiddleWare is in the traefik namespace
+```
+{"ingress":"dev-dashboard","level":"error","msg":"Failed to create middleware keys: middleware traefik/auth is not in the IngressRoute namespace dev","namespace":"dev","providerName":"kubernetescrd","time":"2023-06-22T22:37:12Z"}
+```
