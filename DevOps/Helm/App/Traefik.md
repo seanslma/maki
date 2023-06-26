@@ -6,6 +6,8 @@ Traefik is a modern HTTP reverse proxy and load balancer made to deploy microser
 
 An open-source Edge Router receives requests on behalf of your system and finds out which components are responsible for handling them.
 
+Traefik is a popular Kubernetes ingress controller that acts as a reverse proxy and load balancer for routing external traffic to services running within a cluster.
+
 ## TLSStore
 https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-tlsstore
 - TLSStore is the CRD implementation of a Traefik "TLS Store".
