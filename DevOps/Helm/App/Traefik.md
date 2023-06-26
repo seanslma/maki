@@ -38,7 +38,8 @@ https://community.traefik.io/t/internal-server-error-when-proxing-to-https-with-
 
 When proxying to a server that uses a self-signed certificate, we need to configure a `serversTransport` to tell Traefik how to handle the certificate. 
 
-## example of IngressRoute and MiddleWare
+## IngressRoute
+IngressRoutes expose Kubernetes applications externally to the public. Ingresses associate with Pods through references to Services.
 ```yaml
 # https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-ingressroute
 apiVersion: traefik.containo.us/v1alpha1
@@ -61,7 +62,16 @@ spec:
           passHostHeader: true
           port: 5000
   tls: {}
----
+```
+
+## MiddleWare
+https://doc.traefik.io/traefik/middlewares/overview/
+
+The middleware, attached to the router, provides a means of tweaking the requests before they are sent to the service (or before the answer from the service are sent to the client).
+
+In Traefik, there are several available middleware, some can modify the request, the headers, some are in charge of redirections, some add authentication, and so on.
+
+```yaml
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
