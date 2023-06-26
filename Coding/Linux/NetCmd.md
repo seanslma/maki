@@ -13,3 +13,8 @@ ss -ltn
 sudo lsof -i tcp:8080
 sudo kill -9 PID #kill the process based on PID
 ```
+
+## nslookup
+NSLOOKUP stands for "Name Server Lookup," used to query the Domain Name System (DNS) to obtain information about domain names, IP addresses, and other DNS records.
+
+`nslookup www.example.com` will return the domain name and ip address.
