@@ -4,6 +4,7 @@ string can be use to cache three types of values.
 - Byte string values
 - Integer values
 - Floating-point values
+- The maximum size limit for a string value is 512MB
 
 ## incr/decr commands 
 assume non-existent or empty string having a value of zero:
