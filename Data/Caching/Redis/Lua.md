@@ -8,7 +8,7 @@ Lua scripting in Redis offers several advantages, including
 - reduced network round-trips, and
 - the ability to execute multiple commands as a single operation. 
 
-## how Lua scripting works in Redis:
+## how Lua scripting works in Redis
 - Writing Lua Scripts: use Lua programming language. Redis also provides a set of Lua functions called "Redis Lua Scripting API"
 - Loading Lua Scripts: Lua script must be loaded into Redis before use via SCRIPT LOAD command (return script hash)
 - Executing Lua Scripts: EVAL command or EVALSHA with the previously obtained script hash
