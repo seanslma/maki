@@ -55,7 +55,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: "Host(`dashboards.example.com`) && PathPrefix(`/dev/api`)"
+      match: "Host(`test.example.com`) && PathPrefix(`/dev/api`)"
       middlewares:
         - name: "my-api-stripprefix"
       services:
@@ -86,4 +86,28 @@ spec:
   stripPrefix:
     prefixes:
       - "/dev/api"
+```
+
+## Ingress
+The previous IngressRoute and MiddleWare is equavalent to 
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: my-api
+  namespace: dev
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    traefik.ingress.kubernetes.io/rule-type: "PathPrefixStrip"
+spec:
+  rules:
+    - host: test.example.com
+      http:
+        paths:
+        - path: /dev/api
+          backend:
+            serviceName: my-api
+            servicePort: http
+  tls:
+    - secretName: test.example.com-tls-cert
 ```
