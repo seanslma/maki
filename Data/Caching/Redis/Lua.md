@@ -21,3 +21,7 @@ returned values from Lua will be altered (Lua -> Python)
 - nil: stop returning anything
 - float/large float: integer part/min integer (better to return string)
 - integer/string: unchanged
+
+## kill script run
+- readonly: SCRIPT KILL if executing for longer than `configured lua-time-limit`
+- has write: SHUTDOWN NOSAVE to kill Redis (not good) - should always test Lua before prod
