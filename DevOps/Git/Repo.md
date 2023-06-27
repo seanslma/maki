@@ -1,6 +1,6 @@
 # Repo
 
-## create a new repo
+## create a repo
 local folder to github repo
 ```sh
 #create a github repo first, do not add readme etc
