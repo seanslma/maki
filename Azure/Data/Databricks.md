@@ -25,7 +25,11 @@ The Databricks appliance is deployed into Azure as a managed resource group with
 
 Internally, AKS is used to run the Azure Databricks control-plane and data-planes via containers.
 
-## Storage config
-https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes
-
-By using Azure Key Vault and Databricks Scope, we can access our storage without hard-coding secure information.
+## Setup
+- create databrcks
+- create data lake storage gen2
+- config storage access scope
+  https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes \
+  By using Azure Key Vault and Databricks Scope, we can access our storage without hard-coding secure information.
+- create compute cluster (ML runtime)
+- create notebook: attach cumpute cluster to notebook
