@@ -30,6 +30,7 @@ Internally, AKS is used to run the Azure Databricks control-plane and data-plane
 - create data lake storage gen2
 - config storage access scope
   https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes \
-  By using Azure Key Vault and Databricks Scope, we can access our storage without hard-coding secure information.
+  By using Azure Key Vault and Databricks Scope, we can access our storage without hard-coding secure information. \
+  https://learn.microsoft.com/en-us/azure/databricks/dbfs/mounts
 - create compute cluster (ML runtime)
 - create notebook: attach cumpute cluster to notebook
