@@ -7,13 +7,14 @@ local folder to github repo
 git init && git checkout -b main            #initialize local directory as a git repo, old git
 git init -b main                            #new git
 git add . && git commit -m "initial commit" #stage and commit all files in your project
-git remote add origin https://github.com/usr/repo.git  #link to github
+git remote add origin https://github.com/<user>/repo.git  #link to github
 git push -u origin main                     #push to github repo
 ```
 
 ## clone a repo
+github repo to local folder
 ```sh
-fork repo to sma
+fork repo to <user>
 git clone https://github.com/<user>/repo.git
 cd repo
 git remote add upstream https://github.com/<upstream>/repo.git
