@@ -1,4 +1,5 @@
 # Shortcut key
+https://towardsdatascience.com/optimizing-jupyter-notebook-tips-tricks-and-nbextensions-26d75d502663
 
 ## cell to markdown
   Esc + m
