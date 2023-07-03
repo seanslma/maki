@@ -9,10 +9,6 @@ https://microsoft.github.io/AI-For-Beginners/
 ## AWS
 Redshift, Athena, EMR
 
-## data processing
-Spark, Hive
 
-## Batch and Streaming
-Kafka, Flink
 
 ## Data Warehouse, Data Lake and Data Lakehouse
