@@ -7,6 +7,17 @@ https://gist.github.com/mrocklin/4f6d06a2ccc03731dd5f
 - msgpack (depreciated)
 - hdfstore
 
+## pickle
+Now pickle is the way to go
+```py
+%%timeit -r 3 -n 3
+pickle.loads(pickle.dumps(d))
+
+%%timeit -r 3 -n 3
+buf = io.BytesIO(d.to_parquet(compression=None))
+rda = pd.read_parquet(buf)
+```
+
 ## arrow
 https://arrow.apache.org/docs/10.0/python/ipc.html#ipc
 ```py
