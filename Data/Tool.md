@@ -6,8 +6,8 @@
 - MogoBD
 
 ## [Extraction] Batch and Streaming
-- Kafka
-- Flink
+- Kafka (streaming storage)
+- Flink (streaming computation)
 
 ## Scheduling and Orchestration
 - Apache Airflow
