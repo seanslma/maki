@@ -8,7 +8,8 @@ https://gist.github.com/mrocklin/4f6d06a2ccc03731dd5f
 - hdfstore
 
 ## pickle
-Now pickle is the way to go
+Now pickle is the way to go. 
+The data stored within Redis is not portable across different versions of Python and programming languages.
 ```py
 %%timeit -r 3 -n 3
 pickle.loads(pickle.dumps(d))
