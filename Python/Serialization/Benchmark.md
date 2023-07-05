@@ -8,8 +8,16 @@ pickle    0.7   (1.9)   1.0   (3.9) 150.5
 feather   1.4   (1.8)   0.7   (1.6)  56.7
 parquet   2.9   (3.1)   0.9   (1.4)  26.5
 ```
+## pa.Table to bytes to pa.Table
+average of 5 runs w/o redis
+```
+   name  dump (redis)  load (redis)    MB
+ pickle   1.1   (2.7)   0.5   (6.0) 269.3
+feather   0.5   (0.8)   0.1   (1.2)  56.7
+parquet   1.8   (2.1)   0.3   (1.0)  26.5
+```
 
-code
+## code
 ```py
 import io
 import pickle
