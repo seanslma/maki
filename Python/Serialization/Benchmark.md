@@ -1,13 +1,12 @@
 # Benchmark
 
 ## df to bytes to df
-average of 5 runs
+average of 5 runs w/o redis
 ```
-     name  dump  load    MB
-   pickle   0.7   1.0 150.5
-pickle-p2   1.3   1.4 173.2
-  feather   1.4   0.7  56.7
-  parquet   2.9   0.9  26.5
+   name  dump (redis)  load (redis)    MB
+pickle    0.7   (1.9)   1.0   (3.9) 150.5
+feather   1.4   (1.8)   0.7   (1.6)  56.7
+parquet   2.9   (3.1)   0.9   (1.4)  26.5
 ```
 
 code
