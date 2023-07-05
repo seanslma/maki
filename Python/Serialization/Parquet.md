@@ -4,6 +4,7 @@
 best is
 - to bytes: `pq.write_table(pa.Table.from_pandas(df), buf)`
 - from bytes: pq.read_table(pa.BufferReader(bytes)).to_pandas()`
+- when considering cache and streaming, it's best to stick to the pyarrow.table not pandas df
 ```py
 def paqdumps(d, i):
     buf = io.BytesIO()
