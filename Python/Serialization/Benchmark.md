@@ -25,7 +25,10 @@ from functools import partial
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
+import pyarrow.feather as pf
 import time
+
+test_redis = False
 
 def timeit(func, n=5):
     t0 = time.time()
@@ -33,23 +36,48 @@ def timeit(func, n=5):
         func()
     return (time.time() - t0) / n
 
+def pkldumps(d):    
+    b = pickle.dumps(d)
+    if test_redis:
+        r.set('df', b)
+    return b
+
+def pklloads(b):
+    if test_redis:
+        b = r.get('df')    
+    return pickle.loads(b)
+
 def paqdumps(d):
     buf = io.BytesIO()
-    pq.write_table(pa.Table.from_pandas(d), buf)       
-    return buf.getvalue()
+    #pq.write_table(pa.Table.from_pandas(d), buf)       
+    pq.write_table(d, buf)      
+    b = buf.getvalue()
+    if test_redis:
+        r.set('df', b)
+    return b
 
 def paqloads(b):
+    if test_redis:
+        b = r.get('df')    
     buf = pa.BufferReader(b)
-    return pq.read_table(buf).to_pandas()  
+    #return pq.read_table(buf).to_pandas()  
+    return pq.read_table(buf)
 
 def feadumps(d):
     buf = io.BytesIO()
-    d.to_feather(buf)
-    return buf.getvalue()
+    #d.to_feather(buf)
+    pf.write_feather(d, buf)
+    b = buf.getvalue()
+    if test_redis:
+        r.set('df', b)
+    return b
 
 def fealoads(b):
+    if test_redis:
+        b = r.get('df')     
     buf = io.BytesIO(b)
-    return pd.read_feather(buf)
+    #return pd.read_feather(buf)
+    return pf.read_table(buf)
 
 def hdfdumps(d):
     buf = io.BytesIO()
@@ -61,8 +89,7 @@ def hdfloads(b):
     return pd.read_hdf(buf, 'bar', mode='r')
 
 dc = {
-    'pickle': [pickle.loads, pickle.dumps],
-    'pickle-p2': [pickle.loads, partial(pickle.dumps, protocol=2)], 
+    'pickle': [pklloads, pkldumps],
     'feather': [fealoads, feadumps],
     'parquet': [paqloads, paqdumps],
     #'hdf': [hdfloads, hdfdumps],  not supported
@@ -75,5 +102,5 @@ for name, (loads, dumps) in dc.items():
     s = len(b) / 1024 / 1024
     result.append([name, timeit(lambda: dumps(df)), timeit(lambda: loads(b)), s])
 dt = pd.DataFrame(result, columns=['name', 'dump', 'load', 'MB'])
-print(dt.to_string(index=False))
+print(dt.round(1).to_string(index=False))
 ```
