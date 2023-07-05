@@ -35,11 +35,13 @@ print(r.keys("*"))
 ```py
 from redis.cluster import RedisCluster
 
+# `decode_responses=True` convert return value from bytes to str.
 #r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 rc = RedisCluster(host='localhost', port=16379)
 
 print(rc.get_nodes())
-# [[host=127.0.0.1,port=16379,name=127.0.0.1:16379,server_type=primary,redis_connection=Redis<ConnectionPool<Connection<host=127.0.0.1,port=16379,db=0>>>], ...
+# [[host=127.0.0.1,port=16379,name=127.0.0.1:16379,server_type=primary,
+#  redis_connection=Redis<ConnectionPool<Connection<host=127.0.0.1,port=16379,db=0>>>], ...
 ```
 
 ## connect with tls
