@@ -14,6 +14,7 @@ average of 5 runs w/o redis
    name  dump (redis)  load (redis)    MB
  pickle   1.1   (2.7)   0.5   (6.0) 269.3
 feather   0.5   (0.8)   0.1   (1.2)  56.7
+fea(zstd)       (0.8)         (1.0)  42.1
 parquet   1.8   (2.1)   0.3   (1.0)  26.5
 ```
 
