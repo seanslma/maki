@@ -37,3 +37,6 @@ with pa.OSFile('bigfile.arrow', 'rb') as source:
 with pa.memory_map('bigfile.arrow', 'rb') as source:
    loaded_array = pa.ipc.open_file(source).read_all()
 ```
+
+## feather
+feather does not support serializing <class 'pandas.core.indexes.multi.MultiIndex'> for the index; you can .reset_index() to make the index into column(s)
