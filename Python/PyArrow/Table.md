@@ -1,6 +1,8 @@
 # Table
 https://arrow.apache.org/docs/python/generated/pyarrow.Table.html
 
+https://arrow.apache.org/cookbook/py/data.html
+
 ## get col unique values
 ```py
 pyarrow.Table.column('nmi_code').unique()
