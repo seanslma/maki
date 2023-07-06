@@ -23,7 +23,7 @@ convert_options = pv.ConvertOptions(
 
 d1 = pd.read_csv(file, dtype=dtype, parse_dates=['date'])        #2.41 s ± 44.3 ms
 d2 = pv.read_csv(f).to_pandas().astype(dtype)                    #466 ms ± 125 ms
-d3 = pv.read_csv(f, convert_options=convert_options).to_pandas() #276 ms ± 29.7 ms
+d3 = pv.read_csv(f, convert_options=convert_options).to_pandas() #276 ms ± 29.7 ms, to pa.Table 175 ms ± 37.1 ms
 ```
 
 ## example
