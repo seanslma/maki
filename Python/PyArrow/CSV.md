@@ -1,6 +1,31 @@
 # CSV
 pyarrow.csv is much faster than pandas to read csv. see: https://towardsdatascience.com/stop-using-pandas-to-read-write-data-this-alternative-is-7-times-faster-893301633475
 
+## benchmark
+```
+import pandas as pd
+import pyarrow as pa
+import pyarrow.csv as pv
+
+dtype = {
+    'name': str,
+    'good': bool,
+    'value':np.float64,
+}
+convert_options = pv.ConvertOptions(
+    column_types={
+        'name': pa.string(),
+        'date': pa.timestamp('s'),
+        'good': pa.bool_(),
+        'value': pa.float64(),
+    },
+)
+
+d1 = pd.read_csv(file, dtype=dtype, parse_dates=['date'])        #2.41 s ± 44.3 ms
+d2 = pv.read_csv(f).to_pandas().astype(dtype)                    #466 ms ± 125 ms
+d3 = pv.read_csv(f, convert_options=convert_options).to_pandas() #276 ms ± 29.7 ms
+```
+
 ## example
 ```py
 pyarrow.csv.read_csv(input_file, read_options=None, parse_options=None, convert_options=None, MemoryPool memory_pool=None)
