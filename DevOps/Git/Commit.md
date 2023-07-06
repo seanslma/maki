@@ -9,9 +9,9 @@ git commit -m "Head line" -m " * First content line" -m " * Second content line"
 - `HEAD~1` the first parent of the commit
 - `HEAD^`means something different, on windows cane be escaped as `HEAD^^`
 ```
-git reset --hard HEAD~3 #delete last three commits
-git reset --hard HEAD~1 #delete previous commit
 git reset --soft HEAD~1 #revert previous commit to staging area
+git reset --hard HEAD~1 #DELETE previous commit
+git reset --hard HEAD~3 #DELETE last three commits
 ```
 
 ## take commits not pushed to new branch
