@@ -11,9 +11,12 @@ ContainerClient.walk_blobs      #hierarchical listing
 
 list blob storage containers with container resource_manager_id
 ```sh
-az storage container list --account-name <storage-account-name> --auth-mode login -o json
-az storage container list --account-name <storage-account-name> --auth-mode login --query "[].{Name:name, ResourceId:id}"
-az storage container list --account-name <storage-account-name> --account-key <storage-account-key> --query "[].{Name:name, ResourceId:id}"
+az storage container list --account-name <storage-account-name> \
+    --auth-mode login -o json
+az storage container list --account-name <storage-account-name> \
+    --auth-mode login --query "[].{Name:name, ResourceId:id}"
+az storage container list --account-name <storage-account-name> \
+    --account-key <storage-account-key> --query "[].{Name:name, ResourceId:id}"
 ```
 
 example
