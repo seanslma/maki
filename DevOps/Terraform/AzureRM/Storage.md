@@ -23,7 +23,7 @@ resource "azurerm_storage_container" "example" {
 }
 ```
 
-2. Replace <container-name>, <storage-account-name>, and <resource-group-name> with the actual names of the 
+2. Replace `<container-name>`, `<storage-account-name>`, and `<resource-group-name>` with the actual names of the 
 Blob Storage container, storage account, and resource group.
 - Run terraform init to initialize the Terraform configuration.
 - Run the import command to import the existing Blob Storage container into the Terraform state:
@@ -33,7 +33,7 @@ terraform import azurerm_storage_container.example \
   /Microsoft.Storage/storageAccounts/<storage-account-name>/blobServices/default/containers/<container-name>
 ```
 
-3. Replace <subscription-id>, <resource-group-name>, <storage-account-name>, and <container-name> with the respective values for the Blob Storage container.
+3. Replace `<subscription-id>`, `<resource-group-name>`, `<storage-account-name>`, and `<container-name>` with the respective values for the Blob Storage container.
 - Run terraform plan to verify the import was successful and to see any changes that Terraform would apply.
 - Finally, run terraform apply to apply the changes and manage the Blob Storage container through Terraform.
 
