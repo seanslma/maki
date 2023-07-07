@@ -3,10 +3,17 @@ https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/py
 
 ## list blobs
 https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-list-python
-```py
+```PowerShell
 ContainerClient.list_blobs      #name and metadata, tags, and other information associated with each blob
 ContainerClient.list_blob_names #only blob name
 ContainerClient.walk_blobs      #hierarchical listing
+```
+
+list blob storage containers with container resource_manager_id
+```sh
+az storage container list --account-name <storage-account-name> --auth-mode login -o json
+az storage container list --account-name <storage-account-name> --auth-mode login --query "[].{Name:name, ResourceId:id}"
+az storage container list --account-name <storage-account-name> --account-key <storage-account-key> --query "[].{Name:name, ResourceId:id}"
 ```
 
 example
