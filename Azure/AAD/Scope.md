@@ -12,7 +12,7 @@ Can specify a scope at four levels:
 - resource
 
 ## add a role asignment for a scope manually
-To add a role assignment in Azure for a user-created system-managed identity with a scope for a blob storage container, 
+To add a role assignment in Azure for a user-assigned system-managed identity with a scope for a blob storage container, 
 you can follow these steps:
 - Identify the system-managed identity you want to assign the role to. If you haven't created one yet, you can create a system-managed identity in Azure by going to the Azure portal, navigating to the appropriate resource (such as a virtual machine or an Azure Function), and enabling the system-managed identity feature.
 - Once you have the system-managed identity created, note down its client ID or object ID. You will need this identifier in the next steps.
