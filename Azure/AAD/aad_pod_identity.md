@@ -39,7 +39,7 @@ metadata:
 ```
 
 ## list identities
-```
+```sh
 az identity list [--resource-group]
 az identity create --name --resource-group [--location] [--tags]
 az identity delete [--name] [--ids] [--resource-group]
