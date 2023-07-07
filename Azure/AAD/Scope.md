@@ -18,9 +18,22 @@ To add a role assignment in Azure for a user-assigned system-managed identity wi
 you can follow these steps (cannot do it in Azure UI as there is no Scope option):
 - Identify the system-managed identity and get the `principal_id`
 - run azcli command
+
+add storage account  
 ```
-az role assignment create --assignee <identity_principal_id> --role 'Storage Blob Data Contributor' \
-  --scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/Microsoft.Storage/storageAccounts/<StorageAcctount>
+az role assignment create \
+  --assignee <identity_principal_id> \
+  --role 'Storage Blob Data Contributor' \
+  --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group> \
+    /providers/Microsoft.Storage/storageAccounts/<storage-acctount>
+```
+add blob storage container
+```
+az role assignment create \
+  --role "Storage Blob Data Contributor" \
+  --assignee <email> \
+  --scope "/subscriptions/<subscription_id>/resourceGroups/<resource-group> \
+    /providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>"
 ```
 
 The system-managed identity should now have the assigned role with the specified scope for the blob storage container. It will be able to access the container according to the permissions granted by the assigned role.
