@@ -22,7 +22,7 @@ you can follow these steps (cannot do it in Azure UI as there is no Scope option
 add storage account  
 ```
 az role assignment create \
-  --assignee <identity_principal_id> \
+  --assignee <identity-principal-id> \
   --role 'Storage Blob Data Contributor' \
   --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group> \
     /providers/Microsoft.Storage/storageAccounts/<storage-acctount>
