@@ -35,14 +35,14 @@ with ThreadPoolExecutor(max_workers=cpu_count()) as executor:
 ```
 
 ## joblib
-from joblib import cpu_count, delayed, Parallel
 ```py
-  delayed_func = [
-      delayed(read_parquet_func)(fs, path, columns, storage_options)
-      for path in path_list if fs.exists(path)
-  ]
+from joblib import cpu_count, delayed, Parallel
+delayed_func = [
+    delayed(read_parquet_func)(fs, path, columns, storage_options)
+    for path in path_list if fs.exists(path)
+]
 
-  n_jobs = min(cpu_count(), len(delayed_func))
-  with Parallel(n_jobs=n_jobs, prefer='threads') as parallel_pool:
-      dfs = parallel_pool(delayed_func)
+n_jobs = min(cpu_count(), len(delayed_func))
+with Parallel(n_jobs=n_jobs, prefer='threads') as parallel_pool:
+    dfs = parallel_pool(delayed_func)
 ```

@@ -1,12 +1,12 @@
 # Lazy Evaludation
 
 ## use a class to implement lazy function
-```
+```py
 class Test():
     def __init__(self, name):
         self.name = name
         self._value = None
-        
+
     @property
     def value(self):
         if self._value is None:
@@ -19,7 +19,7 @@ class Test():
 ```
 
 ## `lazy` package
-```
+```py
 from lazy import lazy
 @lazy
 def f(x, y):
@@ -27,7 +27,7 @@ def f(x, y):
   for i in range(10000):
     v += x ** y
   return v
-  
+
 import time
 t0 = time.time()
 v = f(12,3)

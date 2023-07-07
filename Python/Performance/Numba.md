@@ -1,7 +1,7 @@
 # Numba
 
 ## nb vs np.where
-```
+```py
 np.random.seed(0)
 df = pd.DataFrame(np.random.rand(100000,2), columns=['x','y'])
 
@@ -16,10 +16,10 @@ def nb_where(x, y):
         else:
             val[i] = x[i] + y[i]
     return val
-    
+
 assert(np.where((df.x < 0.9) & (df.y < 0.9), df.x, df.x + df.y)==nb_where(df.x.values, df.y.values)).all()
 
-%%timeit -r 7 -n 1000 
+%%timeit -r 7 -n 1000
 mask = (df.x >= 0.9) | (df.y >= 0.9)
 df.x[mask] += df.y[mask]
 # 6.16 ms ± 14.4 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)

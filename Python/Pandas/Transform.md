@@ -1,9 +1,9 @@
 # transform
 
 broadcast aggregated value into the group, and function output must be a series.
-  * It can produce a scalar value to be broadcast to the shape of the group
-  * It can produce an object of the same shape as the input group
-  * It must not mutate its input
+- It can produce a scalar value to be broadcast to the shape of the group
+- It can produce an object of the same shape as the input group
+- It must not mutate its input
 
 ```py
 g = df.groupby('key').value

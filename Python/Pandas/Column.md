@@ -1,7 +1,7 @@
 # Column
 
 ## empty df with dtypes
-```
+```py
 df = pd.DataFrame({
     'id': pd.Series(dtype='int'),
     'name': pd.Series(dtype='str'),
@@ -21,7 +21,7 @@ df[['cola','colb']] = df['col'].str.rsplit('_', 1, expand=True)
 ```
 
 ## newcol from two col levels (year and quarter)
-```
+```py
 qt_yr = [f'Q{quarter}{str(year)[2:]}' for year, quarter in df.columns]
 ```
 

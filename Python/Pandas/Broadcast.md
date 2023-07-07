@@ -1,17 +1,23 @@
 # broadcast
 
 ## Expand df date ranges to individual rows
-```
+```py
 df = (
     df
-    .assign(DATE=lambda x: [pd.date_range(row.STARTDATE, row.ENDDATE, freq='d') for _,row in x.iterrows()])
+    .assign(
+        DATE=lambda x:
+            [
+                pd.date_range(row.STARTDATE, row.ENDDATE, freq='d')
+                for _,row in x.iterrows()
+            ]
+    )
     .explode('DATE')
     .drop(['STARTDATE', 'ENDDATE'], axis=1)
 )
 ```
 
 At least 10x faster:
-```
+```py
 def explode_date_range(
     df: pd.DataFrame,
     start_date_col: str,

@@ -1,7 +1,8 @@
 # Date range
 
 ## split date range to intervals
-df1 has columns `datetime` and `value` and df2 has `start_date`, `end_date` and `value2`. The best way to add value2 to value based on the datetime
+df1 has columns `datetime` and `value` and df2 has `start_date`, `end_date` and `value2`.
+The best way to add value2 to value based on the datetime
 ```py
 import pandas as pd
 
@@ -38,23 +39,17 @@ print(merged_df)
 ```
 
 ## split date range to intervals first?
-In general, expanding the date range into timestamp intervals first and then doing a merge 
-- might be faster if you have a large dataset, 
-- since it reduces the number of comparisons that need to be made during the merge. 
-- However, this approach can also significantly increase the size of your dataframe and consume a lot of memory, 
+In general, expanding the date range into timestamp intervals first and then doing a merge
+- might be faster if you have a large dataset,
+- since it reduces the number of comparisons that need to be made during the merge.
+- However, this approach can also significantly increase the size of your dataframe and consume a lot of memory,
 - so it might not be the best approach for all use cases
 
-In contrast, the conditional join approach is 
-- more memory-efficient and 
-- can be faster if you have a relatively small dataset or 
-- if the number of overlapping date ranges is small. 
-- However, if the number of overlapping date ranges is large, 
+In contrast, the conditional join approach is
+- more memory-efficient and
+- can be faster if you have a relatively small dataset or
+- if the number of overlapping date ranges is small.
+- However, if the number of overlapping date ranges is large,
 - then the conditional join approach might become slower compared to expanding the date range into timestamp intervals first.
 
 In general, it's a good idea to test both approaches on your specific data and use case to determine which one is faster and more efficient for your needs.
-
-
-
-
-
-

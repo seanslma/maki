@@ -1,7 +1,8 @@
 ## basic
-
-df.info() \\
+```py
+df.info()
 df.describe()
+```
 
 ### indexing
 https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html
@@ -33,7 +34,6 @@ df.iloc[0, df.columns.get_loc('A')]
 df.get_value(0, df.columns.get_loc('A'), takable=True)
 ```
 
-
 ### replace col vals by dic
 ```py
 #slower
@@ -47,7 +47,11 @@ df['col1'].map(di).fillna(df['col1']) #keep unmatched values
 
 ### drop duplicate rows
 ```py
-df = pd.DataFrame({'col1':['A','B','A','B','C'], 'col2':[3,4,3,5,6], 'col3':[0,0.1,0.2,0.3,0.4]})
+df = pd.DataFrame({
+    'col1':['A','B','A','B','C'],
+    'col2':[3,4,3,5,6],
+    'col3':[0,0.1,0.2,0.3,0.4],
+})
 
 df.drop_duplicates(['col1','col2'])[['col1','col2']] #drop col3
 ```

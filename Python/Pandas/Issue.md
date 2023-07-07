@@ -5,10 +5,10 @@
 
 ## ffill becomes bfill
 https://stackoverflow.com/questions/63079668/pandas-how-to-explain-not-sorted-index-reindex-with-fill-values-ffill-behaviour
-```
+```py
 df = pd.DataFrame(
-    np.linspace(1,9,9).reshape(3,3), 
-    columns=list('abc'), 
+    np.linspace(1,9,9).reshape(3,3),
+    columns=list('abc'),
     index=[3,2,1],
 )
 

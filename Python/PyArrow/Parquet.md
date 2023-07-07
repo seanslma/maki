@@ -6,7 +6,7 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 table = pa.table({
     'n_legs': [2, 2, 4, 4],
-    'animal': ['Flamingo', 'Parrot', 'Dog', 'Horse],
+    'animal': ['Flamingo', 'Parrot', 'Dog', 'Horse'],
 })
 
 # directly write to file
@@ -32,15 +32,15 @@ for c in [None, 'snappy', 'gzip', 'brotli']:
     t0 = time.time()
     bio = io.BytesIO(df.to_parquet(compression = c))
     tims.append(time.time() - t0)
-    byt = bio.getbuffer().nbytes
-    size.append(byt)
+    byts = bio.getbuffer().nbytes
+    size.append(byts)
 for i, s in enumerate(size):
-    print(f'{s / size[0]:.3f} TIME: {tims[i]:.3f}')
+    print(f'Size: {s / size[0]:.3f}, Time: {tims[i]:.3f}')
 ```
-Out put:
+Output:
 ```
-1.000 TIME:  2.952
-0.961 TIME:  2.961
-0.897 TIME:  7.333
-0.601 TIME: 10.218
+None   - Size: 1.000, Time:  2.952
+snappy - Size: 0.961, Time:  2.961
+gzip   - Size: 0.897, Time:  7.333
+brotli - Size: 0.601, Time: 10.218
 ```

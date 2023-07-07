@@ -1,7 +1,7 @@
 # timeit
 
 ## timeit in Jupyter
-```
+```py
 #same line
 %timeit -r 3 -n 100 x+y
 
@@ -11,8 +11,8 @@ x + y
 ```
 
 ## run timeit in vscode debug
+```py
 import timeit
-```
 def func(df):
   df.set_index('a')
   pass
