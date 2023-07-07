@@ -9,13 +9,13 @@ python -m pip install sqlalchemy-access
 update sqlalchemy to the latest version as time.clock is removed from python 3.8 and later versions
 
 ## MySQL query to csv
-```python
+```py
 import pandas as pd
 import MySQLdb as db
 
 con = db.connect(host=svr,port=prt,user=usr,passwd=pwd,db=dbn,connect_timeout=30) #sec
-qry = f'''select c1, c2 
-          from simulation 
+qry = f'''select c1, c2
+          from simulation
           where c1 = '{a}' and c2 = {b};'''
 df = pd.read_sql(qry, con=con)
 df.to_csv('file.csv', mode='w', index=False, header=True)
@@ -78,7 +78,7 @@ DRIVER={Microsoft Access Driver (*.mdb)};UID=admin;UserCommitSync=Yes;Threads=3;
 ## simple obfuscation
 can save password and other server info in a file in the user's temporal folder. the first time ask the user to input the info and later just read the info from the file. Or do some simple obfuscation.
 
-```python
+```py
 #get password
 getpass.getpass()
 
@@ -90,4 +90,4 @@ def enco(k, s):
 def deco(k, s):
     s = base64.urlsafe_b64decode(s).decode()
     return ''.join([chr((ord(s[i]) - ord(k[i % len(k)]) + 256) % 256) for i in range(len(s))])
-```       
+```

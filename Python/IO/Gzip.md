@@ -1,6 +1,7 @@
 # Gzip
 
 ## read csv in gzip
+it's much faster to use pyarrow.csv
 ```py
 import gzip
 

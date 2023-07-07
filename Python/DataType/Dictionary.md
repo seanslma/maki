@@ -1,14 +1,14 @@
 # Dictionary
 
 ## merge dicts
-```python
+```py
 dic1 = {'a':1, 'b':2}
 dic2 = {'e':5, 'f':6}
 dic = {**dic1, **dic2}
 ```
 
 ## df to dic
-```python
+```py
 #each col to a key
 df = pd.DataFrame({'a': [1,2],'b': ['x', 'y'], 'c': ['u', 'v']})
 dic = df.to_dict('list')

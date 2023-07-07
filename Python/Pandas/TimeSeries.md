@@ -1,7 +1,7 @@
 # tseries
 
 ## offset
-```python
+```py
 from pandas.tseries.offsets import Day, MonthEnd
 offset = MonthEnd()
 ts.groupby(offset.rollforward).mean()
@@ -9,14 +9,14 @@ ts.resample('M').mean()#faster
 ```
 
 ## period
-```python
+```py
 prd = pd.Period(2007, freq='A-DEC')
 rng = pd.period_range('2000-01-01', '2000-06-30', freq='M')
 prd.asfreq('M', how='start') #convert to another period
 ```
 
 ## resample
-```python
+```py
 ts.resample('M').mean()
 ts.resample('M', kind='period').mean()
 
@@ -41,14 +41,14 @@ df2 = df2.reset_index()
 ```
 
 ## moving window
-```python
+```py
 df['val'].rolling(250).mean()
 df['val'].rolling(250, min_periods=10).std()
 df['val'].expanding().mean()
 
 #exponentially weighted moving average
 df['val'].ewm(span=30).mean()
- 
+
 #binary moving window
 spx_rets = spx_px.pct_change()
 returns = close_px.pct_change()
@@ -62,7 +62,7 @@ result = returns.AAPL.rolling(250).apply(score_at_2percent)
 ```
 
 ## timezone
-```python
+```py
 import pytz
 pytz.common_timezones[-5:]
 tz = pytz.timezone('America/New_York')

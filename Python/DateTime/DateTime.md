@@ -3,7 +3,7 @@
 [Dealing with datetimes like a pro in Pandas](https://medium.com/jbennetcodes/dealing-with-datetimes-like-a-pro-in-pandas-b80d3d808a7f)
 
 ## pywintypes.datetime
-```python
+```py
 import pywintypes
 from datetime import datetime
 
@@ -15,7 +15,7 @@ dt2 = datetime.fromtimestamp(timestamp=dt.timestamp(), tz=dt.tzinfo)
 ```
 
 ## datetime
-```python
+```py
 import datetime
 de = datetime.date(year=2017, month=10, day=24)
 tm = datetime.time(hour=4, minute=3, second=10, microsecond=7199)
@@ -29,8 +29,8 @@ dt = datetime.strptime('2020-01-01 13:00:10', '%Y-%m-%d %H:%M:%S')
 ```
 
 ## datetime64
-```python
-dt64 = np.datetime64(5, 'ns') 
+```py
+dt64 = np.datetime64(5, 'ns')
 dt64 = np.datetime64(1508887504, 's')
 dt64 = np.datetime64('2017-10-24')
 dt64 = np.datetime64('2017-10-22T12:35:40.123')
@@ -41,7 +41,7 @@ td64 = dt64_1 - dt64_2
 ```
 
 ## timedelta
-```python
+```py
 np.timedelta64(300000000000, 'ns')==timedelta(seconds=300)
 #return false
 
@@ -50,7 +50,7 @@ np.timedelta64(300000000000, 'ns')==pd.Timedelta(hours=1/12)
 ```
 
 ## Timestamp
-```python
+```py
 ts = pd.Timestamp(1239.1238934) #defautls to nanoseconds
 ts = pd.Timestamp(1239.1238934, unit='D')
 ts = pd.Timestamp('2017-10-24 05')
@@ -82,7 +82,7 @@ dt64 = ts.to_datetime64()
 ```
 
 ## timestamp to date
-```python
+```py
 #timestamp series to datetime.date
 ts.apply(lambda x: x.date())
 
@@ -105,12 +105,12 @@ dt64 = np.datetime64(dt)
 ```
 
 ## dt, dt64, ts to string
-```python
+```py
 #dt to str
 datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 datetime.now().strftime('%#d/%m/%Y %H:%M:%S') #without zero-padded day in windows
 datetime.now().strftime('%-d/%m/%Y %H:%M:%S') #without zero-padded day in linux
- 
+
 dt = datetime.strptime(str_date, '%Y-%m-%d %H:%M:%S') #str to datetime
 
 #ts to str
@@ -121,7 +121,7 @@ df['date'] = pd.to_datetime(df['date'], unit='s') #unix time to dt64
 ```
 
 ## fg
-```python
+```py
 #add days
 dt = datetime.now()
 dt2 = dt + timedelta(days=1)
@@ -165,26 +165,26 @@ pd.date_range(start_date, end_date, freq='30min')
 ```
 
 ## get year, month from date col
-```python
+```py
 #combine group by resulted time series multi-level index in to one col
 df_date = pd.DataFrame(dict(A=1), ts.index)
 df['date'] = df_date.index.map('{0[0]}-{0[1]:02}-01'.format).values
 ```
 
 ## combine year, month, day cols to date col
-```python
+```py
 #if we do not use values the index will be kept
 dts = pd.to_datetime(df[['Year', 'Month', 'Day']]).values
 ```
 
 
 ## change days to dt
-```python
+```py
 #old
 def days2dt(days_since_epoch):
     epoch = dt.datetime(1980, 1, 6)
     return [epoch + dt.timedelta(days=x) for x in days_since_epoch]
-    
+
 #new 30x faster
 def days2dt(days_since_epoch):
     microseconds = np.around(np.asarray(days_since_epoch) * (24*60*60*10**6))
@@ -192,7 +192,7 @@ def days2dt(days_since_epoch):
 ```
 
 ## change dt to timedelta [seconds] and back
-```python
+```py
 dts_str = ['2019-07-01 12:00:00','2020-07-01 12:00:00']
 datetimes = pd.to_datetime(dts_str, format='%Y-%m-%d %H:%M:%S', utc=False).values
 seconds = pd.to_timedelta(datetimes).total_seconds()
@@ -200,37 +200,37 @@ dts_back = pd.to_datetime(seconds)
 ```
 
 ## change ctime to datetime
-```python
+```py
 last_modified = os.path.getctime(file) #float 1382189138.4196026
 datetime.fromtimestamp(last_modified)
 ```
 
 ## save df to csv with fixed dt format
-```python
+```py
 df.to_csv(file, index=False, date_format='%#d/%m/%Y %H:%M:%S')
 ```
 
 ## round dt to nearest time
-```python
+```py
 df['dt'] = df['dt'].dt.ceil('30min')
 ```
 
 ## numpy.datetime to datetime
-```python
+```py
 def npdt_to_dt(dt):
-    #converts a numpy datetime64 object to a python datetime object 
+    #converts a numpy datetime64 object to a python datetime object
     timestamp = (dt - np.datetime64('1970-01-01T00:00:00')) / np.timedelta64(1, 's')
     return datetime.utcfromtimestamp(timestamp)
 ```
 
 ## days in month
-```python
+```py
 dts = pd.date_range('2020-01-01', periods=10, freq='m')
 dts.to_period().days_in_month
 ```
 
 ## offset months
-```python
+```py
 from pandas.tseries.offsets import MonthBegin, MonthEnd
 dt= pd.to_datetime(['2002-07-02','2002-10-03'])
 dt + MonthBegin(-1) #move backward till get the first month begin

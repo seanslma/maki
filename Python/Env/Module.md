@@ -10,7 +10,7 @@ install pywin32 for win32com:
 
 ## Plotly and Cufflinks
 cufflinks is the link between plotly and pandas.
-```python
+```py
 import pandas as pd
 import cufflinks as cf
 import plotly.offline
@@ -19,7 +19,7 @@ cf.set_config_file(offline=False, world_readable=True)
 ```
 
 ## Geographical Plotting
-```python
+```py
 import plotly.plotly as py
 import plotly.grath_objs as go
 from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
@@ -32,7 +32,7 @@ iplot(choromap)
 ## patsy
 Patsy is a Python library for describing statistical models (especially linear models) with a small string-based "formula syntax".
 
-```python
+```py
 import patsy
 y, X = patsy.dmatrices('y ~ x0 + x1', df)
 coef, resid, _, _ = np.linalg.lstsq(X, y)
@@ -53,7 +53,7 @@ Some kinds of models found in statsmodels include:
   * Analysis of variance (ANOVA) methods
   * Time series processes and state space models
   * Generalized method of moments
-```python
+```py
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
@@ -69,7 +69,7 @@ results = model.fit(MAXLAGS)
 ```
 
 ## scikit-learn
-```python
+```py
 from sklearn.linear_model import LogisticRegression
 model = LogisticRegression()
 model.fit(X_train, y_train)

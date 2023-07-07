@@ -1,7 +1,7 @@
 # basic
 
 ## find the mpl_tools directory
-```python
+```py
 import importlib
 importlib.import_module('mpl_toolkits').__path__
 
@@ -17,7 +17,7 @@ python -m pip install numpy
 ```
 
 ## list
-```python
+```py
 #nested list
 a = [[0] * 4 for i in range(3)]
 #remove empty strings
@@ -28,8 +28,8 @@ all( v is None for v in l ) #10x slower
 ```
 
 ## transpose list of tuples
-```python
-list(zip(*list_of_tuples)) 
+```py
+list(zip(*list_of_tuples))
 ```
 
 ## pyinstaller

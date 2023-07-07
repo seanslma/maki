@@ -1,7 +1,7 @@
 ## adv
 
 ### interpolation
-```python
+```py
 df = df.set_index(dts)
 df = df.set_index('fld')
 df = df.reindex(dts, fill_value=0)
@@ -9,18 +9,18 @@ df = df.reindex(dts, method=method)
 ```
 
 ### first val >= v
-```python
+```py
 i0 = np.searchsorted(dts, dt0, side='left') #a[i-1] < v <= a[i]
 i1 = np.searchsorted(dts, dt1, side='right') - 1 #a[i-1] <= v < a[i]
 ```
 
 ### num of nan in a col
-```python
+```py
 df.isna().sum()
 df['fd'].isna().sum()
 ```
 ### bin label
-```python
+```py
 #label data according to provided bins
 lbls_new = pd.cut(x=col_dat, bins=bins, include_lowest=True, right=False, labels=lbls).astype(int)
 
@@ -29,12 +29,12 @@ bin_ind = np.digitize(val, bins=[10, 20, 40, 50], right=True)
 ```
 
 ### filter col
-```python
+```py
 df2 = df[df['tech'].str.contains('|'.join(techs))]
 ```
 
 ### combine rows/cols
-```python
+```py
 #same cols append rows
 df = pd.concat([df1,df2],axis=0,ignore_index=True) #don't use append, too slow
 #same number of rows append cols
@@ -51,7 +51,7 @@ https://www.datasciencebytes.com/bytes/2014/11/27/when-joins-go-wrong-check-data
 merge has similar functionality as the the sql join (inner, left, right, and outer).
 
 https://stackoverflow.com/questions/53645882/pandas-merging-101
-```python
+```py
 #left join
 df = df_left.merge(df_right, how='left', on='user_id')
 
@@ -64,7 +64,7 @@ df = pd.merge(left, right, how="left", on=["key1", "key2"])
 ```
 
 ### pivot
-```python
+```py
 df['dt'] = pd.to_datetime(df['settlementdate'], format='%Y-%m-%d %H:%M', utc=False)
 
 df1 = pd.DataFrame()
@@ -74,12 +74,12 @@ df1['value'] = np.ones(df1.shape[0])
 
 df.pivot_table(columns='id',values='val',aggfunc='mean')
 
-df2 = pd.pivot_table(df1, index=['date'], 
+df2 = pd.pivot_table(df1, index=['date'],
   columns=['hour'], values=['value'], aggfunc=np.sum, fill_value=0)
 ```
-  
+
 ### aggregation
-```python
+```py
 #group
 df.groupby('day')['total_bill'].mean()
 df.groupby('day')['total_bill'].aggregate('mean')
@@ -108,7 +108,7 @@ df.groupby('kind').agg(min_height=('height', 'min'), max_weight=('weight', 'max'
 ### transform
 transform will created a new col with the same indices [populate the grouped value to all elements in each group]
 
-```python
+```py
 #get row with max value in col in each group
 ind = df.groupby(['a','b'])['version'].transform(max) == df['version']
 df_new = df[ind]
@@ -116,10 +116,10 @@ df_new = df[ind]
 
 
 ### add a new level to df column
-```python
+```py
 df.columns = pd.MultiIndex.from_product([['x'], df.columns])
-  
-#from tuples  
+
+#from tuples
 tuples = [(1, 'red'), (1, 'blue'), (2, 'red'), (2, 'blue')]
 pd.MultiIndex.from_tuples(tuples, names=('number', 'color'))
 

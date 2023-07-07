@@ -1,7 +1,7 @@
 # Performance
 
 ## get is faster
-```python
+```py
 import timeit
 
 a1 = df.get('name').unique() #fastest
@@ -30,7 +30,7 @@ df.groupby('A').sum(min_count=1)
 
 d = df.groupby('A')
 pd.DataFrame({
-    'name-b1': d['B'].sum(min_count=1), 
+    'name-b1': d['B'].sum(min_count=1),
     'name-b2': d['B'].size(),
 })
 ```

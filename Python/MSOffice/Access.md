@@ -1,14 +1,14 @@
 # Access
 
 ## Connect to Access DB
-```python
+```py
 # connect to db
 try:
     drv = '{Microsoft Access Driver (*.mdb)}'
     con = pyodbc.connect(f'DRIVER={drv};DBQ=' + dbpath)
 except pyodbc.InterfaceError:
     drv = '{Microsoft Access Driver (*.mdb, *.accdb)}'
-    con = pyodbc.connect('DRIVER={drv};DBQ=' + dbpath)   
+    con = pyodbc.connect('DRIVER={drv};DBQ=' + dbpath)
 cursor = con.cursor()
 
 # query
@@ -16,7 +16,7 @@ cursor.execute("Select * from tbl")
 rows = cursor.fetchall()
 
 # close connection
-cursor.close()    
+cursor.close()
 con.close()
 ```
 
@@ -27,15 +27,15 @@ LIKE wildcard characters between queries run in Access and from an external appl
 http://allenbrowne.com/ser-49.html
 
 ## DAO connect timestamp
-df.timestamp should be changed to str 
-```python
+df.timestamp should be changed to str
+```py
 is_timestamp = pd.core.dtypes.common.is_datetime_or_timedelta_dtype(series)
 if is_timestamp:
     changes datetime column to str
 ```
 
 ## DAO connect query
-```python
+```py
 import os
 import csv
 import win32com.client
@@ -47,7 +47,7 @@ def open_db(eng, dbpath, lock=False):
     eng = win32com.client.Dispatch("DAO.DBEngine.120")
     mdb = eng.OpenDatabase(dbpath, lock) #True = Lock the database.  Prevent getting to multi-user mode
     return mdb
-    
+
 def get_db_fields(table, csvheader):
     fields = []
     for field in csvheader:
@@ -55,8 +55,8 @@ def get_db_fields(table, csvheader):
             fields.append(table.Fields.Item(field))
         except:
             log(f'ERROR: Field "{field}" in csv could not be found in table "{table.Name}"', stop=True)
-    return fields  
-    
+    return fields
+
 def qry_to_list(mdb, qry, header):
     csv = []
     rs = mdb.OpenRecordset(qry)
@@ -65,12 +65,12 @@ def qry_to_list(mdb, qry, header):
         csv.append([field.Value for field in fields])
         rs.MoveNext()
     rs.Close()
-    return csv   
-    
+    return csv
+
 def list_to_csv(csvheader, csvdata, csvpath):
     with open(csvpath, 'w', newline='') as f:
         w = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         w.writerow(csvheader)
         for row in csvdata:
-            w.writerow(row)       
+            w.writerow(row)
 ```

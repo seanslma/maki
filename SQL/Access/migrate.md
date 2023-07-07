@@ -1,7 +1,7 @@
 # migrate
 
 http://code.activestate.com/recipes/52267-reverse-engineer-ms-accessjet-databases/
-```python
+```py
 # jet2sql.py - M.Keranen <mksql@yahoo.com> [07/12/2000]
 # --------------------------------------------------------------------
 # Creates ANSI SQL DDL from a MS Jet database file, useful for reverse
@@ -185,7 +185,7 @@ class jetReverse:
             cn = cn + 1
             sql = sql + chr(34) + col.ForeignName + chr(34)
             if currRefr.Fields.Count > cn: sql = sql + ","
-            
+
         sql = sql + ")"
         self.writeLine(sql,"",1)
 
@@ -221,7 +221,7 @@ class jetReverse:
         if sql <> "":
             sql =  "comment on table " + chr(34) + currQry.Name + chr(34) + " is " + chr(34) + sql + chr(34)
             self.writeLine(sql,"",1)
-            
+
         return
 
     def writeLine(self,strLine, delimit, newline):
@@ -263,7 +263,7 @@ if __name__ == '__main__':
             jetEng.writeQuery(qry)
 
         print "\n   Done\n"
-        
+
         # Done
         sqlfile.close()
         jetEng.terminate()

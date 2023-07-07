@@ -7,8 +7,4 @@ https://microsoft.github.io/Data-Science-For-Beginners/#/
 https://microsoft.github.io/AI-For-Beginners/
 
 ## AWS
-Redshift, Athena, EMR
-
-
-
-## Data Warehouse, Data Lake and Data Lakehouse
+Redshift, Athena, EMR (Elastic MapReduce)

@@ -1,7 +1,7 @@
 # Error
 
 ## try catch
-```python
+```py
 try:
     run()
 except Exception as exc:
@@ -11,7 +11,7 @@ finally:
 ```
 
 ## print trace with except
-```python
+```py
 import traceback
 
 try:

@@ -15,7 +15,7 @@ When to not use DuckDB
 
 ## Example
 ### connection
-```python
+```py
 import duckdb
 con = duckdb.connect(database=':memory:') #in-memory database
 con = duckdb.connect(database='my-db.duckdb', read_only=False) #database file (not shared between processes)
@@ -23,7 +23,7 @@ con = duckdb.connect(database='my-db.duckdb', read_only=True)  #database file (s
 ```
 
 ### query
-```python
+```py
 con.execute("CREATE TABLE items(item VARCHAR, value DECIMAL(10,2), count INTEGER)")
 con.execute("INSERT INTO items VALUES ('jeans', 20.0, 1), ('hammer', 42.2, 2)")
 
@@ -37,7 +37,7 @@ con.execute("SELECT item FROM items WHERE value > ?", [400])
 ```
 
 ### pandas
-```python
+```py
 import pandas as pd
 con.register('df_view', df)
 con.execute('SELECT * FROM df_view')

@@ -11,12 +11,12 @@ df = pd.DataFrame({
 ```
 
 ## set columns in chained method
-```python
+```py
 df = df.set_axis(columns, axis=1)
 ```
 
 ## split one col to two
-```python
+```py
 df[['cola','colb']] = df['col'].str.rsplit('_', 1, expand=True)
 ```
 
@@ -26,7 +26,7 @@ qt_yr = [f'Q{quarter}{str(year)[2:]}' for year, quarter in df.columns]
 ```
 
 ## newcol based on conditions on another col
-```python
+```py
 #use np.select
 cons = [(df['cnt'] <= 2), (df['cnt'] > 2) & (df['cnt'] <= 9), (df['cnt'] > 9) & (df['cnt'] <= 15), (df['cnt'] > 15)]
 lbls = ['band1', 'band2', 'band3', 'band4'] #label for each condition

@@ -1,26 +1,26 @@
 # Example
 
 ## matplotlib
-```python
+```py
 plt.plot(x, y, 'ko', label="Original Data")
 plt.plot(x_fit, y_fit, 'r-', label="Fitted Curve")
 plt.legend()
 ```
 
 ## df secondary y
-```python
+```py
 ax = df.plot(x='dt',y=['y_left'],figsize=(14,6))
 df.plot(x='dt',y=['y_right'], ax=ax, secondary_y=True)
 _ = ax.set(xlabel='')
 ```
 
 ## plot.ly
-```python
+```py
 df.iplot()
 ```
 
 ## sns realplot/lmplot
-```python
+```py
 g = sns.FacetGrid(df, row='scenario', col='month', hue='region', height=1.5, aspect=3, sharex=False)
 g.map(sns.lineplot, 'year', 'val')
 

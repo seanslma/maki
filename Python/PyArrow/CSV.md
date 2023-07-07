@@ -2,7 +2,7 @@
 pyarrow.csv is much faster than pandas to read csv. see: https://towardsdatascience.com/stop-using-pandas-to-read-write-data-this-alternative-is-7-times-faster-893301633475
 
 ## benchmark
-```
+```py
 import pandas as pd
 import pyarrow as pa
 import pyarrow.csv as pv

@@ -1,6 +1,6 @@
 # String
 
-```python
+```py
 #join the same string many times
 fmt = ','.join(['%f'] * 13)
 

@@ -1,9 +1,9 @@
 # Basic
 
-## temporal table 
+## temporal table
 ```sql
-CREATE TABLE #tmp1 (id INT, name VARCHAR(25), value float)  
-INSERT INTO #tmp1 VALUES (1, 'John', 1.1), (2, 'Ana', 2.2) 
+CREATE TABLE #tmp1 (id INT, name VARCHAR(25), value float)
+INSERT INTO #tmp1 VALUES (1, 'John', 1.1), (2, 'Ana', 2.2)
 SELECT * FROM #tmp1
 DROP TABLE #tmp1
 ```
@@ -18,22 +18,22 @@ SET @json1 = N'[{"a": "1"}, {"a": NULL}]'
 ```sql
 MERGE INTO tbl as T
 USING (
-  SELECT * FROM 
-       (VALUES (1, 2, 3), (2, 4, 5)) AS v 
+  SELECT * FROM
+       (VALUES (1, 2, 3), (2, 4, 5)) AS v
        WITH (id, col1, col2)
 ) AS S
 ON T.id=S.id
 WHEN MATCHED THEN
-  UPDATE SET 
+  UPDATE SET
     col_a=S.col_a, col_b=S.col_b
 WHEN NOT MATCHED BY TARGET THEN
-  INSERT (id, cola, colb) 
-  VALUES (S.id, S.cola, S.colb)  
+  INSERT (id, cola, colb)
+  VALUES (S.id, S.cola, S.colb)
 WHEN NOT MATCHED BY SOURCE THEN
   DELTE
 ;
 ```
-```python
+```py
 def upsert_df(
     df : pd.DataFrame,
     table_name : str,

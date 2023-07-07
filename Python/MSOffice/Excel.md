@@ -2,9 +2,9 @@
 
 python -m pip install xlrd==1.2.0
 
-```python
+```py
 #change number to Excel column letters
-def ExcelNumToLetter(num):    
+def ExcelNumToLetter(num):
     letter = ''
     dividend = num
     while dividend > 0:
@@ -12,7 +12,7 @@ def ExcelNumToLetter(num):
        letter = chr(65 + modulo) + letter
        dividend = int((dividend - modulo) / 26)
     return letter
-    
+
 def num_to_col(n):
     col = ''
     while n > 0:
@@ -24,7 +24,7 @@ def col_to_num(col):
     n = 0
     for c in col:
         n = n * 26 + ord(c) - ord('A') + 1
-    return n    
+    return n
 ```
 http://timgolden.me.uk/pywin32-docs/win32api.html
 
@@ -38,37 +38,37 @@ When attributes on Excel.Application do not exist, it is usually because the Exc
 
 ## Avoid hidden rows/cols (DO NOT USE `openpyxl` - too slow when it's not readonly)
 https://towardsdatascience.com/how-to-load-excel-files-with-hidden-rows-and-columns-into-pandas-19d445fa5c47
-```python
-import openpyxl 
+```py
+import openpyxl
 
 hidden_rows_idx = [
     row - 2
-    for row, dimension in ws.row_dimensions.items() 
+    for row, dimension in ws.row_dimensions.items()
     if dimension.hidden
 ]
 
 # List of indices corresponding to all hidden columns
 hidden_cols_idx = [
-    string.ascii_uppercase.index(col_name) 
+    string.ascii_uppercase.index(col_name)
     for col_name in [
-        col 
-        for col, dimension in ws.column_dimensions.items() 
+        col
+        for col, dimension in ws.column_dimensions.items()
         if dimension.hidden
-    ] 
+    ]
 ]
 ```
 
 ## Python call VBA MessageBox
-```python
+```py
 import win32api
 import win32con
 
 win32api.MessageBox(0, 'My message', 'title', win32con.MB_OK) #0 means on top of other windows
-win32api.MessageBox(0, 'My message', 'title', win32con.MB_OKCANCEL | win32con.MB_ICONERROR) 
+win32api.MessageBox(0, 'My message', 'title', win32con.MB_OKCANCEL | win32con.MB_ICONERROR)
 ```
 
 ## py call vba
-```python
+```py
 import win32com.client
 
 xlApp = win32com.client.DispatchEx('Excel.Application')
@@ -82,7 +82,7 @@ xlApp.Run('macroName')
 RetVal = Shell("<full path to python.exe> " & "<full path to your python script>")
 
 ## Excel to csv
-```python
+```py
 def sheets_to_csv(
     excel_filepath: str,
     sheet_names: List[str],
@@ -101,11 +101,11 @@ def sheets_to_csv(
     if os.path.isfile(vbsfile):
         os.remove(vbsfile)
 ```
-    
-```python
+
+```py
 with open(filepath,'wb') as f:
     f.write(inspect.cleandoc(vbscript).encode('utf-8'))
-```    
+```
 
 ```VBScript SheetsToCSV.vbs
 If WScript.Arguments.Count < 3 Then
@@ -128,17 +128,17 @@ xl.Quit
 ```
 
 ## Excel column letter to number
-```python
+```py
 def col_num(col: str) -> int:
     n = 0
     for c in col:
         n = n * 26 + ord(c) - 64 #ord('A')=65
     return n - 1
-    
+
 def col_rng(rng: str) -> Iterator[int]:
     cols = rng.split(':')
     return range(col_num(cols[0]), col_num(cols[-1]) + 1)
 
 def col_ind(cols: str) -> List[int]:
-    return [i for col in colstr.split(',') for i in col_rng(col)]    
+    return [i for col in colstr.split(',') for i in col_rng(col)]
 ```

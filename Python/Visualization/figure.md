@@ -19,30 +19,30 @@ fig.write_image(imgfile, scale=1.5)
 ```
 
 ## rotate axis labels
-```python
+```py
 import matplotlib.pyplot as plt
 #set font and plot size to be larger
 plt.rcParams.update({'font.size': 20, 'figure.figsize': (10, 8)})
 df['rating'].plot(kind='hist', title='Rating')
 df.plot(kind='scatter', x='speed', y='distance', title='my plot')
-``` 
+```
 
 ## rotate axis labels
-```python
+```py
 for tick in ax.get_xticklabels():
     tick.set_rotation(90)
-```    
+```
 
 ## faceting
 Faceting is the act of breaking data variables up across multiple subplots and combining those subplots into a single figure
-```python
+```py
 g = sns.FacetGrid(df, col='class')
 g = g.map(sns.kdeplot, 'sepal_length')
-``` 
+```
 
 ## pairplot
 plot a grid of pairwise relationships in a dataset
-```python
+```py
 sns.pairplot(iris)
 
 from pandas.plotting import scatter_matrix
@@ -51,7 +51,7 @@ fig, ax = plt.subplots(figsize=(12,12))
 scatter_matrix(iris, alpha=1, ax=ax)
 ```
 ## heatmap
-```python
+```py
 sns.heatmap(iris.corr(), annot=True)
 
 # get correlation matrix
@@ -75,11 +75,11 @@ for i in range(len(corr.columns)):
     for j in range(len(corr.columns)):
         text = ax.text(j, i, np.around(corr.iloc[i, j], decimals=2),
                        ha="center", va="center", color="black")
-```    
+```
 
 
 ## color bar
-```python
+```py
 def get_cbar_colors(dts):
     z = pd.to_timedelta(dts).total_seconds()
     zmin = min(z)
@@ -99,10 +99,10 @@ def get_cbar_colors(dts):
     colors = [cmap(value) for value in (z - zmin) / (zmax - zmin)]
 
     return tks, lbs, colors, cmap, normalize
-    
+
 def plot_cbar(ax, tks, lbs, cmap, normalize):
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=normalize)
     sm._A = [] #fake up the array of the scalar mappable.  not required from verion 3.1
     cbar = plt.colorbar(sm,ax=ax,ticks=tks,label='job create time')
     cbar.ax.set_yticklabels(lbs)
-```  
+```

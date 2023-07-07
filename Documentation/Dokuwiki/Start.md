@@ -18,7 +18,7 @@ This is a
 file example with export title.
 ```
 
-```python
+```py
 #python code example
 import pandas as pd
 df = new DataFrame()

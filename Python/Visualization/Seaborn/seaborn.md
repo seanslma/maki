@@ -1,7 +1,7 @@
 # seaborn
 https://seaborn.pydata.org/tutorial/axis_grids.html
 
-```python
+```py
 #show NaN values in df
 sns.heatmap(df.isnull(), yticklabels=False, cbar=False, cmap='viridis')
 
@@ -18,24 +18,24 @@ df['c1'].iplot(kind='hist', bins=30)
 ```
 
 ## bar
-```python
+```py
 sns.barplot(x='tip_pct', y='day', data=df, orient='h')
 sns.barplot(x='tip_pct', y='day', data=df, hue='time', orient='h')
 ```
 
 Use catplot() to combine a barplot() and a FacetGrid - data should not be in index:
-```python
+```py
 g = sns.catplot(
   kind="bar",
-  data=tips, 
-  x="sex", 
+  data=tips,
+  x="sex",
   y="total_bill",
-  row="smoker", 
-  col="time",  
-  sharey=False, 
+  row="smoker",
+  col="time",
+  sharey=False,
   ci=None,                  #remove error bars
   order=['1H', '2H', '4H'], #x order
-  height=4, 
+  height=4,
   aspect=.7,
 )
 #ylim, gridline, annotation
@@ -55,23 +55,23 @@ for i, ax in enumerate(g.axes.ravel()):
     ax.grid(b=True, which='major', color='black', linewidth=0.075)
     for c in ax.containers:
         labels = [f'{v.get_height():.3f}' for v in c]
-        ax.bar_label(c, labels=labels, label_type='edge', rotation=90, fontsize=8) 
+        ax.bar_label(c, labels=labels, label_type='edge', rotation=90, fontsize=8)
 ```
 
 ## hist
-```python
+```py
 sns.distplot(values, bins=100, color='k')
 ```
-  
+
 ## scatter
-```python
+```py
 sns.regplot('m1', 'unemp', data=trans_data)
 sns.pairplot(trans_data, diag_kind='kde', plot_kws={'alpha': 0.2})
 ```
 
 ## facetgrid
-```python
-sns.factorplot(kind='bar', x='day', y='tip_pct', 
+```py
+sns.factorplot(kind='bar', x='day', y='tip_pct',
                col='smoker', hue='time', data=tips[tips.tip_pct < 1])
 
 #split row and col
@@ -91,13 +91,13 @@ g.fig.subplots_adjust(wspace=.02, hspace=.02)
 ```
 
 ## relplot
-```python
-g = sns.relplot(kind='line', data=df, x='fye', y='val', 
+```py
+g = sns.relplot(kind='line', data=df, x='fye', y='val',
                 row='scen', hue='reg', style='fit', height=4, aspect=1.5,
                 facet_kws={'sharey': True, 'sharex': False})
 g._legend.set_bbox_to_anchor([0.35,0.92])
 
-[plt.setp(ax.texts, text="") for ax in g.axes.flat] #remove the original texts                                                    
+[plt.setp(ax.texts, text="") for ax in g.axes.flat] #remove the original texts
 g.set_titles(row_template = '{row_name}', col_template = '{col_name}') #set new titles
 
 #settings
@@ -107,7 +107,7 @@ g.fig.subplots_adjust(wspace=.02, hspace=.02)
 ```
 
 ## custom func
-```python
+```py
 from scipy import stats
 def quantile_plot(x, **kwargs):
     quantiles, xr = stats.probplot(x, fit=False)

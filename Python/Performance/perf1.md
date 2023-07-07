@@ -28,7 +28,7 @@ np.digitize()   2 ms
 ```
 
 ### DateTime
-```python
+```py
 # change String Datetime to Timestamp
 df['date_time'] = pd.to_datetime(df['date_time'])
 # 50x faster when explicitly using format
@@ -36,7 +36,7 @@ df['date_time'] = pd.to_datetime(df['date_time'], format='%d/%m/%Y %H:%M:%S')
 ```
 
 ### .isin()
-```python
+```py
 # define hour range Boolean arrays
 peak_hours = df.index.hour.isin(range(17, 24))
 # apply tariffs to hour ranges
@@ -44,7 +44,7 @@ df.loc[peak_hours, 'cost_cents'] = df.loc[peak_hours, 'energy_kwh'] * 28
 ```
 
 ### pd.cut()
-```python
+```py
 cents_per_kwh = pd.cut(
     x=df.index.hour,
     bins=[0, 7, 17, 24],
@@ -55,14 +55,14 @@ df['cost_cents'] = cents_per_kwh * df['energy_kwh']
 ```
 
 ### np.digitize()
-```python
+```py
 prices = np.array([12, 20, 28])
 bins = np.digitize(df.index.hour.values, bins=[7, 17, 24])
 df['cost_cents'] = prices[bins] * df['energy_kwh'].values
 ```
 
 ### HDFStore
-```python
+```py
 # save to datastore
 ds = pd.HDFStore('C:/ds1.h5')
 ds['df1'] = df

@@ -1,7 +1,7 @@
 # Post
 
 ## run post
-```python
+```py
 import requests
 import json
 
@@ -14,7 +14,7 @@ def do_post(data):
 ```
 
 ## async post
-```python
+```py
 import aiohttp
 import asyncio
 import json

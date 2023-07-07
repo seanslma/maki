@@ -21,7 +21,7 @@ print('Result [None]:\n',v)
 
 ## avoid using `df.index.levels[]` - it contains all before the groupby.
 Test code:
-```python
+```py
 def test(df):
     print(f'df.index.levels[0]: {df.index.levels[0]}')
     print(f'df.index.get_level_values(0): {df.index.get_level_values(0)}')
@@ -44,7 +44,7 @@ df.index.get_level_values(0): Int64Index([2], dtype='int64', name='id')
 ```
 
 ## group by month, quarter, year
-```python
+```py
 freq = f'{summ_typ.upper()}S-JUL' #summ_typ = m,q,a [fy]
 bins = pd.date_range(f'2000-07-01', f'2020-07-01', freq=freq) #m,q,a start
 lbls = [dt.strftime('%Y-%m-%d') for dt in bins[:-1]]
@@ -53,7 +53,7 @@ df.groupby(['id','cut']).agg(cnt=('val','count'), max=('val','max'), tot=('rev',
 ```
 
 ## reshape to serials and group
-```python
+```py
 #df.columns = ['idx1','idx2','idx3','prd1','prd2','prd3']
 #set index
 df = df.set_index(['idx2','idx2','idx3'])

@@ -8,7 +8,7 @@ https://www.datacamp.com/community/tutorials/learn-build-dash-python
 **Dash** is Python framework for building web applications. It built on top of Flask, Plotly.js, React and React Js. It enables you to build dashboards using pure Python. Dash is open source, and its apps run on the web browser.
 
 ## requests pool
-```python
+```py
 import requests
 from threading import Lock
 
@@ -35,7 +35,7 @@ with threadlock:
 requests_html serves as an alternative to Selenium and PhantomJS, and provides a clear syntax similar to the awesome requests package\\
 http://theautomatic.net/2019/01/19/scraping-data-from-javascript-webpage-python
 
-```python
+```py
 from requests_html import HTMLSession
 session = HTMLSession()
 resp = session.get(url)
@@ -45,7 +45,7 @@ soup = bsoup(resp.html.html, 'lxml')
 ```
 
 ## soup example
-```python
+```py
 htmltext = get_url_text(url)
 soup = bsoup(htmltext, 'lxml')
 divs = soup.find_all('div', class_='my-dataset')
@@ -60,7 +60,7 @@ for div in divs:
 ```
 
 ## get with header
-```python
+```py
 import os
 import sys
 import json
@@ -102,7 +102,7 @@ for tbl in tables:
 ```
 
 ## wbdriver
-```python
+```py
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options

@@ -4,8 +4,8 @@
 https://docs.python.org/3/library/argparse.html
 
 ## progress
-```python
-def progress(width, msg):    
+```py
+def progress(width, msg):
     print(f'{msg: <{width}}\r', end='', flush=True)
     return max(len(msg), width)
 
@@ -18,7 +18,7 @@ progress(w, ' ')
 
 
 ## send email
-```python
+```py
 import smtplib #actual sending function
 from email.mime.text import MIMEText #email modules we'll need
 

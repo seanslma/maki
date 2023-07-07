@@ -1,17 +1,17 @@
 # numpy
-```python
+```py
 x = np.arange(5)
 ```
 
 ## tile/repeat
-```python
+```py
 a = np.array([1, 2])
 np.tile(a,2) #duplicate the array n times
 np.repeat(a,2) #duplicate each element n times
 ```
 
 ## join array
-```python
+```py
 #join a sequence of arrays along an existing axis
 a = np.array([[5, 6]])
 b = np.array([[1, 2], [3, 4]])
@@ -19,7 +19,7 @@ np.concatenate((a, b), axis=0)
 np.concatenate((a, b), axis=None)
 ```
 ## reshape
-```python
+```py
 import numpy as np
 d = np.array([[1,2,3],[4,5,6],[7,8,9]])
 
@@ -32,20 +32,20 @@ d.reshape(-1, order='f')
 #array([1, 4, 7, 2, 5, 8, 3, 6, 9])
 
 #when no intention to change the new array
-# it will be faster to use 
+# it will be faster to use
 d.ravel(order='c')
 d.ravel(order='f')
 ```
 
 ## sort
-```python
+```py
 people = np.array(people)
 ages = np.array(ages)
 ind = ages.argsort()
 sortedPeople = people[ind]
 ```
 ## max value and index
-```python
+```py
 #get all max values
 ind = np.where(a == a.max())
 #get only first max value
@@ -53,7 +53,7 @@ ind = np.unravel_index(a.argmax(), a.shape)
 ```
 
 ## top n min val
-```python
+```py
 #1d arr
 ind = np.argpartition(d1, n-1)[:n]
 
@@ -73,7 +73,7 @@ row_ind, col_ind = row_ind[min_val_order], col_ind[min_val_order]
 ```
 
 ## apply function
-```python
+```py
 def my_func(a):
     return (a[0] + a[-1]) * 0.5
 b = np.array([[1,2,3], [4,5,6], [7,8,9]])
@@ -84,7 +84,7 @@ np.apply_along_axis(my_func, 1, b) #row by row
 ```
 
 ## elems in a not in b
-```python
+```py
 #numpy
 a = np.array([1,2,3,4,5,6,7])
 b = np.array([2,4,6,8])

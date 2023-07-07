@@ -3,18 +3,18 @@
 ### numexpr
 numexpr is 5x faster than NumPy expression.
 
-```python
+```py
 a = df['a']
 expr = 'sin(a - 1) + 1'
 result1 = np.sin(a - 1) + 1
-result2 = numexpr.evaluate(expr)    
+result2 = numexpr.evaluate(expr)
 result3 = pd.eval(expr, engine='numexpr')
 ```
 
 ### pd.eval and pd.query
 Mainly used for large arrays to save memory thus the speed.
 
-```python
+```py
 # 2x faster than df1+df2 and less mem
 pd.eval('df1 + df2'))
 

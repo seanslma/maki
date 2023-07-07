@@ -6,14 +6,14 @@ https://www.learndatasci.com/tutorials/python-pandas-tutorial-complete-introduct
   #pandas version
   pd.__version__
   #versions of Python and dependent packages and OS type
-  pd.show_versions() 
-  
+  pd.show_versions()
+
 ### change display width
   from IPython.core.display import display, HTML
-  display(HTML("<style>.container {width:90% !important;}</style>"))  
+  display(HTML("<style>.container {width:90% !important;}</style>"))
   pd.set_option('display.max_columns', 10)
 ### add/delete col/s
-```python
+```py
 #add a new col to the end
 df['A'] = [1,2,3]
 #insert a col to a specific position
@@ -36,7 +36,7 @@ df1 = df[['A','B']]
 ```
 
 ### add/delete row/s
-```python
+```py
 #add row
 df.append(df2, ignore_index=True)
 df = pd.concat([df1,df2],ignore_index=True)
@@ -55,7 +55,7 @@ df = df.drop([0,1,5], axis=0)
 df = df.drop('2018Q1', axis=0)
 
 #drop rows with any NaN values
-df.dropna() 
+df.dropna()
 
 #drop only if ALL columns are NaN
 df.dropna(how='all')
@@ -63,14 +63,14 @@ df.dropna(how='all')
 #drop rows without at least two **not** NaN values
 df.dropna(thresh=2)
 
-#drop rows only if NaN in specific columns   
-df.dropna(subset=[1,3,5])  
-df.dropna(subset=['a','d','g'])  
+#drop rows only if NaN in specific columns
+df.dropna(subset=[1,3,5])
+df.dropna(subset=['a','d','g'])
 
 ```
 
 ### rename cols
-```python
+```py
 #rename multiple cols with dict
 df.rename(columns={ 'area': 'place_name', 'Y2001': 'year_2001' }, inplace=True)
 #rename all cols using a function, to lower case
@@ -80,7 +80,7 @@ df.rename(columns=lambda x: x.lower().replace(' ', '_')
 ```
 
 ### change cols type
-```python
+```py
 #change all cols
 df.astype('int32').dtypes
 #change a few cols
@@ -89,7 +89,7 @@ df.astype({'col1': 'int32'}).dtypes
 
 
 ### replace/drop NaN
-```python
+```py
 #replace NaN
 df = df.fillna(0)
 
@@ -104,16 +104,16 @@ df.dropna(how='all')
 ```
 
 ### get duplicate
-```python
+```py
 df_duplicate = df[df.duplicated(['a'], keep=False)]
 ```
 
 ### drop duplicate
-```python
+```py
 df = df.drop_duplicates(['first_name','last_name'], keep='first')
 ```
 ### conditional select rows
-```python
+```py
 df.loc[(df['column_name'] >= A) & (df['column_name'] <= B)]
 
 #get row indexes
@@ -122,7 +122,7 @@ df.index[df['v'].isin(['a','b','c'])].tolist()
 ```
 
 ### np.Array to dateframe
-```python
+```py
 ar = np.zeros((2, 3),dtype=float)
 df = pd.DataFrame(ar, columns=['A','B','C'])
 ```
@@ -131,7 +131,7 @@ df = pd.DataFrame(ar, columns=['A','B','C'])
 
 
 ### reshape
-```python
+```py
 #melt:join all cols
 df = pd.DataFrame({'id': ['d1', 'd2', 'd3'],'p1': [3, 2, 1], 'p2': [7, 5, 3]})
 df2 = pd.melt(df, id_vars=['id'], var_name='p', value_name='val')
@@ -149,7 +149,7 @@ df0.unstack()
 
 
 ### concat
-```python
+```py
 #append rows
 df = pd.concat([df1, df2, df3], axis=0, ignore_index=True)
 #append cols
@@ -159,35 +159,34 @@ df = pd.concat([d1,d2], keys=['City','Street'], names=['idx1','idx2'])
 ```
 
 ### count positive in each row
-```python
+```py
 np.sum(np.where(df[cols] > 0, 1, 0), axis=1)
 ```
 
 ### repeat
-```python
+```py
 df=pd.DataFrame(columns=['a','b'],data=[[1,2],[3,4]])
 #repeat each column 2x
 df[np.repeat(df.columns.values,2)]
 ```
 
 ### split
-```python
+```py
 chunks = np.split(df, df.shape[0] / 10**6)
 ```
 
 ### idx to col
-```python
+```py
 df = df.reset_index(level=0)
 ```
 
 ### fill gaps
-```python
+```py
 df.reindex(dt_all, method='ffill')
 ```
 
 ### lists to df
-```python
+```py
 df = pd.DataFrame({'a':l1,'b':l2,'c':l3})
 df = pd.DataFrame(columns=['a','b','c'],data=np.column_stack([l1,l2,l3]))
 ```
-

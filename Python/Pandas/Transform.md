@@ -5,7 +5,7 @@ broadcast aggregated value into the group, and function output must be a series.
   * It can produce an object of the same shape as the input group
   * It must not mutate its input
 
-```python
+```py
 g = df.groupby('key').value
 g.mean()
 g.transform('mean')

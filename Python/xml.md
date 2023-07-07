@@ -2,12 +2,12 @@
 
 https://towardsdatascience.com/processing-xml-in-python-elementtree-c8992941efd2
 
-```python
+```py
 import xml.etree.ElementTree as et
 
-def parse_con(dir, file, duid): 
-    """Parse the input XML file and store the result in a pandas 
-    DataFrame with the given columns. 
+def parse_con(dir, file, duid):
+    """Parse the input XML file and store the result in a pandas
+    DataFrame with the given columns.
 
     #<NEMSPDCaseFile>
     #    <NemSpdInputs>
@@ -43,9 +43,9 @@ def parse_con(dir, file, duid):
 
     return df
 
-def parse_sol(dir, file, duid): 
-    """Parse the input XML file and store the result in a pandas 
-    DataFrame with the given columns. 
+def parse_sol(dir, file, duid):
+    """Parse the input XML file and store the result in a pandas
+    DataFrame with the given columns.
 
     #<NEMSPDCaseFile>
     #    <NemSpdInputs>
