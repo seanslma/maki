@@ -85,7 +85,6 @@ git branch --no-merged | Where-Object { !($_ | Select-String "master|main|develo
 ## Delete remote branches
 ```
 git push origin --delete <branch-name>
-git push --delete <remote name> <branch name> #delete remote branch
 ```
 
 ## Delete multiple remote branches
