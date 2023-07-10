@@ -4,7 +4,7 @@ https://dash.plotly.com/dash-core-components/datepickersingle
 ## example
 ```py
 import dash
-import dash_core_components as dcc
+from dash import dcc
 from datetime import datetime
 
 app = dash.Dash(__name__)
