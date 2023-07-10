@@ -9,7 +9,7 @@ from datetime import datetime
 
 app = dash.Dash(__name__)
 app.layout = dcc.DatePickerSingle(
-    id='my-single-date-picker'
+    id='my-single-date-picker',
     date=datetime(2023, 6, 10),             
     min_date_allowed=datetime(2023, 6, 5), 
     max_date_allowed=datetime(2023, 6, 15),
