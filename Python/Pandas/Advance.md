@@ -44,7 +44,6 @@ df = pd.concat([df1.reset_index(drop=True),df2.reset_index(drop=True)],axis=1)
 ```
 
 ### merge
-
 if the col is obj type, the merge does not work!!!\\
 https://www.datasciencebytes.com/bytes/2014/11/27/when-joins-go-wrong-check-data-types/
 
@@ -106,14 +105,13 @@ df.groupby('kind').agg(min_height=('height', 'min'), max_weight=('weight', 'max'
 ```
 
 ### transform
-transform will created a new col with the same indices [populate the grouped value to all elements in each group]
+transform will created a new col with the same indices (populate the grouped value to all elements in each group)
 
 ```py
 #get row with max value in col in each group
 ind = df.groupby(['a','b'])['version'].transform(max) == df['version']
 df_new = df[ind]
 ```
-
 
 ### add a new level to df column
 ```py
@@ -128,5 +126,7 @@ arrays = [[1, 1, 2, 2], ['red', 'blue', 'red', 'blue']]
 pd.MultiIndex.from_arrays(arrays, names=('number', 'color'))
 ```
 ### Sum columns by level in MultiIndex df
-  df.groupby(level=0, axis=1).sum()
-  df.sum(level=0, axis=1)
+```py
+df.groupby(level=0, axis=1).sum()
+df.sum(level=0, axis=1)
+```
