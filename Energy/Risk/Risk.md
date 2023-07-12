@@ -30,3 +30,9 @@ LGC and STC price
 - historical sampling of returns
 - stochastic models (brownian motion)
 - other
+
+load simulation
+- long term (customer churn) and short term (daily/seasonal shape, flex)
+- stochastic expression (ornstein-uhlenbeck)
+- regression approach (average of load + rand)
+- historical sampling
