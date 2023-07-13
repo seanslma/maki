@@ -1,4 +1,4 @@
-# yaml
+# String
 
 ## string quotes
 https://leopathu.com/content/string-quotes-yaml-file
@@ -26,12 +26,12 @@ Strings only need quotation if (the beginning of) the value can be misinterprete
   ```
   key: >
     A long
-    string here.  
+    string here.
   ```
 - `|` interior line breaks are preserved as `\n`
   ```
   key: |
     A long
-    string here.    
+    string here.
   ```
 - `>-` or `|-` no line breaks at the end
