@@ -21,7 +21,7 @@ schema = pa.schema[
     ('float_val', pa.float64()),
 ]        
 df = dd.read_parquet(
-    file_path_list,
+    path=file_path_list,
     filters=filters,
     index=False,
     columns=columns,
