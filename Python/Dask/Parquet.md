@@ -1,6 +1,9 @@
 # Parquet
-If read the whole file, `pd.read_parquet` is better.
-If there are row filters `dd.read_parquet` can be faster as `pd.read_parquet` need to read the whole file first. 
+
+## performance
+- If read the whole file, `pd.read_parquet` is better.
+- If there are row filters `dd.read_parquet` can be faster as `pd.read_parquet` need to read the whole file first.
+- Seems `dd` read multiple parquet files in parallel, but still a little bit slower than parallel `pd`, pd.concat takes lots of time for large files
 
 ## read `filters`
 - The `filters` keyword is a row-group-wise action
