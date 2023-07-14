@@ -1,4 +1,6 @@
 # Parquet
+If read the whole file, `pd.read_parquet` is better.
+If there are row filters `dd.read_parquet` can be faster as `pd.read_parquet` need to read the whole file first. 
 
 ## read `filters`
 - The `filters` keyword is a row-group-wise action
