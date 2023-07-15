@@ -4,8 +4,87 @@ https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 
 There are two options to set the key used to connect to the private helm repo
 - HTTPS using username/password, or github user/token (PAT)
-  - get the user/pass from secret store such as Azure KeyVault using managed identity
-- SSH private-public key pair with github deplotment key (recommended more secure but one only for one repo)
+- SSH private-public key pair with github deployment key (recommended more secure but one only for one repo)
+Get the user/pass/key from secret store such as Azure KeyVault using managed identity
+
+https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/
+
+Each repository must have a `url` field and, depending on whether you connect using HTTPS, SSH, or GitHub App
+- `username` and `password` (for `HTTPS`),
+- `sshPrivateKey` (for `SSH`), or
+- `githubAppPrivateKey` (for `GitHub App`)
+
+## https
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: private-repo
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: https://github.com/argoproj/my-private-repo
+  password: my-password
+  username: my-username
+```
+
+## ssh
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: private-repo
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: git@github.com:argoproj/my-private-repo
+  sshPrivateKey: |
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    ...
+    -----END OPENSSH PRIVATE KEY-----
+```
+
+## Repository Credentials template
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-repo-1
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: https://github.com/argoproj/private-repo-1
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-repo-2
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: https://github.com/argoproj/private-repo-2
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: private-repo-creds
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repo-creds
+stringData:
+  type: git
+  url: https://github.com/argoproj
+  password: my-password
+  username: my-username
+```
 
 ## github user and token
 ### Store PAT as a Kubernetes secret in the same namespace as your ArgoCD installation
