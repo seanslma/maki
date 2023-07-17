@@ -6,7 +6,7 @@ https://graphviz.org/doc/info/shapes.html
 
 - Install `Graphviz`
 - `conda install graphviz python-graphviz pydot`
-```
+```py
 os.environ["PATH"] += os.pathsep + 'C:/Program Files/Graphviz/bin/'
 from graphviz import (
     Graph,
@@ -64,7 +64,7 @@ f
 ```
 
 ## cloud inforstructure diagrams
-```
+```py
 from diagrams import Diagram
 from diagrams.aws.compute import EC2
 from diagrams.aws.network import ELB
@@ -76,7 +76,7 @@ with Diagram("Web Service", show=False):
 
 ## schemdraw
 https://stackoverflow.com/questions/71906464/how-to-add-annotations-anywhere-in-flowchart-schemdraw
-```
+```py
 import schemdraw
 from schemdraw.flow import *
 
