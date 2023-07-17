@@ -26,33 +26,33 @@ sns.barplot(x='tip_pct', y='day', data=df, hue='time', orient='h')
 Use catplot() to combine a barplot() and a FacetGrid - data should not be in index:
 ```py
 g = sns.catplot(
-  kind="bar",
-  data=tips,
-  x="sex",
-  y="total_bill",
-  row="smoker",
-  col="time",
-  sharey=False,
-  ci=None,                  #remove error bars
-  order=['1H', '2H', '4H'], #x order
-  height=4,
-  aspect=.7,
+    kind='bar',
+    data=tips,
+    x='sex',
+    y='total_bill',
+    row='smoker',
+    col='time',
+    sharey=False,
+    ci=None,                  #remove error bars
+    order=['1H', '2H', '4H'], #x order
+    height=4,
+    aspect=.7,
 )
 #ylim, gridline, annotation
 ylims = (
-  d.groupby(['smoker','time'])
-  .agg(vmin=('val', 'min'), vmax=('val', 'max'))
-  .assign(
-    tmin=lambda x: x[['vmin']].groupby(['smoker']).transform('min'),
-    tmax=lambda x: x[['vmax']].groupby(['smiker']).transform('max'),
-  )
-  .drop(columns=['vmin','vmax'])
-  .assign(tmin=lambda x: x.tmin * 0.99)
-  .to_records(index=False)
+    d.groupby(['smoker','time'])
+    .agg(vmin=('val', 'min'), vmax=('val', 'max'))
+    .assign(
+        tmin=lambda x: x[['vmin']].groupby(['smoker']).transform('min'),
+        tmax=lambda x: x[['vmax']].groupby(['smiker']).transform('max'),
+    )
+    .drop(columns=['vmin','vmax'])
+    .assign(tmin=lambda x: x.tmin * 0.99)
+    .to_records(index=False)
 )
 for i, ax in enumerate(g.axes.ravel()):
     ax.set_ylim(ylims[i])
-    ax.grid(b=True, which='major', color='black', linewidth=0.075)
+    ax.grid(visible=True, which='major', color='black', linewidth=0.075)
     for c in ax.containers:
         labels = [f'{v.get_height():.3f}' for v in c]
         ax.bar_label(c, labels=labels, label_type='edge', rotation=90, fontsize=8)
