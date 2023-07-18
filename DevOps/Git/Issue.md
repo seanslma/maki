@@ -8,7 +8,7 @@ Under PowerShell, check the linked exe to git command:
 Get-Command git #will show the source path of git.exe
 ```
 Solution:
-- Run the command in terminal and it will show the error, e.g., msys-2.0.exe not found 
+- Run the command in terminal and it will show the error, e.g., msys-2.0.exe not found
 - This means the exe in the conda env is missing or corrupted
 - upgrading `git` in the conda-env fixed the issue
 
@@ -19,7 +19,7 @@ Solution:
 
 ## No PR in github after push
 reset upstream to remote upstream/master
-```
+```sh
 git branch --set-upstream-to upstream/master
 git push upstream HEAD
 ```
@@ -32,7 +32,7 @@ git push upstream HEAD
 - repo has been deleted
 
 ## fatal: refusing to merge unrelated histories
-```
+```sh
 git reset HEAD~ #unstage last commit if not init commit, else
 git update-ref -d HEAD && git rm --cached -r .
 git stash       #stash changes
@@ -41,10 +41,10 @@ git pop         #unstash changes
 ```
 
 ## fatal: ambiguous argument 'upstream/master': unknown revision or path not in the working tree
-```
+```sh
 git fetch upstream
 git checkout master
-git reset --hard upstream/master  
+git reset --hard upstream/master
 git push origin master --force
 git branch --set-upstream-to upstream/master
 ```

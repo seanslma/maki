@@ -10,24 +10,14 @@
 - `Staged changes` are in Git and marked for commit
 
 ## update
-```
+```sh
 sudo apt update
 sudo apt install git
 git --version
 ```
 
-## create git alias
-```
-git config --global alias.a '! git pull && git add . && git commit -m "d" && git push'
-git config --global --unset alias.a
-```
-open .gitconfig and add
-```
-a = "!sh -c \"git pull && git add . && if [ -z \"$1\" ]; then git commit -m \"update\"; else git commit -m \"$1\"; fi && git push\""
-```
-
 ## untrack file
-```
+```sh
 #keep file on server
 git update-index --assume-unchanged <file>
 #delete file from server

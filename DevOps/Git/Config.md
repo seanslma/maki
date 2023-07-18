@@ -8,7 +8,7 @@ Local config file can be found in the repo's .git directory: `.git/config`.
 ```
 
 ## global
-Global config file locates in user's home directory: 
+Global config file locates in user's home directory:
 - unix: `~/.gitconfig`
 - windows: `C:/Users/<usr>/.gitconfig`
 ```
@@ -19,7 +19,7 @@ git config --global --unset core.excludesfile #remove the setting
 Avoid ssl error
 ```
 [http]
-	sslbackend = schannel 
+	sslbackend = schannel
 ```
 
 Use windows Credentials Manager,
@@ -30,8 +30,8 @@ Use windows Credentials Manager,
 ```
 
 ## system
-System level config file lives in the system root path: 
-- unix: `$(prefix)/etc/gitconfig` 
+System level config file lives in the system root path:
+- unix: `$(prefix)/etc/gitconfig`
 - windows: `C:\ProgramData\Git\config`
 ```
 ```
@@ -40,4 +40,14 @@ System level config file lives in the system root path:
 ```
 #error: cannot spawn more: No such file or directory
 git config --global core.pager ""
+```
+
+## create git alias
+```sh
+git config --global alias.a '! git pull && git add . && git commit -m "d" && git push'
+git config --global --unset alias.a
+```
+open `.gitconfig` and add
+```sh
+a = "!sh -c \"git pull && git add . && if [ -z \"$1\" ]; then git commit -m \"update\"; else git commit -m \"$1\"; fi && git push\""
 ```
