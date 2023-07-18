@@ -2,7 +2,7 @@
 https://learn.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest
 
 ## Cache for Azure Container Registry
-https://aus01.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Fcontainer-registry%2Ftutorial-registry-cache%23cache-for-acr-preview&data=05%7C01%7Cshuiliang.ma%40stanwell.com%7C0303cd71fff8446615ec08db7c586db8%7C556f4662c7de43129a81dd4e68521c32%7C0%7C0%7C638240491464210202%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=B9DGdrKiB%2FLLfOxwBaiXxx6iSY0rm6jK9JWVrpnFYcg%3D&reserved=0
+
 
 ## List repos in ACR
 ```
@@ -83,14 +83,14 @@ spec:
             cpu: "1"
           limits:
             memory: 32Gi
-            cpu: "3" 
+            cpu: "3"
           volumeMounts:
           - name: cfg
             mountPath: "/home/user/.config/cfg1"
-            readOnly: true 
+            readOnly: true
           env:
             - name: RESULT_PATH
-              value: "test"   
+              value: "test"
       volumes:
       - name: db
         secret:
@@ -100,5 +100,5 @@ spec:
           driver: secrets-store.csi.k8s.io
           readOnly: true
           volumeAttributes:
-            secretProviderClass: "myapp-cfg"              
+            secretProviderClass: "myapp-cfg"
 ```
