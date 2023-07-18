@@ -1,11 +1,27 @@
 # Setup
 
-## 
+## create session
 ```py
 from pyspark.sql import SparkSession
-spark = SparkSession \
-.builder \
-.appName("Python Spark Logistic Regression example") \
-.config("spark.some.config.option", "some-value") \
-.getOrCreate()
+spark = (
+    SparkSession
+    .builder
+    .appName('spark-dev')
+    .config("spark.memory.offHeap.enabled","true")
+    .config("spark.memory.offHeap.size","10g")
+    .getOrCreate()
+)
+```
+
+## load data
+```py
+#df = spark.read.csv('data.csv', header=True, escape='\"')
+df = spark.read.parquet('data.parquet')
+```
+
+## show top n lines
+```py
+df.show(5)                #truncate to 20 chars
+df.show(5, 0)             #no truncate
+df.show(5, vertical=True) #transpose
 ```
