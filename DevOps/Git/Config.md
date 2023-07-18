@@ -49,5 +49,6 @@ git config --global --unset alias.a
 ```
 open `.gitconfig` and add
 ```sh
-a = "!sh -c \"git pull && git add . && if [ -z \"$1\" ]; then git commit -m \"update\"; else git commit -m \"$1\"; fi && git push\""
+a = "!sh -c \"git pull && git add . && if [ -z \\\"$1\\\" ]; then git commit -m \\\"update\\\"; else git commit -m \\\"$1\\\"; fi && git push\""
 ```
+Here is an example to use it: `git a "My first commit"`.
