@@ -6,4 +6,4 @@ It's free for Community Edition: https://community.cloud.databricks.com/login.ht
 ## On Windows
 - install jdk: https://www.oracle.com/au/java/technologies/downloads/
 - add jav `bin` path to system env path
-- check java: `java --version` or `java Main`
+- check java: `java --version`
