@@ -36,6 +36,7 @@ line-length = 88
 target-version = ['py39']
 skip-string-normalization = true #disable string double quotes normalization
 include = '\.pyi?$'
+--force-exclude = '''versioneer.py''' #exclide this file eith from saving or cli
 preview = false
 ```
 
