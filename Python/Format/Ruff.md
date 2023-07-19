@@ -22,7 +22,7 @@ dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 select = ["E", "F"]
 ignore = []
 
-# Disable autofix for all enabled rules (when `--fix`) is provided
-fixable = []
-unfixable = ["ALL"]
+# Allow autofix for all enabled rules (when `--fix`) is provided
+fixable = ["ALL"]
+unfixable = []
 ```
