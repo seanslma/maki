@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun 20 21:27:21 2023
+# Make data base, printed on Tue Jul 18 22:00:20 2023
 
 # Variables
 
@@ -47,7 +45,7 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","osLocale":"en-au","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:43592
+JOURNAL_STREAM = 8:48681
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -67,7 +65,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /usr/share/code/code
 # environment
-MANAGERPID = 1649
+MANAGERPID = 1638
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -79,7 +77,7 @@ PATH = /home/sma/mambaforge/envs/dev/bin:/home/sma/mambaforge/condabin:/usr/loca
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1868,unix/mase:/tmp/.ICE-unix/1868
+SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1863,unix/mase:/tmp/.ICE-unix/1863
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -89,7 +87,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = ec508e5d518a4b2ebc9cc1e0f057b85b
+INVOCATION_ID = 61bbf5d455b244e4b11ac56bf2aab760
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -97,7 +95,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2346
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2794
 # automatic
 %F = $(notdir $%)
 # environment
@@ -109,7 +107,7 @@ PWD = /home/sma/dev/maki
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1830
+SSH_AGENT_PID = 1825
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -121,7 +119,7 @@ HOME = /home/sma
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
-VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/b3e4e68a0bc097f0ae7907b217c1119af9e03435
+VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/695af097c7bd098fbf017ce3ac85e09bbc5dda06
 # environment
 LOGNAME = sma
 # environment
@@ -148,8 +146,6 @@ QT_IM_MODULE = ibus
 SHLVL = 0
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
-# environment
-VSCODE_CRASH_REPORTER_SANDBOXED_HINT = 1
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -171,7 +167,7 @@ MAKE_COMMAND := make
 # environment
 LANGUAGE = en_AU:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.78-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.79-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -215,9 +211,9 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2346
+VSCODE_PID = 2794
 # variable set hash-table stats:
-# Load=102/1024=10%, Rehash=0, Collisions=13/127=10%
+# Load=101/1024=10%, Rehash=0, Collisions=13/126=10%
 
 # Pattern-specific Variable Values
 
@@ -225,9 +221,9 @@ VSCODE_PID = 2346
 
 # Directories
 
-# . (device 66311, inode 6427991): 22 files, no impossibilities.
+# . (device 66311, inode 6427991): 23 files, no impossibilities.
 
-# 22 files, no impossibilities in 1 directories.
+# 23 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -272,12 +268,14 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 28 / storage = 218 B / avg = 7 B
-# current buf: size = 8162 B / used = 218 B / count = 28 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 29 / storage = 225 B / avg = 7 B
+# current buf: size = 8162 B / used = 225 B / count = 29 / avg = 7 B
 
-# strcache performance: lookups = 33 / hit rate = 15%
+# strcache performance: lookups = 34 / hit rate = 14%
 # hash-table stats:
-# Load=28/8192=0%, Rehash=0, Collisions=1/33=3%
-# Finished Make data base on Tue Jun 20 21:27:21 2023
+# Load=29/8192=0%, Rehash=0, Collisions=1/34=3%
+# Finished Make data base on Tue Jul 18 22:00:20 2023
 
  
+make: *** No rule to make target 'all'.  Stop.
+
