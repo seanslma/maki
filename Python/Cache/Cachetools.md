@@ -39,12 +39,16 @@ from cachetools import cached, TTLCache
 CACHE_TIME_LIMIT = 1 * 60 * 60 # one hour
 cachetools_cache = TTLCache(maxsize=float('inf'), ttl=CACHE_TIME_LIMIT)
 
-def key_builder(f, *args, **kwargs):
+def key_builder(f, namespace, exclude, *args, **kwargs):
     params = {}
     special_type = ''
     for i, v in enumerate(args):
         params[f'arg{i}'] = v
+    if isinstance(exclude, str):
+        exclude = [exclude]
     for k, v in kwargs.items():
+        if exclude is not None and k in exclude:
+            continue
         if k == 'special' and isinstance(v, Request):
             special_type = v.headers.get('Accept')
         else:
@@ -54,7 +58,7 @@ def key_builder(f, *args, **kwargs):
                     'account_name': v.account_name,
                 }
             params[k] = v
-    return f.__name__ + json.dumps(params) + f'`{special_type}'
+    return f'{f.__name__}:{namespace}{json.dumps(params)}`{special_type}'
 
 def cachetools_cachedx(f):
     return cached(
@@ -62,18 +66,21 @@ def cachetools_cachedx(f):
         key=lambda *args, **kwargs: (key_builder(f, *args, **kwargs)),
     )(f)
     
-def cachetools_cached(namespace: str, key_builder: Callable):
+def cachetools_cached(
+    namespace: str = '',
+    exclude: list[str] = None,
+    key_builder: Callable = key_builder,
+):
     def decorator(f):
         return cached(
             cachetools_cache,
             key=lambda *args, **kwargs:
-                (key_builder(f, *args, namespace=namespace, **kwargs)),
+                (key_builder(f, namespace, exclude, *args, **kwargs)),
         )(f)
     return decorator    
     
-@cachetools_cached(namespace='dev', key_builder=key_builder)
+@cachetools_cached(namespace='dev', exclude='fs', key_builder=key_builder)
 def read_parquet_cache(
-    namespace: str,
     *,
     fs: AzureBlobFileSystem,
     path: str,
