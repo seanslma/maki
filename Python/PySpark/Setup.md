@@ -30,6 +30,7 @@ df.show(5, vertical=True) #transpose
 ```py
 def sp_shape(df):
     return df.count, len(df.columns)
+# why not include timestamp cols???
 df.describe().show() #count, mean, stdev, min, max
 df.summary().show()  #count, mean, stdev, min, 25%, 50%, 75%, max
 ```
