@@ -11,20 +11,20 @@ Local config file can be found in the repo's .git directory: `.git/config`.
 Global config file locates in user's home directory:
 - unix: `~/.gitconfig`
 - windows: `C:/Users/<usr>/.gitconfig`
-```
+```sh
 git config --global core.editor "vim"
 git config --global --unset core.excludesfile #remove the setting
 ```
 
 Avoid ssl error
-```
+```sh
 [http]
 	sslbackend = schannel
 ```
 
 Use windows Credentials Manager,
 `git config --global credential.helper manager-core`
-```
+```sh
 [credential]
 	helper = manager-core
 ```
@@ -37,7 +37,7 @@ System level config file lives in the system root path:
 ```
 
 ## config git editor
-```
+```sh
 #error: cannot spawn more: No such file or directory
 git config --global core.pager ""
 ```
