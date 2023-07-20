@@ -44,8 +44,7 @@ cachetools_cache = TTLCache(maxsize=float('inf'), ttl=CACHE_TIME_LIMIT)
 def key_builder(f, namespace, exclude, *args, **kwargs):
     params = {}
     special_type = ''
-    for i, v in enumerate(args):
-        params[f'arg{i}'] = v
+    params['args'] = args
     if isinstance(exclude, str):
         exclude = [exclude]
     for k, v in kwargs.items():
