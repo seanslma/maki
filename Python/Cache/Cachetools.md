@@ -33,7 +33,9 @@ print(f'time: {time.time() - t0:.3f}')
 ```
 
 ## custom key
+**caveat**: to ensure thread-safe, we must provide a `Lock` object to the cached decorator.
 ```py
+import threading
 from cachetools import cached, TTLCache
 
 CACHE_TIME_LIMIT = 1 * 60 * 60 # one hour
@@ -76,6 +78,7 @@ def cachetools_cached(
             cachetools_cache,
             key=lambda *args, **kwargs:
                 (key_builder(f, namespace, exclude, *args, **kwargs)),
+            lock=threading.Lock(), #ensure thread-safe
         )(f)
     return decorator    
     
