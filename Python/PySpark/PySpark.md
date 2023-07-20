@@ -14,3 +14,10 @@ https://www.coiled.io/blog/moving-from-spark-to-dask
 
 - spark for larger data, need to run on a cloud cluster
 - dask for smaller data, faster and easier to integrate into python, can run locally
+
+
+## Spark version
+```py
+print('spark version = ', SparkSession.builder.appName('test').getOrCreate().version)
+pip show pyspark
+```
