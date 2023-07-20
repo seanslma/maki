@@ -1,4 +1,4 @@
-# Links
+# Learn
 
 ## Basic:
 - https://lnkd.in/g-gCpUyi
@@ -8,3 +8,6 @@
 
 ## basic compared to pandas
 https://levelup.gitconnected.com/pyspark-dos-and-donts-15fa4f6433d8
+
+## basic for ml
+https://www.datacamp.com/tutorial/pyspark-tutorial-getting-started-with-pyspark
