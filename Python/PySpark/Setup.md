@@ -25,3 +25,11 @@ df.show(5)                #truncate to 20 chars
 df.show(5, 0)             #no truncate
 df.show(5, vertical=True) #transpose
 ```
+
+## basic info
+```py
+def sp_shape(df):
+    return df.count, len(df.columns)
+df.describe().show() #count, mean, stdev, min, max
+df.summary().show()  #count, mean, stdev, min, 25%, 50%, 75%, max
+```
