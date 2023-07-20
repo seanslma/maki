@@ -1,5 +1,11 @@
 # Column
 
+## string col name
+
+Can use column names as strings
+- DataFrame APIs such as `select`, `groupBy`, `orderBy` etc
+- No transformations on any column in any function
+
 ## distinct
 ```py
 df.select('CustomerID').distinct().count()
