@@ -2,6 +2,9 @@
 
 ## Java gateway process exited before sending its port number
 
-## org.apache.spark.SparkException: Python worker failed to connect back
-Solution: Restart the jupyter notebook kernel.
+## Caused by: java.net.SocketTimeoutException: connect timed out
+https://knowledge.informatica.com/s/article/Caused-by-java-net-SocketTimeoutException-connect-timed-out-running-a-Spark-mapping-with-Sequence-Generator?language=en_US
+
 Reason: Firewall blocked the java binary to access the network
+
+Check if there is a firewall blocking the REST API call from the cluster to DIS nodes. 
