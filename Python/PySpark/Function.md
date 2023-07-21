@@ -3,6 +3,8 @@
 ## lit
 Literal
 ```py
+df.select(concat('country', ', ', 'description')).show(5,0)      #wrong
+df.select(concat('country', lit(', '), 'description')).show(5,0) #correct
 ```
 
 ## col
