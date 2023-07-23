@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # PowerBI
 
 ## table
@@ -49,3 +50,5 @@ FolderPath= Excel.CurrentWorkbook(){[Name="NamedRange"]}[Content]{0}[Column1],
 
 ## Power Query Errors: Please Rebuild This Data Combination
 https://www.excelguru.ca/blog/2015/03/11/power-query-errors-please-rebuild-this-data-combination/
+
+<!-- {% endraw %} -->
