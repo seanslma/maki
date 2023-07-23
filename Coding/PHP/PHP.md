@@ -47,9 +47,9 @@ https://medium.com/@e_mad_ehsan/getting-started-with-puppeteer-and-chrome-headle
 https://dev.to/alanmbarr/scraping-html-with-php-node-and-puppeteer-10m2
 
 ## debug in VS code
-* download xdebug based on php version: https://xdebug.org/download
-* copy the dll to: C:\php\ext
-* update php.ini, add:
+- download xdebug based on php version: https://xdebug.org/download
+- copy the dll to: C:\php\ext
+- update php.ini, add:
 ```ini
 [XDebug]
 zend_extension="C:\php\ext\php_xdebug-3.0.4-7.4-vc15-x86_64.dll"
@@ -58,9 +58,9 @@ zend_extension="C:\php\ext\php_xdebug-3.0.4-7.4-vc15-x86_64.dll"
 xdebug.mode=debug
 xdebug.start_with_request=yes
 ```
-* in VS code, install extension PHP Debug
-* in VS code, debug -> add config file
-* run in debug mode
+- in VS code, install extension PHP Debug
+- in VS code, debug -> add config file
+- run in debug mode
 
 ## get previous day
 $dt = date("Y-m-d H:i:s", strtotime("-1 day")); //$dt is a string
