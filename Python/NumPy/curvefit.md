@@ -30,10 +30,9 @@ y_new = sigmoid(x_new, *popt)
 
 ## example
 ```py
-import matplotlib.pyplot as plt
 from numpy import exp, loadtxt, pi, sqrt
-
 from lmfit import Model
+import matplotlib.pyplot as plt
 
 data = loadtxt('model1d_gauss.dat')
 x = data[:, 0]

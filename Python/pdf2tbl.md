@@ -38,7 +38,6 @@ th = list(filter(None, tl[0])) #remove empty items
 ```
 
 ## camelot
-
 camelot: extract tables from pdf files. also works for scanned files. cannot get page text
 
 #install Ghostscript from: https://www.ghostscript.com/download/gsdnld.html\\

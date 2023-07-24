@@ -8,9 +8,37 @@ https://python.plainenglish.io/ridge-plots-with-pythons-seaborn-4de5725881af
 import numpy as np
 import pandas as pd
 import seaborn as sns
- 
+
 df = pd.DataFrame(np.random.random((10,7)), columns=['a','b','c','d','e','f','g'])
 sns.heatmap(df)
+```
+
+## example
+```py
+sns.heatmap(iris.corr(), annot=True)
+
+# get correlation matrix
+corr = iris.corr()
+fig, ax = plt.subplots()
+# create heatmap
+im = ax.imshow(corr.values)
+
+# set labels
+ax.set_xticks(np.arange(len(corr.columns)))
+ax.set_yticks(np.arange(len(corr.columns)))
+ax.set_xticklabels(corr.columns)
+ax.set_yticklabels(corr.columns)
+
+# Rotate the tick labels and set their alignment.
+plt.setp(ax.get_xticklabels(), rotation=45, ha='right', rotation_mode='anchor')
+
+# Loop over data dimensions and create text annotations.
+for i in range(len(corr.columns)):
+    for j in range(len(corr.columns)):
+        text = ax.text(
+            j, i, np.around(corr.iloc[i, j], decimals=2),
+            ha='center', va='center', color='black'
+        )
 ```
 
 ## special
