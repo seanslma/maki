@@ -9,3 +9,8 @@ Ctrl + D
 ```
 Ctrl + L
 ```
+
+## comment/uncomment code
+```
+Ctrl + /
+```
