@@ -34,5 +34,13 @@ Ctrl + Shift + Alt + Down/Up/left/Right/PageUp/PageDown
 
 ## go to line
 ```
-Ctrl + G
+Home     #beginning of line
+End      #end of line
+Ctrl + G #go to line
+```
+
+## go to error
+```
+F8         #next error/warning
+Shift + F8 #previous error/warning
 ```
