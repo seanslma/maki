@@ -17,3 +17,6 @@ In argocd, the credentials template still use `https` not `git@` but the credent
 when change the url to `git@` the error became `authentication required`. Maybe the ssh key is not correct??? The private key should not be base64 encoded!!!
 
 If the repositories are connected seccussfully but the applications still show the error, the `AppProject sourceRepos` must also use the `git@` format when the authentication is via `ssh`.
+
+## the server could not find the requested resource
+The `apiVersion` for the app such Cronjob might be old and should be updated.
