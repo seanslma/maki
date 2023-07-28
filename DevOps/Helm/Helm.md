@@ -18,14 +18,19 @@ ports:
 
 ## if else
 https://github.com/bitnami/charts/blob/master/bitnami/apache/templates/hpa.yaml
-```
+```yaml
 rollingUpdate:
   maxSurge: 1
-  {{ if gt .Values.replicaCount 3.0}}
+  {{ if gt .Values.replicaCount 3.0 }}
   maxUnavailable: 0
   {{ else }}
   maxUnavailable: 1
   {{ end }}
+```
+
+## remove whitespace `{{- xyz }}`
+```
+{{- 3 }} means "trim left whitespace and print 3"
 ```
 
 <!-- {% endraw %} -->

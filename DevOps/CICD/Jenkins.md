@@ -1,7 +1,7 @@
 # Jenkins
 
 ## Install Jenkins locally
-```bash
+```sh
 mkdir jenkins
 cd jenkins
 docker run --name jenkins \
@@ -24,16 +24,16 @@ Note:
 
 Then open http://127.0.0.1:80 and follow the directions
 
-## Integrate with github private repo 
+## Integrate with github private repo
 Do other steps same as the public repo.
 
 ### setup ssh key
   * `docker exec -it jenkins /bin/bash`
   * `ssh-keygen -t rsa`
   * `cat id_rsa.pub` copy key to github: repo settings -> Deploy keys -> Add deploy key
-  * add ssh private key inside Jenkins: 
-    * manage jenkins -> manage credentials -> 
-    * Kind: ssh username with private key -> 
+  * add ssh private key inside Jenkins:
+    * manage jenkins -> manage credentials ->
+    * Kind: ssh username with private key ->
     * Username: github-repo
   * configure jenkins job to use SSH keys:
     * job -> source code management
@@ -47,5 +47,4 @@ Do other steps same as the public repo.
 ERROR: Couldn't find any revision to build. Verify the repository and branch configuration for this job.
 
 Solution: job configuration -> Source Code Management -> Git -> Branches to build ->
-it is default to "*/master" -> change to "*/main" github repo project is under "main" branch 
-
+it is default to "*/master" -> change to "*/main" github repo project is under "main" branch

@@ -30,7 +30,7 @@ git clone https://username:ghp_MY-PERSONAL-ACCESS-TOKEN@github.com/username/my-r
 
 ### linux
 Configure the local GIT client with a username and email address
-```bash
+```sh
 $ git config --global user.name "your_github_username"
 $ git config --global user.email "your_github_email"
 $ git config -l

@@ -1,12 +1,12 @@
 # Install Docuwiki on Linux
 
 ## install php 7.0 and extensions
-```bash
+```sh
 sudo apt install -y php7.0 php7.0-cli php7.0-fpm php7.0-gd php7.0-xml php7.0-zip
 ```
 
 ## install apache2
-```bash
+```sh
 sudo apt update
 sudo apt install apache2
 
@@ -20,7 +20,7 @@ sudo systemctl enable apache2.service
 ```
 
 ## install dokuwiki
-```bash
+```sh
 stat -c '%G' /var/www/dokuwiki #check folder owner
 sudo mkdir -p /var/www/dokuwiki #create a document root directory
 sudo chown -R johndoe:johndoe /var/www/dokuwiki #change ownership of the directory to user
@@ -46,4 +46,4 @@ sudo vi /etc/apache2/apache2.conf #For directory /var/www/ replace AllowOverride
 sudo systemctl restart php7.0-fpm.service
 
 sudo rm /var/www/dokuwiki/install.php
-```  
+```

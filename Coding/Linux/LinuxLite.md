@@ -9,12 +9,12 @@ Edit: /etc/lightdm/lightdm.conf
 Comment out: greeter-setup-script=/usr/bin/numlockx on
 
 ## Shutdown buttons missing
-Open Lite Tweaks --> Login & Logout Options... select "Show all Options" and Apply. 
+Open Lite Tweaks --> Login & Logout Options... select "Show all Options" and Apply.
 
 Then logout and login again... Shutdown and Restart buttons should be enabled once again.
 
 ## Fix hibernation with swap partition
-```bash
+```sh
 #1. copy swap UUID number
 $ cat /etc/fstab #UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 
@@ -37,7 +37,7 @@ $ sudo update-initramfs -u
 
 ## slow boot
 https://www.reddit.com/r/Ubuntu/comments/clu0lj/short_guide_to_improve_slow_boot_on_ubuntu_1804/
-```bash
+```sh
 systemd-analyze
 systemd-analyze blame
 systemd-analyze critical-chain
@@ -45,27 +45,27 @@ systemd-analyze critical-chain
 
 ## delay service autostart
 option 1: add an ExecStarPre command after the [service]
-```bash
+```sh
 [Service]
 ExecStartPre=/bin/sleep 5
 EnvironmentFile=/etc/default/myservice
 ```
 
-option 2: create a .timer systemd unit file to control the execution of the .service unit file. 
+option 2: create a .timer systemd unit file to control the execution of the .service unit file.
 
-Wait for 1 minute after boot-up before starting the foo.service. 
-```bash
+Wait for 1 minute after boot-up before starting the foo.service.
+```sh
 [Timer]
 OnBootSec=1min
 ```
 It is important that the service is disabled, and the timer enabled
-```bash
+```sh
 systemctl disable foo.service
 systemctl enable foo.timer
 ```
 
 ## prevent docker autostart
-```bash
+```sh
 #stop docker
 sudo systemctl stop docker.service
 sudo systemctl stop docker.socket
@@ -86,7 +86,7 @@ systemctl list-unit-files | grep -i 'state\|docker'
 
 ## Colored terminal
   * Add this after the last 'fi' in .bashrc
-```bash
+```sh
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
@@ -116,12 +116,12 @@ fi
 unset color_prompt force_color_prompt
 ```
   * In terminal input
-```bash
+```sh
 source ~/.bashrc
 ```
 
 ## install vs code
-```bash
+```sh
 sudo apt update
 #install dependencies
 sudo apt install software-properties-common apt-transport-https
@@ -135,24 +135,23 @@ sudo apt install code
 ```
 
 ## Install PHP
-```bash
+```sh
 sudo apt install php php-cli php-fpm php-json php-common php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath
 php --version #check version
 php -m #listing all loaded PHP modules
 ```
 
 ## install Python3 custom version
-```bash
+```sh
 cd ~
 mkdir tmp
 cd tmp
 wget https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tgz
-tar zxvf Python-3.9.7.tgz 
-cd Python-3.9.7 
+tar zxvf Python-3.9.7.tgz
+cd Python-3.9.7
 ./configure --prefix=$HOME/opt/python-3.9.7
 make
 make install
-export PATH=$HOME/opt/python-3.9.7/bin:$PATH#add to .bash_profile 
+export PATH=$HOME/opt/python-3.9.7/bin:$PATH#add to .bash_profile
 . ~/.bash_profile #update to active loacal python env
 ```
-

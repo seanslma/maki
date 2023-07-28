@@ -50,7 +50,7 @@ git push origin master
 ## one line add commit and push
 - creat a makefile in repo folder
 - add the lines to the file (tab not spaces)
-  ```bash
+  ```sh
    git:
     git add .
     git commit -m "$m"

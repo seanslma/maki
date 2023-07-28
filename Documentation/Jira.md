@@ -1,7 +1,7 @@
 # Jira
 
 ## advanced search
-```
+```sh
 project = "TEST" AND assignee = currentuser()
 
 status=resolved AND (project="Teams in Space" OR assignee=captainjoe)

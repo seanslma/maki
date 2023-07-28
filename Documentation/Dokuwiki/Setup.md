@@ -7,11 +7,11 @@ in dokuwiki/doku.php, change $updateVersion to a value higher than the unique ID
 
 ## dokuwiki admin blank, how to open
 http://YOUR_DOMAIN_PATH/doku.php?id=start&do=admin&page=extension
-  
+
 ## change default page width
 you need to put style.local.ini into "../Sites/wiki/lib/tpl/dokuwiki/style.local.ini" if you make use of the dokuwiki-template.
   _site_width__ = "100%"
-  
+
 ## adjust space before list and headers
 ```css conf/userstyle.css
 /* move list up */

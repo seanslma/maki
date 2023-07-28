@@ -28,7 +28,7 @@ mv /path/folder/* /anotherpath/folder/ #hidden files will be excluded
 ```
 
 ## Copy folder
-```bash
+```sh
 cp -option1 -option2 source destination
 cp -r ./source/ /dest/   #copy folder source into dest folder
 cp -a ./source/. ./dest/ #content in source to dest, reserve all file attributes
