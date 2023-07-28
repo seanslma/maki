@@ -1,6 +1,6 @@
 # zip etc
 
-## zip
+## zip pairs
 ```py
 letters = ['a', 'b', 'c']
 numbers = [0, 1, 2]
@@ -17,13 +17,13 @@ numbers, letters = zip(*pairs)
 ```py
 letters = ['b', 'a', 'd']
 numbers = [2, 4, 3]
-data1 = list(zip(letters, numbers))
-data1.sort() #sort by letters
+data = list(zip(letters, numbers))
+data.sort() #sort by letters
 
 #or
 data = sorted(zip(letters, numbers)) #sort by letters
 ```
-## zip_logest
+## zip_longest
 ```py
 from itertools import zip_longest
 

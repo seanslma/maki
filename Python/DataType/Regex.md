@@ -1,7 +1,9 @@
 # Regex
 
 ## find a word after another word
-  re.compile(r'(?:from|join (\w+)') #word after from or join
+```py
+re.compile(r'(?:from|join (\w+)') #word after from or join
+```
 
 ## replace empty cell by NaN
 ```py

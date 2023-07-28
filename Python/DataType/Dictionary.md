@@ -4,7 +4,7 @@
 ```py
 dic1 = {'a':1, 'b':2}
 dic2 = {'e':5, 'f':6}
-dic = {**dic1, **dic2}
+dic3 = {**dic1, **dic2}
 ```
 
 ## df to dic
