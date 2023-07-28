@@ -17,7 +17,7 @@ In Python type hinting, the generator type is represented as Generator[ValueType
 For the specific example, `Generator[BinaryFile, None, None]`, the type hinting indicates the following:
 - `ValueType`: BinaryFile
   `BinaryFile` represents the type of values that the generator yields. In this case, the generator is expected to yield values of the BinaryFile type.
-- `SendTyp`: None
+- `SendType`: None
   `None` indicates that the generator cannot receive any values through the `send()` method. In other words, it does not expect any values to be sent into the generator during its execution.
 - `ReturnType`: None
   `None` indicates that the generator does not have a specific return type. Generators in Python do not have a return statement; instead, they yield values using the `yield` keyword. As a result, their return type is implicitly considered None.
