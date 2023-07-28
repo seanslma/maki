@@ -4,7 +4,7 @@
 ## meta.yaml
 https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html
 
-```
+```yaml
 {% set name = "pkg" %}
 {% set version = "1.0.0" %}
 

@@ -4,7 +4,7 @@ https://www.mkdocs.org/user-guide/
 https://mkdocs.readthedocs.io/en/0.13.3/user-guide/styling-your-docs/
 
 MkDocs is a fast and simple static site generator that’s geared towards building project documentation with Markdown.
-```
+```sh
 mkdocs new <proj-name> #create a new docs project
 mkdocs serve           #run in preview mode
 mkdocs build           #build the docs project
@@ -12,7 +12,7 @@ mkdocs build --config-file <config-file> --site-dir <output-path>
 ```
 ## navigation
 https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#instant-loading
-```
+```yaml
 theme:
   name: material
   custom_dir: theme

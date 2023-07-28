@@ -5,10 +5,10 @@ https://github.com/facebook/prophet/issues/223
 
 stdin/stdout are global variables, shared between threads, and so are file descriptors.
 
-This method 
+This method
 - works for stdout and stderr from c as well
 - will fail within ***multi-thread*** tasks (without output or with unexpected outputs)
-```
+```py
 class SUPPRESS_STDOUT_STDERR(object):
     '''
     A context manager for doing a "deep suppression" of stdout and stderr in
@@ -33,7 +33,7 @@ class SUPPRESS_STDOUT_STDERR(object):
             sys.stdout.write = lambda z: os.write(
                 sys.stdout.fileno(),
                 z.encode() if hasattr(z, 'encode') else z
-            )        
+            )
 
     def __exit__(self, *_):
         # Re-assign the real stdout/stderr back to (1) and (2)

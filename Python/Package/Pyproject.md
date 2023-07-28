@@ -1,6 +1,6 @@
 # pyproject.toml
 
-## use `pyproject.toml` instead of `setup.cfg`: 
+## use `pyproject.toml` instead of `setup.cfg`:
 https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
 ```
 [build-system]
@@ -24,7 +24,7 @@ repository = 'https://github.com/usr/repo'
 pkg-run = 'my.pkg.main:cli'
 
 [tool.setuptools]
-include-package-data = true 
+include-package-data = true
 
 [tool.setuptools.packages.find]
 include = ['pkg', 'pkg.*']

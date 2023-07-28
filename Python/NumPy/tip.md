@@ -9,7 +9,7 @@ b = np.bitwise_and.reduce(d==v,axis=1)
 ```
 
 ## np.where converted datetime64[ns] to object
-avoid use np.where here; use pandas method (cap min to zero)
-```
+avoid use `np.where` here; use pandas method (cap min to zero)
+```py
 df.val.where(df.val > 0, 0)
 ```

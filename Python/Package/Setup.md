@@ -25,7 +25,7 @@ url = https://github.com/usr/repo
 
 [options]
 include_package_data = True
-package_dir = 
+package_dir =
     = src
 packages = find:
 
@@ -34,5 +34,5 @@ where = src
 
 [options.entry_points]
 console_scripts =
-    pkg-run = my.pkg.main:cli   
+    pkg-run = my.pkg.main:cli
 ```

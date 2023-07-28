@@ -23,6 +23,6 @@ except Exception as exc:
 ```
 
 ## use `warnings` module to elevate warnings to errors
-```
+```py
 warnings.simplefilter('error', FutureWarning)
 ```

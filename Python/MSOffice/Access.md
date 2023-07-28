@@ -27,7 +27,7 @@ LIKE wildcard characters between queries run in Access and from an external appl
 http://allenbrowne.com/ser-49.html
 
 ## DAO connect timestamp
-df.timestamp should be changed to str
+`df.timestamp` should be changed to str
 ```py
 is_timestamp = pd.core.dtypes.common.is_datetime_or_timedelta_dtype(series)
 if is_timestamp:

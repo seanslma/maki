@@ -1,7 +1,7 @@
 # Extension
 
 ## basic
-```
+```sh
 jupyter labextension list
 jupyter labextension enable my-extension
 jupyter labextension disable my-extension
@@ -10,7 +10,7 @@ jupyter labextension install my-extension
 
 ## enable extension
 http://localhost:8889/nbextensions
-```
+```sh
 pip install jupyter_nbextensions_configurator
 jupyter nbextensions_configurator enable --user #not work
 

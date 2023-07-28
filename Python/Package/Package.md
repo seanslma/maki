@@ -37,7 +37,7 @@ A `MANIFEST.in` is needed when you need to package additional files that are not
 Every package should include a license file detailing the terms of distribution.
 
 ## attempted relative import with no known parent package
-```
+```py
 from ..utils import check_date
 ```
 The previous line will crash with the error if run the code from a subfolder and import the methods from the parent folder. In this case, function call must be from the parent folder.

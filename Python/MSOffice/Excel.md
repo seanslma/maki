@@ -1,6 +1,7 @@
 # Excel
-
+```sh
 python -m pip install xlrd==1.2.0
+```
 
 ```py
 #change number to Excel column letters
@@ -29,8 +30,9 @@ def col_to_num(col):
 http://timgolden.me.uk/pywin32-docs/win32api.html
 
 ## win32com.client error
-  python -m pip install pywin32 #this might be blocked by corporate firewall
-
+```sh
+python -m pip install pywin32 #this might be blocked by corporate firewall
+```
 raise AttributeError("%s.%s" % (self._username_, attr))
 AttributeError: Excel.Application.Workbooks
 
@@ -76,7 +78,6 @@ wb = xlApp.Workbooks.Open(Filename=yourworkbookname.xlsm)
 xlApp.Run('macroName')
 ```
 
-
 ## vba call py
 
 RetVal = Shell("<full path to python.exe> " & "<full path to your python script>")
@@ -107,7 +108,7 @@ with open(filepath,'wb') as f:
     f.write(inspect.cleandoc(vbscript).encode('utf-8'))
 ```
 
-```VBScript SheetsToCSV.vbs
+```vb VBScript SheetsToCSV.vbs
 If WScript.Arguments.Count < 3 Then
     WScript.Echo "Parameters: <csv_dir> <xl_file> <sheet1:sheet2...>"
     WScript.Quit

@@ -4,7 +4,7 @@
 `psutil` is a cross-platform library for retrieving information on running processes and system utilization (CPU, memory, disks, network, sensors) in Python.
 
 List process pid and name
-```
+```py
 import psutil
 for proc in psutil.process_iter():
     try:

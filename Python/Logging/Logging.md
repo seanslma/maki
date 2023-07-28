@@ -6,7 +6,7 @@ The `StreamHandler` class, located in the core logging package, sends logging ou
 The `FileHandler` class inherits the output functionality from StreamHandler.
 
 ## log formatter
-```
+```py
 def get_log_formatter(message_prefix: str = None) -> logging.Formatter:
     log_format = ' | '.join([
         '%(asctime)s',
@@ -18,7 +18,7 @@ def get_log_formatter(message_prefix: str = None) -> logging.Formatter:
         f'{message_prefix}%(message)s',
     ])
     return logging.Formatter(log_format)
-    
+
 def set_log_message_prefix(message_prefix: str = None) -> None:
     """Set the log message prefix during run"""
     logger = logging.getLogger()
@@ -26,19 +26,19 @@ def set_log_message_prefix(message_prefix: str = None) -> None:
 
     #set new format to each logger
     #console_handler = logging.StreamHandler() #this handler is already in the handlers list
-    #console_handler.setFormatter(log_formatter)    
+    #console_handler.setFormatter(log_formatter)
     for handler in logger.handlers:
         handler.setFormatter(log_formatter)
-        
+
 def set_log_handler_level(log_level: int = logging.NOTSET) -> None:
     logger = logging.getLogger()
     for handler in logger.handlers:
         if log_level != logging.NOTSET:
-            handler.setLevel(log_level)    
+            handler.setLevel(log_level)
 ```
 
 ## log to both stadout and file
-```
+```py
 import sys
 import logging
 
@@ -59,7 +59,7 @@ console_handler.setLevel(logging.INFO)
 console_handler.setFormatter(formatter)
 root_logger.addHandler(concole_handler)
 #if previous console handler not deleted, log will output multiple times
-package_logger.addHandler(console_handler) 
+package_logger.addHandler(console_handler)
 
 #file handler
 file_handler = logging.FileHandler('file.log')

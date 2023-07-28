@@ -5,7 +5,7 @@ Configure logging in the Azure libraries for Python
 https://learn.microsoft.com/en-us/azure/developer/python/sdk/azure-sdk-logging
 
 ## Set logging levels
-```
+```py
 import logging
 
 #for a specific library

@@ -31,7 +31,7 @@ expr = pc.field('year') <= 2020
 table.filter(expr)
 ```
 
-## get rows with zero-copy 
+## get rows with zero-copy
 ```py
 table.slice(offset=0, length=3)
 ```

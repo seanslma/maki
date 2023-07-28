@@ -22,7 +22,7 @@ option 1 (works)
 option 2: works but slow
 - install `black` in python env
 - In user settings, add
-```
+```json
 "python.formatting.provider": "black",
 "editor.formatOnSave": true,
 ```

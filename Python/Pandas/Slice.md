@@ -30,15 +30,19 @@ df.loc[idx[:, r_level1], idx[:, 'c_level1']]
 ```
 
 ## select rows using list
-  df[df['A'].isin([3, 6])]
+```py
+df[df['A'].isin([3, 6])]
+```
 
 ## chained assignments
 The **SettingWithCopyWarning** was created to flag potentially confusing chained assignments. With chained assignment, it is generally difficult to predict whether a view or a copy is returned. When filtering DataFrames, it is possible slice/index a frame to return either a view, or a copy.
 
 such as:
-  df[df['a'] > 2]['b'] = new_val     #new_val not set in df as a copy is made
-  df.loc[df['a'] > 2, 'b'] = new_val #good
+```py
+df[df['a'] > 2]['b'] = new_val     #new_val not set in df as a copy is made
+df.loc[df['a'] > 2, 'b'] = new_val #good
 
-  df2 = df[df.A > 5]                 #boolean indexing will return a view
-  df2.loc[df2.C == 5, 'D'] = 123     #should be --->
-  df2 = df[df.A > 5].copy()          #good
+df2 = df[df.A > 5]                 #boolean indexing will return a view
+df2.loc[df2.C == 5, 'D'] = 123     #should be --->
+df2 = df[df.A > 5].copy()          #good
+```
