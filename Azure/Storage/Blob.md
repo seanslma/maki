@@ -157,7 +157,7 @@ def file_to_blob(local_filepath, blob_filepath, chunk_size = 4 * 1024 * 1024):
 ```
 
 ## write df to parquet file
-Method 1: using pandas (seems not working 100% when file too large)
+Method 1: using pandas and adlfs (seems not working 100% when file too large), also adlfs not support concurrent read/write
 ```py
 from adlfs import AzureBlobFileSystem
 # create file system
