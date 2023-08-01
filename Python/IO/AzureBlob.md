@@ -40,3 +40,33 @@ AttributeError: 'coroutine' object has no attribute 'token'
 sys:1: RuntimeWarning: coroutine 'DefaultAzureCredential.get_token' was never awaited
 ```
 It's most likely incorrectly used the async version `from azure.identity.aio import DefaultAzureCredential`.
+
+## performance
+`azure-blob-storage` can be 1.5-2x sloewer than `adlfs`.
+```py
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import ContainerClient
+from adlfs.spec import AzureBlobFileSystem
+def read_parquet_fast(path: str, columns: list[str]) -> pd.DataFrame:
+    fs = AzureBlobFileSystem(
+        account_name=account_name,
+        credential=DefaultAzureCredential(),
+    )
+    with fs.open(path) as f:
+        df = pd.read_parquet(path=f, columns=columns)
+    return df
+
+def read_parquet_slow(path: str, columns: list[str]) -> pd.DataFrame:
+    path = path.split('/', 3)[-1]
+    container_client = = ContainerClient(
+        account_url=f'https://{account_name}.blob.core.windows.net',
+        credential=DefaultAzureCredential(),
+        container_name=container_name,
+    )
+    with io.BytesIO() as data_buffer:
+        blob_client = container_client.get_blob_client(path)
+        blob_client.download_blob().readinto(data_buffer)
+        data_buffer.seek(0)
+        df = pd.read_parquet(data_buffer, columns=columns, engine='pyarrow')
+    return df
+```
