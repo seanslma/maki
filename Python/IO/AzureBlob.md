@@ -41,12 +41,13 @@ sys:1: RuntimeWarning: coroutine 'DefaultAzureCredential.get_token' was never aw
 ```
 It's most likely incorrectly used the async version `from azure.identity.aio import DefaultAzureCredential`.
 
-## performance
-`azure-blob-storage` can be 1.5-2x sloewer than `adlfs`.
+## read parquet blob to df performance
+`adlfs` can be 1.5-2x faster than `azure-blob-storage`.
 ```py
-from azure.identity import DefaultAzureCredential
-from azure.storage.blob import ContainerClient
 from adlfs.spec import AzureBlobFileSystem
+from azure.storage.blob import ContainerClient
+from azure.identity import DefaultAzureCredential
+
 def read_parquet_fast(path: str, columns: list[str]) -> pd.DataFrame:
     fs = AzureBlobFileSystem(
         account_name=account_name,
