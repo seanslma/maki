@@ -1,15 +1,15 @@
 # Account
 
 ## update password
-```
+```sh
 az login --scope https://management.azure.com//.default
 az login --scope https://management.core.windows.net//.default
 ```
 
 ## Error: Credential authentication unavailable
 Run the command first:
-```
-az account list
+```sh
+az account list -o table
 az account set --subscription <subscription-id>
 az login
 ```
