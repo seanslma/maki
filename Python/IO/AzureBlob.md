@@ -4,6 +4,7 @@ https://learn.microsoft.com/en-us/azure/storage/files/storage-python-how-to-use-
 ## fsspec
 ```py
 from fsspec import AbstractFileSystem
+from azure.identity.aio import DefaultAzureCredential
 def get_filesystem(
   account_name: str, 
   credential: object=None,
@@ -29,3 +30,13 @@ fs = get_filesystem(account_name='azure_blob_storage')
 files = fs.glob('az://dev/2021/01/data*].parquet')
 files = fs.glob('az://dev/2021/01/data[0-9][0-9].parquet')
 ```
+
+## azure-blob-storage
+`azure-blob-storage` supports both sync and async versions. 
+
+When got this error
+```
+AttributeError: 'coroutine' object has no attribute 'token'
+sys:1: RuntimeWarning: coroutine 'DefaultAzureCredential.get_token' was never awaited
+```
+It's most likely incorrectly used the async version `from azure.identity.aio import DefaultAzureCredential`.
