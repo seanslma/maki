@@ -1,4 +1,4 @@
-# Net cmd
+# Network
 
 ## find a free TCP port
 ```sh
