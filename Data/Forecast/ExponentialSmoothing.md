@@ -15,7 +15,7 @@ However, it might not be as effective in capturing complex patterns or making lo
 It's important to analyze the data and choose the appropriate variant of Exponential Smoothing or other forecasting techniques based on the characteristics of the time series data.
 
 ## parameters
-- \[\alpha]\: The smoothing factor for the level component. It controls the weight given to the most recent observation in the data. Values of α range between 0 and 1, where 0 means no weight is given to the most recent observation (ignoring it entirely), and 1 means only the most recent observation is considered for forecasting.
+- alpha ($\alpha$): The smoothing factor for the level component. It controls the weight given to the most recent observation in the data. Values of α range between 0 and 1, where 0 means no weight is given to the most recent observation (ignoring it entirely), and 1 means only the most recent observation is considered for forecasting.
 - Beta (β): The smoothing factor for the trend component. It determines the weight given to the most recent trend when calculating future trends. Like α, values of β also range between 0 and 1.
 - Gamma (γ): The smoothing factor for the seasonal component. It determines the weight given to the most recent seasonal observation when calculating future seasonal patterns. Like α and β, values of γ also range between 0 and 1.
 - Seasonal Period (m): The number of time periods in each season. For example, if the data exhibits yearly seasonality, m would be 12 for monthly data.
