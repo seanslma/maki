@@ -17,7 +17,7 @@ It's important to analyze the data and choose the appropriate variant of Exponen
 ## parameters
 - alpha ($\alpha$): The smoothing factor for the level component (`smoothing_level`). It controls the weight given to the most recent observation in the data. Values of α range between 0 and 1, where 0 means no weight is given to the most recent observation (ignoring it entirely), and 1 means only the most recent observation is considered for forecasting.
 - beta ($\beta$): The smoothing factor for the trend component (`smoothing_trend`). It determines the weight given to the most recent trend when calculating future trends. Like α, values of β also range between 0 and 1.
-- gamma ($\gama$): The smoothing factor for the seasonal component (`smoothing_seasonal`). It determines the weight given to the most recent seasonal observation when calculating future seasonal patterns. Like α and β, values of γ also range between 0 and 1.
+- gamma ($\gamma$): The smoothing factor for the seasonal component (`smoothing_seasonal`). It determines the weight given to the most recent seasonal observation when calculating future seasonal patterns. Like α and β, values of γ also range between 0 and 1.
 - Seasonal Period ($m$): The number of time periods in each season (`seasonal_periods`). For example, if the data exhibits yearly seasonality, m would be 12 for monthly data.
 
 The selection of appropriate parameter values can be achieved through various methods, such as `grid search`, `cross-validation`, or `using optimization techniques` to minimize forecasting errors. 
