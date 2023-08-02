@@ -1,5 +1,10 @@
 # Date range
 
+## start/end dates to intervals
+```py
+pd.date_range("2023-07-01", "2023-07-02", freq="30min", inclusive='left')
+```
+
 ## split date range to intervals
 df1 has columns `datetime` and `value` and df2 has `start_date`, `end_date` and `value2`.
 The best way to add value2 to value based on the datetime
