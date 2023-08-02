@@ -2,6 +2,7 @@
 
 https://dash.plotly.com/basic-callbacks
 
+callback functions must be imported to layout, otherwise there is no response when click the tab.
 
 ## Input
 Changes in any of inputs will trigger callback run. 
