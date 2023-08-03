@@ -44,3 +44,10 @@ snappy - Size: 0.961, Time:  2.961
 gzip   - Size: 0.897, Time:  7.333
 brotli - Size: 0.601, Time: 10.218
 ```
+
+## performance using `AzureBlobFileSystem`
+When reading Parquet files from Azure Blob Storage using pd.read_parquet with the engine set to pyarrow, the performance can **become suboptimal**
+when reading in parallel due to the limitations of the AzureBlobFileSystem and the way PyArrow handles parallel reading.
+
+The main reason for this performance issue is that the `AzureBlobFileSystem`, which is used to interact with Azure Blob Storage, **does not natively support parallel reads efficiently**.
+This limitation can lead to slower performance when multiple threads or processes are trying to read Parquet files in parallel from the same container in Azure Blob Storage.
