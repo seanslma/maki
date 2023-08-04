@@ -1,7 +1,7 @@
 # Foreign key
 
 ## listed all referencing tables
-```
+```sql
 SELECT OBJECT_NAME(f.parent_object_id) AS referencing_table, 
        COL_NAME(fc.parent_object_id, fc.parent_column_id) AS referencing_column, 
        OBJECT_NAME(f.referenced_object_id) AS referenced_table, 
