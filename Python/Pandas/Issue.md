@@ -38,4 +38,9 @@ d2 = pd.DataFrame({
     'value': [10, 20],    
 }).set_index(['date', 'code'])
 d1.fillna(d2)
+
+## remove the duplicates
+mask = d2.index.duplicated(keep='first')
+d2 = d2[~mask]
+df_duplicate = d2[mask]
 ```
