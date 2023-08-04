@@ -23,3 +23,19 @@ df.reindex([0,1,2,3,4], method='ffill')
 # this works
 df.reindex([0, 1, 2, 3, 4]).fillna(method='ffill')
 ```
+
+## pandas.errors.InvalidIndexError
+The index in d2 has duplcate rows.
+```py
+d1 = pd.DataFrame({
+    'date': ['2023-01-01', '2023-01-02'],
+    'code': [1, 1],
+    'value': [np.nan, np.nan],
+}).set_index(['date', 'code'])
+d2 = pd.DataFrame({
+    'date': ['2023-01-01', '2023-01-01'],
+    'code': [1, 1],
+    'value': [10, 20],    
+}).set_index(['date', 'code'])
+d1.fillna(d2)
+```
