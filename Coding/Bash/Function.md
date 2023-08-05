@@ -10,3 +10,11 @@ myfun() {
     cp "$2" "$1"
 }
 ```
+
+## how to return a value
+using `echo` to return a value from a function
+```sh
+myfun() {
+    echo $(( $1+1 ))
+}
+```
