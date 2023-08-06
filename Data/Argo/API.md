@@ -56,3 +56,29 @@ To allow the api to automate the tasks, an `access token`, which is a Kubernetes
     }
   }'
   ```
+
+## webhook
+The endpoint that is specifically designed to create workflows via an api is `api/v1/events`.
+- only allowed to create workflows from a `WorkflowTemplate`, thus is more secure
+- only allowed to parse the HTTP payload and use it as parameters
+- only allowed to integrate with other systems without having to change those systems
+- also supports GitHub and GitLab, so can trigger workflow from git actions
+
+To use the webhook, a `WorkflowTemplate` and a `WorkflowEventBinding` should be created
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowEventBinding
+metadata:
+  name: hello
+spec:
+  event:
+    selector: payload.message != ""
+  submit:
+    workflowTemplateRef:
+      name: hello
+    arguments:
+      parameters:
+        - name: message
+          valueFrom:
+            event: payload.message
+```
