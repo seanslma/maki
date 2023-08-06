@@ -1,0 +1,68 @@
+# Parameter
+https://argoproj.github.io/argo-workflows/walk-through/parameters/
+
+## Input parameter
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: my-input-parameters
+spec:
+  entrypoint: main
+  arguments:
+    parameters:
+      - name: message
+        value: hello
+  templates:
+    - name: main
+      inputs:
+        parameters:
+          - name: message
+      container:
+        image: docker/whalesay
+        command: [ cowsay ]
+        args: [ "{{inputs.parameters.message}}" ]
+```
+
+## output parameter
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: my-parameters
+spec:
+  entrypoint: main
+  templates:
+    - name: main
+      dag:
+        tasks:
+          - name: generate-parameter
+            template: whalesay
+          - name: consume-parameter
+            template: print-message
+            dependencies:
+              - generate-parameter
+            arguments:
+              parameters:
+                - name: message
+                  value: "{{tasks.generate-parameter.outputs.parameters.hello-param}}"
+
+    - name: whalesay
+      container:
+        image: docker/whalesay
+        command: [ sh, -c ]
+        args: [ "echo -n hello world > /tmp/hello_world.txt" ]
+      outputs:
+        parameters:
+          - name: hello-param
+            valueFrom:
+              path: /tmp/hello_world.txt
+
+    - name: print-message
+      inputs:
+        parameters:
+          - name: message
+      container:
+        image: docker/whalesay
+        command: [ cowsay ]
+```
