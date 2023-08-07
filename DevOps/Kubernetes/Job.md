@@ -55,9 +55,9 @@ kubectl patch cronjobs <cronjob-name> -p '{"spec" : {"suspend" : false }}'
 - **Replace**: if previous job run hasn't finished yet, the cron job replaces the previous running job with a new job run
 
 ## `restartPolicy`
-`restartPolicy` set to Never means it won't restart on failure. 
-- If restartPolicy is set to `OnFailure` then the pod will be restarted if it fails
-- with backoffLimit, a restartPolicy of `Never` ensures that when a pod fails it will eventually propagate and cause the job to fail
+- `Never`: it won't restart on failure
+- `OnFailure`: the pod will be restarted if it fails
+- with `backoffLimit`, a restartPolicy of `Never` ensures that when a pod fails it will eventually propagate and cause the job to fail
 
 ## `.spec.backoffLimit`
 The number of `retries` before considering a Job as failed. Default is 6. 
@@ -70,4 +70,9 @@ The number of retries is calculated in two ways:
 - When using `restartPolicy = "OnFailure"`, the number of retries in all the containers of Pods with `.status.phase` equal to `Pending` or `Running`
 If either of the calculations reaches the .spec.backoffLimit, the Job is considered failed.
 
-When the JobTrackingWithFinalizers feature is disabled, the number of failed Pods is only based on Pods that are still present in the API.
+When the `JobTrackingWithFinalizers` feature is disabled, the number of failed Pods is only based on Pods that are still present in the API.
+
+Note: If the job has restartPolicy = "OnFailure", the Pod running the Job will be terminated once the job backoff limit has been reached. **This can make debugging the Job's executable more difficult**. We suggest setting restartPolicy = "Never" when debugging the Job or using a logging system to ensure output from failed Jobs is not lost inadvertently.
+
+## Degraded job reached the specified backoff limit
+The pod will be deleted and this makes it harder to debug the issue. Change the `restartPolicy` to "Never" for debugging.
