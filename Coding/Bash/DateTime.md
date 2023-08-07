@@ -32,6 +32,6 @@ To fix this, you can use the `-eq` operator for integer comparison and remove th
 
 3. `if [[ $(date +%d) == 10 && $(( $(date +%m)%2 )) == 1 ]]; then numdays=$((30*13-1)); fi;`
 Here, we check if it's the 10th day of the month and if the current month is an odd number.
-However, you should use `-eq` for integer comparison:
+However, you should ensure that each opening `[` has a corresponding closing `]`:
 - Replace: `if [[ $(date +%d) == 10 && $(( $(date +%m)%2 )) == 1 ]]; then numdays=$((30*13-1)); fi;`
-- With: `if [ $(date +%e) -eq 10 && $(( $(date +%-m) % 2 )) -eq 1 ]; then numdays=$((30*13-1)); fi;`
+- With: `if [ $(date +%e) -eq 10 ] && [ $(( $(date +%-m) % 2 )) -eq 1 ]; then numdays=$((30*13-1)); fi;`
