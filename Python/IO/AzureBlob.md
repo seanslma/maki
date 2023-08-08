@@ -1,7 +1,7 @@
 # Azure Blob Storage
 https://learn.microsoft.com/en-us/azure/storage/files/storage-python-how-to-use-file-storage?tabs=python
 
-## fsspec
+## adlfs
 **Not correct**: performance using `AzureBlobFileSystem` 
 ```
 When reading Parquet files from Azure Blob Storage using pd.read_parquet with the engine set to pyarrow,
@@ -16,14 +16,12 @@ the same container in Azure Blob Storage.
 
 ### create file system
 ```py
-from fsspec import AbstractFileSystem
+from adlfs.spec import AzureBlobFileSystem
 from azure.identity.aio import DefaultAzureCredential
-def get_files_ystem(
+def get_file_system(
   account_name: str, 
   credential: object=None,
-) -> AbstractFileSystem:
-    from adlfs.spec import AzureBlobFileSystem
-    from azure.identity.aio import DefaultAzureCredential
+) -> AzureBlobFileSystem:
     # Disable messages from azure.identity.aio
     logging.getLogger('azure.identity.aio').setLevel(logging.ERROR)    
     credential = credential or DefaultAzureCredential()
@@ -33,7 +31,7 @@ def get_files_ystem(
     )
 ```
 
-### fsspec parallel performance
+### adlfs parallel performance
 pd.read_parquet is 2-3x faster than dd.read_parquet. Do not create the file system for each parallel call - can be slow.
 ```py
 def read_parquet_file(
@@ -111,7 +109,7 @@ d2 = dd.read_parquet(
 ).compute()
 ```
 
-### fsspec glob wildcards performance
+### adlfs glob wildcards performance
 https://www.gnu.org/software/bash/manual/html_node/Pattern-Matching.html
 
 performance
@@ -120,13 +118,13 @@ performance
 - search a few sub folders one by one will be much faster
 - 
 ```py
-fs = get_filesystem(account_name='azure_blob_storage')
 files = fs.glob('az://dev/2021/01/data*].parquet')
 files = fs.glob('az://dev/2021/01/data[0-9][0-9].parquet')
 ```
 
 ## azure-storage-blob
-`azure-storage-blob` supports both sync and async versions. 
+- can be 2-3x slower than `adlfs`
+- `azure-storage-blob` supports both sync and async versions. 
 
 When got this error
 ```
@@ -137,7 +135,8 @@ It's most likely incorrectly used the async version `from azure.identity.aio imp
 
 ## read parquet blob to df performance
 `adlfs` can be 1.5-2x faster than `azure-storage-blob`. 
-But `AzureBlobFileSystem` in parallel can be really slow down (**do not create a separate fs for each parallel run - can be very slow**).
+But `AzureBlobFileSystem` in parallel can be really slow down if used incorrectly
+(**do not create a separate fs for each parallel run - can be very slow**).
 ```py
 from adlfs.spec import AzureBlobFileSystem
 from azure.storage.blob import ContainerClient
