@@ -41,8 +41,8 @@ files = fs.glob('az://dev/2021/01/data*].parquet')
 files = fs.glob('az://dev/2021/01/data[0-9][0-9].parquet')
 ```
 
-## azure-blob-storage
-`azure-blob-storage` supports both sync and async versions. 
+## azure-storage-blob
+`azure-storage-blob` supports both sync and async versions. 
 
 When got this error
 ```
@@ -52,7 +52,7 @@ sys:1: RuntimeWarning: coroutine 'DefaultAzureCredential.get_token' was never aw
 It's most likely incorrectly used the async version `from azure.identity.aio import DefaultAzureCredential`.
 
 ## read parquet blob to df performance
-`adlfs` can be 1.5-2x faster than `azure-blob-storage`. But `AzureBlobFileSystem` in parallel can be really slow down.
+`adlfs` can be 1.5-2x faster than `azure-storage-blob`. But `AzureBlobFileSystem` in parallel can be really slow down.
 ```py
 from adlfs.spec import AzureBlobFileSystem
 from azure.storage.blob import ContainerClient
@@ -84,6 +84,7 @@ def read_parquet_slow(path: str, columns: list[str]) -> pd.DataFrame:
 
 ## Azure Data Lake Storage (ADLS)
 It's actually created on top of `azure-storage-blob`.
+
 The `azure-storage-file-datalake` library is specifically designed to interact with Azure Data Lake Storage Gen2 (ADLS Gen2). 
 ADLS Gen2 is an enterprise-grade distributed file system built on top of Azure Blob Storage, providing hierarchical namespace and capabilities for big data analytics.
 
