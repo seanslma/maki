@@ -5,12 +5,13 @@ https://learn.microsoft.com/en-us/azure/storage/files/storage-python-how-to-use-
 **Not correct**: performance using `AzureBlobFileSystem` 
 ```
 When reading Parquet files from Azure Blob Storage using pd.read_parquet with the engine set to pyarrow,
-the performance can **become suboptimal** when reading in parallel due to the limitations of the AzureBlobFileSystem
-and the way PyArrow handles parallel reading.
+the performance can **become suboptimal** when reading in parallel due to the limitations of the
+AzureBlobFileSystem and the way PyArrow handles parallel reading.
 
-The main reason for this performance issue is that the `AzureBlobFileSystem`, which is used to interact with Azure Blob Storage,
-**does not natively support parallel reads efficiently**. This limitation can lead to slower performance when multiple threads
-or processes are trying to read Parquet files in parallel from the same container in Azure Blob Storage.
+The main reason for this performance issue is that the `AzureBlobFileSystem`, which is used to interact with
+Azure Blob Storage, **does not natively support parallel reads efficiently**. This limitation can lead to
+slower performance when multiple threads or processes are trying to read Parquet files in parallel from
+the same container in Azure Blob Storage.
 ```
 
 ### create file system
