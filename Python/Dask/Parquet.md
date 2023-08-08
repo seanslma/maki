@@ -1,4 +1,5 @@
 # Parquet
+better to save parquet files without index!!!
 
 ## performance
 - If read the whole file, `pd.read_parquet` is better.
@@ -13,6 +14,12 @@
 
 ## read parquet
 Note that if there are no filters, cannot read part of the index levels. See: https://github.com/dask/dask/issues/10386
+```
+Seems this is due to dask still does not fully support multiindex.
+A workaround can be implemented easily as it's OK to read all the index levels and then drop the levels that are not needed.
+Another workaround is resetting the index before saving the data to parquet file - seems it's faster to load data without multiindex.
+```
+
 ```py
 filters = [
     ('datetime_val', '>=', pd.to_datetime('2023-07-15')),
