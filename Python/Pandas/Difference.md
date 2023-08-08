@@ -1,7 +1,7 @@
 # Difference
 
 ## df.equals
-not very reliable regarding floats
+Return a bool. not very reliable regarding floats
 
 ## df.compare
-same shape and type
+Return a dataframe. same shape and type
