@@ -8,13 +8,13 @@ n_jobs = min(cpu_count(), len(safe_paths))
 
 # option 1, pool.map actually call map_async
 with ThreadPool(processes=n_jobs) as pool:
-    dfs = pool.map(lambda path: read_parquet_func(fs, path, columns, storage_options), safe_paths)
+    dfs = pool.map(lambda path: read_parquet_func(fs, path, columns, filters), paths)
 
 # option 2
 with ThreadPool(processes=n_jobs) as pool:
   results = [
-      pool.apply_async(read_parquet_func, args=(fs, path, columns, storage_options))
-      for path in safe_paths
+      pool.apply_async(read_parquet_func, args=(fs, path, columns, filters))
+      for path in paths
   ]
   dfs = [sync(result.get()) for result in results]
 ```
@@ -27,9 +27,9 @@ from concurrent.futures import ThreadPoolExecutor
 with ThreadPoolExecutor(max_workers=cpu_count()) as executor:
     futures = [
         executor.submit(
-            read_parquet_func, fs, path, columns, storage_options
+            read_parquet_func, fs, path, columns, filters
         )
-        for path in path_list if fs.exists(path)
+        for path in paths if fs.exists(path)
     ]
     dfs = [future.result() for future in futures]
 ```
@@ -38,8 +38,8 @@ with ThreadPoolExecutor(max_workers=cpu_count()) as executor:
 ```py
 from joblib import cpu_count, delayed, Parallel
 delayed_func = [
-    delayed(read_parquet_func)(fs, path, columns, storage_options)
-    for path in path_list if fs.exists(path)
+    delayed(read_parquet_func)(fs, path, columns, filters)
+    for path in paths if fs.exists(path)
 ]
 
 n_jobs = min(cpu_count(), len(delayed_func))
