@@ -83,6 +83,7 @@ def read_parquet_slow(path: str, columns: list[str]) -> pd.DataFrame:
 ```
 
 ## Azure Data Lake Storage (ADLS)
+It's actually created on top of `azure-storage-blob`.
 The `azure-storage-file-datalake` library is specifically designed to interact with Azure Data Lake Storage Gen2 (ADLS Gen2). 
 ADLS Gen2 is an enterprise-grade distributed file system built on top of Azure Blob Storage, providing hierarchical namespace and capabilities for big data analytics.
 
