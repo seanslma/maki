@@ -6,7 +6,7 @@
 from multiprocessing.pool import ThreadPool
 n_jobs = min(cpu_count(), len(safe_paths))
 
-# option 1
+# option 1, pool.map actually call map_async
 with ThreadPool(processes=n_jobs) as pool:
     dfs = pool.map(lambda path: read_parquet_func(fs, path, columns, storage_options), safe_paths)
 
