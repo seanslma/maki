@@ -2,13 +2,14 @@
 https://learn.microsoft.com/en-us/azure/storage/files/storage-python-how-to-use-file-storage?tabs=python
 
 ## fsspec
-### performance using `AzureBlobFileSystem`
+### Not correct: performance using `AzureBlobFileSystem` 
 When reading Parquet files from Azure Blob Storage using pd.read_parquet with the engine set to pyarrow, the performance can **become suboptimal**
 when reading in parallel due to the limitations of the AzureBlobFileSystem and the way PyArrow handles parallel reading.
 
 The main reason for this performance issue is that the `AzureBlobFileSystem`, which is used to interact with Azure Blob Storage, **does not natively support parallel reads efficiently**.
 This limitation can lead to slower performance when multiple threads or processes are trying to read Parquet files in parallel from the same container in Azure Blob Storage.
 
+### create file system
 ```py
 from fsspec import AbstractFileSystem
 from azure.identity.aio import DefaultAzureCredential
@@ -27,7 +28,84 @@ def get_filesystem(
     )
 ```
 
-## fsspec glob wildcards
+### fsspec parallel performance
+```py
+def read_parquet_file(
+    *,
+    fs: AzureBlobFileSystem,
+    path: str,
+    columns: list[str],
+    filters: list[tuple] = None,
+) -> pd.DataFrame:
+    # Occationally it will fail to retrieve a token
+    retries = 3     # Number of retries
+    retry_delay = 2 # Seconds to wait between retries
+    while retries > 0:
+        try:
+            with fs.open(path) as f:
+                df = pd.read_parquet(
+                    path=f, columns=columns, filters=filters, engine='pyarrow'
+                )
+            break
+        except ClientAuthenticationError:
+            retries -= 1
+            if retries > 0:
+                time.sleep(retry_delay)
+            else:
+                raise
+        except Exception:
+            raise
+    return df
+
+def read_parquet_files(
+    paths: list[str],
+    columns: list[str],
+    filters: list[tuple] = None,
+    use_cache: bool = False,
+) -> list[pd.DataFrame]:
+    """
+    Read multiple parquet files in parallel into a list of pd.DataFrame
+    """
+    if not filters:
+        filters = None
+    # do not create the file system for each thread call, can be very slow        
+    fs = get_file_system() 
+    if len(paths) == 1:
+        dfs = [
+            read_parquet_file(fs=fs, path=paths[0], columns=columns, filters=filters)
+        ]
+    else:
+        n_jobs = min(cpu_count(), len(paths))
+        with ThreadPool(processes=n_jobs) as pool:
+            dfs = pool.map(
+                lambda path:
+                    read_parquet_file(fs=fs, path=path, columns=columns, filters=filters),
+                paths,
+            )
+    return dfs
+
+# can be 2-3x faster than dd.read_parquet
+dfs = read_parquet_files(
+    paths=paths,
+    columns=columns,
+    filters=filters,
+)
+d1 = pd.concat(dfs, axis=0).reset_index().get(columns)
+
+# can 2-3x slower than pd.read_parquet
+d2 = dd.read_parquet(
+    paths,    
+    index=False,
+    columns=columns,
+    filters=filters,
+    engine='pyarrow',
+    storage_options=storage_options,
+    open_file_options=dict(precache_options={'method': 'parquet'}),
+    schema=schema,
+).compute()
+```
+
+### fsspec glob wildcards performance
 https://www.gnu.org/software/bash/manual/html_node/Pattern-Matching.html
 
 performance
@@ -52,7 +130,8 @@ sys:1: RuntimeWarning: coroutine 'DefaultAzureCredential.get_token' was never aw
 It's most likely incorrectly used the async version `from azure.identity.aio import DefaultAzureCredential`.
 
 ## read parquet blob to df performance
-`adlfs` can be 1.5-2x faster than `azure-storage-blob`. But `AzureBlobFileSystem` in parallel can be really slow down.
+`adlfs` can be 1.5-2x faster than `azure-storage-blob`. 
+But `AzureBlobFileSystem` in parallel can be really slow down (**do not create a separate fs for each parallel run - can be very slow**).
 ```py
 from adlfs.spec import AzureBlobFileSystem
 from azure.storage.blob import ContainerClient
