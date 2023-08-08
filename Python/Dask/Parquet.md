@@ -2,14 +2,14 @@
 
 ## performance
 - If read the whole file, `pd.read_parquet` is better.
-- If there are row filters `dd.read_parquet` can be faster as `pd.read_parquet` need to read the whole file first.
+- If there are row filters `dd.read_parquet` can be faster??? as `pd.read_parquet` need to read the whole index first (how about filters on cols not index???).
 - Seems `dd` read multiple parquet files in parallel, but still a little bit slower than parallel `pd`, pd.concat takes lots of time for large files
 
 ## read `filters`
 - The `filters` keyword is a row-group-wise action
 - It does not do any filtering within `partitions`
 - when using `pyarrow`, the filters will apply to the partition as well
-- when do not need all data, it's much fast than using `pd.read_parquet`
+- when do not need all data, it's much fast than using `pd.read_parquet`? `pd.read_parquet` is about 2-3x faster
 
 ## read parquet
 Note that if there are no filters, cannot read part of the index levels. See: https://github.com/dask/dask/issues/10386
