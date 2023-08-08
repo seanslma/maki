@@ -13,7 +13,7 @@ This limitation can lead to slower performance when multiple threads or processe
 ```py
 from fsspec import AbstractFileSystem
 from azure.identity.aio import DefaultAzureCredential
-def get_filesystem(
+def get_files_ystem(
   account_name: str, 
   credential: object=None,
 ) -> AbstractFileSystem:
