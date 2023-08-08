@@ -34,6 +34,7 @@ def get_files_ystem(
 ```
 
 ### fsspec parallel performance
+pd.read_parquet is 2-3x faster than dd.read_parquet. Do not create the file system for each parallel call - can be slow.
 ```py
 def read_parquet_file(
     *,
