@@ -11,7 +11,8 @@ better to save parquet files without index!!!
 - It does not do any filtering within `partitions`
 - when using `pyarrow`, the filters will apply to the partition as well
 - when do not need all data, it's much fast than using `pd.read_parquet`? `pd.read_parquet` is about 2-3x faster
-- both pd and dd will load all the index levels
+- when read without filters, the `dd` requires the loading of all levels of a multi-index df
+- for `pd` if use_pandas_metadata, we need to include index columns in the column selection, to be able to restore those in the pandas DataFrame
 
 ## read parquet
 Note that if there are no filters, cannot read part of the index levels. See: https://github.com/dask/dask/issues/10386
