@@ -47,7 +47,7 @@ bw get template folder | jq --arg name "$1" '.name=$name' | bw encode | bw creat
 read -r val < "bw.txt" && fid=$(get_folder_id "$1") && bw get template item | jq --arg folderid "$fid" --arg name "$2" --arg username "$3" --arg password "$val" '.folderId = $folderid | .name = $name | .login.username = $username | .login.password = $password' | bw encode | bw create item > /dev/null;
 ```
 
-## list older
+## list folder
 ```sh
 bw list folders | jq -r '.[] | [.id, .name] | @tsv' | column -t -s $'\t';
 ```
