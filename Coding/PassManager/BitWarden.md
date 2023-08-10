@@ -64,5 +64,5 @@ bw get item "$1" | jq -r '.login.username' > ~/bw.txt;
 
 ## edit item
 ```sh
-bwie() { read -r val < "bw.txt" && bw get item "$1" | jq --arg password "$val" '.login.password=$password' | bw encode | bw edit item "$1";
+read -r val < "bw.txt" && bw get item "$1" | jq --arg password "$val" '.login.password=$password' | bw encode | bw edit item "$1";
 ```
