@@ -1,5 +1,8 @@
 # Credential
 
+## This request is not authorized to perform this operation using this permission
+- The Azure Blob stoarge path might not be correct.
+
 ## Azure ChainedTokenCredential Fails after Password Change
 SharedTokenCacheCredential: Azure Active Directory error '(invalid_grant) AADSTS50173: 
 The provided grant has expired due to it being revoked, a fresh auth token is needed. 
