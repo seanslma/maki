@@ -8,6 +8,15 @@ df = pd.DataFrame({
     'value': pd.Series(dtype='float'),
     'datetime': pd.Series(dtype='datetime64[ns]'),
  })
+
+# slower
+col_types = {
+    'id': 'int',
+    'name': 'str',
+    'value': 'float',
+    'datetime': 'datetime64[ns]',    
+}
+df = pd.DataFrame(columns=col_types.keys()).astype(col_types)
 ```
 
 ## set columns in chained method
