@@ -1,24 +1,5 @@
 # Column
 
-## empty df with dtypes
-```py
-df = pd.DataFrame({
-    'id': pd.Series(dtype='int'),
-    'name': pd.Series(dtype='str'),
-    'value': pd.Series(dtype='float'),
-    'datetime': pd.Series(dtype='datetime64[ns]'),
- })
-
-# slower
-col_types = {
-    'id': 'int',
-    'name': 'str',
-    'value': 'float',
-    'datetime': 'datetime64[ns]',    
-}
-df = pd.DataFrame(columns=col_types.keys()).astype(col_types)
-```
-
 ## set columns in chained method
 ```py
 df = df.set_axis(columns, axis=1)
