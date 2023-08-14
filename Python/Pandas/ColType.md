@@ -9,6 +9,14 @@ df = pd.DataFrame({
     'datetime': pd.Series(dtype='datetime64[ns]'),
  })
 
+df = pd.DataFrame({
+    c: pd.Series(dtype=t) for c, t in {
+        'a': 'int',
+        'b': 'str',
+        'c': 'float',
+    }.items()
+})
+
 # slower
 col_types = {
     'id': 'int',
