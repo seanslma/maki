@@ -7,7 +7,8 @@ kubectl create clusterrolebinding serviceaccounts-cluster-admin --clusterrole=cl
 ```
 
 ## You must be logged in to the server (the server has asked for the client to provide credentials)
-maybe due to issues in `.kube/config` file
+maybe due to issues in `.kube/config` file. 
+Solution: update the credentials if using aks `az aks get-credentials -n <aks-name> -g <resource-group>`
 
 ## The connection to the server xx.xx.xx.xx:port was refused - did you specify the right host or port?
 Possible reasons
