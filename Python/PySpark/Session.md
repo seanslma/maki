@@ -7,9 +7,9 @@ spark = (
     SparkSession
     .builder
     .appName('spark-local')
-    .master(local[*])    
-    .config("spark.memory.offHeap.enabled","true")
-    .config("spark.memory.offHeap.size","10g")
+    .master('local[*]')    
+    .config('spark.memory.offHeap.enabled', 'true')
+    .config('spark.memory.offHeap.size', '10g')
     .getOrCreate()
 )
 ...
