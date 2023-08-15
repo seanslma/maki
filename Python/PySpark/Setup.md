@@ -1,18 +1,5 @@
 # Setup
 
-## create session
-```py
-from pyspark.sql import SparkSession
-spark = (
-    SparkSession
-    .builder
-    .appName('spark-dev')
-    .config("spark.memory.offHeap.enabled","true")
-    .config("spark.memory.offHeap.size","10g")
-    .getOrCreate()
-)
-```
-
 ## load data
 ```py
 #df = spark.read.csv('data.csv', header=True, escape='\"')
