@@ -9,4 +9,4 @@ It's free for Community Edition: https://community.cloud.databricks.com/login.ht
 - download apache spark: https://spark.apache.org/downloads.html
 - unzip to a folder `c:/spark` and add to env var "SPARK_HOME" and add `bin` to env path
 - check park version `spark-submit --version`
-- install pyspark `pip install pyspark[sql,ml]`
+- install pyspark `pip install pyspark[ml,mllib,sql,pandas_on_spark]`
