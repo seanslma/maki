@@ -2,6 +2,8 @@
 
 https://dev.to/cloudskills/getting-started-with-terraform-on-azure-importing-existing-infrastructure-43fa
 
+Import manully created resources to be under the control of terraform configurations. 
+
 ## simple resource
 - create terraform code
 - import state: `terraform init` and `terraform import <terraform-resource-name>.<resource-label> <azure-resource-id>`
