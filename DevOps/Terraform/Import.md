@@ -2,7 +2,8 @@
 
 https://dev.to/cloudskills/getting-started-with-terraform-on-azure-importing-existing-infrastructure-43fa
 
-Import manully created resources to be under the control of terraform configurations. 
+- Import manully created resources to be under the control of terraform configurations. 
+- Manage pre-existing infrastructure by terraform
 
 ## simple resource
 - create terraform code
