@@ -1,11 +1,19 @@
 # CLI
 
-## show storage properties
+## storage account
 ```sh
+# list storage accounts
+az storage account list -o table
+# show storage account properties
 az storage account show --name <account-name> --resource-group <resource-group>
+# update storage account property
+az storage account update --name <account-name> --resource-group <resource-group> --allow-cross-tenant-replication false
 ```
 
-## update storage property
+## storage container
 ```sh
-az storage account update --name <account-name> --resource-group <resource-group> --allow-cross-tenant-replication false
+# list storage containers
+az storage container list --account-name <account-name> -o table --auth-mode login
+# show storage container properties
+az storage container show --name <container-name> --account-name <account-name> --auth-mode login
 ```
