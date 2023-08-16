@@ -24,3 +24,6 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig
 kubectl get nodes
 ```
+
+## getting credentials: exec: executable kubelogin failed with exit code 1
+Reason: not logged in from the terminal. Solution: `az aks get-credentials` and then run `kubelogin convert-kubeconfig` and `kubectl get nodes`
