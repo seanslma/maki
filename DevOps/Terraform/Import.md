@@ -25,13 +25,15 @@ in unix shell, use single quotes to make the inner address be taken literally
 ```sh
 terraform import 'module.my_storage_account.azurerm_storage_container.container["my-data"]' foo
 ```
-in windows the double quotes must be escaped with a backslash:
+in windows the double quotes must be escaped with a backslash and use quotes:
 ```sh
-terraform import module.my_storage_account.azurerm_storage_container.container[\"my-data\"] foo
+terraform import 'module.my_storage_account.azurerm_storage_container.container[\"my-data\"]' foo
 ```
 
 ## import with variables
 https://stackoverflow.com/questions/57187782/how-to-use-terraform-import-with-passed-in-variables
+
+Note that even variables in the variables.tf that are not used are still required.
 ```sh
 terraform import -var 'environment=sandbox' azurerm_storage_account.my_storage foo
 terraform import -var-file='../tfvars/prod.tfvars' 'module.MySystem.azurerm_windows_virtual_machine.windsvm["dsvm0003"]' "/subscriptions/xxx-xxx-xxx-xxx-xxx/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/DSVM0003"
