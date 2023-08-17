@@ -17,17 +17,19 @@ https://dev.to/cloudskills/getting-started-with-terraform-on-azure-importing-exi
 - check and validate the states
 
 ## import module
-- in module folder run `terraform init`
+- in the folder calling the module with `backend.tf` run `terraform init`
 - then for each resource run `terraform import module.<module-name>.<terraform-resource-name>.<resource-label> <azure-resource-id`
 
 ## import one of for_each from module
 in unix shell, use single quotes to make the inner address be taken literally
 ```sh
-terraform import 'module.my_storage.azurerm_storage_container.container["<container-name>"]' https://<storage-account>.blob.core.windows.net/<container-name>
+terraform import 'module.my_storage.azurerm_storage_container.container["<container-name>"]' \
+https://<storage-account>.blob.core.windows.net/<container-name>
 ```
 in windows the double quotes must be escaped with a backslash and use quotes:
 ```sh
-terraform import 'module.my_storage.azurerm_storage_container.container[\"<container-name>\"]' https://<storage-account>.blob.core.windows.net/<container-name>
+terraform import 'module.my_storage.azurerm_storage_container.container[\"<container-name>\"]' \
+https://<storage-account>.blob.core.windows.net/<container-name>
 ```
 
 ## import with variables
@@ -36,5 +38,6 @@ https://stackoverflow.com/questions/57187782/how-to-use-terraform-import-with-pa
 Note that even variables in the variables.tf that are not used are still required.
 ```sh
 terraform import -var 'environment=sandbox' azurerm_storage_account.my_storage foo
-terraform import -var-file='../tfvars/prod.tfvars' 'module.MySystem.azurerm_windows_virtual_machine.windsvm["dsvm0003"]' "/subscriptions/xxx-xxx-xxx-xxx-xxx/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/DSVM0003"
+terraform import -var-file='../tfvars/prod.tfvars' 'module.MySystem.azurerm_windows_virtual_machine.windsvm["dsvm0003"]' \
+"/subscriptions/xxx-xxx-xxx-xxx-xxx/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/DSVM0003"
 ```
