@@ -10,6 +10,8 @@ az storage account show --name <account-name> --resource-group <resource-group>
 az storage account show --name <account-name> --resource-group <resource-group> --query id
 # update storage account property
 az storage account update --name <account-name> --resource-group <resource-group> --allow-cross-tenant-replication false
+# list role assignments
+az role assignment list --scope <storage-account-id> --query [].id
 ```
 
 ## storage container
@@ -17,5 +19,9 @@ az storage account update --name <account-name> --resource-group <resource-group
 # list storage containers
 az storage container list --account-name <account-name> -o table --auth-mode login
 # show storage container properties
-az storage container show --name <container-name> --account-name <account-name> --auth-mode login
+az storage container show --name <container-name> --account-name <storage-account> --auth-mode login
+# get storage container id
+az storage container show --name <container-name> --account-name <storage-account> --auth-mode login --query id
+# list role assignment
+az role assignment list --scope <container-resource-id> --query [].id
 ```
