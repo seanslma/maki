@@ -20,14 +20,14 @@ https://dev.to/cloudskills/getting-started-with-terraform-on-azure-importing-exi
 - in module folder run `terraform init`
 - then for each resource run `terraform import module.<module-name>.<terraform-resource-name>.<resource-label> <azure-resource-id`
 
-## import one of for_each
+## import one of for_each from module
 in unix shell, use single quotes to make the inner address be taken literally
 ```sh
-terraform import 'module.my_storage_account.azurerm_storage_container.container["my-data"]' foo
+terraform import 'module.my_storage.azurerm_storage_container.container["<container-name>"]' https://<storage-account>.blob.core.windows.net/<container-name>
 ```
 in windows the double quotes must be escaped with a backslash and use quotes:
 ```sh
-terraform import 'module.my_storage_account.azurerm_storage_container.container[\"my-data\"]' foo
+terraform import 'module.my_storage.azurerm_storage_container.container[\"<container-name>\"]' https://<storage-account>.blob.core.windows.net/<container-name>
 ```
 
 ## import with variables
