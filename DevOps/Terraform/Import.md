@@ -1,9 +1,10 @@
 # Import Existing Resources
+https://developer.hashicorp.com/terraform/cli/commands/import
 
 https://dev.to/cloudskills/getting-started-with-terraform-on-azure-importing-existing-infrastructure-43fa
 
-- Import manully created resources to be under the control of terraform configurations. 
 - Manage pre-existing infrastructure by terraform
+- - Import manully created resources to be under the control of terraform configurations
 
 ## simple resource
 - create terraform code
