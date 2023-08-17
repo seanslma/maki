@@ -13,10 +13,6 @@ https://blog.gruntwork.io/terraform-tips-tricks-loops-if-statements-and-gotchas-
 ## scheduled maintenance
 See: https://status.hashicorp.com/
 
-## random_id
-https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id
-
-
 ## basic
 ```
 terraform init
