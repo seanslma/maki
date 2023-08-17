@@ -4,7 +4,7 @@
 We can manage an existing Azure Blob Storage container using Terraform. 
 Terraform has an Azure provider that allows you to define and manage Azure resources, including Blob Storage containers.
 
-To manage an existing Blob Storage container in Terraform, wed need to import it into the Terraform state. 
+To manage an existing Blob Storage container in Terraform, wed need to `import` it into the Terraform state. 
 The import process enables Terraform to track the existing resource and manage its state going forward. 
 
 Here's how we can do it:
