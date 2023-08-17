@@ -20,8 +20,6 @@ az role assignment list --scope <storage-account-id> --query [].id
 az storage container list --account-name <account-name> -o table --auth-mode login
 # show storage container properties
 az storage container show --name <container-name> --account-name <storage-account> --auth-mode login
-# get storage container id
-az storage container show --name <container-name> --account-name <storage-account> --auth-mode login --query id
 # list role assignment
-az role assignment list --scope <container-resource-id> --query [].id
+az role assignment list --scope <storage-account-id>/blobServices/default/containers/<container-name>
 ```
