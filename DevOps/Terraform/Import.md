@@ -19,3 +19,9 @@ https://dev.to/cloudskills/getting-started-with-terraform-on-azure-importing-exi
 ## import module
 - in module folder run `terraform init`
 - then for each resource run `terraform import module.<module-name>.<terraform-resource-name>.<resource-label> <azure-resource-id`
+
+## import one of for_each
+The double quotes must be escaped!
+```sh
+terraform import module.my_storage_account.azurerm_storage_container.container[\"my-data\"] foo
+```
