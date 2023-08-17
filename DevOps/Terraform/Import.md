@@ -21,7 +21,18 @@ https://dev.to/cloudskills/getting-started-with-terraform-on-azure-importing-exi
 - then for each resource run `terraform import module.<module-name>.<terraform-resource-name>.<resource-label> <azure-resource-id`
 
 ## import one of for_each
-The double quotes must be escaped!
+in unix shell, use single quotes to make the inner address be taken literally
+```sh
+terraform import 'module.my_storage_account.azurerm_storage_container.container["my-data"]' foo
+```
+in windows the double quotes must be escaped with a backslash:
 ```sh
 terraform import module.my_storage_account.azurerm_storage_container.container[\"my-data\"] foo
+```
+
+## import with variables
+https://stackoverflow.com/questions/57187782/how-to-use-terraform-import-with-passed-in-variables
+```sh
+terraform import -var 'environment=sandbox' azurerm_storage_account.my_storage foo
+terraform import -var-file='../tfvars/prod.tfvars' 'module.MySystem.azurerm_windows_virtual_machine.windsvm["dsvm0003"]' "/subscriptions/xxx-xxx-xxx-xxx-xxx/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/DSVM0003"
 ```
