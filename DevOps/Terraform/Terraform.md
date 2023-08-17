@@ -23,6 +23,10 @@ terraform plan -destroy -out main.destroy.tfplan
 terraform destroy
 ```
 
+## update
+- update terraform states to match current state of the actual resources: `terraform refresh`
+- add manually created resource under source control: `terraform import`
+
 ## best practices
 https://cloud.google.com/docs/terraform/best-practices-for-terraform#module-structure
 
