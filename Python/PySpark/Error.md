@@ -21,3 +21,8 @@ PYSPARK_DRIVER_PYTHON = jupyter
 PYSPARK_DRIVER_PYTHON_OPTS = notebook
 PYSPARK_PYTHON = python
 ```
+
+try this???
+```
+SPARK_LOCAL_IP = 127.0.0.1
+```
