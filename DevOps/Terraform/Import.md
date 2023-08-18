@@ -10,7 +10,7 @@ https://dev.to/cloudskills/getting-started-with-terraform-on-azure-importing-exi
 - create terraform code
 - import state: `terraform init` and `terraform import <terraform-resource-name>.<resource-label> <azure-resource-id>`
 - check new resource in state file: `cat terraform.tfstate`
-- validate terraform configuration `terraform plan` should report no chnages
+- validate terraform configuration `terraform plan` should report no changes
 
 ## multiple resources
 - create terraform code for all resources
@@ -44,3 +44,6 @@ terraform import -var-file='../tfvars/prod.tfvars' 'module.MySystem.azurerm_wind
 ```
 
 Another way is set default values for the variables in the `variables.tf` file or set the real value from the `state` file.
+
+**terragrunt**: in `terragrunt.hcl` the `inputs` section can set the values for the input variables from dependencies. 
+Therefore the best way to import the existing resource is via `terragrunt import ADDR ID`.
