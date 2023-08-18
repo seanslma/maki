@@ -12,6 +12,44 @@ A secret can be used with a pod in three ways:
 - As container environment variable
 - By the kubelet when pulling images for the Pod
 
+## map Key Vault Secret to traefic TLSStore
+```yaml
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: dev-cert
+  namespace: "{{ .Values.namespace }}"
+spec:
+  provider: azure
+  secretObjects:
+    - secretName: dev-cert
+      type: kubernetes.io/tls
+      data:
+        - objectName: dev
+          key: tls.key
+        - objectName: dev
+          key: tls.crt
+  parameters:
+    tenantId: "{{ .Values.tenantId }}"
+    keyvaultName: "{{ .Values.keyVaultName }}"
+    usePodIdentity: "true"
+    objects: |
+      array:
+        - |
+          objectName: dev
+          objectType: secret
+          objectVersion: ""
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: TLSStore
+metadata:
+  name: default
+  namespace: "{{ .Values.namespace }}"
+spec:
+  defaultCertificate:
+    secretName: dev-cert
+```
+
 ## mounted volume file
 - Mount files to a path via Kubernetes Secret
 - Mount Azure Key Vault Secrets to another path via `SecretProviderClass`
