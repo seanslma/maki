@@ -42,3 +42,5 @@ terraform import -var 'environment=sandbox' azurerm_storage_account.my_storage f
 terraform import -var-file='../tfvars/prod.tfvars' 'module.MySystem.azurerm_windows_virtual_machine.windsvm["dsvm0003"]' \
 "/subscriptions/xxx-xxx-xxx-xxx-xxx/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/DSVM0003"
 ```
+
+Another way is set default values for the variables in the `variables.tf` file or set the real value from the `state` file.
