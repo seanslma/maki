@@ -26,3 +26,9 @@ try this???
 ```
 SPARK_LOCAL_IP = 127.0.0.1
 ```
+
+## org.apache.spark.SparkException: Python worker failed to connect back
+could not find python
+```
+PYSPARK_PYTHON = c:/my/folder/to/python.exe
+```
