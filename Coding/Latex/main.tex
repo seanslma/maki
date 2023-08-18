@@ -1,0 +1,54 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[
+  body={18true cm, 27true cm},
+  left=12.3mm
+]{geometry}  %simple version
+
+\usepackage[
+  pdftex,
+  bookmarks=false,
+  colorlinks=true,
+  pdfborder={0 0 0},   % 0 0 1
+  citecolor=black,     % blue
+  linkcolor=black,     % red
+  anchorcolor=black,   % green
+  urlcolor=blue,       % blue
+  breaklinks=true,
+  pdfstartview={XYZ null null 1.33}
+]{hyperref}
+
+\usepackage{minted}
+\usepackage{xcolor} % to access the named colour LightGray
+\definecolor{LightGray}{gray}{0.95}
+
+% set paragraph indent to 0pt
+\setlength{\parindent}{0pt}
+% remove extra space between paragraphs
+\setlength{\parskip}{0pt}
+
+% set code format
+\setminted[python]{
+  % frame=leftline,
+  framesep=2mm,
+  baselinestretch=0.6,
+  bgcolor=LightGray,
+  fontsize=\footnotesize,
+  numbersep=2pt
+  % linenos,
+}
+
+\begin{document}
+Here is an example of python code block:
+\begin{minted}{python}
+x = [0, 1, 2, 3, 4]
+for i in x:
+    if i < 1:
+        print('Hello World!')
+    else:
+        print(f'Hello No.{i}')
+\end{minted}
+
+We will provide another example later.
+
+\end{document}
