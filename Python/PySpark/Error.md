@@ -11,3 +11,13 @@ In local mode, Spark's `driver program` communicates with the `worker threads` o
 Reason: Firewall blocked the java binary to access the network
 
 Check if there is a firewall blocking the REST API call from the cluster to DIS nodes. 
+
+Try this???
+https://stackoverflow.com/questions/60916259/sparkexception-python-worker-failed-to-connect-back-when-execute-spark-action
+```
+HADOOP_HOME = C:\Hadoop
+JAVA_HOME = C:\Java\jdk-11.0.6
+PYSPARK_DRIVER_PYTHON = jupyter
+PYSPARK_DRIVER_PYTHON_OPTS = notebook
+PYSPARK_PYTHON = python
+```
