@@ -31,4 +31,6 @@ SPARK_LOCAL_IP = 127.0.0.1
 could not find python
 ```
 PYSPARK_PYTHON = c:/my/folder/to/python.exe
+os.environ['PYSPARK_PYTHON'] = 'C:/Users/sma/conda-envs/elchapo/python.exe'
 ```
+This solves the previous issue: **java.net.SocketTimeoutException: connect timed out**
