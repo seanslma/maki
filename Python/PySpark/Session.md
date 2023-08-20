@@ -47,6 +47,11 @@ Set the value using:
 spark.conf.set('spark.sql.shuffle.partitions', 100)
 ```
 
+Set the values in cli
+```sh
+spark-submit --conf spark.sql.shuffle.partitions=100 --conf spark.default.parallelism=100
+```
+
 ## default partitions casued slow performance
 https://stackoverflow.com/questions/34625410/why-does-my-spark-run-slower-than-pure-python-performance-comparison
 
