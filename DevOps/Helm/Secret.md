@@ -15,7 +15,8 @@ A secret can be used with a pod in three ways:
 ## map Key Vault Secret to traefic TLSStore
 https://blog.baeke.info/2020/12/07/azure-key-vault-provider-for-secrets-store-csi-driver/
 - settings in the `parameters` section are actually sufficient to mount the secret/certificate in a pod
-- With the `secretObjects` section, we can also ask for the creation of regular Kubernetes secrets
+- With the `secretObjects` section, we can also ask for the creation of regular Kubernetes secrets.
+- Note: though the objectType is `secret` the certificate is uploaded into the Azure Key Vault Certificate
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
