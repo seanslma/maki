@@ -1,6 +1,8 @@
 # Uncertainty (Prediction) Interval 
 Not Confident Interval: https://stats.stackexchange.com/questions/619860/are-prophets-uncertainty-intervals-confidence-intervals-or-prediction-interva
 
+The default `uncertainty interval` is 80%.
+
 https://www.mikulskibartosz.name/understanding-uncertainty-intervals-generated-by-prophet/
 ```py
 m = Prophet(uncertainty_samples=1000, interval_width=0.95)
