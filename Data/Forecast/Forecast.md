@@ -24,3 +24,6 @@ https://curiousily.com/posts/hackers-guide-to-fixing-underfitting-and-overfittin
 - underfit: high bias
 - overfit: high variance
 - mse (mean squared error) = variance + bias^2
+
+## prediction intervals
+https://otexts.com/fpp2/prediction-intervals.html
