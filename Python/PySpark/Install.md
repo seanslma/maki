@@ -10,4 +10,5 @@ It's free for Community Edition: https://community.cloud.databricks.com/login.ht
 - unzip to a folder `c:/spark` and add to env var "SPARK_HOME" and add `bin` to env path
 - check park version `spark-submit --version`
 - install pyspark `pip install pyspark[ml,mllib,sql,pandas_on_spark]`
-- copy `winutils.exe` from `https://hadoop.apache.org/releases.html` to `c:/hadoop` and set env var `HADOOP_HOME` to `c:/hadoop`
+- copy `winutils.exe` from `https://github.com/cdarlint/winutils/tree/master/hadoop-3.3.5/bin` to `c:/hadoop`
+  and set env var `HADOOP_HOME` to `c:/hadoop`???
