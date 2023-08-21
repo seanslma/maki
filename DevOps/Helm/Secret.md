@@ -13,6 +13,7 @@ A secret can be used with a pod in three ways:
 - By the kubelet when pulling images for the Pod
 
 ## map Key Vault Secret to traefic TLSStore
+https://blog.baeke.info/2020/12/07/azure-key-vault-provider-for-secrets-store-csi-driver/
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
