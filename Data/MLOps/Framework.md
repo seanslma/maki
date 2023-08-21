@@ -9,6 +9,6 @@ commercial:
 - Biases
 
 open source:
-- CLearML
 - MLflow
+- CLearML
 - OpenMLOps
