@@ -19,3 +19,19 @@ g.apply(normalize)
 g.transform(normalize)
 normalized = (df['value'] - g.transform('mean')) / g.transform('std')
 ```
+
+## example
+We have a df with cols `ty`, `reg`, `size` and `val`. 
+We want to get the min/max value in each group of (type, region).
+```py
+ylims = (
+    d.groupby(['ty','reg'])
+    .agg(vmin=('val', 'min'), vmax=('val', 'max'))
+    .assign(
+        tmin=lambda x: x[['vmin']].groupby(['ty']).transform('min'),
+        tmax=lambda x: x[['vmax']].groupby(['ty']).transform('max'),
+    )
+    .drop(columns=['vmin','vmax'])
+)
+ylims
+```
