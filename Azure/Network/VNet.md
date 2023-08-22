@@ -6,15 +6,6 @@ https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overvie
 - contained within a resource group and is hosted within a region
 - cannot span multiple regions but can span all datacenters within a region
 
-## SubNet
-- Subnets provide isolation within a virtual network
-- Subnet IP range should not be too large or too small
-
-## filter network traffic between subnets
-- `Network security groups` and `application security groups` can contain multiple inbound and outbound security rules.
-- These rules enable you to filter traffic to and from resources by source and destination `IP address`, `port`, and `protocol`. 
-- A `network virtual appliance` is a VM that performs a network function, such as a firewall, WAN optimization, or other network function.
-
 ## Connection
 - resources within the same region and subscription 
   - VNet peering
