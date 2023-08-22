@@ -2,10 +2,10 @@
 https://seaborn.pydata.org/generated/seaborn.catplot.html
 
 - `order`, `hue_order`: *lists of strings, optional*
-Order to plot the categorical levels in; otherwise the levels are inferred from the data objects.
+  Order to plot the categorical levels in; otherwise the levels are inferred from the data objects.
 
 - `row_order`, `col_order`: *lists of strings, optional*
-Order to organize the rows and/or columns of the grid in, otherwise the orders are inferred from the data objects.
+  Order to organize the rows and/or columns of the grid in, otherwise the orders are inferred from the data objects.
 
 ## catplot with bar type
 Use catplot() to combine a barplot() and a FacetGrid - data should not be in index:
