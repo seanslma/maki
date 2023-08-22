@@ -26,6 +26,10 @@ d2 = df.groupby(['a','c']).mean()
 d2.reindex(mi)
 d2.reindex(df.index.droplevel('b')) #better? it seems reindex is faster than loc for single index
 d2.loc[df.index.droplevel('b'),:] #best?
+
+# we can also use merge to combine the grouped mean df to the original df without reindex
+# note df has index a,b,c and d2 has index a,c
+df_merged = df.merge(d2, left_index=True, right_index=True)
 ```
 
 ## Expand df date ranges to individual rows
