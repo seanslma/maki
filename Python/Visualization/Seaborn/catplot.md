@@ -10,16 +10,20 @@ https://seaborn.pydata.org/generated/seaborn.catplot.html
 ## catplot with bar type
 Use catplot() to combine a barplot() and a FacetGrid - data should not be in index:
 ```py
+smoker = list(data['smoker'].unique())
+time = list(data['time'].unique())
 g = sns.catplot(
     kind='bar',
     data=tips,
     x='sex',
+    order=['male', 'dfemale'], #order for the x value
     y='total_bill',
     row='smoker',
+    row_order=smoker,
     col='time',
+    col_order=time,
     sharey=False,
-    ci=None,                   #remove error bars
-    order=['male', 'dfemale'], #order for the x value
+    ci=None,                   #remove error bars    
     height=4,
     aspect=0.7,
 )
@@ -34,6 +38,7 @@ ylims = (
     )
     .drop(columns=['vmin','vmax'])
     .assign(tmin=lambda x: x.tmin * 0.99)
+    .reindex(pd.MultiIndex.from_product([smoker, time])) #keep row/col order
     .to_records(index=False)
 )
 for i, ax in enumerate(g.axes.ravel()):
