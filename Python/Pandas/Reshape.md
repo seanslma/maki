@@ -30,6 +30,7 @@ stack row by row to a series, with original index and col names being merged to 
 ```py
 df = pd.DataFrame({'A':['a','b','c'], 'B':[1,3,5], 'C':[2,4,6]})
 df.stack()
+df.set_index('A').stack()
 
 #add names for new index and col
 df.stack().rename_axis(index={None: 'new_idx'}).rename('new_val').reset_index()
