@@ -18,7 +18,12 @@ Solution 2,
 credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)
 ```
 
-Solution 3, Clear Azure credential cache
+Solution 3, Clear Azure credential cache using az cli or powershell
+use az cli
+```sh
+az account clear
+```
+use powershell
 - Install `Az-Cmdlets` for powershell
 - Run `Clear-AzContext` to clear cached credentials in powershell
 
