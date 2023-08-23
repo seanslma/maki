@@ -4,11 +4,14 @@
 - The Azure Blob stoarge path might not be correct.
 
 ## Azure ChainedTokenCredential Fails after Password Change
+```
 SharedTokenCacheCredential: Azure Active Directory error '(invalid_grant) AADSTS50173: 
 The provided grant has expired due to it being revoked, a fresh auth token is needed. 
 The user might have changed or reset their password.
+```
 
-Solution 1, delete the cache the credential uses
+Solution 1, delete the cache the credential uses. 
+When solution 3 does not work try this one.
 ```
 %LOCALAPPDATA%\.IdentityService\msal.cache
 ```
