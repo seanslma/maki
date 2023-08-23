@@ -20,9 +20,8 @@ https://learn.microsoft.com/en-us/training/modules/introduction-to-azure-virtual
   - ExpressRoute: not through public internet but costly
 
 ## Communicate with the internet
-- All resources in a virtual network can communicate `outbound` to the internet, by default
-- Outbound connections can also be managed by using `public IP`, `NAT gateway`, or `public load balancer`
-- Communicate `inbound` to a resource by assigning a `public IP` address or a `public load balancer`
+- `outbound` to the internet, by default, can be managed by `public IP`, `NAT gateway`, or `public load balancer`
+- `inbound` to a resource by assigning a `public IP address` or `public load balancer`
 
 ## Communicate between Azure resources
 - VNet
