@@ -25,10 +25,24 @@ https://learn.microsoft.com/en-us/training/modules/introduction-to-azure-virtual
 
 ## Communicate between Azure resources
 - VNet
+  -  connect VMs
+  -  connect other Azure Resources, such as App Service Environment, Azure Kubernetes Service, and Azure Virtual Machine Scale Sets
 - VNet service endpoint
+  -  used to connect to other Azure resource types, such as Azure SQL databases and storage accounts
+  -  services and VMs within the same VNet can communicate directly and securely with each other in the cloud
 - VNet peering
 
 ## Communicate with on-premises resources
 - Point-to-site VPN
 - Site-to-site VPN
 - Azure ExpressRoute
+
+## Filter network traffic
+filter network traffic between `subnets` using any combination of 
+- network security groups and
+- network virtual appliances like
+- firewalls, gateways, proxies, and Network Address Translation (NAT) services
+
+## Route network traffic
+- Azure routes traffic between `subnets`, `connected virtual networks`, `on-premises networks`, and the `Internet`, by default
+- You can implement `route tables` or `border gateway protocol` (BGP) routes to override the default routes Azure creates
