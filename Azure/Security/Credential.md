@@ -3,6 +3,23 @@
 ## This request is not authorized to perform this operation using this permission
 - The Azure Blob stoarge path might not be correct.
 
+## Check which credential is used by python
+```py
+import sys
+import logging
+from azure.identity import DefaultAzureCredential
+
+logger = logging.getLogger('azure.identity')
+logger.setLevel(logging.INFO)
+
+handler = logging.StreamHandler(stream=sys.stdout)
+formatter = logging.Formatter('[%(levelname)s] %(name)s: %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
+credential = DefaultAzureCredential()
+```
+
 ## Azure ChainedTokenCredential Fails after Password Change
 ```
 SharedTokenCacheCredential: Azure Active Directory error '(invalid_grant) AADSTS50173: 
