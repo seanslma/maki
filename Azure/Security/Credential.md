@@ -20,6 +20,23 @@ logger.addHandler(handler)
 credential = DefaultAzureCredential()
 ```
 
+If the message is like
+```
+[INFO] azure.identity.aio._credentials.environment: No environment configuration found.
+[INFO] azure.identity.aio._credentials.managed_identity: ManagedIdentityCredential will use IMDS
+```
+but still crashed in jupyter notebook when get files from Azure Blob Storage via `adlfs`
+```
+ClientAuthenticationError: DefaultAzureCredential failed to retrieve a token from the included credentials.
+Attempted credentials:
+	EnvironmentCredential: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+	ManagedIdentityCredential: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.
+	SharedTokenCacheCredential: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
+	AzureCliCredential: Azure CLI not found on path
+	AzurePowerShellCredential: Failed to invoke PowerShell.
+```
+Restart `jupyter lab` server. 
+
 ## Azure ChainedTokenCredential Fails after Password Change
 ```
 SharedTokenCacheCredential: Azure Active Directory error '(invalid_grant) AADSTS50173: 
