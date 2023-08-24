@@ -20,7 +20,7 @@
 Add a frame for the code block (framesep is the distance between frame and content):
 \begin{minted}[frame=single,framesep=10pt]{python}
 import pandas as pd
-print 'Hello world'
+print('Hello world')
 \end{minted}
 ```
 
