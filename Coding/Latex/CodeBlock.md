@@ -15,7 +15,16 @@
   ```
 - Invoke the `shell-escape` flag to compile the document
 
-## another example
+## add a frame
+```latex
+Add a frame for the code block (framesep is the distance between frame and content):
+\begin{minted}[frame=single,framesep=10pt]{python}
+import pandas as pd
+print 'Hello world'
+\end{minted}
+```
+
+## use `newminted`
 ```latex
 \newminted{py}{
     breaklines,
