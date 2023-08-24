@@ -2,7 +2,7 @@
 
 Prophet will internally scale `y` before fitting the model so `y` does not need to be normalized.
 
-For data without any seasonality or holiday effects, Prophet is just a piecewise linear regression, so it's not appropriate for these time seriese.
+For data without any seasonality or holiday effects, Prophet is just a piecewise linear regression, so it's not appropriate for these time series.
 
 quick start:\
 https://facebook.github.io/prophet/docs/quick_start.html#python-api
@@ -108,3 +108,6 @@ stan_backend=None
     * Settings this value to 0 or False will disable uncertainty estimation and speed up the calculation.
   - stan_backend: str as defined in StanBackendEnum default: None - will try to
         iterate over all available backends and find the working one
+
+## Neural Prophet
+https://arxiv.org/pdf/2111.15397
