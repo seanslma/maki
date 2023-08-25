@@ -2,6 +2,8 @@
 
 check outlier by hisgram and scatter plot.
 
+https://www.analyticsvidhya.com/blog/2021/05/feature-engineering-how-to-detect-and-remove-outliers-with-python-code/
+
 ## stastical method
 - Q1: first quartile, median of first part
 - Q3: third quartile, median of second part
