@@ -4,6 +4,8 @@ check outlier by hisgram and scatter plot.
 
 https://www.analyticsvidhya.com/blog/2021/05/feature-engineering-how-to-detect-and-remove-outliers-with-python-code/
 
+https://stats.stackexchange.com/questions/69874/how-to-correct-outliers-once-detected-for-time-series-data-forecasting
+
 ## stastical method
 - Q1: first quartile, median of first part
 - Q3: third quartile, median of second part
