@@ -9,6 +9,9 @@ https://codefellows.github.io/sea-python-401d4/lectures/
 ## python package list
 https://github.com/ml-tooling/best-of-python
 
+## Idioms and Anti-Idioms in Python
+https://docs.python.org/3.1/howto/doanddont.html
+
 ## python essentials
 - env: install, editor etc
 - basic data structure: list, set, dict and associated functions
