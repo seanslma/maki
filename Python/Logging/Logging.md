@@ -1,4 +1,15 @@
 # Logging
+
+## logging inheritance
+```py
+setup_logger(__package__) 
+logger = logging.getLogger(__name__) 
+```
+By setting up the logger at the package level in the root namespace, the parent logger of all loggers will be created in all sub-packages.
+
+All loggers instantiated in any sub-package using `logger = logging.getLogger(__name__)` will therefore inherit the configuration that applied to the `__package__` logger in the root namespace.
+
+## logging handler
 https://docs.python.org/3/library/logging.handlers.html
 
 The `StreamHandler` class, located in the core logging package, sends logging output to streams such as sys.stdout, sys.stderr or any file-like object (or, more precisely, any object which supports write() and flush() methods).
