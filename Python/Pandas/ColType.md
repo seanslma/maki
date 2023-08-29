@@ -1,5 +1,17 @@
 # ColType
 
+## convert col to float
+```py
+df['val'] = pd.to_numeric(df['val'], errors='coerce')
+df['val'] = df.astype({'val':'float'})
+```
+
+## convert col to string
+using `map` to apply the function
+```py
+df[col] = df[col].map('{:.4f}'.format, na_action='ignore')
+```
+
 ## empty df with dtypes
 ```py
 df = pd.DataFrame({
@@ -25,10 +37,4 @@ col_types = {
     'datetime': 'datetime64[ns]',    
 }
 df = pd.DataFrame(columns=col_types.keys()).astype(col_types)
-```
-
-## convert col to float
-```py
-df['val'] = pd.to_numeric(df['val'], errors='coerce')
-df['val'] = df.astype({'val':'float'})
 ```
