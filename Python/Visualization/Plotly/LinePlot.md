@@ -2,6 +2,8 @@
 
 ## example
 Plot two columns from two dfs as lines and set the line color, legend and figure size.
+
+if name is not set will be default to the df val col name and line will be using default color rotation
 ```py
 fig = go.Figure()
 fig.add_trace(go.Scatter(x=df1['ts'], y=df1['val'], mode='lines', name='line-1', line=dict(color='blue')))
