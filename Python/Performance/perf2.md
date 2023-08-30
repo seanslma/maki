@@ -35,10 +35,10 @@ result2 = df.eval('A + @col_mean')
 # df.query
 result1 = df[(df.A < 0.5) & (df.B < 0.5)]
 result2 = pd.eval('df[(df.A < 0.5) & (df.B < 0.5)]')
-result2 = df.query('A < 0.5 and B < 0.5')
+result2 = df.query('A < 0.5 & B < 0.5')
 
 # df.query with local variable
 avg = df['C'].mean()
 result1 = df[(df.A < avg) & (df.B < avg)]
-result2 = df.query('A < @avg and B < @avg')
+result2 = df.query('A < @avg & B < @avg')
 ```
