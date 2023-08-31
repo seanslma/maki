@@ -26,6 +26,7 @@ except RuntimeError as e:
 ## Line search failed to achieve a sufficient decrease, no more progress can be made
 https://discourse.mc-stan.org/t/line-search-failed-error/10163
 ```
-Very small alpha (related to step size in line search) supports the assumption that the search direction is not pointing downhill.
+Very small alpha (related to step size in line search) supports
+the assumption that the search direction is not pointing downhill.
 You can also test running with smaller ODE solver tolerances.
 ```
