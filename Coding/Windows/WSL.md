@@ -63,13 +63,14 @@ service --status-all
 ```
 
 ## Auto start cron in wsl
-### Change wsl settings
+https://www.howtogeek.com/746532/how-to-launch-cron-automatically-in-wsl-on-windows-10-and-11/
+### Change wsl settings in wsl2 terminal
 Disable password requirement for starting cron service
 - run: `sudo visudo`
 - add: `%sudo<tab not space>ALL=NOPASSWD: usr/sbin/service cron start`
 - add an empty at the end
 
-### Create a scheduled task
+### Create a scheduled task in windows
 - taskschd.msc
 - Actions > Create Basic Task
 - Triggers: When the computer starts
