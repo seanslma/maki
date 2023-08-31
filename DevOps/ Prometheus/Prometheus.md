@@ -1,6 +1,9 @@
 #  Prometheus
 https://prometheus.io/docs/introduction/overview/
 
+Prometheus is a monitoring system that is designed to be scalable, flexible, and easy to use.
+It can collect metrics from all parts of the Kubernetes cluster, and it provides a unified view of the health of the system.
+ 
 ## how to run
 download the binary file into a folder and setup the config using yaml. 
 then run `prometheus --config.file=prometheus.yml`
