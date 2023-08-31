@@ -73,5 +73,5 @@ Disable password requirement for starting cron service
 - taskschd.msc
 - Actions > Create Basic Task
 - Triggers: When the computer starts
-- Action: Start a program: `C:\Windows\System32\wsl.exe`, args: `sudo /usr/sbin/service start cron`
+- Action: Start a program: `C:\Windows\System32\wsl.exe`, args: `sudo /usr/sbin/service cron start`
 - Finish: Run whether the user logged on or not
