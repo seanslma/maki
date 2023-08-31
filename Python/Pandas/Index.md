@@ -2,6 +2,10 @@
 
 The `.loc/[]` operations can perform enlargement when setting a non-existent key for that axis.
 
+## `df.drop` vs `df.droplevel`
+- `df.drop`: Removes rows or columns based on labels or indices.
+- `df.droplevel`: Drops levels from a multi-level index, simplifying it to a single-level index DataFrame.
+
 ## get values vs slice rows
 ```
 id  name
