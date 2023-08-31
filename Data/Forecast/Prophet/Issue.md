@@ -30,3 +30,14 @@ Very small alpha (related to step size in line search) supports
 the assumption that the search direction is not pointing downhill.
 You can also test running with smaller ODE solver tolerances.
 ```
+
+lbfgs
+```
+init_alpha = 0.001 (Default)
+tol_obj = 9.9999999999999998e-013 (Default)
+tol_rel_obj = 10000 (Default)
+tol_grad = 1e-008 (Default)
+tol_rel_grad = 10000000 (Default)
+tol_param = 1e-008 (Default)
+history_size = 5 (Default)
+```
