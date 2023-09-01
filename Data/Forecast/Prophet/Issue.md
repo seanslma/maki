@@ -31,13 +31,13 @@ the assumption that the search direction is not pointing downhill.
 You can also test running with smaller ODE solver tolerances.
 ```
 
-lbfgs
+lbfgs (CmdStan User's Guide: https://github.com/stan-dev/stan-dev.github.io/blob/master/users/documentation/index.md)
 ```
-init_alpha = 0.001 (Default)
-tol_obj = 9.9999999999999998e-013 (Default)
+init_alpha = 0.001 (Default) The alpha value is for step size used
+tol_obj = 1e-12 (Default)
 tol_rel_obj = 10000 (Default)
-tol_grad = 1e-008 (Default)
+tol_grad = 1e-08 (Default)
 tol_rel_grad = 10000000 (Default)
-tol_param = 1e-008 (Default)
+tol_param = 1e-08 (Default)
 history_size = 5 (Default)
 ```
