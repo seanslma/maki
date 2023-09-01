@@ -18,7 +18,7 @@ cmdstanpy_logger.disabled = False
 cmdstanpy_logger.handlers = [] #remove all existing handlers
 cmdstanpy_logger.setLevel(logging.DEBUG)
 
-handler = logging.FileHandler('cmdstanpy.log')
+handler = logging.FileHandler('cmdstanpy.log') #logging.StreamHandler()
 handler.setLevel(logging.DEBUG)
 handler.setFormatter(
     logging.Formatter(
