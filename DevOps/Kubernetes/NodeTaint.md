@@ -19,6 +19,11 @@ Taints and tolerations can be combined with node affinity to create dedicated no
 - Node affinity sets the node to schedule pods using labels by specifying the nodeAffinity in PodSpec
 - Taints on the node ensure that all pods without a matching toleration get repelled
 
+## Node Selector
+Node selectors are a simpler way to constrain pod scheduling to nodes with specific labels. 
+- They use the nodeSelector field in a pod's spec to specify node label requirements.
+- A pod will only be scheduled on nodes that satisfy all of the specified node selector requirements.
+
 ## Pod anti-affinity
 - Can prevent schedulers from locating new pods on nodes where the label selector on the new pod matches the label on an existing pod
 - Relies on label key-value pairs on other pods to determine its scheduling behavior
