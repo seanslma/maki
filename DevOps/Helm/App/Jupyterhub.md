@@ -10,3 +10,23 @@ https://zero-to-jupyterhub.readthedocs.io/en/latest/administrator/optimization.h
 ## helm chart setup
 https://github.com/jupyterhub/zero-to-jupyterhub-k8s/blob/HEAD/jupyterhub/values.yaml
 
+## persistent storage
+- https://kienmn97.medium.com/persistent-storage-in-jupyterhub-on-kubernetes-cluster-running-on-minikube-4b469bdb1b86
+- https://docs.microsoft.com/en-us/azure/aks/azure-files-volume
+- https://docs.openshift.com/container-platform/3.10/install_config/persistent_storage/persistent_storage_azure_file
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jhub-storage
+  namespace: jhub
+spec:
+  storageClassName: "standard" # it will be default storage class if unspecified.
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+```
+
+We then need to mount the volume to a path in the hub pod where the database is stored, in `volumes` and `volumeMounts` sections.
