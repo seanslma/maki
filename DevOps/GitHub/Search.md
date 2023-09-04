@@ -15,7 +15,7 @@ is:pr author:<user-name>
 ## content has `:`
 https://github.com/sourcegraph/sourcegraph/issues/6490
 
-search the content `keyword: *`
+search the content `keyword: *` (does not work)
 ```
 /keyword: \^?1/
 ```
