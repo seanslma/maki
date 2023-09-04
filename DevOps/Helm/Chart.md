@@ -24,5 +24,5 @@ dependencies:
     version: 3.1.1
     repository: file://.
 ```
-the value of the `repository` should be the path to the folder in which there is a chart file called `<name>-<version>.tgz` (mychart-3.1.1.tgz). 
-In the above example, the `tgz` file should be in the same folder for the `Chart.yaml` file.
+The value of the `repository` should be the path to the folder in which there is a chart file called `<name>-<version>.tgz`. 
+In the above example, the `mychart-3.1.1.tgz` file should be in the same folder for the `Chart.yaml` file.
