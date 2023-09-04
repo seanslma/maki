@@ -9,9 +9,16 @@ helm repo index ./jupyterhub/charts/ --url https://my.github.io/jupyterhub/chart
 ```
 
 ## create a helm chart and deploy it
+https://learn.microsoft.com/en-us/azure/aks/quickstart-helm?tabs=azure-cli
 ```
 helm create <chart-name>
-helm install <release-name> <chart-name>/ --values <chart-name>/values.yaml 
+cd <chart-name>
+helm dependency update
+# update values.yaml for image info etc.
+helm install <release-name>
+
+# alternatively execute out of the folder
+# helm install <release-name> <chart-name>/ --values <chart-name>/values.yaml 
 ```
 
 ## dependencies
