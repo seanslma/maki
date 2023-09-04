@@ -13,3 +13,6 @@ helm repo index ./jupyterhub/charts/ --url https://my.github.io/jupyterhub/chart
 helm create <chart-name>
 helm install <release-name> <chart-name>/ --values <chart-name>/values.yaml 
 ```
+
+## dependencies
+https://helm.sh/docs/chart_best_practices/dependencies/#helm
