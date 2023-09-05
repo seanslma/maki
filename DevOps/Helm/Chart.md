@@ -15,7 +15,7 @@ helm create <chart-name>
 cd <chart-name>
 helm dependency update
 # update values.yaml for image info etc.
-helm install <release-name>
+helm install <release-name> .
 
 # alternatively execute out of the folder
 # helm install <release-name> <chart-name>/ --values <chart-name>/values.yaml 
