@@ -11,7 +11,8 @@ not usable
 https://im5tu.io/article/2022/01/creating-a-private-helm-repository-using-github-pages-enterprise/
 
 ## use azure blob storage as private helm repo
-Setting up secure helm chart repository on Azure Blob Storage
+Setting up secure helm chart repository on Azure Blob Storage: 
+https://cwienczek.com/2017/10/setting-up-secure-helm-chart-repository-on-azure-blob-storage/
 
 ## disable ssl cert
 ```
