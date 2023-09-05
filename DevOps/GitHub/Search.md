@@ -12,5 +12,10 @@ is:pr is:unmerged
 is:pr author:<user-name>
 ```
 
+## dependencies in *.yaml
+```
+dependencies path:*.yaml
+```
+
 ## content has `:`
 How???
