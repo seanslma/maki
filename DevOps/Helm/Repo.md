@@ -7,6 +7,8 @@ https://github.com/helm/helm/issues/8868
 
 not usable
 
+https://im5tu.io/article/2022/01/creating-a-private-helm-repository-using-github-pages-enterprise/
+
 ## disable ssl cert
 ```
 helm repo add jh https://jupyterhub.github.io/charts --insecure-skip-tls-verify
