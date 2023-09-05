@@ -26,10 +26,13 @@ dependencies:
 Get error using helm 3.8.0 due to bug: https://github.com/helm/helm/issues/10624
 ```
 rpc error: code = Unknown desc = Manifest generation error (cached): 
-`helm dependency build` failed exit status 1: Error: could not retrieve list of tags for repository oci://$ACR_NAME.azurecr.io/helm: 
+`helm dependency build` failed exit status 1:
+Error: could not retrieve list of tags for repository oci://$ACR_NAME.azurecr.io/helm: 
 GET "https://$ACR_NAME.azurecr.io/v2/helm/ingress-nginx/tags/list": 
-GET "https://$ACR_NAME.azurecr.io/oauth2/token?scope=repository%3Ahelm%2Fingress-nginx%3Ametadata_read%2Cpull&service=$ACR_NAME.azurecr.io": 
-unexpected status code 401: unauthorized: authentication required, visit https://aka.ms/acr/authorization for more information.
+GET "https://$ACR_NAME.azurecr.io/oauth2/token?scope=repository%3Ahelm%2Fingress-nginx
+  %3Ametadata_read%2Cpull&service=$ACR_NAME.azurecr.io": 
+unexpected status code 401: unauthorized: authentication required,
+visit https://aka.ms/acr/authorization for more information.
 ```
 Solution: update to the latest helm version?
 
