@@ -1,7 +1,7 @@
 # CLI
 
 ## argocd cli
-```
+```sh
 #install argocd: https://argo-cd.readthedocs.io/en/stable/cli_installation
 curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
 sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
@@ -24,8 +24,9 @@ argocd repo add acrxxxxxx.azurecr.io/helm --type helm --name acrxxxx --enable-oc
 ```
 
 ## deploy app
-```
-argocd app create helm-guestbook --repo https://github.com/argoproj/argocd-example-apps.git --path helm-guestbook --dest-server https://kubernetes.default.svc --dest-namespace default
+```sh
+argocd app create helm-guestbook --repo https://github.com/argoproj/argocd-example-apps.git \
+--path helm-guestbook --dest-server https://kubernetes.default.svc --dest-namespace default
 argocd app get helm-guestbook
 argocd app sync helm-guestbook
 ```
