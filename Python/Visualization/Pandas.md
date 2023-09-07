@@ -36,3 +36,11 @@ ax.set_xticks(xticks)
 ax.set_xlim(xticks[0], xticks[-1])
 ax.xaxis.set_major_formatter(plt.FixedFormatter(xtick_labels))
 ```
+
+## day of week profile
+```py
+dow = df.assign(dow=lambda x: x['ts'].dt.dayofweek).groupby('dow')[['min', 'max']].mean().reset_index()
+ax = dow.plot(x='dow', y=['min', 'max'], figsize=(12, 6), grid=True)
+ax.set_xticks(range(0,7))
+_ = ax.set_xticklabels(['Mon', 'Tue','Wed', 'Thur', 'Fri', 'Sat', 'Sun'])
+```
