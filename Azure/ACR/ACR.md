@@ -3,7 +3,6 @@ https://learn.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest
 
 ## Cache for Azure Container Registry
 
-
 ## List repos in ACR
 ```
 az acr repository list --name <acr-name> --output table #list repos
@@ -104,4 +103,9 @@ spec:
           readOnly: true
           volumeAttributes:
             secretProviderClass: "myapp-cfg"
+```
+
+## check arc health
+```sh
+az acr check-health --name <myregistry> --ignore-errors --yes
 ```
