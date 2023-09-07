@@ -35,6 +35,9 @@ az container create --resource-group az204-aci-rg \
 
 ## Integrate an existing ACR with existing AKS clusters
 https://learn.microsoft.com/en-us/azure/aks/cluster-container-registry-integration?tabs=azure-cli
+
+When using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), you need to establish an authentication mechanism. 
+You can configure the required permissions between ACR and AKS using the `Azure CLI`, `Azure PowerShell`, or `Azure portal`. 
 ```
 az aks update -n <cluster-name> -g <resource-group> --attach-acr <acr-name/resource-id>
 ```
