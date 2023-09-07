@@ -243,8 +243,14 @@ df['first_day_in_month'] = df['date'].to_numpy().astype('datetime64[M]')
 ```
 
 ## pd.Timestamp to month begin (datetime64[M])
-```
+```py
 #output: numpy.datetime64('2022-01')
 month_begin = pd.Timestamp('2022-01-05').to_datetime64().astype('datetime64[M]')
-month)begin_with_day = month_begin.astype('datetime64[D]')
+month_begin_with_day = month_begin.astype('datetime64[D]')
+```
+
+## df col to first day of each month
+```py
+df = pd.DataFrame({'dt': pd.date_range('2023-01-01', '2023-01-02', periods=2)})
+df.assign(first_day_of_month=lambda x: x['dt'].dt.to_period('M').dt.to_timestamp())
 ```
