@@ -11,6 +11,8 @@ https://cwienczek.com/2017/10/setting-up-secure-helm-chart-repository-on-azure-b
 
 ## use azure container registry as private helm repo
 https://learn.microsoft.com/en-us/azure/container-registry/container-registry-helm-repos
+
+https://sbulav.github.io/azure/using-argocd-with-azure-acr/
 ```sh
 az acr login --name $ACR_NAME
 helm push ingress-nginx-3.20.1.tgz oci://$ACR_NAME.azurecr.io/helm
