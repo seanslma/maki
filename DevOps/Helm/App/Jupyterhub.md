@@ -48,3 +48,8 @@ https://discourse.jupyter.org/t/readiness-probe-fails-on-docker-kubernetes-deplo
 coming from a newer k8s version and a depreciation of v1beta1
 policy/v1beta1 PodDisruptionBudget is deprecated in aks v1.21+, unavailable in aks v1.25+; use policy/v1 PodDisruptionBudget
 ```
+This typically occurs when there's a problem with the Kubernetes `API server` or when the requested resource version is not available or supported.
+check the api server status
+```
+kubectl get componentstatuses
+```
