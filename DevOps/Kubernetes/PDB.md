@@ -6,6 +6,11 @@ A PodDisruptionBudget has three fields:
 - `.spec.minAvailable` which is a description of the number of pods from that set that must still be available after the eviction, even in the absence of the evicted pod. absolute number or a percentage.
 - `.spec.maxUnavailable` which is a description of the number of pods from that set that can be unavailable after the eviction. absolute number or a percentage.
 
+## get pdb apiversion in kubernetes
+```sh
+kubectl api-resources | grep pdb
+```
+
 ## `minAvailable` or `maxUnavailable`
 - `minAvailable`:  the number of Pods that must be available during a disruption
 - `maxUnavailable`:  the number of Pods that may be disrupted
