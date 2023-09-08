@@ -41,3 +41,10 @@ We then need to mount the volume to a path in the hub pod where the database is 
       guarantee: 4G
       limit: 16G
 ```
+
+## failed to list *v1beta1.PodDisruptionBudget: the server could not find the requested resource
+https://discourse.jupyter.org/t/readiness-probe-fails-on-docker-kubernetes-deploy/17517/4
+```
+coming from a newer k8s version and a depreciation of v1beta1
+policy/v1beta1 PodDisruptionBudget is deprecated in aks v1.21+, unavailable in aks v1.25+; use policy/v1 PodDisruptionBudget
+```
