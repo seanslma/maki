@@ -30,3 +30,14 @@ spec:
 ```
 
 We then need to mount the volume to a path in the hub pod where the database is stored, in `volumes` and `volumeMounts` sections.
+
+## values.yaml
+```yaml
+  singleuser:
+    cpu:
+      guarantee: 0.25 #must be number
+      limit: 1.5      #must be number
+    memory:
+      guarantee: 4G
+      limit: 16G
+```
