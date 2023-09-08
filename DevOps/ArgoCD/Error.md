@@ -20,3 +20,17 @@ If the repositories are connected seccussfully but the applications still show t
 
 ## the server could not find the requested resource
 The `apiVersion` for the app such Cronjob might be old and should be updated.
+
+## Argo will not report helm chart rendering error
+So the pods are simply not deployed.
+
+## Argo renders templates first, then contacts the apiserver
+In a helm chart, if the apiVersion depends on the k8s version. This could be go wrong
+```yaml
+{{- if .Capabilities.APIVersions.Has "policy/v1" }}
+apiVersion: policy/v1
+{{- else }}
+apiVersion: policy/v1beta1
+{{- end }}
+kind: PodDisruptionBudget
+```
