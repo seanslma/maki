@@ -7,6 +7,6 @@ configs:
     helm-acr-repo:      
       type: helm
       name: helm-acr
-      url: myacr.azurecr.io
-      enableOCI: "true"
+      url: https://myacr.azurecr.io
+      enableOCI: true
 ```
