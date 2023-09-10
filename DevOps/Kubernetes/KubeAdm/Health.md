@@ -1,5 +1,10 @@
 # Health
 
+## clusterrole
+```sh
+kubectl describe clusterrole system:kube-scheduler
+```
+
 ## check k8s health status
 ```
 kubectl get componentstatuses
