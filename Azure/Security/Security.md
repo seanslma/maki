@@ -1,5 +1,11 @@
 # Security
 
+## category
+- storage security: data encryption, client-side encryption, key-vault
+- network security: vpn, network security groups
+- identity/access control: rbac, multi-factor authentication, password policies
+- monitoring processes: storage analytics and security logs
+
 ## Ensure azure container app is not accecible from public internet
 To avoid deploying an Azure Container App to the public internet, you can implement various security measures and configurations to restrict access to your container app. Here's a general outline of steps you can take:
 - **Disable Public Endpoints:** Make sure that you haven't configured any public endpoints or exposed unnecessary ports that could potentially lead to public internet access.

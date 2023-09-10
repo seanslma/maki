@@ -53,3 +53,6 @@ check the api server status
 ```
 kubectl get componentstatuses
 ```
+
+## spawn timeout and solution
+https://blog.51cto.com/u_15946369/6035967
