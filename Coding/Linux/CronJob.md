@@ -11,7 +11,7 @@ export KUBECONFIG=/path/to/.config/.kube/kubeconfig
 ## create a cronjob
 `erontab -e` and add:
 ```sh
-30 12 * * * /home/<user-name>/my.sh >> /mnt/c/tst/my.log 2>&1
+30 12 * * * /home/<user-name>/my.sh >> /mnt/c/dev/my.log 2>&1
 ```
 
 ## run every 5 minutes but start from 0:02 not 0:00
