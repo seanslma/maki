@@ -34,7 +34,7 @@ awk -F" " 'NF > 8 {v[$1] += $2}; END {for (k in v) {printf "%s:%d\n", k, v[k]}}'
 ```
 
 ## select table rows based on columns
-Regex patterns should be put in `//` and not quoted
+Regex patterns should be put in `//` and not quoted. Include the header as well.
 ```sh
 #MaxDataDiskCount MemoryInMb Name NumberOfCores OsDiskSizeInMb ResourceDiskSizeInMb
 az vm list-sizes --location "australiaeast" -o table \
