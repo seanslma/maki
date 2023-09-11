@@ -5,6 +5,14 @@
 - tickformatstops
 - place ticks and gridlines between categories
 
+## axis range
+```py
+fig.update_layout(
+    xaxis_range=[1,12],
+    yaxis_range=[1,10],
+)
+```
+
 ## example
 https://plotly.com/python/tick-formatting/
 ```py
