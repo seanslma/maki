@@ -3,16 +3,25 @@
 ## Valid `freq` values
 https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases
 
+## pd.Timestamp to week datetime (date for Monday)
+```py
+s = pd.Series(pd.date_range('2023-09-01','2023-09-04', freq='D'))
+s.dt.to_period('W').dt.start_time
+s.dt.to_period('W').dt.to_timestamp()
+s.dt.to_period('W').dt.strftime('%Y-%m-%d')
+```
+
 ## pd.Timestamp to month datetime
 ```py
 s.dt.to_period('M').dt.to_timestamp()
-
+s.dt.to_period('M').dt.strftime('%Y-%m')
 df['mth'] = df['dt'].astype('datetime64[M]')
 ```
 
 ## pd.Timestamp to Quarter datetime (str)
 ```py
 s.dt.to_period('Q').dt.to_timestamp()
+s.dt.to_period('Q').dt.strftime('%YQ%q')
 s.dt.to_period('Q').dt.strftime('%Y-%m-%d')
 
 per = pd.Timestamp('2023-07-01').to_period('Q-DEC') #cal year quarter
