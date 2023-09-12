@@ -14,6 +14,7 @@ fig = make_subplots(
     specs=[[{'secondary_y': True}]]*4,
     vertical_spacing=0.02,
 )
+print(fig.layout) # inspect the axes name for each subplot
 ```
 ## legend for each subplot
 https://community.plotly.com/t/associating-subplots-legends-with-each-subplot-and-formatting-subplot-titles/33786/8
