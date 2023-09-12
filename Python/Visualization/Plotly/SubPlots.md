@@ -54,7 +54,7 @@ y1 = 1+3*np.random.rand(12)
 y2 = 2+2*np.random.rand(12)
 y3 = 3+1*np.random.rand(12)
 y4 = 4+1*np.random.rand(12)
-trcolor = ["#636efa", "#EF553B", "#00cc96", "#ab63fa"]
+trcolor = ['#636efa', '#EF553B', '#00cc96', '#ab63fa']
 fig.add_trace(
     go.Scatter(x=x, y=y1, name='y1'), 
     row=1, col=1,
