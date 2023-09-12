@@ -5,6 +5,16 @@ https://plotly.com/python-api-reference/generated/plotly.subplots.make_subplots.
 
 ## grid
 
+## vertical space between subplots
+```
+from plotly.subplots import make_subplots
+fig = make_subplots(
+    rows=4, cols=1, row_heights=[0.2, 0.2, 0.2, 0.4], 
+    shared_xaxes=True, 
+    specs=[[{'secondary_y': True}]]*4,
+    vertical_spacing=0.02,
+)
+```
 ## legend for each subplot
 https://community.plotly.com/t/associating-subplots-legends-with-each-subplot-and-formatting-subplot-titles/33786/8
 
