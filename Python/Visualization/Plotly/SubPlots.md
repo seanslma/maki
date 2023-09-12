@@ -6,7 +6,7 @@ https://plotly.com/python-api-reference/generated/plotly.subplots.make_subplots.
 ## grid
 
 ## vertical space between subplots
-```
+```py
 from plotly.subplots import make_subplots
 fig = make_subplots(
     rows=4,
