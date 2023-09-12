@@ -9,7 +9,9 @@ https://plotly.com/python-api-reference/generated/plotly.subplots.make_subplots.
 ```
 from plotly.subplots import make_subplots
 fig = make_subplots(
-    rows=4, cols=1, row_heights=[0.2, 0.2, 0.2, 0.4], 
+    rows=4,
+    cols=1,
+    row_heights=[0.2, 0.2, 0.2, 0.4], 
     shared_xaxes=True, 
     specs=[[{'secondary_y': True}]]*4,
     vertical_spacing=0.02,
@@ -37,13 +39,14 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 fig = make_subplots(
-    rows=2, cols=1, 
-    specs=[
-        [{"type":"xy"}], 
-        [{"secondary_y":True}],
-    ],
+    rows=2,
+    cols=1, 
     vertical_spacing=0.05, 
     shared_xaxes=True,
+    specs=[
+        [{'type': 'xy'}], 
+        [{'secondary_y': True}],
+    ],
 )
 
 x = np.linspace(1, 7, 12)
@@ -70,10 +73,11 @@ fig.add_trace(
 )
 
 fig.update_layout(
-    title_text="Subplots with multiple yaxes", 
+    title_text='Subplots with multiple yaxes', 
     title_x=0.5,
     margin_l=2,
-    width=750, height=450,
+    width=750,
+    height=450,
     xaxis_domain= [0.3, 1], 
     xaxis2_title='common xaxis_title',
     xaxis2_domain=[0.3, 1],
@@ -84,14 +88,15 @@ fig.update_layout(
         position=0.17,
         title_text='y4',
         titlefont_color=trcolor[3],      
-        tickfont_color=trcolor[3])
-);
+        tickfont_color=trcolor[3],
+    ),
+)
 
-for j, ax in enumerate(["yaxis", "yaxis2", "yaxis3"]):
+for j, ax in enumerate(['yaxis', 'yaxis2', 'yaxis3']):
     fig.layout[ax].update(
         title_text=f'y{j+1}', #merge the initial dict fig.layout[ax] with a new ax related dict
         titlefont_color=trcolor[j],      
-        tickfont_color=trcolor[j]
+        tickfont_color=trcolor[j],
     )
 fig.show()
 ```
