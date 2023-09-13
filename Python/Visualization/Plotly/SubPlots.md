@@ -15,6 +15,32 @@ fig = make_subplots(
 print(fig.layout) # inspect the axes name for each subplot
 ```
 
+## secondary y-axis
+```py
+import numpy as np
+import plotly.graph_objects as go
+
+x = np.linspace(1, 7, 12)
+y1 = 100+10*np.random.rand(12)
+y2 = 2+2*np.random.rand(12)
+y3 = 1+3*np.random.rand(12)
+
+t1 = go.Bar(x=x, y=y1, name='y1')  
+t2 = go.Scatter(x=x, y=y2, name='y2', yaxis='y2', mode='lines+markers', line=dict(color='orange'))  
+t3 = go.Scatter(x=x, y=y3, name='y3', yaxis='y2', mode='lines+markers', line=dict(color='red'))  
+
+layout = go.Layout(    
+    width=850, 
+    height=450,
+    title='Bar-line chart with secondary y-axis', 
+    yaxis=dict(title='y1'),            
+    yaxis2=dict(title='y2', overlaying='y', side='right'),
+)  
+
+fig = go.Figure(data=[t1, t2, t3], layout=layout)  
+fig.show()
+```
+
 ## subplots with multiple y-axes
 https://community.plotly.com/t/can-subplot-support-multiple-y-axes/38891/21
 
