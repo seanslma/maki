@@ -14,6 +14,18 @@ df[['cola','colb']] = df['col'].str.rsplit('_', 1, expand=True)
 ```py
 qt_yr = [f'Q{quarter}{str(year)[2:]}' for year, quarter in df.columns]
 ```
+## merge df col levels
+```py
+data = {
+    ('A', 'X'): [1, 2, 3],
+    ('A', 'Y'): [4, 5, 6],
+    ('B', 'X'): [7, 8, 9],
+    ('B', 'Y'): [10, 11, 12]
+}
+df = pd.DataFrame(data)
+df.columns = df.columns.map('_'.join)
+df.columns = [f'{i}_{j}' if j != '' else f'{i}' for i,j in df.columns]
+```
 
 ## newcol based on conditions on another col
 ```py
