@@ -41,6 +41,33 @@ fig = go.Figure(data=[t1, t2, t3], layout=layout)
 fig.show()
 ```
 
+## secondary y-axis using subplots
+```py
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+fig = make_subplots(specs=[[{'secondary_y': True}]])
+
+fig.add_trace(
+    go.Scatter(x=[1, 2, 3], y=[50, 20, 100], name='y1'),
+    secondary_y=False,
+)
+fig.add_trace(
+    go.Scatter(x=[1, 2, 3], y=[-20, 50, -100], name='y2'),
+    secondary_y=True,
+)
+fig.update_layout(
+    width=750,
+    height=450,
+    title_text='Secondary y-axis',
+    xaxis=dict(title_text='xaxis title'),
+    yaxis=dict(title_text='yaxis left'),
+    yaxis2=dict(title_text='yaxis right', overlaying='y', tickmode='sync', scaleanchor='y'),
+)
+
+fig.show()
+```
+
 ## subplots with multiple y-axes
 https://community.plotly.com/t/can-subplot-support-multiple-y-axes/38891/21
 
