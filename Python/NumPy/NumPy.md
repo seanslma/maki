@@ -3,13 +3,6 @@
 x = np.arange(5)
 ```
 
-## tile/repeat
-```py
-a = np.array([1, 2])
-np.tile(a,2) #duplicate the array n times
-np.repeat(a,2) #duplicate each element n times
-```
-
 ## join array
 ```py
 #join a sequence of arrays along an existing axis
@@ -18,6 +11,14 @@ b = np.array([[1, 2], [3, 4]])
 np.concatenate((a, b), axis=0)
 np.concatenate((a, b), axis=None)
 ```
+
+## tile/repeat
+```py
+a = np.array([1, 2])
+np.tile(a,2) #duplicate the array n times
+np.repeat(a,2) #duplicate each element n times
+```
+
 ## reshape
 ```py
 import numpy as np
