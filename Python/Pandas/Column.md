@@ -25,6 +25,14 @@ data = {
 df = pd.DataFrame(data)
 df.columns = df.columns.map('_'.join)
 df.columns = [f'{i}_{j}' if j != '' else f'{i}' for i,j in df.columns]
+
+# use pipe to chain the method
+df = (
+    df
+    .pipe(
+        lambda x: x.set_axis(df.columns.map('_'.join), axis=1)
+    )
+)
 ```
 
 ## newcol based on conditions on another col
