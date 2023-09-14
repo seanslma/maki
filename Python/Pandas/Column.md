@@ -30,7 +30,7 @@ df.columns = [f'{i}_{j}' if j != '' else f'{i}' for i,j in df.columns]
 df = (
     df
     .pipe(
-        lambda x: x.set_axis(df.columns.map('_'.join), axis=1)
+        lambda x: x.set_axis(x.columns.map('_'.join), axis=1)
     )
 )
 ```
