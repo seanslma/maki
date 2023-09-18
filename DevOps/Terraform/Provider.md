@@ -1,4 +1,4 @@
-# Procider
+# Provider
 
 https://developer.hashicorp.com/terraform/language/modules/develop/providers
 
