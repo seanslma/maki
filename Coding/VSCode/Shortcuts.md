@@ -12,6 +12,36 @@ Ctrl + L
 ```
 When using `Ctrl + C` without any selection the line where the cursor is will be copied.
 
+## copy line without newline 
+option 1: 
+- Got to Settings
+- Search for "Editor: Copy with Syntax Highlighter" and uncheck it
+ 
+option 2: using `macros`
+- intsall extensions `macros`
+- create a macro by adding it to `settings.json`
+  ```
+  "macros": {
+      "copyWithoutNewLine": [
+          "cursorHome",
+          "cursorEndSelect",
+          "editor.action.clipboardCopyAction",
+          "cancelSelection",
+          "cursorUndo",
+          "cursorUndo",
+          "cursorUndo"
+      ]
+  }  
+  ```
+- add the macro to `keybindings.json`
+  ```
+  {
+      "key": "ctrl+alt+c",
+      "command": "macros.copyWithoutNewLine",
+      "when": "editorTextFocus && !editorHasSelection"
+  }  
+  ```
+
 ## delete line
 ```
 Ctrl  + Shift + K
