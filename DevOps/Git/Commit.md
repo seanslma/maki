@@ -25,7 +25,7 @@ git reset --hard HEAD~<n>    #remove last n commits
 careful, the changes will be dropped!
 ```
 git revert <commit-hash> #will keep history
-git push
+git push origin <your-branch>
 ```
 
 ## delete last commit pushed
