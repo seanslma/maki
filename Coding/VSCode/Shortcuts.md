@@ -21,7 +21,7 @@ option 2: using `macros`
 - intsall extensions `macros`
 - create a macro by adding it to `settings.json`
   ```
-  "macros": {
+  "macros.list": {
       "copyWithoutNewLine": [
           "cursorHome",
           "cursorEndSelect",
