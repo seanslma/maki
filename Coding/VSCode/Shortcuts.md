@@ -10,6 +10,7 @@ Ctrl + Shift + Arrow #select more
 ```
 Ctrl + L
 ```
+When using `Ctrl + C` without any selection the line where the cursor is will be copied.
 
 ## delete line
 ```
