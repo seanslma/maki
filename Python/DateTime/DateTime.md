@@ -120,6 +120,13 @@ df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d %H:%M:%S.%f', utc=False
 df['date'] = pd.to_datetime(df['date'], unit='s') #unix time to dt64
 ```
 
+## `datetime64[ns]` vs `<M8[ns]`
+https://stackoverflow.com/questions/29206612/difference-between-data-type-datetime64ns-and-m8ns
+- `datetime64[ns]` is a general dtype, while `<M8[ns]` is a specific dtype
+- General dtypes map to specific dtypes, but may be different from one installation of NumPy to the next
+- datetime64[ns] maps to either <M8[ns] or >M8[ns] depending on the endian-ness of the machine
+- int64 maps to <i8 or >i8, and int maps to either int32 or int64 depending on the bit architecture of the OS and how `NumPy` was compiled
+
 ## fg
 ```py
 #add days
