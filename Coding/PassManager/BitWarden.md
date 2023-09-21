@@ -10,6 +10,11 @@ export BW_SESSION="$(bw unlock --raw)" #generate and save session key to env
 bw lock                                #destroy the saved session key
 ```
 
+## create folder
+```sh
+bw get template folder | jq --arg name "$1" '.name=$name' | bw encode | bw create folder;
+```
+
 ## create item
 create item with password from file and name/username from inputs
 ```sh
@@ -35,11 +40,6 @@ fid=$(bw list folders | jq --arg name "$1" -r '.[] | select(.name==$name) | .id'
 ## get item id
 ```sh
 iid=$(fid=$(bwfid "$1") && bw list items --folderid "$fid" | jq --arg name "$2" -r '.[] | select(.name==$name) | .id') && echo $iid;
-```
-
-## create folder
-```sh
-bw get template folder | jq --arg name "$1" '.name=$name' | bw encode | bw create folder;
 ```
 
 ## create item
