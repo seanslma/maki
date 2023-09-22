@@ -101,6 +101,7 @@ V  -> highlight one line at a time
 ^v -> highlight by columns
 y  -> yank text into the copy buffer (copy)
 yw -> copy one word without v
+yy -> copy current line without v
 p  -> paste text after the current line
 P  -> paste text on the current line
 ```
