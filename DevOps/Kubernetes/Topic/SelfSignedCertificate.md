@@ -16,7 +16,7 @@ Update the Container Image: When building your container image, include the CA c
 - Then, mount this ConfigMap or Secret as a volume inside your pod.
 - Your application within the container can use these certificates from the mounted volume.
 
-Here's an example YAML configuration for mounting a `ConfigMap` as a volume into a pod:
+ **mount `ConfigMap` as volume into a pod**
 ```yaml
 apiVersion: v1
 kind: ConfigMap
