@@ -12,6 +12,9 @@ curl https://my.example.com -kv
 ```
 
 ## kube ingress tls
+The Kubernetes Secret and the Ingress controller must be in the same namepsace:
+https://stackoverflow.com/questions/66469622/kubernetes-ingress-controller-not-able-to-find-the-certificate-secret
+
 Not show the details about creating the cert
 
 https://devopscube.com/configure-ingress-tls-kubernetes/
