@@ -11,9 +11,14 @@ Will show server certificate details
 curl https://my.example.com -kv
 ```
 
-## kube ingress tls
+## kube ingress tls certificate issues
 The Kubernetes Secret and the Ingress controller must be in the same namepsace:
 https://stackoverflow.com/questions/66469622/kubernetes-ingress-controller-not-able-to-find-the-certificate-secret
+
+For cetificate issues, check the ingress controller pod logs
+```sh
+k -n <namespace> logs <ingress-controller-pod> | grep certificate
+```
 
 Not show the details about creating the cert
 
