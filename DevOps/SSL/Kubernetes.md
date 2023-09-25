@@ -15,13 +15,19 @@ curl https://my.example.com -kv
 The Kubernetes Secret and the Ingress controller must be in the same namepsace:
 https://stackoverflow.com/questions/66469622/kubernetes-ingress-controller-not-able-to-find-the-certificate-secret
 
+### tls: failed to parse private key
 For cetificate issues, check the ingress controller pod logs
 ```sh
 k -n <namespace> logs <ingress-controller-pod> | grep certificate
 ```
+Solution: the private key has a passphrase. The private key should be unencrypted. Note that tls.crt should include the intermediate ca.
+```sh
+openssl pkcs12 -in quantdev.pfx -nocerts -out tls-encrypted.key
+openssl pkcs12 -in quantdev.pfx -clcerts -nokeys -out tls_raw.crt
+openssl rsa -in tls-encrypted.key -out tls.key
+```
 
-Not show the details about creating the cert
-
+Not show the details about creating the cert:
 https://devopscube.com/configure-ingress-tls-kubernetes/
 
 ## kube certi 3 methods
