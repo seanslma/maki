@@ -67,6 +67,11 @@ G  -> move to the end of the file
 ```
 
 ## Delete
+### delete all
+```
+:%d
+```
+
 ### word delete
 ```
 dw  -> delete until the start of next word
