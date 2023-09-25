@@ -1,9 +1,14 @@
 # Subject
 
-## CN = exemple.com
+## Common Name (will be depreciated)
+The Common Name (CN) represents the server name protected by the SSL certificate. 
+The certificate is valid only if the request hostname matches the certificate common name. 
+Most web browsers display a warning message when connecting to an address that does not match the common name in the certificate.
+
+### CN = exemple.com
 This cert will only be valid for domain `exemple.com`
 
-## CN = exemple.com CN = *.exemple.com
+### CN = exemple.com CN = *.exemple.com
 In this case the cert will be valid for the domain `exemple.com` and all subdomains such as `blog.example.com`.
 
 ## Subject Alternative Name
