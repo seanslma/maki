@@ -22,7 +22,7 @@ arguments: '--build-arg ubuntu_version=20.04 --build-arg image_version=1.0.0'
 ## ADD vs COPY
 https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#:~:text=ADD%20or%20COPY&text=COPY%20only%20supports%20the%20basic,rootfs.tar.xz%20%2F%20.
 - ADD: has some features (like local-only tar extraction and remote URL support)
-- COPY: only supports the basic copying of local files into the container, prefferred as  it’s more transparent
+- COPY: only supports the basic copying of local files into the container, preferred as  it’s more transparent
 
 ## RUN
 Mainly used to build images and install applications and packages, creating a new layer.
