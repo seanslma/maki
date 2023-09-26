@@ -37,6 +37,12 @@ kubectl patch secret tls-cert -n traefik \
 - use `curl -kv https:example.com`
 ### check the ingress controller logs
 The ingress should be integrated with one of the ingress controller (traefik, nginx, and ?). check the log of the ingress controller pod logs.
+### tls: failed to parse private key
+For cetificate issues, check the ingress controller pod logs
+```
+k -n <namespace> logs <ingress-controller-pod> | grep certificate
+```
+Solution: the private key has a passphrase. The private key should be unencrypted. Note that tls.crt should include the intermediate ca.
 ### tls: private key does not match public key
 Used the wrong public key or the server public key is not placed in the file first (should be server, intermediate, root keys)
 ### Skipping addition of certificate for domain(s) \"example.com,*.example.com\", to EntryPoint https, as it already exists for this Entrypoint
