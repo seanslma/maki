@@ -3,10 +3,15 @@
 renew ssl\
 https://www.golinuxcloud.com/renew-self-signed-certificate-openssl/
 
-
-create browser SSL self-signed certificate with details:
-
+create browser SSL self-signed certificate with details:\
 https://medium.com/@tbusser/creating-a-browser-trusted-self-signed-ssl-certificate-2709ce43fd15
+
+## why need tls.crt in the client machine
+The package you received contains the certificate from that website. 
+The tls.crt in the client machine is used to verify that the package is not modified in the middle.
+
+For a self-signed certificate, if we do not have the local tls.crt we will get the error `self signed certificate in certificate chain`.
+To avoid the issue, we need to copy the tls.crt to `/etc/ssl/certs` or `/usr/local/share/ca-certificates/extra` and run `update-ca-certificates`.
 
 ## Create root certificate
 ### create a private key
