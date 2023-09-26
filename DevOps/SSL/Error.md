@@ -73,7 +73,7 @@ The previous solution might work
 - so we can get other errors like: `unable to get local issuer certificate`
 - it's possible the legacy checked first then check the local issuer certificate
 
-Even for cert that is not self-siged, we need to add the root and intermediat certs
+Even for cert that is not self-siged, we need to add the root and intermediat certs. 
 In dockerfile add:
 ```
 COPY docker/root-ca.crt docker/itmd-ca.crt docker/server.crt /usr/local/share/ca-certificates/extra/
