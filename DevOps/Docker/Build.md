@@ -9,6 +9,7 @@ docker build . -f ./docker/linux/my-dev.docker --platform linux/amd64 -t 1.0.1
 Note that the `dot` is the context. When doing a docker build, 
 - the files from your local context are sent to the daemon, and put in a temporary directory;
 - that temporal directory is used to build the image (the actual build is performed on the daemon side).
+- paths in a Dockerfile are always relative to the the context directory
 
 ## multistage build
 https://www.docker.com/blog/advanced-dockerfiles-faster-builds-and-smaller-images-using-buildkit-and-multistage-builds/
