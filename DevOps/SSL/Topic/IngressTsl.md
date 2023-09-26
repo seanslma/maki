@@ -32,3 +32,26 @@ crt=$(base64 < "./tls.crt" | tr -d '\n')
 kubectl patch secret tls-cert -n traefik \
     -p "{\"data\":{\"tls.key\":\"${key}\",\"tls.crt\":\"${crt}\"}}"
 ```
+### check the cert works or not
+- do not use a webbrowser - there is cache and delay - not reliable
+- use `curl -kv https:example.com`
+### check the ingress controller logs
+The ingress should be integrated with one of the ingress controller (traefik, nginx, and ?). check the log of the ingress controller pod logs.
+### tls: private key does not match public key
+Used the wrong public key or the server public key is not placed in the file first (should be server, intermediate, root keys)
+### Skipping addition of certificate for domain(s) \"example.com,*.example.com\", to EntryPoint https, as it already exists for this Entrypoint
+- run `curl -kv https://dev.example.com` and still get the old certificate.
+  Restart the ingress controller pods (some report indicates that the old cert can still be used) and check the pod logs, 
+- `Error configuring TLS for ingress dev/sales-api: secret dev/example.com-tls-cert does not exist`.
+  Updated the Secret with the same name in another namespace but not in the ingress controller namespace.
+
+## Install root and intermediate CA files for dev.example.com domain
+For self-signed certificate in the certificate chain, both the root and intermediate CA files 
+should be installed in the certificate trust store to avoid the error `self signed certificate in certificate chain`.
+
+In the docker base image:
+- First add all the new certificate files into the docker folder.
+- Then update the base.docker file add `COPY root-ca.crt intermediate-ca.crt /usr/local/share/ca-certificates/extra/` and `RUN update-ca-certificates`.
+- At last, make a new release of the base and rebuild all applications using this new base image.
+
+Question: can we map the cert files to a volume so we do not need to update the docker image after cert renewal? what's the prons and cons?
