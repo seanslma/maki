@@ -17,6 +17,8 @@ https://www.docker.com/blog/advanced-dockerfiles-faster-builds-and-smaller-image
 ## COPY failed: stat /var/lib/docker/tmp/docker-builder<number>/xxxx no such file or directory
 - the current context is not correct
 - the directory was in `.dockerignore` file so it was not copied to the builder folder
+- the docker daemon doesn't have sufficient rights or space to create the temporary directory and files
+- there's a bug in the directive that fails to place the expected files from 'current context' to into the temporary directory
 
 ## how to show the created date of the based image in dockerfile?
 
