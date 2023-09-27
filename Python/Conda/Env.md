@@ -28,7 +28,7 @@ conda activate py10
 conda install python=3.10
 ```
 
-## export env
+## export env-file
 ```
 conda activate <env> && conda list --explicit
 ```
