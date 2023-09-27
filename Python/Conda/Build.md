@@ -19,6 +19,7 @@ that conda-build creates during its build or test processes.
 ```sh
 conda debug recipe
 cd /debug/path && source /debug/path/build_env_setup.sh
+conda build purge-all # remove previously built packages
 ```
 
 ## build conda package
