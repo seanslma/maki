@@ -1,7 +1,7 @@
 # Ubuntu
 
 ## Change mirror site in sources.list
-```
+```sh
 sudo vi /etc/apt/sources.list
 #replace http://archive.ubuntu.com/ubuntu with another mirror
 
@@ -16,14 +16,14 @@ https://askubuntu.com/questions/1162884/can-i-move-the-gnome-top-bar-and-status-
 
 
 ## Enable hibernate
-```
+```sh
 systemctl hibernate
 Failed to hibernate system via logind: Sleep verb not supported
 ```
 Perhaps the error should be: Failed to hibernate system via logind: Please use BIOS to `disable secure boot`.
 
 Disable swapfile and delete it
-```
+```sh
 sudo swapoff /swapfile
 sudo rm /swapfile
 ```
@@ -35,7 +35,7 @@ https://unix.stackexchange.com/questions/645535/shutdown-system-by-timeout-durin
 https://ubuntuhandbook.org/index.php/2021/06/automatic-shutdown-hibernate-on-idle-ubuntu/
 
 Shortcut key does not work but works in terminal with pwd
-```
+```sh
 dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Hibernate boolean:true
 dbus-send --system --print-reply --type=method_call --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Hibernate boolean:true
 ```
@@ -43,7 +43,7 @@ dbus-send --system --print-reply --type=method_call --dest=org.freedesktop.login
 Set the timeout value:
 - https://wiki.archlinux.org/title/Power_management#Suspend_and_hibernate
 - https://man.archlinux.org/man/sleep.conf.d.5
-```
+```sh
 /etc/systemd/sleep.conf
 ```
 
@@ -54,7 +54,7 @@ A hardware clock which is also called RTC (real time clock) or CMOS/BIOS clock. 
 
 ### Solution 1
 Setup for Linux system to use the local time for the hardware clock (RTC)
-```
+```sh
 timedatectl set-local-rtc 1 #0 for UTC time standard,  1 for localtime time standard
 ```
 
@@ -62,7 +62,8 @@ timedatectl set-local-rtc 1 #0 for UTC time standard,  1 for localtime time stan
 Setup for Windows system to use the UTC for the hardware clock (RTC).
 
 For 64-bit Windows, open regedit then browse to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation.
-Create a new QWORD entry called RealTimeIsUniversal, then set its value to 1. Reboot the system. The clock should now be in UTC time.
-```
+Create a new QWORD entry called RealTimeIsUniversal, then set its value to 1.
+Reboot the system. The clock should now be in UTC time.
+```sh
 Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_QWORD /d 1
 ```

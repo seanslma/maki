@@ -4,8 +4,9 @@ Ctrl + Alt + T: open terminal
 WinSCP to access file on a linux machine, but connection is not stable
 
 show all users
-  cut -d: -f1 /etc/passwd
-
+```sh
+cut -d: -f1 /etc/passwd
+```
 
 ## create a folder
 ```sh

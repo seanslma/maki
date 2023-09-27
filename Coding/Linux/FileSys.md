@@ -1,7 +1,7 @@
 # File system
 
 ## size of subfolders
-```
+```sh
 du -M --max-depth=1           #current folder
 sudo du -sh /var              #only the total size
 sudo du -shc /var/*           #folder and subfolders, c for grand total
@@ -10,18 +10,18 @@ sudo du -h /var/ | sort -rh | head -5 #top 5 largest directories
 ```
 
 ## Create file and add content
-```
+```sh
 cat > filename
 #input and then Ctrl+D to exit
 ```
 
 ## Create directory
-```
+```sh
 mkdir
 ```
 
 ## Move file or folder
-```
+```sh
 mv test/file-a /dev/file-b
 mv test/folder-a/ folder-b/
 mv /path/folder/* /anotherpath/folder/ #hidden files will be excluded
@@ -40,12 +40,12 @@ cp -avr /home/books /usb/backup
 ```
 
 ## Delete file and folder
-```
+```sh
 rm -r my-folder/ #delete folder and files
 ```
 
 ## Change rwx mode
-```
+```sh
 chmod g+w filename
 chmod g-wx filename
 chmod o+w filename
@@ -53,7 +53,7 @@ chmod o-rwx foldername
 ```
 
 ## Change file ownership
-```
+```sh
 chown <owner-name> <filename>
 chgrp <group-name> <filename>
 ```

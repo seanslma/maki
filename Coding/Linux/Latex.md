@@ -2,13 +2,13 @@
 
 ## manualy install package
 - download the package from CTAN (e.g., foo.zip)
-- extract the files and place them in an appropriate directory 
+- extract the files and place them in an appropriate directory
 - generate the .sty file by running `latex foo.ins` (.sty) and `latex foo.dtx` (manual)
 - copy .sty file into the LaTeX Texlive installation in Ubuntu: `sudo cp foo.sty  /usr/share/texlive/texmf-dist/tex/latex/base`
 - update the ls-R file in this source tree: `sudo mktexlsr`
 
 ## create a makefile
-```
+```sh
 touch makefile
 chmod u+x makefile
 gedit makefile
@@ -19,7 +19,7 @@ gedit makefile
 - `$<` for the first prerequisite
 - `$^` for names of all the prerequisites
 - `$*` only for the `%` part
-```
+```makefile
 #create pdf: make simple.pdf from my_simple.tex
 %.pdf : my_%.tex
 	rm -f my_pdf_name.pdf

@@ -1,10 +1,15 @@
 # vim
 
 ## 5.1 execute command
-  :!cmd ->execute cmd
-  :!ls  ->execute ls
+```
+:!cmd ->execute cmd
+:!ls  ->execute ls
+```
 
 ## 6.5 set option
+```
+:set paste
+:set nopaste
 :set ic     ->ignore case
 :set noic   ->disable ignoring case
 :set hls is ->highlight search and incremental search
@@ -12,12 +17,15 @@
 /ignore\c   ->ignore case only in current search
 :set number ->line number
 :set nonumber
+```
 
 ## syntax highlight
 put it in .vimrc
-  :sy enable
-  :syn enable
-  :syntax enable
+```
+:sy enable
+:syn enable
+:syntax enable
+```
 
 ## 7.1 online help
 ```

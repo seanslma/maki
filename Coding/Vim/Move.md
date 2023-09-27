@@ -3,7 +3,6 @@ Here’s a handy tip: prefacing a movement command with a number will execute th
 
 ## char
 ```
-<h jv k^ l>
 h -> left
 l -> right
 k -> up

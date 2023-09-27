@@ -1,4 +1,4 @@
-# VSCode Regex
+# Regex
 
 https://learn.microsoft.com/en-us/visualstudio/ide/using-regular-expressions-in-visual-studio?view=vs-2022
 

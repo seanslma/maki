@@ -22,6 +22,6 @@ NSLOOKUP stands for "Name Server Lookup," used to query the Domain Name System (
 
 ## dig
 used to find the domain name of provided ip address
-```
+```sh
 dig -x 10.20.30.40
 ```

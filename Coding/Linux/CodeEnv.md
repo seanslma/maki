@@ -1,8 +1,8 @@
 # Code Env
 
 ## install vs code
-```
-#Update the packages index and install the dependencies 
+```sh
+#Update the packages index and install the dependencies
 sudo apt update
 sudo apt install software-properties-common apt-transport-https wget
 
@@ -19,7 +19,7 @@ sudo apt upgrade
 ```
 
 ## install python miniforge
-```
+```sh
 sudo apt update
 sudo apt upgrade
 
@@ -33,12 +33,12 @@ source .bashrc
 ```
 
 ## install powershell
-```
+```sh
 sudo apt update
 sudo apt install -y wget apt-transport-https software-properties-common                               #install pre-requisite packages
 wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb" #download Microsoft repository GPG keys
-sudo dpkg -i packages-microsoft-prod.deb                                                              #register Microsoft repository GPG keys
-sudo apt update                           #update package list after adding packages.microsoft.com
+sudo dpkg -i packages-microsoft-prod.deb                                             #register Microsoft repository GPG keys
+sudo apt update                  #update package list after adding packagesmicrosoft.com
 sudo apt-get install -y powershell        #install PowerShell
 pwsh                                      #start PowerShell
 ```
