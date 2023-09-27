@@ -32,8 +32,7 @@ conda install python=3.10
 ```
 conda activate <env> && conda list --explicit
 ```
-The output can be used as the input <env-file> for creating an env.
-
+The output can be used as the input <env-file> for creating a conda env when build a docker image.
 
 ## create env with env yml file
 ```
