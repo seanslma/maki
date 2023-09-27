@@ -40,15 +40,17 @@ conda install python=3.10
 ```
 
 ## install from local conda package
-assume the conda package is: `/home/user/dev/.build/linux-64/my-dev-package-0.1.1.xyz.tar.bz2`
+assume the conda package is: `/home/user/dev/.build/linux-64/my-dev-package-0.1.1-py39_0.tar.bz2`
+
+why does not work???
 ```sh
 conda activate dev-env \
-&& conda install --yes --quiet -v --channel /home/user/dev/.build --no-update-deps my-dev-package=0.1.1.xyz
+&& conda install --yes --quiet -v --channel /home/user/dev/.build --no-update-deps my-dev-package=0.1.1=py39_0
 ```
-one command
+one command (not correct)
 ```sh
-conda install -n dev-env --yes --quie -v \
---channel file:///home/user/dev/.build --no-update-deps my-dev-package=0.1.1.xyz python=3.10
+conda install -n dev-env --yes --quiet -v \
+--channel file:///home/user/dev/.build --no-update-deps my-dev-package=0.1.1=py39_0 python=3.9
 ```
 
 ## export env-file
