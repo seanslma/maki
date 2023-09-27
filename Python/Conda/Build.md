@@ -110,3 +110,6 @@ outputs:
 ```
 
 <!-- {% endraw %} -->
+
+## issue
+https://stackoverflow.com/questions/69030813/doing-a-conda-build-does-not-find-any-files/69044365#69044365
