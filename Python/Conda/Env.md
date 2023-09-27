@@ -1,5 +1,21 @@
 # Env
 
+## create env and install packages
+https://stackoverflow.com/questions/66291897/conda-create-and-conda-install
+
+option 1: create an environment, activate, install packages
+```sh
+conda create --name env_name python=3.10
+conda activate env_name
+conda install package_name another_package
+```
+
+option 2: create an environment with packages
+```sh
+conda create -name env_name python=3.10 package_name another_package
+conda activate env_name
+```
+
 ## create env
 ```
 conda create -n py10 python=3.10
