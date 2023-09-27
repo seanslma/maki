@@ -2,7 +2,7 @@
 
 ## use `pyproject.toml` instead of `setup.cfg`:
 https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
-```
+```toml
 [build-system]
 requires = ['setuptools>=42', 'versioneer-518']
 build-backend = 'setuptools.build_meta'
