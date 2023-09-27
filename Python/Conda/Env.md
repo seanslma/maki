@@ -47,7 +47,8 @@ conda activate dev-env \
 ```
 one command
 ```sh
-conda install -n dev-env --yes --quie -v --channel file:///home/user/dev/.build --no-update-deps my-dev-package=0.1.1.xyz python=3.10
+conda install -n dev-env --yes --quie -v \
+--channel file:///home/user/dev/.build --no-update-deps my-dev-package=0.1.1.xyz python=3.10
 ```
 
 ## export env-file
