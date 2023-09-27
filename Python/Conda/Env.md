@@ -1,5 +1,16 @@
 # Env
 
+## list envs
+```sh
+conda env list
+```
+
+## delete an env
+The `--all` flag ensures that all files associated with the environment, including packages and cache, are removed.
+```sh
+conda remove --name <env-name> --all
+```
+
 ## create env and install packages
 https://stackoverflow.com/questions/66291897/conda-create-and-conda-install
 
