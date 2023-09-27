@@ -17,10 +17,10 @@ conda build recipe --no-anaconda-upload --python 3.9 --croot c:/pkg/conda --outp
 conda build recipe --no-anaconda-upload --python 3.9 --croot /build/path --output --no-test --channel ch1 --channel ch2
 ```
 
-## install `conda-build`, not used???
+## pass variable value to meta.yaml
+before running `conda build`
 ```
-conda install conda-build
-conda update conda-build
+export VERSION=1.0.0
 ```
 
 ## meta.yaml
