@@ -17,9 +17,9 @@ conda list --explicit > conda.env
 conda deactivate
 conda env remove --name my-app-0.1.0
 ```
-- in dockerfile install conda and all the packages in `conda.env`
+### install conda and all the packages from `conda.env` in dockerfile 
 ```sh
-
+conda create --name my-app-0.1.0 --file conda.env && conda-clean
 ```
 
 ## Python mamba workaround
