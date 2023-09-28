@@ -31,9 +31,10 @@ conda build purge-all # remove previously built packages
 ```
 
 ## build conda package
+`--output` will disable all output messages
 ```
-conda build recipe --no-anaconda-upload --python 3.9 --croot c:/pkg/conda --output --no-test
-conda build recipe --no-anaconda-upload --python 3.9 --croot /build/path --output --no-test --channel ch1 --channel ch2
+conda build recipe --no-anaconda-upload --python 3.9 --croot c:/pkg/conda --no-test
+conda build recipe --no-anaconda-upload --python 3.9 --croot /build/path --no-test --channel ch1 --channel ch2
 ```
 
 ## pass variable value to meta.yaml
