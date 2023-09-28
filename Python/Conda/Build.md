@@ -29,6 +29,7 @@ debugging is a process of getting into or recreating the environment and set of 
 that conda-build creates during its build or test processes.
 ```sh
 conda debug recipe
+conda debug recipe --python=3.9 --variants="{blas_impl: 'openblas'}"
 cd /debug/path && source /debug/path/build_env_setup.sh
 conda build purge-all # remove previously built packages
 ```
