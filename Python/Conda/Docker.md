@@ -15,7 +15,7 @@ conda install --yes --quiet -v --channel /home/user/conda-build --no-update-deps
 ```sh
 conda list --explicit > conda.env
 conda deactivate
-conda env remove --name my-app-0.1.0
+conda remove --name my-app-0.1.0 --all --yes
 ```
 ### install conda and all the packages from `conda.env` in dockerfile 
 ```sh
