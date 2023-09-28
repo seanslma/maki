@@ -23,6 +23,10 @@ conda remove --name my-app-0.1.0 --all --yes
 ```sh
 conda create --yes --quiet --verbose --name my-app-0.1.0 --file conda.env && conda-clean
 ```
+run docker build
+```sh
+docker build . -f ./docker/linux/my-app.docker --no-cache --force-rm -t docker.example.com/uat/my-app:0.1.0-linux
+```
 
 ## Python mamba workaround
 ```
