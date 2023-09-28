@@ -15,6 +15,7 @@ conda install --name my-app-0.1.0 --yes --quiet -v \
 ```sh
 conda activate my-app-0.1.0
 conda list --explicit > conda.env
+mv /path/to/conda.env path/to/my-app/
 conda deactivate
 conda remove --name my-app-0.1.0 --all --yes
 ```
