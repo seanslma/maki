@@ -19,7 +19,7 @@ You can define the `build.sh` script inline in the meta.yaml file otherwise cond
 ```yaml
 build:
   number: 100
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: python -m pip install . --no-deps --ignore-installed #--no-cache-dir -vvv
 ```
 
 ## debug
