@@ -47,10 +47,10 @@ why does not work???
 conda activate dev-env \
 && conda install --yes --quiet -v --channel /home/user/dev/.build --no-update-deps my-dev-package=0.1.1=py39_0
 ```
-one command (not correct)
+one command (not correct?)
 ```sh
 conda install -n dev-env --yes --quiet -v \
---channel file:///home/user/dev/.build --no-update-deps my-dev-package=0.1.1=py39_0 python=3.9
+--channel /home/user/dev/.build --no-update-deps my-dev-package=0.1.1=py39_0 python=3.9
 ```
 
 ## export env-file
