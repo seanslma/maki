@@ -7,7 +7,7 @@ conda build recipe --no-anaconda-upload --croot ../conda-build --no-test
 ```
 ### create a new env and install `my-app`
 ```sh
-conda create --name my-app-0.1.0 python=3.9
+conda create --name my-app-0.1.0 python=3.9 --yes
 conda activate my-app-0.1.0
 conda install --yes --quiet -v --channel /home/user/conda-build --no-update-deps my-app=0.1.0=py39_0
 ```
