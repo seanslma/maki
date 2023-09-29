@@ -1,6 +1,8 @@
 # Add
 Note that the destination address must not be relative. Something like `~/dev` will not copy anything to the folder.
 
+Docker requires root escalation in order to execute an image, that crates some problem with files creation. The copied file is in root usr group and cannot be removed.
+
 ## ADD failed: Forbidden path outside the build context
 This error occurs because the path you're trying to add with the ADD instruction is located outside the Docker build context. 
 Docker restricts file operations to within the build context directory for security reasons.
