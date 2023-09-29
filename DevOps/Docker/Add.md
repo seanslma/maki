@@ -3,6 +3,10 @@ Note that the destination address must not be relative. Something like `~/dev` w
 
 Docker requires root escalation in order to execute an image, that crates some problem with files creation. The copied file is in root usr group and cannot be removed.
 
+## cannot actually delete files in a previous layer
+https://pythonspeed.com/articles/docker-build-secrets/ \
+**NOTE**: Deleting a file does not actually remove it from the image, because Docker uses layer caching: all previous layers are still present in the image. That means the secret ends up in one of the image’s layers, even if you delete it in a later layer.
+
 ## copy install and then delete the copied files
 https://rabbithole.wwwdotorg.org/2021/03/02/1-avoiding-docker-add-copy-layers.html
 
