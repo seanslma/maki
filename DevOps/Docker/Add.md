@@ -9,7 +9,7 @@ https://pythonspeed.com/articles/docker-build-secrets/ \
 because Docker uses layer caching: all previous layers are still present in the image. 
 That means the secret ends up in one of the image’s layers, even if you delete it in a later layer.
 
-## copy install and then delete the copied files
+## multistage build: copy install and then delete the copied files
 https://rabbithole.wwwdotorg.org/2021/03/02/1-avoiding-docker-add-copy-layers.html
 
 Docker `buildkit` added a `--mount` option to the RUN statement.
