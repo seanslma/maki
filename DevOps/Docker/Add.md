@@ -5,3 +5,14 @@ This error occurs because the path you're trying to add with the ADD instruction
 Docker restricts file operations to within the build context directory for security reasons.
 
 To resolve this issue, we need to copy the folder to under the build contect directory.
+
+## copy content of folder x into folder y
+https://stackoverflow.com/questions/26504846/copy-directory-to-another-directory-using-add-command
+```sh
+ADD x /home/user/y/
+```
+
+## copy folder x to folder y
+```sh
+ADD x /home/user/y/x
+```
