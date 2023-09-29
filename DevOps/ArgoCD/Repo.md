@@ -175,7 +175,7 @@ data:
 ```
 
 Terraform
-```yaml
+```tf
 resource "kubernetes_secret" "argocd" {
   metadata {
     name = "argocd-repo-key"
@@ -211,7 +211,7 @@ how to get the privateKey from Azure Key Vault???
 https://github.com/argoproj/argo-cd/issues/7878
 
 Terraform
-```yaml
+```tf
 resource "kubernetes_config_map" "argocd" {
   metadata {
     name = "argocd-cm"
