@@ -12,9 +12,9 @@ Note that the `dot` is the context. When doing a docker build,
 - paths in a Dockerfile are always relative to the the context directory
 
 ## multistage build
-https://www.docker.com/blog/advanced-dockerfiles-faster-builds-and-smaller-images-using-buildkit-and-multistage-builds/
-
-https://collabnix.com/getting-started-with-docker-multi-stage-builds/
+Multi-stage build is a feature introduced in Docker 17.05.
+- https://collabnix.com/getting-started-with-docker-multi-stage-builds/
+- https://www.docker.com/blog/advanced-dockerfiles-faster-builds-and-smaller-images-using-buildkit-and-multistage-builds/
 
 ## COPY failed: stat /var/lib/docker/tmp/docker-builder<number>/xxxx no such file or directory
 - the current context is not correct
