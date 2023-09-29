@@ -14,6 +14,8 @@ Note that the `dot` is the context. When doing a docker build,
 ## multistage build
 https://www.docker.com/blog/advanced-dockerfiles-faster-builds-and-smaller-images-using-buildkit-and-multistage-builds/
 
+https://collabnix.com/getting-started-with-docker-multi-stage-builds/
+
 ## COPY failed: stat /var/lib/docker/tmp/docker-builder<number>/xxxx no such file or directory
 - the current context is not correct
 - the directory not in the current context folder
