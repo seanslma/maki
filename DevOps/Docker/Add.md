@@ -1,5 +1,5 @@
 # Add
-
+Note that the destination address must not be relative. Something like `~/dev` will not copy anything to the folder.
 
 ## ADD failed: Forbidden path outside the build context
 This error occurs because the path you're trying to add with the ADD instruction is located outside the Docker build context. 
