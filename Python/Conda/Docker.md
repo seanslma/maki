@@ -3,7 +3,7 @@
 ## build docker image for a conda app `my-app`
 ### build conda package `my-app.tar.bz2`
 ```sh
-conda build recipe --no-anaconda-upload --croot ../conda-build --no-test
+conda build recipe --no-anaconda-upload --python 3.9 --croot ../conda-build --no-test
 ```
 ### create a new env and install `my-app`
 ```sh
