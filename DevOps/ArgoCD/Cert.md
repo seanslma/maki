@@ -8,10 +8,10 @@ ArgoCD uses certs (public and private keys) to connect to private repos.
 ## self-signed cert
 https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#repositories-using-self-signed-tls-certificates-or-are-signed-by-custom-ca
 
-- TLS certificates is used to verify the authenticity of the repository servers in a ConfigMap object named `argocd-tls-certs-cm`. 
-- The data section should contain a map, with the `repository server's hostname` part (not the complete URL) as `key`, and the `certificate(s) in PEM format` as `data`. 
-- If the repository URL is https://server.example.com/repos/my-repo, we should use `server.example.com` as key. 
-- The certificate data should be either the `server's certificate` (in case of self-signed certificate) or the certificate of the CA that was used to sign the server's certificate. 
+- TLS certificates is used to verify the authenticity of the repository servers in a ConfigMap object named `argocd-tls-certs-cm`.
+- The data section should contain a map, with the `repository server's hostname` part (not the complete URL) as `key`, and the `certificate(s) in PEM format` as `data`.
+- If the repository URL is https://server.example.com/repos/my-repo, we should use `server.example.com` as key.
+- The certificate data should be either the `server's certificate` (in case of self-signed certificate) or the certificate of the CA that was used to sign the server's certificate.
 - You can configure multiple certificates for each server, e.g. if you are having a certificate roll-over planned.
 
 ## add cert into `argocd-tls-cert-cm`
@@ -22,7 +22,7 @@ https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#repo
 The `argocd-tls-certs-cm` ConfigMap will be mounted as a volume at the mount path `/app/config/tls` in the pods of `argocd-server` and `argocd-repo-server`.
 
 The certs should be added in the values.yaml file
-```
+```yaml
 configs:
   repositories:
     my-repo:
@@ -53,7 +53,7 @@ Solution:
 https://github.com/argoproj/argo-cd/issues/9607
 - create new argocd image: add cert to `/usr/local/share/ca-certificates/` and update `update-ca-certificates`
 - mount the tls certificates from argocd's config-map into the default ssl certificate folder of golang's http client
-  ```
+  ```yaml
   applicationSet:
     extraVolumeMounts:
     - name: certificates
@@ -61,7 +61,7 @@ https://github.com/argoproj/argo-cd/issues/9607
       subPath: cert1.crt
   ```
  - use insecure option
-  ```
+  ```yaml
   name: private-repo
   type: helm
   insecure: true
@@ -73,8 +73,7 @@ https://github.com/argoproj/argo-cd/issues/6048
 
 The `ssh-known-hosts` and `tls-certs` ConfigMaps need to be mounted to the argocd-repo-server pods.
 ```sh
-kubectl -n argocd describe deployments.apps argocd-repo-server 
+kubectl -n argocd describe deployments.apps argocd-repo-server
 ```
 
 Reason: the website cert has been updated. So the cert in argocd should be updated as well.
-

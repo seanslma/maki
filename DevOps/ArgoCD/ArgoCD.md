@@ -11,7 +11,7 @@ Argo CD provides Continuous Delivery tooling that automatically synchronizes and
 
 ## install ArgoCD to cluster
 https://medium.com/@talhaaziz37/argo-cd-installation-in-kubernetes-kubeadm-ubuntu-lts-22-04-b429df6d4655
-```
+```sh
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 watch kubectl get pods -n argocd

@@ -30,7 +30,7 @@ LABEL \
     org.opencontainers.image.created="${TIMESTAMP}"
 ```
 
-## multiline 
+## multiline
 https://github.com/moby/moby/issues/1799
 ```dockerfile
 RUN echo 'All of your\n\

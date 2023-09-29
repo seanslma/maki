@@ -231,7 +231,7 @@ resource "kubernetes_config_map" "argocd" {
 ```
 
 Change `repoURL` from https to ssh and apply
-```
+```yaml
 https://github.com/<user>/repo.git
 git@github.com:<user>/repo
 ```

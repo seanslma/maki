@@ -3,24 +3,24 @@
 Every statement like RUN, COPY or ADD in the dockerfile will add a layer into docker image.
 
 ## run image
-```
+```sh
 docker run -it <image-id>                        #from default entrypoint
 docker run -it --entrypoint /bin/bash <image-id> #from another entrypoint
 ```
 
 ## list images with sort
-```
+```sh
 docker images | sort -k1 -h #sort by col1 - repo
 ```
 
 ## remove image with multiple repos/tags
-```
+```sh
 docker rmi -f <image-id>
 docker rmi [repo-name1]:[tag1] [repo-name2]:[tag2]
 ```
 
 ## check docker image layer sizes
-```
+```sh
 docker history <image-id>
 docker history --no-trunc <image-id> #keep full created-by command
 ```
@@ -50,19 +50,19 @@ The base Conda environment is necessary for installation of packages, but once w
 
 ## check iamge packages/CVEs
 install `syft` and `grype`
-```
+```sh
 curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
 curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
 ```
 
 check packages
-```
+```sh
 syft ubuntu:18.04
 syft <repo>:1.0.0
 ```
 
 check CVEs
-```
+```sh
 grype ubuntu:18.04
 grype <repo>:1.0.0
 ```

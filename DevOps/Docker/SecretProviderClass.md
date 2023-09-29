@@ -12,7 +12,7 @@ https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver
 https://github.com/Azure-Samples/secrets-store-csi-with-aks-akv
 
 After the pod starts:
-```
+```sh
 # show secrets held in secrets-store
 kubectl exec -n <namespace> <pod-name> -- ls <mountPath>
 
@@ -20,7 +20,7 @@ kubectl exec -n <namespace> <pod-name> -- ls <mountPath>
 kubectl exec -n <namespace> <pod-name> -- cat <mountPath>/ExampleSecret
 ```
 or run into the pod:
-```
+```sh
 kubectl exec -it -n <namespace> <pod-name> -- /bin/bash
 ls -l ~/<mountPath>
 ```
