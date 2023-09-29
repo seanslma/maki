@@ -2,6 +2,7 @@
 
 ## build docker image for a conda app `my-app`
 ### build conda package `my-app.tar.bz2`
+Note that the `--croot` folder must be outside of the project folder.
 ```sh
 conda build recipe --no-anaconda-upload --python 3.9 --croot ../conda-build --no-test
 ```
@@ -18,6 +19,11 @@ conda list --explicit > conda.env
 mv /path/to/conda.env path/to/my-app/
 conda deactivate
 conda remove --name my-app-0.1.0 --all --yes
+```
+### copy local conda package folder to under the project folder
+Note that the local path in `conda.env` must be updated.
+```sh
+cp -r ../conda-build .build/conda
 ```
 ### install conda and all the packages from `conda.env` in dockerfile 
 ```sh
