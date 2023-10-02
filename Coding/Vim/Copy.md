@@ -11,6 +11,7 @@ Keep source format
 ```
 v  -> highlight one character at a time
 V  -> highlight one line at a time
+Shift+V -> highlight current line
 ^v -> highlight by columns
 y  -> yank text into the copy buffer (copy)
 yw -> copy one word without v
