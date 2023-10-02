@@ -6,7 +6,13 @@
 https://pythonspeed.com/articles/docker-build-secrets/ \
 **NOTE**: Deleting a file does not actually remove it from the image,
 because Docker uses layer caching: all previous layers are still present in the image.
-That means the secret ends up in one of the image’s layers, even if you delete it in a later layer.
+That means the secret ends up in one of the image's layers, even if you delete it in a later layer.
+
+https://www.educative.io/answers/how-to-remove-directories-and-files-in-another-layer-using-docker
+Solutions:
+- use `WORKDIR`
+- use `VOLUME`
+- use multistage build
 
 ## multistage build: copy install and then delete the copied files
 https://rabbithole.wwwdotorg.org/2021/03/02/1-avoiding-docker-add-copy-layers.html
