@@ -21,6 +21,7 @@ ADD https://server.com/foo.deb /downloads
 FROM ubuntu:20.04
 RUN --mount=type=bind,from=downloader,source=/downloads,target=/downloads dpkg -i /downloads/*.deb
 ```
+In this case, the layers in the first stage will be dropped after the second stage run. So the conda package files will not be preserved in the final image.
 
 ## ADD failed: Forbidden path outside the build context
 This error occurs because the path you're trying to add with the ADD instruction is located outside the Docker build context.
