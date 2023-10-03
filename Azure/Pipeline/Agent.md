@@ -14,6 +14,18 @@ https://github.com/Microsoft/azure-pipelines-agent/releases
 - A self-hosted agent doesn't have job time limits
 - Can run incremental builds - doesn't clean the repo or do a clean build so the builds will typically run faster
 
+### How to create a self-hosted agent docker file?
+Under root user:
+- install self-signed certificates
+- install docker and docker compose
+- install azure-pipeline-agent: https://github.com/Microsoft/azure-pipelines-agent/releases
+- install azure cli
+Under normal user:
+- install conda and mamba if build python packages
+- intsall custom packages
+- setup agent envs
+- run the agent from `agent/start.sh`
+  
 ## Personal access token (PAT)
 The pat will be used when run `config.sh` in agent folder:
 - PAT is the only scheme that works with Azure Pipelines
