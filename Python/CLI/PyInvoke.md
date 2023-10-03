@@ -1,6 +1,16 @@
 # PyInvoke
 
 https://docs.pyinvoke.org/en/stable
+```
+from invoke import task
+@task
+def build(c):
+    print("Building!")
+```
+in shell run 
+```
+invoke build
+```
 
 https://github.com/pyinvoke/invoke
 
