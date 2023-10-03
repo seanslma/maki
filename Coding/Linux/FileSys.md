@@ -34,7 +34,8 @@ cp -r ./source/ /dest/   #copy source folder into dest folder
 cp -a ./source/. ./dest/ #content in source to dest, reserve all file attributes
 #example
 cp -avr /home/books /usb/backup
-    -a: Preserve the specified attributes such as directory an file mode, ownership, timestamps, if possible additional attributes: context, links, xattr, all.
+    -a: Preserve the specified attributes such as directory and file mode, ownership, timestamps,
+        if possible additional attributes: context, links, xattr, all.
     -v: Verbose output.
     -r: Copy directories recursively.
 ```
