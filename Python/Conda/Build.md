@@ -41,6 +41,7 @@ conda build purge-all # remove previously built packages
 ```
 conda build recipe --no-anaconda-upload --python 3.9 --croot c:/pkg/conda --no-test
 conda build recipe --no-anaconda-upload --python 3.9 --croot /build/path --no-test --channel ch1 --channel ch2
+conda build purge # remove source and build intermediates
 ```
 Note that without set `--python`, will build a package compatible to the python version in the current env. 
 We can also set the cli flags via env var `CONDA_PY` and the flag `--variants` which accepts JSON-formatted text.
