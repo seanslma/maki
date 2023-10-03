@@ -10,14 +10,14 @@ It allows you to define rules and configuration for handling different types of 
 Compared to NodePort, Ingress is a more advanced and flexible way to expose services, providing application-layer routing and load balancing capabilities.
 
 ## Ingress Controller
-Ingress relies on an `Ingress Controller`, which is a separate component responsible for implementing the Ingress rules defined in the Kubernetes API. 
+Ingress relies on an `Ingress Controller`, which is a separate component responsible for implementing the Ingress rules defined in the Kubernetes API.
 
 Popular Ingress Controllers include
 - Nginx Ingress Controller,
 - Traefik, and
 - HAProxy Ingress.
 
-To use Ingress, you need to 
+To use Ingress, you need to
 - have an Ingress Controller deployed in your cluster, and
 - the controller must be properly configured and integrated with an external load balancer or an ingress controller that supports bare metal environments.
 
@@ -33,7 +33,7 @@ Internet <-> Load Balancer <-> Ingress <-> Service <-> Pods
 
 ## Ingress controller logs
 Find the type of Ingress Controller used. Then get the log of that Ingress Controller pod.
-```
+```sh
 kubectl logs --tail=20 <pod-name>  #display only most recent 20 lines of logs
 kubectl logs --since=1h <pod-name> #display all logs written in the last hour
 ```

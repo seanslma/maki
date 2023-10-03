@@ -1,6 +1,6 @@
 # Sort By
 
-```
+```sh
 kubectl top pod <pod-name> --sort-by=cpu                 #cpu/memory
 kubectl get services --sort-by=.metadata.name            #name
 kubectl get events --sort-by=.metadata.creationTimestamp #timestamp

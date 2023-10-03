@@ -1,7 +1,7 @@
 # SecretProviderClass
 
 ## azure usePodIdentity
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
 kind: SecretProviderClass
 metadata:

@@ -16,7 +16,7 @@ https://github.com/kelseyhightower/intro-to-kubernetes-workshop/blob/master/labs
 
 
 ## install kubectl on wsl2
-```
+```sh
 # kubectl will be installed in `/usr/local/bin/kubectl`
 curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.22.8/bin/linux/amd64/kubectl
 chmod +x ./kubectl
@@ -29,25 +29,25 @@ export KUBECONFIG=/mnt/c/users/$WindowsUSER/.kube/kube_config_filename
 ```
 
 ## credential
-```
+```sh
 az login #login
 $env:KUBECONFIG="C:\Users\<user-name>\.kube\<your_aks_name>" # setup config in windows
 az aks get-credentials --resource-group <aks-rg> --name <aks-name> --overwrite-existing #create credential
 ```
 
 ## get pod info
-```
+```sh
 kubectl describe pod <pod-name> -n <namespace>
 ```
 
 ## open a shell in a running pod container
-```
+```sh
 kubectl exec -it <pod-name> -n <namespace> -- /bin/bash
 kubectl exec -it <pod-name --container <container-name> -n <namespace> -- /bin/bash
 ```
 
 ## log
-```
+```sh
 kubectl logs my-pod                                 #dump pod logs (stdout)
 kubectl logs -l name=myLabel                        #dump pod logs, with label name=myLabel (stdout)
 kubectl logs my-pod --previous                      #dump pod logs (stdout) for previous container
@@ -55,4 +55,3 @@ kubectl logs my-pod -c my-container                 #dump pod container logs (st
 kubectl logs -l name=myLabel -c my-container        #dump pod logs, with label name=myLabel (stdout)
 kubectl logs my-pod -c my-container --previous      #dump pod container logs (stdout, multi-container case) for previous container
 ```
-

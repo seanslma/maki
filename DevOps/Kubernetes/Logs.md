@@ -1,12 +1,12 @@
 # Logs
 
 ## describe node
-```
-k describe node <node-name>
+```sh
+kubectl describe node <node-name>
 ```
 
 ## logs
-```
+```sh
 kubectl logs <pod-name> -n <namespace>
 kubectl logs -p -c <container-name> <pod-name> #logs from previous terminated container
 kubectl logs -f -c <container-name> <pod-name> #begin streaming logs from container
@@ -20,4 +20,3 @@ https://unofficial-kubernetes.readthedocs.io/en/latest/concepts/cluster-administ
 - kubernetes performs log rotation daily (up to 5) per container, or if the log file grows beyond 10MB in size
 - if a container restarts, keeps one terminated container with its logs
 - if a pod is evicted, all corresponding containers are also evicted, along with their logs
-

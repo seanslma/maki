@@ -5,7 +5,7 @@
 https://krew.sigs.k8s.io/docs/user-guide/setup/install/
 
 Make sure `git` is installed and run
-```
+```sh
 (
   set -x; cd "$(mktemp -d)" &&
   OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
@@ -17,12 +17,12 @@ Make sure `git` is installed and run
 )
 ```
 Add $HOME/.krew/bin directory to PATH by appending the folowing line to `.bashrc`:
-```
+```sh
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 ```
 
 The restart the shell and check the version:
-```
+```sh
 kubectl krew version
 ```
 
@@ -31,13 +31,13 @@ Resource usage using `resource-capacity` plugin:
 https://www.middlewareinventory.com/blog/cpu-memory-usage-nodes-k8s/
 
 ### Install the plugin
-```
+```sh
 kubectl krew install resource-capacity
 kubectl krew list #list all installed plugins
 ```
 
 ### Get node cpu and memory usage
-```
+```sh
 kubectl resource-capacity
 kubectl resource-capacity --sort cpu.limit
 kubectl resource-capacity --sort cpu.util --util                     #include utilization
@@ -46,18 +46,18 @@ kubectl resource-capacity --sort cpu.util --util --pods --containers #container 
 ```
 
 ### Get namespace cpu and memory usage
-```
+```sh
 kubectl resource-capacity -n kube-system -p -c
 kubectl resource-capacity -n kube-system --pods --containers
 ```
 
 ### Sort flags
-```
+```sh
 cpu.util, cpu.request, cpu.limit, mem.util, mem.request, mem.limit, name
 ```
 
 ### `--node-labels` flag
-```
+```sh
 kubectl resource-capacity --namespace-labels <namespace-label>
 kubectl resource-capacity --node-labels <node-label>
 kubectl resource-capacity --pod-labels <pod-label>
@@ -67,6 +67,6 @@ kubectl resource-capacity --pod-labels <pod-label>
 - yaml
 - json
 - table ( default)
-```
+```sh
 kubectl resource-capacity -o yaml
 ```

@@ -50,7 +50,7 @@ policy/v1beta1 PodDisruptionBudget is deprecated in aks v1.21+, unavailable in a
 ```
 This typically occurs when there's a problem with the Kubernetes `API server` or when the requested resource version is not available or supported.
 check the api server status
-```
+```sh
 kubectl get componentstatuses
 ```
 

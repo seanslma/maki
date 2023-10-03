@@ -1,20 +1,20 @@
 # KubeAdm
 
 ## connect to k8s master (ubuntu)
-```
+```sh
 ssh username@machine.example.com
 ```
 
 ## sudo ls /etc/kubernetes/manifests/
-- etcd.yaml  
-- kube-apiserver.yaml  
-- kube-controller-manager.yaml  
+- etcd.yaml
+- kube-apiserver.yaml
+- kube-controller-manager.yaml
 - kube-scheduler.yaml
 
 ## CA path `/etc/kubernetes/pki`
 The `apiserver-kubelet-client` is the client cert that API server will present to a kubelet.
 check to determine that kubelet is configured to trust clients that are signed by the k8s CA `cat /var/lib/kubelet/config.yaml`.
-```
+```sh
 $ sudo ls -al /etc/kubernetes/pki
 total 68
 drwxr-xr-x 3 root root 4096 Aug  5  2020 .
@@ -39,7 +39,7 @@ drwxr-xr-x 2 root root 4096 Aug  5  2020 etcd
 `kubeadm certs check-expiration` will check certs in `/etc/kubernetes/pki` and cert in KUBECONFIG file used by kubeadm（admin.conf, controller-manager.conf and scheduler.conf.
 
 ## cert path `/var/lib/kubelet/pki/kubelet.*`
-```
+```sh
 $ sudo ls -al /var/lib/kubelet/pki
 total 27
 drwxr-xr-x 2 root root 4096 Mar 13  2023 .
@@ -61,14 +61,14 @@ Kubernetes certificates expire after one year.
 kubeadm creates certs under `/var/lib/kubelet/pki/kubelet.*` signed with a different CA from the one under `/etc/kubernetes/pki/ca.pem`.
 
 ### check certs
-```
+```sh
 kubeadm alpha certs check-expiration
 kubeadm certs check-expiration        #new might not work
 ```
 
 ### renew certs
 `kubelet.conf` will **not** be renewed by `kubeadm alpha certs renew all`.
-```
+```sh
 #do we need this before renewal?
 kubeadm init phase kubelet-finalize all #'symlink' kebelet.conf to kubelet cert rotation
 
@@ -83,7 +83,7 @@ kubeadm alpha kubeconfig user --org system:nodes --client-name system:node:$(hos
 
 ### update config
 https://www.oak-tree.tech/blog/k8s-cert-yearly-renewwal
-```
+```sh
 cd ~/.kube
 rm config.old
 mv config config.old                      #archive old config

@@ -6,7 +6,7 @@ https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/
 https://howchoo.com/kubernetes/read-kubernetes-secrets
 
 ## get secret
-```
+```sh
 kubectl get secrets                   #only summary like name and type etc.
 kubectl describe secret <secret-name> #more details such as filenames
 kubectl get secret <secret-name> -n <namespace> -o yaml #base64‑encoded contents
@@ -16,7 +16,7 @@ kubectl get secret <secret-name> -o jsonpath="{.data['user\.name']}" | base64 --
 ```
 
 ## delete secret
-```
+```sh
 kubectl delete secret <secret-name>
 ```
 
@@ -27,7 +27,7 @@ Kubernetes provides three ways of creating secrets:
 - from YAML or JSON definitions
 
 ### create secret from files
-```
+```sh
 #opaque secret: the schema of the contents is unknown
 kubectl create secret generic <secret-name> \
   --from-file=./username.txt \
@@ -49,16 +49,16 @@ kubectl create secret tls <secret-name> \
 ```
 
 ### create secret using literals
-```
+```sh
 kubectl create secret generic <secret-name> \
-  --namespace=default
+  --namespace=default \
   --from-literal=<key>=<val> \
   --from-literal=password='S!X*hz$z='
 ```
 
 ### create secret from yaml
 `kubectl create -f secret.yaml`
-```
+```sh
 apiVersion: v1
 kind: Secret
 metadata:
@@ -70,7 +70,7 @@ data:
 ```
 
 ## edit secret
-```
+```sh
 EDITOR="vi"  kubectl edit secrets <secret-name>
 
 #from file
@@ -91,7 +91,7 @@ kubectl patch secret <secret-name> -n <namespace> \
 ```
 
 delete a key in data
-```
+```sh
 kubectl patch configmap myconfigmap --type=json -p='[{"op": "remove", "path": "/data/mykey"}]'
 ```
 
@@ -102,7 +102,7 @@ Kubernetes provides two ways of consuming secrets: env var and mounted file (pre
 It is more secure to mount secrets as files.
 - Kubernetes treats secrets as environment variables securely
 - but the container runtime doesn't treat them securely
-```
+```sh
 #InstanceID: vmssxxxxxx
 kubectl describe pod <pod-name> | grep Node
 #DockerID of running pod: docker://<DockerID>
@@ -128,7 +128,7 @@ az vmss run-command invoke -g $RGNAME -n $VMSS \
 - the secret value is accessible within the running pod
 - any app can use the secret values by referencing the appropriate env var
 - value of the env var will not be updated when the secret itself is updated
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -155,7 +155,7 @@ restartPolicy: Never
 - the secret value is accessible within the running pod
 - can limit which processes can get access to the contents of these files via file system permissions
 - secrets mounted as files will be dynamically updated as the secrets are updated
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:

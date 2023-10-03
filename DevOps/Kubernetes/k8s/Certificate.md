@@ -17,10 +17,10 @@ echo -n | openssl s_client -connect localhost:10250 2>&1 | sed -ne '/-BEGIN CERT
 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/
 
 If you have already created the cluster you must adapt it by doing the following:
-  - Find and edit the `kubelet-config-1.xx` ConfigMap in the kube-system namespace. 
-    In that ConfigMap, the kubelet key has a KubeletConfiguration document as its value. 
-    Edit the KubeletConfiguration document to set `serverTLSBootstrap: true`.
-  - On each node, add the `serverTLSBootstrap: true` field in `/var/lib/kubelet/config.yaml` and restart the kubelet with `systemctl restart kubelet`.
+- Find and edit the `kubelet-config-1.xx` ConfigMap in the kube-system namespace.
+  In that ConfigMap, the kubelet key has a KubeletConfiguration document as its value.
+  Edit the KubeletConfiguration document to set `serverTLSBootstrap: true`.
+- On each node, add the `serverTLSBootstrap: true` field in `/var/lib/kubelet/config.yaml` and restart the kubelet with `systemctl restart kubelet`.
 
 ## Certs auto renewal settings
 https://kubernetes.io/docs/tasks/tls/certificate-rotation/
@@ -35,12 +35,12 @@ https://www.leiyawu.com/2020/10/11/Untitled/
 After enable the rotation `/var/lib/kubelet/pki/kubelet.crt` is no longer used, instead the symbolic link `/var/lib/kubelet/pki/kubelet-server-current.pem` is used and points to the latest rotated certificate.
 
 **kubelet config** `/var/lib/kubelet/config.yaml`
-```
+```yaml
 rotateCertificates: true #enable client cert rotation
 serverTLSBootstrap: true #enable server cert rotation
 featureGates:
-  RotateKubeletClientCertificate: true  
-  RotateKubeletServerCertificate: true  
+  RotateKubeletClientCertificate: true
+  RotateKubeletServerCertificate: true
 ```
 ```
 --rotate-certificates
@@ -49,7 +49,7 @@ featureGates:
 ```
 
 **controller-manager config** `/etc/kubernetes/manifests/kube-controller-manager.yaml`
-```
+```yaml
 spec:
   containers:
   - command:
@@ -60,9 +60,9 @@ spec:
 --experimental-cluster-signing-duration=87600h0m0s
 --feature-gates=RotateKubeletServerCertificate=true
 ```
- 
+
 **system:certificates.k8s.io:certificatesigningrequests:selfnodeserver**
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -92,36 +92,36 @@ subjects:
   kind: Group
   name: system:nodes
 ```
-create ClusterRole `kubectl apply -f ca-update.yaml`. 
+create ClusterRole `kubectl apply -f ca-update.yaml`.
 show all ClusterRoles `k get ClusterRole -A`.
 
 **certificatesigningrequests:nodeclient**: auto approve TLS bootstrapping first request by `kubelet-bootstrap` users
-```
+```sh
 kubectl create clusterrolebinding kubeadm:node-autoapprove-bootstrap \
   --clusterrole=system:certificates.k8s.io:certificatesigningrequests:nodeclient --user=kubelet-bootstrap
 ```
 
-**certificatesigningrequests:selfnodeclient**: auto renew certs for `kubelet` and `apiserver` in `system:nodes` group 
-```
+**certificatesigningrequests:selfnodeclient**: auto renew certs for `kubelet` and `apiserver` in `system:nodes` group
+```sh
 kubectl create clusterrolebinding kubeadm:node-autoapprove-certificate-rotation \
   --clusterrole=system:certificates.k8s.io:certificatesigningrequests:selfnodeclient --group=system:nodes
 ```
 
-**certificatesigningrequests:selfnodeserver**: auto renew certs for `kubelet 10250 api` in `system:nodes` group 
-```
+**certificatesigningrequests:selfnodeserver**: auto renew certs for `kubelet 10250 api` in `system:nodes` group
+```sh
 kubectl create clusterrolebinding kubeadm:node-autoapprove-certificate-server \
   --clusterrole=system:certificates.k8s.io:certificatesigningrequests:selfnodeserver --group=system:nodes
 ```
 Included in `ca-update.yaml`
 
 **Edit kubelet-config-1.xx**
-```
+```sh
 k get cm -A
 kubectl edit configmap -n <namespace> <config-map-name> -o yaml
 ```
 
 **Restart** `kube-controller-manager` and `kubelet` services
-```
+```sh
 #restart controller-manager
 systemctl restart kube-controller-manager
 
@@ -138,7 +138,7 @@ openssl x509 -noout -text -in kubelet-client-current.pem | grep "Not"
 ## Control plane approval
 `journalctl -xeu kubelet -n 100 --no-pager`
 error: no serving certificate available for the kubelet
-```
+```sh
 #get the list of CSRs
 kubectl get csr -A
 
@@ -150,7 +150,7 @@ kubectl certificate deny <csr-name>
 ```
 
 ## manually approve all pending CSRs
-```
+```sh
 kubectl get csr -A | grep Pending | awk '{print $1}' | xargs kubectl certificate approve
 kubectl get csr -A | grep Pending | tr -s ' ' | cut -d' ' -f1 | while IFS= read -r csr; do kubectl certificate approve $csr; done
 ```
@@ -158,16 +158,16 @@ kubectl get csr -A | grep Pending | tr -s ' ' | cut -d' ' -f1 | while IFS= read 
 ## get-a-certificate-signing-request-every-15-minutes
 https://serverfault.com/questions/1112910/i-get-a-certificate-signing-request-every-15-minutes-kubernetes
 
-kubelet log: 
+kubelet log:
 certificate_manager.go:451] certificate request was not signed: timed out waiting for the condition
 
 kubernetes CSR in pending status
-```
+```sh
 user@example:$ k get csr -A
 NAME        AGE     SIGNERNAME                                    REQUESTOR               CONDITION
 csr-2444s   13h     kubernetes.io/kube-apiserver-client-kubelet   system:node:node1       Pending
 ```
-`kubernetes.io/kube-apiserver-client-kubelet`: signs client certificates that will be honored as client certificates by the API server. 
+`kubernetes.io/kube-apiserver-client-kubelet`: signs client certificates that will be honored as client certificates by the API server.
 May be auto-approved by `kube-controller-manager`.
 
 starting the management cluster!

@@ -6,7 +6,7 @@ Pod scheduling is based on requests. A Pod is scheduled to run on a Node only if
 
 ## cpu count
 Inside a pod,
-```
+```sh
 grep -c ^processor /proc/cpuinfo #should agree with multiprocessing.cpu_count()
 ```
 

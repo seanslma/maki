@@ -5,7 +5,7 @@ https://www.replex.io/blog/kubernetes-in-production-best-practices-for-cluster-a
 
 ## cluster-autoscaler status
 Basic info - not really useful
-```
+```sh
 >> kubectl get configmap -n kube-system cluster-autoscaler-status
 NAME                        DATA   AGE
 cluster-autoscaler-status   1      37h
@@ -14,7 +14,7 @@ kubectl get cm cluster-autoscaler-status -n kube-system
 kubectl get cm cluster-autoscaler-user-values -n kube-system
 ```
 All info
-```
+```sh
 kubectl describe configmap --namespace kube-system cluster-autoscaler-status
 ```
 
@@ -32,15 +32,15 @@ Best practice:
 ## horizontal pod autoscaler (HPA)
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale
 
-Scaling formula: 
+Scaling formula:
 https://github.com/kubernetes/kubernetes/issues/78761
 ```
 desiredMetricValue = ceil[(currentReplicas * currentMetricValue) / desiredReplicas]
 ```
 
-Kubernetes uses the horizontal pod autoscaler (HPA) to monitor the resource demand and automatically scale the number of replicas. 
+Kubernetes uses the horizontal pod autoscaler (HPA) to monitor the resource demand and automatically scale the number of replicas.
 
-```      
+```sh
 kubectl autoscale deployment <hpa-name> \
   --cpu-percent=50 --min=3 --max=10            #create hpa
 kubectl create -f ./hpa.yaml                   #create hpa from yaml
@@ -53,8 +53,8 @@ kubectl scale deployment <deployment-name> \
   --replicas=<replica-count> -n <namespace>    #scale replicasets
 ```
 
-Yaml file:
-```
+HPA yaml file:
+```yaml
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:

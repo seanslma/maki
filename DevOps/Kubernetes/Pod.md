@@ -1,7 +1,7 @@
 # Pod
 
 ## General
-```
+```sh
 kubectl get pods                #check status
 kubectl get pods -o wide        #show more info such node
 kubectl describe pod <pod-name> #check events
@@ -11,17 +11,17 @@ kubectl exec -it <pod-name> -c <container-name> -- bash #connect to pod
 ```
 
 ## pending pods
-```
+```sh
 kubectl get pods --field-selector=status.phase=Pending
 ```
 
 ## delete failed pods
-```
+```sh
 kubectl delete pods -A  --field-selector='status.phase=Failed'
 ```
 
 ## forece delete
-```
+```sh
 kubectl delete pod <pod-name> --grace-period=0 --force
 kubectl delete pod <pod-name> --grace-period=0 --force -n <namespace>
 ```
@@ -30,13 +30,13 @@ kubectl delete pod <pod-name> --grace-period=0 --force -n <namespace>
 https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
 
 Use Port Forwarding to Access Applications in a Cluster.
-```
+```sh
 kubectl port-forward pod/<pod-name> <local-port>:<pod-port>
 ```
 
 ## pod cpu and memory usage
 run into the pod
-```
+```sh
 cat /sys/fs/cgroup/cpu/cpuacct.usage  #nanosecond
 cat /sys/fs/cgroup/memory/memory.usage_in_bytes | awk '{ mem = $1 / 1024 / 1024 / 1024 ; print mem "GB" }'
 ```
@@ -45,7 +45,7 @@ cat /sys/fs/cgroup/memory/memory.usage_in_bytes | awk '{ mem = $1 / 1024 / 1024 
 - `nr_periods`: Total schedule period
 - `nr_throttled`: Total throttled period out of nr_periods
 - `throttled_time`: Total throttled time in ns
-```
+```sh
 #run into the pod
 cat /sys/fs/cgroup/cpu/cpu.stat
 ```
@@ -59,13 +59,13 @@ When you override the default Entrypoint and Cmd for a Container, these rules ap
 - supply a `command` and `args`, the default Entrypoint and the default Cmd defined in the Docker image are ignored. Your command is run with your args.
 
 ## create a pod by passing env vars
-```
+```sh
 kubectl run <pod-name> -n <namespace> --image=<acr-name>.azurecr.io/dev/app:latest --env="PREFIX_UPPER_CASE_PARAM=xyz"
 ```
 
 ## use another entrypoint and let the pod run so can get into the container
 https://stackoverflow.com/questions/59248318/kubectl-run-command-vs-arguments
-```
+```sh
 kubectl run <pod-name> -n <namespace> --image=<image-path> --restart=Never -o yaml --dry-run -- /bin/sh -c "echo hello;sleep 3600"
 ```
 

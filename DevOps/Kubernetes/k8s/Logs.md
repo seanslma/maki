@@ -13,7 +13,7 @@ journalctl -xeu kubelet -n 100 --no-pager
 
 ## container log
 If using `kubectl` is possible
-```
+```sh
 kubelctl logs -h
 kubectl logs <pod-name>
 kubectl logs <pod-name> --tail=20
@@ -22,7 +22,7 @@ kubectl logs <pod-name> --timestamps=true
 ```
 
 Get the logs through container runtime if kubectl is not available
-```
+```sh
 docker logs <container-id>
 ```
 

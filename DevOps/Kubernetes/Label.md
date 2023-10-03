@@ -8,7 +8,7 @@ https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
 - Annotations are not used to identify and select objects - to `attach arbitrary non-identifying metadata to objects`.
 
 ## get node labels
-```
+```sh
 kubectl get nodes --show-labels | sed 's/,/\n  /g'  #works
 kubectl get nodes --show-labels | tr , '\n  '       #can't add space
 ```

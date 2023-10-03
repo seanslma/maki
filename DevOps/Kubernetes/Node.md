@@ -2,11 +2,11 @@
 
 ## show node agentpool
 Every node pool has a label `agentpool`. Get the node agentpool label
-```
+```sh
 kubectl get nodes -L agentpool
 ```
 `agentpool` is a label on the nodepool. Can view them using `kubectl get nodes --show-labels`.
-```
+```yaml
 spec:
   containers:
   - name: <container-name>
@@ -17,7 +17,7 @@ spec:
 
 ## manually delete a node
 scaling up nodes first to make sure the cluster has enough nodes to accomodate the workloads
-```
+```sh
 kubectl get nodes
 kubectl cordon <node-name>   #mark a node unschedulable
 kubectl drain <node-name> --ignore-daemonsets --delete-emptydir-data  #safely evict all pods from a node before perform maintenance on the node
@@ -25,7 +25,7 @@ kubectl delete <node-name>   #delete the node after all pods are evicted from th
 ```
 
 ## cordon a node
-```
+```sh
 # set node to be unschedulable
 kubectl cordon <node-name>
 kubectl drain <node-name> --ignore-daemonsets
@@ -38,13 +38,13 @@ kubectl uncordon <node-name>
 ```
 
 ## find the mount of of a path
-```
+```sh
 findmnt --target /var/lib/docker
 ```
 
 ## error: /var/lib/docker/overlay2/xxx: no such file or directory
 This might be caused `docker system prune`. Solution:
-```
+```sh
 systemctl stop docker
 umount /var/lib/docker/overlay2
 rm -rf /var/lib/docker
@@ -53,7 +53,7 @@ systemctl start docker
 
 ## Node stays on `Ready,SchedulingDisabled`
 Solution
-```
+```sh
 kubectl uncordon <node-name>
 ```
 https://github.com/kubereboot/kured/issues/63
