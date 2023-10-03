@@ -56,5 +56,6 @@ chmod o-rwx foldername
 ## Change file ownership
 ```sh
 chown <owner-name> <filename>
+chown -R user:user /myfolder  #change folder and content owner/group names
 chgrp <group-name> <filename>
 ```
