@@ -20,6 +20,7 @@ Under root user:
 - install docker and docker compose
 - install azure-pipeline-agent: https://github.com/Microsoft/azure-pipelines-agent/releases
 - install azure cli
+
 Under normal user:
 - install conda and mamba if build python packages
 - intsall custom packages
