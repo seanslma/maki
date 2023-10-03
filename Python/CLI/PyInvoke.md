@@ -1,6 +1,6 @@
 # PyInvoke
 
-https://docs.pyinvoke.org/en/0.11.0/getting_started.html
+https://docs.pyinvoke.org/en/stable
 
 https://github.com/pyinvoke/invoke
 
