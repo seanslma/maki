@@ -4,6 +4,7 @@
 ### build conda package `my-app.tar.bz2`
 Note that the `--croot` folder must be outside of the project folder.
 ```sh
+export NAME=my-repo #pass value to meta.yaml variable NAME
 conda build recipe --no-anaconda-upload --python 3.9 --croot ../conda-build --no-test
 ```
 ### create a new env and install `my-app`
