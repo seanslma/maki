@@ -1,5 +1,8 @@
 # Logs
 
+## enable logs
+https://learn.microsoft.com/en-us/azure/storage/common/manage-storage-analytics-logs?tabs=azure-portal
+
 ## download logs
 https://learn.microsoft.com/en-us/azure/storage/common/manage-storage-analytics-logs?tabs=azure-portal#download-storage-logging-log-data
 
