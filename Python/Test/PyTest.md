@@ -2,6 +2,7 @@
 
 ## run from vscode terminal 
 ```
+pytest
 pytest .
 ```
 
