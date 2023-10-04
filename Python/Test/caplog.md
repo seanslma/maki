@@ -2,7 +2,7 @@
 
 https://docs.pytest.org/en/6.2.x/reference.html#caplog
 
-Access and control log capturing. Returns a `pytest.LogCaptureFixtur`e instance.
+Access and control log capturing. Returns a `pytest.LogCaptureFixture` instance.
 
 The `caplog` is one of pytest's built-in fixtures. 
 The `fixture` is an argument that will be automatically passed to the test function by its name. 
