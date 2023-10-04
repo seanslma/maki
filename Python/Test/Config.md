@@ -1,4 +1,5 @@
 # Config
+Pytest will read the `setup.cfg` file to get testing settings.
 
 ## `pytest` config
 setup.cfg
