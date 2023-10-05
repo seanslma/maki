@@ -42,7 +42,8 @@ cp -avr /home/books /usb/backup
 
 ## Delete file and folder
 ```sh
-rm -r my-folder/ #delete folder and files
+rm -r my-folder/  #delete folder and files
+rm -r my-folder/* # delete all in the folder
 ```
 
 ## Change rwx mode
