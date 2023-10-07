@@ -19,9 +19,9 @@ spec:
           ports:
             - containerPort: 80
           volumeMounts:
-            - name: data-volume  # The name of the volume defined below
+            - name: data-volume     # The name of the volume defined below
               mountPath: /app/data  # Mount path in the container
       volumes:
-        - name: data-volume  # The same name as used in volumeMounts
+        - name: data-volume   # The same name as used in volumeMounts
           hostPath:
             path: /host/data  # Host path where your data is located on the host machine
