@@ -75,3 +75,8 @@ Ctrl + G #go to line
 F8         #next error/warning
 Shift + F8 #previous error/warning
 ```
+
+## new terminal window
+```
+Ctrl + J
+```
