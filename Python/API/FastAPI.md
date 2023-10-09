@@ -17,7 +17,7 @@ By default, if you install with pip install `uvicorn[standard]` that will includ
 
 That `Uvloop` thing is what gives all the performance to anything (or almost anything) in async Python that has high performance. So, chances are Uvloop would give the best performance.
 
-## test 
+## run
 ```
 if __name__ == '__main__':
     uvicorn.run('api.main:app', host='127.0.0.1', port=8000)
@@ -49,3 +49,18 @@ https://ahmed-nafies.medium.com/fastapi-with-sqlalchemy-postgresql-and-alembic-a
 
 ## test
 https://fastapi.tiangolo.com/tutorial/testing/
+```py
+from fastapi import FastAPI
+from fastapi.testclient import TestClient
+
+app = FastAPI()
+@app.get("/")
+async def read_main():
+    return {"msg": "Hello World"}
+client = TestClient(app)
+
+def test_read_main():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"msg": "Hello World"}
+```
