@@ -1,5 +1,21 @@
 # Parquet
 
+## df and parquet bytes conversion
+```py
+import os
+import pandas as pd
+
+# df to parquet bytes
+df = pd.DataFrame()
+df_parquet_bytes = df.to_parquet()
+df_parquet_bytes
+b'PAR1\x15\x04\x15\x0...'
+
+# parquet bytes to df
+parquet_file = io.BytesIO(df_parquet_bytes)
+df = pd.read_parquet(parquet_file)
+```
+
 ## save pa.table to parquet file
 ```py
 import pyarrow as pa
