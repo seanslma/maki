@@ -5,6 +5,14 @@ https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/
 
 https://howchoo.com/kubernetes/read-kubernetes-secrets
 
+## secret types
+https://kubernetes.io/docs/concepts/configuration/secret/
+- Opaque Secrets
+- ServiceAccount token Secrets
+- Basic authentication Secret
+- SSH authentication Secrets
+- TLS Secrets
+
 ## get secret
 ```sh
 kubectl get secrets                   #only summary like name and type etc.
