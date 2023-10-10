@@ -91,7 +91,17 @@ df.pipe(lambda x: x[~x.index.duplicated(keep='first')])
 df.loc[df.groupby(df.index.to_period('M')).apply(lambda x: x.index.max())]
 ```
 
-## get level types in a multiindex
+## get level dtype in a multiindex
 ```py
 [l.dtype for l in df.index.levels]
+```
+
+## change level dtype in multiindex
+```py
+df.index = df.index.set_levels(idx.levels[-1].astype(int), level=-1)
+
+# another way (all to int or using a dict)
+df.index = pd.MultiIndex.from_frame(
+    pd.DataFrame(index=df.index).reset_index().astype(int)
+)
 ```
