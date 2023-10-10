@@ -90,3 +90,8 @@ df.pipe(lambda x: x[~x.index.duplicated(keep='first')])
 ```py
 df.loc[df.groupby(df.index.to_period('M')).apply(lambda x: x.index.max())]
 ```
+
+## get level types in a multiindex
+```py
+[l.dtype for l in df.index.levels]
+```
