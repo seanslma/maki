@@ -2,6 +2,9 @@
 
 ## tlmgr
 ```sh
+# update
+tlmgr update --self
+tlmgr update --all
 # user mode
 tlmgr install <package>
 
