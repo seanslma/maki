@@ -1,6 +1,10 @@
 # Persistent Volume
 https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
+- Volumes cannot mount within other volumes (but see Using subPath for a related mechanism)
+- A volume cannot contain a hard link to anything in a different volume
+
+## Volume types
 Ephemeral volume types have a lifetime of a pod, but persistent volumes exist beyond the lifetime of a pod. 
  
 ## Reclaim Policy
