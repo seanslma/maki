@@ -2,9 +2,11 @@
 https://stackoverflow.com/questions/19917545/comparing-two-pandas-dataframes-for-differences
 
 ## df.equals
+Will check both dtypes and data.
 Return a bool. not very reliable regarding floats
 
 ## df.compare
+Will only check data.
 Return a dataframe. same shape and type. not reliable either
 ```py
 df.compare(dp).empty #return True if same
