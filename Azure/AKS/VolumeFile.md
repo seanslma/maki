@@ -23,6 +23,18 @@ mountOptions:
   - nosharesock
 parameters:
   skuName: Standard_LRS
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-azurefile
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: my-azurefile
+  resources:
+    requests:
+      storage: 100Gi
 ```
 
 ## private Azure Files storage (private endpoint)
