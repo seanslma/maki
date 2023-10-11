@@ -6,6 +6,9 @@ Return a bool. not very reliable regarding floats
 
 ## df.compare
 Return a dataframe. same shape and type. not reliable either
+```py
+df.compare(dp).empty #return True if same
+```
 
 if all are numbers, using `np.allclose`
 ```py
