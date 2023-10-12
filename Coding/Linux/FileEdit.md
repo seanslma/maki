@@ -1,5 +1,10 @@
 # File edit
 
+## merge files into one
+```sh
+cat ./* > merged-file
+```
+
 ## check new line (\n or \r\n)
 displays Unix line endings (`\n` or LF) as `$` and Windows line endings (`\r\n` or CRLF) as `^M$`
 ```sh
