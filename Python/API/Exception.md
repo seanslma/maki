@@ -19,3 +19,6 @@ async def read_item(item_id: str):
         raise HTTPException(status_code=404, detail='Item not found')
     return {'item': items[item_id]}
 ```
+
+The detail can be get using `resp.json()`. Note that if there are no errors, `resp.json()` will crash. 
+So we should put the `resp.json()` in the Exception block in the client call.
