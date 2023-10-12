@@ -20,5 +20,5 @@ async def read_item(item_id: str):
     return {'item': items[item_id]}
 ```
 
-The detail can be get using `resp.json()`. Note that if there are no errors, `resp.json()` will crash. 
-So we should put the `resp.json()` in the Exception block in the client call.
+The detail can be get using `resp.json()`. Note that if there are no errors, `resp.json()` will return `[]`. 
+If there are sever side errors, `resp.json()` will crash.
