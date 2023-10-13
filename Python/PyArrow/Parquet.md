@@ -1,5 +1,17 @@
 # Parquet
 
+## save parquet file without index (index levels to columns)
+The read speed for parquet files can be much faster without index, by convert index levels to column. 
+- all index levels have to be loaded - so this is slow
+- if only need a specific column, other converted index columns will not be loaded
+```py
+df = pd.read_parquet(
+    '/path/to/my.parquet', 
+    filters=[('ts', '>=', pd.to_datetime('2023-12-15'))],
+    columns=['ts', 'val1', 'val2'],
+)
+```
+
 ## df and parquet bytes conversion
 ```py
 import os
