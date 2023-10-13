@@ -1,5 +1,13 @@
 # DateOffset
 
+## pd.DateOffset
+`day` resets the actual day, `days` adds to the original day
+```py
+print(pd.Timestamp("2015-01-01") - pd.DateOffset(day=3))  # 2015-01-03
+print(pd.Timestamp("2015-01-01") + pd.DateOffset(day=3))  # 2015-01-03
+print(pd.Timestamp("2015-01-01") + pd.DateOffset(days=3)) # 2015-01-04
+```
+
 ## period
 Only honor the integer periods
 ```py
