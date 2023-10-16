@@ -13,7 +13,7 @@ Div elements are typically used to group together larger pieces of content, such
 Div elements can also be used to create more complex layouts, such as navigation bars, menus, and product galleries.
 
 ## example of div and span
-Create an inline dropdown and single date picker
+Create an inline dropdown and single date picker. `Div` for vertical components and `[]` for horizontal components.
 ```py
 html.Div([
     html.Span(
