@@ -18,9 +18,11 @@ Solution: Replace the Windows boot loader with GRUB.
 - reboot `exit` and `sudo reboot`
 
 ## Stuck at GRUB command line - GNU GRUB version 2.06-3~deb11u2
-https://medium.com/codebrace/rescuing-a-non-booting-grub-on-linux-9409dd623743
-
 This means the grub could not find the root system so we need to repair it.
+
+The second answer in the first link is same as the second link
+- https://askubuntu.com/questions/883992/stuck-at-grub-command-line
+- https://medium.com/codebrace/rescuing-a-non-booting-grub-on-linux-9409dd623743
 
 ### find disk and partition info
 https://ubuntuforums.org/showthread.php?t=2455336
