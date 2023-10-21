@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jul 21 21:49:46 2023
+# Make data base, printed on Sat Oct 21 15:47:51 2023
 
 # Variables
 
@@ -45,7 +45,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","osLocale":"en-au","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:48681
+JOURNAL_STREAM = 8:51660
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -65,7 +65,9 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /usr/bin/code
 # environment
-MANAGERPID = 1638
+INFOPATH = /usr/local/texlive/2023/texmf-dist/doc/info:
+# environment
+MANAGERPID = 1644
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -73,11 +75,11 @@ VSCODE_CWD = /home/sma/dev
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/sma/mambaforge/envs/dev/bin:/home/sma/mambaforge/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/sma/miniforge/bin
+PATH = /usr/local/texlive/2023/bin/x86_64-linux:/home/sma/mambaforge/envs/dev/bin:/home/sma/mambaforge/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/sma/miniforge/bin
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1863,unix/mase:/tmp/.ICE-unix/1863
+SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1861,unix/mase:/tmp/.ICE-unix/1861
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -87,7 +89,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 61bbf5d455b244e4b11ac56bf2aab760
+INVOCATION_ID = a2716e23a65443fd927724cc79dca6f8
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -107,11 +109,13 @@ PWD = /home/sma/dev/maki
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1825
+SSH_AGENT_PID = 1823
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
 GTK_MODULES = gail:atk-bridge
+# environment
+MANPATH = /usr/local/texlive/2023/texmf-dist/doc/man:
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -121,7 +125,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/74f6148eb9ea00507ec113ec51c489d6ffb4b771
+VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/e7e037083ff4455cf320e344325dacb480062c3c
 # environment
 LOGNAME = sma
 # environment
@@ -175,7 +179,7 @@ OLDPWD = /home/sma
 # environment
 LANGUAGE = en_AU:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.80-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-decb0b27-1.83-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -191,8 +195,6 @@ GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
 # environment
-NO_AT_BRIDGE = 1
-# environment
 QT_ACCESSIBILITY = 1
 # default
 MAKEFILES := 
@@ -203,13 +205,11 @@ LC_ALL = C
 # environment
 CONDA_PYTHON_EXE = /home/sma/mambaforge/bin/python
 # environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a49dc73b_0e52_4576_bd6d_b9359335d869
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/2c0d3f60_8bcd_4c1c_92f4_d3ed3c42534e
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.88
+GNOME_TERMINAL_SERVICE = :1.82
 # default
 SUFFIXES := 
 # environment
@@ -218,8 +218,6 @@ CHROME_DESKTOP = code-url-handler.desktop
 WINDOWPATH = 2
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
-# environment
-GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
 # environment
@@ -227,9 +225,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 55288
+VSCODE_PID = 3798
 # variable set hash-table stats:
-# Load=109/1024=11%, Rehash=0, Collisions=14/134=10%
+# Load=108/1024=11%, Rehash=0, Collisions=14/133=11%
 
 # Pattern-specific Variable Values
 
@@ -284,14 +282,15 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 # strcache buffers: 1 (0) / strings = 29 / storage = 225 B / avg = 7 B
 # current buf: size = 8162 B / used = 225 B / count = 29 / avg = 7 B
 
 # strcache performance: lookups = 34 / hit rate = 14%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/34=3%
-# Finished Make data base on Fri Jul 21 21:49:46 2023
+# Finished Make data base on Sat Oct 21 15:47:51 2023
 
  
-make: *** No rule to make target 'all'.  Stop.
-
