@@ -21,3 +21,12 @@ Here is the example to find the package name for file `otf.sty`
 ```sh
 tlmgr info otf.sty
 ```
+
+## find the package name that contains the file
+```sh
+sudo apt update
+sudo apt install apt-file
+sudo apt-file update
+
+apt-file search ptmr7t.tfm
+```
