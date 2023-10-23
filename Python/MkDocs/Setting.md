@@ -1,7 +1,9 @@
 # Setting
 
-## mkdocs-material settings
+## mkdocs.yml
+https://mkdocs.readthedocs.io/en/0.10/user-guide/configuration/
 
+## mkdocs-material settings
 https://squidfunk.github.io/mkdocs-material/customization/
 
 https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs
