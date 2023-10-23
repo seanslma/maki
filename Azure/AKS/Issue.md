@@ -13,10 +13,12 @@ Reason: If the `Allowed Disruption` value is 0, the node drain will `fail` durin
 
 Solution:
 - Enable pods to drain
-- Back up, delete, and redeploy the PDB
+```sh
+```
+- Back up, delete, and redeploy the PDB (does not work for argocd helm)
 ```sh
 kubectl get pdb <pdb-name> -n <pdb-namespace> -o yaml > pdb_backup.yaml
-kubectl delete pdb <pdb-name> -n /<pdb-namespace>
+kubectl delete pdb <pdb-name> -n <pdb-namespace>
 kubectl apply -f pdb_backup.yaml
 ```  
-- Delete the pods that can't be drained
+- Delete the pods that can't be drained (does not work for argocd helm)
