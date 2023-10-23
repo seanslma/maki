@@ -13,6 +13,7 @@ If the command does not show any supported API, most likely
 - using an older version of Kubernetes that does not include the KubeSchedulerConfiguration API.
 - deleted the KubeSchedulerConfiguration API from your Kubernetes cluster.
 - there is a problem with your Kubernetes cluster configuration.
+
 Trouble shooting
 - Check the version of Kubernetes `kubectl version`
 - Check the Kubernetes cluster configuration `kubectl config view`
