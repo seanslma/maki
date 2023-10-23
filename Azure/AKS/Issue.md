@@ -14,6 +14,7 @@ Reason: If the `Allowed Disruption` value is 0, the node drain will `fail` durin
 Solution:
 - Enable pods to drain
 ```sh
+kubectl edit pdb <pdb-name> -n <pdb-namespace> #then change allowedDisruptions
 ```
 - Back up, delete, and redeploy the PDB (does not work for argocd helm)
 ```sh
