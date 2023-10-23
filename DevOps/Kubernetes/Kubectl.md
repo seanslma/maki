@@ -9,6 +9,7 @@ curl -LO https://dl.k8s.io/release/v1.24.9/bin/windows/amd64/kubectl.exe
 curl -LO https://dl.k8s.io/release/v1.24.9/bin/linux/amd64/kubectl
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ```
+The kubectl versions can be found at: https://kubernetes.io/releases
 
 https://github.com/Azure/kubelogin
 ```sh
