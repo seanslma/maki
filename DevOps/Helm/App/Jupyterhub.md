@@ -56,3 +56,10 @@ kubectl get componentstatuses
 
 ## spawn timeout and solution
 https://blog.51cto.com/u_15946369/6035967
+
+## hook-iamge-puller ImagePullBackOff
+```
+connection reset by peer
+```
+https://www.modb.pro/db/179200
+
