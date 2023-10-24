@@ -2,6 +2,14 @@
 
 https://helm.sh/docs/topics/chart_repository/
 
+## use local chart
+```yaml
+dependencies:
+  - name: jupyterhub
+    version: 3.1.0
+    repository: file://./charts/jupyterhub
+```
+
 ## use github page as private helm repo
 https://im5tu.io/article/2022/01/creating-a-private-helm-repository-using-github-pages-enterprise/
 
