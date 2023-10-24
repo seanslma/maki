@@ -7,7 +7,7 @@ Return a bool. not very reliable regarding floats
 
 ## df.compare
 Will only check data.
-Return a dataframe. same shape and type. not reliable either
+Return a dataframe. same shape and type. not reliable either (we need to consider rounding errors)
 ```py
 df.compare(dp).empty #return True if same
 ```
