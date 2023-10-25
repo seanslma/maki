@@ -1,0 +1,31 @@
+# App Registration
+
+Azure App registrations in Azure Active Directory (AAD) is a service that allows you to register your applications with AAD. 
+Once your application is registered, you can use it to authenticate users and access resources on their behalf.
+
+## Types of Azure App registrations:
+- **Web applications:** Web applications are applications that are hosted on a web server and can be accessed by users through a web browser.
+- **Native client applications:** Native client applications are applications that are installed on a user's device, such as a computer or mobile phone.
+
+## Register your application
+When you register your application with AAD, you need to specify the following information:
+- A name for your application.
+- The type of application your application is (web or native client).
+- The redirect URI for your application. The redirect URI is the URL that users will be redirected to after they authenticate with your application.
+- The permissions that your application needs to access resources on behalf of users.
+
+Once you have registered your application, you will be given an application ID and a client secret. 
+You can use these credentials to authenticate your application with AAD and access resources on behalf of users.
+
+## Where to use it
+Azure App registrations are used in a variety of scenarios, such as:
+- Authenticating users to web applications and native client applications.
+- Accessing resources on behalf of users, such as Microsoft Graph or Azure resources.
+- Implementing single sign-on (SSO) for your applications.
+
+Here are some of the benefits of using Azure App registrations:
+- **Security:** Azure App registrations provides a secure way to authenticate users and access resources on their behalf.
+- **Convenience:** Azure App registrations is easy to use and integrates with other Azure services.
+- **Scalability:** Azure App registrations can scale to support a large number of users and applications.
+
+If you are developing an application that needs to authenticate users or access resources on their behalf, then you should consider registering your application with Azure App registrations.
