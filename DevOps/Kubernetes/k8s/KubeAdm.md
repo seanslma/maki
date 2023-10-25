@@ -5,6 +5,11 @@
 ssh username@machine.example.com
 ```
 
+## list images
+```sh
+kubeadm config images list
+```
+
 ## sudo ls /etc/kubernetes/manifests/
 - etcd.yaml
 - kube-apiserver.yaml
