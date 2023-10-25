@@ -9,6 +9,8 @@ https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/
 ## azuread_application_password
 https://discuss.hashicorp.com/t/azuread-application-password-rotation/35141
 
+https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/application_password.html
+
 password rotation (create a second secret with a different rotation period to avoid interruption)
 ```tf
 resource "time_rotating" "password_rotate" {
