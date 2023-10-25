@@ -48,6 +48,20 @@ If you have users starting new servers while the total number of active users is
 
 Only activate the user scheduler if you have an `autoscaling` node pool.
 
+### userPlaceholder
+The UserPlaceholders is a powerful feature that can improve the performance and scalability of JupyterHub.
+
+The purpose of userPlaceholder in JupyterHub is to pre-allocate resources for users before they need them. This can improve the startup time of Jupyter sessions and reduce the load on the Kubernetes cluster.
+
+UserPlaceholders are small, lightweight pods that are deployed to the Kubernetes cluster. They are configured to consume the same resources as a typical Jupyter session. When a user requests a Jupyter session, JupyterHub will schedule the session on a userPlaceholder pod. This allows the Jupyter session to start immediately, without having to wait for a new pod to be deployed.
+
+UserPlaceholders are also useful for scaling JupyterHub. When the cluster is idle, JupyterHub can scale down the number of userPlaceholder pods. This saves resources and reduces costs. When new users request Jupyter sessions, JupyterHub can quickly scale up the number of userPlaceholder pods to meet the demand.
+
+Here are some of the benefits of using userPlaceholders in JupyterHub:
+- **Reduced startup time:** Jupyter sessions can start immediately, without having to wait for a new pod to be deployed.
+- **Reduced load on the Kubernetes cluster:** UserPlaceholders are small and lightweight pods, so they do not consume as many resources as a typical Jupyter session.
+- **Improved scalability:** JupyterHub can quickly scale up or down the number of userPlaceholder pods to meet the demand.
+
 ## failed to list *v1beta1.PodDisruptionBudget: the server could not find the requested resource
 https://discourse.jupyter.org/t/readiness-probe-fails-on-docker-kubernetes-deploy/17517/4
 ```
