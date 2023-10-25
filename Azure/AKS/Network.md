@@ -10,3 +10,33 @@ Tools:
 - `host` DNS lookups
 - Netcat (nc) TCP connections
 - `traceroute` print the trace of routing packets to the network host
+
+## Check DNS resolution
+create a test pod and install test packages 
+```sh
+kubectl run -it --rm aks-ssh --namespace <namespace> --image=debian:stable
+apt-get update -y
+apt-get install dnsutils -y
+apt-get install curl -y
+apt-get install netcat -y
+```
+
+## Check if cluster can reach the endpoint
+```sh
+kubectl run -it --rm aks-ssh --namespace <namespace> --image=debian:stable
+apt-get update -y
+apt-get install traceroute -y
+apt-get install netcat -y
+
+# Check the route to the endpoint 
+traceroute -T microsoft.com -m 50 -p 443
+
+# Check whether the desired port is open on the remote host
+nc -z -v microsoft.com 443
+
+# Check the HTTP response code
+curl -Iv https://microsoft.com
+
+# Check whether we can connect to any other endpoint
+curl -Iv https://kubernetes.io
+```
