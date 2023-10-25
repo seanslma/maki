@@ -62,6 +62,13 @@ Here are some of the benefits of using userPlaceholders in JupyterHub:
 - **Reduced load on the Kubernetes cluster:** UserPlaceholders are small and lightweight pods, so they do not consume as many resources as a typical Jupyter session.
 - **Improved scalability:** JupyterHub can quickly scale up or down the number of userPlaceholder pods to meet the demand.
 
+### PrePuller
+https://test-zerotojh.readthedocs.io/en/edit-awseks/optimization.html
+
+Pre-pulling the images on all the nodes can cut this wait time to a few seconds.
+- hook: user’s container image is pulled on all nodes whenever a helm install or helm upgrade is performed
+- continues: the user’s container image will be pre-pulled when a new node is added
+
 ## failed to list *v1beta1.PodDisruptionBudget: the server could not find the requested resource
 https://discourse.jupyter.org/t/readiness-probe-fails-on-docker-kubernetes-deploy/17517/4
 ```
