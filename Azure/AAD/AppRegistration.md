@@ -6,9 +6,13 @@ Once your application is registered, you can use it to authenticate users and ac
 ## example
 When users login to a website and that website will use the user's login username and password to automatically login to the app.
 
+The generated app registration credentials (application ID and client secret) will be used to authenticate your application with Azure Active Directory (AAD) and access resources on behalf of users.
+
 ## Types of Azure App registrations:
 - **Web applications:** Web applications are applications that are hosted on a web server and can be accessed by users through a web browser.
+  When a user visits a web application that is registered with AAD, the web application uses the application ID and client secret to authenticate with AAD and obtain an access token. The web application then uses the access token to access resources on behalf of the user.
 - **Native client applications:** Native client applications are applications that are installed on a user's device, such as a computer or mobile phone.
+  When a user logs in to a native client application that is registered with AAD, the application uses the application ID and client secret to authenticate with AAD and obtain an access token. The application then uses the access token to access resources on behalf of the user.
 
 ## Register your application
 When you register your application with AAD, you need to specify the following information:
