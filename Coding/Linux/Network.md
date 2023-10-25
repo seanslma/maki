@@ -25,3 +25,12 @@ used to find the domain name of provided ip address
 ```sh
 dig -x 10.20.30.40
 ```
+
+## check network connection in docker pod without `curl`, `ping` etc
+can only work under bash
+```sh
+host=1.2.3.4
+port=10
+echo >/dev/tcp/${host}/${port}
+(echo >/dev/tcp/${host}/${port}) &>/dev/null && echo "open" || echo "closed"
+```
