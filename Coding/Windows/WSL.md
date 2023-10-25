@@ -80,6 +80,6 @@ Disable password requirement for starting cron service
 ## Clock is out of sync with Windows
 temporal solution (need to run it after each restart)
 ```sh
-sudo hwclock -s
+sudo hwclock -s # not work
 sudo ntpdate pool.ntp.org
 ```
