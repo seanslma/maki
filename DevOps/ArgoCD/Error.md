@@ -34,3 +34,6 @@ apiVersion: policy/v1beta1
 {{- end }}
 kind: PodDisruptionBudget
 ```
+
+## argocd outofsync `Pending deletion`
+one pod is waiting for another pod but the other one was dead.
