@@ -6,7 +6,7 @@ Once your application is registered, you can use it to authenticate users and ac
 ## example
 When users login to a website and that website will use the user's login username and password to automatically login to the app.
 
-The generated app registration credentials (application ID and client secret) will be used to authenticate your application with Azure Active Directory (AAD) and access resources on behalf of users.
+The generated app registration credentials (`application ID` and `client secret`) will be used to authenticate your application with Azure Active Directory (AAD) and access resources on behalf of users.
 
 ## Types of Azure App registrations:
 - **Web applications:** Web applications are applications that are hosted on a web server and can be accessed by users through a web browser.
