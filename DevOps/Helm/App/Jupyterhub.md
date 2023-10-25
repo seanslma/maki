@@ -42,6 +42,12 @@ We then need to mount the volume to a path in the hub pod where the database is 
       limit: 16G
 ```
 
+### userScheduler 
+If you have users starting new servers while the total number of active users is decreasing, how will you free up a node so it can be scaled down?
+`user scheduler` will schedule new user pods to the most utilised node.
+
+Only activate the user scheduler if you have an `autoscaling` node pool.
+
 ## failed to list *v1beta1.PodDisruptionBudget: the server could not find the requested resource
 https://discourse.jupyter.org/t/readiness-probe-fails-on-docker-kubernetes-deploy/17517/4
 ```
