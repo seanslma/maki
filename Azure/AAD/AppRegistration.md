@@ -3,6 +3,9 @@
 Azure App registrations in Azure Active Directory (AAD) is a service that allows you to register your applications with AAD. 
 Once your application is registered, you can use it to authenticate users and access resources on their behalf.
 
+## example
+When users login to a website and that website will use the user's login username and password to automatically login to the app.
+
 ## Types of Azure App registrations:
 - **Web applications:** Web applications are applications that are hosted on a web server and can be accessed by users through a web browser.
 - **Native client applications:** Native client applications are applications that are installed on a user's device, such as a computer or mobile phone.
