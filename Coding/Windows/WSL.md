@@ -76,3 +76,10 @@ Disable password requirement for starting cron service
 - Triggers: When the computer starts
 - Action: Start a program: `C:\Windows\System32\wsl.exe`, args: `sudo /usr/sbin/service cron start`
 - Finish: Run whether the user logged on or not
+
+## Clock is out of sync with Windows
+temporal solution (need to run it after each restart)
+```sh
+sudo hwclock -s
+sudo ntpdate pool.ntp.org
+```
