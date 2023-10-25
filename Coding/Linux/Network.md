@@ -34,3 +34,13 @@ port=10
 echo >/dev/tcp/${host}/${port}
 (echo >/dev/tcp/${host}/${port}) &>/dev/null && echo "open" || echo "closed"
 ```
+
+## connection refused
+https://stackoverflow.com/questions/2333400/what-can-be-the-reasons-of-connection-refused-errors
+
+reasons:
+- The port is not open on the destination machine.
+- The port is open on the destination machine, but its backlog of pending connections is full.
+- A firewall between the client and server is blocking access (also check local firewalls).
+
+After checking for firewalls and that the port is open, use telnet to connect to the ip/port to test connectivity. This removes any potential issues from your application.
