@@ -12,6 +12,12 @@ Tools:
 - `traceroute` print the trace of routing packets to the network host
 
 ## Check DNS resolution
+If we cannot install the tools, we have to create a pod with the tools already being installed: 
+https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/#create-a-simple-pod-to-use-as-a-test-environment
+```sh
+kubectl apply -f https://k8s.io/examples/admin/dns/dnsutils.yaml
+```
+
 create a test pod and install test packages 
 ```sh
 kubectl run -it --rm aks-ssh --namespace <namespace> --image=debian:stable
