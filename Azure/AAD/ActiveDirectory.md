@@ -1,4 +1,5 @@
 # Active directory
+Azure Active Directory is now Microsoft Entra ID
 
 ## Groups
 Azure Active Directory (Azure AD) groups are used to manage users that all need the same access and permissions to resources.
