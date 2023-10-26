@@ -42,6 +42,26 @@ We then need to mount the volume to a path in the hub pod where the database is 
       limit: 16G
 ```
 
+### hub.extraEnv
+Set envvar from kubernetes secret.
+- https://z2jh.jupyter.org/en/latest/resources/reference.html#hub-extraenv
+- https://github.com/jupyterhub/zero-to-jupyterhub-k8s/issues/1103
+- https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#envvar-v1-core
+```yaml
+hub:
+  extraEnv:
+    JHUB_ACCESS_CLIENT_ID
+      valueFrom:
+        secretKeyRef:
+          name: jupyter-user-secret
+          key: client_id
+    JHUB_ACCESS_CLIENT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: jupyter-user-secret
+          key: client_secret
+```
+
 ### userScheduler 
 If you have users starting new servers while the total number of active users is decreasing, how will you free up a node so it can be scaled down?
 `user scheduler` will schedule new user pods to the most utilised node.
