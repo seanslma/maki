@@ -8,6 +8,9 @@ When users login to a website and that website will use the user's login usernam
 
 The generated app registration credentials (`application ID` and `client secret`) will be used to authenticate your application with Azure Active Directory (AAD) and access resources on behalf of users.
 
+To use this for exemple in jupyterhub login, we have to create an `azuread_application`, `azuread_application_password` and `azuread_service_principal`. 
+Then in jupyterhub we use the client_id and client_secret to redirect for authentication.
+
 ## Types of Azure App registrations:
 - **Web applications:** Web applications are applications that are hosted on a web server and can be accessed by users through a web browser.
   When a user visits a web application that is registered with AAD, the web application uses the application ID and client secret to authenticate with AAD and obtain an access token. The web application then uses the access token to access resources on behalf of the user.
