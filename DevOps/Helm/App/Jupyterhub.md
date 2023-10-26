@@ -111,6 +111,7 @@ connection reset by peer
 https://www.modb.pro/db/179200
 
 ## authenticate via rbac
+403 Forbidden Error when using Azure AD for authentication:
 https://discourse.jupyter.org/t/403-forbidden-error-when-using-azure-ad-for-authentication/16737/7
 
 When set authentication via rbac, after the app registration secret update, 
