@@ -116,3 +116,8 @@ https://discourse.jupyter.org/t/403-forbidden-error-when-using-azure-ad-for-auth
 
 When set authentication via rbac, after the app registration secret update, 
 the secret should be updated in the Kubernetes Secret as the Secret has been created by terraform. 
+
+### `User 'user-name' not allowed` error
+https://discourse.jupyter.org/t/403-forbidden-error-when-using-azure-ad-for-authentication/16737/18
+
+Solution: `c.AzureAdOAuthenticator.allow_all = True` Allow all authenticated users to login.
