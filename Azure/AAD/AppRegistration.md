@@ -36,3 +36,12 @@ Here are some of the benefits of using Azure App registrations:
 - **Scalability:** Azure App registrations can scale to support a large number of users and applications.
 
 If you are developing an application that needs to authenticate users or access resources on their behalf, then you should consider registering your application with Azure App registrations.
+
+## secret update
+https://stackoverflow.com/questions/69045286/invalid-client-secret-is-provided-when-using-correct-and-not-expired-secret
+
+If the app registrations secret is created via terraform, a renewed secret from the portal will not work.
+```
+AADSTS7000215: Invalid client secret provided. Ensure the secret being sent in the request is the client secret value, not the client secret ID, for a secret added to app
+```
+We should update the secret from terraform??? No, got the same error.
