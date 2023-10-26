@@ -71,3 +71,13 @@ dc = pd.concat([dm,df],axis=0,ignore_index=False)
 d2 = dc.unstack('prd').reset_index()
 #d2.columns = ['idx1','idx2','idx3','prd1','prd2','prd3']
 ```
+
+## transform
+https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.transform.html
+
+calculate aggregated value in each group and copy back to each item.
+
+calculate the number of types in each group `c` as a new col:
+```py
+df['size'] = df.groupby('c')['type'].transform(len)
+```
