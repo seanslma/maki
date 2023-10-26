@@ -110,3 +110,6 @@ connection reset by peer
 ```
 https://www.modb.pro/db/179200
 
+## authenticate via rbac
+When set authentication via rbac, after the app registration secret update, 
+the secret should be updated in the Kubernetes Secret as the Secret has been created by terraform. 
