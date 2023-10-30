@@ -2,9 +2,6 @@
 
 You can only redim the last dimension of a multi dimension array
 
-## check error value
-  TypeName(val) = "Error"
-
 ## check array empty
   IsEmpty(arr) 'only works for Variant
 
