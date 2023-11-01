@@ -45,3 +45,8 @@ unique_list = list(dict.fromkeys(lst))        #python >= 3.7
 list_of_tuples = [(1,2), (3,4)]
 list(zip(*list_of_tuples))
 ```
+
+## list of lists to csv
+```py
+csv.writer(open('out.csv', 'w', newline='')).writerows(lls)
+```
