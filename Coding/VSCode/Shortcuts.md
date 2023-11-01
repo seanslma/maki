@@ -80,3 +80,10 @@ Shift + F8 #previous error/warning
 ```
 Ctrl + J
 ```
+
+## folding
+mouse over the class or function, the folding arrows will be shown.
+- `Ctl + Shft + [`: Fold the innermost uncollapsed region at the cursor
+- `Ctl + Shft + ]`: unfolds the collapsed region at the cursor
+- `Ctl + K, Ctl + 0`: folds all regions in the editor. `Ctrl+K, Ctrl+[n]` where n is the level number upto which to fold
+- `Ctl + K, Ctl + J`: unfolds all regions in the editor.
