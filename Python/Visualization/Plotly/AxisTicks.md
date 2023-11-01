@@ -25,9 +25,9 @@ fig = go.Figure(go.Scatter(
 
 fig.update_layout(
     xaxis = dict(
-        tickmode = 'linear',
-        tick0 = 0.5,
-        dtick = 0.5,
+        tickmode='linear',
+        tick0=0.5,
+        dtick=0.5,
     )
 )
 
@@ -37,8 +37,28 @@ fig.show()
 ## Tickformat
 ```py
 fig.update_layout(
-    title = 'Time Series with Custom Date-Time Format',
-    xaxis_tickformat = '%d %B (%a)<br>%Y',
-    yaxis_tickformat = '%',
+    title='Time Series with Custom Date-Time Format',
+    xaxis_tickformat='%d %B (%a)<br>%Y',
+    yaxis_tickformat='%',
+)
+```
+
+## ticksuffix
+Add a suffix to the tick labels
+```py
+fig.update_layout(
+    xaxis = dict(        
+        linecolor='#909497',
+        gridcolor='rgba(0,0,0,0)',
+        side='top',
+        range=x_range,
+        fixedrange=True,     
+        ticks='outside',
+        tickmode='array',        
+        ticklen=4,
+        tickwidth=1,
+        tickcolor='#909497',
+        ticksuffix='%',       
+    )
 )
 ```
