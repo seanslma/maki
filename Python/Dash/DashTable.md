@@ -25,3 +25,6 @@ if __name__ == '__main__':
 
 ## export to csv
 https://stackoverflow.com/questions/61203436/export-plotly-dash-datatable-output-to-a-csv-by-clicking-download-link
+
+## export to excel 
+https://stackoverflow.com/questions/61485943/dash-data-table-download-to-excel
