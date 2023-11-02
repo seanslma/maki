@@ -1,6 +1,12 @@
-## perf (II)
+# perf (II)
 
-### numexpr
+## ravel() vs flatten()
+np.ravel() will avoid copy if possible and thus faster than flatten()
+
+## broadcasting rules
+when broadcasting is possible, we do not need to use np.tile()
+
+## numexpr
 numexpr is 5x faster than NumPy expression.
 
 ```py
@@ -11,7 +17,7 @@ result2 = numexpr.evaluate(expr)
 result3 = pd.eval(expr, engine='numexpr')
 ```
 
-### pd.eval and pd.query
+## pd.eval and pd.query
 Mainly used for large arrays to save memory thus the speed.
 
 ```py

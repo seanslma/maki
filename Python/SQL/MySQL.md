@@ -1,12 +1,33 @@
-# MySQL
+# sql
 
 To install MySQLdb on Windows go to this link: https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient \\
 Download the appropriate .whl for your Python version: python -m pip install mysqlclient-1.3.13-cp36-cp36m-win_amd64.whl
-
+```sh
 python -m pip install sqlalchemy-access
+```
 
 ## module 'time' has no attribute 'clock'
 update sqlalchemy to the latest version as time.clock is removed from python 3.8 and later versions
+
+## Connect to mdb
+```py
+# connect to db
+try:
+    drv = '{Microsoft Access Driver (*.mdb)}'
+    con = pyodbc.connect(f'DRIVER={drv};DBQ=' + dbpath)
+except pyodbc.InterfaceError:
+    drv = '{Microsoft Access Driver (*.mdb, *.accdb)}'
+    con = pyodbc.connect('DRIVER={drv};DBQ=' + dbpath)
+cursor = con.cursor()
+
+# query
+cursor.execute("Select * from tbl")
+rows = cursor.fetchall()
+
+# close connection
+cursor.close()
+con.close()
+```
 
 ## MySQL query to csv
 ```py
@@ -33,7 +54,6 @@ insert the data into the temporary table while autocommit=False with a .commit()
 INSERT INTO real_table (...) SELECT ... FROM temp_table
 
 ## MS SQL Connection Error
-
 [answer](https://stackoverflow.com/questions/32662123/pyodbc-error-data-source-name-not-found-and-no-default-driver-specified-paradox)
 
 Two thoughts on what to check:
@@ -50,7 +70,7 @@ Click Next then Finish.
 You will be shown the vendor-specific ODBC setup dialog. For example, with Microsoft Access, you might only need to click Select and browse to an existing .mdb file before clicking OK.
 Browse to the location of the .dsn file and open using Notepad.
 In the DSN file you might see something similar to:
-
+```
 [ODBC]
 DRIVER=Microsoft Access Driver (*.mdb)
 UID=admin
@@ -65,7 +85,7 @@ DriverId=25
 DefaultDir=C:\
 DBQ=C:\db1.mdb
 To convert the above to the full connection strring:
-
+```
 Omit the first [ODBC] line
 Put curly braces around all values containing spaces
 Put all name=value pairs on one line, separated by semicolons.
