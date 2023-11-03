@@ -9,3 +9,6 @@ https://learn.microsoft.com/en-gb/azure/storage/blobs/object-replication-prevent
 ## sas token
 Permissions for a directory, container, or blob: 
 https://learn.microsoft.com/en-us/rest/api/storageservices/create-service-sas?redirectedfrom=MSDN
+
+how to create a sas token:
+https://learn.microsoft.com/en-gb/rest/api/storageservices/delegate-access-with-shared-access-signature
