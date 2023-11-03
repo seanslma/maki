@@ -8,6 +8,11 @@ export PATH=/usr/local/bin/kubectl:$PATH
 export KUBECONFIG=/path/to/.config/.kube/kubeconfig
 ```
 
+## start cron service
+```sh
+sudo service cron status/start
+```
+
 ## create a cronjob
 `erontab -e` and add:
 ```sh
