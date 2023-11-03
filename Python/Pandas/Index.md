@@ -104,4 +104,7 @@ df.index = df.index.set_levels(idx.levels[-1].astype(int), level=-1)
 df.index = pd.MultiIndex.from_frame(
     pd.DataFrame(index=df.index).reset_index().astype(int)
 )
+
+# chained method
+df = df.set_index(new_index))
 ```
