@@ -38,8 +38,15 @@ df = (
 ## newcol based on conditions on another col
 ```py
 #use np.select
-cons = [(df['cnt'] <= 2), (df['cnt'] > 2) & (df['cnt'] <= 9), (df['cnt'] > 9) & (df['cnt'] <= 15), (df['cnt'] > 15)]
+cons = [
+    (df['cnt'] <= 2),
+    (df['cnt'] > 2) & (df['cnt'] <= 9),
+    (df['cnt'] > 9) & (df['cnt'] <= 15),
+    (df['cnt'] > 15),
+]
+# create a list of the values we want to assign for each condition
 lbls = ['band1', 'band2', 'band3', 'band4'] #label for each condition
+# create a new column and use np.select to assign values to it
 df['band'] = np.select(cons, lbls)
 
 #use pd.cut

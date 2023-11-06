@@ -10,7 +10,7 @@ For instance, both round(0.5) and round(-0.5) return 0, while round(1.5) gives 2
 ```
 h = (N − 1)*p + 1 #space is between v1 and vn
 Est_Quantile = x⌊h⌋ + (h − ⌊h⌋)*(x⌊h⌋ + 1 − x⌊h⌋)
-  ```
+```
 
 not #2, consider the first and last values are the first and last data centers:
 ```
