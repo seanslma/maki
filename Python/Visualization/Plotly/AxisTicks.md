@@ -22,7 +22,7 @@ fig.update_xaxes(
 
 fig.update_layout(
     xaxis=dict(
-        tickmode='array',
+        tickmode='array',       # Enable the custom tick values and labels
         tickvals=x,             # Specify the tick values
         ticktext=xtick_labels,  # Specify the tick labels
     )
