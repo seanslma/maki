@@ -25,6 +25,7 @@ graph = dcc.Graph(
         "layout": {"title": "My Graph"},
     },
     style={'height': '100%', 'width': '100%'},
+    #style={'height': '500px', 'width': '100%'} # can be relative or absolute size
 )
 
 # Wrap the graph component in a dcc.Loading component.
