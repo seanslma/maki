@@ -3,15 +3,20 @@
 https://www.learndatasci.com/tutorials/python-pandas-tutorial-complete-introduction-for-beginners/
 
 ### pd version
-  #pandas version
-  pd.__version__
-  #versions of Python and dependent packages and OS type
-  pd.show_versions()
+```py
+#pandas version
+pd.__version__
+#versions of Python and dependent packages and OS type
+pd.show_versions()
+```
 
 ### change display width
-  from IPython.core.display import display, HTML
-  display(HTML("<style>.container {width:90% !important;}</style>"))
-  pd.set_option('display.max_columns', 10)
+```py
+from IPython.core.display import display, HTML
+display(HTML("<style>.container {width:90% !important;}</style>"))
+pd.set_option('display.max_columns', 10)
+```
+
 ### add/delete col/s
 ```py
 #add a new col to the end
@@ -87,7 +92,6 @@ df.astype('int32').dtypes
 df.astype({'col1': 'int32'}).dtypes
 ```
 
-
 ### replace/drop NaN
 ```py
 #replace NaN
@@ -127,9 +131,6 @@ ar = np.zeros((2, 3),dtype=float)
 df = pd.DataFrame(ar, columns=['A','B','C'])
 ```
 
-
-
-
 ### reshape
 ```py
 #melt:join all cols
@@ -146,7 +147,6 @@ df1 = s.unstack(level=-1)
 df0 = s.unstack(level=0)
 df0.unstack()
 ```
-
 
 ### concat
 ```py
