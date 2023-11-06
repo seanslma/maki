@@ -5,6 +5,20 @@
 - tickformatstops
 - place ticks and gridlines between categories
 
+## axis date 
+```py
+xaxis=dict(
+    title=dict(text='date'),
+    mirror=True,
+    ticks='outside',
+    showline=True,
+    linecolor='black',
+    gridcolor='lightgrey',
+    dtick='d1', #M1
+    tickformat='%d\n%b\n%Y', #%b\n%Y
+)
+```
+
 ## axis range
 ```py
 fig.update_layout(
