@@ -13,6 +13,22 @@ fig.update_layout(
 )
 ```
 
+## axis ticks
+```py
+fig.update_xaxes(
+    tickvals=x,             # Specify the tick values
+    ticktext=xtick_labels,  # Specify the tick labels
+)
+
+fig.update_layout(
+    xaxis=dict(
+        tickmode='array',
+        tickvals=x,             # Specify the tick values
+        ticktext=xtick_labels,  # Specify the tick labels
+    )
+)
+```
+
 ## example
 https://plotly.com/python/tick-formatting/
 ```py
