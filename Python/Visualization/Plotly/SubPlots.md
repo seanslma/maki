@@ -13,6 +13,16 @@ fig = make_subplots(
     vertical_spacing=0.02,
 )
 print(fig.layout) # inspect the axes name for each subplot
+
+# the specs must be a 2D (rows, cols) list 
+fig = make_subplots(
+    rows=1,
+    cols=2,
+    column_width=[0.5, 0.5],
+    shared_yaxes=True,
+    specs=[[{'type': 'xy'}, {'type': 'xy'}]],
+    horizontal_spacing=0.05,
+)
 ```
 
 ## secondary y-axis
