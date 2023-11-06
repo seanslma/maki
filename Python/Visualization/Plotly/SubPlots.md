@@ -2,6 +2,7 @@
 https://plotly.com/python-api-reference/generated/plotly.subplots.make_subplots.html
 
 ## vertical space between subplots
+Notice when to use `row_height` and when to use `column_width`.
 ```py
 from plotly.subplots import make_subplots
 fig = make_subplots(
