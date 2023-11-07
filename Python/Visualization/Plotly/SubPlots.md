@@ -2,7 +2,7 @@
 https://plotly.com/python-api-reference/generated/plotly.subplots.make_subplots.html
 
 ## vertical space between subplots
-Notice when to use `row_height/vertical_spacing` and when to use `column_width/horizontal_spacing`.
+Notice when to use `row_heights/vertical_spacing` and when to use `column_widths/horizontal_spacing`.
 ```py
 from plotly.subplots import make_subplots
 fig = make_subplots(
@@ -19,7 +19,7 @@ print(fig.layout) # inspect the axes name for each subplot
 fig = make_subplots(
     rows=1,
     cols=2,
-    column_width=[0.5, 0.5],
+    column_widths=[0.5, 0.5],
     shared_yaxes=True,
     specs=[[{'type': 'xy'}, {'type': 'xy'}]],
     horizontal_spacing=0.05,
