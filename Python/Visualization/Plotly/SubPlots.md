@@ -15,7 +15,7 @@ fig = make_subplots(
 )
 print(fig.layout) # inspect the axes name for each subplot
 
-# the specs must be a 2D (rows, cols) list 
+# the specs must be a 2D (rows, cols) list, add title for each subplot as well
 fig = make_subplots(
     rows=1,
     cols=2,
@@ -23,6 +23,7 @@ fig = make_subplots(
     shared_yaxes=True,
     specs=[[{'type': 'xy'}, {'type': 'xy'}]],
     horizontal_spacing=0.05,
+    subplot_titles=('Weekday', 'Weekend'),
 )
 ```
 
