@@ -94,8 +94,8 @@ for i, model in enumerate(models):
     color = colors[i]
     data_subset = df.query('model == @model & period == @periods[0]')
     fig.add_trace(go.Scatter(
-        x=data_subset['dow'][:1], 
-        y=data_subset['mw'][:1],  
+        x=data_subset['dow'].iloc[:1], 
+        y=data_subset['mw'].iloc[:1],  
         mode='lines',
         line=dict(color=color, dash='solid'),
         name=f'{model}',
@@ -107,8 +107,8 @@ for j, period in enumerate(periods):
     line_style = line_styles[j]
     data_subset = df.query('model == @models[0] & period == @period')
     fig.add_trace(go.Scatter(
-        x=data_subset['dow'][:1], 
-        y=data_subset['mw'][:1], 
+        x=data_subset['dow'].iloc[:1], 
+        y=data_subset['mw'].iloc[:1], 
         mode='lines',
         line=dict(color='black', dash=line_style),
         name=f'{period}',
