@@ -1,5 +1,10 @@
 # lineplot
 
+## line styles
+```py
+line_styles = ['-', '--', '..', '-.', '-..-', '--...', '-    ', '--   ', '--..', 'o-', 's-', '^-', '>--', '<--', '*-', 'h-', '+-', '-', '-', None]
+```
+
 ## line plot with figure size
 will automatically plot x, y, z based on index ts.
 ```py
