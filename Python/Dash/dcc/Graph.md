@@ -6,7 +6,7 @@ dcc.Graph is a component for creating interactive data visualizations.
 Here is an example of how to use dcc.Graph and dcc.Loading:
 ```py
 import dash
-import dash_core_components as dcc
+from dash import dcc
 
 app = dash.Dash()
 
