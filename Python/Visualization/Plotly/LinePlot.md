@@ -1,5 +1,28 @@
 # Line Plot
 
+## line styles
+```py
+import numpy as np
+import plotly.graph_objects as go
+
+fig = go.Figure()
+
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([2, 10, 4, 15, 9])
+# the length of the dash and space in pixels
+line_styles = ['0', '8,3', '8,3,2,3', '3,2', '14,2', '8,3,2,3,2,3', '4,3', '6,3,2,3,2,3,2,3', '2,5']
+
+for i, line_stsyle in enumerate(line_styles):
+    fig.add_trace(go.Scatter(
+        x=x,
+        y=y + 5*i,
+        mode='lines',
+        line=dict(color='black', dash=line_styles[i])
+    ))
+
+fig.show()
+```
+
 ## example
 Plot two columns from two dfs as lines and set the line color, legend and figure size.
 
