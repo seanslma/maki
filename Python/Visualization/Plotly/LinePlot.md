@@ -9,15 +9,15 @@ fig = go.Figure()
 
 x = np.array([1, 2, 3, 4, 5])
 y = np.array([2, 10, 4, 15, 9])
-# the length of the dash and space in pixels
 line_styles = ['0', '8,3', '8,3,2,3', '3,2', '14,2', '8,3,2,3,2,3', '4,3', '6,3,2,3,2,3,2,3', '2,5']
+cnt = len(line_styles)
 
 for i, line_stsyle in enumerate(line_styles):
     fig.add_trace(go.Scatter(
         x=x,
         y=y + 5*i,
         mode='lines',
-        line=dict(color='black', dash=line_styles[i])
+        line=dict(color='blue', dash=line_styles[i], width=2 * (1 - i * 0.4 / cnt)),
     ))
 
 fig.show()
