@@ -16,9 +16,9 @@ html.Div([
         id='accuracy-metric-radio',
         options=[
             {'label': k, 'value': v}
-            for (k, v) in ACCURACY_METRICS_DICT.items()
+            for (k, v) in METRICS_DICT.items()
         ],
-        value=list(ACCURACY_METRICS_DICT.values())[0],
+        value=list(METRICS_DICT.values())[0],
         inline=True,
     )
 ], style={
