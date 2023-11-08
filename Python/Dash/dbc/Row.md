@@ -3,7 +3,7 @@
 ## example
 Put two figs at left-top and 2 at right-top, and 1 at the bottom
 
-Content in `[]` will be aligned horizontally.
+Content in `[]` will be aligned horizontally. But `html.Div` in a `[]` will be aligned vertically.
 ```py
 import dash
 from dash import dcc, html
