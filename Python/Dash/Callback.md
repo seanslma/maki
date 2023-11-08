@@ -5,7 +5,7 @@ https://dash.plotly.com/basic-callbacks
 callback functions must be imported to layout, otherwise there is no response when click the tab.
 
 ## Input
-Changes in any of inputs will trigger callback run. 
+Changes in any of inputs will trigger callback run.
 
 ## Output
 Output can be used as the input of another callback.
@@ -41,23 +41,23 @@ def my_fun(pathname):
 ## dash.no_update
 Using dash.no_update to update only some of the callback outputs.
 
-Detect which input trigged the callback: 
+Detect which input trigged the callback:
 https://stackoverflow.com/questions/62642418/is-there-a-way-to-prevent-a-callback-from-firing-in-dash
 ```py
 from dash import callback_context, no_update
 
 @app.callback(
-    Output("url", "search"),
-    Output("picker-id", "value"),
-    Input("url", "search"),
-    Input("picker-id", "value"),
+    Output('url', 'search'),
+    Output('picker-id', 'value'),
+    Input('url', 'search'),
+    Input('picker-id', 'value'),
 )
 def my_update(url_search):
     changed_inputs = [
-        x["prop_id"]
+        x['prop_id']
         for x in callback_context.triggered
     ]
-    if "picker-id.value" in changed_inputs:
+    if 'picker-id.value' in changed_inputs:
         return no_update, 100
     else:
         return '?userid=100', no_update

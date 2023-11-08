@@ -1,5 +1,7 @@
 # JupyterDash
 
+Obsolete and now we can use Dash!
+
 https://dash.plotly.com/workspaces/using-dash-in-jupyter-and-workspaces
 ```py
 from jupyter_dash import JupyterDash
@@ -19,7 +21,7 @@ import dash_bootstrap_components as dbc
 FA = "https://use.fontawesome.com/releases/v5.15.4/css/all.css"
 
 app = JupyterDash(
-    __name__, 
+    __name__,
     external_stylesheets=[dbc.themes.BOOTSTRAP, FA],
 )
 
@@ -97,12 +99,12 @@ def set_city_options(
     Input('select-city', 'value'),
 )
 def city_population(
-  country, 
+  country,
   city,
 ):
     if not country or not city:
         raise PreventUpdate
-        
+
     d1 = data.query('country == @country & city == @city')
     d2 = d1.groupby(['country','city']).agg(lambda col: '/'.join(sorted(set(col))))
     population = d2['population'][0]
