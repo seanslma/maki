@@ -2,6 +2,20 @@
 
 https://dash.plotly.com/datatable
 
+## format
+
+## sorting
+```py
+sort_action = 'native'
+```
+
+## filtering
+```py
+filter_action = 'native'
+```
+
+## pagination
+
 ## example
 ```py
 import dash
