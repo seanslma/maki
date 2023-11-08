@@ -1,12 +1,19 @@
 # Pandas
 
-## iter rows, use `to_records`
+## iter rows, using `zip` with values is 400x faster than `df.iterrows()`.
+assume df has columns `name`, `date`, and `value`.
 ```py
 %timeit for row in df.iterrows(): pass
-2.18 ms ± 83.2 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+1.67 s ± 70.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 
 %timeit for row in df.to_records(index=False): pass
-312 µs ± 9.1 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+69.2 ms ± 2.89 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+
+%timeit for n, d, v in zip(df['name'], df['date'], df['value']): pass
+10.9 ms ± 751 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+
+%timeit for n, d, v in zip(df['name'].values, df['date'].values, df['value'].values): pass
+4.12 ms ± 302 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 ```
 
 ## slow multiindex methods
