@@ -1,6 +1,37 @@
 # Performance
 
-## get is faster
+## unique values
+https://stackoverflow.com/questions/13688784/python-speedup-np-unique
+
+The `numpy.unique()` is based on sorting (quicksort), and the `pandas.unique()` is based on hash table.
+- np.unique: sorted slower
+- pd.unique: not sorted faster
+- 
+General rules:
+- list of integers/strings: `list(set())`
+- pd.Series with integers: `pd.unique()`
+- pd.Series with strings: `list(set(s.values))` [1.5x faster] or `pd.unique()`
+
+```py
+%timeit df.get('name').unique() 
+1.64 ms ± 25 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+
+%timeit df.name.unique()    
+1.66 ms ± 80.3 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+
+%timeit df['name'].unique()  
+1.84 ms ± 108 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+
+%timeit list(set(df['name']))
+3.23 ms ± 368 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+
+%timeit list(set(df['name'].values))
+579 µs ± 39.3 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+
+%timeit np.unique(df['name'].values)
+12.7 ms ± 644 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+```
+
 ```py
 import timeit
 
