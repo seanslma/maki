@@ -6,11 +6,11 @@ https://stackoverflow.com/questions/13688784/python-speedup-np-unique
 The `numpy.unique()` is based on sorting (quicksort), and the `pandas.unique()` is based on hash table.
 - np.unique: sorted slower
 - pd.unique: not sorted faster
-- 
+
 General rules:
 - list of integers/strings: `list(set())`
 - pd.Series with integers: `pd.unique()`
-- pd.Series with strings: `list(set(s.values))` [1.5x faster] or `pd.unique()`
+- pd.Series with strings: `pd.unique()` or `list(set(s.values))` [1.5x faster]
 
 ```py
 %timeit df.get('name').unique() 
