@@ -8,7 +8,8 @@ style={
     'flex': '1 1 75%',
     'display': 'flex',
     'flexDirection': 'column',
-    'marginTop': '-18px'
+    'marginTop': '-18px',
+    'padding': '1px',
 }
 ```
 
@@ -26,7 +27,10 @@ style={
    In this case, it's set to 'column', which means the children of the flex container will be placed in a column (top to bottom) layout.
 
 5. **`'marginTop': '-18px'`**: This sets the top margin of the element to -18 pixels.
-6. A negative margin can be used to adjust the spacing above the element.
+   A negative margin can be used to adjust the spacing above the element.
+
+6. **`'padding': '1px'`**: This property sets the padding of the element to 1 pixel on all sides.
+   Padding is the space between the content of an element and its border.   
 
 So, in summary, this piece of code is styling a `html.Div` to be a flex container with a vertical column layout for its children (`metric_tab`).
 It has a flexible width of 75% of its parent container, can grow or shrink as needed, and has a negative top margin of 18 pixels.
