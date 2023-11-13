@@ -1,6 +1,9 @@
 # Azure Blob Storage
 https://learn.microsoft.com/en-us/azure/storage/files/storage-python-how-to-use-file-storage?tabs=python
 
+## fsspec
+If the path ends with `/`, **only folders** are returned.
+
 ## adlfs
 **Not correct**: performance using `AzureBlobFileSystem` 
 ```
