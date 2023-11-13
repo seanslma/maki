@@ -84,6 +84,28 @@ kubectl exec -it <pod-name> --namespace=<namespace> -- bash
 kubectl delete pod <pod-name> --namespace=<namespace>
 ```
 
+yaml file
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debug-pod
+  namespace: default
+spec:
+  containers:
+  - name: debug-container
+    image: alpine
+    command: ["/bin/bash", "-c", "tail -f /dev/null"]
+    volumeMounts:
+    - name: my-volume
+      mountPath: /path/in/container
+  volumes:
+  - name: my-volume
+    hostPath:
+      path: /path/on/host
+```
+running the `tail -f /dev/null` command to keep the container running.
+
 ## Lifecycle
 https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#example-states
 
