@@ -60,13 +60,21 @@ When you override the default Entrypoint and Cmd for a Container, these rules ap
 
 ## create a pod by passing env vars
 ```sh
-kubectl run <pod-name> -n <namespace> --image=<acr-name>.azurecr.io/dev/app:latest --env="PREFIX_UPPER_CASE_PARAM=xyz"
+kubectl run <pod-name> -n <namespace> \
+  --image=<acr-name>.azurecr.io/dev/app:latest --env="PREFIX_UPPER_CASE_PARAM=xyz"
 ```
 
 ## use another entrypoint and let the pod run so can get into the container
 https://stackoverflow.com/questions/59248318/kubectl-run-command-vs-arguments
 ```sh
-kubectl run <pod-name> -n <namespace> --image=<image-path> --restart=Never -o yaml --dry-run -- /bin/sh -c "echo hello;sleep 3600"
+kubectl run <pod-name> -n <namespace> --image=<image-path> \
+  --restart=Never -o yaml --dry-run -- /bin/sh -c "echo hello;sleep 3600"
+```
+
+## temporally create a pod and delete it when it exits
+```sh
+kubectl run -it --rm <pod-name> --namespace=default --image=alpine -- bash
+kubectl exec -it <pod-name> --namespace=default -- bash
 ```
 
 ## Lifecycle
