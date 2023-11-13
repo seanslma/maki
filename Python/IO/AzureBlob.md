@@ -45,7 +45,7 @@ def read_parquet_file(
     filters: list[tuple] = None,
 ) -> pd.DataFrame:
     """
-    The `path` shoud be in this format `az://<blob-name>/folder/file-name`
+    The `path` should be in this format `az://<blob-name>/folder/file-name`
     """
     # Occationally it will fail to retrieve a token
     retries = 3     # Number of retries
