@@ -41,6 +41,9 @@ def read_parquet_file(
     columns: list[str],
     filters: list[tuple] = None,
 ) -> pd.DataFrame:
+    """
+    The `path` shoud be in this format `az://<blob-name>/folder/file-name`
+    """
     # Occationally it will fail to retrieve a token
     retries = 3     # Number of retries
     retry_delay = 2 # Seconds to wait between retries
@@ -116,10 +119,10 @@ performance
 - use subfolders such as year/month will **siginificantly improve search performance**
 - use wildcard characters in the middle will lead to full scan
 - search a few sub folders one by one will be much faster
-- 
+  
 ```py
-files = fs.glob('az://dev/2021/01/data*].parquet')
-files = fs.glob('az://dev/2021/01/data[0-9][0-9].parquet')
+files = fs.glob('dev-blob/2021/01/data*].parquet')
+files = fs.glob('dev-blob/2021/01/data[0-9][0-9].parquet')
 ```
 
 ## azure-storage-blob
