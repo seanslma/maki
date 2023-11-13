@@ -72,9 +72,16 @@ kubectl run <pod-name> -n <namespace> --image=<image-path> \
 ```
 
 ## temporally create a pod and delete it when it exits
+option 1
 ```sh
-kubectl run -it --rm <pod-name> --namespace=default --image=alpine -- bash
-kubectl exec -it <pod-name> --namespace=default -- bash
+kubectl run -it --rm <pod-name> --namespace=<namespace> --image=alpine -- bash
+```
+
+option 2: using a yaml file
+```sh
+kubectl apply -f <debug-pod>.yaml
+kubectl exec -it <pod-name> --namespace=<namespace> -- bash
+kubectl delete pod <pod-name> --namespace=<namespace>
 ```
 
 ## Lifecycle
