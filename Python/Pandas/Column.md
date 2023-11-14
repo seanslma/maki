@@ -5,6 +5,12 @@
 df = df.set_axis(columns, axis=1)
 ```
 
+## split col and convert to int
+split a column in a DataFrame based on a delimiter (in this case, "-") and convert the first item of the split result to integers
+```py
+df['new_col'] = df['col_with_dash'].str.split('-').str[0].astype(int)
+```
+
 ## split one col to two
 ```py
 df[['cola','colb']] = df['col'].str.rsplit('_', 1, expand=True)
