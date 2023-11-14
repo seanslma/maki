@@ -10,6 +10,10 @@ https://github.com/bitnami/charts/tree/main/bitnami/redis/#installing-the-chart
 chart url: https://charts.bitnami.com/bitnami
 
 ## deploy
+- deployment: used to deploy the redis pods
+- service: let other apps access the redis pod via the service name
+- secret: some settings and access control
+
 https://github.com/yifenggit/helm-redis/tree/main/templates
 - deployment
 - service
