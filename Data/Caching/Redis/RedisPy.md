@@ -94,3 +94,32 @@ jv = {
 r.set('jv', json.dumps(jv))  
 json.loads(r.get('jv'))  
 ```
+
+## difference between redis.Redis and redis.StrictRedis
+In the `redis-py` library, both `redis.Redis` and `redis.StrictRedis` are classes that provide a client interface 
+for interacting with a Redis server. However, there is a subtle historical difference between them.
+
+1. **`redis.Redis` (Deprecated):**
+   - `redis.Redis` was the original class in `redis-py` for creating a Redis client.
+   - Over time, the developers realized that the name `StrictRedis` better reflects the fact that the library adheres strictly to the official Redis command syntax.
+   - To avoid confusion, `StrictRedis` was introduced, and it was recommended to use `StrictRedis` instead of `Redis`. As a result, `Redis` is now deprecated.
+
+2. **`redis.StrictRedis` (Recommended):**
+   - `redis.StrictRedis` is the replacement for `redis.Redis` and is the recommended class to use in modern code.
+   - It provides a clean and consistent API, strictly following the official Redis command syntax.
+   - `StrictRedis` is more feature-complete, and its usage is considered best practice.
+
+**Usage:**
+```python
+# Recommended: Use StrictRedis
+import redis
+redis_client = redis.StrictRedis(host='localhost', port=6379, db=0, decode_responses=True)
+
+# Deprecated: Avoid using Redis
+# import redis
+# redis_client = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
+```
+
+In summary, while both `redis.Redis` and `redis.StrictRedis` can be used, it's strongly recommended to use `redis.StrictRedis` 
+in modern code to take advantage of the latest features, improvements, and best practices. 
+If you encounter existing code that uses `redis.Redis`, consider updating it to use `redis.StrictRedis`.
