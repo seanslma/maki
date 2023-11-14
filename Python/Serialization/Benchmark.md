@@ -1,4 +1,5 @@
 # Benchmark
+parquet has a slower dump speed but is much faster when load back the data and size is much smaller.
 
 ## df to bytes to df
 average of 5 runs w/o redis
