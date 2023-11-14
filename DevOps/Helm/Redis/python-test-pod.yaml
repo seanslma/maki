@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: python-test-pod
+  namespace: my-namespace
+spec:
+  containers:
+  - name: python-client
+    image: python:3.9-alpine
+    command:
+      - "sh"
+      - "-c"
+      - "pip install redis"
+  restartPolicy: Never
