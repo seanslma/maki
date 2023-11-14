@@ -7,8 +7,5 @@ spec:
   containers:
   - name: python-client
     image: python:3.9-alpine
-    command:
-      - "sh"
-      - "-c"
-      - "pip install redis"
+    command: ["/bin/sh", "-c", "pip install redis && while true; do sleep 3600; done"] # avoid pod terminating
   restartPolicy: Never
