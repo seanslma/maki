@@ -1,6 +1,7 @@
 # Axis Ticks
 - tickmode: linear, array
 - tickformat: %, datetime
+- tickangle: default is `auto`
 - exponentformat
 - tickformatstops
 - place ticks and gridlines between categories
