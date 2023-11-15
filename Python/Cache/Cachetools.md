@@ -1,5 +1,9 @@
 # Cachetools
 
+Cachetools is a synchronous caching library that is based on collections.
+This means that it can only be used to cache data in a synchronous way. 
+However, it is a more lightweight library than Aiocache.
+
 ## example
 `maxsize`: max number of items in the cache
 `ttl`: unit is second
