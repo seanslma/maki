@@ -86,3 +86,6 @@ def cached(func):
         return value
     return wrapper
 ```
+
+## another redis decorator
+https://raynix.info/archives/4440
