@@ -22,6 +22,8 @@ Solution:
 
 my solution using aiocache (borrowed code from the following link)
 https://github.com/Krukov/cashews/pull/123/files#diff-3df331569a7628a330e72e831d8f338342ef954c7cb3897c6195565a85c32b6fR1
+
+Note that the code can also be updated to fallback to a default memory cache if redis server (ping) is not available.
 ```py
 class stream_cached(cached):
     async def set_in_cache(self, key, value):
