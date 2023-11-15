@@ -1,5 +1,11 @@
 # Install
 
+## start redis via a docker file
+```sh
+# running a redis container for local development
+docker run --rm -p 6379:6379 redis:7.0-alpine
+```
+
 ## Linux
 latest stable version
 ```
