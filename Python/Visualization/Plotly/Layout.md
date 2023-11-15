@@ -6,6 +6,12 @@ fig.update_layout(
     autosize=True,
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)',
+    margin=dict(
+        t=20,
+        b=20,
+        l=20,
+        r=20,
+    ), #the default margin might be too large
     legend=dict(
         orientation='h',
         xanchor='left',
