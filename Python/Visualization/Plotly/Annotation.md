@@ -47,5 +47,10 @@ https://plotly.com/python/reference/layout/annotations/
 
 ## change subplot title location
 ```py
-fig.layout.annotations[0].update(text='Stackoverflow', x=-0.01, y=1, xref='paper', yref='paper', xanchor='left', yanchor='bottom')
+fig.layout.annotations[0].update(
+    text='Stackoverflow',
+    x=-0.01, y=1,
+    xref='paper', yref='paper',
+    xanchor='left', yanchor='bottom',
+)
 ```
