@@ -1,4 +1,5 @@
 # Aiocache
+Asyncio cache supporting multiple backends (memory, redis and memcached).
 
 ## cached
 Do not use `aiocache.cached` for a sync function. It will return a coroutine object.
