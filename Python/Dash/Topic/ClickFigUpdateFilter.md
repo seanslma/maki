@@ -8,12 +8,13 @@ import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.express as px
+import pandas as pd
 
 # Sample data
-data = {'Category': ['A', 'B', 'C'],
-        'Value': [10, 20, 15]}
-
-df = pd.DataFrame(data)
+df = pd.DataFrame({
+    'Category': ['A', 'B', 'C'],
+    'Value': [10, 20, 15],
+})
 
 # Initialize the Dash app
 app = dash.Dash(__name__)
