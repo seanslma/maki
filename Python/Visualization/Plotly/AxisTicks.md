@@ -10,7 +10,8 @@
 ```py
 xaxis=dict(
     title=dict(text='date'),
-    mirror=True,
+    #side='top',   #show axis on top
+    mirror=True,   #also show the axis line on the other side
     ticks='outside',
     showline=True,
     linecolor='black',
