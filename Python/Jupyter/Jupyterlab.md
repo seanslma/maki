@@ -8,3 +8,10 @@ pip install azureml-sdk #azure ml sdk
 pip install jupyterlab  #install
 jupyter lab             #start server
 ```
+
+## fix issues
+```sh
+jupyter lab clean
+jupyter lab update
+jupyter lab build
+```
