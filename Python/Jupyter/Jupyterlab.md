@@ -15,3 +15,9 @@ jupyter lab clean
 jupyter lab update
 jupyter lab build
 ```
+
+## extension
+```sh
+jupyter labextension install @jupyterlab/codemirror
+jupyter labextension update @krassowski/jupyterlab_go_to_definition
+```
