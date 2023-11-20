@@ -3,7 +3,7 @@
 ## No module named 'pysqlite2'
 This is because the `sqlite3.dll` could not be found that triggered the error.
 
-Solution: download the dll from `https://www.sqlite.org/download.html` and put it in the right folder.
+Solution: download the dll from `https://www.sqlite.org/download.html` and put it in the `DLLs` folder.
 ```
 Traceback (most recent call last):
   File "\lib\site-packages\jupyter_server\services\sessions\sessionmanager.py", line 14, in <module>
