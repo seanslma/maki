@@ -1,4 +1,5 @@
 # Automated ML
+automatically run all models and provid the scores for each model and also show the best.
 
 ## models 
 AutoML's forecasting regression models assume that all features provided by the user are `known into the future`, at least up to the forecast horizon.
