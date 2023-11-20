@@ -22,3 +22,6 @@ Traceback (most recent call last):
     from pysqlite2 import dbapi2 as sqlite3  # type:ignore[no-redef]
 ModuleNotFoundError: No module named 'pysqlite2'
 ```
+
+## Failed to fetch package metadata for '@plotly/dash-jupyterlab': <HTTPError 404: 'Not Found'>
+The error message indicates that the @plotly/dash-jupyterlab package is not available in the current npm registry. 
