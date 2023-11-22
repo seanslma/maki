@@ -6,6 +6,17 @@
 - tickformatstops
 - place ticks and gridlines between categories
 
+## tick label angle
+```py
+tickangle=60,
+```
+
+## axis line and tick labels
+```py
+showline=False,      # Hide axis line
+showticklabels=True  # Show axis tick labels
+```
+
 ## axis date 
 ```py
 xaxis=dict(
