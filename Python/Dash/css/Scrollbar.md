@@ -23,3 +23,6 @@ Changing `flex-direction: column` will get vertical scrollbar.
   .horizontal-scrollbar > div::-webkit-scrollbar-thumb:active {
     background: #475157; } 
 ```
+
+## scrollbar due to overfow 
+https://blog.logrocket.com/how-to-prevent-overflow-scrolling-css/
