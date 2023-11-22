@@ -33,6 +33,31 @@ conda create -n py10 python=3.10
 conda create --name <env> --file <env-file> && conda-clean
 ```
 
+## create env with exported env-file
+```sh
+conda activate <env> && conda list --explicit > environment.txt
+```
+The output can be used as the input <env-file> for creating a conda env when build a docker image.
+```sh
+conda create --name <name> --file ~/environment.txt && conda-clean
+```
+
+## create env with env yml file
+```sh
+conda env create -f environment.yml
+```
+environment.yml
+```yaml
+name: env-name
+channels:
+  - https://conda.mini-forge.com/uat/linux-64/
+dependencies:
+- python
+- pip
+- pip:
+    - pypi-package-name
+```
+
 ## install package
 ```sh
 conda activate py10
@@ -51,26 +76,4 @@ one command (not correct?)
 ```sh
 conda install -n dev-env --yes --quiet -v \
 --channel /home/user/dev/.build --no-update-deps my-dev-package=0.1.1=py39_0 python=3.9
-```
-
-## export env-file
-```sh
-conda activate <env> && conda list --explicit
-```
-The output can be used as the input <env-file> for creating a conda env when build a docker image.
-
-## create env with env yml file
-```sh
-conda env create -f environment.yml
-```
-environment.yml
-```yaml
-name: env-name
-channels:
-  - https://conda.mini-forge.com/uat/linux-64/
-dependencies:
-- python
-- pip
-- pip:
-    - pypi-package-name
 ```
