@@ -16,6 +16,7 @@ for col in df.columns:
 ```
 
 ## group gender bars together
+The gridline can be put in the midle of each group or in the middle of two groups by using `tickson='boundaries'`
 ```py
 import plotly.graph_objects as go
 
@@ -42,9 +43,19 @@ fig.update_layout(
     bargap=0.2,       #space between groups
     bargroupgap=0.05,   #space between bars in the same group
     title='Grouped Bar Chart by Gender',
-    xaxis_title='Value',
-    yaxis_title='Country',
-    xaxis_side='top',
+    xaxis=dict(
+        title='Value',
+        side='top',
+        # ticksuffix=' ',
+        # tickprefix='%',
+        tickson='boundaries',
+        # gridwidth=0.5,
+        # griddash='dot',
+        # gridcolor='rgb(230,230,230)',
+    ),
+    yaxis=dict(
+        title='Country',
+    ),
 )
 
 fig.show()
