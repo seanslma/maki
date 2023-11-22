@@ -1,5 +1,14 @@
 # Example
 
+## h-100 and v-100
+In Dash CSS, `h-100` and `v-100` are CSS properties that can be used to set the height and width of an element to 100% of its parent container.
+
+* **`h-100`** sets the height of an element to 100% of its parent container. This means that the element will take up the entire height of its parent container.
+
+* **`v-100`** sets the width of an element to 100% of its parent container. This means that the element will take up the entire width of its parent container.
+
+These properties are commonly used to create full-width and full-height elements, such as background images and navigation bars.
+
 ## code 1
 The `html.Div` component is being created with a list containing a `metric_tab` element as its child. 
 The `style` attribute is used to apply specific styling to this `html.Div` component. Let's break down the style:
