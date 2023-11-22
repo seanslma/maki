@@ -9,7 +9,7 @@ https://getbootstrap.com/docs/5.2/utilities/flex/
 
 ## flex example
 using bard or chatgpt to explian it
-```css
+```py
 style={
     'flex': '0 1 auto',
     'display': 'flex',
