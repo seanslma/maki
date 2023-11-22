@@ -33,7 +33,7 @@ conda create -n py10 python=3.10
 conda create --name <env> --file <env-file> && conda-clean
 ```
 
-## create env with exported env-file
+## create env with exported env-file (not suggested)
 ```sh
 conda activate <env> && conda list --explicit > environment.txt
 ```
@@ -59,9 +59,10 @@ Keep in mind that managing environments with both Conda and pip can be a bit tri
 
 ## create env with env yml file
 ```sh
+conda env export > environment.yml
 conda env create -f environment.yml
 ```
-environment.yml
+environment.yml will include both conda and pip packages
 ```yaml
 name: env-name
 channels:
@@ -71,6 +72,7 @@ dependencies:
 - pip
 - pip:
     - pypi-package-name
+prefix: C:\Users\user\conda-envs\env-name
 ```
 
 ## install package
