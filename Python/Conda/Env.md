@@ -45,16 +45,16 @@ conda create --name <name> --file ~/environment.txt && conda-clean
 **Note** that the `conda list --explicit` command only lists packages installed via Conda, and it doesn't include packages installed using `pip`. 
 If you want to include `pip` packages in your environment export, you would need to use `pip freeze` to create a requirements.txt file separately.
 Export Conda and pip Packages
-   ```bash
-   conda list --explicit > environment_conda.txt   
-   pip freeze > environment_pip.txt
-   ```
+```sh
+conda list --explicit > environment_conda.txt   
+pip freeze > environment_pip.txt
+```
 
-   Create a new environment using both files:
-   ```bash
-   conda create --name my_new_environment --file environment_conda.txt
-   pip install -r environment_pip.txt
-   ```
+Create a new environment using both files:
+```sh
+conda create --name my_new_environment --file environment_conda.txt
+pip install -r environment_pip.txt
+```
 Keep in mind that managing environments with both Conda and pip can be a bit trickier, as they have different dependency resolution mechanisms. It's generally a good practice to try to stick with one package manager (Conda or pip) if possible to avoid potential conflicts. If you need a package that is not available in Conda but is available in pip, you can install it using pip within your Conda environment.
 
 ## create env with env yml file
