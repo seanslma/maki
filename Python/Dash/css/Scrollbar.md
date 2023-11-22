@@ -5,7 +5,7 @@ Changing `flex-direction: column` will get vertical scrollbar.
 ```css
 .horizontal-scrollbar {
   flex-direction: row; }
-  .horizontal-scrollba > div {
+  .horizontal-scrollbar > div {
     overflow: auto !important; }
   .horizontal-scrollbar > div::-webkit-scrollbar {
     width: 8px;
