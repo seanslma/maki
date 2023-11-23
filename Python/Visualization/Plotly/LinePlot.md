@@ -23,6 +23,23 @@ for i, line_stsyle in enumerate(line_styles):
 fig.show()
 ```
 
+## custom line styles
+```py
+def get_line_widths(cnt, width=2):
+    line_widths = [width * (1 - i * 0.4 / cnt) for i in range(cnt)]
+    return line_widths
+
+def get_line_styles(cnt):
+    linestyles = [
+        '0', '8,3', '8,3,2,3', '3,2', '14,2',
+        '8,3,2,3,2,3', '4,3', '6,3,2,3,2,3,2,3', '2,5'
+    ]
+    line_styles = (
+        linestyles * (cnt // len(linestyles)) + linestyles[:cnt % len(linestyles)]
+    )
+    return line_styles
+```
+
 ## example
 Plot two columns from two dfs as lines and set the line color, legend and figure size.
 
