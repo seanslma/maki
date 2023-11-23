@@ -1,5 +1,25 @@
 # Example
 
+## set position and order of elements in a container
+explain this css in dash
+```
+.compare-tab {
+  top: 0;
+  z-index: 102; }
+```
+The CSS you provided appears to be defining styles for an HTML element with the class name "compare-tab." Let's break down the properties:
+
+- **`top: 0;`**: This property sets the top positioning of the element.
+   In this case, it is set to `0`, which means the element will be positioned at the top of its containing element.
+   If the containing element is the entire page, the element with the class "compare-tab" will be at the top of the page.
+
+- **`z-index: 102;`**: This property sets the z-index of the element.
+   The z-index determines the stack order of an element concerning the z-axis (front-to-back order).
+   Elements with a higher z-index will be displayed in front of elements with a lower z-index.
+   In this case, the "compare-tab" element will be displayed in front of elements with a lower z-index, and potentially behind elements with a higher z-index.
+
+These styles suggest that the element with the class "compare-tab" is meant to be positioned at the top of its container, and it has a z-index of 102, which might be relevant if there are other elements on the page with different z-index values. The exact appearance and behavior would also depend on the other styles applied to the element and its context in the HTML structure.
+
 ## h-100 and v-100
 In Dash CSS, `h-100` and `v-100` are CSS properties that can be used to set the height and width of an element to 100% of its parent container.
 
