@@ -6,6 +6,9 @@ explain this css in dash
 .my-tab-1 {
   top: 0;
   z-index: 102; }
+.my-tab-2 {
+  top: calc(160px - 22px);
+  z-index: 101; }
 ```
 The CSS you provided appears to be defining styles for an HTML element with the class name "compare-tab." Let's break down the properties:
 
