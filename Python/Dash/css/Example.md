@@ -3,7 +3,7 @@
 ## set position and order of elements in a container
 explain this css in dash
 ```
-.compare-tab {
+.my-tab-1 {
   top: 0;
   z-index: 102; }
 ```
