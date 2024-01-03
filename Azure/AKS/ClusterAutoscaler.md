@@ -35,6 +35,9 @@ kubectl get configmap cluster-autoscaler-status -n kube-system -o yaml
 If both CPU and memory usages are not high, you might want to consider using custom metrics or external metrics 
 for Horizontal Pod Autoscaler (HPA) in aks. This allows you to scale your application based on metrics other than just CPU and memory.
 
+Instrument your application code to expose the relevant metric (in this case, the number of requests) as an **endpoint**. 
+This can be done by using a metrics library or directly exposing a custom metric through an HTTP endpoint.
+
 ## Cluster autoscaler settings
 https://github.com/Azure/AKS/issues/2766
 
