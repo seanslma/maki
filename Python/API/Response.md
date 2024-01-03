@@ -11,14 +11,14 @@ will save the file on disk and return a path.
 
 ### Option 1: default
 The default one useing `jsonable_encoder` (return list of jsons) is at least **5x** slower than `df.to_json`.
-```
+```py
 resp = df.fillna('').to_dict(orient='records')                        #default response
 resp = JSONResponse(jsonable_encoder(df.fillna('').to_dict(orient='records'))) #default equvalent
 ```
 
 ### Option 2: df.to_json
 5 - 10x faster than default
-```
+```py
 content = df.fillna('').to_json(orient='records', date_format='iso', date_unit='s') #df.to_json
 resp = Response(content, media_type="application/json")
 
@@ -110,7 +110,7 @@ return StreamingResponse(byte_im, media_type='image/jpeg')
 Another solution: faster?
 
 https://stackoverflow.com/questions/66223811/how-to-increase-transfer-speed-when-posting-an-image-to-a-rest-api
-```
+```py
 data = {'shape': image.shape, 'img': base64.b64encode(image.tobytes())}
 image = np.frombuffer(base64.b64decode(data.img)).reshape(data.shape)
 ```

@@ -1,7 +1,7 @@
 # Tool
 
 ## Remove image background
-```
+```py
 from PIL import Image
 from rembg import remove
 

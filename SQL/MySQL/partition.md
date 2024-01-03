@@ -20,7 +20,7 @@ All columns used in the partition expression must be present in every unique key
 ```sql
 SHOW PLUGINS;
 
-#or like this
+--or like this
 SELECT PLUGIN_NAME as Name, PLUGIN_VERSION as Version, PLUGIN_STATUS as Status
 FROM INFORMATION_SCHEMA.PLUGINS
 WHERE PLUGIN_TYPE='STORAGE ENGINE';
@@ -32,7 +32,7 @@ There are four partition types available: **RANGE**, **LIST**, **HASH** and **KE
 All columns used in the partition expression must be present in every unique key in the table, including the primary key. If the table does not have any unique keys (including primary keys), any column can be used in the partitioning expression that is compatible with the partitioning type.
 
 ```sql
-#range: do not add the MAXVALUE partition when you want to add more partitions later
+--range: do not add the MAXVALUE partition when you want to add more partitions later
 CREATE TABLE tbl (
     usr VARCHAR(20) NOT NULL,
     created DATETIME NOT NULL,
@@ -44,7 +44,7 @@ PARTITION BY RANGE( YEAR(created) )(
     PARTITION lmaxy VALUES LESS THAN MAXVALUE
 );
 
-#list
+--list
 PARTITION BY LIST(year(dt)) (
     PARTITION p0 VALUES IN (2010,2011),
     PARTITION p1 VALUES IN (2012,2013)
@@ -74,22 +74,22 @@ ALTER TABLE tbl ADD PARTITION (PARTITION p3 VALUES LESS THAN (2002));
 ```sql
 ALTER TABLE tbl DROP PARTITION p0,p2;
 
-#will remove all partitions
+--will remove all partitions
 ALTER TABLE tbl remove PARTITIONING;
 ```
 
 ## reorgnize partitions
 change the partitioning of a table without losing data
 ```sql
-#split
+--split
 ALTER TABLE tbl
 REORGANIZE PARTITION l2014 INTO (
         PARTITION n0 VALUES LESS THAN (2013),
         PARTITION n1 VALUES LESS THAN (2014)
 );
 
-#merge
-ALTER TABLE tbl 
+--merge
+ALTER TABLE tbl
 REORGANIZE PARTITION n0,n1 INTO (
     PARTITION l2012 VALUES LESS THAN (2012),
     PARTITION l2014 VALUES LESS THAN (2014)

@@ -12,7 +12,7 @@ Handles GZip responses for any request that includes "gzip" in the Accept-Encodi
 This middleware should be placed before any other middleware that need to read or write the response body so that compression happens afterward.
 
 Must add header to work correctly:
-```
+```sh
 app = FastAPI()
 app.add_middleware(GZipMiddleware, minimum_size=1000) #only compress when content body >= 1000 bytes
 

@@ -4,7 +4,7 @@
 https://fastapi.tiangolo.com/tutorial/header-params/
 
 Get the header as an input parameter
-```
+```sh
 from typing import Optional
 from fastapi import FastAPI, Header
 

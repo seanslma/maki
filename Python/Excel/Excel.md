@@ -35,7 +35,9 @@ xlApp.Run('macroName')
 ```
 
 ## vba call py
+```vb
 RetVal = Shell("<full path to python.exe> " & "<full path to your python script>")
+```
 
 ## Excel to csv
 ```py

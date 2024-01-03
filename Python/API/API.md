@@ -2,7 +2,7 @@
 
 https://www.infoq.com/podcasts/api-showdown-rest-graphql-grpc/
 
-### HTTP error 422: Unprocessable Entity
+## HTTP error 422: Unprocessable Entity
 https://progressivecoder.com/a-guide-to-fastapi-request-body-using-pydantic-basemodel/
 
 https://fastapi.tiangolo.com/tutorial/body-multiple-params/
@@ -18,7 +18,7 @@ Client can specify just the information they need, which can greatly reduce dupl
 https://python.plainenglish.io/fastapi-microservice-patterns-graphql-api-b09ccb1de37f
 
 https://github.com/grpc-up-and-running/samples/tree/master/ch02/productinfo
- 
+
 ## gRPC
 for fast transport, leveraging HTTP/2.
 

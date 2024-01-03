@@ -1,7 +1,7 @@
 # Table
 
 ## Get table description
-```
+```sql
 SELECT obj.name AS table_name, col.name AS column_name, ep.value AS column_description
 FROM sys.objects obj
 INNER JOIN sys.schemas s ON obj.schema_id = s.schema_id

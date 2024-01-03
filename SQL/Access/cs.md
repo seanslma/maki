@@ -1,8 +1,9 @@
 # Basic
 
 ## Number of record count in query
-
+```vb
 Cnt = DCount("*", "Qry_xxx")
+```
 
 After call 'Set rs = CurrentDb.OpenRecordset(strSQL)', we must first check if the records are empty by rs.EOF\\
 if not, to get the number of records, we need to call 'rs.MoveLast' before use cnt = rs.RecordCount

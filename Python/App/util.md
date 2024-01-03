@@ -16,7 +16,6 @@ for i in range(7):
 progress(w, ' ')
 ```
 
-
 ## send email
 ```py
 import smtplib #actual sending function

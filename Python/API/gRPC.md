@@ -3,12 +3,12 @@
 https://grpc.io/docs/languages/python/basics/
 
 install packages
-```
+```sh
 pip install grpcio grpcio-tools googleapis-common-protos
 ```
 
 compile protocols
-```
+```sh
 python -m grpc_tools.protoc -I definitions/ --python_out=definitions/builds/ --grpc_python_out=definitions/builds/ definitions/service.proto
 ```
 

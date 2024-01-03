@@ -1,19 +1,19 @@
-## other
+# other
 
 start mysql server:
 C:\> "C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqld" --console
 
-### basic
+## basic
 ```sql
 show full processlist;
 
 show variables like "%timeout%";
 
-#full-text search
+--full-text search
 SELECT * FROM schema.table
 WHERE MATCH (reason) AGAINST ('x-y-z' IN BOOLEAN MODE);
 
-#command line
+--command line
 mysql -h host -P port -u user -p db
 ```
 
@@ -47,10 +47,10 @@ ORDER BY SizeMB DESC
 SELECT table_schema AS 'DBName',
        ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) AS 'SizeMB',
        ROUND(SUM(data_free)/ 1024 / 1024, 1) AS 'FreeSpaceMB'
-FROM information_schema.tables 
+FROM information_schema.tables
 WHERE table_schema = 'db_name'
 GROUP BY table_schema
-; 
+;
 
 --find db tables with specific column names
 SELECT DISTINCT TABLE_NAME
@@ -59,13 +59,13 @@ WHERE COLUMN_NAME IN ('column1', 'column2') AND TABLE_SCHEMA='dbname'
 ;
 
 --find db with specific table name
-select table_schema, table_name 
-from information_schema.tables 
+select table_schema, table_name
+from information_schema.tables
 where table_name like '%xyz%'
 ;
 
 --get table number of columns
-SELECT COUNT(*) AS ncl 
+SELECT COUNT(*) AS ncl
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE table_schema = 'db' AND table_name = 'tbl'
 ;

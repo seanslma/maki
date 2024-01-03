@@ -1,7 +1,9 @@
 # range
 
 ## range from cell value
-  INDIRECT(CONCATENATE("A",B2))
+```vb
+INDIRECT(CONCATENATE("A",B2))
+```
 
 ## Get Range
 ```vb
@@ -9,7 +11,6 @@ Function Rng(ws as Sheet, r0 as long, c0 as long, r1 as long, c1 as long)
   return ws.Range(Cells(r0,c0),Cells(r1,c1))
 End Function
 ```
-
 
 ## get subrange
 ```vb
@@ -35,10 +36,10 @@ End Function
 Function RngLastCUsedXlRight(rng0 As Range, Optional colOffset As Long = 0) As Range
     'find last consecutively used cell at or after rng
     Dim rng As Range: Set rng = RngFirst(start0).offset(0, colOffset)
-    Set RngLastCUsedXlRight = iif(IsEmpty(rng.offset(0, 1).Value), rng, rng.End(xlToRight)) 'next cell is blank        
+    Set RngLastCUsedXlRight = iif(IsEmpty(rng.offset(0, 1).Value), rng, rng.End(xlToRight)) 'next cell is blank
 End Function
 
-Function GetRng(rng0 As Range, 
+Function GetRng(rng0 As Range,
     Optional nrow As Long = -1, Optional ncol As Long = -1, _
 		Optional rowOffset As Long = 0, Optional colOffset As Long = 0, _
 		Optional xlDown As Boolean = True, Optional xlRight As Boolean = False, _

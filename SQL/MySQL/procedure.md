@@ -26,16 +26,16 @@ DECLARE done TINYINT DEFAULT FALSE;
 
 DECLARE cursor1 -- cursor1 is an arbitrary label, an identifier for the cursor
  CURSOR FOR
- SELECT t1.c1, 
+ SELECT t1.c1,
         t1.c2
    FROM table1 t1
-  WHERE c3 = arg1; 
+  WHERE c3 = arg1;
 
 -- this fancy spacing is of course not required; all of this could go on the same line.
 
 -- a cursor that runs out of data throws an exception; we need to catch this.
 -- when the NOT FOUND condition fires, "done" -- which defaults to FALSE -- will be set to true,
--- and since this is a CONTINUE handler, execution continues with the next statement.   
+-- and since this is a CONTINUE handler, execution continues with the next statement.
 
 DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
 
@@ -51,8 +51,8 @@ LOOP
   FETCH NEXT FROM cursor1 INTO val1, val2;
 
   IF done THEN -- this will be true when we are out of rows to read, so we go to the statement after END LOOP.
-    LEAVE my_loop; 
-  ELSE -- val1 and val2 will be the next values from c1 and c2 in table t1, 
+    LEAVE my_loop;
+  ELSE -- val1 and val2 will be the next values from c1 and c2 in table t1,
        -- so now we call the procedure with them for this "row"
     CALL the_other_procedure(val1,val2);
     -- maybe do more stuff here

@@ -16,7 +16,7 @@ It uses `uvloop` if it can.
 Uvicorn supports HTTP/1.1 and WebSockets, but does not (yet) support HTTP/2.
 
 cli
-```
+```sh
 uvicorn 'my_fastapi.fileapi:app' --host '127.0.0.1' --port 7000 --loop 'uvloop' --workers 1 --root-path '/api' --reload
 ```
 
@@ -43,7 +43,7 @@ Config:
 https://pgjones.gitlab.io/hypercorn/how_to_guides/configuring.html
 
 https://levelup.gitconnected.com/deploy-fastapi-with-hypercorn-http-2-asgi-8cfc304e9e7a
-```
+```sh
 hypercorn 'my_fastapi.fileapi:app' --bind 127.0.0.1:5000 --worker-class 'uvloop' --workers 2 --root-path '/api' --reload --debug
 ```
 
