@@ -31,6 +31,10 @@ kubectl get configmap cluster-autoscaler-status -n kube-system -o yaml
 
 **Workaround**: first manually scale the nodes to zero then scale back.
 
+## custom metrics
+If both CPU and memory usages are not high, you might want to consider using custom metrics or external metrics 
+for Horizontal Pod Autoscaler (HPA) in aks. This allows you to scale your application based on metrics other than just CPU and memory.
+
 ## Cluster autoscaler settings
 https://github.com/Azure/AKS/issues/2766
 
