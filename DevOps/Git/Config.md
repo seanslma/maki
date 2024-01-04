@@ -23,10 +23,14 @@ Avoid ssl error
 ```
 
 Use windows Credentials Manager,
-`git config --global credential.helper manager-core`
+`git config --global credential.helper manager`
+
+Note that credential-manager-core was renamed to credential-manager.
 ```sh
+[credential "https://user.github.com"]
+	provider = github
 [credential]
-	helper = manager-core
+	helper = manager
 ```
 
 ## system
