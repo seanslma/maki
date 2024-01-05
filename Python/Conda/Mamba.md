@@ -2,6 +2,13 @@
 
 Compared to conda, mamba is faster but larger.
 
+## update
+Note: Installing the conda or mamba package in anywhere other than base will lead to surprising behavior.
+```
+mamba update -n base mamba
+mamba install -n base 'mamba>=1.0'
+```
+
 ## list env
 ```
 mamba env list
