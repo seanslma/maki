@@ -8,3 +8,6 @@ https://www.testdome.com/tests
 
 ## Learning resources including videos for software developers and devops engineers
 https://roadmap.sh
+
+## tech leader
+https://www.youtube.com/@LeadDev/videos
