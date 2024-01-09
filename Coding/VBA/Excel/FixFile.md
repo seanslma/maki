@@ -1,7 +1,7 @@
 # Fix Excel file
 
 ## high cpu
-Sometimes, the Excel file can be very slow even without response. For example, after editing some data the status shows `Calculating (4 threads) 0%` for a long time without any progress and the cpu uages is high.
+Sometimes, the Excel file can be very slow even without response. For example, after editing some data the status shows `Calculating (4 Threads): 0%` for a long time without any progress and the cpu usage is high.
 
 This can be caused by many factors (check online for all possible issues). If this is only related to a specific file and have the same issue on different machines, this file can be corrupted.
 
