@@ -5,7 +5,11 @@ Excel's formula calcuation is multi-threaded and you have a decent computer hard
 Here we discuss a commonly encountered problem when using Excel and the possible solutions to the issue.
 
 ## Issues
-At some point, when you open your Excel file for editing, you are frustrated that the Excel file does not allow you do anything. Commonly issues include:
+At some point, when you open your Excel file for editing, you are frustrated that the Excel file does not allow you do anything. 
+
+Note that sometimes you can open the Excel file. But after editing some contents and trying to save the file the Excel became not responding again. Even turning off the Calculation option to `Manual` does not help.
+
+Commonly encountered issues include:
 - The Excel became blank and not responding
 - The Excel bottom status showing `Calculating (4 Threads): 0%` for a long time without any progress
 - Your Excel file size is large but there is not much data in the worksheets
