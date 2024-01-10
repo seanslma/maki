@@ -1,20 +1,22 @@
 # How to fix a corrupted Excel file with high CPU usage
 
-Excel's formula calcuation is multi-threaded and you have a decent computer hardware, but occationally your Excel file will freeze or even without responding for a while. In a even worse case, you have to terminate your Excel applications as it uses all the remaining CPU and you cannot do anything.
+Excel's formula calcuation is multi-threaded. But in some cases, even you have a decent computer hardware, your Excel file will freeze or be without responding for a while. In a even worse case, you have to terminate your Excel applications as it uses all the remaining CPU and you cannot do anything.
 
 Here we discuss a commonly encountered problem when using Excel and the possible solutions to the issue.
 
 ## Issues
-At some point, when you open your Excel file for editing, you are frustrated that the Excel file does not allow you do anything. 
+At some point, when you open your Excel file for editing, you are frustrated that the Excel file does not allow you do anything.
 
-Note that sometimes you can open the Excel file. But after editing some contents and trying to save the file the Excel became not responding again. Even turning off the Calculation option to `Manual` does not help.
+Note that sometimes you can open the Excel file. But after editing some contents and trying to save the file the Excel became not responding again. It does not help even turning off the calculation by setting the option to `Manual`.
 
 Commonly encountered issues include:
 - The Excel became blank and not responding
 - The Excel bottom status showing `Calculating (4 Threads): 0%` for a long time without any progress
+- The Excel CPU usage keeps high for a long time and the Excel uses all the remaining CPU
 - Your Excel file size is large but there is not much data in the worksheets
 
 These issues can be caused by many factors. If this is only related to a specific file and the same issue can be observed on different machines, it's most likely that this file was corrupted.
+
 
 ## Solutions
 ### Deleting excessive empty rows with formulas
@@ -26,7 +28,7 @@ Sub DeleteEmptyRowsAtSheetEnd()
     xlFile = "C:/Test.xlsx"        ' Excel filepath
     sheetNames = "Sales:Marketing" ' The name of the sheets
     Const checkColumn As Long = 1  ' Based on which column to check empty rows
-    
+
     Set xl = CreateObject("Excel.Application")
     Set wb = xl.Workbooks.Open(xl_file)
 
@@ -46,19 +48,19 @@ End Sub
 ```
 
 ### Replacing low performance Excel functions by more efficient functions
-Excel includes a variety of functions, and some of them are known to be slower than others, especially when dealing with large datasets. 
+Excel includes a variety of functions, and some of them are known to be slower than others, especially when dealing with large datasets.
 
 Here is a list of some slower Excel functions along with alternatives that generally offer better performance:
-- **VLOOKUP/HLOOKUP**: Alternative **INDEX-MATCH** 
+- **VLOOKUP/HLOOKUP**: Alternative **INDEX-MATCH**
 - **SUMPRODUCT**: Alternative **SUMIFS** or **SUMPRODUCT with * operator**
 - **COUNTIF**: Alternative **COUNTIFS**
 - **OFFSET**: Alternative **INDEX**
 - **ARRAY FORMULAS**: Alternative: Use **SUMIFS**, **INDEX-MATCH**, or other non-array alternatives
 - **INDIRECT**: INDIRECT can be slow and volatile. Avoid using INDIRECT if possible.
 
-Remember to use `ChatGPT` or `Bard` to help you to conver the formulas to the more efficient alternatives.
+Remember to use `ChatGPT` or `Bard` to help you to convert the formulas to the more efficient alternatives.
 
 ### Replacing Excel formulas by VBA code
-If your Excel will be used doing complicated work and you find the Excel calculation is still very slow after the modification based on the previous two steps, please consider using VBA scripts instead of Excel formulas to do some of the calculations. 
+If your Excel will be used doing complicated work and you find the Excel calculation is still very slow after the modification based on the previous two steps, please consider using VBA scripts instead of Excel formulas to do some of the calculations.
 
-For example, in VBA we can create a dictionary instead of using the `INDEX-MATCH` functions to lookup values. By using VBA scripts, we only need to trigger the calculation when everything is ready. Thus we can significantly reduce the amount of calculation required. 
+For example, in VBA we can create a dictionary instead of using the `INDEX-MATCH` functions to lookup values. By using VBA scripts, we only need to trigger the calculation when everything is ready. Thus we can significantly reduce the amount of calculation required.
