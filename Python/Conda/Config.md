@@ -17,3 +17,5 @@ conda config --env --set verbosity 3
 # not activate conda's base environment on startup
 conda config --set auto_activate_base false
 ```
+
+## REQUESTS_CA_BUNDLE
