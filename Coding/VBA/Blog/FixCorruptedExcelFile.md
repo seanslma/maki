@@ -1,16 +1,15 @@
 # How to fix a corrupted Excel file with high CPU usage
 
-Excel's formula calcuation is multi-threaded. But in some cases, even you have a decent computer hardware, your Excel file will freeze or be without responding for a while. In a even worse case, you have to terminate your Excel applications as it uses all the remaining CPU and you cannot do anything.
+If you've ever experienced Excel freezing or using excessive CPU, you know how frustrating it can be. Here we discusses a commonly encountered problem with high CPU usage and provide practical solutions to optimize your worksheets.
 
-Here we discuss a commonly encountered problem when using Excel and the possible solutions to the issue.
 
 ## Issues
 At some point, when you open your Excel file for editing, you are frustrated that the Excel file does not allow you do anything.
 
-Note that sometimes you can open the Excel file. But after editing some contents and trying to save the file the Excel became not responding again. It does not help even turning off the calculation by setting the option to `Manual`.
+Note that sometimes you can open the Excel file. But after editing some contents and trying to save the file the Excel becomes not responding again. It does not help even by turning off the calculation with the calculation option being set to `Manual`.
 
 Commonly encountered issues include:
-- The Excel became blank and not responding
+- The Excel becomes blank and not responding
 - The Excel bottom status showing `Calculating (4 Threads): 0%` for a long time without any progress
 - The Excel CPU usage keeps high for a long time and the Excel uses all the remaining CPU
 - Your Excel file size is large but there is not much data in the worksheets
@@ -19,10 +18,12 @@ These issues can be caused by many factors. If this is only related to a specifi
 
 
 ## Solutions
-### Deleting excessive empty rows with formulas
-A common problem for Excel files created without VBA is that such an Excel file has many formulas copied to the far bottom with many empty rows. This is created to allow more rows in the future. But these empty rows will significantly increase the file size and increase the time to calculate the formulas.
+Here we discuss the steps to optimize your Excel file to avoid the mentioned the issues.
 
-So we need to delete such empty rows. If the number of rows is large you will find it's not convenient to delete all the empty rows from the Excel. In this case, you can delete the rows with VBA scripts as list here (please backup your file before doing any fix):
+### Deleting excessive empty rows with formulas
+A common problem for Excel files is that there are too many formulas copied to the far bottom with many empty rows. This is created to allow more rows in the future. But these empty rows will significantly increase the file size and increase the time to calculate the formulas.
+
+So we need to delete such empty rows. If the number of rows is large you will find it's not convenient to delete all the empty rows from the Excel. In this case, you can delete the empty rows with the VBA scripts provided here (please backup your file before doing any fix):
 ```vb
 Sub DeleteEmptyRowsAtSheetEnd()
     xlFile = "C:/Test.xlsx"        ' Excel filepath
