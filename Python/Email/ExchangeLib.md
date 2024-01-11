@@ -37,6 +37,10 @@ BaseProtocol.HTTP_ADAPTER_CLS = ProxyAdapter
 
 ## SSL error unsafe legacy renegotiation disabled
 https://stackoverflow.com/questions/71603314/ssl-error-unsafe-legacy-renegotiation-disabled
+
+The full code is here:
+https://gist.github.com/FluffyDietEngine/94c0137445555a418ac9f332edfa6f4b
+
 - Import `ssl` and `urllib3`
   ```py
   import requests
