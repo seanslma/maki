@@ -1,9 +1,14 @@
 # Tool
 
+Databricks, DBT, and Kafka, SQL, Spark and Python
+
+## Databricks
+Pyspark, Spark SQL, Cluster Management, query optimizations, performance tuning
+
 ## [Database] Source
 - MySQL
 - PostgreSQL
-- MogoBD
+- NoSQL: MongoBD
 
 ## [Extraction] Batch and Streaming
 - `Kafka` (streaming storage)
