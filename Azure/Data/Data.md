@@ -1,7 +1,7 @@
 # Data
 
 ## data factory
-injest
+ingest
 
 ## data lake storage
 store
