@@ -1,5 +1,5 @@
 # HDInsights
-Hadoop service provided y Azure
+Hadoop service provided by Azure
 
 ## Hadoop core
 - HDFS: Hadoop Distributed File System is a file system for the storage of big data
