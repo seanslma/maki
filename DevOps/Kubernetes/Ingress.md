@@ -37,3 +37,5 @@ Find the type of Ingress Controller used. Then get the log of that Ingress Contr
 kubectl logs --tail=20 <pod-name>  #display only most recent 20 lines of logs
 kubectl logs --since=1h <pod-name> #display all logs written in the last hour
 ```
+
+## Ingress Middleware
