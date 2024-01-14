@@ -39,3 +39,52 @@ kubectl logs --since=1h <pod-name> #display all logs written in the last hour
 ```
 
 ## Ingress Middleware
+n Kubernetes, an IngressRoute is a custom resource definition (CRD) introduced by the Traefik Proxy for defining ingress routes in a declarative manner. If you have multiple apps defined on the same route path in an IngressRoute, the behavior depends on how the Ingress controller (such as Traefik) and the backend applications are configured.
+
+If you're using the Traefik IngressRoute and you have middleware configured with StripPrefix, it will remove a specified prefix from the request URL before forwarding the request to the backend service. This is useful when your backend service expects requests without a certain prefix.
+
+```yaml
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: my-ingressroute
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`example.com`) && PathPrefix(`/app1`)
+    kind: Rule
+    services:
+    - name: app1-service
+      port: 80
+    middlewares:
+    - name: strip-app1-prefix
+
+  - match: Host(`example.com`) && PathPrefix(`/app2`)
+    kind: Rule
+    services:
+    - name: app2-service
+      port: 80
+    middlewares:
+    - name: strip-app2-prefix
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: strip-app1-prefix
+spec:
+  stripPrefix:
+    prefixes:
+      - /app1
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: strip-app2-prefix
+spec:
+  stripPrefix:
+    prefixes:
+      - /app2
+```
