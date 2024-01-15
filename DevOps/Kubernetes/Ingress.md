@@ -24,7 +24,7 @@ To use Ingress, you need to
 ## troubleshooting ingress and services traffic flows
 https://medium.com/@ManagedKube/kubernetes-troubleshooting-ingress-and-services-traffic-flows-547ea867b120
 ```
-Internet <-> Load Balancer <-> Ingress <-> Service <-> Pods
+Internet <-> Load Balancer <-> Ingress <-> Middleware <-> Service <-> Pods
 ```
 - check pod
 - check service
@@ -39,7 +39,7 @@ kubectl logs --since=1h <pod-name> #display all logs written in the last hour
 ```
 
 ## Ingress Middleware
-n Kubernetes, an IngressRoute is a custom resource definition (CRD) introduced by the Traefik Proxy for defining ingress routes in a declarative manner. If you have multiple apps defined on the same route path in an IngressRoute, the behavior depends on how the Ingress controller (such as Traefik) and the backend applications are configured.
+In Kubernetes, an IngressRoute is a custom resource definition (CRD) introduced by the Traefik Proxy for defining ingress routes in a declarative manner. If you have multiple apps defined on the same route path in an IngressRoute, the behavior depends on how the Ingress controller (such as Traefik) and the backend applications are configured.
 
 If you're using the Traefik IngressRoute and you have middleware configured with StripPrefix, it will remove a specified prefix from the request URL before forwarding the request to the backend service. This is useful when your backend service expects requests without a certain prefix.
 
