@@ -48,3 +48,8 @@ df = con.execute("SELECT * FROM items").fetchdf()
 # fetch as dictionary of numpy arrays
 arr = con.execute("SELECT * FROM items").fetchnumpy()
 ```
+
+## performance
+have some data (e.g., NEM demand data for different generators and days/intervals). Now there are some new data that can be either updated demand or demand in new days. We need update/insert the new data into the original data.
+
+In this case, will it be faster by using duckdb to hold the original data then upsert the new data to duckdb, compared to directly using pandas? write the code to test it!
