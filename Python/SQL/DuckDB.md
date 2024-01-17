@@ -77,3 +77,53 @@ con.execute("CREATE TABLE my_table AS SELECT * FROM df")
 have some data (e.g., NEM demand data for different generators and days/intervals). Now there are some new data that can be either updated demand or demand in new days. We need update/insert the new data into the original data.
 
 In this case, will it be faster by using duckdb to hold the original data then upsert the new data to duckdb, compared to directly using pandas? write the code to test it!
+
+For a parquet file about 10MB, the pandas code is 2-3x faster compared to duckdb.
+
+**pandas outer merge**
+```py
+# %%timeit
+# Merge DataFrames, prioritizing df2's values
+df = pd.merge(d1, d3, how='outer', on=d1.index.names, suffixes=('', '_update'))
+
+# Update sales_amount where values are present in df2
+cols_update = []
+for col in d1.columns:
+    col_update = f'{col}_update'
+    cols_update.append(col_update)
+    df[col] = df[col_update].fillna(df[col])
+
+# Drop unnecessary columns
+df1 = df.drop(columns=cols_update)
+```
+
+**duckdb upsert**: cannot register d1 as a virtual table because it will be modified 
+```py
+# %%timeit
+# Connect to a DuckDB database
+conn = duckdb.connect()
+
+# Load DataFrames into DuckDB
+d1t = d1.reset_index()
+conn.execute('CREATE TABLE d1 AS SELECT * FROM d1t')
+conn.register('d2', d3.reset_index())
+
+# Perform the upsert using SQL
+id_cols = ', '.join(d1.index.names)
+dat_cols = ', '.join(d1.columns)
+upd_vals = ', '.join([f'{col} = EXCLUDED.{col}' for col in d1.columns])
+conn.execute(f'CREATE UNIQUE INDEX i1 ON d1 ({id_cols})')
+
+conn.execute(f'''
+    INSERT INTO d1 ({id_cols}, {dat_cols})
+    SELECT {id_cols}, {dat_cols}
+    FROM d2
+    ON CONFLICT ({id_cols}) DO UPDATE SET {upd_vals}
+''')
+
+# Retrieve the updated DataFrame
+df2 = conn.execute('SELECT * FROM d1').fetchdf()
+
+# Close the connection
+conn.close()
+```
