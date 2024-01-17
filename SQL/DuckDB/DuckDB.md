@@ -1,10 +1,5 @@
 # DuckDB
 
-## install
-```sh
-mamba install python-duckdb -y
-```
-
 ## DuckDB vs Sqlite
 https://marclamberti.com/blog/duckdb-getting-started-for-beginners
 
