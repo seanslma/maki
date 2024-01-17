@@ -13,6 +13,11 @@ When to not use DuckDB
 - Large client/server installations for centralized enterprise data warehousing
 - Writing to a single database from multiple concurrent processes
 
+## install
+```sh
+mamba install python-duckdb -y
+```
+
 ## Example
 ### connection
 ```py
@@ -48,6 +53,25 @@ df = con.execute("SELECT * FROM items").fetchdf()
 # fetch as dictionary of numpy arrays
 arr = con.execute("SELECT * FROM items").fetchnumpy()
 ```
+
+## `register` vs `CREATE TABLE df AS SELECT * FROM df`
+```py
+con = duckdb.connect(':memory:')
+con.register('df', df)
+con.execute("CREATE TABLE my_table AS SELECT * FROM df")
+```
+
+**`duckdb.register('df', df)`:**
+- **Registers a virtual table:** Makes a DataFrame accessible within DuckDB without physically copying data.
+- **No persistence:** Virtual table disappears when DuckDB connection closes.
+- **Query-only:** Changes to the virtual table don't affect the original DataFrame.
+- **Ideal for:** Quick queries and exploration without data duplication.
+
+**`conn.execute("CREATE TABLE df AS SELECT * FROM df")`:**
+- **Creates a persistent table:** Stores data physically in DuckDB's database.
+- **Data copied:** Data is copied from the DataFrame into DuckDB's storage.
+- **Independent table:** Changes to the table within DuckDB don't affect the original DataFrame.
+- **Ideal for:** Persisting data, complex queries, sharing data across sessions.
 
 ## performance
 have some data (e.g., NEM demand data for different generators and days/intervals). Now there are some new data that can be either updated demand or demand in new days. We need update/insert the new data into the original data.
