@@ -11,6 +11,15 @@ Generally we should use col in dim table for slicer
 - dim col can control another dim table so will only show values related to the slicer
 - will not affect another slicer - avoid deadlock
 
+## restrict slicer values to filtered values from another slicer
+https://www.sqlbi.com/articles/syncing-slicers-in-power-bi/
+
+Filter slicers without using bidirectional filters in Power BI.
+- each customer can only have a few colors
+- the color slicer should only show the colors for that customer
+- use a filter to exclude blank values
+- or use `visual interactions`
+
 ## remove values not in fact table from slicer
 Problem: slicer uses dim table column and some values are not in fact table 2 - do not want to show the non-existent values in the slicer for table 2
 
