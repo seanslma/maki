@@ -5,6 +5,7 @@ https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-slicers
  View -> Sync slicers.
 
 ## Syncing Slicers on the Same Page
+See: https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-slicers?tabs=powerbi-desktop
 
 There are two main methods:
 
