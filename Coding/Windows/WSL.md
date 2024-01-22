@@ -1,5 +1,11 @@
 # WSL
 
+# task manager
+https://stackoverflow.com/questions/51364707/how-does-windows-10-task-manager-detect-a-virtual-machine
+
+task manager - performance will show your machine is running as `virtualization` or `virtual machine`. 
+To install wsl2, it should be virtualization.
+
 ## check if Intel Virtualization is enabled
 ```
 Get-ComputerInfo -property "HyperV*"
