@@ -4,6 +4,36 @@
 ```
 Get-ComputerInfo -property "HyperV*"
 ```
+To check if virtualization is enabled in the BIOS (Basic Input/Output System) of your computer, you'll need to follow these general steps. Keep in mind that the exact steps might vary slightly depending on your computer's manufacturer and model. Here's a basic guide:
+
+1. **Access the BIOS/UEFI:**
+   - Reboot your computer.
+   - During the boot process, press the key to access the BIOS or UEFI. Common keys include F2, F10, F12, ESC, or DEL. The correct key is usually displayed on the screen during the boot process.
+
+2. **Navigate to the Virtualization Setting:**
+   - Once in the BIOS/UEFI, use the arrow keys to navigate through the menus.
+   - Look for a section related to "Advanced," "CPU Configuration," "Advanced CPU Configuration," or something similar.
+
+3. **Find Virtualization Technology:**
+   - Within the advanced settings, look for an option called "Virtualization Technology," "Intel VT," "Intel Virtualization Technology," "AMD-V," or something similar. The exact wording might differ based on your CPU manufacturer (Intel or AMD).
+
+4. **Enable Virtualization:**
+   - If you find the virtualization option, make sure it is set to "Enabled." Use the arrow keys to navigate to the option, and change the setting if necessary.
+
+5. **Save and Exit:**
+   - After enabling virtualization, navigate to the option to save your changes and exit the BIOS/UEFI. This is typically done by selecting "Save & Exit" or a similar option. Confirm that you want to save the changes.
+
+6. **Reboot:**
+   - Allow the computer to reboot for the changes to take effect.
+
+7. **Verify Virtualization:**
+   - Once your computer has restarted, you can verify if virtualization is enabled by using a system information tool or checking within the operating system.
+
+Keep in mind that not all computers support virtualization, and the option might not be available in the BIOS/UEFI on some systems. If you're unable to find the virtualization option or are unsure, consult your computer's documentation or the manufacturer's website for specific instructions.
+
+## enable windows features
+- Virtual Machine Platform
+- Windows Subsystem for Linux
 
 ## install
 ```
