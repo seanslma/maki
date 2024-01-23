@@ -25,6 +25,17 @@ VAR __tbl = SUMMARIZE(Sales, SalesCountries[CountryName], "@val", [Profit_Measur
 VAR __tot = SUMX(__tbl, [@val])
 ```
 
+Demand weighted average price example. In this example, `SUMX` will first calculate the values record by record then sum them together.
+```
+VAR __dwa_price = DIVIDE( 
+    SUMX( 
+        Sales,
+        Sales[Quantity] * Sales[Price]
+    ),
+    SUM( Sales[Quantity] )
+)
+```
+
 ## ALLEXCEPT
 Removes all context filters in the table except filters that have been applied to the specified columns.
 ```
