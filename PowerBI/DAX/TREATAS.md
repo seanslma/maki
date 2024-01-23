@@ -44,3 +44,16 @@ VAR __tax_rate = CALCULATE(
 )
 VAR __tax = __tax_rate * SUM(Tb2[Profit])
 ```
+
+## treatas with multiple table columns
+```
+VAR __val = Calculate(
+    AVERAGE(CertificateFees[CertificateFee]),
+    TREATAS(
+        SUMMARIZE(Transactions, Transactions[CertificateType], Transactions[TransactionType], Transactions[SaleId]),
+        CertificateFees[CertificateType],
+        CertificateFees[TransactionType],
+        CertificateFees[SaleId]
+    )
+)
+```
