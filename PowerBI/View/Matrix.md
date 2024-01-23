@@ -1,5 +1,11 @@
 # Matrix
 
+## example
+create a matrix with `rows` country and city, and `values` year, sale_quantity, price and revenue
+- collape the rows to country level, the values should show the sum, weighted average, and sum
+- if expanded we can see the city level values with cities as a dented list
+- the total should show the correct summary values as well
+  
 ## Turning off stepped layout
 Turn off stepped layout on the row headers card, to put each row label in a separate column not the default stepped (indented) layout.
 
