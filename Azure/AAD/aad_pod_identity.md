@@ -6,6 +6,13 @@ https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/
 
 https://learn.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity
 
+## `AzureIdentity` vs `ClusterRole`
+**AzureIdentityBinding** is specific to AKS and is part of the Azure AD Pod Identity (AAD Pod Identity) feature:
+- Enables secure access to Azure resources from within Kubernetes pods using Azure identities.
+
+**ClusterRoleBinding** is a Kubernetes resource used to bind a Role or ClusterRole to a user, group, or service account within a namespace, specifying the permissions they have:
+- Defines access within the Kubernetes cluster, such as the ability to list, get, or watch specific resources (pods, services, etc.).
+
 ## create `AzureIdentity` and `AzureIdentityBinding`
 ```yaml
 apiVersion: "aadpodidentity.k8s.io/v1"
