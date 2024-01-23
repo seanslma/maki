@@ -16,7 +16,13 @@ Returns a summary table for the requested totals over a set of groups. Similar t
 SUMX works on virtual table while SUM does not. 
 We can use SUMMERIZE and SUMX together to get sum of all groups 
 ```
-SUMX(SUMMERIZE(table, col_type, val_col_expr), [val_col])
+SUMX(SUMMERIZE(table, groupby_col_name, val_col_name, val_expr), [val_col_name])
+```
+
+Sales example
+```
+VAR __tbl = SUMMARIZE(Sales, SalesCountries[CountryName], "@val", [Profit_Measure]) 
+VAR __tot = SUMX(__tbl, [@val])
 ```
 
 ## ALLEXCEPT
