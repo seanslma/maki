@@ -6,7 +6,6 @@ how to create a security group `az-dev-contributor` in azure aad to let it's mem
  **Steps on how to create a security group in Azure AD and grant its members access to the "az-dev" subscription:**
 
 **1. Create the Security Group in Azure AD:**
-
 - Sign in to the Azure portal using a user account with sufficient permissions to manage Azure AD groups.
 - Go to Azure Active Directory > Groups.
 - Click "New group".
@@ -17,7 +16,6 @@ how to create a security group `az-dev-contributor` in azure aad to let it's mem
 - Click "Create".
 
 **2. Assign a Role to the Security Group:**
-
 - Go to Subscriptions > "az-dev" subscription.
 - Click on "Access control (IAM)".
 - Click "Add" > "Add role assignment".
@@ -29,7 +27,6 @@ how to create a security group `az-dev-contributor` in azure aad to let it's mem
 - Click "Assign".
 
 **3. Add Members to the Security Group:**
-
 - Go back to Azure Active Directory > Groups > "az-dev-contributor" group.
 - Click on "Members".
 - Click "Add members".
@@ -38,7 +35,6 @@ how to create a security group `az-dev-contributor` in azure aad to let it's mem
 - Click "Add".
 
 **Key Points:**
-
 - Ensure you have the necessary permissions to create groups and assign roles in Azure AD.
 - Choose the appropriate role based on the level of access you want to grant to the group members.
 - Consider using more granular roles for specific resource types if needed.
