@@ -1,6 +1,15 @@
 # AdIdentity
 
-## `AzureIdentity` in helm vs `azurerm_user_assigned_identity` in terraform
+## `azurerm_user_assigned_identity` in terraform vs `AzureIdentity` in helm
+**azurerm_user_assigned_identity (Terraform)**
+- **Purpose:** A Terraform resource that creates and manages user-assigned managed identities in Azure.
+- **Function:** It provides a way to create and manage these identities independently of other resources.
+- **Configuration:** It's defined in Terraform configuration files using the `azurerm_user_assigned_identity` resource.
+- **Key Properties:**
+    - `name`: The name of the managed identity.
+    - `resource_group_name`: The resource group where the identity is created.
+    - `location`: The Azure region where the identity is created.
+
 **AzureIdentity (Helm)**
 - **Purpose:** A configuration parameter within the Azure AD Pod Identity (AAD Pod Identity) Helm chart.
 - **Function:** It enables pods in a Kubernetes cluster to access Azure resources using a managed identity.
@@ -10,15 +19,6 @@
     - `clientID`: The client ID of the managed identity.
     - `name`: A name for the identity within the namespace.
     - `namespace`: The namespace where the identity is created.
-
-**azurerm_user_assigned_identity (Terraform)**
-- **Purpose:** A Terraform resource that creates and manages user-assigned managed identities in Azure.
-- **Function:** It provides a way to create and manage these identities independently of other resources.
-- **Configuration:** It's defined in Terraform configuration files using the `azurerm_user_assigned_identity` resource.
-- **Key Properties:**
-    - `name`: The name of the managed identity.
-    - `resource_group_name`: The resource group where the identity is created.
-    - `location`: The Azure region where the identity is created.
 
 **Relationship**
 - **Integration:** They work together to enable pods in a Kubernetes cluster to access Azure resources using managed identities:
