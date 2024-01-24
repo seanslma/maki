@@ -12,6 +12,7 @@ Secrets are similar to `ConfigMaps` but are specifically intended to hold confid
 - Anyone who is authorized to create a Pod in a namespace can use that access to read any Secret in that namespace; this includes indirect access such as the ability to create a Deployment.
 
 ## mount example 
+In this example, the secret is a Kuberneters Secret resource.
 ```yaml
 apiVersion: v1
 kind: Pod
