@@ -22,8 +22,8 @@ k -n <namespace> logs <ingress-controller-pod> | grep certificate
 ```
 Solution: the private key has a passphrase. The private key should be unencrypted. Note that tls.crt should include the intermediate ca.
 ```sh
-openssl pkcs12 -in quantdev.pfx -nocerts -out tls-encrypted.key
-openssl pkcs12 -in quantdev.pfx -clcerts -nokeys -out tls_raw.crt
+openssl pkcs12 -in tls.pfx -nocerts -out tls-encrypted.key
+openssl pkcs12 -in tls.pfx -clcerts -nokeys -out tls_raw.crt
 openssl rsa -in tls-encrypted.key -out tls.key
 ```
 
