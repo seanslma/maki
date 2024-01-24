@@ -12,7 +12,6 @@ Secrets are similar to `ConfigMaps` but are specifically intended to hold confid
 - Anyone who is authorized to create a Pod in a namespace can use that access to read any Secret in that namespace; this includes indirect access such as the ability to create a Deployment.
 
 ## mount example 
-In this example, the secret is a Kuberneters Secret resource.
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -34,4 +33,22 @@ spec:
     - name: secret-volume
       secret:
         secretName: dotfile-secret
+```
+
+In this example, the secret is a Kuberneters Secret resource. The following terraform code creats a k8s secret.
+```tf
+# https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret
+resource "kubernetes_secret" "main" {
+  depends_on = [kubernetes_namespace.ns]
+  metadata {
+    name        = "k8s-secret"
+    labels      = {}
+    annotations = {}
+    namespace   = var.namespace
+  }
+  data = {
+    "dev.user" = file("//example.com/config/dev.user")
+    "dev.pass" = file("//example.com/config/dev.pass")
+  }
+}
 ```
