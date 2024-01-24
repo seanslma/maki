@@ -3,6 +3,8 @@
 Roles manage User's access
 
 ## How to setup the role so the members in a group can have access to the api url?
+After creating the `aad group`, `user assigned identity`, and the `role assignment`, 
+we should deploy the `AzureIdentity` and `AzureIdentityBinding` in aks so the pod can access the azure resources.
 
 ## User Assigned Identity and Role Assignment
 In Azure, `azurerm_user_assigned_identity` and `azurerm_role_assignment` are two distinct resources 
