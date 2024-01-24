@@ -1,6 +1,6 @@
 # AdIdentity
 
-## Relationship between `AzureIdentity` in helm and `azurerm_user_assigned_identity` in terraform
+## `AzureIdentity` in helm vs `azurerm_user_assigned_identity` in terraform
 **AzureIdentity (Helm)**
 - **Purpose:** A configuration parameter within the Azure AD Pod Identity (AAD Pod Identity) Helm chart.
 - **Function:** It enables pods in a Kubernetes cluster to access Azure resources using a managed identity.
