@@ -92,3 +92,53 @@ app.clientside_callback(
     [Input('tabs-a', 'value')],
 )
 ```
+
+## Duplicate callback outputs
+"Duplicate callback outputs": This means two or more callbacks are trying to 
+modify the same output component, leading to a conflict.
+
+If the callbacks are truly independent and don't interfere with each other, 
+use the `allow_duplicate=True` option on the conflicting outputs to allow multiple callbacks to modify them.
+
+```py
+import dash
+from dash import dcc, html
+import plotly.express as px
+
+app = dash.Dash(__name__)
+
+# Sample data
+df = px.data.iris()
+
+# Graph component
+graph = dcc.Graph(id='graph')
+
+# Buttons
+button1 = html.Button('Update Graph 1', id='button1')
+button2 = html.Button('Update Graph 2', id='button2')
+
+# Callbacks with allow_duplicate=True
+@app.callback(
+    Output('graph', 'figure'),
+    [Input('button1', 'n_clicks')],
+    allow_duplicate=True
+)
+def update_graph_1(n_clicks):
+    fig = px.scatter(df, x='sepal_width', y='sepal_length', color='species')
+    return fig
+
+@app.callback(
+    Output('graph', 'figure'),
+    [Input('button2', 'n_clicks')],
+    allow_duplicate=True
+)
+def update_graph_2(n_clicks):
+    fig = px.bar(df, x='species', y='petal_length')
+    return fig
+
+# App layout
+app.layout = html.Div([graph, button1, button2])
+
+if __name__ == '__main__':
+    app.run_server(debug=True)
+```
