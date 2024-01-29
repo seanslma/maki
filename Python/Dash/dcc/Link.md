@@ -23,3 +23,5 @@ dbc.Col([
 ```
 this one?
 https://stackoverflow.com/questions/66127435/dash-plotly-how-to-redirect-to-external-link-which-will-redirect-to-dash
+
+https://community.plotly.com/t/link-to-an-external-site-in-a-new-browser-tab/7249
