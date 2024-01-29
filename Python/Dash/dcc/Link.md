@@ -1,7 +1,7 @@
 # Link
 
 ## link to other url
-Without setting `refresh=True` only the url will change but the web content will remain the same.
+Without setting `refresh=True` only the url will change but the web content (linked to external app) will remain the same. Seems does not work!
 ```py
 dbc.Col([
     dcc.Link(
@@ -21,3 +21,5 @@ dbc.Col([
 ], className='navbar-links'
 )
 ```
+this one?
+https://stackoverflow.com/questions/66127435/dash-plotly-how-to-redirect-to-external-link-which-will-redirect-to-dash
