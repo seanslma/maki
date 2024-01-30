@@ -4,6 +4,7 @@
 ```
 dw  -> delete until the start of next word
 de  -> delete after the end of current word
+db  -> delete to beginning of current word
 d2w -> delete until start of 2ed word
 ```
 
