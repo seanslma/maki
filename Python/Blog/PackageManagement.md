@@ -29,6 +29,10 @@ Specify version ranges (e.g., >=1.2.3,<2.0.0) to allow updates within compatible
 ## Regularly review and update pinned versions
 Stay current with security patches and bug fixes.
 
+## Avoid major changes if there are issues
+New major release usually has many new features and changes - will break your apps
+test locally using the new version first 
+
 ## Only pinning package versions as a temporal solution
 if not workaround, pin it
 major versions due to latge changes - update the changes later
