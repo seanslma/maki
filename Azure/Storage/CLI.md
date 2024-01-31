@@ -8,6 +8,8 @@ az storage account list -o table
 az storage account show --name <account-name> --resource-group <resource-group>
 # get storage account id
 az storage account show --name <account-name> --resource-group <resource-group> --query id
+# check has public access or not
+az storage account show --name <account-name> --resource-group <resource-group> --subscription <sid>--query allowBlobPublicAccess
 # update storage account property
 az storage account update --name <account-name> --resource-group <resource-group> --allow-cross-tenant-replication false
 # list role assignments
