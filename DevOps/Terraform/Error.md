@@ -44,3 +44,4 @@ The kubernetes_manifest resource needs access to the API server of the cluster d
 This is because, in order to support CRDs in Terraform ecosystem, we need to pull the schema information for each manifest resource at runtime (during planing).
 
 ## Error: `Backend configuration changed`
+The `.terraform` folder or the cache must be cleared.
