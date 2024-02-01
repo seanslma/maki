@@ -13,7 +13,6 @@ az account get-access-token
 az login --tenant <my-tenantid>
 ```
 
-
 ## Invalid value for "path" parameter: no file exists at "values.yaml"
 https://stackoverflow.com/questions/62127753/why-do-i-get-call-to-function-file-failed-no-file-exists
 ```
@@ -45,3 +44,13 @@ This is because, in order to support CRDs in Terraform ecosystem, we need to pul
 
 ## Error: `Backend configuration changed`
 The `.terraform` folder or the cache must be cleared.
+
+Linux:
+```sh
+rm -rf .terraform
+```
+
+Windows:
+```powershell
+Get-ChildItem -Recurse -Filter ".terraform" | Remove-Item -Recurse -Force
+```
