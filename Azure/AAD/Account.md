@@ -13,3 +13,11 @@ az account list -o table
 az account set --subscription <subscription-id>
 az login
 ```
+
+## Continuous access evaluation resulted in challenge with result
+`InteractionRequired and code: TokenCreatedWithOutdatedPolicies/TokenIssuedBeforeRevocationTimestamp`
+Solution:
+```sh
+az logout
+az login
+```
