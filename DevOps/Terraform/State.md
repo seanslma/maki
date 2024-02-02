@@ -9,7 +9,7 @@ Used to store the states remotely
 This is required when properties have been changed between versions
 
 https://stackoverflow.com/questions/63427604/how-do-you-fix-terraform-unsupported-attribute-ses-smtp-password-after-upgradi
-```
+```sh
 terraform state pull > state.json
 #edit state.json and increment the serial attribute (ex "serial": 10, -> "serial": 11,)
 terraform state push state.json
@@ -23,5 +23,4 @@ Solution in Azure: https://stackoverflow.com/questions/64690427/error-locking-st
 - then to the container in the Azure portal that holds the state file
 - the blob will show as `Leased` under the leased state column
 - select the state file, and hit the `break lease` button
-- Note: need PIM (Privileged Identity Management (PIM)) to do this
-```
+- Note: need Privileged Identity Management (PIM) to do this
