@@ -15,7 +15,9 @@ az login
 ```
 
 ## Continuous access evaluation resulted in challenge with result
-`InteractionRequired and code: TokenCreatedWithOutdatedPolicies/TokenIssuedBeforeRevocationTimestamp`
+- `InteractionRequired and code: TokenCreatedWithOutdatedPolicies`
+- `InteractionRequired and code: TokenIssuedBeforeRevocationTimestamp`
+
 Solution:
 ```sh
 az logout
