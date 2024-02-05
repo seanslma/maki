@@ -44,3 +44,16 @@ Therefore, your data in the Blob Storage container will not be lost during this 
 However, exercise caution when applying changes to the Terraform configuration that manages the Blob Storage container, 
 as inappropriate modifications can result in unintended consequences. 
 Always review the Terraform plan before applying changes to ensure they align with your expectations and requirements.
+
+## stoarge_account_network_rules
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules
+
+```tf
+resource "azurerm_storage_account_network_rules" "main" {
+  storage_account_id         = azurerm_storage_account.main.id
+  default_action             = "Deny"
+  ip_rules                   = ["127.0.0.1"]
+  virtual_network_subnet_ids = [azurerm_subnet.main.id]
+  bypass                     = ["Metrics"]
+}
+```
