@@ -18,3 +18,6 @@ check CVEs
 grype ubuntu:18.04
 grype <repo>:1.0.0
 ```
+
+or use Snyk to scan the docker hub image to check vulnerabilities or security weakness.
+https://docs.snyk.io/scan-using-snyk/snyk-container/scan-container-images
