@@ -11,6 +11,8 @@ from fastapi import Depends
 # create engine
 url = sa.engine.url.URL.create(**cfg)
 engine = sa.create_engine(url, **kwargs)
+# note that default pool_recycle=-1 so by default max of 15 connections will be there indefinitely
+# engine = sa.create_engine(host, max_overflow=0, pool_recycle=3600)
 
 # create session
 LocalSession = sessionmaker(bind=engine)
