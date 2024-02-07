@@ -7,3 +7,6 @@ A pair of single backticks is for inline code.
 - On a new line type three backticks, then give space,
 - then type or paste the multi line of code or text.
 - Then type enter twice to come out of the block.
+
+## delete files from chat
+must delet them from OneDrive: https://onedrive.live.com
