@@ -93,3 +93,8 @@ Measure = SWITCH(
     BLANK()
 )
 ```
+
+## Multiple row headers in Matrix visual
+similar to pandas df with multiindex columns
+
+https://community.fabric.microsoft.com/t5/Desktop/Multiple-row-headers-in-Matrix-visual/td-p/372306
