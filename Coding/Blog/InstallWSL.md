@@ -1,6 +1,6 @@
 # How to install and setup WSL on Windows
 
-Windows Subsystem for Linux (WSL) is one of the best options if you need both Windows and Linux at the same time but do not want to setup a dual-boot. WSL allows you to install a Linux distribution like Ubuntu, Debian, OpenSUSE, etc and you can use Linux applications and tools directly on windows.
+Windows Subsystem for Linux (WSL) is one of the best options if you need both Windows and Linux at the same time but do not want to setup a dual-boot. WSL allows you to install a Linux distribution like Ubuntu, Debian, OpenSUSE, etc and you can use Linux applications and tools directly on Windows.
 
 ## Prerequisites
 Before install WSL you must ensure your Windows machine has been setup appropriately.
