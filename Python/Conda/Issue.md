@@ -27,4 +27,4 @@ https://stackoverflow.com/questions/57028760/why-conda-redefines-base-environmen
 
 If the `conda-build` package is installed in the environment name `dev`, then the `dev` environment becomes base after activation.
 
-This means we should only install `conda-build` in base env.
+This means we should only install `conda-build` in base env not other envs.
