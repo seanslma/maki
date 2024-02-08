@@ -15,6 +15,9 @@ SQL Server Configuration Manager
   ServerName -> Properties -> Security -> Force Encryption
 - Transact-SQL (T-SQL) Query
   ```sql
+  SELECT *
+  FROM sys.dm_exec_connections;
+  -- or
   SELECT session_id, encrypt_option
   FROM sys.dm_exec_connections;
   -- or
