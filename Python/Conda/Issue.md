@@ -21,3 +21,10 @@ Solution:
 
 ## WSL: CondaHTTPError: HTTP 000 CONNECTION FAILED
 restart wsl after install conda: `wsl --shutdown`
+
+## conda env became base
+https://stackoverflow.com/questions/57028760/why-conda-redefines-base-environment-after-activation-of-another-environment
+
+If the `conda-build` package is installed in the environment name `dev`, then the `dev` environment becomes base after activation.
+
+This means we should only install `conda-build` in base env.
