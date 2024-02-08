@@ -2,6 +2,12 @@
 
 Compared to conda, mamba is faster but larger.
 
+## show available versions 
+```sh
+mamba search -c conda-forge pyarrow
+mamba show conda-forge/pyarrow
+```
+
 ## update
 Note: Installing the conda or mamba package in anywhere other than base will lead to surprising behavior.
 ```
