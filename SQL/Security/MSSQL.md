@@ -20,7 +20,13 @@ SQL Server Configuration Manager
   -- or
   SELECT session_id, encrypt_option
   FROM sys.dm_exec_connections;
-  -- or
+  -- or (not work)
   SELECT encryption_level, cryptographic_provider, algorithm_name
   FROM sys.dm_cryptographic_providers;
+  -- get more info
+  SELECT s.host_name, s.program_name, s.login_name, s.session_id, s.total_elapsed_time, c.encrypt_option
+  FROM sys.dm_exec_sessions as s 
+  join sys.dm_exec_connections as c
+  on c.session_id = s.session_id
+  order by s.host_name;
   ```
