@@ -58,7 +58,8 @@ def run_my_program():
 ## terminate idle sessions
 Can get errors like 
 ```
-pyodbc.OperationalError: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: Error code 0x68 (104) (SQLEndTran)')
+pyodbc.OperationalError: ('08S01',
+'[08S01] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: Error code 0x68 (104) (SQLEndTran)')
 ```
 We must manage connection being terminated.
 
