@@ -1,4 +1,4 @@
-# How to manage python packages
+# How to manage python package dependencies
 The package management is actually one of the most challenging part of Python programming.
 
 ## pin package version
@@ -25,6 +25,9 @@ Consider using a lock file even with pip: Generate a requirements.txt file with 
 Allow some flexibility for minor or patch updates to benefit from bug fixes and security patches.
 
 Specify version ranges (e.g., >=1.2.3,<2.0.0) to allow updates within compatible ranges.
+```sh
+
+```
 
 ## Regularly review and update pinned versions
 Stay current with security patches and bug fixes.
@@ -34,6 +37,6 @@ New major release usually has many new features and changes - will break your ap
 test locally using the new version first
 
 ## Only pinning package versions as a temporal solution
-if not workaround, pin it
+if no workaround, pin it
 major versions due to large changes - update the changes later
 need to check the latest version
