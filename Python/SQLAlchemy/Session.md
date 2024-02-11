@@ -58,6 +58,9 @@ def run_my_program():
 ## terminate idle sessions
 Can get errors like 
 ```
+pyodbc.OperationalError: ('HYT00',
+'[HYT00] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0) (SQLDriverConnect)')
+
 pyodbc.OperationalError: ('08S01',
 '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: Error code 0x68 (104) (SQLEndTran)')
 ```
