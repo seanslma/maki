@@ -3,6 +3,7 @@
 https://docs.sqlalchemy.org/en/13/orm/session_basics.html#when-do-i-construct-a-session-when-do-i-commit-it-and-when-do-i-close-it
 
 ## create session
+we can control when the session should be terminated and the number of sessions.
 ```py
 import sqlalchemy as sa
 from sqlalchemy.orm import sessionmaker
@@ -53,3 +54,38 @@ def run_my_program():
         my_func(session)
         my_class().query(session)
 ```
+
+## terminate idle sessions
+Can get errors like 
+```
+pyodbc.OperationalError: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: Error code 0x68 (104) (SQLEndTran)')
+```
+We must manage connection being terminated.
+
+Setting a rule in your database connection string to terminate idle connections after 1 hour can have both **benefits and drawbacks**. 
+
+**Benefits:**
+- **Improved resource utilization:** Terminating idle connections frees up resources (memory, CPU) on the database server, potentially improving performance for active users.
+- **Reduced costs:** In cloud environments where you pay per connection, reducing idle connections can lower costs.
+- **Enhanced security:** Limiting connection lifetime can mitigate risks associated with long-lived, abandoned connections.
+
+**Drawbacks:**
+- **Increased connection churn:** Frequent connection creation and termination can put additional load on the database server, potentially impacting performance.
+- **Potential application disruptions:** If applications don't handle connection drops gracefully, users might experience interruptions.
+- **Configuration complexity:** Managing different idle connection timeouts for various scenarios can become cumbersome.
+
+**When to set a 1-hour idle connection timeout:**
+- **You have a high volume of short-lived database interactions.**
+- **Resource utilization on the server is a concern.**
+- **Cost optimization is a priority.**
+- **Your applications can handle connection drops effectively.**
+
+**When to avoid setting a 1-hour timeout:**
+- **You have long-running database operations or transactions.**
+- **Application performance is critical, and connection disruptions cannot be tolerated.**
+- **Managing connection timeouts and handling drops adds unnecessary complexity.**
+
+**Alternatives to consider:**
+- **Connection pooling:** This optimizes connection management by reusing existing connections instead of creating new ones each time.
+- **Longer idle timeouts:** Consider setting a timeout that aligns with your typical application usage patterns to balance resource utilization and user experience.
+- **Dynamic timeouts:** Implement connection timeouts based on specific contexts (e.g., user type, query type) for more granular control.
