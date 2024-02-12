@@ -2,6 +2,8 @@
 
 ## Error code 0x68 (104) (SQLEndTran)
 `pyodbc.OperationalError: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: Error code 0x68 (104) (SQLEndTran)')`
+- https://www.linuxquestions.org/questions/programming-9/persistent-db-connection-after-waking-up-a-computer-from-sleep-4175615332
+- https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-359-tcp-provider-error-code-0x68-104/ba-p/3834127
 
 Solution: 
 https://docs.sqlalchemy.org/en/20/dialects/mssql.html#pyodbc-pooling-connection-close-behavior
