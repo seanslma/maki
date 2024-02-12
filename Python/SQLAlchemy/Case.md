@@ -1,7 +1,7 @@
 # Case
 
 ## sa.case vs sa.sql.case
-???
+`sa.case` is the `sa.sql.case` imported from `sa.__init__`.
 
 ## two formats of sql.case 
 Accepts multiple 2-tuples passed as positional
