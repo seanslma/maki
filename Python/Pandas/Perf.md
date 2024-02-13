@@ -92,4 +92,9 @@ d1 = d.assign(
 d2 = d.assign(
     f0=lambda x: x['f0'].where(x['f0'] >= 0.1, 0)
 )
+# 1.5 ms for 48*365*1 rows
+# 73 ms for 48*365*100 rows
+d2 = d.assign(
+    f0=lambda x: x['f0'].mask(x['f0'] < 0.1, 0)
+)
 ```
