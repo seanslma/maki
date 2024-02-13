@@ -77,3 +77,19 @@ https://software.intel.com/en-us/articles/large-matrix-operations-with-scipy-and
 http://conference.scipy.org/proceedings/scipy2018/pdfs/anton_malakhov.pdf
 
 http://conference.scipy.org/proceedings/scipy2017/pdfs/oleksandr_pavlyk.pdf
+
+
+## df.where vs np.where
+No big differences
+```py
+# 0.6 ms for 48*365*1 rows
+# 60 ms for 48*365*100 rows
+d1 = d.assign(
+    f0=np.where(d['f0'] < 0.1, 0, d['f0'])
+)
+# 1.0 ms for 48*365*1 rows
+# 66 ms for 48*365*100 rows
+d2 = d.assign(
+    f0=lambda x: x['f0'].where(x['f0'] >= 0.1, 0)
+)
+```
