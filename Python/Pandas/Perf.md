@@ -80,7 +80,7 @@ http://conference.scipy.org/proceedings/scipy2017/pdfs/oleksandr_pavlyk.pdf
 
 
 ## df.where vs np.where
-No big differences
+No big differences: np.where will convert `datetime64[ns]` to object - use df.where if possible
 ```py
 # 0.6 ms for 48*365*1 rows
 # 60 ms for 48*365*100 rows
