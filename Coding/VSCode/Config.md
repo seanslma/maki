@@ -4,6 +4,9 @@
 Customizing IntelliSense:
 https://code.visualstudio.com/docs/editor/intellisense
 
+## user vs workspace settings
+Note: the workspace settings will overwrite the user settings
+
 ## Hide title bar
 In user settings, add
 ```
