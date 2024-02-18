@@ -26,6 +26,7 @@
   -  used to connect to other Azure resource types, such as Azure SQL databases and storage accounts
   -  services and VMs within the same VNet can communicate directly and securely with each other in the cloud
 - VNet peering
+  - can connect virtual networks to each other by using virtual peering
 
 ## Communicate with on-premises resources
 - Point-to-site VPN
