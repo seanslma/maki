@@ -1,9 +1,21 @@
 # Shortcuts
 
+## open command palette
+```
+Ctrl + Shift + P
+```
+Then search for what you need
+
+## search text
+```
+Ctrl + F         # search in the current file
+Ctrl + Shift + F # search in all files
+```
+
 ## select current word
 ```
 Ctrl + D
-Ctrl + Shift + Arrow #select more
+Ctrl + Shift + Arrow # select more
 ```
 
 ## select current line
@@ -44,7 +56,7 @@ option 2: using `macros`
 
 ## delete line
 ```
-Ctrl  + Shift + K
+Ctrl + Shift + K
 ```
 
 ## insert line
