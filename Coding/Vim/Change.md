@@ -15,6 +15,19 @@ x    -> delete character
 :q!  -> force quit without change
 :wq! -> force save and quit
 ```
+
+## indentation
+- Press `V` to start selecting in block mode
+- Move cursor to select more lines
+- `<` or `>` to de-indent or indent the selected rows
+
+## set tabwidth in `.vimrc`
+```
+set expandtab      " Use spaces instead of tabs
+set tabstop=2      " Set the width of a tab to 2 spaces
+set shiftwidth=2   " Amount to indent when using `>` or `<` commands
+```
+
 ## undo
 ```
 u    -> undo the last change
