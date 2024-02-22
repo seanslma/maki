@@ -1,5 +1,17 @@
 # Financial
 
+## market types
+OTC (over-the-counter):
+- bilateral arrangements between generators and retailers, or
+- arranged with the assistance of brokers that post bid (buy) and ask (sell) prices on behalf of their clients
+
+ASX:
+- electricity derivative products: futurres and options
+- Participants (licensed brokers) buy and sell contracts on behalf of clients that include
+  - generators,
+  - retailers,
+  - speculators such as hedge funds, and banks and other financial intermediaries
+
 ## SWAP
 A swap is a financial derivative contract between two parties who agree to exchange cash flows or other financial instruments over a specified period. 
 
