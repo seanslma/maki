@@ -98,3 +98,6 @@ Measure = SWITCH(
 similar to pandas df with multiindex columns
 
 https://community.fabric.microsoft.com/t5/Desktop/Multiple-row-headers-in-Matrix-visual/td-p/372306
+
+## Conditional formatting
+Right click the column value in Visualization -> Conditional Formatting
