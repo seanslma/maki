@@ -5,18 +5,22 @@ https://www.sumproduct.com/blog/article/power-pivot-principles/ppp-hasonefilter-
 
 ## HASONEFILTER(columnName)
 Returns TRUE when the number of directly filtered values on columnName is one.
-- based on a direct filter
+- one value
+- direct filter
 
 ## HASONEVALUE(columnName)
 Returns TRUE when the context of a specific column has been filtered down to one distinct value only.
-- based on a direct/cross-filter
+- one value
+- direct/cross-filter
 
 ## ISFILTERED(columnName)
-Returns TRUE when the columnName parameter is filtered in the PivotTable (all simple, non-total rows and columns in a PivotTable are filtered by a given context). 
+Returns TRUE when the columnName parameter is filtered in the PivotTable (all simple, non-total rows and columns in a PivotTable are filtered by a given context).
+- can have any number of values
 - direct filter
 
 ## ISCROSSFILTERED(columnName)
 Returns TRUE when ColumnName or a column of TableName is being cross-filtered. 
+- can have any number of values
 - direct/cross filter
 
 ## SUMMERIZE
