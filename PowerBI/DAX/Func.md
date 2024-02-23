@@ -1,5 +1,8 @@
 # Function
 
+https://vincent-tseng.medium.com/dax-hasonevalue-vs-hasonefilter-724fab64f9aa
+https://www.sumproduct.com/blog/article/power-pivot-principles/ppp-hasonefilter-vs-hasonevalue-vs-isfiltered
+
 ## HASONEFILTER(columnName)
 Returns TRUE when the number of directly filtered values on columnName is one.
 - based on a direct filter
@@ -10,7 +13,11 @@ Returns TRUE when the context of a specific column has been filtered down to one
 
 ## ISFILTERED(columnName)
 Returns TRUE when the columnName parameter is filtered in the PivotTable (all simple, non-total rows and columns in a PivotTable are filtered by a given context). 
-- multiple direct filters
+- direct filter
+
+## ISCROSSFILTERED(columnName)
+Returns TRUE when ColumnName or a column of TableName is being cross-filtered. 
+- direct/cross filter
 
 ## SUMMERIZE
 Returns a summary table for the requested totals over a set of groups. Similar to SQL `Group By`.
