@@ -4,6 +4,11 @@
 ```sh
 $(date "+%F %H:%M:%S"); #datatime
 
+# 2 days ago
+$(date -d "2 days ago" +"%Y-%m-%d"); #current date -2 days, not supported by all platforms
+echo $(date -d@"$(($(date +%s) - $((2*86400))))" +"%Y-%m-%d") #more basic
+
+# 2 days later
 $(date --date='+2 days' +%F); #current date +2 days in format yyyy-mm-dd
 $(date -d@"$(( $(date +%s) + 2 * 86400 ))" +"%Y-%m-%d"); #stripped more basic version
 ```
