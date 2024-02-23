@@ -2,12 +2,15 @@
 
 ## HASONEFILTER(columnName)
 Returns TRUE when the number of directly filtered values on columnName is one.
+- based on a direct filter
 
 ## HASONEVALUE(columnName)
 Returns TRUE when the context of a specific column has been filtered down to one distinct value only.
+- based on a direct/cross-filter
 
 ## ISFILTERED(columnName)
 Returns TRUE when the columnName parameter is filtered in the PivotTable (all simple, non-total rows and columns in a PivotTable are filtered by a given context). 
+- multiple direct filters
 
 ## SUMMERIZE
 Returns a summary table for the requested totals over a set of groups. Similar to SQL `Group By`.
