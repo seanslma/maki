@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Feb 23 22:21:13 2024
+# Make data base, printed on Mon Feb 26 22:22:12 2024
 
 # Variables
 
@@ -191,6 +191,8 @@ GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
 # environment
+NO_AT_BRIDGE = 1
+# environment
 QT_ACCESSIBILITY = 1
 # default
 MAKEFILES := 
@@ -225,9 +227,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 56237
+VSCODE_PID = 66983
 # variable set hash-table stats:
-# Load=108/1024=11%, Rehash=0, Collisions=14/133=11%
+# Load=109/1024=11%, Rehash=0, Collisions=14/134=10%
 
 # Pattern-specific Variable Values
 
@@ -275,11 +277,11 @@ makefile:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=5/1024=0%, Rehash=0, Collisions=0/15=0%
-# VPATH Search Paths
-
  
 make: *** No rule to make target 'all'.  Stop.
+
+# Load=5/1024=0%, Rehash=0, Collisions=0/15=0%
+# VPATH Search Paths
 
 # No 'vpath' search paths.
 
@@ -291,6 +293,6 @@ make: *** No rule to make target 'all'.  Stop.
 # strcache performance: lookups = 34 / hit rate = 14%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/34=3%
-# Finished Make data base on Fri Feb 23 22:21:14 2024
+# Finished Make data base on Mon Feb 26 22:22:12 2024
 
  
