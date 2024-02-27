@@ -58,3 +58,16 @@ AverageTotal =
 RETURN
   __val
 ```
+
+## SELECTEDVALUE
+returns the value when the context for columnName has been filtered down to one distinct value `only`.
+
+## CONCATENATEX
+For multiple selected values in a slicer, we should check the count and possibly using `CONCATENATEX`
+```dax
+VAR __quarter = IF(
+    COUNTROWS(VALUES(Sales[Quarter])) = 1,
+    SELECTEDVALUE(Sales[Quarter]),
+    CONCATENATEX(VALUES(Sales[Quarter]), Sales[Quarter], ",", Sales[Quarter], ASC)
+)
+```
