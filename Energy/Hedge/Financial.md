@@ -25,6 +25,7 @@ ASX futures are finally cash settled against the average spot price of the relev
 **Options**
 A right, without obligation, to enter into a transaction at an agreed price in the future (exercisable option) or 
 a right to receive cash flow differences between an agreed price and a floating price (cash settled option).
+The buyer pays a premium to the option seller.
 - `Cap`: A contract through which the buyer earns payments when the pool price exceeds an agreed price. Caps are typically purchased by retailers to place a ceiling on their effective pool purchase price in the future.
 - `Floor`: A contract through which the buyer earns payments when the pool price is less than an agreed price. Floors are typically purchased by generators to ensure a minimum effective pool sale price in the future.
 - `Swaptions / futures options`: An option to enter a swap or futures contract at an agreed price and time in the future.
