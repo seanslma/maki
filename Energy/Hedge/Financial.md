@@ -4,6 +4,7 @@
 OTC (over-the-counter):
 - bilateral arrangements between generators and retailers, or
 - arranged with the assistance of brokers that post bid (buy) and ask (sell) prices on behalf of their clients
+- rely on the credit worthiness of electricity market counterparties
 
 ASX:
 - electricity derivative products: futurres and options
