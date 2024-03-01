@@ -54,6 +54,11 @@ option 2: using `macros`
   }
   ```
 
+## cut line
+```
+Ctrl + X
+```
+
 ## delete line
 ```
 Ctrl + Shift + K
@@ -64,6 +69,10 @@ Ctrl + Shift + K
 Ctrl + Enter          #insert below
 Ctrl + Shift + Enter  #insert above
 ```
+
+## move/copy
+Alt + Up/Down         # Move line up/down
+Shift + Alt + Up/Down # Copy line up/down
 
 ## comment/uncomment code
 ```
