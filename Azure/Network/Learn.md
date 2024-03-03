@@ -1,5 +1,7 @@
 # Learn
 
+https://learn.microsoft.com/en-us/training/paths/architect-network-infrastructure/?source=recommendations
+
 ## VNet
 - https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
 - https://learn.microsoft.com/en-us/training/modules/introduction-to-azure-virtual-networks/
