@@ -1,5 +1,8 @@
 # Caching
 
+## Caching types
+https://hackernoon.com/5-caching-mechanisms-to-speed-up-your-application
+
 ## Cache eviction
 Cache eviction is the process of removing older or less frequently used data.
 - Least-recently used (LRU) eviction: evict data that hasn't been accessed for the longest period of time
