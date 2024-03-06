@@ -20,6 +20,7 @@ dk: 2.00s  591ms
 pl: 2.77s  382ms                    661ms
 pd: 2.96s  998ms                    900ms
 dk: 5.66s  587ms                    871ms
+```
 
 polars
 ```py
