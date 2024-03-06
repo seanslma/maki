@@ -9,7 +9,7 @@ https://github.com/pola-rs/polars/issues/3964
 **performance benchmark** (parquet with index 8 MB)
 ```
     all    filters + columns
-pl: 0.7ms  337ms
+pl: 0.70s  337ms
 pd: 1.01s  479ms
 dk: 2.00s  591ms
 ```
