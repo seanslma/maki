@@ -71,8 +71,10 @@ Ctrl + Shift + Enter  #insert above
 ```
 
 ## move/copy
+```
 Alt + Up/Down         # Move line up/down
 Shift + Alt + Up/Down # Copy line up/down
+```
 
 ## comment/uncomment code
 ```
