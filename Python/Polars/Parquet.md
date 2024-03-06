@@ -6,20 +6,20 @@ https://github.com/pola-rs/polars/issues/3964
 - read parquet using duckdb
 - read parquet using polars - cannot use string datetime (polars will cast column to string) - have to use datetime
 
-performance benchmark (parquet with index 8 MB)
+**performance benchmark** (parquet with index 8 MB)
 ```
     all    filters + columns
 pl: 0.7ms  337ms
 pd: 1.01s  479ms
-dk: 2.00s  591ms (nrow incorrect)
+dk: 2.00s  591ms
 ```
 
-performance benchmark (parquet without index 8 MB)
+**performance benchmark** (parquet without index 40 MB)
 ```
-    all    filters + columns
-pl: 0.7ms  337ms
-pd: 1.01s  479ms
-dk: 
+    all    filter_string + columns  filter_date + columns
+pl: 2.77s  382ms                    661ms
+pd: 2.96s  998ms                    900ms
+dk: 5.66s  587ms                    871ms
 
 polars
 ```py
