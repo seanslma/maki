@@ -1,5 +1,9 @@
 # Parquet
 
+## `read_parquet` vs `scan_parquet`
+- `read_parquet` will load all data in RAM an cannot apply any optimization to the scan level
+- `scan_parquet` is recommended when dealing with larger file sizes
+
 ## Read parquet with filters
 https://github.com/pola-rs/polars/issues/3964
 - generate random df
