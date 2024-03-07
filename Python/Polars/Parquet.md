@@ -1,12 +1,12 @@
 # Parquet
 
-## read parquet with filters
+## Read parquet with filters
 https://github.com/pola-rs/polars/issues/3964
 - generate random df
 - read parquet using duckdb
 - read parquet using polars - cannot use string datetime (polars will cast column to string) - have to use datetime
 
-**performance benchmark** (parquet with index 8 MB)
+**Performance benchmark** (parquet with index 8 MB)
 ```
     all    filters + columns
 pl: 0.70s  337ms
@@ -14,9 +14,9 @@ pd: 1.01s  479ms
 dk: 2.00s  591ms
 ```
 
-**performance benchmark** (parquet without index 40 MB)
+**Performance benchmark** (parquet without index 40 MB)
 - file size is similar to without category
-- best to save parquet file with category and read it with pandas.
+- best to save parquet file with **category** and read it with pandas.
 ```
     String                                                 Category
     all    filter_string + columns  filter_date + columns  all    filter_category + columns  filter_date + columns
