@@ -1,6 +1,6 @@
-# Aggregation
+# Groupby
 
-## groupby
+## groupby performance
 5x faster
 ```py
 l = dl.group_by(['region', 'country', 'city']).agg(pl.col('value').sum())
