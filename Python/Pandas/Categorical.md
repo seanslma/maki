@@ -43,6 +43,24 @@ can work on these values directly if there are no appropriate cat functions.
 - merge(cat, cat) => str
 - df.astype({'cat': df2['cat'].dtype}).merge(df2, on='cat') => cat
 
+```py
+import numpy as np
+import pandas as pd
+
+d1 = pd.DataFrame({
+    'id': [5, 6], 
+    'value': pd.Categorical(['b', 'c']),
+})
+d2 = pd.DataFrame({
+    'id': [5, 3, 6],  
+    'value': pd.Categorical(['a', 'b', 'c']),
+})
+
+df = pd.merge(d1, d2, on='id') # cat
+df = pd.merge(d1, d2)          # str
+df = pd.concat([d1, d2])       # str
+```
+
 ## groupby
 When group on a categorical datatype, by default it will group on every value in the datatype even if it isn't present in the data itself.
 
