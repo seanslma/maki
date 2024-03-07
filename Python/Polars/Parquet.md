@@ -6,12 +6,18 @@ https://github.com/pola-rs/polars/issues/3964
 - read parquet using duckdb
 - read parquet using polars - cannot use string datetime (polars will cast column to string) - have to use datetime
 
-**Performance benchmark** (parquet with index 8 MB)
+**Performance benchmark** (parquet with index 40 MB)
+- file size is similar to without category
+- both filter string and category columns are in index
+- duckdb is not sensitive to index/category
+- pandas has to read all index columns so became slow
+- category is the winner
 ```
-    all    filters + columns
-pl: 0.70s  337ms
-pd: 1.01s  479ms
-dk: 2.00s  591ms
+    String                                                 Category
+    all    filter_string + columns  filter_date + columns  all    filter_category + columns  filter_date + columns
+pl: 2.87s  360ms                    727ms                  762ms  315ms                      524ms
+pd: 6.48s  1.23s                    2.92s                  977ms  342ms                      537ms
+dk: 5.81s  575ms                    1.15s                  5.76s  512ms                      988ms
 ```
 
 **Performance benchmark** (parquet without index 40 MB)
