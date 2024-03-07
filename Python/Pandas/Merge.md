@@ -10,7 +10,7 @@ d1.merge(d2, how='outer', on=['i', 'j'], suffixes=('_x', '_y'), indicator=True)`
 - `merge` joins **index/columns** of left to **index/columns** of right - less restricted
 
 ## avoid `join` with duplicate index
-`join` with duplicate index will lead to `m x n` records.
+`join` with duplicate index will lead to `m x n` records (an outer join) - will blow out memory for large dataset.
 ```py
 d1 = pd.DataFrame({'v1': [1,5,6]}, index=[1,3,3])
 d2 = pd.DataFrame({'v2': [4,6]}, index=[3,3])
