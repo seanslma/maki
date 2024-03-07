@@ -1,5 +1,12 @@
 # categorical
 
+https://towardsdatascience.com/staying-sane-while-adopting-pandas-categorical-datatypes-78dbd19dcd8a
+
+## benefit
+- reduce memory usage
+- runtime performance optimization
+- library integrations
+
 ## convert
 ```py
 fruit_cat = df['fruit'].astype('category')
@@ -19,3 +26,13 @@ my_cat.cat.set_categories(['a','b','c','d'])
 cat_s3 = cat_s[cat_s.isin(['a', 'b'])]
 cat_s3.cat.remove_unused_categories()
 ```
+
+## operating on categorical columns
+category can be much faster
+```py
+df['str'].str.upper()
+df['cat'].str.upper() #but became string type again
+df['cat'].cat.rename_categories(str.upper) #even faster and still cat type
+```
+`df['cat'].dtype.categories` contains the unique categorical values thus
+can work on these values directly is there are no appropriate cat functions.
