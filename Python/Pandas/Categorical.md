@@ -35,4 +35,15 @@ df['cat'].str.upper() #but became string type again
 df['cat'].cat.rename_categories(str.upper) #even faster and still cat type
 ```
 `df['cat'].dtype.categories` contains the unique categorical values thus
-can work on these values directly is there are no appropriate cat functions.
+can work on these values directly if there are no appropriate cat functions.
+
+## merge
+`merge` dfs can lead category columns becoming string type 
+- merge(str, cat) => str
+- merge(cat, cat) => str
+- df.astype({'cat': df2['cat'].dtype}).merge(df2, on='cat') => cat
+
+## groupby
+When group on a categorical datatype, by default it will group on every value in the datatype even if it isn't present in the data itself.
+
+Using `observed=True` to solve the issue: `df.groupby('cat', observed=True)['val'].mean()`
