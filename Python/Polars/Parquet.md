@@ -15,11 +15,13 @@ dk: 2.00s  591ms
 ```
 
 **performance benchmark** (parquet without index 40 MB)
+Best to save parquet file with category and read it with pandas.
 ```
-    all    filter_string + columns  filter_date + columns
-pl: 2.77s  382ms                    661ms
-pd: 2.96s  998ms                    900ms
-dk: 5.66s  587ms                    871ms
+    String                                                 Category
+    all    filter_string + columns  filter_date + columns  all    filter_category + columns  filter_date + columns
+pl: 3.21s  445ms                    758ms                  914ms  349ms                      552ms
+pd: 3.33s  941ms                    1.10s                  684ms  299ms                      306ms
+dk: 5.57s  597ms                    1.01s                  5.56s  536ms                      983ms
 ```
 
 polars
