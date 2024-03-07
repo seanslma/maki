@@ -22,7 +22,7 @@ dk: 5.81s  575ms                    1.15s                  5.76s  512ms         
 
 **Performance benchmark** (parquet without index 40 MB)
 - file size is similar to without category
-- best to save parquet file with **category** and read it with pandas.
+- best to save parquet file with **category** and read it with **pandas**.
 ```
     String                                                 Category
     all    filter_string + columns  filter_date + columns  all    filter_category + columns  filter_date + columns
