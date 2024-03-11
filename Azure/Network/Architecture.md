@@ -9,3 +9,10 @@ configure DNS name resolution for Contoso Ltd:
 - create two virtual machines
 
 [private dns zone] -> [vnet link] -> [vnet] -> [subnet: vm1, vm2]
+
+## on-prem to azure cloud
+```
+[on-prem] -- private link, express route -->
+[private dns resolver] -- vnet peering -->
+[vnet]
+```
