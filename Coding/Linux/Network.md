@@ -1,5 +1,14 @@
 # Network
 
+## iproute2
+`iproute2` is a collection of command-line utilities for managing and monitoring various aspects of networking in the Linux kernel.
+Common iproute2 utilities:
+- ip: The primary command for most networking tasks like configuring interfaces, assigning IP addresses, and managing routes.
+- iw: Manages wireless network interfaces.
+- ss: Similar to netstat but offers more detailed information on network connections.
+- tc: Used for traffic control and shaping network traffic.
+- bridge: Manages bridge networking devices.
+
 ## find a free TCP port
 ```sh
 ss -ltn
