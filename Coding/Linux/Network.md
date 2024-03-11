@@ -11,7 +11,7 @@ Common iproute2 utilities:
 - tc: Used for traffic control and shaping network traffic.
 - bridge: Manages bridge networking devices.
 
-`iproute2` is more focused on network configuration and management.
+Note that `iproute2` is more focused on network configuration and management.
 For DNS-specific tasks, tools like `dig`, `nslookup`, or `host` are more appropriate.
 
 ## find a free TCP port
