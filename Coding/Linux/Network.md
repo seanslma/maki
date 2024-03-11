@@ -1,6 +1,8 @@
 # Network
 
 ## iproute2
+`iproute2` is the Linux networking toolkit that replaced net-tools (ifconfig, route, arp etc.).
+
 `iproute2` is a collection of command-line utilities for managing and monitoring various aspects of networking in the Linux kernel.
 Common iproute2 utilities:
 - ip: The primary command for most networking tasks like configuring interfaces, assigning IP addresses, and managing routes.
