@@ -63,3 +63,6 @@ https://github.com/kubereboot/kured/issues/63
   `error when evicting pods/"user-scheduler-xxxxx-xxx" -n "jhub" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.`
   check the `pdb` settings - some settings are invalid: `kubectl get pdb -A`, `kubectl get pdb -n <namespace> <pdb-name> -o yaml`
 - scheduling disabled represents that node got into maintenance mode - due to maintainance???
+
+## connect to aks node
+https://learn.microsoft.com/en-us/azure/aks/node-access
