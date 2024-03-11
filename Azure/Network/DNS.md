@@ -17,3 +17,8 @@ They are global in scope, so can access them from any region, any subscription, 
 A Private DNS Zone in Azure is a feature that allows you to create a `custom DNS namespace` for your virtual networks in Azure. 
 It provides `name resolution` within your virtual network, enabling you to use custom domain names for your resources 
 while keeping the DNS queries and responses `within the Azure network`. 
+
+
+## Azure Private DNS Zone Virtual Network Link
+An Azure Private DNS Zone Virtual Network Link is a resource that connects a `virtual network` within Azure to a specific `Azure Private DNS zone`. 
+It essentially bridges the gap between private DNS and your virtual network, allowing resources within the virtual network to resolve hostnames defined in the private zone.
