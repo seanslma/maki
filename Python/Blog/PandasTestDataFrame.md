@@ -2,6 +2,8 @@
 
 ## create string column
 
+## create datetime column
+
 ## create integer column
 
 ## create float column
