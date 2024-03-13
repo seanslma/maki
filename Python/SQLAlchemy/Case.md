@@ -1,5 +1,54 @@
 # Case
 
+## cannot use `case` in groupby
+https://groups.google.com/g/sqlalchemy/c/o4H3kalpAFk
+
+original query
+```sql
+SELECT   
+  CASE 
+    WHEN (s.[Name] = 'John') THEN 'John' 
+    ELSE 'Other' 
+  END AS customer_name,
+  SUM(s.[Quantity]) AS sale_quantity,
+FROM [Sales] as s
+GROUP BY 
+  CASE 
+    WHEN (s.[Name] = 'John') THEN 'John' 
+    ELSE 'Other' 
+  END  
+```
+
+slqalchemy code
+```py
+name_col = sa.case(
+    (s.Name=='John', 'John'),
+    else_='Other'
+)
+query = (
+    session.query(    
+        name_col.label('customer_name'),
+        sa.func.sum(s.Quantity).label('sale_quantity'),
+    )
+    .group_by(name_col)
+)
+```
+
+workaround: using subquery
+```py
+subq = session.query(    
+    sa.case((s.Name=='John', 'John'), else_='Other').label('name'),
+    s.Quantity.label('quantity'),
+).subquery()
+query = (
+    session.query(    
+        subq.c.name,
+        sa.func.sum(subq.c.quantity).label('sale_quantity'),
+    )
+    .group_by(subq.c.name)
+)
+```
+
 ## sa.case vs sa.sql.case
 `sa.case` is the `sa.sql.case` imported from `sa.__init__`.
 
