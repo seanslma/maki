@@ -5,7 +5,8 @@ if a service depends on another service, it might fail to start as the other ser
 ## service
 Right click the 'service.cs' file and add installer.
 
-```dos install_service.bat
+install_service.bat
+```bat
 @echo off
 
 set exe="C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\InstallUtil.exe"
@@ -42,7 +43,7 @@ log.WriteEntry("My Eventlog Err message.", EventLogEntryType.Error);
 
 ## control service
 
-```csharp
+```cs
 using System.ServiceProcess;
 
 var svc = new ServiceController(svcName);

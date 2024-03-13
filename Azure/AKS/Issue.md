@@ -2,7 +2,7 @@
 
 ## Unable to connect to the server: dial tcp: lookup : no such host
 The `Private Cluster` option is enabled while creating the AKS cluster.
-```
+```sh
 az aks show -n <aks-name> -g <resource-group-name> | grep private
 ```
 
@@ -21,5 +21,5 @@ kubectl edit pdb <pdb-name> -n <pdb-namespace> #then change allowedDisruptions
 kubectl get pdb <pdb-name> -n <pdb-namespace> -o yaml > pdb_backup.yaml
 kubectl delete pdb <pdb-name> -n <pdb-namespace>
 kubectl apply -f pdb_backup.yaml
-```  
+```
 - Delete the pods that can't be drained

@@ -3,18 +3,18 @@
 https://learn.microsoft.com/en-us/azure/aks/start-stop-cluster?tabs=azure-cli
 
 ## stop cluster
-```
+```sh
 az aks show
 az aks stop --name <cluster-name> --resource-group <resource-group>
 ```
 
 ## start cluster
-```
+```sh
 az aks start --name <cluster-name> --resource-group <resource-group>
 ```
 
 ## manual upgrade
-```
+```sh
 az aks list -o table
 az aks get-upgrades --resource-group <resource-group> --name <aks-name> -o table
 az aks upgrade --resource-group <resource-group> --name <aks-name> --kubernetes-version <version>
@@ -23,7 +23,7 @@ kubectl get events -A
 ```
 
 ## restart VMs in scale set in AKS node pool
-```
+```sh
 #get the AKS node resource group name
 az aks show -g <resource-group> -n <cluster-name> --query nodeResourceGroup
 

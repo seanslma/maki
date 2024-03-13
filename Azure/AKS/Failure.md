@@ -1,14 +1,14 @@
 # AKS Failure
-  
+
 ## node failure
-```
+```sh
 kubectl get nodes
 kubectl create -f guestbook-all-in-one.yaml
 kubectl get service -w
 kubectl get pods -o wide
 #new cloud shell: hit the guestbook front end every 5 seconds and get the HTML
-while true; do 
-  curl -m 1 http://<EXTERNAl-IP>/; 
+while true; do
+  curl -m 1 http://<EXTERNAl-IP>/;
   sleep 5;
 done
 
@@ -16,7 +16,7 @@ kubectl get pods -o wide -w
 ```
 
 ## out-of-resource failure
-```
+```sh
 kubectl scale deployment/redis-replica --replicas=10
 kubectl get pods
 kubectl describe pod redis-replica-<pod-id>
@@ -24,7 +24,7 @@ kubectl delete -f guestbook-all-in-one.yaml
 ```
 
 ## storage mount issue
-```
+```sh
 #install WordPress
 kubectl get all
 kubectl get nodes
@@ -32,7 +32,7 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install wp bitnami/wordpress
 kubectl get pods -w
 
-#get PersistentVolumeClaims 
+#get PersistentVolumeClaims
 kubectl get pvc
 #show actual PVs created
 kubectl get pv
@@ -43,7 +43,7 @@ kubectl get service
 #get usr and pwd
 helm status wp
 echo Username: user
-echo Password: $(kubectl get secret --namespace default wp-wordpress 
+echo Password: $(kubectl get secret --namespace default wp-wordpress
 -o jsonpath="{.data.wordpress-password}" | base64 -d)
 #watch pods
 kubectl get pods -w
@@ -52,7 +52,7 @@ kubectl delete pod --all
 ```
 
 ## node failure with pvc
-```
+```sh
 #get the node hosting app
 kubectl get pods -o wide
 kubectl get pods -o wide -w

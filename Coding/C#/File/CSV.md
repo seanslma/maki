@@ -50,7 +50,7 @@ string GetColInRow(string line, int icol)
         return line.Substring(i + 1, j - i - 1);
     }
     return null; //not found
-}      
+}
 
 void MoveToEndQuote(ref int j, string line)
 {

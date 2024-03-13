@@ -2,7 +2,7 @@
 
 ## make bash shell safe
 avoid pipeline errors passing silently
-```
+```sh
 set -eoux pipefail
 ```
 https://sipb.mit.edu/doc/safe-shell/#:~:text=set%20%2Do%20pipefail%20causes%20a,command%20in%20a%20pipeline%20errors.

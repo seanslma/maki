@@ -2,7 +2,7 @@
 Cheat sheet: https://devhints.io/bash
 
 ## Special parameter
-```
+```sh
 $#  #number of arguments
 $@  #array-like construct of all positional parameters, {$1, $2, ...}
 $*  #IFS expansion of all positional parameters, $1 $2, ...
@@ -15,12 +15,12 @@ $_	#last argument of previous command
 ```
 
 ## Default value
-```
+```sh
 ${var:-x} #default value is x
 ```
 
 ## shift one parameter
-```
+```sh
 while (( $# > 0 )); do
     case $1 in
         [0-9]*) LEN=$1

@@ -1,5 +1,6 @@
 # IP
-IP can be static or dynamic. Dynamic IP is released when the resource is stopped or deleted.
+IP can be static or dynamic.
+Dynamic IP is released when the resource is stopped or deleted.
 
 ## resources can associate with a public IP address
 - Virtual machine network interfaces

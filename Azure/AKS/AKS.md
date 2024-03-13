@@ -12,7 +12,7 @@
   * store and manage sensitive information such as passwords, OAuth tokens and ssh keys
 
 ## AKS credentials
-```
+```sh
 az aks list -o table
 az aks get-credentials --resource-group rg01 --name aks01
 ```
@@ -23,7 +23,7 @@ az aks get-versions -l australiaeast -o table
 ```
 
 ## kubectl basic
-```
+```sh
 alias k=kubectl                      #using alias
 kubectl get nodes                    #verify have access
 kubectl create -f aks01.yaml         #launch app
@@ -35,7 +35,7 @@ kubectl delete -f aks01.yaml         #delete created objects
 ```
 
 ## upgrade
-```
+```sh
 az aks get-upgrades -n <cluster-name> -g <resource-group> --o table                #list available versions
 az aks upgrade -n <cluster-name> -g <resource-group> --kubernetes-version  1.25.5  #upgrade
 ```

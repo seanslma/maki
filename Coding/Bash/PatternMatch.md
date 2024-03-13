@@ -1,7 +1,7 @@
 # Pattern Match
 
 ## wildcard
-```
+```sh
 if [[ "$fn" == *.jpg ]]
 ```
 - `*` to match any number of characters
@@ -9,7 +9,7 @@ if [[ "$fn" == *.jpg ]]
 - `[]` for including a list of possible characters
 
 ## shell options
-```
+```sh
 shopt -s extglob
 if [[ "$fn" == *.@(jpg|jpeg) ]]
 ```
@@ -23,7 +23,7 @@ and `shopt -s nocasematch` for case-insensitive match.
 
 ## regular expression
 Filename example: `Ludwig Van Beethoven - 05 - "Coriolan" Overture, Op. 12.ogg`
-```
+```sh
 for fn in *
 do
     if [[ "$fn" =~ "([[:alpha:][:blank:]]*)- ([[:digit:]]*) - (.*)$"

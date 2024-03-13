@@ -5,7 +5,7 @@ https://stackoverflow.com/questions/2188199/how-to-use-double-or-single-brackets
 ## `[]` Test construct
 `[` is just a different name for the `test` command, and `]` is required
 as the last parameter, for readability and aesthetic reasons.
-```
+```sh
 x=2
 v=x
 if [ $v == x ] ; then echo yes ; else echo no ; fi
@@ -14,7 +14,7 @@ yes
 ```
 
 ## `[[]]` Extended test construct
-```
+```sh
 v=x
 if [[ $v == 1 ]] ; then echo yes ; else echo no ; fi
 no
@@ -26,7 +26,7 @@ no
 
 
 ## `(())` Double Parentheses: arithmetic operations
-```
+```sh
 (( i = 78 ))
 i = $(( 20 + 5 ))
 (( i++ ))
@@ -35,7 +35,7 @@ i = $(( 20 + 5 ))
 ## `${var}`
 ${var} is just a disambiguation mechanism, so `${var}text` can be different to `$vartext`.
 
-```
+```sh
 echo Variable: ${var}1
 var: x1
 
@@ -44,7 +44,7 @@ var: x1
 
 ## `$(command)`
 $(command) is a modern synonym for `command` which stands for command substitution; it means run command and put its output here.
-```
+```sh
 round_k() {
     echo $(( ($1 + 500) / 1000 * 1000 ))
 }

@@ -1,6 +1,6 @@
 # format
 
-```csharp
+```cs
 //format
 string msg = $"Delayed time: {hrs:D2}:{mts:D2}:{sec:00.000}";
 

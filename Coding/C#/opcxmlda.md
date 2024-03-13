@@ -10,7 +10,7 @@ The server should attempt to honor the client’s request, but it may reevaluate
 must stop the vpnui process otherwise when you log off, the vpn will be disconnected because this ui is started by a local user. to avoid this issue, we have to ensure the vpn is connected via vpnagent the service that is shared by all users.
 
 ## check vpn status
-```dos
+```bat
 netsh interface show interface
 ```
 

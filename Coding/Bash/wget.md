@@ -3,17 +3,17 @@
 `wget <OPTION> <URL>`
 
 ## download to current working folder
-```
+```sh
 wget http://mirror.ctan.org/<package_path+package_name.zip>
 ```
 
 ## download to a target folder
-```
+```sh
 wget -O $HOME/Download http://mirror.ctan.org/<package_path+package_name.zip>
 ```
 
 ## unpack the archive
-```
+```sh
 mkdir -p /path/to/directory
 unzip filename.zip -d /path/to/directory
 tar -xvf filename.tar --C /path/to/directory
@@ -21,7 +21,7 @@ tar -xvf filename.tar --directory /path/to/directory
 ```
 
 ## dos
-```dos
+```bat
 @echo off
 
 set wget="wget.exe"

@@ -1,9 +1,9 @@
 # ldd
 
 Show shared objects and the dependencies in an executable.
- 
+
 ## example
-```
+```sh
 sudo ldd /bin/bash
 ```
 - `-v` Verbose mode, print all information

@@ -1,7 +1,7 @@
 # deploy app
 
 ## app deployment
-```
+```sh
 #show more details about a deployment
 kubectl describe deployment/redis-master #describe <object> <instance-name>
 #delete current deployment
@@ -28,13 +28,13 @@ kubectl delete service frontend redis-master redis-replica
 ## deploy complex app using Helm
 "When deploying more complicated applications, across multiple environments (such as dev/test/prod), it can become cumbersome to manually edit YAML files for each environment. This is where the Helm tool comes in."
 
-```
-#add repo containing stable Helm Charts 
+```sh
+#add repo containing stable Helm Charts
 helm repo add bitnami https://charts.bitnami.com/bitnami
 #install WordPress
 helm install handsonakswp bitnami/wordpress
 #delete aks
 helm delete aks01
-#delete pvcs 
+#delete pvcs
 kubectl delete pvc --all
 ```

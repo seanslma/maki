@@ -12,7 +12,9 @@ configure DNS name resolution for Contoso Ltd:
 
 ## on-prem to azure cloud
 ```
-[on-prem] -- private link, express route -->
-[private dns resolver] -- vnet peering -->
+[on-prem]
+    -- private link, express route -->
+[private dns resolver]
+    -- vnet peering -->
 [vnet]
 ```

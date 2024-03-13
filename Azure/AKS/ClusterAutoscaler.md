@@ -17,11 +17,11 @@ AKS > Monitoring > Metrics > Unneeded Nodes
 https://github.com/kubernetes/autoscaler/issues/525
 
 ### autoscaler logs
-```
+```sh
 kubectl -n kube-system logs --follow kube-dns-autoscaler-7xxxxb7-lxxxp
 ```
 ### Autoscaler configmap
-```
+```sh
 kubectl get configmap cluster-autoscaler-status -n kube-system -o yaml
 ```
 
@@ -32,10 +32,10 @@ kubectl get configmap cluster-autoscaler-status -n kube-system -o yaml
 **Workaround**: first manually scale the nodes to zero then scale back.
 
 ## custom metrics
-If both CPU and memory usages are not high, you might want to consider using custom metrics or external metrics 
+If both CPU and memory usages are not high, you might want to consider using custom metrics or external metrics
 for Horizontal Pod Autoscaler (HPA) in aks. This allows you to scale your application based on metrics other than just CPU and memory.
 
-Instrument your application code to expose the relevant metric (in this case, the number of requests) as an **endpoint**. 
+Instrument your application code to expose the relevant metric (in this case, the number of requests) as an **endpoint**.
 This can be done by using a metrics library or directly exposing a custom metric through an HTTP endpoint.
 
 ## Cluster autoscaler settings
@@ -49,24 +49,24 @@ Cannot scale down to zero? seems fixed - test it
 https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-scale?tabs=azure-cli#autoscale-pods
 
 manually scale pods:
-```
+```sh
 kubectl scale --replicas=5 deployment/<deployment-name>
 ```
 
-Kubernetes supports horizontal pod autoscaling (HPA) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. 
+Kubernetes supports horizontal pod autoscaling (HPA) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics.
 
-To use the autoscaler, all containers in your pods and your pods must have CPU requests and limits defined. 
+To use the autoscaler, all containers in your pods and your pods must have CPU requests and limits defined.
 
 If average CPU utilization across all pods exceeds 50% of their requested usage, the autoscaler increases the pods up to a maximum of 10 instances.
+```sh
+kubectl autoscale deployment <container-app-name> --cpu-percent=50 --min=3 --max=10
 ```
-Kubectl autoscale deployment <container-app-name> --cpu-percent=50 --min=3 --max=10
-```
-```
+```yaml
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: <container-app-name>-hpa
-spec:  
+spec:
   minReplicas: 3  # define min replica count
   maxReplicas: 10 # define max replica count
   scaleTargetRef:
@@ -77,19 +77,19 @@ spec:
 ```
 ## Manually scale down nodes
 https://docs.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli
-```
+```sh
 #show nodepool profiles
 az aks show --resource-group <resource-group> \
     --name <cluster-name> --query agentPoolProfiles
-    
-#scale nodepool    
+
+#scale nodepool
 az aks scale --resource-group <resource-group> \
     --name <cluster-name> --node-count 1 --nodepool-name <nodepool-name>
-    
+
 #can scale user nodepool to zero node
 az aks nodepool scale --resource-group <resource-group> \
     --cluster-name <cluster-name> --name <nodepool-name> \
-    --node-count 0 
+    --node-count 0
 
 #disable ca
 az aks nodepool update --resource-group <resource-group> \
@@ -100,7 +100,7 @@ az aks nodepool update --resource-group <resource-group> \
 az aks nodepool update --resource-group <resource-group> \
     --cluster-name <cluster-name> --name <nodepool-name> \
     --enable-cluster-autoscaler --min-count 0 --max-count 4
-  
+
 #change node pool count
 az aks update --resource-group <resource-group> \
     --cluster-name <cluster-name> --name <nodepool-name> \
@@ -124,22 +124,22 @@ https://faun.pub/how-to-make-sure-kubernetes-autoscaler-not-deleting-the-nodes-w
 
 ### Solution 1:
 Can add the annotation to the critical pods or deployments:
-```
+```yaml
 "cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
 ```
 
 Update a running deployment with the below command:
-```
+```sh
 kubectl annotate deployment.apps/efs-provisioner cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
 ```
 
 ### Solution 2:
 Autoscaler provides an option to exclude nodes from the scale-down process.
 This annotation is applied to a specific node so make sure the critical pods running on this Kubernetes node.
-```
+```yaml
 "cluster-autoscaler.kubernetes.io/scale-down-disabled": "true"
 ```
 
 ### Solutions 3:
-If a pod is using local storage AutoScaler will skip that node from deletion. 
+If a pod is using local storage AutoScaler will skip that node from deletion.
 So mounting local storage to a pod also can use as a trick to protect the nodes which run our critical pods.

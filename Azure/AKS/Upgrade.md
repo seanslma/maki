@@ -1,7 +1,7 @@
 # upgrade app
 
 ## changing yaml file
-```
+```sh
 code guestbook-all-in-one.yaml              #edit yaml
 kubectl apply -f guestbook-all-in-one.yaml  #apply changes
 kubectl get service                         #get service public IP
@@ -18,7 +18,7 @@ kubectl delete -f guestbook-all-in-one.yaml #clean up
 
 ## using kubectl edit
 This will not work in an automated environment.
-```
+```sh
 git reset --hard                            #undo changes
 kubectl create -f guestbook-all-in-one.yaml #deploy app
 kubectl edit service frontend               #edit service
@@ -30,7 +30,7 @@ This can make automated changes, when don't have access to the original YAML fil
 continuous deployment** system.
 
 ### yaml patch file
-```
+```sh
 #create ymal file
 code frontend-image-patch.yaml
 #yaml file
@@ -48,7 +48,7 @@ kubectl describe deployment frontend
 ```
 
 ### json inline
-```
+```sh
 kubectl patch deployment frontend \
 --patch='
 {
@@ -69,7 +69,7 @@ kubectl delete -f guestbook-all-in-one.yaml
 ```
 
 ## using Helm
-```
+```sh
 #force an update of the image of the MariaDB container
 helm install wp bitnami/wordpress
 #check current image version

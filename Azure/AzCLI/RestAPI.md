@@ -4,7 +4,7 @@ https://learn.microsoft.com/en-us/cli/azure/use-azure-cli-rest-command?tabs=bash
 
 ## Using rest api to patch blockblobstorage property
 In windows terminal, we escape the double quote by backslash
-```
+```sh
 az rest --method get --url xxx
 
 az rest --method patch
@@ -13,6 +13,6 @@ az rest --method patch
 ```
 
 in linux
-```
+```sh
 --body '{"properties": {"accessTier": null}}'
 ```

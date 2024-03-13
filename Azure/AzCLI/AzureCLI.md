@@ -3,7 +3,7 @@
 https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest
 
 ## upgrade
-```
+```sh
 az version
 az upgrade -y
 ```
@@ -14,19 +14,19 @@ az upgrade -y
 - batch: use accent circonflexe ^
 
 ## List all subscriptions
-```
+```sh
 az account list --output table
 az account set --subscription <subscription-id> #set default subscription
 ```
 
 ## List all regions
-```
+```sh
 az account list-locations --output table #list all locations
 az vm list-sizes --location "westus"     #list available vm sizes in a specific location
 ```
 
 ## resource group
-```
+```sh
 az group list
 az group list -o table
 az group create --name rg01 --location australiaeast
@@ -34,13 +34,13 @@ az group delete --name rg01
 ```
 
 ## service principal
-```
+```sh
 $sp = az ad sp create-for-rbac --name <sp-name> | ConvertFrom-Json
 az ad sp create-for-rbac --name <sp-name> --role Contributor --scopes /subscriptions/<subscription-id>
 ```
 
 ## storage account
-```
+```sh
 #create
 az storage account create --name <storage-account-name> `
 --resource-group rg01 --location australiaeast --sku Standard_RAGRS --kind StorageV2
@@ -50,7 +50,7 @@ az storage account delete --name <storage-account-name> --resource-group <resour
 ```
 
 ## key vault
-```
+```sh
 az keyvault create --location $region --name <kv-name> `
 --resource-group <resource-group> --enabled-for-template-deployment true
 
@@ -62,7 +62,7 @@ az keyvault set-policy --name <name> --spn $spIdUri --secret-permissions get lis
 ```
 
 ## Connect to VM
-```
+```sh
 Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch #connect to VM using PowerShell
 Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder" #save RDP file for future use
 ```

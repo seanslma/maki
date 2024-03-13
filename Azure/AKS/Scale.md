@@ -5,7 +5,7 @@ Scale app using **Horizontal Pod Autoscaler (HPA)**. Scale the cluster using **c
 ## scale app
 Scale dimensions include the number of pods a deployment has, and the number of nodes in the cluster.
 
-```
+```sh
 kubectl edit service frontend  #edit service
 kubectl get service -w         #watch service
 ```
@@ -13,14 +13,14 @@ kubectl get service -w         #watch service
 ## scale pods
 
 ### mannual scale pods
-```
+```sh
 kubectl get pods
 kubectl get pods -o wide                       #show Ip and running status
 kubectl scale deployment/frontend --replicas=6 #add additional pods to the deployment
 ```
 
 ### auto scale pods using hpa
-```
+```yaml
 #hap.ymal
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -34,7 +34,9 @@ spec:
   minReplicas: 1
   maxReplicas: 10
   targetCPUUtilizationPercentage: 50
+```
 
+```sh
 kubectl create -f hpa.yaml  #create hpa
 kubectl get hpa             #check hpa
 kubectl get pods -w         #watch pods
@@ -54,7 +56,7 @@ kubectl delete -f guestbook-all-in-one.yaml
 ```
 
 ## scale cluster
-```
+```sh
 kubectl create -f guestbook-all-in-one.yaml          #launch guestbook app
 kubectl scale deployment redis-replica --replicas 5  #mannually scale out redis-replica
 kubectl get pods                                     #check pods

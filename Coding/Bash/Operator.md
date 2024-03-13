@@ -24,7 +24,7 @@ If always use the math-style symbols for comparison:
 ## Arithmetic operators
 `=, +=, -=, *=, /=, &=, \=, ^=, <<=, >>=`
 Integer arithmetic:
-```
+```sh
 let 'i += j' 'j *= i'
 let n+='i**2 + 1'
 n=$(( n + i**2 + 1 ))
@@ -32,7 +32,7 @@ n=$(( n + i**2 + 1 ))
 
 ## File testing unary operators
 Exists
-```
+```sh
 -d File is a directory
 -f File is a regular file
 -e File exists
@@ -40,7 +40,7 @@ Exists
 ```
 
 Read/write etc
-```
+```sh
 -r File is readable
 -w File is writable
 -x File is executable
@@ -48,7 +48,7 @@ Read/write etc
 ```
 
 Types
-```
+```sh
 -b File is a block special device (for files like /dev/hda1)
 -c File is character special (for files like /dev/tty)
 -S File is a socket
@@ -58,7 +58,7 @@ Types
 ```
 
 bit set
-```
+```sh
 -k File has its sticky bit set
 -u File has its set-user-ID (setuid) bit set
 -g File has its set-group-ID (setgid) bit set
@@ -67,7 +67,7 @@ bit set
 ```
 
 ## File testing binary operators
-```
+```sh
 [ file_1 -nt file_2 ] #file_1 is newer than file_2
 [ file_1 -ot file_2 ] #file_1 is older than file_2
 [ file_1 -ef file_2 ] #file_1 and file_2 have the same device or inode numbers

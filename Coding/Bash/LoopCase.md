@@ -1,7 +1,7 @@
 # Loop and Case
 
 ## each line in a variable
-```
+```sh
 list=$'One\ntwo\nthree\nfour'
 echo "$list"
 
@@ -14,7 +14,7 @@ echo "$list" | while IFS= read -r line; do echo $line; done
 ```
 
 ## while
-```
+```sh
 #arithmetic condition
 while (( n < m )); do
     ...
@@ -44,7 +44,7 @@ done
 ```
 
 ## for with count
-```
+```sh
 for (( i=0 ; i < 10 ; i++ )); do
     echo $i
 done
@@ -55,7 +55,7 @@ done
 ```
 
 ## for with seq
-```
+```sh
 #`$()` runs the command in subshell and
 #returns the result with the newlines replaced by whitespace
 for v in $(seq 1 .1 1.2) ; do
@@ -73,7 +73,7 @@ done
 - `;;`  break
 - `;;&` continue matching next patterns
 - `;&`  fall-through, run next regardless of matching, useful for version patch
-```
+```sh
 case $fn in
     *.gif) gif2jpg $fn
         ;;
@@ -92,3 +92,4 @@ case $version in
     *) printf "Nothing to update. It's already the latest version: %s" $version
         ;;
 esac
+```

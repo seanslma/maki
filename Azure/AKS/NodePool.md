@@ -3,13 +3,13 @@
 https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools
 
 ## abort operation on node pool
-```
+```sh
 az aks nodepool operation-abort --name <node-pool> \
   --cluster-name <cluster-name> --resource-group <resource-group>
 ```
 
 ## abort operation on managed cluster
-```
+```sh
 az aks operation-abort --name <cluster-name> --resource-group <resource-group>
 ```
 
@@ -17,7 +17,7 @@ az aks operation-abort --name <cluster-name> --resource-group <resource-group>
 To schedule a pod to run on a Spot node, the pod should define
 - a `toleration` that corresponds to the `kubernetes.azure.com/scalesetpriority=spot:NoSchedule` taint and
 - a `node affinity` that corresponds to the `kubernetes.azure.com/scalesetpriority=spot` label
-```
+```yaml
 spec:
   containers:
   - name: spot-example
