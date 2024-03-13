@@ -1,8 +1,8 @@
 # Case
 
 ## cannot use `case` in groupby
-https://groups.google.com/g/sqlalchemy/c/o4H3kalpAFk
-
+- https://groups.google.com/g/sqlalchemy/c/o4H3kalpAFk
+- https://stackoverflow.com/questions/21742713/need-a-query-in-sqlalchemy-with-group-by-case
 original query
 ```sql
 SELECT   
