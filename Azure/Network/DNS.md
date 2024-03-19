@@ -34,3 +34,9 @@ allowing resources within the virtual network to resolve host names defined in t
 
 ## Hybrid DNS resolution
 https://learn.microsoft.com/en-us/azure/dns/private-resolver-hybrid-dns
+
+## Private DNS best practices
+https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
+- private DNS zones live in the hub
+- an Azure policy automatically creates dnsZoneGroups for private endpoints
+- for DNS resolution, spokes point to either a custom DNS or Azure Private Resolver in the hub
