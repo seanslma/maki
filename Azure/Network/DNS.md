@@ -46,8 +46,16 @@ multiple-azure-private-dns-zones: https://serverfault.com/questions/1104244/mult
 
 Not to have two different private DNS zones for the same Azure service tied with VNET links to the same VNE:
 ```
-Creating multiple zones with the same name for different virtual networks would need manual operations to merge the DNS records.
+Creating multiple zones with the same name for different virtual networks
+would need manual operations to merge the DNS records.
 ```
+
+Also from here:
+https://learn.microsoft.com/en-us/answers/questions/561794/vnet-link-to-multiple-private-dns-zones
+
+Creating multiple zones with the same name for different virtual networks would need manual operations to merge the DNS records.
+This is a known limitation and can be found documented in the below article:
+https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns#virtual-network-workloads-without-custom-dns-server
 
 If we need to migrate the private DNS zone to another private DNS zone. 
 We first create the new DNS zone then delete the old one - this will not work.
