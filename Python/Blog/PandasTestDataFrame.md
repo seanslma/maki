@@ -29,6 +29,16 @@ d2 = pd.DataFrame({'ts': t2})
 
 numpy version is much faster but less convinient.
 
+We can also generate random date values between a range
+```py
+rng = np.random.default_rng(seed=11)
+start_date = np.datetime64('2020-01-01') 
+end_date = np.datetime64('2021-01-01')
+low = start_date.astype(int)
+high = end_date.astype(int)
+ts = rng.integers(low, high, size=100).astype('datetime64[D]')
+```
+
 ## create integer column
 
 ## create float column
