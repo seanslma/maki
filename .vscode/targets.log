@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Feb 26 22:22:12 2024
+# Make data base, printed on Tue Mar 26 22:14:14 2024
 
 # Variables
 
@@ -28,6 +30,8 @@ VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -45,7 +49,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","osLocale":"en-au","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:50259
+JOURNAL_STREAM = 8:43931
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -55,7 +59,7 @@ MAKEFILE_LIST :=  makefile
 # automatic
 @F = $(notdir $@)
 # environment
-IM_CONFIG_PHASE = 1
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # environment
 USERNAME = sma
 # environment
@@ -65,7 +69,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /usr/bin/code
 # environment
-MANAGERPID = 1726
+MANAGERPID = 1720
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -77,7 +81,7 @@ PATH = /usr/local/texlive/2023/bin/x86_64-linux:/home/sma/mambaforge/envs/dev/bi
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1945,unix/mase:/tmp/.ICE-unix/1945
+SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1943,unix/mase:/tmp/.ICE-unix/1943
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -87,7 +91,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = acd4346d582b4e96a4cabbfe76bf3d2d
+INVOCATION_ID = fc650db850984c23a80721fcb4ff3135
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -96,6 +100,8 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3180
 # automatic
 %F = $(notdir $%)
 # environment
@@ -107,7 +113,7 @@ PWD = /home/sma/dev/maki
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1907
+SSH_AGENT_PID = 1905
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -121,7 +127,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/31c37ee8f63491495ac49e43b8544550fbae4533
+VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/019f4d1419fbc8219a181fab7892ebccf7ee29a2
 # environment
 LOGNAME = sma
 # environment
@@ -175,7 +181,7 @@ OLDPWD = /home/sma
 # environment
 LANGUAGE = en_AU:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-b4dacc97-1.86-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-b4dacc97-1.87-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -205,11 +211,11 @@ CONDA_PYTHON_EXE = /home/sma/mambaforge/bin/python
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a00df71e_2236_4faa_b331_3856de1506e2
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/d249c4ab_a6b5_4ee2_8dd1_70c6d5a1cacf
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.82
+GNOME_TERMINAL_SERVICE = :1.87
 # default
 SUFFIXES := 
 # environment
@@ -227,9 +233,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 66983
+VSCODE_PID = 3180
 # variable set hash-table stats:
-# Load=109/1024=11%, Rehash=0, Collisions=14/134=10%
+# Load=111/1024=11%, Rehash=0, Collisions=16/136=12%
 
 # Pattern-specific Variable Values
 
@@ -272,14 +278,12 @@ makefile:
 
 # Not a target:
 .DEFAULT:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # files hash-table stats:
- 
-make: *** No rule to make target 'all'.  Stop.
-
 # Load=5/1024=0%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
 
@@ -293,6 +297,6 @@ make: *** No rule to make target 'all'.  Stop.
 # strcache performance: lookups = 34 / hit rate = 14%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/34=3%
-# Finished Make data base on Mon Feb 26 22:22:12 2024
+# Finished Make data base on Tue Mar 26 22:14:14 2024
 
  
