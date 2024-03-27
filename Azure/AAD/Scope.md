@@ -37,3 +37,15 @@ az role assignment create \
 ```
 
 The system-managed identity should now have the assigned role with the specified scope for the blob storage container. It will be able to access the container according to the permissions granted by the assigned role.
+
+## .default scope
+https://dev.to/425show/just-what-is-the-default-scope-in-the-microsoft-identity-platform-azure-ad-2o4d
+```
+https://graph.microsoft.com/Mail.Read
+https://graph.microsoft.com/User.Read
+```
+
+The `/.default` scope is a shortcut back to the Azure AD v1 behavior (e.g., static consent).
+There are two extra scenarios where the `/.default` scope is required (`https: //your-app.your-co.com/.default`): 
+- `client_credentials`: our app is making service-to-service calls or using application-only permissions (also known as application app roles in Azure AD parlance), or
+- when using the `on-behalf-of` (OBO) flow, where our API is making calls on behalf of the user to a different API; something like this: client app --> our API --> Graph API.
