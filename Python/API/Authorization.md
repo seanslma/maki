@@ -7,23 +7,42 @@ If someone wants to use your API, they should create their own app registration 
 
 ## get token
 ```py
-azure_resp = client.post(
-    url=f'https://login.microsoftonline.com/{settings.TENANT_ID}/oauth2/v2.0/token',
-    data={
-        'grant_type': 'client_credentials',
-        'client_id': settings.CLIENT_ID,  # app reg (client) id
-        'client_secret': settings.CLIENT_SECRET,  # secret created in app reg
-        'scope': f'api://{settings.APP_CLIENT_ID}/.default',  # note: NOT .user_impersonation
+import requests
+def get_token(
+    auth_url, client_id, client_secret, scope, grant_type = 'client_credentials'
+):
+    """
+    Return: tuple[status_code, access_token]
+    (200, {
+        'token_type': 'Bearer',
+        'expires_in': 3599,
+        'ext_expires_in': 3599,
+        'access_token': 'xxxx'
+     })
+    """    
+    data = { 
+        'client_id': client_id,        
+        'client_secret': client_secret,
+        'scope': scope,
+        'grant_type': grant_type,
     }
-)
-token = azure_resp.json()['access_token']
+    headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+    resp = requests.post(url=auth_url, data=data, headers=headers)
+    return  resp.status_code, resp.json()
 ```
 
 ## call api with token
 ```py
-api_resp = client.get(
-    'http://localhost:8000/api/hello',
-    headers={'Authorization': f'Bearer {token}'},
-)
+# test
+tenant_id = '567f1234-c7de-4321-987a-dd4e54321c98'
+client_id = '1234de76-54a3-21ae-97bc-6eba3456789e'
+client_secret = 'xxx'
+scope = f'{client_id}/.default'
+
+auth_url = f'https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token'
+url = 'https://test.data.example.com'
+access_token = get_token(auth_url, client_id, client_secret, scope)[1]['access_token']
+headers = {'Authorization': f'Bearer {access_token}'}
+api_resp = requests.get(url=url, headers=headers)
 print(api_resp.json())
 ```
