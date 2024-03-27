@@ -1,4 +1,5 @@
 # Authorization
+- https://learn.microsoft.com/en-us/entra/identity-platform/index-web-app?pivots=devlang-python&tabs=windows
 - https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow
 - https://intility.github.io/fastapi-azure-auth/usage-and-faq/calling_your_apis_from_python/
 
