@@ -1,5 +1,8 @@
 # Error
 
+## Trouble shooting
+https://developer.hashicorp.com/terraform/tutorials/configuration-language/troubleshooting-workflow
+
 ## Error while retrieving OAuth token: Code Expired
 https://github.com/hashicorp/terraform-provider-kubernetes/issues/606
 Possible solutions
