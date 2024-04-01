@@ -2,11 +2,26 @@
 
 https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest
 
+## install
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
+
+ubuntu
+```sh
+# remove old version 2.0.81 package
+sudo apt remove azure-cli -y && sudo apt autoremove -y
+# install the latest version
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+
 ## upgrade
 ```sh
 az version
 az upgrade -y
+az extension update --name aks-preview
 ```
+
+if have legacy kubectl must be migrate to the new repo first:
+https://kubernetes.io/blog/2023/08/15/pkgs-k8s-io-introduction/
 
 ## new line
 - bash: use backslash \

@@ -11,6 +11,11 @@ https://pythonspeed.com/articles/conda-vs-pip/#:~:text=The%20fundamental%20diffe
 - pip wheel can lead larger package size
 - pip wheel not include executables and tools
 
+## show all conda info
+```
+conda info --all
+```
+
 ## update conda
 ```
 conda update -n base conda
@@ -47,6 +52,7 @@ conda create --name ENV_NAME_new --clone ENV_NAME_from
 ```
 
 ## create a notebook kernel
+The second command is for registering the kernel for the environment. Do we need to run the second command?
 ```
 conda install -c anaconda ipykernel
 python -m ipykernel install --user --name=test-env

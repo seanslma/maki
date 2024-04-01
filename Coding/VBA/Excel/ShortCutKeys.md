@@ -20,3 +20,7 @@
 - `Ctrl + Shift + L` table row
 - `Alt + H, O, A` auto fit rows
 - `Alt + H, O, I` auto fit cols
+
+## create chart
+select data and then
+- `Alt + F1`

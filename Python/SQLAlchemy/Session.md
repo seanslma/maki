@@ -2,6 +2,11 @@
 
 https://docs.sqlalchemy.org/en/13/orm/session_basics.html#when-do-i-construct-a-session-when-do-i-commit-it-and-when-do-i-close-it
 
+## get engine from session
+```py
+session.get_bind()
+```
+
 ## create session
 we can control when the session should be terminated and the number of sessions.
 ```py
@@ -93,3 +98,17 @@ Setting a rule in your database connection string to terminate idle connections 
 - **Connection pooling:** This optimizes connection management by reusing existing connections instead of creating new ones each time.
 - **Longer idle timeouts:** Consider setting a timeout that aligns with your typical application usage patterns to balance resource utilization and user experience.
 - **Dynamic timeouts:** Implement connection timeouts based on specific contexts (e.g., user type, query type) for more granular control.
+
+## `query` parameter in `sa.engine.url.URL.create`
+The `query` parameter in `sa.engine.url.URL.create` is a `dictionary` used to specify 
+connection options specific to the database dialect and underlying driver (DBAPI) being used. 
+It allows you to pass additional configuration beyond the core connection details like username, password, host, etc.
+
+**Important points to remember:**
+- Not all database dialects or drivers support the `query` parameter
+- The specific options you can use within the `query` dictionary depend entirely on the chosen dialect and driver
+- PostgreSQ does not support `query`, but has the `connect_args`
+
+Here are some resources to help you further:
+- SQLAlchemy Engine Configuration: [https://docs.sqlalchemy.org/20/core/engines.html](https://docs.sqlalchemy.org/20/core/engines.html)
+- Discussion on `query` parameter keys for PostgreSQL: [https://stackoverflow.com/questions/61555363/how-to-connect-to-postgresql-using-sqlalchemy](https://stackoverflow.com/questions/61555363/how-to-connect-to-postgresql-using-sqlalchemy)

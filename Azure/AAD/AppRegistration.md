@@ -48,3 +48,18 @@ If the app registrations secret is created via terraform, a renewed secret from 
 AADSTS7000215: Invalid client secret provided. Ensure the secret being sent in the request is the client secret value, not the client secret ID, for a secret added to app
 ```
 We should update the secret from terraform??? No, got the same error.
+
+For ArgoCD, seems this is due to the cache: https://github.com/argoproj/argo-cd/issues/12815
+
+The solutions: 
+- Recreate the secret using terraform code
+  - both the argocd config and kubernetes secret should be updated
+  - the base64 coded text might be different from the one generated from terraform code
+- Solve argocd server cache issue
+  - Clearing the browser cache fixed it for next login attempt.
+  - To definitively solve this issue, we've had to restart argocd-server.
+
+## get secret id
+```sh
+az ad app credential list --id <application_id>
+```

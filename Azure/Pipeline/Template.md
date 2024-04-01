@@ -1,6 +1,13 @@
 # Template
 https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops
 
+## order
+script(bash, task etc.) must in the first line. generally in this order:
+- script
+- displayName
+- inputs
+- condition
+
 ## template file
 ```
 #pipeline-template.yml

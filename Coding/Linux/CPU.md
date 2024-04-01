@@ -1,5 +1,11 @@
 # CPU
 
+## show cpu usage
+```sh
+top
+htop
+```
+
 ## cpu temperature
 https://www.baeldung.com/linux/cpu-temperature
 

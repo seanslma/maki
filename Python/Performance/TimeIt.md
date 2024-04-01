@@ -19,4 +19,5 @@ def func(df):
 
 t1 = timeit.Timer(lambda: func(df))
 print(t1.timeit(5))
+print(t1.repeat(repeat=3, number=7))
 ```

@@ -14,7 +14,7 @@ journalctl -xeu kubelet -n 100 --no-pager
 ## container log
 If using `kubectl` is possible
 ```sh
-kubelctl logs -h
+kubectl logs -h
 kubectl logs <pod-name>
 kubectl logs <pod-name> --tail=20
 kubectl logs <pod-name> --since=1h
@@ -27,7 +27,7 @@ docker logs <container-id>
 ```
 
 ## `kube-sheduler` pod log
-- kube-scheduler pod's log: same as using `kubeclt logs`
-- kube-scheduler container's log: same as kube-scheduler pod's log.
+- `kube-scheduler` pod's log: same as using `kubeclt logs`
+- `kube-scheduler` container's log: same as kube-scheduler pod's log.
 - `kube-controller-manager`
 - `kube-apiserver`

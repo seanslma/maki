@@ -1,4 +1,17 @@
 # Storage
+- azurerm_storage_container
+- stoarge_account_network_rules
+- azurerm_storage_container
+- azurerm_private_endpoint: dfs, file, blob
+- azurerm_user_assigned_identity
+- azurerm_role_assignment: Storage Blob Data Contributor, Storage Queue Data Contributor, keyvalut secret etc
+
+Note that the network rules might be in effect after the creation of the storage account. So the storag containers can only be created in a second run. The first run might have errors like:
+```
+Error: containers.Client#GetProperties: Failure responding to request: StatusCode=403 --
+Original Error: autorest/azure: Service returned an error. Status=403
+Code="AuthorizationFhorized to perform this operation.
+```
 
 ## Add a manully created azure blob storage container under terraform control
 We can manage an existing Azure Blob Storage container using Terraform. 
@@ -45,8 +58,14 @@ However, exercise caution when applying changes to the Terraform configuration t
 as inappropriate modifications can result in unintended consequences. 
 Always review the Terraform plan before applying changes to ensure they align with your expectations and requirements.
 
+## azurerm_storage_container
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container
+
 ## stoarge_account_network_rules
 https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules
+
+when nfsv3_enabled = true, network_rules must be created together with the storage, otherwise might get errors like `Storage Account xxx was not found`.
+see bug: https://github.com/hashicorp/terraform-provider-azurerm/issues/14540
 
 ```tf
 resource "azurerm_storage_account_network_rules" "main" {
@@ -57,3 +76,9 @@ resource "azurerm_storage_account_network_rules" "main" {
   bypass                     = ["Metrics"]
 }
 ```
+
+## azurerm_private_endpoint
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_endpoint
+- subresource_names: dfs - general file system access
+- subresource_names: file - only for FileStorage
+- subresource_names: blob - for type != FileStorage

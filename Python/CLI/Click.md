@@ -21,7 +21,7 @@ https://click.palletsprojects.com/en/7.x/options/
 - `click.option` Attaches an option to the command
 
 ## click.ParamType
-Represents the type of a parameter. 
+Represents the type of a parameter.
 Validates and converts values from the command line or Python into the correct type.
 
 ## subcommands
@@ -49,7 +49,7 @@ task.py
 import click
 from functools import partial
 
-# Add some parameters to clic.option
+# Add some parameters to click.option
 click.option = partial(click.option, show_default=True)
 
 @click.group()
@@ -72,7 +72,7 @@ def list_tasks(show: bool):
         click.echo('Number of tasks: ')
 ```
 
-Here 
+Here
 - We create a subcommand group task using `@click.group()` in the `task.py` file.
 - Inside the `task.py` file, we use `@task.command()` to define subcommands within the task group for add and list_tasks.
 - In the `main.py` file, we add the task subcommand group to the main CLI using `cli.add_command(task)`.

@@ -12,3 +12,8 @@ FROM DUAL;
 select dt + INTERVAL '5' MINUTE as dt
 from my_table;
 ```
+
+## string to datetime
+```sql
+SELECT TO_DATE('2024-01-01 12:00:00', 'YYYY-MM-DD HH24:MI:SS') AS datetime_value from dual
+```

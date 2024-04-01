@@ -22,6 +22,9 @@ https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-n
 list of tables:
 https://visualisations.aemo.com.au/aemo/nemweb/MMSDataModelReport/Electricity/MMS%20Data%20Model%20Report_files/MMS_470_8.htm
 
+## mypasa duid availability
+https://nemweb.com.au/Reports/CURRENT/MTPASA_DUIDAvailability/
+
 ## prdLoader tables
 https://visualisations.aemo.com.au/aemo/di-help/Content/pdrLoader/Database_Tables.htm
 
@@ -74,6 +77,11 @@ For each interval_datetime there will be 12 runs with the last run_datetime star
 
 Regional demand can be calculated as total demand plus dispatchable load (i.e. Regional demand =
 Total Demand + Dispatchable Load)
+
+## predispatch sensitivities
+Pre-dispatch sensitivities – also known as pre-dispatch scenarios.
+
+https://aemo.com.au/-/media/files/electricity/nem/security_and_reliability/dispatch/policy_and_process/pre-dispatch-sensitivities.pdf
 
 ## daily
 This file is generated daily, shortly after 0400. It contains **previous day** data for all dispatch and trading intervals. Data provided by generating unit includes initial MW, dispatch targets and ramp rates.

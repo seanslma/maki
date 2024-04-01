@@ -21,6 +21,7 @@ if __name__ == '__main__':
     app.run()
 ```
 
+index.html
 ```html
 <!DOCTYPE html>
 <html>
@@ -33,7 +34,7 @@ if __name__ == '__main__':
     <h1>Hello my love</h1>
 	  {% else %}
     <h1>Hello {{ name['first_name'] + " " + name['last_name'] }}</h1>
-	  {% endif %}  
+	  {% endif %}
 </body>
 </html>
 ```

@@ -26,6 +26,14 @@ kubectl delete pod <pod-name> --grace-period=0 --force
 kubectl delete pod <pod-name> --grace-period=0 --force -n <namespace>
 ```
 
+## pod stuck on terminating
+- https://stackoverflow.com/questions/35453792/pods-stuck-in-terminating-status
+- https://github.com/kubernetes/kubernetes/issues/51835
+```sh
+kubectl delete pod <pod-name> --grace-period=0  --force # if does not work, try
+kubectl patch pod <pod-name> -n <namespace> -p '{"metadata":{"finalizers":null}}' 
+```
+
 ## port forward
 https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
 
@@ -69,6 +77,25 @@ https://stackoverflow.com/questions/59248318/kubectl-run-command-vs-arguments
 ```sh
 kubectl run <pod-name> -n <namespace> --image=<image-path> \
   --restart=Never -o yaml --dry-run -- /bin/sh -c "echo hello;sleep 3600"
+```
+
+## sleep pod
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu
+  labels:
+    app: ubuntu
+spec:
+  containers:
+  - image: ubuntu
+    command:
+      - "sleep"
+      - "604800"
+    imagePullPolicy: IfNotPresent
+    name: ubuntu
+  restartPolicy: Always
 ```
 
 ## temporally create a pod and delete it when it exits

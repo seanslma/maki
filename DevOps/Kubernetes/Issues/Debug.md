@@ -2,7 +2,7 @@
 
 https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/#create-a-simple-pod-to-use-as-a-test-environment
 
-Sometimes there are network issue we need to solve but the exisiting pod does not have the diagnostic tools installed.
+Sometimes there are network issue we need to solve but the existing pod does not have the diagnostic tools installed.
 In this case, we can create a test pod in the same namespace.
 
 ## Create a simple Pod to use as a test environment

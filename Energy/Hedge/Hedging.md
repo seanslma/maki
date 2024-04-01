@@ -1,5 +1,17 @@
 # Hedging
 
+## Purpose of hedging
+future-financial-risk-management-in-the-nem-report-for-the-accc.pdf
+- help manage the revenue risks to generators
+- provide retailers with greater energy purchase cost certainty
+- allow welfare maximising price discrimination
+- lower entry and exit barriers
+
+## Ways of participants hedging their exposure to spot prices
+- Vertical integration: A retailer that owns a generator
+- Power purchase agreements (PPA) with a generator
+- Financial derivatives such as swap contracts and cap contracts
+
 ## Financial Hedging
 - Futures Contracts: Retailers can use futures contracts to lock in the price of electricity for a future delivery date. By entering into a futures contract, retailers can protect themselves from potential price increases in the electricity market.
 - Options Contracts: Options give retailers the right, but not the obligation, to buy or sell electricity at a specified price (strike price) on or before a certain date. Retailers can use options to hedge against adverse price movements while retaining flexibility to benefit from favorable price changes.

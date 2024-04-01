@@ -58,3 +58,8 @@ reasons:
 - A firewall between the client and server is blocking access (also check local firewalls).
 
 After checking for firewalls and that the port is open, use telnet to connect to the ip/port to test connectivity. This removes any potential issues from your application.
+
+## list firewall rules
+```sh
+sudo iptables -L
+```

@@ -19,6 +19,18 @@ with ThreadPool(processes=n_jobs) as pool:
   dfs = [sync(result.get()) for result in results]
 ```
 
+## `multiprocessing.Pool` issue
+https://stackoverflow.com/questions/72766345/attributeerror-cant-pickle-local-object-in-multiprocessing
+
+It has pickle issue: some object such as pywin32 datetime cannot be pickled.
+
+## slower `ThreadPool`
+https://superfastpython.com/threadpoolexecutor-slower/
+
+This is because Python threads are constrained by the Global Interpreter Lock, or GIL.
+The GIL uses synchronization to ensure that only one thread can execute instructions at a time within a Python process.
+If the task is CPU bounded then it's worse than a single for loop.
+
 ## concurrent
 ```py
 # support both sync and async

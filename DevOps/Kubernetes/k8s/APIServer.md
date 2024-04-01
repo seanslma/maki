@@ -46,7 +46,7 @@ https://www.reddit.com/r/kubernetes/comments/10aya7n/master_node_not_accessible_
 - has config setup correctly?
   ```sh
   mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf HOME/.kube/config
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
   export KUBECONFIG=$HOME/.kube/config
   ```

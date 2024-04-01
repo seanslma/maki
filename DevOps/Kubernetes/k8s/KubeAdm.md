@@ -41,7 +41,7 @@ drwxr-xr-x 2 root root 4096 Aug  5  2020 etcd
 -rw------- 1 root root 1675 Feb  1 11:08 front-proxy-client.key
 ```
 
-`kubeadm certs check-expiration` will check certs in `/etc/kubernetes/pki` and cert in KUBECONFIG file used by kubeadm（admin.conf, controller-manager.conf and scheduler.conf.
+`kubeadm alpha certs check-expiration` will check certs in `/etc/kubernetes/pki` and cert in `KUBECONFIG` file used by kubeadm（admin.conf, controller-manager.conf and scheduler.conf.
 
 ## cert path `/var/lib/kubelet/pki/kubelet.*`
 ```sh
@@ -57,11 +57,10 @@ lrwxrwxrwx 1 root root   59 Mar 10  2023 kubelet-client-current.pem -> /var/lib/
 ```
 
 ## kubeadm-certs
-https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs
+- https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs
+- https://www.chernsan.com/2021/02/09/etcd-certificates-expired/
 
-https://www.chernsan.com/2021/02/09/etcd-certificates-expired/
-
-Kubernetes certificates expire after one year.
+Kubernetes certificates expire after **one year**.
 
 kubeadm creates certs under `/var/lib/kubelet/pki/kubelet.*` signed with a different CA from the one under `/etc/kubernetes/pki/ca.pem`.
 
@@ -95,6 +94,9 @@ mv config config.old                      #archive old config
 sudo cp /etc/kubernetes/admin.conf config #copy new config
 sudo chown $(id -u):$(id -g) config       #aplly permissions to admin user and group
 ```
+
+### copy the config file to all worker nodes
+The updated `admin.conf` file should also be copied to `.kube/config` in all worker nodes with the right permissions being applied.
 
 ## do we need to do more to fix the issue?
 https://serverfault.com/questions/1065444/how-can-i-find-which-kubernetes-certificate-has-expired

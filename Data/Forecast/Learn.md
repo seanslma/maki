@@ -1,5 +1,8 @@
 # Learn
 
+## kaggle
+https://www.kaggle.com/competitions/predict-energy-behavior-of-prosumers/discussion/472793
+
 ## Forecasting: Principles and Practice
 https://otexts.com/fpp3/index.html
 

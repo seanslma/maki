@@ -18,8 +18,10 @@ When to not use DuckDB
 mamba install python-duckdb -y
 ```
 
-## Example
-### connection
+## python api
+https://duckdb.org/docs/api/python/overview.html
+
+## connection
 ```py
 import duckdb
 con = duckdb.connect(database=':memory:') #in-memory database
@@ -27,7 +29,7 @@ con = duckdb.connect(database='my-db.duckdb', read_only=False) #database file (n
 con = duckdb.connect(database='my-db.duckdb', read_only=True)  #database file (shared between processes)
 ```
 
-### query
+## query
 ```py
 con.execute("CREATE TABLE items(item VARCHAR, value DECIMAL(10,2), count INTEGER)")
 con.execute("INSERT INTO items VALUES ('jeans', 20.0, 1), ('hammer', 42.2, 2)")
@@ -41,7 +43,7 @@ con.executemany("INSERT INTO items VALUES (?, ?, ?)", [['chainsaw', 500, 10], ['
 con.execute("SELECT item FROM items WHERE value > ?", [400])
 ```
 
-### pandas
+## pandas
 ```py
 import pandas as pd
 con.register('df_view', df)

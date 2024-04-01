@@ -1,5 +1,8 @@
 # pyodbc
 
+## faster way to insert data
+https://stackoverflow.com/questions/48006551/speeding-up-pandas-dataframe-to-sql-with-fast-executemany-of-pyodbc
+
 ## fast_executemany
 pyodbc needs string even for numerical data when `fast_executemany=True`
 

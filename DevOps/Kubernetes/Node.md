@@ -37,7 +37,7 @@ docker system prune --all
 kubectl uncordon <node-name>
 ```
 
-## find the mount of of a path
+## find the mount of a path
 ```sh
 findmnt --target /var/lib/docker
 ```

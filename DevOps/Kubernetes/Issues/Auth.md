@@ -13,7 +13,7 @@ Solution: update the credentials if using aks `az aks get-credentials -n <aks-na
 ## The connection to the server xx.xx.xx.xx:port was refused - did you specify the right host or port?
 Possible reasons
 - config not set: `export KUBECONFIG=$HOME/.kube/config`
-- certs expired
+- certs expired: `kubeadm alpha certs check-expiration`
 
 ## Kubectl connect: connection refused
 detailed steps to check the issues:

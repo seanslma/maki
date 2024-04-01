@@ -45,4 +45,7 @@ curl -Iv https://microsoft.com
 
 # Check whether we can connect to any other endpoint
 curl -Iv https://kubernetes.io
+
+# Use -k or --insecure to ignore SSL certificate validation errors
+curl -Ik https://google.com
 ```

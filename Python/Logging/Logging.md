@@ -2,8 +2,8 @@
 
 ## logging inheritance
 ```py
-setup_logger(__package__) 
-logger = logging.getLogger(__name__) 
+setup_logger(__package__)
+logger = logging.getLogger(__name__)
 ```
 By setting up the logger at the package level in the root namespace, the parent logger of all loggers will be created in all sub-packages.
 
@@ -48,7 +48,7 @@ def set_log_handler_level(log_level: int = logging.NOTSET) -> None:
             handler.setLevel(log_level)
 ```
 
-## log to both stadout and file
+## log to both stdout and file
 ```py
 import sys
 import logging
@@ -68,7 +68,7 @@ package_logger.propagate = False
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
 console_handler.setFormatter(formatter)
-root_logger.addHandler(concole_handler)
+root_logger.addHandler(console_handler)
 #if previous console handler not deleted, log will output multiple times
 package_logger.addHandler(console_handler)
 
