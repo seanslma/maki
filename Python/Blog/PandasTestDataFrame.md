@@ -235,13 +235,13 @@ Now let's show how to use the `gen_rand_df` function to create test DataFrames.
 This example simply set the number of rows and column date types and leave all other properties as default.
 ```py
 df = gen_rand_df(
-    nrow=365*24*60, 
+    nrow=365*24*60,
     str_cols=1,
-    ts_cols=2,  
+    ts_cols=2,
     int_cols=1,
     float_cols=2,
 )
-df[:2]
+print(df[:2])
 ```
 
 Output:
@@ -253,8 +253,8 @@ Output:
 
 Here we provide another example to show how to set all the properties for different data type columns.
 ```py
-d = gen_rand_df(
-    nrow=10,     
+d2 = gen_rand_df(
+    nrow=10,
     str_cols={
         'count': 2,
         'name': ['country', 'color'],
@@ -267,8 +267,8 @@ d = gen_rand_df(
         'name': ['start_date', 'end_date'],
         'start_date': ['2020-01-01', '2024-01-01'],
         'end_date': ['2021-01-01', '2025-01-01'],
-        'freq': ['QS']*2,
-        'typ': ['random']*2,
+        'freq': 'QS',
+        'random': False,
     },
     int_cols={
         'count': 1,
@@ -285,7 +285,7 @@ d = gen_rand_df(
         'missing_pct': [0.3, 0.2],
     },
 )
-d[:3]
+print(d2[:3])
 ```
 
 Output
