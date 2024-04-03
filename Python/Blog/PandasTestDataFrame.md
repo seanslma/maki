@@ -71,7 +71,7 @@ mask = rng.uniform(size=len(vals)) <= missing_pct
 vals[mask] = missing_val
 ```
 
-## Create a DataFrame
+## Create a Pandas DataFrame
 To create a DatafRame, we need to specify the number of columns and the data types as well as some properties associated with the columns. 
 
 After putting all parts together and optimizing the code to reduce duplicated code, the final version is here.  
@@ -80,7 +80,6 @@ from typing import Union
 import string
 import numpy as np
 import pandas as pd
-
 
 def gen_rand_strs(
     rng: np.random._generator.Generator,
@@ -91,7 +90,6 @@ def gen_rand_strs(
     str_lens = rng.integers(low=str_len[0], high=str_len[1], size=str_cnt, endpoint=True)
     rand_strs = [''.join(rng.choice(str_chars, size=str_len)) for str_len in str_lens]
     return rand_strs
-
 
 def gen_str_vals(
     size: int,
@@ -114,7 +112,6 @@ def gen_str_vals(
     val = rng.choice(col_strs, size=size)
     return val
 
-
 def gen_ts_vals(
     size: int,
     rng: np.random._generator.Generator,
@@ -136,7 +133,6 @@ def gen_ts_vals(
         val = rng.choice(val, size=size)
     return val
 
-
 def gen_num_vals(
     size: int,
     rng: np.random._generator.Generator,
@@ -151,7 +147,6 @@ def gen_num_vals(
     func = rng.integers if dtype[0] == 'i' else rng.uniform
     vals = func(low=low, high=high, size=size)
     return vals
-
 
 def gen_missing_vals(
     vals: np.ndarray,
@@ -172,7 +167,6 @@ def gen_missing_vals(
     mask = rng.uniform(size=len(vals)) <= missing_pct
     vals[mask] = missing_val
     return vals
-
 
 def sanitize_parameters(
     name_prefix: str,
@@ -199,7 +193,6 @@ def sanitize_parameters(
     col_names = par.get('name', [f'{name_prefix}{i}' for i in range(1, cnt+1)])
     col_missing_pcts = par.get('missing_pct', default_val)
     return col_names, parameters, col_missing_pcts
-
 
 def gen_rand_df(
     nrow: int,
