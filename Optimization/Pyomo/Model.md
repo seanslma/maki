@@ -16,6 +16,7 @@ with pyo.SolverFactory(
     solver_io='python',
     manage_env=True,
     options=connection_params,
-) as opt:
-    results = opt.solve(instance, tee=True, warmstart=True)
+) as cpx:
+    cpx.options['MIGap'] = 0.000001
+    results = cpx.solve(instance, tee=True, warmstart=True)
 ```
