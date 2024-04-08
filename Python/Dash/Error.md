@@ -18,6 +18,10 @@ No module named main
 ```
 Solution: import the app in the `main.py` and then run it outside of the module/package `app.run(host='127.0.0.1', port=8000, debug=True)`
 
+## flask: werkzeug SystemExit: 3
+- The SystemExit errorcode 3 is an exception thrown by werkzeug to trigger the reloade
+- To avoid having to do an extra step every time, you can pass "flask": true in the config, so this breakpoint is skipped
+
 ## A nonexistent object was used in an Input of a Dash callback
 https://community.plotly.com/t/a-nonexistent-object-was-used-in-an-input-of-a-dash-callback-an-multipage-app/52007
 
