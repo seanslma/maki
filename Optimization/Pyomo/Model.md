@@ -17,6 +17,7 @@ with pyo.SolverFactory(
     manage_env=True,
     options=connection_params,
 ) as cpx:
+    cpx.options['LogFile'] = 'model.log'
     cpx.options['MIGap'] = 0.000001
     results = cpx.solve(instance, tee=True, warmstart=True)
 ```
