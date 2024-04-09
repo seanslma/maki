@@ -27,3 +27,13 @@ def obj_rule(model, i, j):
       return 2 * model.x[i,j]
 model.obj = Objective(model.set_i, model.set_j, rule=obj_rule, sense=minimize)
 ```
+
+## update objective
+```py
+m.obj = Objective(expr=m.x)
+m.obj.set_value(expr=m.o.expr + m.e)
+
+m.obj_base = m.x1 + 2 * m.x2, 
+m.obj_changing = m.x1 * m.x2, 
+m.obj.set_value(expr=m.base_expr + m.changing_expr)
+```
