@@ -28,3 +28,23 @@ def con_eq(model, i):
         return Constraint.Skip
     return model.x[i] - model.y[i] == model.val
 ```
+
+## add a new term to existing con
+```py
+import pyomo.environ as pyo
+
+# create model and var
+m = pyo.ConcreteModel()
+m.x = pyo.Var(within=pe.NonNegativeReals)
+
+# create a con
+@m.Constraint()
+def con(m):
+    return 2 <= m.x    
+# m.con = pe.Constraint(expr=m.x >= 2)
+m.con.pprint()
+
+# add a new term to con
+m.con._body += m.x**2
+m.con.pprint()
+```
