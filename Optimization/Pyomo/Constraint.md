@@ -42,7 +42,27 @@ m.x = pyo.Var(within=pe.NonNegativeReals)
 @m.Constraint()
 def con(m):
     return 2 <= m.x    
-# m.con = pe.Constraint(expr=m.x >= 2)
+# m.con = pyo.Constraint(expr=m.x >= 2)
+m.con.pprint()
+
+# add a new term to con
+m.con._body += m.x**2
+m.con.pprint()
+```
+
+## create an empty constraint and then add terms
+```py
+import pyomo.environ as pyo
+
+# create model and var
+m = pyo.ConcreteModel()
+m.x = pyo.Var(within=pe.NonNegativeReals)
+
+# create a con: must use tuple not expr
+@m.Constraint()
+def con(m):
+    return (0, 0, 10)     
+# m.con = pyo.Constraint(expr=(0, 0, 10))
 m.con.pprint()
 
 # add a new term to con
