@@ -37,3 +37,22 @@ m.obj_base = m.x1 + 2 * m.x2,
 m.obj_changing = m.x1 * m.x2, 
 m.obj.set_value(expr=m.base_expr + m.changing_expr)
 ```
+
+## add a term to objective
+```py
+import pyomo.environ as pyo
+
+# create model and var
+m = pyo.ConcreteModel()
+m.x = pyo.Var(within=pe.NonNegativeReals)
+
+# create obj
+@m.Objective()
+def obj(m):
+    return 0
+m.obj.pprint()
+
+# add a term
+m.obj += m.x**2
+m.obj.pprint()
+```
