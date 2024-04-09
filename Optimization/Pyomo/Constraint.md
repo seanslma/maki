@@ -30,6 +30,7 @@ def con_eq(model, i):
 ```
 
 ## add a new term to existing con
+https://groups.google.com/g/pyomo-forum/c/Abc3GuUSe88
 ```py
 import pyomo.environ as pyo
 
