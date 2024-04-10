@@ -150,6 +150,7 @@ kubectl certificate deny <csr-name>
 ```
 
 ## manually approve all pending CSRs
+If there are errors like `error: no serving certificate available for the kubelet from journalctl -xeu kubelet -n 100 --no-pager`, run
 ```sh
 kubectl get csr -A | grep Pending | awk '{print $1}' | xargs kubectl certificate approve
 kubectl get csr -A | grep Pending | tr -s ' ' | cut -d' ' -f1 | while IFS= read -r csr; do kubectl certificate approve $csr; done
