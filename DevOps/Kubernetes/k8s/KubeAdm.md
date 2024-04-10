@@ -57,11 +57,10 @@ lrwxrwxrwx 1 root root   59 Mar 10  2023 kubelet-client-current.pem -> /var/lib/
 ```
 
 ## kubeadm-certs
-https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs
+- https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs
+- https://www.chernsan.com/2021/02/09/etcd-certificates-expired/
 
-https://www.chernsan.com/2021/02/09/etcd-certificates-expired/
-
-Kubernetes certificates expire after one year.
+Kubernetes certificates expire after **one year**.
 
 kubeadm creates certs under `/var/lib/kubelet/pki/kubelet.*` signed with a different CA from the one under `/etc/kubernetes/pki/ca.pem`.
 
