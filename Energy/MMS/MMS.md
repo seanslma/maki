@@ -22,6 +22,9 @@ https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-n
 list of tables:
 https://visualisations.aemo.com.au/aemo/nemweb/MMSDataModelReport/Electricity/MMS%20Data%20Model%20Report_files/MMS_470_8.htm
 
+## mypasa duid availability
+https://nemweb.com.au/Reports/CURRENT/MTPASA_DUIDAvailability/
+
 ## prdLoader tables
 https://visualisations.aemo.com.au/aemo/di-help/Content/pdrLoader/Database_Tables.htm
 
