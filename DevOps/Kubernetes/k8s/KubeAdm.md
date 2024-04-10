@@ -96,6 +96,9 @@ sudo cp /etc/kubernetes/admin.conf config #copy new config
 sudo chown $(id -u):$(id -g) config       #aplly permissions to admin user and group
 ```
 
+### copy the config file to all worker nodes
+The updated `admin.conf` file should also be copied to `.kube/config` in all worker nodes with the right permissions being applied.
+
 ## do we need to do more to fix the issue?
 https://serverfault.com/questions/1065444/how-can-i-find-which-kubernetes-certificate-has-expired
 
