@@ -9,8 +9,15 @@ There are two types of certs in kubernetes
 
 ## check certs
 https://serverfault.com/questions/1068751/var-lib-kubelet-pki-kubelet-crt-is-expired-how-to-renew-it
-```
+
+check `/var/lib/kubelet/pki/kubelet.crt`, or really for the certificate signed by the kube-apiserver, not specifically the kubeadm or kubectl certificates?
+```sh
 echo -n | openssl s_client -connect localhost:10250 2>&1 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509 -text -noout | grep -A 2 Validity
+```
+
+why this command gave the wrong info?
+```sh
+sudo openssl x509 -in /var/lib/kubelet/pki/kubelet.crt -text -noout  | grep -A 2 Validity
 ```
 
 ## Enabling signed kubelet serving certificates
