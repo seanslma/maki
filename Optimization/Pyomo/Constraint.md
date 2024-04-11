@@ -69,3 +69,13 @@ m.con.pprint()
 m.con._body += m.x**2
 m.con.pprint()
 ```
+
+## add constraint name
+https://groups.google.com/g/pyomo-forum/c/5DgnivI1JRY
+```py
+m.c = pyo.Constraint(pyo.Any)
+m.c[name1] = m.x + m.y == 1
+m.c[name2] = …
+
+solver.solve(m, symbolic_solver_labels=True)
+```
