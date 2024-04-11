@@ -1,5 +1,10 @@
 # Constraint
 
+https://pyomo.readthedocs.io/en/stable/library_reference/kernel/constraint.html
+```
+classpyomo.core.kernel.constraint.constraint(expr=None, body=None, lb=None, ub=None, rhs=None)
+```
+
 ## expression
 ```py
 model.con1 = Constraint(expr=2.0 <= model.x + model.y[0,2]) 
