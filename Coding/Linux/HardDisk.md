@@ -24,6 +24,11 @@ When run `rm -rf /var/lib/docker` or `umount /dev/xxx` got the error.
 Possible reason: still in the mounted device.
 
 ## where a path is mounted from
-```py
-sudo cat /etc/fstab
+```sh
+sudo cat /etc/fstab      # check the file content
+mountpoint /mnt/myfolder # will also tell if not mounted
+```
+## mounted path is `ro` or `rw`
+```sh
+cat /proc/mounts
 ```
