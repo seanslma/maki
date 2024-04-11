@@ -32,3 +32,9 @@ mountpoint /mnt/myfolder # will also tell if not mounted
 ```sh
 cat /proc/mounts
 ```
+
+## mount cifs network drive
+https://unix.stackexchange.com/questions/68079/mount-cifs-network-drive-write-permissions-and-chown
+```sh
+sudo mount -t cifs -o username=${USER},password=${PASSWORD},uid=$(id -u),gid=$(id -g) //server-address/folder /mount/path/on/ubuntu
+```
