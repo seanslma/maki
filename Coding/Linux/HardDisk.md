@@ -22,3 +22,8 @@ sudo reboot
 ## /var/lib/docker: Device or resource busy
 When run `rm -rf /var/lib/docker` or `umount /dev/xxx` got the error.
 Possible reason: still in the mounted device.
+
+## where a path is mounted from
+```py
+sudo cat /etc/fstab
+```
