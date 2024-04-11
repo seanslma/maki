@@ -77,10 +77,20 @@ m.con.pprint()
 
 ## add constraint name
 https://groups.google.com/g/pyomo-forum/c/5DgnivI1JRY
+
+Not good.
 ```py
 m.c = pyo.Constraint(pyo.Any)
 m.c[name1] = m.x + m.y == 1
 m.c[name2] = …
 
 solver.solve(m, symbolic_solver_labels=True)
+```
+
+Good solution
+```py
+setattr(m, 'con_1', pyo.Constraint(expr=(0, 0, 10)))
+con = getattr(m, 'con_1')
+con._body += m.x
+con.pprint()
 ```
