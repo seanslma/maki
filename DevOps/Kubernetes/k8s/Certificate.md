@@ -2,6 +2,11 @@
 
 https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/
 
+Kubernetes can be configured to certificate rotation. 
+However, there are cases the certificate rotation does not work. In this situation, we need to check and renew the certificates manually.
+
+If not mentioned specifically, all the following commands are executed in the k8s master node.
+
 ## Cert types
 There are two types of certs in kubernetes
 - `kubeadm` for master、etcd: renew via `kubeadm alpha certs renew all`
@@ -29,19 +34,22 @@ If you have already created the cluster you must adapt it by doing the following
   Edit the KubeletConfiguration document to set `serverTLSBootstrap: true`.
 - On each node, add the `serverTLSBootstrap: true` field in `/var/lib/kubelet/config.yaml` and restart the kubelet with `systemctl restart kubelet`.
 
-## Certs auto renewal settings
-https://kubernetes.io/docs/tasks/tls/certificate-rotation/
-
-https://github.com/kubernetes/kubeadm/issues/2024
+## Certificate rotation (auto renewal) settings
+- https://kubernetes.io/docs/tasks/tls/certificate-rotation/
+- https://github.com/kubernetes/kubeadm/issues/2024
 
 https://www.leiyawu.com/2020/10/11/Untitled/
 - from v1.8, to auto reload certs when start kubelet add option `–rotate-certificates`
 - kubelet auto renew certs, when start add `–feature-gates=RotateKubeletClientCertificate=true,RotateKubeletServerCertificate=true`
 - controller manager auto approve CSRs, when start add `–feature-gates=RotateKubeletServerCertificate=true` and bind RBAC rules
 
-After enable the rotation `/var/lib/kubelet/pki/kubelet.crt` is no longer used, instead the symbolic link `/var/lib/kubelet/pki/kubelet-server-current.pem` is used and points to the latest rotated certificate.
+If the certificate rotation is not enabled or not setup correctly, we should check and setup the configuration.
 
-**kubelet config** `/var/lib/kubelet/config.yaml`
+After enable the rotation `/var/lib/kubelet/pki/kubelet.crt` is no longer used, 
+instead the symbolic link `/var/lib/kubelet/pki/kubelet-server-current.pem` is used and points to the latest rotated certificate.
+
+### config kubelet
+Make sure the following options are in `/var/lib/kubelet/config.yaml`
 ```yaml
 rotateCertificates: true #enable client cert rotation
 serverTLSBootstrap: true #enable server cert rotation
@@ -55,7 +63,8 @@ featureGates:
 --feature-gates=RotateKubeletServerCertificate=true
 ```
 
-**controller-manager config** `/etc/kubernetes/manifests/kube-controller-manager.yaml`
+### config kube-controller-manager 
+Make sure the folowing options are in `/etc/kubernetes/manifests/kube-controller-manager.yaml`
 ```yaml
 spec:
   containers:
@@ -63,11 +72,8 @@ spec:
     - --experimental-cluster-signing-duration=17520h0m0s  #2 years
     - --feature-gates=RotateKubeletClientCertificate=true,RotateKubeletServerCertificate=true #auto approve csr
 ```
-```
---experimental-cluster-signing-duration=87600h0m0s
---feature-gates=RotateKubeletServerCertificate=true
-```
 
+### Create Server ClusterRole and ClusterRoleBinding
 **system:certificates.k8s.io:certificatesigningrequests:selfnodeserver**
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -102,6 +108,15 @@ subjects:
 create ClusterRole `kubectl apply -f ca-update.yaml`.
 show all ClusterRoles `k get ClusterRole -A`.
 
+We can also create the ClusterRoleBinding using cli:
+**certificatesigningrequests:selfnodeserver**: auto renew certs for `kubelet 10250 api` in `system:nodes` group
+```sh
+kubectl create clusterrolebinding kubeadm:node-autoapprove-certificate-server \
+  --clusterrole=system:certificates.k8s.io:certificatesigningrequests:selfnodeserver --group=system:nodes
+```
+Included in `ca-update.yaml`.
+
+### Create Client ClusterRoleBinding
 **certificatesigningrequests:nodeclient**: auto approve TLS bootstrapping first request by `kubelet-bootstrap` users
 ```sh
 kubectl create clusterrolebinding kubeadm:node-autoapprove-bootstrap \
@@ -113,13 +128,6 @@ kubectl create clusterrolebinding kubeadm:node-autoapprove-bootstrap \
 kubectl create clusterrolebinding kubeadm:node-autoapprove-certificate-rotation \
   --clusterrole=system:certificates.k8s.io:certificatesigningrequests:selfnodeclient --group=system:nodes
 ```
-
-**certificatesigningrequests:selfnodeserver**: auto renew certs for `kubelet 10250 api` in `system:nodes` group
-```sh
-kubectl create clusterrolebinding kubeadm:node-autoapprove-certificate-server \
-  --clusterrole=system:certificates.k8s.io:certificatesigningrequests:selfnodeserver --group=system:nodes
-```
-Included in `ca-update.yaml`
 
 **Edit kubelet-config-1.xx**
 ```sh
