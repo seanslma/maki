@@ -97,3 +97,12 @@ con.pprint()
 
 ## change constraint lhs/rhs
 https://stackoverflow.com/questions/74065872/pyomo-change-bounds-of-existing-contraints
+
+use of a mutable Param to leave a placeholder in the expression tree
+```py
+m.con1_rhs = Param(mutable=True, initialize=3)
+m.con1 = pyo.Constraint(m.x <= model.con1_rhs)
+
+# then to change the RHS
+m.con1.rhs.set_value(3.1)
+```
