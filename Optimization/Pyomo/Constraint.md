@@ -94,3 +94,6 @@ con = getattr(m, 'con_1')
 con._body += m.x
 con.pprint()
 ```
+
+## change constraint lhs/rhs
+https://stackoverflow.com/questions/74065872/pyomo-change-bounds-of-existing-contraints
