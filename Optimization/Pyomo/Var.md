@@ -28,3 +28,9 @@ model.z = Var(model.set_i, model.set_j, initialize=init)
 ```py
 model.x.fix(1)
 ```
+
+## lb/ub
+```py
+model.x.lb = 0
+model.x.ub = None
+```
