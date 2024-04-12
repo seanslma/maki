@@ -1,5 +1,10 @@
 # Var
 
+## dynamic name
+```py
+setattr(m, 'x', pyo.Var(domain=pyo.Reals))
+```
+
 ## single var
 ```py
 model.x = Var(within=Reals, bounds=(0,6), initialize=1.5)
