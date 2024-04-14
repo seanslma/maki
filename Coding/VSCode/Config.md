@@ -77,7 +77,7 @@ workspace > settings.json
 
 ## Active tab settings
 Search "workbench.action.openSettingsJson" > Open user settings.json
-```
+```json
 "editor.rulers": [80,88],
 "workbench.colorCustomizations": {
     "editorRuler.foreground": "#312f30",
@@ -91,6 +91,16 @@ Search "workbench.action.openSettingsJson" > Open user settings.json
 
 ## Copy relative filepath separator setting
 Search `Explorer: Copy Relative Path Separator` in settings
+
+## dockerfile
+mark files with some extension as docker file
+```json
+{
+  "files.associations": {
+        "*.docker": "dockerfile"
+    }
+}
+```
 
 ## Auto closing quotes/brackets
 ```
