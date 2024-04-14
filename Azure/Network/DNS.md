@@ -35,6 +35,16 @@ allowing resources within the virtual network to resolve host names defined in t
 ## Hybrid DNS resolution
 https://learn.microsoft.com/en-us/azure/dns/private-resolver-hybrid-dns
 
+### Azure DNS Private Resolver
+A service can resolve on-premises DNS queries for Azure DNS private zones. 
+- fully manged
+- reduced costs
+- high availability
+- can be easily integrated with DevOps workflows
+
+### DNS forwarding ruleset
+A group of rules that specify one or more custom DNS servers to answer queries for specific DNS namespaces.
+
 ## Private DNS best practices
 https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
 - private DNS zones live in the hub
