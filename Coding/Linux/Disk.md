@@ -63,11 +63,6 @@ sudo mount /mnt/dat
 sudo umount /mnt/dat
 ```
 
-## check mounted drive
-To verify that the remote Windows share is successfully mounted, use either the `mount` or `df -h` command.
-
-Can also check the network using `ping <cifs_server_ip_or_hostname>`
-
 ## where a path is mounted from
 ```sh
 sudo cat /etc/fstab      # check the file content
@@ -99,3 +94,8 @@ https://community.microfocus.com/img/oes/w/tips/14583/cifs-writing-in-2-differen
 https://wiki.samba.org/index.php/LinuxCIFS_troubleshooting
 - debug data: `/proc/fs/cifs/DebugData`
 - debug message: `dmesg`
+
+## check mounted drive
+To verify that the remote Windows share is successfully mounted, use either the `mount` or `df -h` command.
+
+Can also check the network using `ping <cifs_server_ip_or_hostname>`
