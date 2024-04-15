@@ -88,3 +88,12 @@ https://ubuntuforums.org/showthread.php?t=2490382
 ```sh
 sudo mount -t cifs //192.168.1.16/user /media/cloudbox -o username=user,password=xxx,vers=1.0,nodfs
 ```
+
+## cifs logs
+https://community.microfocus.com/img/oes/w/tips/14583/cifs-writing-in-2-differents-log-file
+- /var/log/messages
+- /var/log/cifs/cifs.log
+- /etc/rsyslog.d/cifs-log.conf
+
+## cifs troubleshooting
+https://wiki.samba.org/index.php/LinuxCIFS_troubleshooting
