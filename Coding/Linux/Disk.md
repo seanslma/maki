@@ -28,6 +28,11 @@ sudo reboot
 When run `rm -rf /var/lib/docker` or `umount /dev/xxx` got the error.
 Possible reason: still in the mounted device.
 
+## mount help
+```sh
+man mount.cifs
+```
+
 ## mount cifs network drive
 - https://linuxize.com/post/how-to-mount-cifs-windows-share-on-linux/
 - https://unix.stackexchange.com/questions/68079/mount-cifs-network-drive-write-permissions-and-chown
