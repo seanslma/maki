@@ -86,5 +86,5 @@ https://ubuntuforums.org/showthread.php?t=2490382
 
 `nodfs`: disable dfs on the client side - for latest new Linux kernels on the client machine
 ```sh
-sudo mount -t cifs //192.168.1.16/danny /media/cloudbox -o username=danny,password=xxx,vers=1.0,nodfs
+sudo mount -t cifs //192.168.1.16/user /media/cloudbox -o username=user,password=xxx,vers=1.0,nodfs
 ```
