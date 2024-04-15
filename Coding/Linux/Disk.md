@@ -1,4 +1,9 @@
-# Hard disk
+# Disk
+
+## show disk uage
+```sh
+df -h
+```
 
 ## check hard disk health
 install `sudo apt install smartmontools`
