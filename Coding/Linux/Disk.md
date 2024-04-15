@@ -36,6 +36,8 @@ mountpoint /mnt/myfolder # will also tell if not mounted
 ## mounted path is `ro` or `rw`
 ```sh
 cat /proc/mounts
+//xyz1wes01/dat /mnt/dat cifs rw,relatime,vers=1.0,cache=strict,username=usr,domain=,uid=1000,forceuid,gid=1000,forcegid,
+addr=90.800.70.60,file_mode=0755,dir_mode=0755,soft,nounix,mapposix,rsize=61440,wsize=65536,echo_interval=60,actimeo=1 0 0
 ```
 
 ## mount cifs network drive
