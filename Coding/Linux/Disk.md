@@ -47,7 +47,6 @@ sudo mount -t cifs -o credentials=/etc/smb.credentials //server-address/folder /
 sudo mount -t cifs -o username=${USER},password=${PASSWORD},uid=$(id -u),gid=$(id -g)
 //server-address/folder /mnt/dat
 ```
-To verify that the remote Windows share is successfully mounted, use either the `mount` or `df -h` command.
 
 To ensure the mount persists on system reboots, this command must be added to 
 the `fstab` or equivalent to mount the DOCS DATA and VIEWER DATA on system startup.
@@ -63,6 +62,11 @@ Run the following command to mount/umount the share:
 sudo mount /mnt/dat
 sudo umount /mnt/dat
 ```
+
+## check mounted drive
+To verify that the remote Windows share is successfully mounted, use either the `mount` or `df -h` command.
+
+Can also check the network using `ping <cifs_server_ip_or_hostname>`
 
 ## where a path is mounted from
 ```sh
