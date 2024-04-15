@@ -80,3 +80,11 @@ cat /proc/mounts
 //xyz1wes01/dat /mnt/dat cifs rw,relatime,vers=1.0,cache=strict,username=usr,domain=,uid=1000,forceuid,gid=1000,forcegid,
 addr=90.800.70.60,file_mode=0755,dir_mode=0755,soft,nounix,mapposix,rsize=61440,wsize=65536,echo_interval=60,actimeo=1 0 0
 ```
+
+## cifs mount suddenly no longer works
+https://ubuntuforums.org/showthread.php?t=2490382
+
+`nodfs`: disable dfs on the client side - for latest new Linux kernels on the client machine
+```sh
+sudo mount -t cifs //192.168.1.16/danny /media/cloudbox -o username=danny,password=xxx,vers=1.0,nodfs
+```
