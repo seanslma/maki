@@ -43,5 +43,6 @@ addr=90.800.70.60,file_mode=0755,dir_mode=0755,soft,nounix,mapposix,rsize=61440,
 ## mount cifs network drive
 https://unix.stackexchange.com/questions/68079/mount-cifs-network-drive-write-permissions-and-chown
 ```sh
-sudo mount -t cifs -o username=${USER},password=${PASSWORD},uid=$(id -u),gid=$(id -g) //server-address/folder /mount/path/on/ubuntu
+sudo mount -t cifs -o username=${USER},password=${PASSWORD},uid=$(id -u),gid=$(id -g)
+//server-address/folder /mount/path/on/ubuntu
 ```
