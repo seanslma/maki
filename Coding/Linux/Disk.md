@@ -97,3 +97,5 @@ https://community.microfocus.com/img/oes/w/tips/14583/cifs-writing-in-2-differen
 
 ## cifs troubleshooting
 https://wiki.samba.org/index.php/LinuxCIFS_troubleshooting
+- debug data: `/proc/fs/cifs/DebugData`
+- debug message: `dmesg`
