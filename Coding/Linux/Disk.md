@@ -46,3 +46,9 @@ https://unix.stackexchange.com/questions/68079/mount-cifs-network-drive-write-pe
 sudo mount -t cifs -o username=${USER},password=${PASSWORD},uid=$(id -u),gid=$(id -g)
 //server-address/folder /mount/path/on/ubuntu
 ```
+To ensure the mount persists on system reboots, this command must be added to 
+the `fstab` or equivalent to mount the DOCS DATA and VIEWER DATA on system startup.
+```
+# dat mount directory
+//xyz1wes01/dat  /mnt/dat  cifs  uid=1000,gid=1000,vers=1.0,defaults,credentials=/home/user/smb.credentials 0 0
+```
