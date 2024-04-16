@@ -71,8 +71,9 @@ sudo umount /mnt/dat
 
 ## where a path is mounted from
 ```sh
-sudo cat /etc/fstab      # check the file content
-mountpoint /mnt/myfolder # will also tell if not mounted
+findmnt --target /etc/fstab # show mounted path
+sudo cat /etc/fstab         # check the file content
+mountpoint /mnt/myfolder    # will also tell if not mounted
 ```
 
 ## mounted path is `ro` or `rw`
