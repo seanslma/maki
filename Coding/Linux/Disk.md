@@ -33,6 +33,12 @@ Possible reason: still in the mounted device.
 man mount.cifs
 ```
 
+## unmount cifs
+```sh
+umount -a -t cifs -l    # umount all cifs
+umount /mnt/cifs_share  # umount a specific cifs
+```
+
 ## mount cifs network drive
 - https://linuxize.com/post/how-to-mount-cifs-windows-share-on-linux/
 - https://unix.stackexchange.com/questions/68079/mount-cifs-network-drive-write-permissions-and-chown
