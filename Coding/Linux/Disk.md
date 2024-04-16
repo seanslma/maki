@@ -76,14 +76,6 @@ cat /proc/mounts
 addr=90.800.70.60,file_mode=0755,dir_mode=0755,soft,nounix,mapposix,rsize=61440,wsize=65536,echo_interval=60,actimeo=1 0 0
 ```
 
-## cifs mount suddenly no longer works
-https://ubuntuforums.org/showthread.php?t=2490382
-
-`nodfs`: disable dfs on the client side - for latest new Linux kernels on the client machine
-```sh
-sudo mount -t cifs //192.168.1.16/user /media/cloudbox -o username=user,password=xxx,vers=1.0,nodfs
-```
-
 ## cifs logs
 https://community.microfocus.com/img/oes/w/tips/14583/cifs-writing-in-2-differents-log-file
 - /var/log/messages
@@ -99,3 +91,20 @@ https://wiki.samba.org/index.php/LinuxCIFS_troubleshooting
 To verify that the remote Windows share is successfully mounted, use either the `mount` or `df -h` command.
 
 Can also check the network using `ping <cifs_server_ip_or_hostname>`
+
+## cifs issue
+### cifs mount suddenly no longer works
+https://ubuntuforums.org/showthread.php?t=2490382
+
+`nodfs`: disable dfs on the client side - for latest new Linux kernels on the client machine
+```sh
+sudo mount -t cifs //192.168.1.16/user /media/cloudbox -o username=user,password=xxx,vers=1.0,nodfs
+```
+
+### CIFS VFS: Server has not responded
+https://forums.linuxmint.com/viewtopic.php?t=190961
+
+Solution: 
+- Auto Mounting Samba Shares Using AutoFS: http://forums.linuxmint.com/viewtopic.php?f=42&t=144997
+- AutoFS is an "automounter" which means it doesn't mount at boot or login it only mounts when the mount point is accessed.
+- It also unmounts by itself when the share is not being used.
