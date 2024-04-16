@@ -94,10 +94,10 @@ We know that the `df.reindex` function can be used to resample rows of a DataFra
 
 First we can create the new index and `ts` column, using `pd.concat` to merge the DataFrames created from each row:
 ```py
-d = df.get(['ts']).rename_axis('i', axis=0).reset_index()
+d = df.get(['ts']).reset_index(drop=True).rename_axis('i', axis=0).reset_index()
 dt = pd.concat([
-    pd.DataFrame({'i': key, 'ts': row['ts']})
-    for (key, row) in d.iterrows()
+    pd.DataFrame({'i': i, 'ts': ts})
+    for (i, ts) in zip(d['i'].values, d['ts'].values)
 ]).set_index('i').rename_axis(None, axis=0)
 ```
 
@@ -110,10 +110,16 @@ df['ts'] = dt.ts
 Putting the two parts together, here is the custom `explode` function:
 ```py
 def explode_df_column(df):
-    d = df.get(['ts']).rename_axis('i', axis=0).reset_index()
+    d = (
+        df
+        .get(['ts'])
+        .reset_index(drop=True)
+        .rename_axis('i', axis=0)
+        .reset_index()
+    )
     dt = pd.concat([
-        pd.DataFrame({'i': key, 'ts': row['ts']})
-        for (key, row) in d.iterrows()
+        pd.DataFrame({'i': i, 'ts': ts})
+        for (i, ts) in zip(d['i'].values, d['ts'].values)
     ]).set_index('i').rename_axis(None, axis=0)
     df = df.drop(columns='ts').reindex(dt.index)
     df['ts'] = dt.ts
