@@ -26,6 +26,14 @@ kubectl delete pod <pod-name> --grace-period=0 --force
 kubectl delete pod <pod-name> --grace-period=0 --force -n <namespace>
 ```
 
+## pod stuck on terminating
+- https://stackoverflow.com/questions/35453792/pods-stuck-in-terminating-status
+- https://github.com/kubernetes/kubernetes/issues/51835
+```sh
+kubectl delete pod <pod-name> --grace-period=0  --force # if does not work, try
+kubectl patch pod <pod-name> -n <namespace> -p '{"metadata":{"finalizers":null}}' 
+```
+
 ## port forward
 https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
 
