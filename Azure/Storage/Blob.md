@@ -3,6 +3,12 @@ https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/py
 
 https://learn.microsoft.com/en-us/samples/azure/azure-sdk-for-python/storage-blob-samples/
 
+## when to use
+- Ideal for storing **unstructured** data, like media files (videos, images, audio), logs, scientific data, and archives.
+- Data is stored as objects called blobs, which can be very large (up to petabytes).
+- Access is typically **programmatic** through code or APIs.
+- Offers various access tiers for cost optimization based on access frequency.
+
 ## list blobs
 https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-list-python
 ```PowerShell
