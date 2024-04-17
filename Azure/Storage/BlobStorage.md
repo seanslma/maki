@@ -1,4 +1,4 @@
-# Blob
+# Blob Storage
 https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py
 
 https://learn.microsoft.com/en-us/samples/azure/azure-sdk-for-python/storage-blob-samples/
