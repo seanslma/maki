@@ -94,6 +94,13 @@ https://wiki.samba.org/index.php/LinuxCIFS_troubleshooting
 - debug data: `/proc/fs/cifs/DebugData`
 - debug message: `dmesg`
 
+enalbe/disable debug
+```sh
+echo 7 | sudo tee /proc/fs/cifs/cifsFYI #enable debug
+dmesg                                   #check log
+echo 0 | sudo tee /proc/fs/cifs/cifsFYI #disable debug
+```
+
 ## check mounted drive
 To verify that the remote Windows share is successfully mounted, use either the `mount` or `df -h` command.
 
