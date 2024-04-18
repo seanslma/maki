@@ -101,6 +101,10 @@ dmesg                                   #check log
 echo 0 | sudo tee /proc/fs/cifs/cifsFYI #disable debug
 ```
 
+- check cifs client package: `dpkg -l | grep cifs-utils`
+- check cifs kernel module: `lsmod | grep cifs`
+- list all services: `systemctl list-units` 
+
 ## check mounted drive
 To verify that the remote Windows share is successfully mounted, use either the `mount` or `df -h` command.
 
