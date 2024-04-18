@@ -115,3 +115,10 @@ Solution:
 - Auto Mounting Samba Shares Using AutoFS: http://forums.linuxmint.com/viewtopic.php?f=42&t=144997
 - AutoFS is an "automounter" which means it doesn't mount at boot or login it only mounts when the mount point is accessed.
 - It also unmounts by itself when the share is not being used.
+
+## access cifs via smbclient
+https://unix.stackexchange.com/questions/706325/smbclient-works-but-mount-cifs-doesnt-nt-status-more-processing-required
+```sh
+smbclient '\\172.25.162.14\nda20' -N -m NT1 --option="client min protocol"=NT1
+mount -t cifs -vvvv //172.25.162.14/nda20 /mnt/aa -o username=root,vers=1.0,guest
+```
