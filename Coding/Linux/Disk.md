@@ -129,3 +129,6 @@ https://unix.stackexchange.com/questions/706325/smbclient-works-but-mount-cifs-d
 smbclient '\\172.25.162.14\nda20' -N -m NT1 --option="client min protocol"=NT1
 mount -t cifs -vvvv //172.25.162.14/nda20 /mnt/aa -o username=root,vers=1.0,guest
 ```
+
+## smb error class and code
+https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-cifs/8f11e0f3-d545-46cc-97e6-f00569e3e1bc
