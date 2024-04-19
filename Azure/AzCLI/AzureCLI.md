@@ -6,6 +6,7 @@ https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest
 ```sh
 az version
 az upgrade -y
+az extension update --name aks-preview
 ```
 
 ## new line
