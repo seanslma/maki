@@ -28,9 +28,18 @@ sudo apt-get update
 
 ## fix redis repo issue
 https://answers.launchpad.net/ubuntu/+source/redis/+question/708354
-
-E: Repository 'https://packages.redis.io/deb focal InRelease' changed its 'Origin' value from '' to 'packages.redis.io'
 ```sh
 curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+```
+
+Previous fix not relavent to this error:
+```
+E: Repository 'https://packages.redis.io/deb focal InRelease' changed its 'Origin' value from '' to 'packages.redis.io'
+N: Repository 'https://packages.redis.io/deb focal InRelease' changed its 'Suite' value from '' to 'focal'
+N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
+```
+Solution:
+```sh
+sudo apt-get update --allow-releaseinfo-change
 ```
