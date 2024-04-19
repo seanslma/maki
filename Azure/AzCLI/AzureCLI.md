@@ -9,11 +9,8 @@ az upgrade -y
 az extension update --name aks-preview
 ```
 
-ubuntu
-```sh
-sudo apt-get update
-sudo apt-get install --only-upgrade azure-cli -y
-```
+if have legacy kubectl must be migrate to the new repo first:
+https://kubernetes.io/blog/2023/08/15/pkgs-k8s-io-introduction/
 
 ## new line
 - bash: use backslash \
