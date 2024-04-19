@@ -9,6 +9,12 @@ az upgrade -y
 az extension update --name aks-preview
 ```
 
+ubuntu
+```sh
+sudo apt-get update
+sudo apt-get install --only-upgrade azure-cli -y
+```
+
 ## new line
 - bash: use backslash \
 - pwsh: use a backtick `
