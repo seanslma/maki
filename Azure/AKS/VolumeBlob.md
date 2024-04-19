@@ -11,3 +11,8 @@ az aks create --enable-blob-driver -n <cluster-name> -g <resource-group-name> #n
 az aks update --enable-blob-driver -n <cluster-name> -g <resource-group-name> #existing aks
 az aks update --disable-blob-driver -n <cluster-name> -g <resource-group-name> #disable
 ```
+
+List all the CSI drivers available on the worker nodes
+```sh
+kubectl describe csinodes
+```
