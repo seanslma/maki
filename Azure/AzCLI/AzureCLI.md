@@ -2,6 +2,17 @@
 
 https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest
 
+## install
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
+
+ubuntu
+```sh
+# remove old version 2.0.81 package
+sudo apt remove azure-cli -y && sudo apt autoremove -y
+# install the latest version
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+
 ## upgrade
 ```sh
 az version
