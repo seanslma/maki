@@ -89,3 +89,7 @@ mountOptions:
   - rsize=262144
   - wsize=262144
 ```
+
+## issue
+mount a file storage:
+https://stackoverflow.com/questions/74825923/aks-kubernetes-pod-volume-mounting-failing-even-after-pv-is-bound-and-attached
