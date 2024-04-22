@@ -45,11 +45,74 @@ https://github.com/HoussemDellai/docker-kubernetes-course/tree/main/47_blob_fuse
 
 ## create persistent volume
 ```yaml
-
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: blob.csi.azure.com
+  name: pv-blob
+spec:
+  storageClassName: azureblob-nfs-premium
+  persistentVolumeReclaimPolicy: Retain
+  capacity:
+    storage: 1Pi
+  accessModes:
+    - ReadWriteMany  
+  mountOptions:
+    - nconnect=4
+  csi:
+    driver: blob.csi.azure.com
+    volumeHandle: <storage-account>-<container-name>
+    volumeAttributes:
+      resourceGroup: <storage-recource-group> # unique id
+      storageAccount: <storage-account>
+      containerName: <container-name>      
+      AzureStorageAuthType: msi  # key, sas, msi, spn
+      AzureStorageIdentityResourceID: $IDENTITY_ID  
+      protocol: nfs      
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-blob
+spec:
+  volumeName: pv-blob
+  storageClassName: azureblob-nfs-premium 
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi 
 ```
 
 ## create app pod
 ```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-blob
+  namespace: retail
+  labels:
+    aadpodidbinding: managed-identity-name  
+spec:
+  nodeSelector:
+    "kubernetes.io/os": linux
+  containers:
+    - name: nginx-blob
+      image: mcr.microsoft.com/oss/nginx/nginx:1.17.3-alpine
+      command:
+        - "/bin/bash"
+        - "-c"
+        - |
+          while true; do sleep 3600; done      
+      volumeMounts:
+        - name: blob-storage
+          mountPath: /home/user/data
+          readOnly: false
+  volumes:
+    - name: blob-storage
+      persistentVolumeClaim:
+        claimName: pvc-blob
 ```
 
 ## issues
