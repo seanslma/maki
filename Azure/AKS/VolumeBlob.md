@@ -5,6 +5,10 @@ To mount a container by using NFS 3.0:
 - you must create a storage account
 - you can't enable existing accounts
 
+Storage account features:
+- Hierarchical namespace: enabled
+- NFS V3: enabled
+
 ## mount azure blob storage as pv
 - https://medium.com/@er.singh.nitin/mount-azure-blob-storage-to-aks-pod-358ee55040ac
 - https://learn.microsoft.com/en-us/azure/aks/azure-csi-blob-storage-provision?tabs=mount-nfs%2Csecret
