@@ -42,3 +42,12 @@ https://github.com/HoussemDellai/docker-kubernetes-course/tree/main/47_blob_fuse
       AzureStorageAuthType: msi  # key, sas, msi, spn
       AzureStorageIdentityResourceID: $IDENTITY_ID  
   ```
+
+## create persistent volume
+```yaml
+
+```
+
+## create app pod
+```yaml
+```
