@@ -3,7 +3,7 @@
 ## nfs 3.0
 https://learn.microsoft.com/en-us/azure/storage/blobs/network-file-system-protocol-support-how-to
 
-`No such file or directory`: 
+`No such file or directory`:
 - wrong container name or
 - the account isn't enabled for NFS 3.0
 
@@ -55,7 +55,7 @@ https://github.com/HoussemDellai/docker-kubernetes-course/tree/main/47_blob_fuse
   csi:
     volumeAttributes:
       AzureStorageAuthType: msi  # key, sas, msi, spn
-      AzureStorageIdentityResourceID: $IDENTITY_ID  
+      AzureStorageIdentityResourceID: $IDENTITY_ID
   ```
 
 ## create persistent volume
@@ -72,19 +72,19 @@ spec:
   capacity:
     storage: 1Pi
   accessModes:
-    - ReadWriteMany  
+    - ReadWriteMany
   mountOptions:
     - nconnect=4
   csi:
     driver: blob.csi.azure.com
     volumeHandle: <storage-account>-<container-name>
     volumeAttributes:
-      resourceGroup: <storage-recource-group> # unique id
+      resourceGroup: <storage-resource-group> # unique id
       storageAccount: <storage-account>
-      containerName: <container-name>      
+      containerName: <container-name>
       AzureStorageAuthType: msi  # key, sas, msi, spn
-      AzureStorageIdentityResourceID: $IDENTITY_ID  
-      protocol: nfs      
+      AzureStorageIdentityResourceID: $IDENTITY_ID
+      protocol: nfs
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -92,12 +92,12 @@ metadata:
   name: pvc-blob
 spec:
   volumeName: pv-blob
-  storageClassName: azureblob-nfs-premium 
+  storageClassName: azureblob-nfs-premium
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi 
+      storage: 10Gi
 ```
 
 ## create app pod
@@ -108,7 +108,7 @@ metadata:
   name: nginx-blob
   namespace: retail
   labels:
-    aadpodidbinding: managed-identity-name  
+    aadpodidbinding: managed-identity-name
 spec:
   nodeSelector:
     "kubernetes.io/os": linux
@@ -119,7 +119,7 @@ spec:
         - "/bin/bash"
         - "-c"
         - |
-          while true; do sleep 3600; done      
+          while true; do sleep 3600; done
       volumeMounts:
         - name: blob-storage
           mountPath: /home/user/data
