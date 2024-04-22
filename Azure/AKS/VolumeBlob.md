@@ -1,6 +1,12 @@
 # Volume blob stoarge
 
 ## nfs 3.0
+https://learn.microsoft.com/en-us/azure/storage/blobs/network-file-system-protocol-support-how-to
+
+`No such file or directory`: 
+- wrong container name or
+- the account isn't enabled for NFS 3.0
+
 To mount a container by using NFS 3.0:
 - you must create a storage account
 - you can't enable existing accounts
@@ -123,7 +129,3 @@ spec:
       persistentVolumeClaim:
         claimName: pvc-blob
 ```
-
-## issues
-https://learn.microsoft.com/en-us/azure/storage/blobs/network-file-system-protocol-support-how-to
-- `No such file or directory`: wrong container name or the account isn't enabled for NFS 3.0
