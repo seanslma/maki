@@ -92,4 +92,5 @@ mountOptions:
 
 ## issue
 mount a file storage:
-https://stackoverflow.com/questions/74825923/aks-kubernetes-pod-volume-mounting-failing-even-after-pv-is-bound-and-attached
+- https://stackoverflow.com/questions/74825923/aks-kubernetes-pod-volume-mounting-failing-even-after-pv-is-bound-and-attached
+- https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/storage/fail-to-mount-azure-file-share
