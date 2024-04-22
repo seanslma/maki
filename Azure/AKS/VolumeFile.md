@@ -4,6 +4,32 @@
 - https://learn.microsoft.com/en-us/azure/aks/azure-csi-files-storage-provision
 - https://github.com/HoussemDellai/aks-file-share
 
+## pv
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azure-file
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  azureFile:
+    secretName: azure-secret
+    SecretNamespace: <namespace>
+    shareName: <share-name>
+    readOnly: false
+  mountOptions:
+    - dir_mode=0777
+    - file_mode=0777
+    - uid=1000
+    - gid=1000
+    - mfsymlinks
+    - nobrl
+  persistentVolumeReclaimPolicy: Retain 
+```
+
 ## custom storage class
 ```yaml
 apiVersion: storage.k8s.io/v1
