@@ -27,7 +27,7 @@ az aks create --enable-blob-driver -n <cluster-name> -g <resource-group-name> #n
 az aks update --enable-blob-driver -n <cluster-name> -g <resource-group-name> #existing aks
 az aks update --disable-blob-driver -n <cluster-name> -g <resource-group-name> #disable
 ```
-Once we have enabled the driver, we should see two storage classes created in our cluster:
+Once we have enabled the driver, we should see two `StorageClass`es created in our cluster:
 ```
 azureblob-nfs-premium
 azureblob-fuse-premium
@@ -38,7 +38,7 @@ List all the CSI drivers available on the worker nodes
 kubectl describe csinodes
 ```
 
-List storage classes available in aks
+List `StorageClass`es available in aks
 ```sh
 kubectl get storageclass
 ```
