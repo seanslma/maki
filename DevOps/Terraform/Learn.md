@@ -1,7 +1,8 @@
 # Learn
 
 ## tutorials
-https://developer.hashicorp.com/terraform/tutorials/configuration-language/troubleshooting-workflow
+- https://github.com/HoussemDellai/terraform-course/tree/main
+- https://developer.hashicorp.com/terraform/tutorials/configuration-language/troubleshooting-workflow
 
 ## links
 https://learnk8s.io/terraform-aks
