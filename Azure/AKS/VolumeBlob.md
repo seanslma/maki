@@ -51,3 +51,7 @@ https://github.com/HoussemDellai/docker-kubernetes-course/tree/main/47_blob_fuse
 ## create app pod
 ```yaml
 ```
+
+## issues
+https://learn.microsoft.com/en-us/azure/storage/blobs/network-file-system-protocol-support-how-to
+- `No such file or directory`: wrong container name or the account isn't enabled for NFS 3.0
