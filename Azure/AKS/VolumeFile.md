@@ -1,7 +1,8 @@
 # Volume files storage
 
 ## mount azure files storage as pv
-https://learn.microsoft.com/en-us/azure/aks/azure-csi-files-storage-provision
+- https://learn.microsoft.com/en-us/azure/aks/azure-csi-files-storage-provision
+- https://github.com/HoussemDellai/aks-file-share
 
 ## custom storage class
 ```yaml
