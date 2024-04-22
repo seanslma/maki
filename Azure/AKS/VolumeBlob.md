@@ -27,3 +27,16 @@ List storage classes available in aks
 ```sh
 kubectl get storageclass
 ```
+
+## use managed identity to access blob storage from aks pod
+https://github.com/HoussemDellai/docker-kubernetes-course/tree/main/47_blob_fuse_msi
+- Create `managed identity`
+- Assign `rbac role`
+- Attach `anaged identity` to AKS VMSS
+- Configure `pv` with managed identity
+  ```yaml
+  csi:
+    volumeAttributes:
+      AzureStorageAuthType: msi  # key, sas, msi, spn
+      AzureStorageIdentityResourceID: $IDENTITY_ID  
+  ```
