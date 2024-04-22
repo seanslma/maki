@@ -3,7 +3,8 @@
 ## mount azure blob storage as pv
 - https://medium.com/@er.singh.nitin/mount-azure-blob-storage-to-aks-pod-358ee55040ac
 - https://learn.microsoft.com/en-us/azure/aks/azure-csi-blob-storage-provision?tabs=mount-nfs%2Csecret
-- 
+- https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/storage/mounting-azure-blob-storage-container-fail
+
 ## blob storage csi driver
 enable/disable csi driver on aks
 ```sh
