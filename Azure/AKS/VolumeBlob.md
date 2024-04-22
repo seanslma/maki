@@ -29,6 +29,8 @@ kubectl get storageclass
 ```
 
 ## use managed identity to access blob storage from aks pod
+https://www.youtube.com/watch?v=azBHvHKsMhM
+
 https://github.com/HoussemDellai/docker-kubernetes-course/tree/main/47_blob_fuse_msi
 - Create `managed identity`
 - Assign `rbac role`
