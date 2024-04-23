@@ -1,15 +1,15 @@
 # Volume files storage
 
-## mount azure files storage as pv
+## mount azure file storage as pv
 - https://learn.microsoft.com/en-us/azure/aks/azure-csi-files-storage-provision
 - https://github.com/HoussemDellai/aks-file-share
 
-## pv
+### pv and pvc
 ```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: azure-file
+  name: pv-azurefile
 spec:
   capacity:
     storage: 5Gi
@@ -18,7 +18,7 @@ spec:
   azureFile:
     secretName: azure-secret
     SecretNamespace: <namespace>
-    shareName: <share-name>
+    shareName: <share-name (must already exist in the storage account)>
     readOnly: false
   mountOptions:
     - dir_mode=0777
@@ -27,7 +27,51 @@ spec:
     - gid=1000
     - mfsymlinks
     - nobrl
-  persistentVolumeReclaimPolicy: Retain 
+  persistentVolumeReclaimPolicy: Retain  
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-azurefile
+  namespace: <namespace>
+spec:
+  accessModes:
+    - ReadWriteMany  
+  resources:
+    requests:
+      storage: 5Gi  
+  storageClassName: azurefile
+```
+
+### create a secret in aks
+```sh
+kubectl create secret generic <secret-name> --from-literal=azurestorageaccountname=filestoragename --from-literal=azurestorageaccountkey=filestoragekey
+```
+
+### test pod
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+    name: my-pod-name
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+      - name: azure
+        mountPath: /home/user/azure
+  volumes:
+  - name: azure
+    persistentVolumeClaim:
+      claimName: pvc-azurefile
 ```
 
 ## custom storage class
