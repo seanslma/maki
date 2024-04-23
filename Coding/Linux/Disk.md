@@ -3,6 +3,7 @@
 ## show disk uage
 ```sh
 df -h
+du -sh ./*  #total
 ```
 
 ## check hard disk health
