@@ -8,3 +8,6 @@ docker login --username <username> [--password]
 docker tag <image-id> <username>/my-repo
 docker push <username>/my-repo
 ```
+
+## create a self-hosted registry
+https://microsoft.github.io/PartsUnlimitedMRP/adv/adv-24-Docker-Hub.html
