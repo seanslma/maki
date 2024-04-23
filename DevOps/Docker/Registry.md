@@ -10,4 +10,5 @@ docker push <username>/my-repo
 ```
 
 ## create a self-hosted registry
-https://microsoft.github.io/PartsUnlimitedMRP/adv/adv-24-Docker-Hub.html
+- https://microsoft.github.io/PartsUnlimitedMRP/adv/adv-24-Docker-Hub.html
+- https://github.com/distribution/distribution
