@@ -51,6 +51,9 @@ https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/
 ## stoarge_account_network_rules
 https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules
 
+when nfsv3_enabled = true, network_rules must be created together with the storage.
+see bug: https://github.com/hashicorp/terraform-provider-azurerm/issues/14540
+
 ```tf
 resource "azurerm_storage_account_network_rules" "main" {
   storage_account_id         = azurerm_storage_account.main.id
