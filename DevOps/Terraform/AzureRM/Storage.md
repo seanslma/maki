@@ -45,6 +45,9 @@ However, exercise caution when applying changes to the Terraform configuration t
 as inappropriate modifications can result in unintended consequences. 
 Always review the Terraform plan before applying changes to ensure they align with your expectations and requirements.
 
+## azurerm_storage_container
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container
+
 ## stoarge_account_network_rules
 https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules
 
@@ -57,3 +60,9 @@ resource "azurerm_storage_account_network_rules" "main" {
   bypass                     = ["Metrics"]
 }
 ```
+
+## azurerm_private_endpoint
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_endpoint
+- subresource_names: dfs - general file system access
+- subresource_names: file - only for FileStorage
+- subresource_names: blob - for type != FileStorage
