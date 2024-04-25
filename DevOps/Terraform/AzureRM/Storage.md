@@ -1,4 +1,8 @@
 # Storage
+- azurerm_storage_container
+- stoarge_account_network_rules
+- azurerm_storage_container
+- azurerm_private_endpoint: dfs, file, blob
 
 ## Add a manully created azure blob storage container under terraform control
 We can manage an existing Azure Blob Storage container using Terraform. 
