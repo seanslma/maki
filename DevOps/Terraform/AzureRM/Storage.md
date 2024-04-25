@@ -6,7 +6,12 @@
 - azurerm_user_assigned_identity
 - azurerm_role_assignment: Storage Blob Data Contributor, Storage Queue Data Contributor, keyvalut secret etc
 
-Note that the network rules might be in effect after the creation of the storage account. So the storag containers can only be created in a second run. The first run might have errors like `Storage Account xxx was not found`.
+Note that the network rules might be in effect after the creation of the storage account. So the storag containers can only be created in a second run. The first run might have errors like:
+```
+Error: containers.Client#GetProperties: Failure responding to request: StatusCode=403 --
+Original Error: autorest/azure: Service returned an error. Status=403
+Code="AuthorizationFhorized to perform this operation.
+```
 
 ## Add a manully created azure blob storage container under terraform control
 We can manage an existing Azure Blob Storage container using Terraform. 
@@ -59,7 +64,7 @@ https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/
 ## stoarge_account_network_rules
 https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules
 
-when nfsv3_enabled = true, network_rules must be created together with the storage.
+when nfsv3_enabled = true, network_rules must be created together with the storage, otherwise might get errors like `Storage Account xxx was not found`.
 see bug: https://github.com/hashicorp/terraform-provider-azurerm/issues/14540
 
 ```tf
