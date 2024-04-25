@@ -3,6 +3,10 @@
 - stoarge_account_network_rules
 - azurerm_storage_container
 - azurerm_private_endpoint: dfs, file, blob
+- azurerm_user_assigned_identity
+- azurerm_role_assignment: Storage Blob Data Contributor, Storage Queue Data Contributor, keyvalut secret etc
+
+Note that the network rules might be in effect after the creation of the storage account. So the storag containers can only be created in a second run. The first run might have errors like `Storage Account xxx was not found`.
 
 ## Add a manully created azure blob storage container under terraform control
 We can manage an existing Azure Blob Storage container using Terraform. 
