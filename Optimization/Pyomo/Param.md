@@ -20,3 +20,17 @@ def init(model, i, j):
     return i*i if i == j else 0
 model.par_mat = Param(model.set_i, model.set_j, initialize=init)
 ```
+
+## update values in mutable Param
+```py
+ind = ['x', 'y', 'z']
+val = [100, 200, 300]
+m.I = Set(initiliaze=ind)
+m.p = Param(m.I, initialize=dict(zip(ind, val)), mutable=True)
+
+# update one value
+m.p['x'] = 0
+
+# update mutiple values
+m.p.set_value(**{'y': 400, 'z': 500})
+```
