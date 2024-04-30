@@ -11,19 +11,13 @@ m.add_component('x', pyo.Var(domain=pyo.Reals))
 m.x = Var(within=Reals, bounds=(0,6), initialize=1.5)
 ```
 
-## indexed var
-```py
-m.x = VarList(initialize=qw, bounds=(l,u))
-for i in range(1):
-    m.x.add()
-#m.x[0], m.x[1] etc.
-```
-
 ## multi-var
 ```py
+#m.x[0], m.x[1]
+m.x = Var(range(2), initialize=(0,1), bounds=[(0,1), (2,3)])
+
 def bounds(model, i, j):
    return (0, None)
-
 m.set_i = Set(initialize = [i for i in range(3)])  
 m.set_j = Set(initialize = [i for i in range(3)])  
 m.y = Var(m.set_i, m.set_j, within=PositiveIntegers, bounds=bounds)
