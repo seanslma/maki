@@ -16,6 +16,7 @@ m.x = Var(within=Reals, bounds=(0,6), initialize=1.5)
 m.x = VarList(initialize=qw, bounds=(l,u))
 for i in range(1):
     m.x.add()
+#m.x[0], m.x[1] etc.
 ```
 
 ## multi-var
