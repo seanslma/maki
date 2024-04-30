@@ -89,7 +89,8 @@ solver.solve(m, symbolic_solver_labels=True)
 
 Good solution
 ```py
-setattr(m, 'con_1', pyo.Constraint(expr=(0, 0, 10)))
+#setattr(m, 'con_1', pyo.Constraint(expr=(0, 0, 10)))
+m.add_component('con_1', pyo.Constraint(expr=(0, 0, 10)))
 con = getattr(m, 'con_1')
 con._body += m.x
 con.pprint()
