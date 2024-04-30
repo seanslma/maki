@@ -17,5 +17,5 @@ model.par_mat = Param(model.set_i, model.set_j, initialize=data, default=0) # ot
 ```py
 def init(model, i, j):
     return i*i if i == j else 0
-model.par_mat = Param(model.set_i, model.set_j, initialize=c_init)
+model.par_mat = Param(model.set_i, model.set_j, initialize=init)
 ```
