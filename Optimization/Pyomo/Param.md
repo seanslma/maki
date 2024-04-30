@@ -9,6 +9,7 @@ model.par_mat = Param(model.I, model.J, default=1) # a 4x4 matrix with initial v
 
 ## init using dict
 ```py
+# initialize value must be a dict or function
 data = {(0,0): 1, (1,2): 33, (2,1): 20}
 model.par_mat = Param(model.set_i, model.set_j, initialize=data, default=0) # others are zeros
 ```
