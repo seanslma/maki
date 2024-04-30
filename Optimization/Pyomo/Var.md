@@ -3,6 +3,7 @@
 ## dynamic name
 ```py
 setattr(m, 'x', pyo.Var(domain=pyo.Reals))
+m.add_component('x', pyo.Var(domain=pyo.Reals))
 ```
 
 ## single var
