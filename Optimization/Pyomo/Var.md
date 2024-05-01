@@ -34,7 +34,7 @@ m.z = Var(m.set_i, m.set_j, initialize=init)
 
 ## fix val
 ```py
-m.x.fix(1)
+m.x.fix(1) # bounds will ignored by the solver
 ```
 
 ## lb/ub
