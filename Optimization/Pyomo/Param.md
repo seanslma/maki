@@ -38,5 +38,5 @@ m.p = Param(m.I, initialize=dict(zip(ind, val)), mutable=True)
 m.p['x'] = 0
 
 # update mutiple values
-m.p.set_value(**{'y': 400, 'z': 500})
+m.p.store_values({'y': 2, 'z': 3})
 ```
