@@ -1,5 +1,11 @@
 # Param
 
+## single value
+```py
+model.p = Param(initialize=1, mutable=True)
+model.p = 2
+```
+
 ## default
 ```py
 model.set_i = Set(initialize = [i for i in range(3)])  
