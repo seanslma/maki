@@ -23,3 +23,4 @@
 - d: the number of past values subject to differentiation
 
 ## limit
+lacking adaptability
