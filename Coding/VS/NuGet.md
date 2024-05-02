@@ -6,6 +6,22 @@ https://learn.microsoft.com/en-us/nuget/consume-packages/install-use-packages-po
 Tools > NuGet Package Manager > Package Manager Console
 ```
 
+## solution package source
+```
+Solution/.nuget/NuGet.Config
+```
+
+## project package config
+The `packages.config` file in a C# project is used to manage NuGet package dependencies in older project formats. 
+```
+Project/packages.config
+```
+
+A newer approach called `PackageReference` typically uses `.csproj` files to manage dependencies directly.
+
+Migrate to the new approach:
+https://learn.microsoft.com/en-us/nuget/consume-packages/migrate-packages-config-to-package-reference
+
 ## find all versions of a package
 ```powershell
 Find-Package <PackageName> -AllVersions -ExactMatch
