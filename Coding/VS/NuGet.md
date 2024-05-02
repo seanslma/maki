@@ -9,6 +9,7 @@ Tools > NuGet Package Manager > Package Manager Console
 ## find all versions of a package
 ```powershell
 Find-Package <PackageName> -AllVersions -ExactMatch
+Find-Package <PackageName> -AllVersions -ExactMatch | Format-Table -Property Id,Versions,Description
 ```
 
 ## install a specific version of a package
