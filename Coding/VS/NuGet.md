@@ -19,7 +19,8 @@ Install-Package <PackageName> -ProjectName UtilitiesLib # install to a specific 
 ```
 
 ## update a package in all projects
-```poershell
+```powershell
+Update-Package <PackageName> -Version <newVersion> -ProjectName <ProjectName>
 Get-Project -All | Update-Package <PackageName> -Version newVersion
 ```
 
