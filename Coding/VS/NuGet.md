@@ -39,3 +39,14 @@ nuget source # list all package sources
 nuget list <package-id> -verbosity detailed                    # latest version: normal, quiet, detailed
 nuget list <package-id> -source <source> -verbose -allversions # all versions
 ```
+
+##  but the package does not contain any assembly references or content files that are compatible with that framework
+```
+Update-Package : Could not install package '<package-name>'.
+You are trying to install this package into a project that targets '.NETFramework,Version=v4.6.1',
+but the package does not contain any assembly references or content files that are compatible with that framework.
+For more information, contact the package author.
+```
+Solution:
+https://stackoverflow.com/questions/34991703/nuget-package-installation-failure
+- goto `Tools->Options->Nuget->General` and clear the cache
