@@ -18,6 +18,11 @@ Install-Package <PackageName> -Version 4.4.1            # install to default pro
 Install-Package <PackageName> -ProjectName UtilitiesLib # install to a specific project
 ```
 
+## update a package in all projects
+```poershell
+Get-Project -All | Update-Package <PackageName> -Version newVersion
+```
+
 ## nuget cli
 https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference?tabs=windows
 
