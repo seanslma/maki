@@ -20,7 +20,16 @@ Install-Package <PackageName> -ProjectName UtilitiesLib # install to a specific 
 
 ## nuget cli
 https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference?tabs=windows
+
+### add a package source
 ```sh
 nuget help
-nuget list <package-id> -Verbosity detailed
+nuget source add -name "name" -source http://nuget.example.com/nuget/
+nuget source # list all package sources
+```
+
+### list versions of a package
+```sh
+nuget list <package-id> -verbosity detailed                    # latest version: normal, quiet, detailed
+nuget list <package-id> -source <source> -verbose -allversions # all versions
 ```
