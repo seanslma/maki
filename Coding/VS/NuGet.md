@@ -10,3 +10,9 @@ Tools > NuGet Package Manager > Package Manager Console
 ```powershell
 Find-Package <PackageName> -AllVersions -ExactMatch
 ```
+
+## install a specific version of a package
+```powershell
+Install-Package <PackageName> -Version 4.4.1            # install to default project
+Install-Package <PackageName> -ProjectName UtilitiesLib # install to a specific project
+```
