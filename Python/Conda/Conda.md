@@ -47,6 +47,7 @@ conda create --name ENV_NAME_new --clone ENV_NAME_from
 ```
 
 ## create a notebook kernel
+The second command is for registering the kernel for the environment. Do we need to run the second command?
 ```
 conda install -c anaconda ipykernel
 python -m ipykernel install --user --name=test-env
