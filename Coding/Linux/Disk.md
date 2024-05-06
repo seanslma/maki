@@ -1,6 +1,6 @@
 # Disk
 
-## show disk uage
+## show disk usage
 ```sh
 df -h
 du -sh ./*  #total
