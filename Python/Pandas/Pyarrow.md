@@ -28,7 +28,7 @@ print(d3.dtypes)
 
 Notice that 
 - df string type is `object` while
-- d3 string type is `string[python]`
+- d3 string type is `string[python]`, preserves `pd.NA`
 ```py
 some_series.astype(str)              # object
 some_series.astype('string')         # string[python]
