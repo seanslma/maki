@@ -1,5 +1,8 @@
 # Display
 
+## set options
+https://pandas.pydata.org/docs/reference/api/pandas.set_option.html
+
 ## Dispaly width
 ```py
 pd.set_option("display.width", 240)
