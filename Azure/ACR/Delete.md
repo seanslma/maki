@@ -21,7 +21,33 @@ ENABLE_DELETE=false
 # Modify for your environment
 REGISTRY=myregistry
 REPOSITORY=myrepository
-TIMESTAMP=2019-04-05  
+TIMESTAMP=2019-04-05
+
+# Loop through command line arguments
+while [[ $# -gt 0 ]]; do
+    key="$1"
+    case $key in
+        -r|--registry)
+            REGISTRY="$2"
+            shift # past argument
+            shift # past value
+            ;;
+        -p|--repository)
+            REPOSITORY="$2"
+            shift # past argument
+            shift # past value
+            ;;
+        -t|--timestamp)
+            TIMESTAMP="$2"
+            shift # past argument
+            shift # past value
+            ;;
+        *)    # unknown option
+            echo "Unknown option: $1"
+            exit 1
+            ;;
+    esac
+done 
 
 # Delete all images older than specified timestamp
 if [ "$ENABLE_DELETE" = true ]
