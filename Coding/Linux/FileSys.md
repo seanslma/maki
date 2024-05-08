@@ -1,5 +1,10 @@
 # File system
 
+## find file in current and sub direwctories
+```sh
+find . -name index.html
+```
+
 ## size of subfolders
 ```sh
 du -M --max-depth=1      #current folder
