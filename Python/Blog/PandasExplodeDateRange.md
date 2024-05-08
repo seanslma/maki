@@ -5,6 +5,11 @@ During data analysis, it is very common that we need to convert our data to the 
 
 We can do the conversion easily in Python using pandas. However, we know that the pandas `df.explode` function is very slow. Here I will show how we can make this process **30x** faster without using another Python package.
 
+## polars version
+https://stackoverflow.com/questions/73161185/repeating-a-date-in-polars-and-exploding-it
+
+is it faster?
+
 ## Pandas DataFrame for testing
 For testing the code performance, I used the `gen_rand_df` function in <a href="https://medium.com/@sean.lma/how-to-create-dummy-pandas-dataframes-for-testing-cf03c52878e3">my previous post</a> to create a dummy pandas DataFrame:
 ```py
