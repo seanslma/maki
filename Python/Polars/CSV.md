@@ -1,4 +1,20 @@
-# CSV benchmark
+# CSV
+
+## read csv files
+```py
+import polars as pl
+
+df = pl.read_csv('data.csv')
+df = pl.read_csv('data.csv', batch_size=50000)
+
+# lasy and filter
+pl.scan_csv('data.csv').filter(pl.col('col_0') == 100).collect()
+
+lazy_df = pl.scan_csv('data.csv')
+df = lazy_df.filter(
+    (pl.col('ts') == '2015-01-01') & (pl.col('number') == 1)
+).collect().to_pandas()
+```
 
 ## read csv (150 MB) with categorical/string
 For csv file reading, the fastest method is using `pv.read_csv(file, convert_options).to_pandas()`.
