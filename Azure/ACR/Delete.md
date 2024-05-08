@@ -27,6 +27,10 @@ TIMESTAMP=2019-04-05
 while [[ $# -gt 0 ]]; do
     key="$1"
     case $key in
+        -d)
+            ENABLE_DELETE=true
+            shift # past argument
+            ;;
         -r|--registry)
             REGISTRY="$2"
             shift # past argument
