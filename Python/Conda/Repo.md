@@ -2,9 +2,9 @@
 How create a conda repo: Use `Flask` to create a basic web app with api functions.
 
 ## web api
-- post: upload a conda package
-- post: move a conda package
-- delete: delete a conda package
+- post: upload a conda package: save the package file and update index
+- post: move a conda package: move the package file and update index in both channels
+- delete: delete a conda package: delet the package file and update index
 
 ## config.json
 setup conda channels
