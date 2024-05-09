@@ -48,7 +48,7 @@ def publish_file(
     platform='linux-64',
     api_url='https://example.com',
 ):
-    url = f'{repo_url}/api/files'
+    url = f'{api_url}/api/files'
     files = {'file': open(filepath, 'rb')}
     params = {'name': name, 'platform': platform}
     r = requests.post(url, files=files, data=params)
