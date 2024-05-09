@@ -35,8 +35,9 @@ conda build purge-all # remove previously built packages
 ```
 
 ## build conda package
+We run the command inside the project root folder:
 - `--output` will disable all output messages
-- `--croot` path cannot be a subfolder of the current folder
+- `--croot` path cannot be a subfolder of the current project folder
   `AssertionError: Can't merge/copy source into subdirectory of itself.  Please create separate spaces for these things.`
 ```
 conda build recipe --no-anaconda-upload --python 3.9 --croot c:/pkg/conda --no-test
