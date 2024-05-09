@@ -34,11 +34,18 @@ build:
   script: python -m pip install . --no-deps --ignore-installed #--no-cache-dir -vvv
 ```
 
+## install conda-build
+must install cond-build in base env
+```sh
+conda activate base
+conda install conda-build
+```
+
 ## debug
 https://docs.conda.io/projects/conda-build/en/stable/user-guide/recipes/debugging.html
 
-debugging is a process of getting into or recreating the environment and set of shell environment variables 
-that conda-build creates during its build or test processes.
+debugging is a process of getting into or recreating the environment and 
+set of shell environment variables that conda-build creates during its build or test processes.
 ```sh
 conda debug recipe
 conda debug recipe --python=3.9 --variants="{blas_impl: 'openblas'}"
