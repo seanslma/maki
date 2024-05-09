@@ -17,21 +17,49 @@ Here are some common attributes and methods of the `request` object:
 We can access these attributes and methods within the Flask routes to retrieve information 
 about the incoming request and process it accordingly. 
 ```py
-from flask import Flask, request
+from flask import Flask, request, Response
 
 app = Flask(__name__)
 
-@app.route('/example', methods=['GET', 'POST'])
-def example():
-    if request.method == 'GET':
-        name = request.args.get('name')
-        return f'Hello, {name}!'
-    elif request.method == 'POST':
-        data = request.form
-        return f'Received data: {data}'
+@app.route('/files', methods=['GET'])
+def api_get():
+    name = request.args.get('name')
+    return f'Hello, {name}!'
+
+@app.route('/files', methods=['POST'])
+def api_post():
+    file = request.files.get('file')
+    name = request.form.get('name')
+    platform = request.form.get('platform')
+    
+    return Response(status=200)
 
 if __name__ == '__main__':
     app.run()
 ```
 
-In this example, the `/example` route handles both GET and POST requests. If a GET request is received, it retrieves the 'name' query parameter from the URL using `request.args`. If a POST request is received, it retrieves the form data using `request.form`.
+how to call the api (assume the api is mounted on `/api`)
+```py
+import requests
+def publish_file(
+    filepath,
+    *,
+    name='test',
+    platform='linux-64',
+    api_url='https://example.com',
+):
+    url = f'{repo_url}/api/files'
+    files = {'file': open(filepath, 'rb')}
+    params = {'name': name, 'platform': platform}
+    r = requests.post(url, files=files, data=params)
+    if r.status_code != 200:
+        try:
+            msg = r.json().get('message')
+        except json.JSONDecodeError:
+            msg = r.text
+        finally:
+            raise Exception(msg)
+
+filepath = '/path/to/file/data.csv'
+publish_file(filepath)
+```
