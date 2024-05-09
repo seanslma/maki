@@ -68,7 +68,7 @@ package_logger.propagate = False
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
 console_handler.setFormatter(formatter)
-root_logger.addHandler(concole_handler)
+root_logger.addHandler(console_handler)
 #if previous console handler not deleted, log will output multiple times
 package_logger.addHandler(console_handler)
 
