@@ -69,5 +69,6 @@ chmod o-rwx foldername
 ```sh
 chown <owner-name> <filename>
 chown -R user:user /myfolder  #change folder and content owner/group names
+sudo chown -R <username>:<username> ./conda-build
 chgrp <group-name> <filename>
 ```
