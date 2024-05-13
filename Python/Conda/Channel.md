@@ -18,4 +18,5 @@ conda search -c conda-forge jupyterlab # will also search in the channels listed
 conda search -c conda-forge "jupyterlab>=3.5"
 conda search -c conda-forge --override-channels jupyterlab # search the provided channel only
 conda search -c conda-forge --override-channels --json "jupyterlab>=3.6"
+conda search --platform linux-64 -c conda-forge --override-channels jupyterlab # default to current platform
 ```
