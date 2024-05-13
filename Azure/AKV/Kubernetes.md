@@ -1,7 +1,7 @@
 # Kubernetes
 
 ## mount secret as env var
-how to do it???
+see this one: https://serverfault.com/questions/1075149/aks-with-azure-key-vault-env-variables-dont-load
 ```yaml
 containers:
   - name: tfs-agent
@@ -16,7 +16,7 @@ containers:
           secretKeyRef:
             name: azure-secret
             key: AZP_POOL
-
+fix me???
   - name: AZP_URL
     valueFrom:
       vaultKeyRef:
