@@ -133,6 +133,9 @@ az vmss run-command invoke -g $RGNAME -n $VMSS \
 ```
 
 ### Using secrets as an environment variable
+https://blog.nillsf.com/index.php/2020/02/24/dont-use-environment-variables-in-kubernetes-to-consume-secrets/
+
+why is not recommended to mount secretes as env vars: 
 - the secret value is accessible within the running pod
 - any app can use the secret values by referencing the appropriate env var
 - value of the env var will not be updated when the secret itself is updated
