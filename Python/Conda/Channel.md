@@ -9,3 +9,8 @@ conda config --show channels
 ```sh
 conda config --remove channels https://anaconda.org
 ```
+
+##  list packages available in channel
+```sh
+conda search -c <channel_name>
+```
