@@ -1,8 +1,13 @@
 # File system
 
-## find file in current and sub direwctories
+## find file in current and sub directories
 ```sh
 find . -name index.html
+```
+
+## find folder position
+```sh
+find /path/to/search  -name "xyz-abc" -type d
 ```
 
 ## size of subfolders
