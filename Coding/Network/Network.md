@@ -15,3 +15,4 @@ For example, an service deployed in aks might only posed the http port. In this 
 - `curl http://<service-ip>:<port>`
 - `telnet <service-ip> <port>`
 - `nc -vz <service-ip> <port>`
+All **failed**, why?
