@@ -1,5 +1,8 @@
 # Agent
 
+## self-hosted agent
+https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/docker?view=azure-devops#linux
+
 ## aks self-hosted agent
 https://medium.com/@muppedaanvesh/azure-devops-self-hosted-agents-on-kubernetes-part-1-aa91e7912f79
 
