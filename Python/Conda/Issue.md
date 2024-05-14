@@ -28,3 +28,9 @@ https://stackoverflow.com/questions/57028760/why-conda-redefines-base-environmen
 If the `conda-build` package is installed in the environment name `dev`, then the `dev` environment becomes base after activation.
 
 This means we should only install `conda-build` in base env not other envs.
+
+## package with specific version could not be installed
+`package libarrow-substrait-16.0.0-h1f0e801_0_cpu requires libabseil >=20240116.2,<20240117.0a0, but none of the providers can be installed`
+
+Solution: try to install the required version till we find the root blocker of the package.
+In this case try to install `libabseil=20240116.2` and it will report the causer package and version.
