@@ -44,6 +44,12 @@ some_series.astype('string')         # string[python]
 some_series.astype(pd.StringDtype()) # string[python]
 ```
 
+## `pyarrow table` to `pandas[pyarrow]`
+```py
+import pyarrow.csv as pv
+d = pv.read_csv('data.csv').to_pandas(types_mapper=pd.ArrowDtype)
+```
+
 ## pyarrow backend issues
 - `mod` and `divmod` not implmented: https://github.com/pandas-dev/pandas/pull/56694/files
   ```py
