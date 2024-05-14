@@ -23,3 +23,7 @@ https://www.vivienfabing.com/azure-devops/2019/06/20/azure-pipelines-how-to-add-
 
 ## azure scale-set agent
 https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/scale-set-agents?view=azure-devops
+
+## firewall
+https://learn.microsoft.com/en-us/azure/devops/server/admin/setup-secure-sockets-layer?view=azure-devops-2022
+- It tries to connect to VSTS on `HTTPS` i.e `port 443`
