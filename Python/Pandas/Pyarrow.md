@@ -43,3 +43,6 @@ some_series.astype(str)              # object
 some_series.astype('string')         # string[python]
 some_series.astype(pd.StringDtype()) # string[python]
 ```
+
+## pyarrow backend issues
+- `mod` and `divmod` not implmented: https://github.com/pandas-dev/pandas/pull/56694/files
