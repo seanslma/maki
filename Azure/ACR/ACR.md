@@ -1,7 +1,11 @@
 # Azure Container Registry
-https://learn.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest
+- https://azure.microsoft.com/en-us/services/container-registry/
+- https://learn.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest
 
-## Cache for Azure Container Registry
+## login
+```
+az acr login -n <container-registry-name>
+```
 
 ## List repos in ACR
 ```
@@ -109,3 +113,5 @@ spec:
 ```sh
 az acr check-health --name <myregistry> --ignore-errors --yes
 ```
+
+## Cache for Azure Container Registry
