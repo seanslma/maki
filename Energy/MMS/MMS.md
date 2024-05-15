@@ -78,6 +78,11 @@ For each interval_datetime there will be 12 runs with the last run_datetime star
 Regional demand can be calculated as total demand plus dispatchable load (i.e. Regional demand =
 Total Demand + Dispatchable Load)
 
+## predispatch sensitivities
+Pre-dispatch sensitivities – also known as pre-dispatch scenarios.
+
+https://aemo.com.au/-/media/files/electricity/nem/security_and_reliability/dispatch/policy_and_process/pre-dispatch-sensitivities.pdf
+
 ## daily
 This file is generated daily, shortly after 0400. It contains **previous day** data for all dispatch and trading intervals. Data provided by generating unit includes initial MW, dispatch targets and ramp rates.
 
