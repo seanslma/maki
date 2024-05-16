@@ -6,3 +6,9 @@ https://medium.com/data-science-at-microsoft/introduction-to-feature-engineering
 - lag (shift): use previous data 
 - windows (rolling average): mean for the last day/week etc.
 - expanding
+
+## sin/cos hour 
+```py
+df['h_sin'] = np.sin(np.pi * df['hour'] / 12.)
+df['h_cos'] = np.cos(np.pi * df['hour'] / 12.)
+```
