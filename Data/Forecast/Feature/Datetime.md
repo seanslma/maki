@@ -11,10 +11,17 @@ https://medium.com/data-science-at-microsoft/introduction-to-feature-engineering
 Usually the `day of year`, `day of week` and `hour` will cover all the season patterns. 
 Each will encoded into the `sine` and `cosine` features.
 
-## sin/cos hour 
+## sin/cos features
 ```py
-df['h_sin'] = np.sin(np.pi * df['hour'] / 12.)
-df['h_cos'] = np.cos(np.pi * df['hour'] / 12.)
+# hour
+df['h_sin'] = np.sin(df['hour'] / 12 * np.pi)
+df['h_cos'] = np.cos(df['hour'] / 12 * np.pi)
+# month
+df['m_sin'] = np.sin(df['month'] / 6 * np.pi)
+df['m_cos'] = np.cos(df['month'] / 6 * np.pi)
+# day of year
+df['y_sin'] = np.sin(df['day_of_year'] / 183 * np.pi)
+df['y_cos'] = np.cos(df['day_of_year'] / 183 * np.pi)
 ```
 
 ## mean/median/min/max/std/skew/kurt/range
