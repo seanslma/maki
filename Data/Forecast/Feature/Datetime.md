@@ -3,6 +3,6 @@ https://medium.com/data-science-at-microsoft/introduction-to-feature-engineering
 
 - month/day/hour
 - weekday/weekend/holiday
-- shift (lag)
-- rolling average
+- lag (shift): use previous data 
+- windows (rolling average): mean for the last day/week etc.
 - expanding
