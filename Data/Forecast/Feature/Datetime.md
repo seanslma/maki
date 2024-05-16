@@ -7,6 +7,10 @@ https://medium.com/data-science-at-microsoft/introduction-to-feature-engineering
 - windows (rolling average): mean for the last day/week etc.
 - expanding
 
+## datetime feature
+Usually the `day of year`, `day of week` and `hour` will cover all the season patterns. 
+Each will encoded into the `sine` and `cosine` features.
+
 ## sin/cos hour 
 ```py
 df['h_sin'] = np.sin(np.pi * df['hour'] / 12.)
