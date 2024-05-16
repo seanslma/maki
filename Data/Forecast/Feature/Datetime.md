@@ -12,3 +12,5 @@ https://medium.com/data-science-at-microsoft/introduction-to-feature-engineering
 df['h_sin'] = np.sin(np.pi * df['hour'] / 12.)
 df['h_cos'] = np.cos(np.pi * df['hour'] / 12.)
 ```
+
+## mean/median/min/max/std/skew/kurt/range
