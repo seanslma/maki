@@ -76,7 +76,11 @@ model.fit(
 model.booster_.save_model(model_filename)
 
 # feature importance
-gbm.booster_.feature_importance()
-fea_imp_ = pd.DataFrame({'cols': train.columns, 'fea_imp': gbm.feature_importances_})
+lgb.booster_.feature_importance()
+fea_imp_ = pd.DataFrame({'cols': train.columns, 'fea_imp': lgb.feature_importances_})
 fea_imp_.loc[fea_imp_.fea_imp > 0].sort_values(by=['fea_imp'], ascending=False)
+
+# plot feature importance
+plt.barh(X_train.columns, xgb.feature_importances_)
+plt.show()
 ```
