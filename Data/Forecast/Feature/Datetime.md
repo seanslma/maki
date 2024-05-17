@@ -24,4 +24,5 @@ df['y_sin'] = np.sin(np.pi * df['day_of_year'] / 183)
 df['y_cos'] = np.cos(np.pi * df['day_of_year'] / 183)
 ```
 
-## mean/median/min/max/std/skew/kurt/range
+## rolling
+mean/std/min/max/med/skew/kurt/range
