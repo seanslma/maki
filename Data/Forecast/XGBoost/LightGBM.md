@@ -4,6 +4,9 @@ LightGBM vs XGBoost
 - LightGBM generally faster than XGBoost, especially for large datasets
 - XGBoost might have slightly lower memory requirements compared to LightGBM
 
+## example
+https://github.com/microsoft/LightGBM/issues/2930
+
 ## LightGBM example
 `lgb.train` is the core training API for lightgbm.
 ```py
