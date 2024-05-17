@@ -14,14 +14,14 @@ Each will encoded into the `sine` and `cosine` features.
 ## sin/cos features
 ```py
 # hour
-df['h_sin'] = np.sin(df['hour'] / 12 * np.pi)
-df['h_cos'] = np.cos(df['hour'] / 12 * np.pi)
+df['h_sin'] = np.sin(np.pi * df['hour'] / 12)
+df['h_cos'] = np.cos(np.pi * df['hour'] / 12)
 # month
-df['m_sin'] = np.sin(df['month'] / 6 * np.pi)
-df['m_cos'] = np.cos(df['month'] / 6 * np.pi)
+df['m_sin'] = np.sin(np.pi * df['month'] / 6)
+df['m_cos'] = np.cos(np.pi * df['month'] / 6)
 # day of year
-df['y_sin'] = np.sin(df['day_of_year'] / 183 * np.pi)
-df['y_cos'] = np.cos(df['day_of_year'] / 183 * np.pi)
+df['y_sin'] = np.sin(np.pi * df['day_of_year'] / 183)
+df['y_cos'] = np.cos(np.pi * df['day_of_year'] / 183)
 ```
 
 ## mean/median/min/max/std/skew/kurt/range
