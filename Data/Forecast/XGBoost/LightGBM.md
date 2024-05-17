@@ -7,6 +7,9 @@ LightGBM vs XGBoost
 ## example
 https://github.com/microsoft/LightGBM/issues/2930
 
+## feature selection
+https://www.kaggle.com/code/pnprabakaran/feature-selection-before-hand-lightgbm
+
 ## LightGBM example
 `lgb.train` is the core training API for lightgbm.
 ```py
