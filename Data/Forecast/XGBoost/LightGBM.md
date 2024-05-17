@@ -33,7 +33,7 @@ ni = 1200
 lgb_train = lgb.Dataset(df[xcols], df['target'])
 model = lgb.train(params, lgb_train, ni, verbose_eval=False)
 # feature importance
-ax = lightgbm.plot_importance(model, max_num_features=40, figsize=(15,15))
+ax = lgb.plot_importance(model, max_num_features=40, figsize=(15,15))
 plt.show()
 # forecast
 preds = m.predict(df[xcols])
