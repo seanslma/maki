@@ -5,6 +5,7 @@ LightGBM vs XGBoost
 - XGBoost might have slightly lower memory requirements compared to LightGBM
 
 ## LightGBM example
+`lgb.train` is the core training API for lightgbm.
 ```py
 params = {
     'verbose': -1, 
@@ -28,6 +29,8 @@ preds = m.predict(df[xcols])
 ```
 
 ## LGBMRegressor
+`LGBMRegressor` is the sklearn interface, a wrapper for LightGBM. 
+The `fit(X, y)` call is standard sklearn syntax for model training.
 ```py
 params = {
     'verbose': -1,
