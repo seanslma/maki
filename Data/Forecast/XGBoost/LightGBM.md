@@ -29,8 +29,13 @@ params = {
 }
 
 ni = 1200
+# train model
 lgb_train = lgb.Dataset(df[xcols], df['target'])
 model = lgb.train(params, lgb_train, ni, verbose_eval=False)
+# feature importance
+ax = lightgbm.plot_importance(model, max_num_features=40, figsize=(15,15))
+plt.show()
+# forecast
 preds = m.predict(df[xcols])
 ```
 
@@ -69,4 +74,9 @@ model.fit(
     ],
 )
 model.booster_.save_model(model_filename)
+
+# feature importance
+gbm.booster_.feature_importance()
+fea_imp_ = pd.DataFrame({'cols': train.columns, 'fea_imp': gbm.feature_importances_})
+fea_imp_.loc[fea_imp_.fea_imp > 0].sort_values(by=['fea_imp'], ascending=False)
 ```
