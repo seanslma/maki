@@ -11,6 +11,11 @@ https://pythonspeed.com/articles/conda-vs-pip/#:~:text=The%20fundamental%20diffe
 - pip wheel can lead larger package size
 - pip wheel not include executables and tools
 
+## show all conda info
+```
+conda info --all
+```
+
 ## update conda
 ```
 conda update -n base conda
