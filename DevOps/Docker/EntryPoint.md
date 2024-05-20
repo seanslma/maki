@@ -3,7 +3,7 @@
 https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#entrypoint
 
 ## example
-docker-entrypoint file
+docker-entrypoint.sh
 ```sh
 #!/bin/bash
 set -e
@@ -15,6 +15,18 @@ docker entrypoint
 COPY ./docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/bin/bash"]
+```
+
+## change the docker-entrypoint file to update .condarc channel_alias
+docker-entrypoint.sh
+```sh
+#!/bin/bash
+set -e
+# Update channel_alias setting in .condarc
+if [ -n "$CONDA_CHANNEL_ALIAS" ]; then
+    conda config --set channel_alias "$CONDA_CHANNEL_ALIAS"
+fi
+exec "$@"
 ```
 
 ## entrypoint vs cmd
