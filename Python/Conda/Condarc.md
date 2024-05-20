@@ -1,5 +1,10 @@
 # Condarc
 
+## config
+The `channel_alias` specifies a base URL to prepend to all channel names that do not start with `http://` or `https://`. 
+So, any channel name without an explicit URL will be prefixed with `https://conda.example.com/`.
+
+Therefore, `example/uat` will be interpreted as `https://conda.example.com/example/uat`, effectively linking it to `https://conda.example.com/`.
 ```
 auto_update_conda: false
 update_dependencies: false
