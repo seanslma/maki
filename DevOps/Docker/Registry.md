@@ -12,3 +12,6 @@ docker push <username>/my-repo
 ## create a self-hosted registry
 - https://microsoft.github.io/PartsUnlimitedMRP/adv/adv-24-Docker-Hub.html
 - https://github.com/distribution/distribution
+
+## delete docker images in private registry
+https://gist.github.com/jaytaylor/86d5efaddda926a25fa68c263830dac1
