@@ -14,4 +14,5 @@ docker push <username>/my-repo
 - https://github.com/distribution/distribution
 
 ## delete docker images in private registry
-https://gist.github.com/jaytaylor/86d5efaddda926a25fa68c263830dac1
+- https://gist.github.com/jaytaylor/86d5efaddda926a25fa68c263830dac1
+- https://gist.github.com/abelmferreira/c38036f9642f2adf260ad068ac08f187
