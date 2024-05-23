@@ -1,7 +1,7 @@
 # LightGBM
 
-LightGBM vs XGBoost
-- LightGBM generally faster than XGBoost, especially for large datasets
+## LightGBM vs XGBoost
+- LightGBM generally faster than XGBoost, especially for large datasets, does not support arrow
 - XGBoost might have slightly lower memory requirements compared to LightGBM
 
 ## example
