@@ -1,5 +1,7 @@
 # Pyarrow
 
+## tensorflow does not support arrow backend
+
 ## data types
 https://pandas.pydata.org/docs/user_guide/pyarrow.html
 
@@ -11,7 +13,7 @@ https://pandas.pydata.org/docs/user_guide/pyarrow.html
 - uint64[pyarrow]
 - float32[pyarrow]
 - time64[us][pyarrow]
-- timestamp[s][pyarrow]? should use ``
+- timestamp[s][pyarrow]? should use `pd.ArrowDtype(pa.timestamp('s'))`
 
 pd.StringDtype('pyarrow'): 
 - This allows pandas to utilize PyArrow's memory-efficient string representation for the data
@@ -22,7 +24,7 @@ pd.ArrowDtype(pa.string()):
 - It achieves similar memory efficiency as the other options
 - it returns ArrowDtype objects instead of NumPy-backed nullable types, soit might be less efficient for handling `missing values` compared to `pd.StringDtype('pyarrow')`
 
-## how to use default pyarrow backend
+## convert backend arrow/numpy
 currently not possible using global setting
 
 ```py
