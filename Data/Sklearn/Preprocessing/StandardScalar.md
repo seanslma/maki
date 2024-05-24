@@ -1,7 +1,7 @@
 # StandardScalar
 
 ## `fit_transform` issue
-will convert `Float32` to `float64`
+will convert `Float32`, `float32` to `float64`
 ```py
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
