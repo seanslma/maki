@@ -16,27 +16,35 @@ https://www.kaggle.com/code/pnprabakaran/feature-selection-before-hand-lightgbm
 params = {
     'verbose': -1, 
     'objective': 'regression_l1', 
-    'seed': 13, 
-    'n_jobs': -1, 
-    'device': 'gpu',            
-    'learning_rate': 0.02, 
+    'seed': 13,
+    'device': 'gpu',       
+    'n_jobs': -1,          
+    'learning_rate': 0.02,
+    'num_leaves': 96,     
+    'feature_fraction': 0.6,
     'feature_fraction_bynode': 0.9,     
-    'feature_fraction': 0.6, 
     'bagging_fraction': 0.8, 
-    'bagging_freq': 5, 
-    'num_leaves': 96, 
+    'bagging_freq': 5,     
     'min_child_samples': 1500,
 }
 
-ni = 1200
+num_boost_round = 1200 # number of iterations
 # train model
-lgb_train = lgb.Dataset(df[xcols], df['target'])
-model = lgb.train(params, lgb_train, ni, verbose_eval=False)
+train_set = lgb.Dataset(df[xcols], df['target'])
+model = lgb.train(params, train_set, num_boost_round, verbose_eval=False)
+# forecast
+preds = m.predict(df[xcols])
+
 # feature importance
 ax = lgb.plot_importance(model, max_num_features=40, figsize=(15,15))
 plt.show()
-# forecast
-preds = m.predict(df[xcols])
+
+# feature importance to csv
+df_importance = pd.DataFrame({
+    'feature': model.feature_name(),
+    'importance': model.feature_importance(),
+})
+df_importance.to_csv('feature_importance.csv')
 ```
 
 ## LGBMRegressor
@@ -46,16 +54,16 @@ The `fit(X, y)` call is standard sklearn syntax for model training.
 params = {
     'verbose': -1,
     'objective': 'mae',
-    'random_state': seed,
-    'n_jobs': 4,
-    'device': 'gpu',       
+    'random_state': seed,    
+    'device': 'gpu',
+    'n_jobs': 4,     
     'n_estimators': 1200,
-    'learning_rate': 0.03,    
+    'learning_rate': 0.03,
+    'max_depth': 10,   
+    'num_leaves': 256,  
     'subsample': 0.6,
     'colsample_bynode': 0.6,
-    'colsample_bytree': 0.9,
-    'num_leaves': 256,
-    'max_depth': 10,           
+    'colsample_bytree': 0.9,        
     'importance_type': 'gain',
 }
 model = lgb.LGBMRegressor(**params)
