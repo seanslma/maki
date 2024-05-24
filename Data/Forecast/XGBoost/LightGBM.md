@@ -34,7 +34,15 @@ params = {
 num_boost_round = 1200 # number of iterations
 # train model
 train_set = lgb.Dataset(df[xcols], df['target'])
-model = lgb.train(params, train_set, num_boost_round, verbose_eval=False)
+model = lgb.train(
+    params, 
+    train_set,
+    num_boost_round,
+    init_model=None, 
+    valid_sets=[train_set, test_set], 
+    callbacks=[lgb.log_evaluation(50), lgb.early_stopping(stopping_rounds=250)],
+)
+model.save_model('lgb_model.txt')
 # forecast
 preds = m.predict(df[xcols])
 
