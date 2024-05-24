@@ -4,6 +4,9 @@
 - LightGBM generally faster than XGBoost, especially for large datasets, does not support arrow
 - XGBoost might have slightly lower memory requirements compared to LightGBM
 
+## parameters
+https://lightgbm.readthedocs.io/en/latest/Parameters.html
+
 ## example
 https://github.com/microsoft/LightGBM/issues/2930
 
