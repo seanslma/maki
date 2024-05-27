@@ -23,6 +23,32 @@ df['m_cos'] = np.cos(np.pi * df['month'] / 6)
 df['y_sin'] = np.sin(np.pi * df['day_of_year'] / 183)
 df['y_cos'] = np.cos(np.pi * df['day_of_year'] / 183)
 ```
+## lag and lag diff/auto correlation
+```py
+df['x_lag1'] = df.groupby(['id'])['x'].shift(1)
+df['x_lag1_diff'] = df['x'] - df['x'].groupby(['id']).shift(1)
+df['x_lag1_autocorr'] = df['x'].corrwith(df['x'].shift(1))
+```
+
+## percentage diff
+```py
+df['pct_diff_x_y'] = (df['x'] - df['y']) / df['y'] * 100
+```
+
+## diff first/median
+```py
+df['x_diff_first'] = df['x'] - df['x'].groupby(['id']).transform('first') #median
+```
+
+## imbalance
+```py
+df['imb_x_y'] = (df['x'] - df['y']).divide(df['x'] + df['y'], fill_value=np.nan)
+```
 
 ## rolling
-mean/std/min/max/med/skew/kurt/range
+mean/var/std/min/max/med/skew/kurt/cumsum/range
+```py
+df['x_mean'] = df.groupby(['id'])['x'].agg('mean') # std etc
+df['x_cumsum'] = df.groupby(['id'])['x'].cumsum()
+df['x_range'] = df.groupby(['id'])['x'].max(axis=1) - df.groupby(['id'])['x'].min(axis=1)
+```
