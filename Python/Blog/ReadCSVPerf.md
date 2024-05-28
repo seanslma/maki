@@ -2,10 +2,10 @@
 
 CSV (comma-separated values) files have been widely used in different areas. They can be easily exported from almost all programming languages. They can also be loaded into all text editors and many other applications. However, the main disadvantage is that CSV files are usually larger than files with other formats and it is slow to load them into memory.
 
-Here we compare different options for reading CSV files by using `pandas`, `polars` and `pyarrow`. We test the performance of the reading options for CSV files with string, float and datetime data types. Based on the test results, we should be able to determine which option to use when we need reading CSV files faster.
+Here we compare different options for reading CSV files by using the `pandas`, `polars` and `pyarrow` Python packages. We test the loading performance for CSV files each with a different data type. Based on the test results, we should be able to determine which option to use when we need reading CSV files faster.
 
 ## Creating test data
-CSV files with three data types, `string`, `float`, and `datetime`, have been used to test the CSV file reading performance with different options. All the testing CSV files were created using the scripts in <a href="https://medium.com/@sean.lma/how-to-create-dummy-pandas-dataframes-for-testing-cf03c52878e3">my previous post</a>; each CSV file has 10 million rows and three columns with the same data type.
+CSV files with three data types, `string`, `float`, and `datetime`, have been used to test the file reading performance. All the testing CSV files were created using the scripts in <a href="https://medium.com/@sean.lma/how-to-create-dummy-pandas-dataframes-for-testing-cf03c52878e3">my previous post</a>; each CSV file has 10 million rows and three columns with the same data type.
 
 The `string` type CSV file was created with:
 ```py
@@ -19,7 +19,6 @@ df_str = gen_rand_df(
     },
 )
 df_str.to_csv(filename, index=False)
-
 ```
 
 The `float` type CSV file was created with:
@@ -34,7 +33,6 @@ df_flt = gen_rand_df(
     },
 )
 df_flt.to_csv(filename, index=False)
-
 ```
 
 The `datetime` type CSV file was created with:
@@ -51,12 +49,52 @@ df_dts = gen_rand_df(
     },
 )
 df_dts.to_csv(filename, index=False)
-
 ```
 
-
 ## Reading CSV files using `pandas`
+In pandas, when reading CSV files, there are three available parsers (`python`, `c`, and `pyarrow`). The parser can be set via the parameter `engine`. 
 
+and two backend data types (backend_dtype: `numpy_nullable` and `pyarrow`) for storing the data.
+# str
+pd_dtype_s = {
+    'c1': str,
+    'c2': str,
+    'c3': str,
+}
+# pd.ArrowDtype(pa.string()) will return ArrowDtype
+pd_dtype_pa_s = {
+    'c1': pd.ArrowDtype(pa.string()),
+    'c2': pd.ArrowDtype(pa.string()),
+    'c3': pd.ArrowDtype(pa.string()),
+}
+# pd.StringDtype('pyarrow') can return NumPy-backed nullable types
+pd_dtype_pa_s2 = {
+    'c1': 'string[pyarrow]',
+    'c2': 'string[pyarrow]',
+    'c3': 'string[pyarrow]',
+}
+
+pd_dtype_f = {
+    'c1': float,
+    'c2': float,
+    'c3': float,
+}
+pd_dtype_f_pa = {
+    'c1': 'float64[pyarrow]',
+    'c2': 'float64[pyarrow]',
+    'c3': 'float64[pyarrow]',
+}
+
+pd_dtype_t = {
+    'c1': 'datetime64[ns]',
+    'c2': 'datetime64[ns]',
+    'c3': 'datetime64[ns]',
+}
+pd_dtype_t_pa = {
+    'c1': pd.ArrowDtype(pa.timestamp('ns')),
+    'c2': pd.ArrowDtype(pa.timestamp('ns')),
+    'c3': pd.ArrowDtype(pa.timestamp('ns')),
+}
 
 ## Reading CSV files using `polars`
 
@@ -76,24 +114,7 @@ import pyarrow as pa
 import pyarrow.csv as pv
 from mapy.test import gen_rand_df
 
-# str
-pd_dtype_s = {
-    'c1': str,
-    'c2': str,
-    'c3': str,
-}
-# pd.ArrowDtype(pa.string()) will return ArrowDtype
-pd_dtype_pa_s = {
-    'c1': pd.ArrowDtype(pa.string()),
-    'c2': pd.ArrowDtype(pa.string()),
-    'c3': pd.ArrowDtype(pa.string()),
-}
-# pd.StringDtype('pyarrow') can return NumPy-backed nullable types
-pd_dtype_pa_s2 = {
-    'c1': 'string[pyarrow]',
-    'c2': 'string[pyarrow]',
-    'c3': 'string[pyarrow]',
-}
+
 pa_dtype_s = {
     'c1': pa.string(),
     'c2': pa.string(),
@@ -108,16 +129,7 @@ convert_options_s = pv.ConvertOptions(
     column_types=pa_dtype_s,
 )
 # float
-pd_dtype_f = {
-    'c1': float,
-    'c2': float,
-    'c3': float,
-}
-pd_dtype_f_pa = {
-    'c1': 'float64[pyarrow]',
-    'c2': 'float64[pyarrow]',
-    'c3': 'float64[pyarrow]',
-}
+
 pa_dtype_f = {
     'c1': pa.float64(),
     'c2': pa.float64(),
@@ -132,16 +144,7 @@ convert_options_f = pv.ConvertOptions(
     column_types=pa_dtype_f,
 )
 # datetime
-pd_dtype_t = {
-    'c1': 'datetime64[ns]',
-    'c2': 'datetime64[ns]',
-    'c3': 'datetime64[ns]',
-}
-pd_dtype_t_pa = {
-    'c1': pd.ArrowDtype(pa.timestamp('ns')),
-    'c2': pd.ArrowDtype(pa.timestamp('ns')),
-    'c3': pd.ArrowDtype(pa.timestamp('ns')),
-}
+
 pa_dtype_t = {
     'c1': pa.timestamp('ns'),
     'c2': pa.timestamp('ns'),
@@ -169,17 +172,6 @@ if col_type == 'str':
     pa_dtype = pa_dtype_s
     pl_dtype = pl_dtype_s
     convert_options = convert_options_s
-    # df_str = gen_rand_df(
-    #     nrow=10000000,
-    #     str_cols={
-    #         'count': 3,
-    #         'name': ['c1', 'c2', 'c3'],
-    #         'str_len': [10, (1,15), (1,50)],
-    #         'str_count': [1000, 500, 100],
-    #     },
-    # )
-    # print(df_str[:3])
-    # df_str.to_csv(file, index=False)
 
 # %%
 # float
@@ -189,17 +181,6 @@ if col_type == 'flt':
     pa_dtype = pa_dtype_f
     pl_dtype = pl_dtype_f
     convert_options = convert_options_f
-    # df_flt = gen_rand_df(
-    #     nrow=10000000,
-    #     float_cols={
-    #         'count': 3,
-    #         'name': ['c1', 'c2', 'c3'],
-    #         'low': [0, -100, 0],
-    #         'high': [1, 100, 1e5],
-    #     },
-    # )
-    # print(df_flt[:3])
-    # df_flt.to_csv(file, index=False)
 
 # %%
 # datetime
@@ -209,19 +190,6 @@ if col_type == 'dts':
     pa_dtype = pa_dtype_t
     pl_dtype = pl_dtype_t
     convert_options = convert_options_t
-    # df_dts = gen_rand_df(
-    #     nrow=10000000,
-    #     ts_cols={
-    #         'count': 3,
-    #         'name': ['c1', 'c2', 'c3'],
-    #         'start_date': ['2020-01-01', '2021-01-01', '2022-01-01'],
-    #         'end_date': ['2021-01-01', '2022-01-01', '2023-01-01'],
-    #         'freq': 's',
-    #         'random': False,
-    #     },
-    # )
-    # print(df_dts[:3])
-    # df_dts.to_csv(file, index=False)
 
 # %%
 # data = {'c1': [3, 2, 1, 0], 'c2': ['a', 'b', 'c', 'd']}
