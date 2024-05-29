@@ -3,12 +3,12 @@ https://medium.com/data-science-at-microsoft/introduction-to-feature-engineering
 
 - month/day/hour
 - weekday/weekend/holiday
-- lag (shift): use previous data 
+- lag (shift): use previous data
 - windows (rolling average): mean for the last day/week etc.
 - expanding
 
 ## datetime feature
-Usually the `day of year`, `day of week` and `hour` will cover all the season patterns. 
+Usually the `day of year`, `day of week` and `hour` will cover all the season patterns.
 Each will encoded into the `sine` and `cosine` features.
 
 ## sin/cos features
@@ -23,6 +23,7 @@ df['m_cos'] = np.cos(np.pi * df['month'] / 6)
 df['y_sin'] = np.sin(np.pi * df['day_of_year'] / 183)
 df['y_cos'] = np.cos(np.pi * df['day_of_year'] / 183)
 ```
+
 ## lag and lag diff/auto correlation
 ```py
 df['x_lag1'] = df.groupby(['id'])['x'].shift(1)
