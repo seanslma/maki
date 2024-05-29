@@ -9,3 +9,6 @@ XGBoost: forecast the residuals on different levels and add the forecasts togeth
 
 Builds a sequence of weak decision trees (models with low individual accuracy) that progressively improve on the predictions of previous trees.
 Each tree focuses on correcting the errors made by its predecessors.
+
+## strength
+good for tabular data
