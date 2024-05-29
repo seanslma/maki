@@ -10,3 +10,6 @@ NeuralForecast offers a large collection of neural forecasting models
 - AutoMLP
 - AutoNBEATS
 - AutoNHITS
+```py
+from neuralforecast.models import NBEATS, NHITS, LSTM
+```
