@@ -52,11 +52,7 @@ df_dts.to_csv(filename, index=False)
 ```
 
 ## Reading CSV files using `pandas`
-In pandas, when reading CSV files, there are three types of parsers that are available (`python`, `c`, and `pyarrow`). The parser can be set via the parameter `engine`.
-
-There are also two backend data types (backend_dtype: `numpy_nullable` and `pyarrow`) for storing the data.
-
-Here we will check the performance of the combinations of different parsers and backend data types.
+In pandas, when reading CSV files, there are three types of parsers that are available (`python`, `c`, and `pyarrow`). The parser can be set via the parameter `engine`. There are also two backend data types (backend_dtype: `numpy_nullable` and `pyarrow`) for storing the data. We will check the performance of the combinations of different parsers and backend data types.
 
 The data types passed to the functions are a dictionary like this: `dtype = {'c1': dtype, 'c1': dtype, 'c1': dtype}`.
 - For `string` values the dtype is `str`. There are also two string data types available for pyarrow (dtype_pa): `pd.ArrowDtype(pa.string())` and `string[pyarrow]` (dtype_pa_str2); the latter supports NumPy-backed nullable types.
@@ -144,59 +140,62 @@ The following options are tested:
   )
   ```
 
-The performance results for these options are as following:
+The performance results for these options are as follows:
 ```
-                                                         str    float  datetime
-c       + numpy_nullable + dtype_str + astype            3.93s  18.2s  18.5s
-c       + numpy_nullable + dtype                         3.88s  3.29s  15.4s
-c       + pyarrow        + dtype                         3.27s  3.55s  16.6s
-c       + pyarrow        + dtype_pa                      5.17s  16.8s  53.2s
-pyarrow + numpy_nullable + dtype                         3.50s  0.54s  1.15s
-pyarrow + pyarrow        + dtype                         7.62s  0.50s  1.67s
-pyarrow + pyarrow        + string[pyarrow]               4.05s  15.8s  11.1s
-pyarrow + pyarrow        + dtype_pa                      0.39s  0.48s  0.44s
-pyarrow + pyarrow        + dtype_pa + to numpy_nullable  2.74s  2.68s  1.64s
-pyarrow + pyarrow                                        0.48s  0.47s  0.37s
+                                                         str    float  datetime float_order
+c       + numpy_nullable + dtype_str + astype            3.93s  18.2s  18.5s    10
+c       + numpy_nullable + dtype                         3.88s  3.29s  15.4s     6
+c       + pyarrow        + dtype                         3.27s  3.55s  16.6s     7
+c       + pyarrow        + dtype_pa                      5.17s  16.8s  53.2s     9
+pyarrow + numpy_nullable + dtype                         3.50s  0.54s  1.15s     4
+pyarrow + pyarrow        + dtype                         7.62s  0.50s  1.67s     3
+pyarrow + pyarrow        + string[pyarrow]               4.05s  15.8s  11.1s     8
+pyarrow + pyarrow        + dtype_pa                      0.39s  0.48s  0.44s     2
+pyarrow + pyarrow        + dtype_pa + to numpy_nullable  2.74s  2.68s  1.64s     5
+pyarrow + pyarrow                                        0.48s  0.47s  0.37s     1
 ```
 
 ## Reading CSV files using `polars`
-```
-# %%
-%%timeit -r 3 -n 7
-# default
-d = pl.read_csv(file)
+- default
+  ```py
+  pl.read_csv(file)
+  ```
+- eager
+  ```py
+  pl.read_csv(file, dtypes=pl_dtype)
+  ```
+- lazy
+  ```py
+  pl.scan_csv(file, dtypes=pl_dtype).collect()
+  ```
+- streaming
+  ```py
+  pl.scan_csv(file, dtypes=pl_dtype).collect(streaming=True)
+  ```
+- sql api eager
+  ```py
+  pl.SQLContext(
+      data=pl.scan_csv(file, dtypes=pl_dtype)
+  ).execute('select * from data', eager=True)
+  ```
+- sql api eager + to pandas
+  ```py
+  pl.SQLContext(
+      data=pl.scan_csv(file, dtypes=pl_dtype)
+  ).execute(
+      'select * from data', eager=True
+  ).to_pandas(use_pyarrow_extension_array=False)
+  ```
+- sql api eager + to pandas pyarrow
+  ```py
+  pl.SQLContext(
+      data=pl.scan_csv(file, dtypes=pl_dtype)
+  ).execute(
+      'select * from data', eager=True
+  ).to_pandas(use_pyarrow_extension_array=True)
+  ```
 
-# %%
-%%timeit -r 3 -n 7
-# eager
-d = pl.read_csv(file, dtypes=pl_dtype)
-
-# %%
-%%timeit -r 3 -n 7
-# lazy
-d = pl.scan_csv(file, dtypes=pl_dtype).collect()
-
-# %%
-%%timeit -r 3 -n 7
-# streaming
-d = pl.scan_csv(file, dtypes=pl_dtype).collect(streaming=True)
-
-# %%
-%%timeit -r 3 -n 7
-# read csv with sql api
-d = pl.SQLContext(data=pl.scan_csv(file, dtypes=pl_dtype)).execute('select * from data', eager=True)
-
-# %%
-%%timeit -r 3 -n 7
-# read csv with sql api and to pandas df
-d = pl.SQLContext(data=pl.scan_csv(file, dtypes=pl_dtype)).execute('select * from data', eager=True).to_pandas(use_pyarrow_extension_array=False)
-
-# %%
-%%timeit -r 3 -n 7
-# read csv with sql api and to pandas df
-d = pl.SQLContext(data=pl.scan_csv(file, dtypes=pl_dtype)).execute('select * from data', eager=True).to_pandas(use_pyarrow_extension_array=True)
-```
-
+Performance:
 ```
                                           str    float  datetime
 default                                   0.52s  0.38s  0.37s
@@ -204,46 +203,46 @@ eager                                     0.46s  0.40s  0.39s
 lazy                                      0.45s  0.38s  0.41s
 streaming                                 0.42s  0.40s  0.42s
 sql api eager                             0.46s  0.38s  0.40s
-sql api eager + to pandas numpy_nullable  1.59s  0.47s  0.48s
+sql api eager + to pandas                 1.59s  0.47s  0.48s
 sql api eager + to pandas pyarrow         0.99s  0.43s  0.45s
 ```
 
 ## Reading CSV files using `pyarrow`
-```py
-# %%
-%%timeit -r 3 -n 7
-d = pv.read_csv(file)
 
-# %%
-%%timeit -r 3 -n 7
-d = pv.read_csv(file).to_pandas()
+- default
+  ```py
+  pv.read_csv(file)
+  ```
+- default + to pandas
+  ```py
+  pv.read_csv(file).to_pandas()
+  ```
+- default + to pandas pyarrow
+  ```py
+  pv.read_csv(file).to_pandas(types_mapper=pd.ArrowDtype)
+  ```
+- dtype
+  ```py
+  pv.read_csv(file, convert_options=convert_options)
+  ```
+- dtype + to pandas
+  ```py
+  pv.read_csv(file, convert_options=convert_options).to_pandas()
+  ```
+- dtype + to pandas pyarrow
+  ```py
+  pv.read_csv(file, convert_options=convert_options).to_pandas(types_mapper=pd.ArrowDtype)
+  ```
 
-# %%
-%%timeit -r 3 -n 7
-d = pv.read_csv(file).to_pandas(types_mapper=pd.ArrowDtype)
-
-# %%
-%%timeit -r 3 -n 7
-d = pv.read_csv(file, convert_options=convert_options)
-
-# %%
-%%timeit -r 3 -n 7
-# df = pa.table(dict_of_numpy_arrays).to_pandas(use_threads=False) # default multi-thread
-d = pv.read_csv(file, convert_options=convert_options).to_pandas()
-
-# %%
-%%timeit -r 3 -n 7
-d = pv.read_csv(file, convert_options=convert_options).to_pandas(types_mapper=pd.ArrowDtype)
+Performance:
 ```
-
-```
-                                    str    float  datetime
-default                             0.39s  0.44s  0.38s
-default + to pandas numpy_nullable  1.07s  0.45s  0.42s
-default + to pandas pyarrow         0.48s  0.43s  0.33s
-dtype                               0.39s  0.40s  0.36s
-dtype   + to pandas numpy_nullable  0.99s  0.45s  0.41s
-dtype   + to pandas pyarrow         0.39s  0.42s  0.37s
+                               str    float  datetime
+default                        0.39s  0.44s  0.38s
+default + to pandas            1.07s  0.45s  0.42s
+default + to pandas pyarrow    0.48s  0.43s  0.33s
+dtype                          0.39s  0.40s  0.36s
+dtype   + to pandas            0.99s  0.45s  0.41s
+dtype   + to pandas pyarrow    0.39s  0.42s  0.37s
 ```
 
 ## Best options from `pandas`, `polars`, and `pyarrow`
