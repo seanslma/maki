@@ -272,4 +272,4 @@ As `polars` also uses `arrow` to save the data in memory, there is no surprise t
 
 The `polars` package is relatively new compared to `pandas`. It has some great new features but might do not have functions we needed. It's totally upto us to determine which package to use. If we use `polars` do all our data manipulations I would suggest we stick to `polars` when reading CSV files.
 
-If `pandas` is still our preference, to load CSV files efficiently, we should use the `pyarrow` parser, backend and dtype. If we also need to use the `numpy_nullable` backend, it is best to read the CSV files using `pyarrow.csv` and convert the backend to `numpy_nullable`.
+If `pandas` is still our preference, to load CSV files efficiently, we should use the `pyarrow` parser, backend and dtype or `pyarrow.csv` to improve the performance further. If we also need to use the `numpy_nullable` backend, it is best to read the CSV files using `pyarrow.csv` and convert the backend to `numpy_nullable`.
