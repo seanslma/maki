@@ -68,7 +68,7 @@ The following options are tested:
   ).astype(dtype)
   ```
 - c + numpy_nullable + dtype
-  
+
   For `string/float`:
   ```py
   pd.read_csv(
@@ -82,7 +82,7 @@ The following options are tested:
   )
   ```
 - c + pyarrow + dtype
-  
+
   For `string/float`:
   ```py
   pd.read_csv(
@@ -102,7 +102,7 @@ The following options are tested:
   )
   ```
 - pyarrow + numpy_nullable + dtype
-  
+
   For `string/float`:
   ```py
   pd.read_csv(
@@ -161,10 +161,12 @@ pyarrow + pyarrow                                        0.48s  0.47s  0.37s    
 
 Based on the test results, we can conclude that:
 - Compared to the `c` parser, the `pyarrow` parser is a little faster for `string`, 6x faster for `float`, and 10-14x faster for `datetime`
-- Using the `pyarrow` backend with the `c` parser, there are no performance imporvements; if also using the `pyarrow` dtype the performance is much worse
+- Using the `pyarrow` backend with the `c` parser, there are no performance improvements; if also using the `pyarrow` dtype the performance is much worse
 - Do not use the `string[pyarrow]` dtype; the performance is much worse compared to `pd.ArrowDtype(pa.string())`
 - When using the `pyarrow` for the parser, backend and dtype we can get the best performance
-- The `pyarrow` parser can automatically determine the data types without any performnace loss; this is especially useful when you do not know the data types in the CSV files
+- The `pyarrow` parser can automatically determine the data types without any performance loss; this is especially useful when you do not know the data types in the CSV files
+
+We should understand that the `pyarrow` parser will work in parallel mode while the `c` parser is not. Also converting the data from the `numpy_nullable` to `pyarrow` dtype or vice versa might be time-consuming.
 
 ## Reading CSV files using `polars`
 - default
@@ -268,7 +270,7 @@ Here are the conclusions from these results:
 - If we need to load the CSV file into a `pandas` DataFrame, `pyarrow.csv` is the fastest option.
 
 ## Best options from `pandas`, `polars`, and `pyarrow`
-As `polars` also uses `arrow` to save the data in memory, there is no surprise that all options using `arrow` to represent data in memeory have a similar performance for reading CSV files. The `arrow` package is not just faster by parallizing the reading, it is also more memory efficient. 
+As `polars` also uses `arrow` to save the data in memory, there is no surprise that all options using `arrow` to represent data in memeory have a similar performance for reading CSV files. The `arrow` package is not just faster by parallizing the reading, it is also more memory efficient.
 
 The `polars` package is relatively new compared to `pandas`. It has some great new features but might do not have functions we needed. It's totally upto us to determine which package to use. If we use `polars` do all our data manipulations I would suggest we stick to `polars` when reading CSV files.
 
