@@ -51,13 +51,13 @@ We should update the secret from terraform??? No, got the same error.
 
 For ArgoCD, seems this is due to the cache: https://github.com/argoproj/argo-cd/issues/12815
 
-The solutions (not work): 
-- Clearing the browser cache fixed it for next login attempt.
-- To definitively solve this issue, we've had to restart argocd-server.
-
-Worked solution: recreate the secret using terraform code
-- both the argocd config and kubernetes secret should be updated
-- the base64 coded text might be different from the one generated from terraform code
+The solutions: 
+- Recreate the secret using terraform code
+  - both the argocd config and kubernetes secret should be updated
+  - the base64 coded text might be different from the one generated from terraform code
+- Solve argocd server cache issue
+  - Clearing the browser cache fixed it for next login attempt.
+  - To definitively solve this issue, we've had to restart argocd-server.
 
 ## get secret id
 ```sh
