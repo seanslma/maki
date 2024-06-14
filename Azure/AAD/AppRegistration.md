@@ -51,9 +51,11 @@ We should update the secret from terraform??? No, got the same error.
 
 For ArgoCD, seems this is due to the cache: https://github.com/argoproj/argo-cd/issues/12815
 
-The solutions: 
+The solutions (not work): 
 - Clearing the browser cache fixed it for next login attempt.
 - To definitively solve this issue, we've had to restart argocd-server.
+
+Worked solution: recreate the secret using terraform code
 
 ## get secret id
 ```sh
