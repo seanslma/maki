@@ -48,3 +48,8 @@ If the app registrations secret is created via terraform, a renewed secret from 
 AADSTS7000215: Invalid client secret provided. Ensure the secret being sent in the request is the client secret value, not the client secret ID, for a secret added to app
 ```
 We should update the secret from terraform??? No, got the same error.
+
+## get secret id
+```sh
+az ad app credential list --id <application_id>
+```
