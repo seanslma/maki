@@ -56,6 +56,8 @@ The solutions (not work):
 - To definitively solve this issue, we've had to restart argocd-server.
 
 Worked solution: recreate the secret using terraform code
+- both the argocd config and kubernetes secret should be updated
+- the base64 coded text might be different from the one generated from terraform code
 
 ## get secret id
 ```sh
