@@ -6,7 +6,7 @@ CSV (comma-separated values) files have been widely used in different areas. The
 Here we compare different options for reading CSV files by using the `pandas`, `polars` and `pyarrow` Python packages. We test the loading performance for CSV files each with a different data type. Based on the test results, we should be able to determine which option to use when we need reading CSV files faster.
 
 ## Creating test data
-CSV files with three data types, `string`, `float`, and `datetime`, have been used to test the file reading performance. All the testing CSV files were created using the scripts in <a href="https://medium.com/@sean.lma/how-to-create-dummy-pandas-dataframes-for-testing-cf03c52878e3">my previous post</a>; each CSV file has 10 million rows and three columns with the same data type.
+CSV files with three data types, `string`, `float`, and `datetime`, have been used to test the file reading performance. All the testing CSV files were created using the scripts in <a href="https://medium.com/@sean.lma/how-to-create-dummy-pandas-dataframes-for-testing-cf03c52878e3">my previous post</a>; each CSV file has 10 million rows and three columns with the same data type and a size of about 500 MB. 
 
 The `string` type CSV file was created with:
 ```py
