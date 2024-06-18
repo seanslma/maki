@@ -58,7 +58,7 @@ In pandas, when reading CSV files, there are three types of parsers that are ava
 The data types passed to the functions are a dictionary like this: `dtype = {'c1': type, 'c2': type, 'c3': type}`.
 - For `string` values the type is `str`. There are also two string data types available for pyarrow (dtype_pa): `pd.ArrowDtype(pa.string())` and `string[pyarrow]` (dtype_pa_str2); the latter supports NumPy-backed nullable types.
 - For `float` values the type is `float` and `float64[pyarrow]`, for `numpy_nullable` and `pyarrow` backends respectively.
-- For `datatime` values the type is `datetime64[s]` and `pd.ArrowDtype(pa.timestamp('s'))`. Notice that, when use the pandas datetime data types such as `datetime64[s]`, the datetime type columns must be passed to the method separately. While when using the `pyarrow` data types, all types can be passed to the function in the same format.
+- For `datatime` values the type is `datetime64[s]` and `pd.ArrowDtype(pa.timestamp('s'))`. Notice that, when using the pandas datetime data types such as `datetime64[s]`, the datetime type columns must be passed to the function separately. While using the `pyarrow` data types, all types can be passed to the function in the same format.
 
 The following options are tested:
 - c + numpy_nullable + dtype_str + astype
@@ -79,7 +79,8 @@ The following options are tested:
   For `datetime`:
   ```py
   pd.read_csv(
-      file, engine='c', dtype_backend='numpy_nullable', parse_dates=['c1','c2','c3']
+      file, engine='c', dtype_backend='numpy_nullable',
+      parse_dates=['c1','c2','c3'],
   )
   ```
 - c + pyarrow + dtype
@@ -93,7 +94,8 @@ The following options are tested:
   For `datetime`:
   ```py
   pd.read_csv(
-      file, engine='c', dtype_backend='pyarrow', parse_dates=['c1','c2','c3']
+      file, engine='c', dtype_backend='pyarrow',
+      parse_dates=['c1','c2','c3'],
   )
   ```
 - c + pyarrow + dtype_pa
@@ -113,7 +115,8 @@ The following options are tested:
   For `datetime`:
   ```py
   pd.read_csv(
-      file, engine='pyarrow', dtype_backend='numpy_nullable', parse_dates=['c1','c2','c3']
+      file, engine='pyarrow', dtype_backend='numpy_nullable',
+      parse_dates=['c1','c2','c3'],
   )
 - pyarrow + pyarrow + dtype
   ```py
@@ -161,6 +164,7 @@ pyarrow + pyarrow                                        0.48s  0.47s  0.37s    
 ```
 
 Based on the test results, we can conclude that:
+- The default option (`c + numpy_nullable + dtype`) is about 8x, 7x, and 42x slower than the `pyarrow + pyarrow` option for `string`, `float` and `datetime` separately.
 - Compared to the `c` parser, the `pyarrow` parser is a little faster for `string`, 6x faster for `float`, and 10-14x faster for `datetime`.
 - Using the `pyarrow` backend with the `c` parser, there are no performance improvements; if also using the `pyarrow` dtype the performance is much worse.
 - Do not use the `string[pyarrow]` dtype; the performance is much worse compared to `pd.ArrowDtype(pa.string())`.
@@ -239,9 +243,9 @@ It is obvious from the results that:
 The module, `pyarrow.csv`, is one of the great modules within the `pyarrow` library that specifically deals with reading and writing CSV files. It offers robust functionalities to efficiently process CSV data with some great features, such as inferring data types during reading and supporting various file formats.
 
 Here we test the performance of the `pyarrow.csv` module with three data types in the format `convert_options = pv.ConvertOptions(column_types={'c1': dtype, 'c2': dtype, 'c3': dtype})`.
-- For `string` values the dtype is `pl.Utf8`.
-- For `float` values the dtype is `pl.Float64`.
-- For `datatime` values the dtype is `pl.Datetime`.
+- For `string` values the dtype is `pa.string()`.
+- For `float` values the dtype is `pa.float64()`.
+- For `datatime` values the dtype is `pa.timestamp('s')`.
 
 The following options are tested and compared:
 - default
