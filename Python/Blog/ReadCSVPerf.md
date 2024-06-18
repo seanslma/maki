@@ -164,7 +164,7 @@ pyarrow + pyarrow                                        0.48s  0.47s  0.37s    
 ```
 
 Based on the test results, we can conclude that:
-- The default option (`c + numpy_nullable + dtype`) is about 8x, 7x, and 42x slower than the `pyarrow + pyarrow` option for `string`, `float` and `datetime` separately.
+- The `pyarrow + pyarrow` option is about 8x, 7x, and 42x faster than the default option (`c + numpy_nullable + dtype`) for `string`, `float` and `datetime`, separately.
 - Compared to the `c` parser, the `pyarrow` parser is a little faster for `string`, 6x faster for `float`, and 10-14x faster for `datetime`.
 - Using the `pyarrow` backend with the `c` parser, there are no performance improvements; if also using the `pyarrow` dtype the performance is much worse.
 - Do not use the `string[pyarrow]` dtype; the performance is much worse compared to `pd.ArrowDtype(pa.string())`.
