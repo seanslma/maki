@@ -39,7 +39,18 @@ def my_callback(cb_m, cb_opt, cb_where):
             print('adding cut')
             cb_opt.cbLazy(_add_cut(m.x.value))
 
+def my_callback(cb_m, cb_opt, cb_where):
+    if cb_where == GRB.Callback.MIP:
+        # General MIP callback
+        objbst = cb_opt.cbGet(GRB.Callback.MIP_OBJBST)
+        objbnd = cb_opt.cbGet(GRB.Callback.MIP_OBJBND)
+        if abs(objbst - objbnd) < percentGap * (1.0 + abs(objbst)):
+            print('Stop early - {} % gap achieved'.format(percentGap*100))
+            # statement that does not exist
+            cb_opt.terminate()
+
 opt = pe.SolverFactory('gurobi_persistent')
 opt.set_instance(m)
 opt.set_callback(my_callback)
+solver.solve(tee=True)
 ```
