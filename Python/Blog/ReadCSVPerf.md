@@ -167,11 +167,11 @@ Based on the test results, we can conclude that:
 - The `pyarrow + pyarrow` option is about 8x, 7x, and 42x faster than the default option (`c + numpy_nullable + dtype`) for `string`, `float` and `datetime`, separately.
 - Compared to the `c` parser, the `pyarrow` parser is a little faster for `string`, 6x faster for `float`, and 10-14x faster for `datetime`.
 - Using the `pyarrow` backend with the `c` parser, there are no performance improvements; if also using the `pyarrow` dtype the performance is much worse.
-- Do not use the `string[pyarrow]` dtype; the performance is much worse compared to `pd.ArrowDtype(pa.string())`.
+- Do not use the `string[pyarrow]` dtype; the performance is much worse (10x slower) compared to `pd.ArrowDtype(pa.string())`.
 - When using the `pyarrow` for the parser, backend and dtype we can get the best performance.
 - The `pyarrow` parser can automatically determine the data types without any performance loss; this is especially useful when you do not know the data types in the CSV files.
 
-We should understand that the `pyarrow` parser will work in parallel mode while the `c` parser is not. Also converting the data from the `numpy_nullable` to `pyarrow` dtype or vice versa might be time-consuming.
+We should understand that the `pyarrow` parser works in parallel mode while the `c` parser is not. Also converting the data from the `numpy_nullable` to `pyarrow` dtype or vice versa might be time-consuming.
 
 ## Reading CSV files using `polars`
 The `polars` package is relatively new. But it becomes popular recently due to its performance both in speed with vectorized execution and memory efficiency using `arrow`. Also it is designed with a clean and concise API for handling large datasets with lazy evaluation.
