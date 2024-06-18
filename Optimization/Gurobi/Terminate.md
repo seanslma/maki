@@ -1,5 +1,8 @@
 # Terminate optimization
 
+## callback code
+https://www.gurobi.com/documentation/current/refman/cb_codes.html
+
 ## terminate optimization using callback
 - https://support.gurobi.com/hc/en-us/community/posts/360071928312-Stopping-the-program-if-best-objective-has-not-changed-after-a-while
 - https://support.gurobi.com/hc/en-us/articles/360047717291-How-do-I-use-callbacks-to-terminate-the-solver
