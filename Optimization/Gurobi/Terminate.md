@@ -44,10 +44,10 @@ def my_callback(cb_m, cb_opt, cb_where):
         # General MIP callback
         objbst = cb_opt.cbGet(GRB.Callback.MIP_OBJBST)
         objbnd = cb_opt.cbGet(GRB.Callback.MIP_OBJBND)
-        if abs(objbst - objbnd) < percentGap * (1.0 + abs(objbst)):
-            print('Stop early - {} % gap achieved'.format(percentGap*100))
-            # statement that does not exist
-            cb_opt.terminate()
+        if abs(objbst - objbnd) < cb_m.gaprel * (1.0 + abs(objbst)):
+            print(f'Stop early - gap achieved: {cb_m.gaprel*100}%'))
+            # cb_opt.terminate() # AttributeError: 'GurobiPersistent' object has no attribute 'terminate'
+            cb_opt._solver_model.terminate()
 
 opt = pe.SolverFactory('gurobi_persistent')
 opt.set_instance(m)
