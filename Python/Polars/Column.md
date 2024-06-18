@@ -26,3 +26,10 @@ df = pl.DataFrame({
 
 df.select(['x', 'y', 'z'])
 ```
+
+## create new column conditional on other columns
+```py
+df.with_columns(
+    pl.when(pl.col('x') > 0.5).then(0).otherwise(1).alias('y')
+)
+```
