@@ -168,7 +168,7 @@ Based on the test results, we can conclude that:
 - The `pyarrow + pyarrow + dtype_pa` option is about 10x, 7x, and 35x faster than the default option (`c + numpy_nullable + dtype`) for `string`, `float` and `datetime`, separately.
 - Compared to the `c` parser, the `pyarrow` parser is a little faster for `string`, 6x faster for `float`, and 10-14x faster for `datetime`.
 - Using the `pyarrow` backend with the `c` parser, there are no performance improvements; if also using the `pyarrow` dtype the performance is much worse.
-- For `string` data types, `pd.ArrowDtype(pa.string())` is about 10x faster than the `string[pyarrow]` string data type.
+- The `pd.ArrowDtype(pa.string())` string data type is about 10x faster than the `string[pyarrow]` string data type.
 - The `pyarrow` parser can automatically determine the data types without any performance loss; this is especially useful when you do not know the data types in the CSV files.
 
 We should understand that the `pyarrow` parser works in parallel mode while the `c` parser is not. Also converting the data from the `numpy_nullable` to `pyarrow` dtype or vice versa might be time-consuming.
