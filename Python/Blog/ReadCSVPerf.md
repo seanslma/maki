@@ -292,6 +292,6 @@ From these results we can conclude that:
 ## Best options from `pandas`, `polars`, and `pyarrow`
 There is no surprise that all options using `arrow` to store data have a similar performance for reading CSV files; `polars` also uses `arrow` to save the data in memory. The `arrow` package is not just faster by parallelizing the reading, it is also more memory efficient.
 
-The `polars` package is relatively new compared to `pandas`. It has some great new features but might do not have the functions we needed. It's entirely up to us to decide which package to use. If we use `polars` do all our data manipulations I would suggest we stick to `polars` for reading CSV files.
+The `polars` package is relatively new compared to `pandas`. It has some great new features but might not have the functions we need. It's entirely up to us to decide which package to use. If we use `polars` do all our data manipulations I would suggest we stick to `polars` for reading CSV files.
 
 If `pandas` is still our preference, to load CSV files efficiently, we should use the `pyarrow` parser, backend and dtype or `pyarrow.csv` to improve the performance further. If we also need to use the `numpy_nullable` backend, it is best to read CSV files using `pyarrow.csv` and then convert the backend to `numpy_nullable`.
