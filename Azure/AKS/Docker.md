@@ -22,6 +22,9 @@ docker buildx create --driver kubernetes --driver-opt replicas=3 --use
 docker buildx build -t example.com/foo --push .
 ```
 
+buildkit:
+https://www.sliceofexperiments.com/p/a-comprehensive-guide-for-the-fastest
+
 ### use `buildh` in aks
 ```sh
 # build docker image
