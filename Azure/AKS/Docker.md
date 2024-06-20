@@ -1,7 +1,12 @@
 # Docker
 
-# self-hosted tfs agent
+## self-hosted tfs agent
 Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
 - https://github.com/Azure/AKS/issues/2343
-- docker build will not function as of aks 1.19 as the container runtime changed to containerd on AKS
+- docker build will not function as of aks 1.19 as the container runtime changed from `docker` to `containerd` on AKS
 - alternatives: https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#container-runtime-configuration
+
+## use `buildkit` in aks
+https://medium.com/@aabeing/aks-as-azure-devops-agents-buildkit-5af8e5cd43d1
+- create a `buildkit` server
+- install `buildctl` in self-hosted tfs agent
