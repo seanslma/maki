@@ -25,7 +25,7 @@ docker buildx build -t example.com/foo --push .
 buildkit:
 https://www.sliceofexperiments.com/p/a-comprehensive-guide-for-the-fastest
 
-### use `buildh` in aks
+### use `buildah` in aks
 ```sh
 # build docker image
 buildah bud -t example.com/foo:latest .
