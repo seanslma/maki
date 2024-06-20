@@ -10,3 +10,6 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 https://medium.com/@aabeing/aks-as-azure-devops-agents-buildkit-5af8e5cd43d1
 - create a `buildkit` server
 - install `buildctl` in self-hosted tfs agent
+
+## can we use `podman`
+https://medium.com/@reachpankajdhami/running-azure-devops-self-hosted-agent-on-aks-for-building-docker-images-with-podman-2fa052e6409d
