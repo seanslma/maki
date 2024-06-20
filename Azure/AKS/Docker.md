@@ -10,7 +10,11 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 https://juejin.cn/post/6943558078269030408
 
 ### use `docker buildx` in aks
-https://medium.com/@aabeing/aks-as-azure-devops-agents-buildkit-5af8e5cd43d1
+Good examples:
+- https://medium.com/@aabeing/aks-as-azure-devops-agents-buildkit-5af8e5cd43d1
+- https://techblog.greeneye.ag/blog/kubernetes-continuous-integration-using-buildkit-buildx-and-docker-regisrty
+
+How to do it:
 - create a `buildkit` server
 - install `buildctl` in self-hosted tfs agent
 - use `podman` / `buidah`:
