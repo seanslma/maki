@@ -7,7 +7,7 @@ import polars as pl
 df = pl.read_csv('data.csv')
 df = pl.read_csv('data.csv', batch_size=50000)
 
-# lasy and filter
+# lazy and filter
 pl.scan_csv('data.csv').filter(pl.col('col_0') == 100).collect()
 
 lazy_df = pl.scan_csv('data.csv')
@@ -43,9 +43,9 @@ pd_dtypes['date'] = 'datetime64[ns]'
 
 pl_categorical = pl.Categorical # pl.String
 pl_dtypes = {
-    'date': pl.Date, 
-    'country': pl_categorical, 
-    'val': pl.Float64, 
+    'date': pl.Date,
+    'country': pl_categorical,
+    'val': pl.Float64,
 }
 
 # pa_categorical = pa.string()
@@ -54,7 +54,7 @@ pa_convert_options = pv.ConvertOptions(
     column_types={
         'date': pa.timestamp('ns'),
         'country': pa_categorical,
-        'val': pa.float64(),      
+        'val': pa.float64(),
     }
-) 
+)
 ```
