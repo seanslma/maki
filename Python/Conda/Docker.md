@@ -46,15 +46,20 @@ cp -r ../conda-build .build/conda
 conda create --yes --quiet --verbose --name my-app-0.1.0 --file conda.env && conda-clean
 ```
 
+## build and push docker image
 run docker build (pass value to ARG via `--build-arg`)
 ```sh
 docker build . --build-arg NAME=my-app -f ./docker/linux/my-app.docker \
---no-cache --force-rm -t docker.example.com/uat/my-app:0.1.0-linux
+--no-cache --force-rm -t docker.example.com/uat/my-app:0.1.0
 ```
-
 Here we pass the value for the `NMAE` variable in the dockerfile via the `--build-arg` command flag 
 and tag the image as `docker.example.com/uat/my-app:0.1.0`. 
+
 When the build process is finished we can push the docker image to the docker registry.
+```sh
+docker push docker.example.com/uat/my-app:0.1.0
+```
+
 In case the build process fails, we can run into the last successful layer to check the issue:
 ```sh
 docker run -it <last-successful-layer-id> bash -il
