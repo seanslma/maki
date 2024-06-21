@@ -6,10 +6,10 @@ To build and push an image using Dockerfile:
 ```sh
 buildctl build \
   --frontend dockerfile.v0 \
+  --local context=. \
+  --local dockerfile=./docker/linux/my-app.docker \
   --opt target=foo \
   --opt build-arg:foo=bar \
-  --local context=. \
-  --local dockerfile=. \
   --output type=image,name=docker.io/username/image,push=true
 ```
 
