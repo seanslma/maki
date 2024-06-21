@@ -56,9 +56,20 @@ conda build purge-all # remove previously built packages
 ## build conda package
 We run the command inside the project root folder:
 - `--output` will disable all output messages
-- `--croot` path cannot be a subfolder of the current project folder
+- `--croot` path cannot be a subfolder of the current project folder; must be outside of the project folder
   `AssertionError: Can't merge/copy source into subdirectory of itself.  Please create separate spaces for these things.`
+
+Example:
+```sh
+export VERSION=0.15.1
+conda build recipe --no-anaconda-upload --python 3.9 --croot ../conda-build --no-test
 ```
+- We assume in the meta.yaml file there is a variable named VERSION.
+- In the first line we pass the version value to the VERSION variable.
+- The second line is used to build the conda package to a folder called conda-build.
+
+More options:
+```sh
 conda build recipe --no-anaconda-upload --python 3.9 --croot c:/pkg/conda --no-test
 conda build recipe --no-anaconda-upload --python 3.9 --croot /build/path --no-test --channel ch1 --channel ch2
 conda build purge # remove source and build intermediates
@@ -147,3 +158,34 @@ outputs:
 
 ## issue
 https://stackoverflow.com/questions/69030813/doing-a-conda-build-does-not-find-any-files/69044365#69044365
+
+## push conda package to conda repo
+```py
+import requests
+def push_conda(
+    filepath,
+    *,
+    channel='example/dev',
+    platform='linux-64',
+    repo_url='https://conda.example.com',
+    force=False,
+):
+    url = f'{repo_url}/api/packages'
+    files = {'file': open(filepath, 'rb')}
+    params = {
+        'channel': channel,
+        'platform': platform,
+        'force': False,
+    }
+    r = requests.post(url, files=files, data=params)
+    if r.status_code != 200:
+        try:
+            msg = r.json().get('message')
+        except json.JSONDecodeError:
+            msg = r.text
+        finally:
+            raise Exception(msg)
+
+filepath = '/path/to/conda-build/linux-64/my-build-0.1.0-py39_0.tar.bz2'
+push_conda(filepath)
+```
