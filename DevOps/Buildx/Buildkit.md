@@ -1,5 +1,8 @@
 # Buildkit
 
+## deploy buildkit in kubernetes
+https://kubernetes.courselabs.co/labs/buildkit/
+
 ## docs
 https://docs.docker.com/build/buildkit/
 
