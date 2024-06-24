@@ -24,7 +24,7 @@ buildctl build \
   --local context=. \
   --local dockerfile=./docker/linux/my-app.docker \
   --opt target=foo \
-  --opt build-arg:foo=bar \
+  --opt build-arg:name=my-app \
   --output type=image,name=docker.io/username/image,push=true
 ```
 
