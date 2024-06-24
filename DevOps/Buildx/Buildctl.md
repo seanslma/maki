@@ -1,6 +1,9 @@
 # Buildctl
 https://github.com/moby/buildkit/blob/master/docs/reference/buildctl.md
 
+## deploy buildkit in kubernetes
+https://kubernetes.courselabs.co/labs/buildkit/
+
 ## build
 To build and push an image using Dockerfile:
 ```sh
