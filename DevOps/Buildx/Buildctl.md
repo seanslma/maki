@@ -4,6 +4,12 @@ https://github.com/moby/buildkit/blob/master/docs/reference/buildctl.md
 buildctl [global options] command [command options] [arguments...]
 ```
 
+## buildkitd address
+Global option. Default: `unix:///run/buildkit/buildkitd.sock`
+```sh
+--addr tcp://buildkitd:1234
+```
+
 ## deploy buildkit in kubernetes
 https://kubernetes.courselabs.co/labs/buildkit/
 
@@ -19,13 +25,7 @@ buildctl build \
   --output type=image,name=docker.io/username/image,push=true
 ```
 
-## buildkitd address
-Global option. Default: `unix:///run/buildkit/buildkitd.sock`
-```sh
---addr tcp://buildkitd:1234
-```
-
-## azure blob storage cache
+## cache: azure blob storage
 ```sh
 --import-cache type=azblob,account_url=https://myaccount.blob.core.windows.net,name=my_image \  
 --export-cache type=azblob,account_url=https://myaccount.blob.core.windows.net,name=my_image \
