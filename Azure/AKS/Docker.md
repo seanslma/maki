@@ -16,7 +16,7 @@ https://medium.com/@aabeing/aks-as-azure-devops-agents-buildkit-5af8e5cd43d1
 
 https://techblog.greeneye.ag/blog/kubernetes-continuous-integration-using-buildkit-buildx-and-docker-regisrty
 - details to describe how to choose the tools for migrating from aks docker to buildkit
-- also mentioned tech details duch cache etc
+- also mentioned tech details such cache etc
 
 How to do it:
 - create a `buildkit` server
