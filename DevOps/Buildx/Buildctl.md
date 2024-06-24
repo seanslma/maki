@@ -25,7 +25,20 @@ buildctl build \
   --local dockerfile=./docker/linux/my-app.docker \
   --opt target=foo \
   --opt build-arg:name=my-app \
-  --output type=image,name=docker.io/username/image,push=true
+```
+
+## output
+```sh
+--output type=image,name=docker.io/username/image,push=true
+```
+
+have multiple tags: https://stackoverflow.com/questions/58691068/buildctl-command-to-tag-multiple-images
+```sh
+buildctl build \
+  --frontend dockerfile.v0 \
+  --local context=. \
+  --local dockerfile=. \
+  --output type=image,\"name=test/repo:tag1,test/repo:tag2\",push=true
 ```
 
 ## cache: azure blob storage
