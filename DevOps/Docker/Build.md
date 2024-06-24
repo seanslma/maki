@@ -9,6 +9,11 @@ docker build https://github.com/dev/test.git#<branch>:<docker-dir>
 docker build . --no-cache --force-rm -t docker.example.com/image-name:linux
 docker build . -f ./docker/linux/my-dev.docker --platform linux/amd64 -t 1.0.1
 ```
+- `--no-cached`: do not use cached intermediate layers and regenerate them as well
+- `--rm`: remove intermediate containers after a successful build
+- `--force-rm`: those intermediate containers would always been removed even in case of an unsuccessful compilation
+- `-t --tag`: name and optionally a tag in the `name:tag` format
+
 Note that the `dot` is the context. When doing a docker build,
 - the files from your local context are sent to the daemon, and put in a temporary directory;
 - that temporal directory is used to build the image (the actual build is performed on the daemon side).
