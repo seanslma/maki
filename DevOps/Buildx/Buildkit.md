@@ -15,4 +15,5 @@ buildctl --frontend dockerfile.v0 --opt export=true --local . # get active build
 buildctl debug labels
 ```
 
-## build command and parameters
+## self-signed vertificate
+https://github.com/moby/buildkit/issues/4149
