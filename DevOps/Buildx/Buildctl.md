@@ -18,7 +18,8 @@ docker build \
 buildctl build \
     --frontend dockerfile.v0 \
     --local context=. \
-    --local dockerfile=./docker/linux/my-app.docker \
+    --local dockerfile=./docker/linux/ \ # can only be a directory
+    --opt filename=my-app.docker \       # the dockerfile name
     --opt build-arg:name=my-app \  
     --opt no-cache=true   
     --output type=image,name=docker.example.com/uat/my-app:0.1.0
@@ -37,11 +38,12 @@ https://kubernetes.courselabs.co/labs/buildkit/
 To build and push an image using Dockerfile:
 ```sh
 buildctl build \
-  --frontend dockerfile.v0 \
-  --local context=. \
-  --local dockerfile=./docker/linux/my-app.docker \
-  --opt target=foo \
-  --opt build-arg:name=my-app \
+    --frontend dockerfile.v0 \
+    --local context=. \
+    --local dockerfile=./docker/linux/ \ # can only be a directory
+    --opt filename=my-app.docker \       # the dockerfile name
+    --opt target=foo \
+    --opt build-arg:name=my-app \
 ```
 
 ## output
