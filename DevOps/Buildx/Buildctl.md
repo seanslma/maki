@@ -33,6 +33,9 @@ Global option. Default: `unix:///run/buildkit/buildkitd.sock`
 
 ## deploy buildkit in kubernetes
 https://kubernetes.courselabs.co/labs/buildkit/
+- deploy `buildkitd`
+- deploy agent pod with `buildctl`
+- test build with a dummy dockerfile
 
 ## build
 To build and push an image using Dockerfile:
