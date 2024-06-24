@@ -7,6 +7,23 @@ buildctl [global options] command [command options] [arguments...]
 ## transition from docker to buildkit
 https://dille.name/slides/2020-05-28/110_ecosystem/buildkit/transition.final/
 
+example
+```sh
+docker build \
+    . -f ./docker/linux/my-app.docker \
+    --build-arg name=my-app \
+    --no-cache --force-rm \
+    -t docker.example.com/uat/my-app:0.1.0
+
+buildctl build \
+    --frontend dockerfile.v0 \
+    --local context=. \
+    --local dockerfile=./docker/linux/my-app.docker \
+    --opt build-arg:name=my-app \  
+    --opt no-cache=true   
+    --output type=image,name=docker.example.com/uat/my-app:0.1.0
+```
+
 ## buildkitd address
 Global option. Default: `unix:///run/buildkit/buildkitd.sock`
 ```sh
