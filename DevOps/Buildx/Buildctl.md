@@ -4,6 +4,9 @@ https://github.com/moby/buildkit/blob/master/docs/reference/buildctl.md
 buildctl [global options] command [command options] [arguments...]
 ```
 
+## transition from docker to buildkit
+https://dille.name/slides/2020-05-28/110_ecosystem/buildkit/transition.final/
+
 ## buildkitd address
 Global option. Default: `unix:///run/buildkit/buildkitd.sock`
 ```sh
