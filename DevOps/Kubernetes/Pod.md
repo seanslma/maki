@@ -79,6 +79,25 @@ kubectl run <pod-name> -n <namespace> --image=<image-path> \
   --restart=Never -o yaml --dry-run -- /bin/sh -c "echo hello;sleep 3600"
 ```
 
+## sleep pod
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu
+  labels:
+    app: ubuntu
+spec:
+  containers:
+  - image: ubuntu
+    command:
+      - "sleep"
+      - "604800"
+    imagePullPolicy: IfNotPresent
+    name: ubuntu
+  restartPolicy: Always
+```
+
 ## temporally create a pod and delete it when it exits
 option 1
 ```sh
