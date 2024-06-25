@@ -17,3 +17,5 @@ buildctl debug labels
 
 ## self-signed vertificate
 https://github.com/moby/buildkit/issues/4149
+- install the self-signed certificates on the machine
+- maybe also works for installing the certs in the buildkit docker image
