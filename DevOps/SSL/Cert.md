@@ -1,5 +1,12 @@
 # Cert
 
+## check cert
+```sh
+ll /etc/ssl/certs/ | grep my-cert
+ll /usr/local/share/ca-certificates/ | grep my-certs
+ll /usr/local/share/ca-certificates/extra | grep my-certs
+```
+
 ## command
 ```
 openssl x509 -req -days 1000 -in tls.csr -signkey tls.key -out tls.crt -extfile v3.ext
