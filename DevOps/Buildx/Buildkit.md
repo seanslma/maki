@@ -19,3 +19,7 @@ buildctl debug labels
 https://github.com/moby/buildkit/issues/4149
 - install the self-signed certificates on the machine
 - maybe also works for installing the certs in the buildkit docker image
+- if the registry in the same kubernetes cluster, using internal url
+
+## failed to do request `i/o timeout`
+https://github.com/docker/buildx/issues/191
