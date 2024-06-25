@@ -70,6 +70,9 @@ buildctl build \
 
 ## output
 ```sh
+# to local folder
+--output type=local,dest=path/to/output-dir
+# to registry
 --output type=image,name=docker.io/username/image,push=true
 ```
 
