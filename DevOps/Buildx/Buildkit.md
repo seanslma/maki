@@ -21,5 +21,8 @@ https://github.com/moby/buildkit/issues/4149
 - maybe also works for installing the certs in the buildkit docker image
 - if the registry in the same kubernetes cluster, using internal url
 
+https://docs.docker.com/build/buildkit/configure/#setting-registry-certificates
+- set self-signed registry certificate
+
 ## failed to do request `i/o timeout`
 https://github.com/docker/buildx/issues/191
