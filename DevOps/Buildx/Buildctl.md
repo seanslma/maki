@@ -37,6 +37,25 @@ https://kubernetes.courselabs.co/labs/buildkit/
 - deploy agent pod with `buildctl`
 - test build with a dummy dockerfile
 
+```sh
+# install wget
+sudo apt update && sudo apt install wget
+
+# install buildkit release
+wget https://github.com/moby/buildkit/releases/download/v0.9.0/buildkit-v0.9.0.linux-amd64.tar.gz
+tar xvf buildkit-v0.9.0.linux-amd64.tar.gz
+
+# download a dockerfile
+cd bin
+wget --no-check-certificate https://raw.githubusercontent.com/courselabs/kubernetes/main/labs/docker/simple/Dockerfile
+mkdir linux
+mv ./Dockerfile ./linux/my-app.docker
+cat ./linux/my-app.docker
+
+# build the image
+./buildctl --addr tcp://buildkitd:1234 build --frontend=dockerfile.v0 --local context=. --local dockerfile=./linux/ --opt filename=my-app.docker --output type=image,name=docker.smc.stanwell.com/dev/test,push=true
+```
+
 ## build
 To build and push an image using Dockerfile:
 ```sh
