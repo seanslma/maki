@@ -4,6 +4,8 @@ https://github.com/moby/buildkit/blob/master/docs/reference/buildctl.md
 buildctl [global options] command [command options] [arguments...]
 ```
 
+https://github.com/moby/buildkit#imageregistry
+
 ## transition from docker to buildkit
 https://dille.name/slides/2020-05-28/110_ecosystem/buildkit/transition.final/
 
@@ -87,6 +89,9 @@ buildctl build \
 
 ## cache: azure blob storage
 ```sh
+# export cache to local directory
+--export-cache type=local
+# use azure blob storage
 --import-cache type=azblob,account_url=https://myaccount.blob.core.windows.net,name=my_image \  
 --export-cache type=azblob,account_url=https://myaccount.blob.core.windows.net,name=my_image \
 ```
