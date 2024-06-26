@@ -15,6 +15,16 @@ buildctl --frontend dockerfile.v0 --opt export=true --local . # get active build
 buildctl debug labels
 ```
 
+## using k8s internal url
+```sh
+./buildctl --addr tcp://buildkitd:1234 build \
+--frontend=dockerfile.v0 \
+--local context=. \
+--local dockerfile=./linux/ \
+--opt filename=my-app.docker \
+--output type=image,name=<registry-service-name>.<namespace>.svc.cluster.local:5000/dev/test,push=true,registry.insecure=true
+```
+
 ## local registry using http
 https://stackoverflow.com/questions/75192693/how-to-use-buildctl-with-localhost-registry-with-tls
 
@@ -50,3 +60,5 @@ https://docs.docker.com/build/buildkit/configure/#setting-registry-certificates
 
 ## failed to do request `i/o timeout`
 https://github.com/docker/buildx/issues/191
+- used the wrong url for the registry
+- did not include the port when using internal url
