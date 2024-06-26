@@ -15,6 +15,30 @@ buildctl --frontend dockerfile.v0 --opt export=true --local . # get active build
 buildctl debug labels
 ```
 
+## local registry using http
+https://stackoverflow.com/questions/75192693/how-to-use-buildctl-with-localhost-registry-with-tls
+
+remote error: `tls: unrecognized name`
+```sh
+buildctl build \
+--frontend=dockerfile.v0 \
+--local context=. \
+--local dockerfile=. \
+--output type=image,name=192.168.0.110:8082/docker-local/test,push=true,registry.insecure=true \
+--export-cache type=registry,ref=192.168.0.110:8082/docker-local/test,mode=max,push=true,registry.insecure=true \
+--import-cache type=registry,ref=192.168.0.110:8082/docker-local/test,registry.insecure=true 
+```
+
+The buildkit daemon needs to be run with a configuration file that specifies the registry is `http` instead of `https`. 
+See the documentation on buildkitd.toml: https://github.com/moby/buildkit/blob/master/docs/buildkitd.toml.md
+```toml
+[registry."192.168.0.110:8082"]
+  http = true
+```
+The file path is 
+- rootful mode: `/etc/buildkit/buildkitd.toml`
+- rootless mode: `~/.config/buildkit/buildkitd.toml`
+
 ## self-signed vertificate
 https://github.com/moby/buildkit/issues/4149
 - install the self-signed certificates on the machine
