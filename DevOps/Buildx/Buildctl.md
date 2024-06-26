@@ -13,7 +13,7 @@ example
 ```sh
 docker build \
     . -f ./docker/linux/my-app.docker \
-    --build-arg name=my-app \
+    --build-arg NAME=my-app \
     --no-cache --force-rm \
     -t docker.example.com/uat/my-app:0.1.0
 
@@ -22,10 +22,12 @@ buildctl build \
     --local context=. \
     --local dockerfile=./docker/linux/ \ # can only be a directory
     --opt filename=my-app.docker \       # the dockerfile name
-    --opt build-arg:name=my-app \  
+    --opt build-arg:NAME=my-app \  
     --opt no-cache=true   
     --output type=image,name=docker.example.com/uat/my-app:0.1.0
 ```
+
+Note that the `NAME` is a variable define in dockerfile `IMAGE_NAME=${NAME}`.
 
 ## buildkitd address
 Global option. Default: `unix:///run/buildkit/buildkitd.sock`
