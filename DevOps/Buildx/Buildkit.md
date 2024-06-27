@@ -68,6 +68,28 @@ data:
     [registry."registry:5000"]
       http = true
       insecure = true
+---
+      containers:
+      - name: buildkitd
+        image: moby/buildkit:v0.9.0
+        args:
+          - --addr
+          - unix:///run/buildkit/buildkitd.sock
+          - --addr
+          - tcp://0.0.0.0:1234
+          - --config=/home/user/.config/buildkit/buildkitd.toml
+        securityContext:
+          privileged: false
+        ports:
+          - name: buildkitd
+            containerPort: 1234
+        volumeMounts:
+        - name: buildkitd-config
+          mountPath: /home/user/.config/buildkit/buildkitd.toml
+      volumes:
+      - name: buildkitd-config
+        configMap:
+          name: buildkitd
 ```
 
 Worked solution:
