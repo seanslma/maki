@@ -50,7 +50,10 @@ The file path is
 - rootful mode: `/etc/buildkit/buildkitd.toml`
 - rootless mode: `~/.config/buildkit/buildkitd.toml`
 
-Use Secret or ConfigMap to mount the config file: https://github.com/moby/buildkit/issues/2044
+## workaround for dockerfile from http registry
+https://github.com/moby/buildkit/issues/2044
+
+Use Secret or ConfigMap to mount the config file: 
 ```yaml
 apiVersion: v1
 kind: ConfigMap
@@ -66,6 +69,11 @@ data:
       http = true
       insecure = true
 ```
+
+Worked solution:
+If you are building on top of the job.rootless.yaml template
+then you can add `--config /etc/buildkit/buildkitd.toml`
+in https://github.com/moby/buildkit/blob/master/examples/kubernetes/job.rootless.yaml#L31-L32
 
 ## self-signed vertificate
 https://github.com/moby/buildkit/issues/4149
