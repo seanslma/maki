@@ -79,7 +79,7 @@ data:
           - tcp://0.0.0.0:1234
           - --config=/home/user/.config/buildkit/buildkitd.toml
         securityContext:
-          privileged: false
+          privileged: true #cannot be false
         ports:
           - name: buildkitd
             containerPort: 1234
