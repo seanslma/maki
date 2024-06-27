@@ -50,6 +50,23 @@ The file path is
 - rootful mode: `/etc/buildkit/buildkitd.toml`
 - rootless mode: `~/.config/buildkit/buildkitd.toml`
 
+Use Secret or ConfigMap to mount the config file: https://github.com/moby/buildkit/issues/2044
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: buildkit
+  namespace: buildkit
+data:
+  buildkitd.toml: |
+    debug = false
+    [worker.containerd]
+      namespace = "buildkit"
+    [registry."registry:5000"]
+      http = true
+      insecure = true
+```
+
 ## self-signed vertificate
 https://github.com/moby/buildkit/issues/4149
 - install the self-signed certificates on the machine
