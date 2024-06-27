@@ -44,6 +44,7 @@ See the documentation on buildkitd.toml: https://github.com/moby/buildkit/blob/m
 ```toml
 [registry."192.168.0.110:8082"]
   http = true
+  insecure = true #required?
 ```
 The file path is 
 - rootful mode: `/etc/buildkit/buildkitd.toml`
