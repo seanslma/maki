@@ -85,7 +85,7 @@ data:
             containerPort: 1234
         volumeMounts:
         - name: buildkitd-config
-          mountPath: /home/user/.config/buildkit/buildkitd.toml
+          mountPath: /home/user/.config/buildkit
       volumes:
       - name: buildkitd-config
         configMap:
