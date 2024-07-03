@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun 13 17:52:25 2024
+# Make data base, printed on Wed Jul  3 20:05:55 2024
 
 # Variables
 
@@ -45,7 +47,7 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","osLocale":"en-au","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:44752
+JOURNAL_STREAM = 8:50274
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -65,7 +67,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /usr/share/code/code
 # environment
-MANAGERPID = 1674
+MANAGERPID = 1657
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -79,7 +81,7 @@ PATH = /usr/local/texlive/2023/bin/x86_64-linux:/home/sma/mambaforge/envs/dev/bi
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1815,unix/mase:/tmp/.ICE-unix/1815
+SESSION_MANAGER = local/mase:@/tmp/.ICE-unix/1799,unix/mase:/tmp/.ICE-unix/1799
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -89,7 +91,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 499cbc7a191c4a7586efa58a3917eb25
+INVOCATION_ID = 54cbfdf1ef594d4ebb32d9343927b375
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -97,7 +99,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3515
+GIO_LAUNCHED_DESKTOP_FILE_PID = 72493
 # automatic
 %F = $(notdir $%)
 # environment
@@ -109,7 +111,7 @@ PWD = /home/sma/dev/maki
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1777
+SSH_AGENT_PID = 1761
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -121,7 +123,7 @@ HOME = /home/sma
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
-VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/dc96b837cf6bb4af9cd736aa3af08cf8279f7685
+VSCODE_CODE_CACHE_PATH = /home/sma/.config/Code/CachedData/611f9bfce64f25108829dd295f54a6894e87339d
 # environment
 LOGNAME = sma
 # environment
@@ -169,7 +171,7 @@ MAKE_COMMAND := make
 # environment
 LANGUAGE = en_AU:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-b4dacc97-1.89-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-b4dacc97-1.90-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -215,7 +217,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3515
+VSCODE_PID = 72493
 # variable set hash-table stats:
 # Load=103/1024=10%, Rehash=0, Collisions=13/128=10%
 
@@ -278,8 +280,6 @@ makefile:
 # strcache performance: lookups = 34 / hit rate = 14%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/34=3%
-# Finished Make data base on Thu Jun 13 17:52:25 2024
+# Finished Make data base on Wed Jul  3 20:05:55 2024
 
  
-make: *** No rule to make target 'all'.  Stop.
-
