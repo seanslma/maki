@@ -16,6 +16,12 @@ x    -> delete character
 :wq! -> force save and quit
 ```
 
+## cut and paste line
+```
+dd  -> cut current line
+p   -> paste after the current line
+```
+
 ## indentation
 - Press `V` to start selecting in block mode
 - Move cursor to select more lines
