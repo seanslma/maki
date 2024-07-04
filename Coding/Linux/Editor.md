@@ -24,3 +24,4 @@ Line 1
 Line 2
 EOF
 ```
+Limitation: "$only" will became "".
