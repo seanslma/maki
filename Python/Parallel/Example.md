@@ -22,6 +22,8 @@ with ThreadPool(processes=n_jobs) as pool:
 ## `multiprocessing.Pool` issue
 https://stackoverflow.com/questions/72766345/attributeerror-cant-pickle-local-object-in-multiprocessing
 
+It has pickle issue: some object such as pywin32 datetime cannot be pickled.
+
 ## slower `ThreadPool`
 https://superfastpython.com/threadpoolexecutor-slower/
 
