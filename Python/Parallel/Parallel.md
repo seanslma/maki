@@ -5,6 +5,11 @@ Sessions are usually easy to use. Just wrap with requests.Session() as s: around
 
 https://iliauk.wordpress.com/2016/03/07/high-performance-python-sessions-async-multi-tasking/
 
+## GIL and issues
+https://realpython.com/python-parallel-processing/
+
+Great summary for Python parallel computation.
+
 ## Ray
 Ray is decentralized, meaning each machine runs its own scheduler, so any issues with a scheduled task are handled at the level of the individual machine, not the whole cluster.
 
