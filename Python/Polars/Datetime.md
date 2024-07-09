@@ -1,5 +1,7 @@
 # Datetime
-https://www.confessionsofadataguy.com/date-and-datetime-manipulation-in-polar/
+- https://www.confessionsofadataguy.com/date-and-datetime-manipulation-in-polar
+- https://medium.com/@riellygriffiths/working-with-datetime-data-in-polars-9bb57e7f6304
+  
 ```py
 df = pl.DataFrame({'dt': ['2024-10-01', '2024-10-02']})
 ```
