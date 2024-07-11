@@ -49,7 +49,8 @@ health:
         enabled: true
         interval: 10s
         threshold: 3
-```  
+```
+If set `delete: enabled=true` there is no need to set the env var `REGISTRY_STORAGE_DELETE_ENABLED`.
 
 ## garbage-collect
 ```
