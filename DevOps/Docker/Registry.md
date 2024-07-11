@@ -16,3 +16,14 @@ docker push <username>/my-repo
 ## delete docker images in private registry
 - https://gist.github.com/jaytaylor/86d5efaddda926a25fa68c263830dac1
 - https://gist.github.com/abelmferreira/c38036f9642f2adf260ad068ac08f187
+- https://stackoverflow.com/questions/25436742/how-to-delete-images-from-a-private-docker-registry
+
+Steps:
+- Step 4: Delete the manifest
+  ```sh
+  curl -sS -X DELETE <domain-or-ip>:5000/v2/<repo>/manifests/<digest>
+  ```
+- Garbage collect the image. Run this command in your `docker registry container`:
+  ```sh
+  registry garbage-collect -m /etc/docker/registry/config.yml
+  ```
