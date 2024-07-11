@@ -50,3 +50,13 @@ health:
         interval: 10s
         threshold: 3
 ```  
+
+## garbage-collect
+```
+Usage:
+  registry garbage-collect <config> [flags]
+Flags:
+  -m, --delete-untagged=false: delete manifests that are not currently referenced via tag
+  -d, --dry-run=false: do everything except remove the blobs
+  -h, --help=false: help for garbage-collect
+```
