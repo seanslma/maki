@@ -27,3 +27,26 @@ Steps:
   ```sh
   registry garbage-collect -m /etc/docker/registry/config.yml
   ```
+config.yml
+```yaml
+version: 0.1
+log:
+    fields:
+    service: registry
+storage:
+    cache:
+        blobdescriptor: inmemory
+    filesystem:
+        rootdirectory: /var/lib/registry
+    delete:
+        enabled: true
+http:
+    addr: :5000
+    headers:
+        X-Content-Type-Options: [nosniff]
+health:
+    storagedriver:
+        enabled: true
+        interval: 10s
+        threshold: 3
+```  
