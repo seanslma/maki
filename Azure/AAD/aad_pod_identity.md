@@ -6,6 +6,11 @@ https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/
 
 https://learn.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity
 
+## depreciated
+https://github.com/Azure/aad-pod-identity
+
+New one to use `Azure Workload Identity`: https://azure.github.io/azure-workload-identity/docs
+
 ## `AzureIdentity` vs `ClusterRole`
 **AzureIdentityBinding** is specific to AKS and is part of the Azure AD Pod Identity (AAD Pod Identity) feature:
 - Enables secure access to Azure resources from within Kubernetes pods using Azure identities.
