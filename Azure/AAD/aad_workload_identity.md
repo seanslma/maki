@@ -1,5 +1,8 @@
 # workload identity
 
+## docs
+https://azure.github.io/azure-workload-identity/docs/
+
 ## Migrate from pod-identity
 - https://learn.microsoft.com/en-us/azure/aks/workload-identity-migrate-from-pod-identity
 - https://blog.identitydigest.com/migrate-podid/
