@@ -101,14 +101,30 @@ spec:
   selector:
     matchLabels:
       component: web
-      azure.workload.identity/use: 'true'
+      azure.workload.identity/use: "true"
   template:
     metadata:
       labels:
         component: web
-        azure.workload.identity/use: 'true'
+        azure.workload.identity/use: "true"
     spec:
       serviceAccountName: my-service-workload-identity
       containers:
       ...
+```
+
+In pod
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod-with-workload-identity
+  namespace: ${SERVICE_ACCOUNT_NAMESPACE}
+  labels:
+    azure.workload.identity/use: "true"  # Required. Only pods with this label can use workload identity.
+spec:
+  serviceAccountName: ${SERVICE_ACCOUNT_NAME}
+  containers:
+    - image: <image>
+      name: <containerName>
 ```
