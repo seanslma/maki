@@ -3,6 +3,12 @@
 ## docs
 https://azure.github.io/azure-workload-identity/docs/
 
+- user managed identity -> federated credential (new) -> service account (azure_identity)
+- service account (azure_identity, azure_identity_binding) -> pod
+
+## mutating admission webhook
+https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html
+
 ## Migrate from pod-identity
 - https://learn.microsoft.com/en-us/azure/aks/workload-identity-migrate-from-pod-identity
 - https://blog.identitydigest.com/migrate-podid/
