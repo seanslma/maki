@@ -128,3 +128,17 @@ spec:
     - image: <image>
       name: <containerName>
 ```
+
+## issue
+```
+Warning  FailedMount  <invalid>  kubelet
+MountVolume.SetUp failed for volume "config" :
+rpc error: code = Unknown desc = failed to mount secrets store objects for pod dev/pod-kv,
+err:
+rpc error: code = Unknown desc = failed to mount objects,
+error: failed to get keyvault client: failed to get authorizer for keyvault client:
+nmi response failed with status code: 404, response body:
+getting assigned identities for pod dev/pod-kv in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>.
+Check MIC pod logs for identity assignment errors
+```
+- https://github.com/Azure/azure-workload-identity/issues/1115
