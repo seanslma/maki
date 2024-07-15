@@ -6,14 +6,14 @@ https://azure.github.io/azure-workload-identity/docs/
 - user managed identity -> federated credential (new) -> service account (azure_identity)
 - service account (azure_identity, azure_identity_binding) -> pod
 
-## mutating admission webhook
-https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html
-
 ## Migrate from pod-identity
 - https://learn.microsoft.com/en-us/azure/aks/workload-identity-migrate-from-pod-identity
 - https://blog.identitydigest.com/migrate-podid/
 - https://www.codit.eu/blog/migrating-to-aad-workload-identity-on-azure-kubernetes-service-aks/?country_sel=be
 - https://blog.novacare.no/moving-from-aad-pod-identity-to-workload-identity-in-aks/
+
+Very good guide with terraform examples:
+https://cloudchronicles.blog/blog/A-Step-by-Step-Guide-to-installing-Azure-Workload-Identities-on-AKS
 
 ## Enable the OIDC Issuer in AKS
 https://learn.microsoft.com/en-us/azure/aks/use-oidc-issuer
@@ -28,6 +28,7 @@ az aks show -n my_aks -g my_rg --query "oidcIssuerProfile.issuerUrl" -o tsv
 # rotate oidc key
 az aks oidc-issuer rotate-signing-keys -n my_aks -g my_rg
 ```
+We can also include `--enable-workload-identity` without using helm chart to install it separately.
 
 ## Install azure workload identity webhook controller
 https://www.blakyaks.com/resources/using-azure-workload-identity-on-aks
@@ -45,6 +46,12 @@ helm install workload-identity-webhook azure-workload-identity/workload-identity
 
 # check webhook controller manager
 kubectl get po -n workload-identity-system
+```
+
+## Federate Service Account
+Create `federated_identity_credential` to link between managed identity and service account.
+```terraform
+issuer = var.oidc.issuer_url
 ```
 
 ## Replace `AzureIdentity` and `AzureIdentityBinding` by pod `ServiceAccount`
