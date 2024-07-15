@@ -31,6 +31,9 @@ az aks oidc-issuer rotate-signing-keys -n my_aks -g my_rg
 
 ## Install azure workload identity webhook controller
 https://www.blakyaks.com/resources/using-azure-workload-identity-on-aks
+
+- This can be done with `--enable-workload-identity` when creating aks. 
+- But the helm chart allows customization like namespace, tolerations, etc.
 ```sh
 # install workload-identity-webhook
 helm repo add azure-workload-identity https://azure.github.io/azure-workload-identity/charts
