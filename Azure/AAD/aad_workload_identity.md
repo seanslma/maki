@@ -7,13 +7,17 @@ https://azure.github.io/azure-workload-identity/docs/
 - service account (azure_identity, azure_identity_binding) -> pod
 
 ## Migrate from pod-identity
+CLI example:
 - https://learn.microsoft.com/en-us/azure/aks/workload-identity-migrate-from-pod-identity
+- https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster
+
+Others:
 - https://blog.identitydigest.com/migrate-podid/
 - https://www.codit.eu/blog/migrating-to-aad-workload-identity-on-azure-kubernetes-service-aks/?country_sel=be
 - https://blog.novacare.no/moving-from-aad-pod-identity-to-workload-identity-in-aks/
 
 Very good guide with terraform examples:
-https://cloudchronicles.blog/blog/A-Step-by-Step-Guide-to-installing-Azure-Workload-Identities-on-AKS
+- https://cloudchronicles.blog/blog/A-Step-by-Step-Guide-to-installing-Azure-Workload-Identities-on-AKS
 
 ## Enable the OIDC Issuer in AKS
 https://learn.microsoft.com/en-us/azure/aks/use-oidc-issuer
@@ -51,7 +55,25 @@ kubectl get po -n workload-identity-system
 ## Federate Service Account
 Create `federated_identity_credential` to link between managed identity and service account.
 ```terraform
-issuer = var.oidc.issuer_url
+resource "azurerm_federated_identity_credential" "main" {
+  count               = var.oidc_enabled ? 1 : 0
+  name                = "${var.aks_name}-ServiceAccount-${var.aks_namespace}-${var.aks_serviceaccount_name}"
+  resource_group_name = var.resource_group_name
+  parent_id           = azurerm_user_assigned_identity.main.id
+  audience            = var.oidc_audience
+  issuer              = var.oidc_issuer_url 
+  subject             = "system:serviceaccount:${var.aks_namespace}:${var.aks_serviceaccount_name}"
+}
+```
+
+```sh
+az identity federated-credential create \
+    --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} \    
+    --resource-group "${RESOURCE_GROUP}" \
+    --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" \
+    --issuer "${AKS_OIDC_ISSUER}" \
+    --subject system:serviceaccount:"${SERVICE_ACCOUNT_NAMESPACE}":"${SERVICE_ACCOUNT_NAME}" \
+    --audience api://AzureADTokenExchange
 ```
 
 ## Replace `AzureIdentity` and `AzureIdentityBinding` by pod `ServiceAccount`
