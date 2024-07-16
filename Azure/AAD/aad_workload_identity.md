@@ -131,14 +131,41 @@ spec:
 
 ## issue
 ```
-Warning  FailedMount  <invalid>  kubelet
-MountVolume.SetUp failed for volume "config" :
+Warning  FailedMount  <invalid>  kubelet MountVolume.SetUp failed for volume "config" :
 rpc error: code = Unknown desc = failed to mount secrets store objects for pod dev/pod-kv,
-err:
-rpc error: code = Unknown desc = failed to mount objects,
+err: rpc error: code = Unknown desc = failed to mount objects,
 error: failed to get keyvault client: failed to get authorizer for keyvault client:
 nmi response failed with status code: 404, response body:
 getting assigned identities for pod dev/pod-kv in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>.
 Check MIC pod logs for identity assignment errors
 ```
-- https://github.com/Azure/azure-workload-identity/issues/1115
+This indicates that the pod is still using the `aad_pod_identity` not `workload_identity`.
+As this is for using key-vault secret as the mounted volume, in the ``SecretProviderClass` we must update
+```yaml
+cat <<EOF | kubectl apply -f -
+# This is a SecretProviderClass example using workload identity to access your key vault
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: azure-kvname-wi # needs to be unique per namespace
+spec:
+  provider: azure
+  parameters:
+    usePodIdentity: "false"                # Must be false for workload identity
+    clientID: "${USER_ASSIGNED_CLIENT_ID}" # Setting this to use workload identity
+    keyvaultName: ${KEYVAULT_NAME}         # Set to the name of your key vault
+    cloudName: ""  # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
+    objects:  |
+      array:
+        - |
+          objectName: secret1             # Set to the name of your secret
+          objectType: secret              # object types: secret, key, or cert
+          objectVersion: ""               # [OPTIONAL] object versions, default to latest if empty
+        - |
+          objectName: key1                # Set to the name of your key
+          objectType: key
+          objectVersion: ""
+    tenantId: "${IDENTITY_TENANT}"        # The tenant ID of the key vault
+EOF
+```
+More detail can be found here: https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-identity-access
