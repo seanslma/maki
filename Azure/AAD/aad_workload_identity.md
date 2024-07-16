@@ -129,7 +129,7 @@ spec:
       name: <containerName>
 ```
 
-## issue
+## mount key-vault secret as volume
 ```
 Warning  FailedMount  <invalid>  kubelet MountVolume.SetUp failed for volume "config" :
 rpc error: code = Unknown desc = failed to mount secrets store objects for pod dev/pod-kv,
@@ -140,7 +140,7 @@ getting assigned identities for pod dev/pod-kv in CREATED state failed after 16 
 Check MIC pod logs for identity assignment errors
 ```
 This indicates that the pod is still using the `aad_pod_identity` not `workload_identity`.
-As this is for using key-vault secret as the mounted volume, in the ``SecretProviderClass` we must update
+As this is for using key-vault secret as the mounted volume, in the `SecretProviderClass` we must update
 ```yaml
 cat <<EOF | kubectl apply -f -
 # This is a SecretProviderClass example using workload identity to access your key vault
