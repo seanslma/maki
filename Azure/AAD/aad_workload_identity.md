@@ -90,22 +90,19 @@ metadata:
 In deployment replace
 ```yaml
 spec:
-  selector:
-    matchLabels:
-      component: web
-      aadpodidbinding: my-service
+  template:
+    metadata:
+      labels:
+        app: web
+        aadpodidbinding: my-service
 ```
 by
 ```yaml
 spec:
-  selector:
-    matchLabels:
-      component: web
-      azure.workload.identity/use: "true"
   template:
     metadata:
       labels:
-        component: web
+        app: web
         azure.workload.identity/use: "true"
     spec:
       serviceAccountName: my-service-workload-identity
