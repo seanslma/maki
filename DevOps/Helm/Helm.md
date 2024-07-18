@@ -3,6 +3,9 @@
 Template cheatsheet:
 https://lzone.de/cheat-sheet/Helm%20Templates
 
+## Helm playground
+https://paulvollmer.net/helm-playground
+
 ## Helm vs Kustomize
 Kustomize:
 - Simple deployments with straightforward configuration needs.
