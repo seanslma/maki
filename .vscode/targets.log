@@ -2,53 +2,100 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target 'all'.  Stop.
 
 # GNU Make 4.2.1
+ 
 # Built for x86_64-pc-linux-gnu
+ 
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
+ 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+ 
 # This is free software: you are free to change and redistribute it.
+ 
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Wed Jul  3 20:05:55 2024
+ 
+# Make data base, printed on Mon Jul 22 22:30:54 2024
+ 
 
 # Variables
+ 
 
+ 
 # 'override' directive
+ 
 GNUMAKEFLAGS := 
+ 
 # automatic
+ 
 <D = $(patsubst %/,%,$(dir $<))
+ 
 # automatic
+ 
 ?F = $(notdir $?)
+ 
 # environment
+ 
 DESKTOP_SESSION = ubuntu
+ 
 # default
+ 
 .SHELLFLAGS := -c
+ 
 # environment
+ 
 XDG_SESSION_CLASS = user
+ 
 # environment
+ 
 VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+ 
 # environment
+ 
 XDG_SESSION_TYPE = x11
+ 
 # automatic
+ 
 ?D = $(patsubst %/,%,$(dir $?))
+ 
 # environment
+ 
 IM_CONFIG_PHASE = 1
+ 
 # automatic
+ 
 @D = $(patsubst %/,%,$(dir $@))
+ 
 # environment
+ 
 XAUTHORITY = /run/user/1000/gdm/Xauthority
+ 
 # environment
+ 
 GDMSESSION = ubuntu
+ 
 # environment
+ 
 XMODIFIERS = @im=ibus
+ 
 # makefile
+ 
 CURDIR := /home/sma/dev/maki
+ 
 # makefile
+ 
 SHELL = /bin/sh
+ 
 # environment
+ 
 VSCODE_NLS_CONFIG = {"locale":"en-gb","osLocale":"en-au","availableLanguages":{},"_languagePackSupport":true}
+ 
 # environment
+ 
 JOURNAL_STREAM = 8:50274
+ 
 # environment
+ 
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
 CONDA_PREFIX_1 = /home/sma/mambaforge
@@ -99,7 +146,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 72493
+GIO_LAUNCHED_DESKTOP_FILE_PID = 143781
 # automatic
 %F = $(notdir $%)
 # environment
@@ -217,7 +264,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 72493
+VSCODE_PID = 143781
 # variable set hash-table stats:
 # Load=103/1024=10%, Rehash=0, Collisions=13/128=10%
 
@@ -280,6 +327,6 @@ makefile:
 # strcache performance: lookups = 34 / hit rate = 14%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/34=3%
-# Finished Make data base on Wed Jul  3 20:05:55 2024
+# Finished Make data base on Mon Jul 22 22:30:54 2024
 
  
