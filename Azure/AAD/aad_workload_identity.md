@@ -166,3 +166,9 @@ spec:
 EOF
 ```
 More detail can be found here: https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-identity-access
+
+## connection to database timed out
+checked the versio of `azure-identity` which is higher then `1.13.0`.
+
+https://github.com/Azure/azure-workload-identity/issues/976
+- Upgrading the package "Microsoft.Data.SqlClient" fixed the issue
