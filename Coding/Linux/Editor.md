@@ -28,9 +28,9 @@ Limitation: "$only" will became "".
 
 ## escape special characters and keep leading spaces and tabs
 - `'EOF'` will escape special characters
-- `<<-` will keep leading spaces and tabs
+- `<<-` will keep (or strip) leading spaces and tabs???
 ```sh
-cat << 'EOF' > file.txt
+cat <<- 'EOF' > file.txt
   Special characters: $, \, *, etc.
   Including variable: "$only"
 EOF
