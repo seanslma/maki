@@ -172,3 +172,6 @@ checked the versio of `azure-identity` which is higher then `1.13.0`.
 
 https://github.com/Azure/azure-workload-identity/issues/976
 - Upgrading the package "Microsoft.Data.SqlClient" fixed the issue
+
+https://github.com/Azure/azure-workload-identity/issues/1157
+- these links helped me with Python where we now are using ODBC with workload identity
