@@ -175,3 +175,6 @@ https://github.com/Azure/azure-workload-identity/issues/976
 
 https://github.com/Azure/azure-workload-identity/issues/1157
 - these links helped me with Python where we now are using ODBC with workload identity
+
+details about workload identity with sql connection
+- https://moimhossain.com/2024/03/29/aks-workload-identity-a-deeper-look
