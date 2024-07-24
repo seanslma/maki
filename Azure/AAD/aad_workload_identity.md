@@ -168,7 +168,7 @@ EOF
 More detail can be found here: https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-identity-access
 
 ## connection to database timed out
-checked the versio of `azure-identity` which is higher then `1.13.0`.
+checked the version of `azure-identity` which is higher then `1.13.0`.
 
 https://github.com/Azure/azure-workload-identity/issues/976
 - Upgrading the package "Microsoft.Data.SqlClient" fixed the issue
@@ -178,3 +178,7 @@ https://github.com/Azure/azure-workload-identity/issues/1157
 
 details about workload identity with sql connection
 - https://moimhossain.com/2024/03/29/aks-workload-identity-a-deeper-look
+
+ODBC driver not supporting AKS workload identity
+- https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-384-odbc-driver-not-supporting-aks-workload/ba-p/3858209
+- workaround (using `token`): https://stackoverflow.com/questions/77134053/login-timeout-expired-while-connecting-to-sql-server-using-workload-identity
