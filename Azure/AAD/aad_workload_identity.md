@@ -195,15 +195,17 @@ ODBC driver not supporting AKS workload identity
 - https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-384-odbc-driver-not-supporting-aks-workload/ba-p/3858209
 - workaround (using `token`): https://stackoverflow.com/questions/77134053/login-timeout-expired-while-connecting-to-sql-server-using-workload-identity
 ```py
-credential = DefaultAzureCredential() # system-assigned identity
-#credential = DefaultAzureCredential(managed_identity_client_id='<client-id-of-user-assigned-identity>') # user-assigned identity
+# Get credentials, default to workload identity
+credential = DefaultAzureCredential()
 
 # Get token for Azure SQL Database and convert to UTF-16-LE for SQL Server driver
-token_bytes = credential.get_token("https://database.windows.net/.default").token.encode("UTF-16-LE")
+token_bytes = credential.get_token('https://database.windows.net/.default').token.encode('UTF-16-LE')
 token_struct = struct.pack(f'<I{len(token_bytes)}s', len(token_bytes), token_bytes)
 
 # Connect with the token
 SQL_COPT_SS_ACCESS_TOKEN = 1256
-connString = f"Driver={{ODBC Driver 17 for SQL Server}};SERVER=dbservere.database.windows.net;DATABASE=db"
+# can also have `encrypt=yes;trustservercertificate=no;connection timeout=30`
+# exclude `authentication=ActiveDirectoryMSI` otherwise will have errors
+connString = f'Driver={{ODBC Driver 17 for SQL Server}};SERVER=dbservere.database.windows.net;DATABASE=db'
 conn = pyodbc.connect(connString, attrs_before={SQL_COPT_SS_ACCESS_TOKEN: token_struct})
 ```
