@@ -186,6 +186,9 @@ token_struct = struct.pack(f'<I{len(token_bytes)}s', len(token_bytes), token_byt
 SQL_COPT_SS_ACCESS_TOKEN = 1256
 conn_string = f"DRIVER={{ODBC Driver 18 for SQL Server}};SERVER={server};DATABASE={database};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30"
 conn = pyodbc.connect(conn_string, attrs_before={SQL_COPT_SS_ACCESS_TOKEN: token_struct})
+
+cursor = conn.cursor()
+cursor.execute("SELECT @@version")
 ```
 
 ODBC driver not supporting AKS workload identity
