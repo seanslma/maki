@@ -214,6 +214,9 @@ conn = pyodbc.connect(connString, attrs_before={SQL_COPT_SS_ACCESS_TOKEN: token_
 https://docs.sqlalchemy.org/en/20/dialects/mssql.html#connecting-to-databases-with-access-tokens
 
 Note that the TOKEN_URL` is `https://database.windows.net/.default`, not `https://database.windows.net/`. Otherwise you will get the error `WorkloadIdentityCredential: Microsoft Entra ID error '(invalid_scope) AADSTS70011: The provided request must include a 'scope' input parameter. The provided value for the input parameter 'scope' is not valid. The scope https://database.windows.net/ is not valid.`
+
+If include `Authentication=ActiveDirectoryMsi` will lead to error `Cannot use Access Token with any of the following options: Authentication, Integrated Security, User, Password`.
+
 ```py
 import struct
 from sqlalchemy import create_engine, event
