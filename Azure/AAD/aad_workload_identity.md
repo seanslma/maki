@@ -188,7 +188,7 @@ conn_string = f"DRIVER={{ODBC Driver 18 for SQL Server}};SERVER={server};DATABAS
 conn = pyodbc.connect(conn_string, attrs_before={SQL_COPT_SS_ACCESS_TOKEN: token_struct})
 
 cursor = conn.cursor()
-cursor.execute('SELECT @@version')
+cursor.execute('SELECT @@version').fetchall()
 ```
 
 ODBC driver not supporting AKS workload identity
