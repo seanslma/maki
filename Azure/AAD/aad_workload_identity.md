@@ -212,12 +212,14 @@ conn = pyodbc.connect(connString, attrs_before={SQL_COPT_SS_ACCESS_TOKEN: token_
 
 ## sqlalchemy for azure sql server 
 https://docs.sqlalchemy.org/en/20/dialects/mssql.html#connecting-to-databases-with-access-tokens
+
+Note that the TOKEN_URL` is `https://database.windows.net/.default`, not `https://database.windows.net/`. Otherwise you will get the error `WorkloadIdentityCredential: Microsoft Entra ID error '(invalid_scope) AADSTS70011: The provided request must include a 'scope' input parameter. The provided value for the input parameter 'scope' is not valid. The scope https://database.windows.net/ is not valid.`
 ```py
 import struct
 from sqlalchemy import create_engine, event
 from azure.identity import DefaultAzureCredential
 
-TOKEN_URL = "https://database.windows.net/"  # The token URL for any Azure SQL database
+TOKEN_URL = "https://database.windows.net/.default"  # The token URL for any Azure SQL database
 SQL_COPT_SS_ACCESS_TOKEN = 1256  # Connection option for access tokens, as defined in msodbcsql.h
 
 connection_string = "mssql+pyodbc://@my-server.database.windows.net/myDb?driver=ODBC+Driver+17+for+SQL+Server"
