@@ -244,3 +244,13 @@ def provide_token(dialect, conn_rec, cargs, cparams):
     # apply it to keyword arguments
     cparams["attrs_before"] = {SQL_COPT_SS_ACCESS_TOKEN: token_struct}
 ```
+
+## error: [28000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Login failed for user '<token-identified principal>'. (18456) (SQLDriverConnect)
+We should assign necessary roles like `SQL Server Contributor` or `SQL DB Contributor` to the managed identity
+```tf
+# https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member
+resource "azuread_group_member" "mssql_db_contributor" {
+  group_object_id  = var.db_contributors_group
+  member_object_id = module.ad_identity.principal_id
+}
+```
