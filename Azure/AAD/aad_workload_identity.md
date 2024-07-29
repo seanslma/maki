@@ -209,3 +209,30 @@ SQL_COPT_SS_ACCESS_TOKEN = 1256
 connString = 'Driver={ODBC Driver 17 for SQL Server};SERVER=dbservere.database.windows.net;DATABASE=db'
 conn = pyodbc.connect(connString, attrs_before={SQL_COPT_SS_ACCESS_TOKEN: token_struct})
 ```
+
+## sqlalchemy for azure sql server 
+https://docs.sqlalchemy.org/en/20/dialects/mssql.html#connecting-to-databases-with-access-tokens
+```py
+import struct
+from sqlalchemy import create_engine, event
+from azure.identity import DefaultAzureCredential
+
+TOKEN_URL = "https://database.windows.net/"  # The token URL for any Azure SQL database
+SQL_COPT_SS_ACCESS_TOKEN = 1256  # Connection option for access tokens, as defined in msodbcsql.h
+
+connection_string = "mssql+pyodbc://@my-server.database.windows.net/myDb?driver=ODBC+Driver+17+for+SQL+Server"
+engine = create_engine(connection_string)
+
+@event.listens_for(engine, "do_connect")
+def provide_token(dialect, conn_rec, cargs, cparams):
+    # remove the "Trusted_Connection" parameter that SQLAlchemy adds
+    cargs[0] = cargs[0].replace(";Trusted_Connection=Yes", "")
+
+    # create token credential
+    azure_credentials = DefaultAzureCredential()
+    raw_token = azure_credentials.get_token(TOKEN_URL).token.encode("utf-16-le")
+    token_struct = struct.pack(f"<I{len(raw_token)}s", len(raw_token), raw_token)
+
+    # apply it to keyword arguments
+    cparams["attrs_before"] = {SQL_COPT_SS_ACCESS_TOKEN: token_struct}
+```
