@@ -245,7 +245,10 @@ def provide_token(dialect, conn_rec, cargs, cparams):
     cparams["attrs_before"] = {SQL_COPT_SS_ACCESS_TOKEN: token_struct}
 ```
 
-## error: [28000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Login failed for user '<token-identified principal>'. (18456) (SQLDriverConnect)
+## error: `Login failed for user '<token-identified principal>'`
+```
+[28000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Login failed for user '<token-identified principal>'. (18456) (SQLDriverConnect)
+```
 We should assign necessary roles like `SQL Server Contributor` or `SQL DB Contributor` to the managed identity
 ```tf
 # https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member
