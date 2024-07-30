@@ -225,24 +225,25 @@ import struct
 from sqlalchemy import create_engine, event
 from azure.identity import DefaultAzureCredential
 
-TOKEN_URL = "https://database.windows.net/.default"  # The token URL for any Azure SQL database
+TOKEN_URL = 'https://database.windows.net/.default'  # The token URL for any Azure SQL database
 SQL_COPT_SS_ACCESS_TOKEN = 1256  # Connection option for access tokens, as defined in msodbcsql.h
 
-connection_string = "mssql+pyodbc://@my-server.database.windows.net/myDb?driver=ODBC+Driver+17+for+SQL+Server"
+connection_string = 'mssql+pyodbc://@my-server.database.windows.net/myDb?driver=ODBC+Driver+17+for+SQL+Server'
 engine = create_engine(connection_string)
 
+# can use sa.event.listen if do not require the decorator
 @event.listens_for(engine, "do_connect")
 def provide_token(dialect, conn_rec, cargs, cparams):
     # remove the "Trusted_Connection" parameter that SQLAlchemy adds
-    cargs[0] = cargs[0].replace(";Trusted_Connection=Yes", "")
+    cargs[0] = cargs[0].replace(';Trusted_Connection=Yes', '')
 
     # create token credential
     azure_credentials = DefaultAzureCredential()
-    raw_token = azure_credentials.get_token(TOKEN_URL).token.encode("utf-16-le")
-    token_struct = struct.pack(f"<I{len(raw_token)}s", len(raw_token), raw_token)
+    raw_token = azure_credentials.get_token(TOKEN_URL).token.encode('utf-16-le')
+    token_struct = struct.pack(f'<I{len(raw_token)}s', len(raw_token), raw_token)
 
     # apply it to keyword arguments
-    cparams["attrs_before"] = {SQL_COPT_SS_ACCESS_TOKEN: token_struct}
+    cparams['attrs_before'] = {SQL_COPT_SS_ACCESS_TOKEN: token_struct}
 ```
 
 ## error: `Login failed for user '<token-identified principal>'`
