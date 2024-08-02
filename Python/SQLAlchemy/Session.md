@@ -2,6 +2,11 @@
 
 https://docs.sqlalchemy.org/en/13/orm/session_basics.html#when-do-i-construct-a-session-when-do-i-commit-it-and-when-do-i-close-it
 
+## get engine from session
+```py
+session.get_bind()
+```
+
 ## create session
 we can control when the session should be terminated and the number of sessions.
 ```py
