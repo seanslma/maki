@@ -213,6 +213,15 @@ cursor = conn.cursor()
 cursor.execute('SELECT @@version')
 ```
 
+Note that for `turbodbc` there is still not a workaround to use azure workload identity. 
+so perhaps we should use pyodbc with `fast_executemany=True` for inserting records to db.
+
+https://stackoverflow.com/questions/48006551/speeding-up-pandas-dataframe-to-sql-with-fast-executemany-of-pyodbc
+```py
+engine = create_engine(connection_string, fast_executemany=True)
+df.to_sql('sqlalchemy_test', engine, if_exists='append', index=False)
+```
+
 ## sqlalchemy for azure sql server 
 https://docs.sqlalchemy.org/en/20/dialects/mssql.html#connecting-to-databases-with-access-tokens
 
@@ -248,7 +257,8 @@ def provide_token(dialect, conn_rec, cargs, cparams):
 
 ## error: `Login failed for user '<token-identified principal>'`
 ```
-[28000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Login failed for user '<token-identified principal>'. (18456) (SQLDriverConnect)
+[28000] [Microsoft][ODBC Driver 17 for SQL Server]
+[SQL Server]Login failed for user '<token-identified principal>'. (18456) (SQLDriverConnect)
 ```
 We should assign necessary roles like `SQL Server Contributor` or `SQL DB Contributor` to the managed identity
 ```tf
