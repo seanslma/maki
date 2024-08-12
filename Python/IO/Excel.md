@@ -8,11 +8,11 @@ https://stackoverflow.com/questions/28766133/faster-way-to-read-excel-files-to-p
 - https://hakibenita.com/fast-excel-python
 
 ## read excel using the light-fast calamine engine
-polars is using fastexcel.
+polars is using `fastexcel`.
 
 Calamine is a Rust library designed specifically for reading Excel and OpenDocument Spreadsheet files. It focuses on extracting data from these file formats, not modifying them.
 
-install calamine
+install `calamine`
 ```sh
 pip install fastexcel
 mamba install python-calamine -y
