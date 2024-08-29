@@ -34,6 +34,10 @@ def get_file_system(
     )
 ```
 
+### `fs.glob` vs `fs.ls`
+- `fs.glob('container-name/xyz-*.parquet')` is supper slow - will scan all files in this container
+- `fs.ls(path='container-name', prefix='xyz-')` is much faster - will only list folders (not subfolders) and files in the path
+
 ### adlfs parallel performance
 `pd.read_parquet` is 2-3x faster than `dd.read_parquet`. Do not create the file system for each parallel call - can be slow.
 ```py
