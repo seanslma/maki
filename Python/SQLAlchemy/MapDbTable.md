@@ -21,6 +21,7 @@ Here's a step-by-step explanation:
 
     class User(Base):
         __tablename__ = 'users'
+        __table_args__ = {'schema': 'sales'}
 
         id = Column(Integer, primary_key=True)
         username = Column(String)
