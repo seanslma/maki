@@ -8,7 +8,7 @@ Here's a step-by-step explanation:
    First, you need to create a `declarative_base` instance. This instance is a factory for declarative base classes and will also hold the metadata about the tables.
 
     ```python
-    from sqlalchemy.ext.declarative import declarative_base
+    from sqlalchemy.orm import declarative_base
 
     Base = declarative_base()
     ```
