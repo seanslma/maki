@@ -139,18 +139,20 @@ query = session.query(
     sp.ID.label('id'),
     sp.Name.label('name'),
     sp.Price.label('price'),
-    sql.func.dateadd(sql.text('day'), 1, sp.StartDate).label('actual_start_date'),
+    sql.func.dateadd(
+        sql.text('day'), 1, sp.StartDate
+    ).label('actual_start_date'),
 )
 ```
 In this case, the data type for the column `actual_start_date` will be `NullType` instead of `DateTime`.
 
-By digging into the `sqlalchemy` documents we find out that this is caused by the `sql.func.dateadd`.
-Basically for functions that are not known, the type defaults to the `NullType`.
-There are also other functions such as `sql.func.replace` and `sql.func.year` that might lead to the `NullType`.
+By digging into the `sqlalchemy` documents we find out that this is caused by the `sql.func.dateadd`. Basically for functions that are not known, the type defaults to the `NullType`. There are also other functions such as `sql.func.replace` and `sql.func.year` that might lead to the `NullType`.
 
 To fix the issue, we need to pass the data type directly to the function:
 ```py
-sql.func.dateadd(sql.text('day'), 1, sp.StartDate, type_=types.DateTime).label('actual_start_date')
+sql.func.dateadd(
+    sql.text('day'), 1, sp.StartDate, type_=types.DateTime
+).label('actual_start_date')
 ```
 
 ## Reference
