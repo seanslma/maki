@@ -132,7 +132,7 @@ dtype = {
 df = pd.read_sql(..., dtype=dtype)
 ```
 
-## Why I got `NullType` for some data columns?
+## Why did I get `NullType` for some data columns?
 Assume the previous query has been changed to:
 ```py
 query = session.query(
