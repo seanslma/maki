@@ -48,6 +48,7 @@ steps:
 - script: |
     echo $(myVariable)
     echo $(buildConfiguration)
+  condition: eq(variables['Agent.OS'], 'windows_nt')
   displayName: 'Print Variables'
 ```
 
