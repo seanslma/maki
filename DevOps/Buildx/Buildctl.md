@@ -46,8 +46,8 @@ https://kubernetes.courselabs.co/labs/buildkit/
 sudo apt update && sudo apt install wget
 
 # install buildkit release
-wget https://github.com/moby/buildkit/releases/download/v0.9.0/buildkit-v0.9.0.linux-amd64.tar.gz
-tar xvf buildkit-v0.9.0.linux-amd64.tar.gz
+wget https://github.com/moby/buildkit/releases/download/v0.15.2/buildkit-v0.15.2.linux-amd64.tar.gz
+tar xvf buildkit-v0.15.2.linux-amd64.tar.gz
 
 # download a dockerfile
 cd bin
