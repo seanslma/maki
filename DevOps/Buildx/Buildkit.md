@@ -8,6 +8,9 @@ https://depot.dev/blog/buildkit-in-depth
 - buildkit coverts everything from frontends and backends to LLB (low-level build) and DAGs (directed acyclic graphs)
 - to take advantage of parallelization, must rewrite Dockerfile to use multi-stage builds.
 
+## deploy example
+https://medium.com/@t-velmachos/build-docker-images-on-k8s-faster-with-buildkit-3443e36aef2e
+
 ## extract info
 ```sh
 buildctl --version      # get buildkit version
