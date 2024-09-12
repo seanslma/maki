@@ -57,7 +57,7 @@ mv ./Dockerfile ./linux/my-app.docker
 cat ./linux/my-app.docker
 
 # build the image
-./buildctl --addr tcp://buildkitd:1234 build --frontend=dockerfile.v0 --local context=. --local dockerfile=./linux/ --opt filename=my-app.docker --output type=image,name=docker.smc.stanwell.com/dev/test,push=true
+./buildctl --addr tcp://buildkitd:1234 build --frontend=dockerfile.v0 --local context=. --local dockerfile=./linux/ --opt filename=my-app.docker --output type=image,name=docker.example.com/dev/test,push=true
 ```
 
 ## build
