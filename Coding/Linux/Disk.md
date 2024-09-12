@@ -52,7 +52,7 @@ The Common Internet File System (CIFS) is a network file-sharing protocol. CIFS 
 sudo mkdir /mnt/dat
 sudo mount -t cifs -o username=${USER},password=${PASSWORD},uid=$(id -u),gid=$(id -g) //server-address/folder /mnt/dat
 sudo mount -t cifs -o credentials=/etc/smb.credentials //server-address/folder /mnt/dat
-sudo mount -t cifs //dc1pfs05/smc /mnt/smc -o uid=1000,gid=1000,vers=3.0,defaults,credentials=/home/user/smb.credentials --verbose
+sudo mount -t cifs //my-drive/dev /mnt/dev -o uid=1000,gid=1000,vers=3.0,defaults,credentials=/home/user/smb.credentials --verbose
 ```
 
 To ensure the mount persists on system reboots, this command must be added to 
