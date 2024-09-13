@@ -113,3 +113,6 @@ https://docs.docker.com/build/buildkit/configure/#setting-registry-certificates
 https://github.com/docker/buildx/issues/191
 - used the wrong url for the registry
 - did not include the port when using internal url
+
+## why there is no `metadata.json`
+when set `--metadata-file metadata.json` after build I cannot find the json file. reason: the json file will be created only if you set `--output`
