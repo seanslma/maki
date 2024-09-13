@@ -99,6 +99,25 @@ buildctl build \
 ```
 
 ## metadata to file
+will write `metadata.json` only when `--output` is set.
 ```sh
 --metadata-file metadata.json
+```
+
+cat metadata.json
+```json
+{
+  "containerimage.config.digest": "sha256:bf6010de5e36c4a6d2cefd562e65d25b8713c36575",
+  "containerimage.descriptor": {
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "digest": "sha256:09423f01912c6cacd4363ac24bfd90760ce52606e8c71cf4f",
+    "size": 891,
+    "platform": {
+      "architecture": "amd64",
+      "os": "linux"
+    }
+  },
+  "containerimage.digest": "sha256:09423f01912c6cacd4363ac24bfd90760ce52606e8c71cf4f",
+  "image.name": "docker.example.com/dev/test"
+}
 ```
