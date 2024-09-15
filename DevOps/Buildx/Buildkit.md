@@ -116,3 +116,14 @@ https://github.com/docker/buildx/issues/191
 
 ## why there is no `metadata.json`
 when set `--metadata-file metadata.json` after build I cannot find the json file. reason: the json file will be created only if you set `--output`
+
+## authorization
+```
+failed to authorize:
+failed to fetch anonymous token:
+unexpected status from GET request to
+https://my_acr.azurecr.io/oauth2/token?scope=repository%3Adev%2Ftest%3Apull%2Cpush&service=my_acr.azurecr.io:
+401 Unauthorized
+```
+https://github.com/moby/buildkit/issues/2136
+- The docker registry credentials should be on the `buildctl` client side, not on the buildkit daemon
