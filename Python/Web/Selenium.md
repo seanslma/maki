@@ -6,6 +6,7 @@ https://selenium-python.readthedocs.io/locating-elements.html
 https://stackoverflow.com/questions/49323099/webdriverexception-message-service-chromedriver-unexpectedly-exited-status-co
 ```sh
 /path/to/chromedriver --version #error while loading shared libraries: libglib-2.0.so.0: cannot open shared object file: No such file or directory
+ldd /path/to/chromedriver       #will show all depedencies
 apt-cache search libglib-2.0.so.0
 apt-cache madison libglib-2.0.so.0
 ```
