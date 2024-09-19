@@ -2,6 +2,12 @@
 
 https://selenium-python.readthedocs.io/locating-elements.html
 
+## how to install
+https://github.com/password123456/setup-selenium-with-chrome-driver-on-ubuntu_debian
+
+another discussion
+- https://stackoverflow.com/questions/22476112/using-chromedriver-with-selenium-python-ubuntu
+
 ## check `chromedriver` dependency issue
 https://stackoverflow.com/questions/49323099/webdriverexception-message-service-chromedriver-unexpectedly-exited-status-co
 ```sh
