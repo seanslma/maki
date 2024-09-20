@@ -11,6 +11,10 @@ another discussion
 ## chronium browser download
 https://packages.debian.org/sid/amd64/chromium/download
 
+## chronium and chromedriver download
+A better place to download packages for 18.04:
+- http://ftp.ubuntu.com/ubuntu/ubuntu/pool/universe/c/chromium-browser/?_ga=2.38548387.169529999.1629529613-823043176.1629529613
+
 ## check `chromedriver` dependency issue
 https://stackoverflow.com/questions/49323099/webdriverexception-message-service-chromedriver-unexpectedly-exited-status-co
 ```sh
