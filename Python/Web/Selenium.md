@@ -8,6 +8,9 @@ https://github.com/password123456/setup-selenium-with-chrome-driver-on-ubuntu_de
 another discussion
 - https://stackoverflow.com/questions/22476112/using-chromedriver-with-selenium-python-ubuntu
 
+## chronium browser download
+https://packages.debian.org/sid/amd64/chromium/download
+
 ## check `chromedriver` dependency issue
 https://stackoverflow.com/questions/49323099/webdriverexception-message-service-chromedriver-unexpectedly-exited-status-co
 ```sh
