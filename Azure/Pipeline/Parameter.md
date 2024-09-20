@@ -27,6 +27,7 @@ jobs:
   - script: |
       echo Deploying to ${{ parameters.env }}
     displayName: 'Deploy to Environment'
+    condition: eq('${{ parameters.env }}', 'prd')
 ```
 
 ## Key Characteristics
