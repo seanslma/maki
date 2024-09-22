@@ -7,10 +7,10 @@ discussions:
 - https://github.com/password123456/setup-selenium-with-chrome-driver-on-ubuntu_debian
 - https://stackoverflow.com/questions/22476112/using-chromedriver-with-selenium-python-ubuntu
 
-chronium browser download
+chromium browser download
 - https://packages.debian.org/sid/amd64/chromium/download
 
-chronium and chromedriver download (right place to download packages for 18.04)
+chromium and chromedriver download (right place to download packages for 18.04)
 - http://ftp.ubuntu.com/ubuntu/ubuntu/pool/universe/c/chromium-browser/
 - chromium-browser_112.0.5615.49-0ubuntu0.18.04.1_amd64.deb
 - chromium-chromedriver_112.0.5615.49-0ubuntu0.18.04.1_amd64.deb
