@@ -65,6 +65,19 @@ driver.find_element('id', 'password').send_keys(config['password'])
 driver.find_element('id', 'submit_row').submit()
 ```
 
+## disable `Error sending stats to Plausible`
+```
+WARNING
+selenium.webdriver.common.selenium_manager
+Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event)
+```
+
+Solution: 
+- disable Selenium from sending anonymous usage statistics
+- https://www.selenium.dev/documentation/selenium_manager/#data-collection
+- set the `SE_AVOID_STATS` environment variable to `true`, or
+-  set `avoid-stats = true` in config file
+
 ## check `chromedriver` dependency issue
 https://stackoverflow.com/questions/49323099/webdriverexception-message-service-chromedriver-unexpectedly-exited-status-co
 ```sh
