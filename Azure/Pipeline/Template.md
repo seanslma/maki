@@ -48,7 +48,7 @@ resources:
       type: github
       name: <namespace>/<pipeline-template>
       endpoint: unknown
-      ref: refs/heads/v4
+      ref: refs/heads/<branch-name>
 jobs:
   - template: jobs/pipeline-template.yml@templates
     parameters:
