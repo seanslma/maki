@@ -1,5 +1,8 @@
 # Arima
 
+## SARIMAX example 
+https://github.com/SamWachira/Electricity-Demand-Forecasting/blob/main/Time_Series_Electricity.ipynb
+
 ## ARIMAX (autoregressive integrated moving average with exogenous variables) 
 - The ARIMAX model is an extension of the standard ARIMA model, and 
 - it allows for the inclusion of one or more exogenous variables in the model equation. 
