@@ -15,6 +15,17 @@ https://github.com/xenakas/electricity_risks
 ## Financial derivatives and risk management course materials
 https://github.com/lfthwjx/Financial-Derivatives-Risk-Management
 
+## Financial modelling and risk management
+https://github.com/shreemoyee/FinancialModellingandRiskMAnagement
+Zero coupon bonds
+- Options on bonds
+- Bonds futures and forwards
+
+Swaps
+- Caplets and floorlets
+- Swaps and swapsons
+- Forward equations
+
 ## financial models in pricing derivatives using python
 https://github.com/stochasticquant/Derivative-Pricing-in-Python
 - Risk neutral pricing 
