@@ -7,7 +7,8 @@ kubectl get pods -o wide        #show more info such node
 kubectl describe pod <pod-name> #check events
 kubectl get event --field-selector involvedObject.name=<pod-name>
 kubectl logs <pod-name>         #check logs
-kubectl exec -it <pod-name> -c <container-name> -- bash #connect to pod
+kubectl exec -it <pod-name> -n <namespace> -- bash      #connect to pod, only one container in pod
+kubectl exec -it <pod-name> -c <container-name> -- bash #connect to pod, mutiple containers in pod
 ```
 
 ## pending pods
