@@ -13,3 +13,6 @@ https://learn.microsoft.com/en-us/azure/container-registry/container-registry-au
 
 ## allow aks pull images from acr
 We must set role assignment `AcrPull` for aks
+
+## connect issue using workload identity
+Not solved: https://github.com/Azure/azure-cli/issues/28740
