@@ -2,6 +2,24 @@
 
 https://learn.microsoft.com/en-us/azure/container-registry/container-registry-delete
 
+## login and delete 
+https://stackoverflow.com/questions/70373959/acr-docker-unable-to-get-aad-authorization-tokens-with-message-please-run-az-l
+```sh
+acr='my_acr'
+echo $(sudo_user_password) | sudo -S az login --service-principal -u xxx -p $(client_secret) --tenant xxx && \
+echo $(sudo_user_password) | sudo -S az acr login -n myacr.azurecr.io
+
+repos=('dev/my-app')
+delete_from=3
+
+for repo in "${repos[@]}"; do
+    tags_to_delete=$(echo $(az acr repository show-tags -n ${acr} --repository ${repo} --orderby time_desc --output tsv) | cut -d ' ' -f${delete_from}-)
+    for tag_to_delete in ${tags_to_delete}; do
+        az acr repository delete --yes -n ${acr} --image ${repo}:${tag_to_delete}
+    done
+done
+```
+
 ## delete repo
 ```sh
 az acr repository delete --name <acr-name> --repository <repo-name>
