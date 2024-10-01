@@ -23,3 +23,10 @@ Solution:
 az logout
 az login
 ```
+
+## login using managed identity
+https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli-managed-identity
+```sh
+az login --identity      # system-assigned managed identity
+az login --identity --username <client_id|object_id|resource_id> # user-assigned managed identity
+```
