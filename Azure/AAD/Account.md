@@ -30,3 +30,8 @@ https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli-managed-ident
 az login --identity      # system-assigned managed identity
 az login --identity --username <client_id|object_id|resource_id> # user-assigned managed identity
 ```
+
+login freeze and timeout issue:
+- https://github.com/Azure/azure-cli/issues/12441
+- firewall blocked `management.azure.com`
+
