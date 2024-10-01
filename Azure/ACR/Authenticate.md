@@ -23,3 +23,10 @@ https://learn.microsoft.com/en-us/azure/container-registry/container-registry-au
 az login --identity --username <identity-id>
 az acr login --name my_acr
 ```
+
+## login acr without docker
+```sh
+az login --federated-token "$(cat $AZURE_FEDERATED_TOKEN_FILE)" --service-principal -u $AZURE_CLIENT_ID -t $AZURE_TENANT_ID
+acr_token=$(az acr login --name <your-acr-name> --expose-token --query accessToken -o tsv)
+curl -H "Authorization: Bearer $acr_token" https://<my_acr>.azurecr.io/v2/_catalog # api call using token
+```
