@@ -268,3 +268,13 @@ resource "azuread_group_member" "mssql_db_contributor" {
   member_object_id = module.ad_identity.principal_id
 }
 ```
+
+## az login using wirkload identity
+https://github.com/Azure/azure-cli/issues/26858
+
+workaround:
+```sh
+az login --federated-token "$(cat $AZURE_FEDERATED_TOKEN_FILE)" --service-principal -u $AZURE_CLIENT_ID -t $AZURE_TENANT_ID
+```
+- `AZURE_FEDERATED_TOKEN_FILE`: this env var is injected into the pod if you enable workload identity
+- `AZURE_CLIENT_ID`: client_id of the managed identity
