@@ -146,7 +146,7 @@ query = session.query(
 ```
 In this case, the data type for the column `actual_start_date` will be `NullType` instead of `DateTime`.
 
-By digging into the `sqlalchemy` documents we find out that this is caused by the `sql.func.dateadd`. Basically for functions that are not known, the type defaults to the `NullType`. There are also other functions such as `sql.func.replace` and `sql.func.year` that might lead to the `NullType`.
+By digging into the `sqlalchemy` documents we find out that this is caused by the `sql.func.dateadd`. Basically for functions that are not known, the type defaults to the `NullType`. There are also other functions such as `sql.func.replace`, `sql.func.year`, `sql.func.avg` and `sql.func.round` that might lead to the `NullType`.
 
 To fix the issue, we need to pass the data type directly to the function:
 ```py
