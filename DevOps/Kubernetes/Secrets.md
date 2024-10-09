@@ -247,4 +247,12 @@ spec:
               secretProviderClass: "keyvault-secret-provider"
 ```
 
+But not available to all processes! too bad!
+
+### use a third party hel chart
+k8s secret from azue key vault
+- https://stackoverflow.com/questions/75662594/create-kubernetes-secrets-from-azure-keyvault
+- example: https://github.com/SparebankenVest/azure-key-vault-to-kubernetes/issues/96
+
+
 <!-- {% endraw %} -->
