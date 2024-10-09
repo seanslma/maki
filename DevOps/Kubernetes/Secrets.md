@@ -185,4 +185,66 @@ volumes:
     secretName: <secret-name>
 ```
 
+### Mount a secret as a file and then using bash to set the env vars
+Create a `SecretProviderClass`: This will configure how to fetch the secret from Azure Key Vault.
+```yaml
+apiVersion: secrets-store.csi.k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: keyvault-secret-provider
+spec:
+  provider: azure
+  parameters:
+    usePodIdentity: "false"  # Set to "true" if using managed identity
+    keyvaultName: "<your-key-vault-name>"
+    cloudName: "AzurePublicCloud"  # Adjust as necessary
+    objects: |
+      array:
+        - |
+          objectName: "<your-secret-name>"
+          objectType: secret
+    tenantId: "<your-tenant-id>"
+```
+
+Create a `Deployment` with Volume Mount: Update your deployment to include the SecretProviderClass as a volume.
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+        - name: example-container
+          image: your-image
+          volumeMounts:
+            - name: secrets-store
+              mountPath: /mnt/secrets-store
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              # Install jq if it's not available
+              apt-get update && apt-get install -y jq && \
+              # Read the JSON file and set environment variables
+              for key in $(jq -r 'keys[]' /mnt/secrets-store/<your-secret-name>.json); do
+                  value=$(jq -r ".\"$key\"" /mnt/secrets-store/<your-secret-name>.json)
+                  export "$key=$value"
+              done
+              # Your application command here, e.g., ./start-app
+      volumes:
+        - name: secrets-store
+          csi:
+            driver: secrets-store.csi.k8s.io
+            volumeAttributes:
+              secretProviderClass: "keyvault-secret-provider"
+```
+
 <!-- {% endraw %} -->
