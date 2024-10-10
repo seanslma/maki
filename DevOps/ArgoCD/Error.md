@@ -37,3 +37,6 @@ kind: PodDisruptionBudget
 
 ## argocd outofsync `Pending deletion`
 one pod is waiting for another pod but the other one was dead.
+
+## Current Sync Status "Unknown"
+https://github.com/argoproj/argo-cd/issues/15489
