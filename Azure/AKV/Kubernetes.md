@@ -1,5 +1,23 @@
 # Kubernetes
 
+## troubleshoot key-vault-csi-secrets-store-csi-driver
+https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/extensions/troubleshoot-key-vault-csi-secrets-store-csi-driver
+
+check secrets store provider logs
+```sh
+kubectl get pods \
+    --selector 'app in (csi-secrets-store-provider-azure, secrets-store-provider-azure)' \
+    --all-namespaces \
+    --output wide
+kubectl logs <provider-pod-name> --since=1h | grep ^E
+```
+
+Check Secrets Store CSI driver logs
+```sh
+kubectl get pods --selector app=secrets-store-csi-driver --all-namespaces --output wide
+kubectl logs <driver-pod-name> --container secrets-store --since=1h | grep ^E
+```
+
 ## keyvault to aks container
 https://medium.com/@bashaus/3-4-configuring-key-vault-to-expose-environment-variables-to-azure-kubernetes-services-48b633ec9e67
 
@@ -51,3 +69,9 @@ spec:
           objectVersion: ""
     tenantId: "<tenantID>"
 ```
+
+## azure SecretProviderClass not create k8s secret
+https://github.com/Azure/secrets-store-csi-driver-provider-azure/issues/714
+- set `secrets-store-csi-driver.syncSecret.enabled=true` when installing the driver and provider with helm
+- install both driver and provider: The charts in this repo `https://github.com/Azure/secrets-store-csi-driver-provider-azure/tree/master/charts/csi-secrets-store-provider-azure` have the driver charts as dependency and will install the driver and provider
+- must mount the azure key-vault secret to a path in the pod to force creating the k8s secret: `https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/configurations/sync-with-k8s-secrets/#how-to-sync-mounted-content-with-kubernetes-secret`
