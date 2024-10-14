@@ -39,6 +39,7 @@ for k, v in data.items():
 #labels
 with g.subgraph(name='clusterA') as s:
     s.attr(rank='same')
+    s.attr(rankdir='LR') #TB
     s.node('a', 'AA', shape='rnastab')
     s.node('b', 'BB', shape='signature')
 #labels
