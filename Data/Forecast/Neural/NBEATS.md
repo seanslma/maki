@@ -16,3 +16,4 @@ NBEATS (Neural Basis Expansion Analysis for Time Series) is a neural network-bas
 - Requires more data for training compared to XGBoost.
 - Can be computationally expensive to train, especially for large datasets.
 - Interpretability of the model can be challenging.
+- NBEATS does not support future exogenous variables???
