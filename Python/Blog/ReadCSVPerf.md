@@ -182,7 +182,7 @@ The data types passed to the `polars` functions are a dictionary like this: `dty
 - For `datatime` values the dtype is `pl.Datetime`.
 
 The following options are tested:
-- default: without providing the dtypes parameter
+- default: without providing the dtypes parameter. Note that if some columns with float type has empty values, the data type will be parsed as string.
   ```py
   import polars as pl
   pl.read_csv(file)
