@@ -121,3 +121,15 @@ cat metadata.json
   "image.name": "docker.example.com/dev/test"
 }
 ```
+
+## BUILDKIT_HOST
+We should set the env var `BUILDKIT_HOST` for a `buildkitd` service like this
+```
+BUILDKIT_HOST=tcp://<buildkitd-service-name>:<port>
+```
+
+if the `<buildkitd-service-name>` is incorrect, we might get the following error:
+```
+error: listing workers for Build: failed to list workers: Unavailable: connection error:
+desc = "transport: Error while dialing: dial tcp: lookup buildkitd on 10.255.0.9:53: server misbehaving"
+```
