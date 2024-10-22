@@ -8,7 +8,9 @@
   https://www.wias-berlin.de/people/heitsch/ieee03ghr.pdf
 
 - 2003: Scenario reduction algorithms in stochastic programming
-  https://edoc.hu-berlin.de/server/api/core/bitstreams/ed72ccea-3fd6-4e4b-8975-53a27184c758/content
+  - https://edoc.hu-berlin.de/server/api/core/bitstreams/ed72ccea-3fd6-4e4b-8975-53a27184c758/content
+  - backward reduction: eq.(12)
+  - forward reduction: eq.(13)
 
 - 2008: Scenario tree modelling for multistage stochastic programs
   https://edoc.hu-berlin.de/server/api/core/bitstreams/7f0e1eb1-ca9b-42d5-a213-97b1c0b71764/content
