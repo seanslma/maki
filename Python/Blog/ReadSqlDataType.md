@@ -96,6 +96,28 @@ dtype = {
 }
 ```
 
+Note that the items in `query.statement.selected_columns` can have different types, such as:
+
+- <class 'sqlalchemy.sql.elements.Label'>
+- <class 'sqlalchemy.sql.elements.Cast'>
+- <class 'sqlalchemy.sql.annotation.AnnotatedColumn'>
+
+The `Cast` class is from the `sql.func.cast` function:
+
+```py
+query = session.query(
+    sql.func.cast(my_table.price, types.Float),
+)
+```
+
+However, the `Cast` class does not have the `name` property. To fix the issue we have to convert the `Cast` column to a `Lable` column:
+
+```py
+query = session.query(
+    sql.func.cast(my_table.price, types.Float).label('price'),
+)
+```
+
 ## Pass the data type information to `pd.read_sql`
 There is a parameter `dtype` in `pandas.read_sql(..., dtype=None)` that can be used to pass the data types for the query results.
 
@@ -146,7 +168,7 @@ query = session.query(
 ```
 In this case, the data type for the column `actual_start_date` will be `NullType` instead of `DateTime`.
 
-By digging into the `sqlalchemy` documents we find out that this is caused by the `sql.func.dateadd`. Basically for functions that are not known, the type defaults to the `NullType`. There are also other functions such as `sql.func.replace`, `sql.func.year`, `sql.func.avg` and `sql.func.round` that might lead to the `NullType`.
+By digging into the `sqlalchemy` documents we find out that this is caused by the `sql.func.dateadd`. Basically for functions that are not known, the type defaults to the `NullType`. There are also other functions such as `sql.func.rtrim`, `sql.func.replace`, `sql.func.year`, `sql.func.avg` and `sql.func.round` that might lead to the `NullType`.
 
 To fix the issue, we need to pass the data type directly to the function:
 ```py
@@ -154,6 +176,8 @@ sql.func.dateadd(
     sql.text('day'), 1, sp.StartDate, type_=types.DateTime
 ).label('actual_start_date')
 ```
+
+
 
 ## Reference
 
