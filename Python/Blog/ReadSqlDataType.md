@@ -106,7 +106,7 @@ The `Cast` class is from the `sql.func.cast` function:
 
 ```py
 query = session.query(
-    sql.func.cast(my_table.price, types.Float),
+    sql.func.cast(sp.Price, types.Float),
 )
 ```
 
@@ -114,7 +114,7 @@ However, the `Cast` class does not have the `name` property. To fix the issue we
 
 ```py
 query = session.query(
-    sql.func.cast(my_table.price, types.Float).label('price'),
+    sql.func.cast(sp.Price, types.Float).label('price'),
 )
 ```
 
