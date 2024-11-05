@@ -1,5 +1,7 @@
 # data type
 
+https://arrow.apache.org/docs/python/api/datatypes.html
+
 https://arrow.apache.org/docs/python/generated/pyarrow.dictionary.html
 
 ## pyarrow to numpy
