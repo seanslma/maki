@@ -67,12 +67,17 @@ The regional original price (**ROP**) includes the cost of any constraint violat
 ## trading
 Public 30 minute dispatch data by region. Data covers interconnector flows, regional reference price, demand, dispatchable generation, dispatchable load, and ancillary services data.
 
-## p5min
+## predispatch
+5-minute Predispatch: This provides a 60-minute look-ahead forecast, updated every 5 minutes.
+30-minute Predispatch: This provides a 40-hour look-ahead forecast, updated every 30 minutes.  
+7-day Predispatch: This provides a 7-day look-ahead forecast, updated daily.
+
+### p5min
 The five-minute predispatch (P5Min) is a MMS system providing projected dispatch for 12 Dispatch cycles (one hour). The 5-minute Predispatch cycle runs every 5-minutes to produce a dispatch and pricing schedule to a 5-minute resolution covering the next hour, a total of twelve periods.
 
 For each interval_datetime there will be 12 runs with the last run_datetime starting from the interval_datetime.
 
-## predispatchis
+### predispatchis
 30 minute predispatch (forecast) data by region to the end of the next market day (from 1 pm why it goes to the next day), and is updated half hourly.
 
 Regional demand can be calculated as total demand plus dispatchable load (i.e. Regional demand =
