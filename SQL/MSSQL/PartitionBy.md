@@ -4,6 +4,22 @@ https://www.sqlshack.com/sql-partition-by-clause-overview/
 
 PartitionBy will calculate the aggregated value in each partition and broadcast the value back to each row; can add original col as well - so the row number will not decrease.
 
+## get latest version
+```sql
+SELECT
+  *
+FROM (
+  SELECT
+    *,
+    ROW_NUMBER() OVER (PARTITION BY column_to_group_by ORDER BY version_ DESC) AS rn
+  FROM
+    your_table
+) AS t
+WHERE
+  rn = 1
+```
+
+## examples
 ```sql
 IF OBJECT_ID(N'tempdb..#tmpx') IS NOT NULL
 BEGIN
