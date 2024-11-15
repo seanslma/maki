@@ -14,6 +14,12 @@ Data aspects:
 
 https://neptune.ai/blog/arima-vs-prophet-vs-lstm
 
+## methods
+why does forecast combination work?
+- https://scholar.cu.edu.eg/?q=amiratiya/files/m4-ijf.pdf
+- average of diverse or comparable forecasts has a shorter distance to the true values compared to each of the forecast
+- exclude forecasts that are considerably worse than the best ones in the pool, unless they are very diverse from the rest
+
 ## retrospect
 - check accuracy each week
 - target: minimize cost or forecast error?
