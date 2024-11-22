@@ -1,6 +1,6 @@
 # Price forecast
-price forecast is harder than demand forecast as price is not directly lined to weather conditions. 
-Price is more volatile - can have many spikes. Capacity availability and generator and interconnector outages will have a significant affect on price spikes.
+Price forecast is harder than demand forecast as price is not directly lined to weather conditions. 
+Price is more volatile - can have many spikes. Capacity availability and generator and interconnector outages will have a significant role on price spikes.
 
 ## weather and price forecast
 https://montel.energy/blog/predicting-energy-prices-the-role-of-weather-forecasts
