@@ -13,6 +13,9 @@ Each will encoded into the `sine` and `cosine` features.
 
 ## sin/cos features
 ```py
+# sin(2 * pi * x / max(x))
+# cos(2 * pi * x / max(x))
+
 # hour
 df['h_sin'] = np.sin(np.pi * df['hour'] / 12)
 df['h_cos'] = np.cos(np.pi * df['hour'] / 12)
@@ -24,6 +27,16 @@ df['y_sin'] = np.sin(np.pi * df['day_of_year'] / 183)
 df['y_cos'] = np.cos(np.pi * df['day_of_year'] / 183)
 ```
 
+## radial basis function
+sin/cos vs radial basis function (rbf):
+https://developer.nvidia.com/blog/three-approaches-to-encoding-time-information-as-features-for-ml-models/
+
+diff:
+- sin/cos: cyclical or periodic data, such as time series data
+- rbf: non-linear relationships and capturing complex patterns in data, such as images
+- rbf can introduce more complexity to the model, which may lead to overfitting if not carefully tuned
+- rbf can be computationally more expensive than sine/cosine features, especially for large datasets
+  
 ## lag and lag diff/auto correlation
 ```py
 df['x_lag1'] = df.groupby(['id'])['x'].shift(1)
