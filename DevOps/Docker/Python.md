@@ -32,3 +32,6 @@ CMD [ "test-run" ]
 
 ## Activate conda env in Dockerfile
 https://pythonspeed.com/articles/activate-conda-dockerfile/
+
+## python /docker perf
+https://pythonspeed.com
