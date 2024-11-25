@@ -43,7 +43,7 @@ Let's create a 2D numpy array filled with randomly generated data. Each row repr
 ```py
 import numpy as np
 np.random.seed(11)
-arr = np.random.rand(100, 2000)
+arr = np.random.rand(100, 1000)
 ```
 
 ## Initial version
