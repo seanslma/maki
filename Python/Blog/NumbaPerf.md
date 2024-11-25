@@ -1,4 +1,5 @@
-# Make Python Loops 10x Faster Using Numba
+# Make Python Loops 10x to 700x Faster Using Numba
+Learning faster Python fast with Sean
 
 Numba is a just-in-time (JIT) compiler for python that translates python code into highly optimized machine code at runtime. It can significantly improve the performance of numerical computations by enabling high-performance execution of functions, particularly those that make heavy use of numpy arrays.
 
@@ -42,13 +43,13 @@ Let's create a 2D numpy array filled with randomly generated data. Each row repr
 ```py
 import numpy as np
 np.random.seed(11)
-arr = np.random.rand(1000, 2000)
+arr = np.random.rand(100, 2000)
 ```
 
 ## Initial version
 We calculate the distance between two scenarios using the 1-norm, which measures the sum of the absolute differences between corresponding elements.
 ```py
-def calculate_distances(arr):
+def calculate_distances1(arr):
     m = arr.shape[0]
     n = arr.shape[1]
     dist_arr = np.zeros((m, m))
@@ -60,14 +61,14 @@ def calculate_distances(arr):
             dist_arr[i, j] = v
             dist_arr[j, i] = v
     return dist_arr
-# 1.03 s ± 14.7 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+# 2.68 s ± 16.8 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 ```
-The run time is about 15 minutes. That is too slow and we must improve the performance.
+The run time is about 2.68 minutes, for 100 scenarios. If we have 1000 scenarios the time would be 268 minutes. That is too slow and we must improve the performance.
 
 ## Using numpy function
 Here we update the code to calculate the 1-norm using the numpy function `np.linalg.norm()`.
 ```py
-def calculate_distances(arr):
+def calculate_distances2(arr):
     m = arr.shape[0]
     dist_arr = np.zeros((m, m))
     for i in range(m):
@@ -75,18 +76,18 @@ def calculate_distances(arr):
             dist_arr[i, j] = np.linalg.norm(arr[i] - arr[j], 1)
             dist_arr[j, i] = dist_arr[i, j]
     return dist_arr
-# 1.03 s ± 14.7 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+# 40.7 ms ± 1.50 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 ```
-Now the run time is 1.03 seconds - about 15x faster! As the numpy function is implemented in C, there is no surprise that the performance has been improved significantly.
+Now the run time is 40.7 ms - about `65x` faster! As the numpy function is implemented in C, there is no surprise that the performance has been improved significantly.
 
 ## Using numba.njit
 Can we improve the performance further? Yes, by using numba, definitely we can.
 ```py
 from numba import njit
 @njit(cache=True)
-def calculate_distances(arr):
+def calculate_distances3(arr):
     ...
-# 270 ms ± 12.7 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+# 10.9 ms ± 507 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 ```
 It is great that there is a `4x` performance improvement with numba on the numpy function.
 
@@ -98,19 +99,19 @@ When we set `cache=True`, numba stores the compiled function in a cache on disk.
 Can we do it better? Yes, we need to use numba data type signature.
 ```py
 @njit('float64[:,::1](float64[:,::1])', cache=True)
-def calculate_distances(arr):
+def calculate_distances4(arr):
     ...
-# 264 ms ± 2.21 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+# 10.5 ms ± 208 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 ```
-We explicitly set the data types of the input parameters and the output. More details about the numba data type signature can be found in the numba documents (see References section).
+We explicitly set the data types of the input parameters and the output. In this case, there is only minor performance improvement, most likely that numba can infer data types even without data type signature. More details about the numba data type signature can be found in the numba documents (see References section).
 
-By specifying data types, numba can generate more efficient machine code. Knowing the exact types allows it to optimize the generated code for those types, leading to faster execution and improved memory management.
+In generall, by specifying data types, numba can generate more efficient machine code. Knowing the exact types allows it to optimize the generated code for those types, leading to faster execution and improved memory management. 
 
-## Replacing numpy function with a python for loop
-As numba is good for loops, here we will replace the numpy function by a `for loop` to further boost performance.
+## Replacing numpy function with a python loop
+As numba is good for loops, here we will replace the numpy function by a `python loop` to further boost performance.
 ```py
 @njit('float64[:,::1](float64[:,::1])', cache=True)
-def calculate_distances(arr):
+def calculate_distances5(arr):
     m = arr.shape[0]
     n = arr.shape[1]
     dist_arr = np.zeros((m, m))
@@ -122,7 +123,7 @@ def calculate_distances(arr):
             dist_arr[i, j] = v
             dist_arr[j, i] = v
     return dist_arr
-# 88.5 ms ± 2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+# 8.20 ms ± 163 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 ```
 Numba is indeed good for loops. There is a `1.2x` performance improvement now.
 
@@ -131,7 +132,7 @@ Modern computers often have multiple cores. By leveraging parallel computing, we
 ```py
 from numba import njit, prange
 @njit('float64[:,::1](float64[:,::1])', cache=True, parallel=True, nogil=True)
-def calculate_distances(arr):
+def calculate_distances6(arr):
     m = arr.shape[0]
     n = arr.shape[1]
     dist_arr = np.zeros((m, m))
@@ -143,14 +144,13 @@ def calculate_distances(arr):
             dist_arr[i, j] = v
             dist_arr[j, i] = v
     return dist_arr
-# 122 ms ± 10.2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
-# 88.5 ms ± 2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+# 3.68 ms ± 157 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 ```
 Here we update the code to use numba `parallel mode` with the help of the `prange` function.
 
 By setting `parallel=True`, numba's JIT compiler will analyze the function's code and automatically identify opportunities for parallelization, especially within loops. However, using `prange` provides more explicit control over parallelization and can be more effective in certain cases.
 
-Finally the run time is 88 ms. It is about `10x` faster compared to the numpy function version without using numba.njit (1.03 seconds). It is `150x` faster compared to the raw python code (15.0 seconds).
+Finally the run time is 3.68 ms (4 cpu cores). It is about `10x` faster compared to the numpy function version without using numba.njit (40.7 ms). It is about `700x` faster compared to the raw python code (2.68 seconds).
 
 References:
 - [Numba data type signature](https://numba.pydata.org/numba-doc/dev/reference/types.html)
