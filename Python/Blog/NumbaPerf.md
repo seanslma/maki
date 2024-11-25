@@ -1,8 +1,8 @@
 # Make Python Loops 10x Faster Using Numba
 
-Numba is a just-in-time (JIT) compiler for Python that translates Python code into highly optimized machine code at runtime. It can significantly improve the performance of numerical computations by enabling high-performance execution of functions, particularly those that make heavy use of numpy arrays.
+Numba is a just-in-time (JIT) compiler for python that translates python code into highly optimized machine code at runtime. It can significantly improve the performance of numerical computations by enabling high-performance execution of functions, particularly those that make heavy use of numpy arrays.
 
-Here we will first briefly explain key features of numba and when to use it, and then provide an example demonstrating how to accelerate code performance by leveraging various numba features.
+Here we will first briefly explain key features of numba and when to use it, and then provide an example demonstrating how to accelerate code performance by leveraging various numba features. If you are already familiar with numba, go directly to the third section about the demonstration.
 
 ## Key features of numba
 
@@ -14,7 +14,7 @@ Here we will first briefly explain key features of numba and when to use it, and
 
 ## When to use and to avoid numba
 
-Numba is particularly well-suited for numerical computations involving arrays and mathematical operations. Here are some specific cases where we should consider using Numba:
+Numba is particularly well-suited for numerical computations involving arrays and mathematical operations. Here are some specific cases where we should consider using numba:
 
 - **Array operations**: If our code heavily involves operations on numpy arrays, such as element-wise arithmetic, matrix multiplication, or reductions, numba can significantly accelerate these computations.
 - **Mathematical functions**: Numba can optimize calls to mathematical functions like `sin`, `cos`, `exp`, and `log`, providing a performance boost compared to their python counterparts.
@@ -50,6 +50,7 @@ We calculate the distance between two scenarios using the 1-norm, which measures
 ```py
 def calculate_distances(arr):
     m = arr.shape[0]
+    n = arr.shape[1]
     dist_arr = np.zeros((m, m))
     for i in range(m):
         for j in range(i):
@@ -109,7 +110,7 @@ By specifying data types, numba can generate more efficient machine code. Knowin
 As numba is good for loops, here we will replace the numpy function by a `for loop` to further boost performance.
 ```py
 @njit('float64[:,::1](float64[:,::1])', cache=True)
-def calculate_distances5(arr):
+def calculate_distances(arr):
     m = arr.shape[0]
     n = arr.shape[1]
     dist_arr = np.zeros((m, m))
@@ -125,7 +126,7 @@ def calculate_distances5(arr):
 ```
 Numba is indeed good for loops. There is a `1.2x` performance improvement now.
 
-## Using njit parallel mode
+## Using numba.njit parallel mode
 Modern computers often have multiple cores. By leveraging parallel computing, we can significantly reduce execution time.
 ```py
 from numba import njit, prange
