@@ -8,14 +8,14 @@
 https://lightgbm.readthedocs.io/en/latest/Parameters.html
 
 The hyperparameters that have the greatest effect on optimizing the LightGBM evaluation metrics are [ref](https://docs.aws.amazon.com/sagemaker/latest/dg/lightgbm-tuning.html): 
-- num_iterations: [50, 1000]. How many trees will be built
-- learning_rate: [0.001, 0.01]. default=0.1.
-- num_leaves: [10, 100], (1, 131072], default=31. Maximum number of leaves in one tree
-- feature_fraction: [0.1, 1], default=1. randomly select a subset of features on each iteration (tree)
-- bagging_fraction: [0.1, 1]. alias: `subsample`. randomly select part of data without resampling
-- bagging_freq: [0, 10]. frequency for bagging
-- max_depth: [15, 100]. Maximum depth of the tree
-- min_data_in_leaf: [10, 200], default=20. Minimal number of data in one leaf
+- `num_iterations`: [50, 1000]. How many trees will be built
+- `learning_rate`: [0.001, 0.01]. default=0.1.
+- `num_leaves`: [10, 100], (1, 131072], default=31. Maximum number of leaves in one tree
+- `feature_fraction`: [0.1, 1], default=1. randomly select a subset of features on each iteration (tree)
+- `bagging_fraction`: [0.1, 1]. alias: `subsample`. randomly select part of data without resampling
+- `bagging_freq`: [0, 10]. frequency for bagging
+- `max_depth`: [15, 100]. Maximum depth of the tree
+- `min_data_in_leaf`: [10, 200], default=20. Minimal number of data in one leaf
 
 ## example
 https://github.com/microsoft/LightGBM/issues/2930
