@@ -26,3 +26,8 @@ cv_split = TimeSeriesSplit(n_splits=4, test_size=100) # Coefficient of Variation
 grid_search = GridSearchCV(estimator=model, cv=cv_split, param_grid=parameters)
 grid_search.fit(X_train, y_train)
 ```
+
+Note that:
+- GridSearchCV: Iterates over all combinations of hyperparameters in the grid. Can be computationally expensive, especially for large parameter grids and complex models.   
+- RandomizedSearchCV: For a more efficient approach, consider using RandomizedSearchCV, which samples a fixed number of hyperparameter combinations randomly.   
+- Bayesian Optimization: More advanced techniques like Bayesian optimization can further optimize the search process by intelligently selecting the next hyperparameter combination to evaluate.
