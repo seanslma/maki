@@ -1,5 +1,7 @@
 # Make Python Loops 10x to 700x Faster Using Numba
-Learning faster Python fast with AI
+Learning faster Python fast with Sean
+
+Note: This post was partially created with the assistance of AI.
 
 Numba is a just-in-time (JIT) compiler for python that translates python code into highly optimized machine code at runtime. It can significantly improve the performance of numerical computations by enabling high-performance execution of functions, particularly those that make heavy use of numpy arrays.
 
@@ -63,7 +65,7 @@ def calculate_distances1(arr):
     return dist_arr
 # 2.68 s ± 16.8 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 ```
-The run time is about 2.68 minutes, for 100 scenarios. If we have 1000 scenarios the time would be 268 minutes. That is too slow and we must improve the performance.
+The run time is about 2.68 seconds, for 100 scenarios. If we have 1000 scenarios the time would be 268 seconds. That is too slow and we must improve the performance.
 
 ## Using numpy function
 Here we update the code to calculate the 1-norm using the numpy function `np.linalg.norm()`.
@@ -105,7 +107,7 @@ def calculate_distances4(arr):
 ```
 We explicitly set the data types of the input parameters and the output. In this case, there is only minor performance improvement, most likely that numba can infer data types even without data type signature. More details about the numba data type signature can be found in the numba documents (see References section).
 
-In generall, by specifying data types, numba can generate more efficient machine code. Knowing the exact types allows it to optimize the generated code for those types, leading to faster execution and improved memory management. 
+In generall, by specifying data types, numba can generate more efficient machine code. Knowing the exact types allows it to optimize the generated code for those types, leading to faster execution and improved memory management.
 
 ## Replacing numpy function with a python loop
 As numba is good for loops, here we will replace the numpy function by a `python loop` to further boost performance.
@@ -136,7 +138,7 @@ def calculate_distances6(arr):
     m = arr.shape[0]
     n = arr.shape[1]
     dist_arr = np.zeros((m, m))
-    for i in range(m):
+    for i in prange(m):
         for j in range(i):
             v = 0.0
             for k in range(n):
@@ -152,7 +154,7 @@ By setting `parallel=True`, numba's JIT compiler will analyze the function's cod
 
 Finally the run time is 3.68 ms (4 cpu cores). It is about `10x` faster compared to the numpy function version without using numba.njit (40.7 ms). It is about `700x` faster compared to the raw python code (2.68 seconds).
 
-References:
+## References
 - [Numba data type signature](https://numba.pydata.org/numba-doc/dev/reference/types.html)
 - [Numba data type signature caveats](https://stackoverflow.com/questions/66205186/python-signature-with-numba)
 - [Optimizing python loops using numba](https://pythonspeed.com/articles/slow-numba)
