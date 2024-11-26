@@ -1,4 +1,29 @@
-# Parameters
+# XGB Parameters
+
+## Search Grid Parameters
+```py
+XGB_Grid_Params = {
+    'max_depth': [3, 4, 5, 6, 8, 10],
+    'learning_rate': [0.01, 0.05, 0.1, 0.2],
+    'n_estimators': [100, 250, 500, 750, 1000],
+    'subsample': np.arange(0.5, 1.0, 0.1),
+    'colsample_bytree': np.arange(0.4, 1.0, 0.1),
+    'colsample_bylevel': np.arange(0.4, 1.0, 0.1),
+    'reg_alpha': [0, 0.1, 0.3],
+    'reg_lambda': [1, 2, 4],
+}
+```
+- max_depth: [3, 10], default=6. The maximum depth of each tree
+- learning_rate: [0.01, 0.3], default=0.3. Controls the contribution of each tree to the final prediction
+- n_estimators: [50, 1000], default=100. The number of boosting rounds (trees) to fit. Higher values improve model accuracy but increase the risk of overfitting
+- subsample: [0.5, 1], default=1. Proportion of training data to randomly sample for each tree. Used to prevent overfitting
+- colsample_bytree: [0.5, 1], default=1. Proportion of features to randomly sample for each tree
+- colsample_bylevel: [0.5, 1], default=1. Proportion of features to sample for each level of each tree
+
+Regularization:
+- both `reg_alpha` and `reg_lambda` are regularization parameters used to control overfitting by penalizing the complexity of the model
+- `reg_alpha`: [0, inf], defsult=0. L1 regularization on the weights. Push some weights to zero, effectively performing feature selection
+- `reg_lambda`: [0, inf], defsult=1. L2 regularization on the weights. Keep the weights small and evenly distributed across features, which prevents the model from fitting too closely to the training data
 
 ## subsample
 - `subsample`: the fraction of the training samples (randomly selected rows) that will be used to train each tree
