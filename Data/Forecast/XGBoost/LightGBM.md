@@ -11,11 +11,11 @@ The hyperparameters that have the greatest effect on optimizing the LightGBM eva
 - `num_iterations`: [50, 1000]. How many trees will be built
 - `learning_rate`: [0.001, 0.01]. default=0.1.
 - `num_leaves`: [10, 100], (1, 131072], default=31. Maximum number of leaves in one tree
+- `max_depth`: [15, 100]. Maximum depth of the tree
+- `min_data_in_leaf`: [10, 200], default=20. Minimal number of data in one leaf
 - `feature_fraction`: [0.1, 1], default=1. alias: colsample_bytree. randomly select a subset of features on each iteration (tree)
 - `bagging_fraction`: [0.1, 1]. alias: `subsample`. randomly select part of data without resampling
 - `bagging_freq`: [0, 10]. frequency for bagging
-- `max_depth`: [15, 100]. Maximum depth of the tree
-- `min_data_in_leaf`: [10, 200], default=20. Minimal number of data in one leaf
 - `lambda_l1`: default=0. alias: reg_alpha
 - `lambda_l2`: default=0. alias: reg_lambda.
 
@@ -35,12 +35,12 @@ params = {
     'device_type': 'gpu',       
     'num_threads': 0,          
     'learning_rate': 0.02,
-    'num_leaves': 96,     
+    'num_leaves': 96,
+    'min_data_in_leaf': 1500, 
     'feature_fraction': 0.6,
     'feature_fraction_bynode': 0.9,     
     'bagging_fraction': 0.8, 
     'bagging_freq': 5,     
-    'min_data_in_leaf': 1500,
 }
 
 num_iterations = 1200 # number of iterations
