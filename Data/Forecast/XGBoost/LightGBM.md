@@ -11,11 +11,13 @@ The hyperparameters that have the greatest effect on optimizing the LightGBM eva
 - `num_iterations`: [50, 1000]. How many trees will be built
 - `learning_rate`: [0.001, 0.01]. default=0.1.
 - `num_leaves`: [10, 100], (1, 131072], default=31. Maximum number of leaves in one tree
-- `feature_fraction`: [0.1, 1], default=1. randomly select a subset of features on each iteration (tree)
+- `feature_fraction`: [0.1, 1], default=1. alias: colsample_bytree. randomly select a subset of features on each iteration (tree)
 - `bagging_fraction`: [0.1, 1]. alias: `subsample`. randomly select part of data without resampling
 - `bagging_freq`: [0, 10]. frequency for bagging
 - `max_depth`: [15, 100]. Maximum depth of the tree
 - `min_data_in_leaf`: [10, 200], default=20. Minimal number of data in one leaf
+- `lambda_l1`: default=0. alias: reg_alpha
+- `lambda_l2`: default=0. alias: reg_lambda.
 
 ## example
 https://github.com/microsoft/LightGBM/issues/2930
@@ -30,26 +32,26 @@ params = {
     'verbose': -1, 
     'objective': 'regression_l1', 
     'seed': 13,
-    'device': 'gpu',       
-    'n_jobs': -1,          
+    'device_type': 'gpu',       
+    'num_threads': 0,          
     'learning_rate': 0.02,
     'num_leaves': 96,     
     'feature_fraction': 0.6,
     'feature_fraction_bynode': 0.9,     
     'bagging_fraction': 0.8, 
     'bagging_freq': 5,     
-    'min_child_samples': 1500,
+    'min_data_in_leaf': 1500,
 }
 
-num_boost_round = 1200 # number of iterations
+num_iterations = 1200 # number of iterations
 # train model
 train_set = lgb.Dataset(df[xcols], df['target'])
 model = lgb.train(
-    params, 
-    train_set,
-    num_boost_round,
+    params=params, 
+    train_set=train_set,
+    num_boost_round=num_iterations,
+    valid_sets=[train_set, test_set],
     init_model=None, 
-    valid_sets=[train_set, test_set], 
     callbacks=[lgb.log_evaluation(50), lgb.early_stopping(stopping_rounds=250)],
 )
 model.save_model('lgb_model.txt')
