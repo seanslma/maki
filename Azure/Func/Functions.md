@@ -2,5 +2,5 @@
 
 ## install python package
 ```sh
-mamba install azure-functions -y
+pip install azure-functions
 ```
