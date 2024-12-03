@@ -21,3 +21,6 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local
   ```sh
   func new --template "Timer Trigger" --name my_timer_trigger
   ```
+
+## issues
+"Create in Azure portal" has been disabled for consumption type.
