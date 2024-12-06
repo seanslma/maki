@@ -4,3 +4,7 @@
 ```sh
 cat ./*.txt | grep 'my-test-name' > test.txt
 ```
+## merge two yml files
+```sh
+cat file1.yml <(echo "---") file2.yml > merged.yml
+```
