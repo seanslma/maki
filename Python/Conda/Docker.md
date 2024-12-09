@@ -2,6 +2,18 @@
 
 Steps to build the docker image for a conda app `my-app`.
 
+## install conda
+```dockerfile
+COPY --chown=user:user docker/.bashenv /home/user/.bashenv
+COPY --chown=user:user docker/.condarc /home/user/.condarc
+ARG CONDA_VER=24.11.0
+ARG MAMBA_VER=2.0.4
+RUN conda-pin-package conda=$CONDA_VER && \
+    conda config --set ssl_verify /etc/ssl/certs/ca-certificates.crt && \
+    conda-install conda mamba==$MAMBA_VER && \
+    conda-clean
+```
+
 ## build conda package `my-app.tar.bz2`
 Note that the `--croot` folder must be **outside of the project folder**.
 ```sh
