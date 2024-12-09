@@ -6,6 +6,17 @@ buildctl [global options] command [command options] [arguments...]
 
 https://github.com/moby/buildkit#imageregistry
 
+## install buildkit client
+```dockerfile
+ARG BUILDKIT_VER=v0.17.5
+RUN url="https://github.com/moby/buildkit/releases/download/" \
+    "${url}${BUILDKIT_VERSION}/buildkit-${BUILDKIT_VER}.linux-amd64.tar.gz" && \
+    curl -sL $url -o buildkit.tar.gz && \
+    tar xvf buildkit.tar.gz && \
+    mv bin/buildctl /usr/local/bin/ && \
+    rm -rf buildkit.tar.gz bin
+```
+
 ## transition from docker to buildkit
 https://dille.name/slides/2020-05-28/110_ecosystem/buildkit/transition.final/
 
