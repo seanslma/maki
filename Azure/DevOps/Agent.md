@@ -27,3 +27,17 @@ https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/scale-set-agents
 ## firewall
 https://learn.microsoft.com/en-us/azure/devops/server/admin/setup-secure-sockets-layer?view=azure-devops-2022
 - It tries to connect to VSTS on `HTTPS` i.e `port 443`
+
+## install vsts-agent in docker
+```dockerfile
+# vsts-agent
+ARG AGENT_VER=4.248.1
+RUN \
+    # https://github.com/Microsoft/azure-pipelines-agent/releases
+    url="https://vstsagentpackage.azureedge.net/agent/${AGENT_VER}/vsts-agent-linux-x64-${AGENT_VER}.tar.gz" && \
+    mkdir /home/user/agent && \
+    curl -sL $url | tar -xz -C /home/user/agent && \
+    chown --recursive user:user /home/user/agent && \
+    # install dependencies explicitly instead of using agent/bin/installdependencies.sh
+    apt-get install --yes liblttng-ust1 libkrb5-3 libicu70 zlib1g
+```
