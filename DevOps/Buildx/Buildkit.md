@@ -3,6 +3,13 @@
 ## disk usage
 https://github.com/moby/buildkit/issues/4218
 
+check where disk has been used and the solution!!!
+
+run into the buildkitd pod:
+```sh
+du -sh
+```
+
 ## docs
 https://docs.docker.com/build/buildkit/
 
