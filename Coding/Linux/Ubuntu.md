@@ -3,9 +3,17 @@
 ## install libssl1.1 latest in ubuntu 22.04 
 - https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/installdependencies.sh
 - https://stackoverflow.com/questions/72133316/libssl-so-1-1-cannot-open-shared-object-file-no-such-file-or-directory
+
+use wget
 ```sh
 package=$(wget -qO- http://security.ubuntu.com/ubuntu/pool/main/o/openssl/ | grep -oP '(libssl1.1_1.1.1f.*?_amd64.deb)' | head -1)
 wget "http://security.ubuntu.com/ubuntu/pool/main/o/openssl/${package}" && dpkg -i $package 
+```
+
+use curl
+```sh
+package=$(curl -sL http://security.ubuntu.com/ubuntu/pool/main/o/openssl/ | grep -oP '(libssl1.1_1.1.1f.*?_amd64.deb)' | head -1)
+curl -LO "http://security.ubuntu.com/ubuntu/pool/main/o/openssl/${package}" && dpkg -i $package
 ```
 
 ## Change mirror site in sources.list
