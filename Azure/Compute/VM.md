@@ -3,6 +3,9 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-host-memory-o
 
 https://www.cbtnuggets.com/blog/certifications/microsoft/how-to-choose-the-best-virtual-machine-for-your-workload-in-azure
 
+## pricing
+https://azure.microsoft.com/en-ca/pricing/details/virtual-machines/linux/
+
 ## vm cpu quota
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quotas
 
