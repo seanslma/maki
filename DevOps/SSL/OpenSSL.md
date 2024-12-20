@@ -6,6 +6,11 @@ https://medium.com/@superseb/get-your-certificate-chain-right-4b117a9c0fce
 openssl version -d
 ```
 
+## openssl 3.0 UnsafeLegacyRenegotiation disabled
+- https://stackoverflow.com/questions/75763525/curl-35-error0a000152ssl-routinesunsafe-legacy-renegotiation-disabled
+- https://github.com/openssl/openssl/issues/21296
+ - python fix? https://stackoverflow.com/questions/71603314/ssl-error-unsafe-legacy-renegotiation-disabled/73519818#73519818
+
 ## check cert
 ```
 openssl rsa -check -in server.key 
