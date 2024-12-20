@@ -17,3 +17,8 @@ There is a third recovery mode not mentioned above. In cases where you are going
   USE master;
   ALTER DATABASE model SET RECOVERY BULK_LOGGED; --change
   ALTER DATABASE model SET RECOVERY SIMPLE; --change it back
+
+
+## connection
+openssl 3.0: 
+https://github.com/microsoft/msphpsql/issues/1112
