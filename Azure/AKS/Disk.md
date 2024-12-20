@@ -13,6 +13,15 @@ https://techcommunity.microsoft.com/blog/fasttrackforazureblog/everything-you-wa
 - no data loss
 - slower
 
+## check pod disk usage
+how to check disk usage:
+- https://neilcameronwhite.medium.com/under-disk-pressure-34b5ba4284b6
+- run into pod and execute `du -sh`
+- disks and usage: `df -h /var/lib/docker`
+- usage of each folder: `du -sh /var/lib/docker/* | sort -h`
+- files that are open: `lsof /var/lib/docker/ | grep deleted | head`
+- can use shell to get disk usage for all pods
+  
 ## increase node disk size
 - Managed disk is slower and has a cost but can specify the size.
 - Ephemeral disk size should not be larger than the temp/cache size of the vm_size
