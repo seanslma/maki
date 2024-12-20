@@ -15,6 +15,6 @@ https://techcommunity.microsoft.com/blog/fasttrackforazureblog/everything-you-wa
 
 ## increase node disk size
 ```tf
-os_disk_type                 = "Ephemeral"  # {Ephemeral|Managed}
-os_disk_size_gb              = 256          # default 128 GB
+os_disk_type    = "Ephemeral"  # {Ephemeral|Managed}
+os_disk_size_gb = 256          # default 128 GB
 ```
