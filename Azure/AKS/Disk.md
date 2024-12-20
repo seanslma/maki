@@ -12,3 +12,9 @@ https://techcommunity.microsoft.com/blog/fasttrackforazureblog/everything-you-wa
 - data will be saved to the remote Azure Storage
 - no data loss
 - slower
+
+## increase node disk size
+```tf
+os_disk_type                 = "Ephemeral"  # {Ephemeral|Managed}
+os_disk_size_gb              = 256          # default 128 GB
+```
