@@ -44,3 +44,16 @@ Solutions:
   CipherString = DEFAULT:@SECLEVEL=0
   ```
   Change last `CipherString` line from `CipherString = DEFAULT:@SECLEVEL=2` to `CipherString = DEFAULT:@SECLEVEL=0`
+
+  dockerfile
+  ```dockerfile
+  USER root
+  
+  # workaround for ubuntu 22.04 and sql odbc driver 7 for sql server 12.0
+  # https://github.com/microsoft/msphpsql/issues/1112
+  RUN head -n -1 /etc/ssl/openssl.cnf > openssl_temp_file && \
+      echo "CipherString = DEFAULT:@SECLEVEL=0" >> openssl_temp_file && \
+      mv openssl_temp_file /etc/ssl/openssl.cnf
+  
+  USER user
+  ```
