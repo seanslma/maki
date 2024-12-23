@@ -26,6 +26,11 @@ EOF
 ```
 Limitation: "$only" will became "".
 
+## replace last line
+```sh
+head -n -1 filename.txt; echo "New last line content"; } > filename.txt
+```
+
 ## escape special characters and keep leading spaces and tabs
 - `'EOF'` will escape special characters
 - `<<-` will keep (or strip) leading spaces and tabs???
