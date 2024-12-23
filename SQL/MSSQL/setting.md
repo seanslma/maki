@@ -22,3 +22,17 @@ There is a third recovery mode not mentioned above. In cases where you are going
 ## connection
 openssl 3.0: 
 https://github.com/microsoft/msphpsql/issues/1112
+
+## ubuntu 22.04 and old sql server
+- SQL Server: 12.0.4100.1
+- ODBC Driver 17
+
+Solutions:
+- upgrade server to latest version
+- modify `/etc/ssl/openssl.cnf`
+  ```
+  [system_default_sect]
+  MinProtocol = TLSv1.2
+  # CipherString = DEFAULT@SECLEVEL=1
+  CipherString = DEFAULT:@SECLEVEL=0
+  ```
