@@ -28,7 +28,7 @@ Limitation: "$only" will became "".
 
 ## replace last line
 ```sh
-head -n -1 filename.txt; echo "New last line content"; } > filename.txt
+{ head -n -1 filename.txt; echo "New last line content"; } > filename.txt
 ```
 
 ## escape special characters and keep leading spaces and tabs
