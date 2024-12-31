@@ -1,4 +1,4 @@
-# LightGBM
+# Example
 
 ## LightGBM vs XGBoost
 - LightGBM generally faster than XGBoost, especially for large datasets, does not support arrow
@@ -7,7 +7,7 @@
 ## parameters
 https://lightgbm.readthedocs.io/en/latest/Parameters.html
 
-The hyperparameters that have the greatest effect on optimizing the LightGBM evaluation metrics are [ref](https://docs.aws.amazon.com/sagemaker/latest/dg/lightgbm-tuning.html): 
+The hyperparameters that have the greatest effect on optimizing the LightGBM evaluation metrics are [ref](https://docs.aws.amazon.com/sagemaker/latest/dg/lightgbm-tuning.html):
 - `num_iterations`: [50, 1000]. How many trees will be built
 - `learning_rate`: [0.001, 0.01]. default=0.1.
 - `num_leaves`: [10, 100], (1, 131072], default=31. Maximum number of leaves in one tree
@@ -29,29 +29,29 @@ https://www.kaggle.com/code/pnprabakaran/feature-selection-before-hand-lightgbm
 `lgb.train` is the core training API for lightgbm.
 ```py
 params = {
-    'verbose': -1, 
-    'objective': 'regression_l1', 
+    'verbose': -1,
+    'objective': 'regression_l1',
     'seed': 13,
-    'device_type': 'gpu',       
-    'num_threads': 0,          
+    'device_type': 'gpu',
+    'num_threads': 0,
     'learning_rate': 0.02,
     'num_leaves': 96,
-    'min_data_in_leaf': 1500, 
+    'min_data_in_leaf': 1500,
     'feature_fraction': 0.6,
-    'feature_fraction_bynode': 0.9,     
-    'bagging_fraction': 0.8, 
-    'bagging_freq': 5,     
+    'feature_fraction_bynode': 0.9,
+    'bagging_fraction': 0.8,
+    'bagging_freq': 5,
 }
 
 num_iterations = 1200 # number of iterations
 # train model
 train_set = lgb.Dataset(df[xcols], df['target'])
 model = lgb.train(
-    params=params, 
+    params=params,
     train_set=train_set,
     num_boost_round=num_iterations,
     valid_sets=[train_set, test_set],
-    init_model=None, 
+    init_model=None,
     callbacks=[lgb.log_evaluation(50), lgb.early_stopping(stopping_rounds=250)],
 )
 model.save_model('lgb_model.txt')
@@ -71,31 +71,31 @@ df_importance.to_csv('feature_importance.csv')
 ```
 
 ## LGBMRegressor
-`LGBMRegressor` is the sklearn interface, a wrapper for LightGBM. 
+`LGBMRegressor` is the sklearn interface, a wrapper for LightGBM.
 The `fit(X, y)` call is standard sklearn syntax for model training.
 ```py
 params = {
     'verbose': -1,
     'objective': 'mae',
-    'random_state': seed,    
+    'random_state': seed,
     'device': 'gpu',
-    'n_jobs': 4,     
+    'n_jobs': 4,
     'n_estimators': 1200,
     'learning_rate': 0.03,
-    'max_depth': 10,   
-    'num_leaves': 256,  
+    'max_depth': 10,
+    'num_leaves': 256,
     'subsample': 0.6,
     'colsample_bynode': 0.6,
-    'colsample_bytree': 0.9,        
+    'colsample_bytree': 0.9,
     'importance_type': 'gain',
 }
 model = lgb.LGBMRegressor(**params)
 
 model.fit(
-    df_train.drop(columns=['target']), 
+    df_train.drop(columns=['target']),
     df_train['target'] - df_train['target_lag_7d'].fillna(0),
     eval_set=[(
-        df_valid.drop(columns=['target']), 
+        df_valid.drop(columns=['target']),
         df_valid['target'] - df_valid['target_lag_7d'].fillna(0),
     )],
     categorical_feature=cat_features,
