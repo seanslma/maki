@@ -37,6 +37,7 @@ In the above example, the `mychart-3.1.1.tgz` file should be in the same folder 
 If there is a `charts` folder within the same folder of `Chart.yaml` the repository should be `repository: file://./charts/mychart` - the `mychart` should be a folder containing all the unzipped chart files. 
 
 **oci repository**
+Store charts as OCI artifacts - only available in helm 3.
 ```yaml
 repository: oci://my-acr.azurecr.io/helm
 ```
