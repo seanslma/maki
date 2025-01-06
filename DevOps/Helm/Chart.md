@@ -34,6 +34,8 @@ dependencies:
 The value of the `repository` should be the path to the folder in which there is a chart file called `<name>-<version>.tgz`.
 In the above example, the `mychart-3.1.1.tgz` file should be in the same folder for the `Chart.yaml` file.
 
+If there is a `charts` folder within the same folder of `Chart.yaml` the repository should be `repository: file://./charts/mychart` - the `mychart` should be a folder containing all the unzipped chart files. 
+
 **oci repository**
 ```yaml
 repository: oci://my-acr.azurecr.io/helm
