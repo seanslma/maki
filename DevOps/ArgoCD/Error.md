@@ -50,3 +50,17 @@ Error: could not download https://traefik.github.io/charts/traefik/traefik-10.19
 Get "https://traefik.github.io/charts/traefik/traefik-10.19.5.tgz":
 read tcp 12.345.678.910:42622->188.199.100.155:443: read: connection reset by peer
 ```
+
+## index issue
+Need to create the `index.yaml` in the folder.
+```sh
+helm repo index ./charts/ --url https://my-helm-repo-server/charts/
+```
+
+The `index.yaml` file can be created in any folder with the same archived `.tgz` helm chart files.
+```
+rpc error: code = Unknown desc = Manifest generation error (cached):
+`helm dependency build` failed exit status 1:
+Error: no cached repository for helm-manager-...c5f4a2 found. (try 'helm repo update'):
+open /helm-working-dir/repository/helm-manager-...c5f4a2-index.yaml: no such file or directory
+```
