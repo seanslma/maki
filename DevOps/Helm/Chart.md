@@ -7,6 +7,7 @@ https://helm.sh/docs/topics/charts/
 mv jupyterhub-0.1.0.tgz ./jupyterhub/charts/ #copy chart package to the charts folder
 helm repo index ./jupyterhub/charts/ --url https://my.github.io/jupyterhub/charts/ #create index.yaml
 ```
+`helm repo index ...` will create the `index.yaml` file inside the `charts` directory
 
 ## create a helm chart and deploy it
 https://learn.microsoft.com/en-us/azure/aks/quickstart-helm?tabs=azure-cli
