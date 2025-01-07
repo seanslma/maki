@@ -40,3 +40,13 @@ one pod is waiting for another pod but the other one was dead.
 
 ## Current Sync Status "Unknown"
 https://github.com/argoproj/argo-cd/issues/15489
+
+## connection reset by peer
+firewall blokced the website?
+```
+rpc error: code = Unknown desc = Manifest generation error (cached):
+`helm dependency build` failed exit status 1:
+Error: could not download https://traefik.github.io/charts/traefik/traefik-10.19.5.tgz:
+Get "https://traefik.github.io/charts/traefik/traefik-10.19.5.tgz":
+read tcp 12.345.678.910:42622->188.199.100.155:443: read: connection reset by peer
+```
