@@ -222,6 +222,9 @@ engine = create_engine(connection_string, fast_executemany=True)
 df.to_sql('sqlalchemy_test', engine, if_exists='append', index=False)
 ```
 
+## do not use token if use user/pass
+Cannot use Access Token with any of the following options: Authentication, Integrated Security, User, Password. (0) (SQLDriverConnect)')
+
 ## sqlalchemy for azure sql server 
 https://docs.sqlalchemy.org/en/20/dialects/mssql.html#connecting-to-databases-with-access-tokens
 
