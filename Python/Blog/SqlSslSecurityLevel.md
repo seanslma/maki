@@ -11,6 +11,7 @@ sqlalchemy.exc.OperationalError: (pyodbc.OperationalError) (
 'HYT00', '[HYT00] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0) (SQLDriverConnect)'
 )
 ```
+The error is actually caused by not using workload identity, and pod-iid-identity was not setup!
 
 ## Checking The Issue
 Initially, I thought it was due to the OpenSSL version as Python 3.12 by default uses OpenSSL 3.0. However, we have another SQL server database that still works fine after the upgrading. This led me to check the SQL Server version and just found out that the old version `12.0.2000.8` does not support SSL/TLS 3.0. Based on the error message and the SQL Server version, I quickly worked out the solution with some google searches.
