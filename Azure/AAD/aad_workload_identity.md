@@ -205,12 +205,14 @@ token_struct = struct.pack(f'<I{len(token_bytes)}s', len(token_bytes), token_byt
 # Connect with the token
 SQL_COPT_SS_ACCESS_TOKEN = 1256
 # can also have `encrypt=yes;trustservercertificate=no;connection timeout=30`
-# exclude `authentication=ActiveDirectoryMSI` otherwise will have errors
-connString = 'Driver={ODBC Driver 17 for SQL Server};SERVER=dbservere.database.windows.net;DATABASE=db'
-conn = pyodbc.connect(connString, attrs_before={SQL_COPT_SS_ACCESS_TOKEN: token_struct})
-# Run query
-cursor = conn.cursor()
-cursor.execute('SELECT @@version')
+# exclude `authentication=ActiveDirectoryMSI`: cannot use both token and authentication, uid etc.
+conn_string = 'dialect=mssql;SERVER=dbserver.database.windows.net;DATABASE=db;Driver={ODBC Driver 17 for SQL Server}'
+with pyodbc.connect(conn_string, attrs_before={SQL_COPT_SS_ACCESS_TOKEN: token_struct}) as conn: 
+    with conn.cursor() as cursor:
+        cursor.execute("SELECT @@version")
+        rows = cursor.fetchall()
+        for row in rows:
+            print(row)
 ```
 
 Note that for `turbodbc` there is still not a workaround to use azure workload identity. 
