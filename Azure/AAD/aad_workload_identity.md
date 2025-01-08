@@ -269,7 +269,7 @@ resource "azuread_group_member" "mssql_db_contributor" {
 }
 ```
 
-## az login using wirkload identity
+## az login using workload identity
 https://github.com/Azure/azure-cli/issues/26858
 
 workaround:
