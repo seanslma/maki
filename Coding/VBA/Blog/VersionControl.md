@@ -75,3 +75,36 @@ Sub ExportVBACode()
     MsgBox "VBA code exported successfully to: " & folderPath, vbInformation
 End Sub
 ```
+
+## Use VBA to import files
+```vba
+Sub ImportVBACode()
+    Dim vbComp As Object
+    Dim folderPath As String
+    Dim fileName As String
+    Dim filePath As String
+    Dim file As String
+    
+    ' Set the folder path where the .cls and .bas files are located
+    folderPath = "C:\path\to\your\files\"  ' Adjust this path to your folder with .cls and .bas files
+    
+    ' Loop through all .bas and .cls files in the specified folder
+    file = Dir(folderPath & "*.bas") ' Start by looking for .bas files
+    Do While file <> ""
+        ' Import .bas file as a Standard Module
+        filePath = folderPath & file
+        ThisWorkbook.VBProject.VBComponents.Import filePath
+        file = Dir ' Move to next file
+    Loop
+    
+    file = Dir(folderPath & "*.cls") ' Now look for .cls files
+    Do While file <> ""
+        ' Import .cls file as a Class Module
+        filePath = folderPath & file
+        ThisWorkbook.VBProject.VBComponents.Import filePath
+        file = Dir ' Move to next file
+    Loop
+    
+    MsgBox "VBACode imported successfully!", vbInformation
+End Sub
+```
