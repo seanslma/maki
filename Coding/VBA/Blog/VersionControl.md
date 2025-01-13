@@ -36,7 +36,7 @@ if __name__ == "__main__":
 ```vba
 Sub ExportVBACode()
     Dim vbComp As Object
-    Dim filePath As String
+    Dim fileExt As String
     Dim folderPath As String
     Dim wb As Workbook
 
@@ -54,20 +54,20 @@ Sub ExportVBACode()
         Select Case vbComp.Type
             Case vbext_ct_StdModule
                 ' Export standard module as .bas
-                filePath = folderPath & vbComp.Name & ".bas"
+                fileExt = ".bas"
             Case vbext_ct_ClassModule
                 ' Export class module as .cls
-                filePath = folderPath & vbComp.Name & ".cls"
+                fileExt = ".cls"
             Case vbext_ct_MSForm
                 ' Export user form as .frm
-                filePath = folderPath & vbComp.Name & ".frm"
+                fileExt = ".frm"
             Case Else
                 ' Skip unsupported types
-                filePath = ""
+                fileExt = ""
                 Debug.Print "Skipping: " & vbComp.Name
         End Select
-        If filePath <> "" Then
-            vbComp.Export filePath
+        If fileExt <> "" Then
+            vbComp.Export folderPath & vbComp.Name & fileExt
          End If
     Next vbComp
     
