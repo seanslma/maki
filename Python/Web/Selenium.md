@@ -128,3 +128,8 @@ driver.find_element_by_name("passwd").send_keys("pwd")
 time.sleep(0.4)
 driver.find_element_by_class_name("signinbtn").click()
 ```
+
+## ubuntu 22.04
+how-to-install-chromium-without-snap: https://askubuntu.com/questions/1204571/how-to-install-chromium-without-snap
+- For 22.04, use the package from Debian bullseye instead of buster
+- see metrizable's answer: https://github.com/googlecolab/colabtools/issues/3347
