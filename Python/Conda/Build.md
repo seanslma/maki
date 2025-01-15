@@ -87,6 +87,16 @@ before running `conda build`
 export VERSION=1.0.0
 ```
 
+Templating with Jinja: https://docs.conda.io/projects/conda-build/en/3.21.x/resources/define-metadata.html
+- Conda-build supports Jinja templating in the `meta.yaml` file
+- We can use Jinja templating inside the `meta.yaml` file to dynamically inject environment variables.
+```yaml
+package:
+  name: {{ NAME }}
+  version: {{ VERSION }}
+```
+In this example, the values of env varables `NAME` and `VERSION` will be injected into the `meta.yaml` file.
+
 ## meta.yaml
 https://stackoverflow.com/questions/38919840/get-package-version-for-conda-meta-yaml-from-source-file
 
