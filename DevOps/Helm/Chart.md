@@ -22,6 +22,16 @@ helm install <release-name> .
 # helm install <release-name> <chart-name>/ --values <chart-name>/values.yaml
 ```
 
+## disable chart
+in `values.yaml` add `enabled: false`. and then update deployment yaml files.
+```yaml
+{{- if .Values.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+# ... rest of your deployment definition ...
+{{- end }}
+```
+
 ## dependencies
 https://helm.sh/docs/chart_best_practices/dependencies/#helm
 
