@@ -37,7 +37,7 @@ solution:
 - create a temporal node pool - manully if tf does not support
 - cordon the nodes in that node pool: `kubectl cordon aks-agentpool-xxxx-1`
 - delete some pods that should be moved to the new node pool first: `kubectl delete po xyz -n namespace`
-- drain all other pods in the nodes: `kubectl drain aks-agentpool-xxxx-1 --ignore-daemonsets`
+- drain all other pods in the nodes: `kubectl drain aks-agentpool-xxxx-1 --ignore-daemonsets --delete-local-data`
 - change the disk size, and `kubectl uncordon aks-agentpool-xxx-1`
 - drain the nodes in the temporal node pool, and delete the temporal node pool
 
