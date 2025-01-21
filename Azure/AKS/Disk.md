@@ -31,6 +31,14 @@ os_disk_type    = "Ephemeral"  # {Ephemeral|Managed}
 os_disk_size_gb = 256          # default 128 GB
 ```
 
+The node pool must be recreated: https://github.com/Azure/AKS/issues/610?WT.mc_id=AZ-MVP-5005118
+
+solution:
+- create a temporal node pool - manully if tf does not support
+- drain the nodes in that node pool: `kubectl cordon aks-agentpool-xxxx-1 & kubectl drain aks-agentpool-xxxx-1 --ignore-daemonsets`
+- change the disk size, and `kubectl uncordon aks-agentpool-xxx-1`
+- drain the nodes in the temporal node pool, and delete the temporal node pool
+
 ## FreeDiskSpaceFailed
 run `kubectl describe node <node-name>` the output will be
 ```
