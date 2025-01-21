@@ -24,7 +24,7 @@ how to check disk usage:
   
 ## increase node disk size
 - Managed disk is slower and has a cost but can specify the size.
-- Ephemeral disk size should not be larger than the temp/cache size of the vm_size
+- Ephemeral disk size should not be larger than the `temp`/`cache` size of the vm_size
 ```tf
 os_disk_type    = "Ephemeral"  # {Ephemeral|Managed}
 os_disk_size_gb = 256          # default 128 GB
