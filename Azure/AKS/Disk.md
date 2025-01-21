@@ -35,7 +35,9 @@ The node pool must be recreated: https://github.com/Azure/AKS/issues/610?WT.mc_i
 
 solution:
 - create a temporal node pool - manully if tf does not support
-- drain the nodes in that node pool: `kubectl cordon aks-agentpool-xxxx-1 & kubectl drain aks-agentpool-xxxx-1 --ignore-daemonsets`
+- cordon the nodes in that node pool: `kubectl cordon aks-agentpool-xxxx-1`
+- delete some pods that should be moved to the new node pool first: `kubectl delete po xyz -n namespace`
+- drain all other pods in the nodes: `kubectl drain aks-agentpool-xxxx-1 --ignore-daemonsets`
 - change the disk size, and `kubectl uncordon aks-agentpool-xxx-1`
 - drain the nodes in the temporal node pool, and delete the temporal node pool
 
