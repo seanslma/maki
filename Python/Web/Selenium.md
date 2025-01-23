@@ -1,6 +1,6 @@
 # Selenium
-
-https://selenium-python.readthedocs.io/locating-elements.html
+- https://pypi.org/project/selenium/
+- https://selenium-python.readthedocs.io/locating-elements.html
 
 ## how to install
 discussions:
