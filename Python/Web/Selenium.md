@@ -78,13 +78,35 @@ Solution:
 - set the `SE_AVOID_STATS` environment variable to `true`, or
 -  set `avoid-stats = true` in config file
 
+## WebDriverException: Message: Service chromedriver unexpectedly exited. Status code was: 127
+https://stackoverflow.com/questions/49323099/webdriverexception-message-service-chromedriver-unexpectedly-exited-status-co
+- Reason: some dependencies are missing. 
+- Solution: check and install missing depencdencies
+
 ## check `chromedriver` dependency issue
 https://stackoverflow.com/questions/49323099/webdriverexception-message-service-chromedriver-unexpectedly-exited-status-co
 ```sh
-/path/to/chromedriver --version #error while loading shared libraries: libglib-2.0.so.0: cannot open shared object file: No such file or directory
-ldd /path/to/chromedriver       #will show all depedencies
-apt-cache search libglib-2.0.so.0
-apt-cache madison libglib-2.0.so.0
+user@xyz:~$ /path/to/chromedriver --version
+/path/to/chromedriver: error while loading shared libraries: libnss3.so: cannot open shared object file: No such file or directory
+#will show all depedencies
+user@xyz:~$ ldd /path/to/chromedriver
+        linux-vdso.so.1 (0x00007ffdd63e1000)
+        libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007fe8b09af000)
+        libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007fe8b09aa000)
+        libglib-2.0.so.0 => /lib/x86_64-linux-gnu/libglib-2.0.so.0 (0x00007fe8b0870000)
+        libnss3.so => not found
+        libnssutil3.so => not found
+        libnspr4.so => not found
+        libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fe8b0787000)
+        libxcb.so.1 => /lib/x86_64-linux-gnu/libxcb.so.1 (0x00007fe8b075d000)
+        libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fe8b073d000)
+        libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fe8b0514000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007fe8b1a88000)
+        libpcre.so.3 => /lib/x86_64-linux-gnu/libpcre.so.3 (0x00007fe8b049e000)
+        libXau.so.6 => /lib/x86_64-linux-gnu/libXau.so.6 (0x00007fe8b0496000)
+        libXdmcp.so.6 => /lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007fe8b048e000)
+        libbsd.so.0 => /lib/x86_64-linux-gnu/libbsd.so.0 (0x00007fe8b0476000)
+        libmd.so.0 => /lib/x86_64-linux-gnu/libmd.so.0 (0x00007fe8b0469000)
 ```
 
 ## Screenshot: available via screen
