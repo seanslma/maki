@@ -21,6 +21,7 @@ USER root
 
 # install version-pinned chromium-browser and chromedriver
 RUN apt-get update && \
+    apt-get install -y libnss3.so libnssutil3.so libnspr4.so && \
     url="http://ftp.ubuntu.com/ubuntu/ubuntu/pool/universe/c/chromium-browser/" && \
     curl -L -o chromium-browser.deb ${url}chromium-browser_112.0.5615.49-0ubuntu0.18.04.1_amd64.deb && \
     apt-get -f install -y ./chromium-browser.deb && \
