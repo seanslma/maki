@@ -2,7 +2,14 @@
 - https://pypi.org/project/selenium/
 - https://selenium-python.readthedocs.io/locating-elements.html
 
+## issues
+https://www.stablebuild.com/blog/install-chromium-in-an-ubuntu-docker-container
+- installing Chromium is no longer supported using `apt` on Ubuntu
+- snap does not work from within a Docker container
+
 ## how to install
+The versions of the chrome-driver and browser must match!
+
 discussions:
 - https://github.com/password123456/setup-selenium-with-chrome-driver-on-ubuntu_debian
 - https://stackoverflow.com/questions/22476112/using-chromedriver-with-selenium-python-ubuntu
