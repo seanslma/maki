@@ -6,6 +6,8 @@
 https://www.stablebuild.com/blog/install-chromium-in-an-ubuntu-docker-container
 - installing Chromium is no longer supported using `apt` on Ubuntu
 - snap does not work from within a Docker container
+- install from ppa (do you trudt it): https://fosspost.org/chromium-deb-package-ubuntu
+- not possible!
 
 ## how to install
 The versions of the chrome-driver and browser must match!
