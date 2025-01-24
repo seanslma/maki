@@ -21,3 +21,10 @@ pinned_packages:
   - conda=4.9.2
   - mamba=0.33.3
 ```
+
+## use `tar.bz2` instead of `.conda` format
+in `.condarc` add:
+```
+conda-build:
+  pkg_format: 'tar.bz2'
+```
