@@ -41,3 +41,8 @@ Every package should include a license file detailing the terms of distribution.
 from ..utils import check_date
 ```
 The previous line will crash with the error if run the code from a subfolder and import the methods from the parent folder. In this case, function call must be from the parent folder.
+
+## nested package
+When install a package into a subdirectory of another package as an editable package via pip, we need to use `pkgutil`.
+- https://github.com/pypa/sample-namespace-packages/tree/master/pkgutil
+- in `__init__.py`: `__path__ = __import__('pkgutil').extend_path(__path__, __name__)`
