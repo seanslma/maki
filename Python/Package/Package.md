@@ -45,4 +45,6 @@ The previous line will crash with the error if run the code from a subfolder and
 ## nested package
 When install a package into a subdirectory of another package as an editable package via pip, we need to use `pkgutil`.
 - https://github.com/pypa/sample-namespace-packages/tree/master/pkgutil
-- in `__init__.py`: `__path__ = __import__('pkgutil').extend_path(__path__, __name__)`
+- in `__init__.py` of the shared folder must only congtain: `__path__ = __import__('pkgutil').extend_path(__path__, __name__)`
+- nested namespaces must contain an identical `__init__.py`
+- the directory name must match the name given in the `setup.py`
