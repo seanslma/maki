@@ -1,5 +1,8 @@
 # Pydantic
 
+## 2.0 update list
+https://2pointers.medium.com/an-introduction-to-pydantic-v2-alpha-pre-release-a-massive-improvement-over-previous-version-748a1f1118ba
+
 ## from_attributes
 In Pydantic, the `from_attributes` setting in the `Config` class is a relatively new feature (introduced in Pydantic v2) 
 that allows you to create a Pydantic model instance **directly from attributes** (i.e., keyword arguments) instead of the usual **dictionary-based initialization**.
