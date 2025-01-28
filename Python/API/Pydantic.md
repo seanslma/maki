@@ -3,13 +3,32 @@
 ## 2.0 update list
 https://2pointers.medium.com/an-introduction-to-pydantic-v2-alpha-pre-release-a-massive-improvement-over-previous-version-748a1f1118ba
 
+## `model` field name
+have reserved every field that starts with `model_` for themselves.
+
+option 1: using `alias`
+```py
+from pydantic import BaseModel, Field
+
+class MyModel(BaseModel):
+    model_: str = Field(..., alias='model')
+```
+
+option 2: disable reserved words
+```py
+from pydantic import BaseModel, ConfigDict
+
+class MyModel(BaseModel):
+    model_config = ConfigDict(protected_namespaces=())
+    model: str = Field(..., title='The name of the model to use')
+```
+
 ## from_attributes
 In Pydantic, the `from_attributes` setting in the `Config` class is a relatively new feature (introduced in Pydantic v2) 
 that allows you to create a Pydantic model instance **directly from attributes** (i.e., keyword arguments) instead of the usual **dictionary-based initialization**.
 
 By default, Pydantic models expect input data to be passed as a dictionary (or something that can be converted to one), 
 but with `from_attributes = True`, you can initialize the model using individual attributes directly as you would with a regular class.
-
 
 ### Example
 ```python
