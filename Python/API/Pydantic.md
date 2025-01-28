@@ -1,4 +1,5 @@
 # Pydantic
+Pydantic offers build-in data validation and type checking, suitable for web APIs and external data handling.
 
 ## 2.0 update list
 https://2pointers.medium.com/an-introduction-to-pydantic-v2-alpha-pre-release-a-massive-improvement-over-previous-version-748a1f1118ba
