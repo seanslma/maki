@@ -1,5 +1,10 @@
 # Kubernetes
 
+## secrets-store-csi-driver-provider-azure
+https://github.com/Azure/secrets-store-csi-driver-provider-azure
+
+Azure Key Vault provider for Secret Store CSI driver allows you to get secret contents stored in Azure Key Vault instance and use the Secret Store CSI driver interface to mount them into Kubernetes pods.
+
 ## troubleshoot key-vault-csi-secrets-store-csi-driver
 https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/extensions/troubleshoot-key-vault-csi-secrets-store-csi-driver
 
