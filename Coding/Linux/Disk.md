@@ -4,6 +4,7 @@
 ```sh
 df -h
 du -sh ./*  #total
+du -ahd1 . | sort -rh # `-a` include hidden files, `-d1` only prints data up to the first hierarchie level
 ```
 
 ## check hard disk health
