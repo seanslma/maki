@@ -24,3 +24,11 @@ pgcli \d db_name
 ```sh
 \d schema.table_name
 ```
+
+## expanded mode
+Show all columns from a query result without truncation. 
+In this mode, each column value will be displayed on a new line, making it easier to view long values.
+```sh
+\x
+\x off
+```
