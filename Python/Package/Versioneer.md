@@ -5,6 +5,11 @@ https://stackoverflow.com/questions/53724616/update-version-number-with-versione
 
 https://jacobtomlinson.dev/posts/2020/versioning-and-formatting-your-python-code/
 
+## versioneer vs setuptools-smc
+- https://setuptools-git-versioning.readthedocs.io/en/stable/comparison.html
+- https://rse.shef.ac.uk/blog/2023-09-18-python-packaging/#:~:text=Setuptools%2Dscm,on%20now%20deprecated%20setup.py%20.
+- https://discuss.python.org/t/how-to-single-source-a-packages-version-when-publishing-to-pypi-using-github-action/50982/17
+
 ## step 1: create `setup.py`
 ```py
 from setuptools import setup
