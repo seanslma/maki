@@ -1,5 +1,14 @@
 #  Azure Repos
 
+## work steps
+- clone repo to local machine: `git clone https://dev.azure.com/{organization}/{project}/_git/{repo-name}`
+- create a new branch: `git checkout -b your-feature-branch`
+- commit changes: `git add . && git commit -m "test" && git push origin your-feature-branch`
+- create a pr and merge to main
+- sync local branch: `git checkout main && git pull origin main`
+- delete local branch: `git branch -d your-feature-branch`
+- delete remote branch: `git push origin --delete your-feature-branch`
+
 ## git clone
 Error
 ```
