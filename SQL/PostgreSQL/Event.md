@@ -1,5 +1,36 @@
 # Event
 
+## PostgreSQL LISTEN/NOTIFY
+Use to do something based on changes in db tables
+- https://stackoverflow.com/questions/24285563/waiting-for-a-row-update-or-row-insertion-with-sqlalchemy
+- https://tapoueh.org/blog/2018/07/postgresql-listen-notify
+
+need to create triggers in postgresql
+```py
+from sqlalchemy.pool.base import PoolProxiedConnection
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+def main(conn: PoolProxiedConnection, channels: list[str]):
+    with conn.cursor() as cur:
+        for channel in channels:
+            cur.execute(f'LISTEN {channel};')
+    while True:
+      await trio.lowlevel.wait_readable(conn)
+      conn.poll()
+      while conn.notifies:
+          notify = conn.notifies.pop(0)
+          print 'Got NOTIFY:', notify.pid, notify.channel, notify.payload
+
+engine = sqlalchemy.Engine()
+conn = engine.raw_connection()
+conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+
+try:
+    trio.run(main, conn, channels)
+finally:
+    conn.close()
+    engine.dispose()
+```
+
 ## event trigger
 https://www.postgresql.org/docs/current/event-triggers.html
 
