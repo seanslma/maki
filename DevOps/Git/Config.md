@@ -61,3 +61,24 @@ open `.gitconfig` and add
 a = "!sh -c \"git pull && git add . && if [ -z \\\"$1\\\" ]; then git commit -m \\\"update\\\"; else git commit -m \\\"$1\\\"; fi && git push\""
 ```
 Here is an example to use it: `git a "My first commit"`.
+
+## user config example
+```
+# This is Git's per-user configuration file.
+[core]
+	editor = \"C:\\Users\\<user>\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
+[http]
+	sslbackend = schannel 
+[user]
+	name = <user>
+	email = my.email@example.com   
+[alias]
+	a = ! git fetch && git merge origin/master && git add . && git commit -m sdoc && git push 
+        m = ! git checkout master && git pull     
+[credential "https://repo.example.com"]
+	provider = github
+[credential]
+	helper = manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+```
