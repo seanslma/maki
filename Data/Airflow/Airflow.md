@@ -28,6 +28,7 @@ https://theaisummer.com/apache-airflow-tutorial/
 ## Prefect vs Temporal
 - https://linen.prefect.io/t/22927872/ulva73b9p-how-does-prefect-compare-to-temporal
 - https://news.ycombinator.com/item?id=39210757
+- https://community.temporal.io/t/what-are-the-pros-and-cons-of-temporal-with-respect-to-prefect/5671/3?u=loren
 
 **Orchestration vs. Workflow Platform:**
 - `Prefect` focuses primarily on **data workflow** orchestration. It's designed to run and monitor data pipelines, with a strong emphasis on ease of use and deployment, especially for complex DAGs (Direct Acyclic Graphs).
