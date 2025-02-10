@@ -2,6 +2,10 @@
 
 Compared to conda, mamba is faster but larger.
 
+## micromamba
+- micromamba is a tiny version of the mamba package manager
+- micromamba supports a subset of all mamba or conda commands
+
 ## show available versions 
 ```sh
 mamba search -c conda-forge pyarrow
