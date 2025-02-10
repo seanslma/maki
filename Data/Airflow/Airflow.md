@@ -6,6 +6,7 @@ https://theaisummer.com/apache-airflow-tutorial/
 ## Airflow vs. Prefect vs. Argo
 - https://huyenchip.com/2021/09/13/data-science-infrastructure.html
 - https://neptune.ai/blog/argo-vs-airflow-vs-prefect-differences
+- https://medium.com/arthur-engineering/picking-a-kubernetes-orchestrator-airflow-argo-and-prefect-83539ecc69b
 
 **airflow**
 - data workflows are defined using Python instead of YAML
