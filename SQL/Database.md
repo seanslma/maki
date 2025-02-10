@@ -21,3 +21,6 @@ https://db-engines.com/en/ranking/time+series+dbms
 - Event Stores
 - Content stores
 - Navigational DBMS
+
+## database performance
+avoid bad queries/schema design
