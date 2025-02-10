@@ -32,3 +32,15 @@ This code uses Trio asynchronous I/O library and deals with PostgreSQL database 
 
 Overall, the code is waiting for the `cnx` connection to become readable, polling for any notifications on the connection, and then processing each notification in a loop. 
 It suggests an asynchronous approach to handling PostgreSQL notifications, which is common in applications where you want to be notified of changes in the database in a non-blocking manner. 
+
+## Triggers for Event Handling
+PostgreSQL provides the ability to use triggers, which can be a core component of an event-driven architecture. Triggers allow you to respond automatically to database changes (like insert, update, or delete operations) and execute functions or actions in reaction to those changes.
+
+Types of Triggers in PostgreSQL:
+- BEFORE Triggers: Fire before the actual data modification is applied. They can be used to validate data or modify the data before it's committed.
+- AFTER Triggers: Fire after the data modification is applied. These are often used for logging, auditing, or triggering additional actions (like updating other tables, calling external services, etc.).
+- INSTEAD OF Triggers: Overwrites the default behavior of certain actions, allowing more complex logic for data manipulation.
+
+### Logical Replication and Change Data Capture (CDC)
+### NOTIFY/LISTEN (Asynchronous Event Notification)
+### Polling and Periodic Task Scheduling
