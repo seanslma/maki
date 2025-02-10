@@ -26,11 +26,12 @@ https://theaisummer.com/apache-airflow-tutorial/
 - can only run on Kubernetes clusters
 
 ## Prefect vs Temporal
-https://linen.prefect.io/t/22927872/ulva73b9p-how-does-prefect-compare-to-temporal
+- https://linen.prefect.io/t/22927872/ulva73b9p-how-does-prefect-compare-to-temporal
+- https://news.ycombinator.com/item?id=39210757
 
 **Orchestration vs. Workflow Platform:**
-- Prefect focuses primarily on data workflow orchestration. It's designed to run and monitor data pipelines, with a strong emphasis on ease of use and deployment, especially for complex DAGs (Direct Acyclic Graphs).
-- Temporal is a more general-purpose workflow as a code platform. It's designed for a wide variety of use cases, not just data workflows, and provides robust features for state management, retries, and long-running processes.
+- `Prefect` focuses primarily on **data workflow** orchestration. It's designed to run and monitor data pipelines, with a strong emphasis on ease of use and deployment, especially for complex DAGs (Direct Acyclic Graphs).
+- `Temporal` is a more **general-purpose** workflow as a code platform. It's designed for a wide variety of use cases, not just data workflows, and provides robust features for state management, retries, and long-running processes.
 
 **State Management:**
 - Prefect: Uses state management abstractions that allow for easy retries and failure handling within data workflows.
