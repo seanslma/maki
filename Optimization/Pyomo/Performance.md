@@ -23,3 +23,29 @@ model.ConstraintName.deactivate()
 model.del_component(model.SetName)
 model.ConstraintName.activate()
 ```
+
+## problem formulation performance
+https://pianshen.com/ask/437410350304/
+
+slow
+```py
+def flows(model, et, t):
+    return pyo.quicksum(
+        model.in_flow[:, et, t], 
+        linear=True,
+        start=pyo.quicksum(model.out_flow[:, et, t], linear=True)
+    ) == 0
+ 
+model.add_component(
+    'flows', 
+    pyo.Constraint(model.energy_type, model.t, rule=flows)
+)
+```
+
+It turns out the problem was with the **slices** `[:, et, t]`:
+```py
+def flows(model, et, t):
+    vars = [model.in_flow[obj, et, t] for obj in model.objects_index]
+    vars.extend([model.out_flow[obj, et, t] for obj in model.objects_index])
+    return pyo.quicksum(vars) == 0
+```
