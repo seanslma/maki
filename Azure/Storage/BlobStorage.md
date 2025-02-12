@@ -141,6 +141,31 @@ with open(download_file, "wb") as file:
 container.delete_container()
 ```
 
+## download file
+```py
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+
+container_name = 'my-container'
+storage_account_name = 'my-storage-account'
+parquet_file_path = 'path/from/container/root.parquet'
+
+account_url = f"https://{storage_account_name}.blob.core.windows.net"
+credential = DefaultAzureCredential()
+
+try:
+    blob_service_client = BlobServiceClient(account_url=account_url, credential=credential)
+    blob_client = blob_service_client.get_blob_client(container_name, parquet_file_path)
+
+    # Download the Parquet file
+    with open('c:/data/downloaded_file.parquet', 'wb') as f:
+        blob_data = blob_client.download_blob()
+        blob_data.readinto(f)
+    print('File downloaded successfully.')
+except Exception as e:
+    print(f"Error downloading the file: {e}")
+```
+
 ## upload file
 ```py
 import uuid
@@ -149,7 +174,7 @@ def file_to_blob(local_filepath, blob_filepath, chunk_size = 4 * 1024 * 1024):
     Upload file to blob storage
     """
     try:
-        blob_client = self.container_client.get_blob_client(blob_filepath)
+        blob_client = container_client.get_blob_client(blob_filepath)
         block_list = []
         with open(local_filepath,'rb') as f:
             while True:
