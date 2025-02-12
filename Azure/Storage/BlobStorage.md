@@ -188,3 +188,27 @@ def file_to_blob(local_filepath, blob_filepath, chunk_size = 4 * 1024 * 1024):
     except Exception as exc:
         print('Upload file error')
 ```
+
+## deltalake
+```py
+import duckdb
+import pandas as pd
+from deltalake import DeltaTable
+from azure.identity import DefaultAzureCredential
+
+container_name = 'my-container-name'
+storage_account_name = 'my-storage-account-name'
+credential = DefaultAzureCredential()
+def get_dataframe(
+    path: str, # not include container name
+    query: str=None,
+) -> pd.DataFrame:
+    token = credential.get_token("https://storage.azure.com/.default").token
+    delta_table_path = f'abfss://{container_name}@{storage_account_name}.dfs.core.windows.net/{path}'
+    delta_table = DeltaTable(delta_table_path, storage_options={'bearer_token':token}).to_pyarrow_dataset()
+    with duckdb.connect() as conn:
+        if not query:
+            query = 'select * from delta_table'
+        results = conn.execute(query).df()
+    return results
+```
