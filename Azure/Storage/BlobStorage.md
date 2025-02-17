@@ -207,6 +207,8 @@ def get_dataframe(
     delta_table_path = f'abfss://{container_name}@{storage_account_name}.dfs.core.windows.net/{path}'
     delta_table = DeltaTable(delta_table_path, storage_options={'bearer_token':token}).to_pyarrow_dataset()
     with duckdb.connect() as conn:
+        conn.execute("SET timezone = 'UTC'")  # force UTC timezone in DuckDB
+        conn.register("delta_table", delta_table) # register as a view
         if not query:
             query = 'select * from delta_table'
         results = conn.execute(query).df()
