@@ -56,6 +56,13 @@ df = con.execute("SELECT * FROM items").fetchdf()
 arr = con.execute("SELECT * FROM items").fetchnumpy()
 ```
 
+## force utc timezone
+otherwize `datetime64[us, UTC]` will be converted to local timezone such as `datetime64[us, Australia/Brisbane]`
+```py
+conn.execute("SET timezone = 'UTC'")  # Force UTC timezone in DuckDB
+conn.register("delta_table", delta_table) # Register as a view
+```
+
 ## `register` vs `CREATE TABLE df AS SELECT * FROM df`
 ```py
 con = duckdb.connect(':memory:')
