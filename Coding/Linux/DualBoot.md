@@ -10,7 +10,8 @@ Reason: Windows assumes it is the only operating system (OS) on the machine. Dur
 Solution: Replace the Windows boot loader with GRUB.
 - Boot from the live USB, in "Try Ubuntu" mode
 - Determine the partition number of your main partition `sudo fdisk -l`
-- Mount your partition `sudo mount /dev/nvme0n1p7 /mnt`
+- Mount linux partition: `sudo mount /dev/nvme0n1p5 /mnt` - Linux filesystem
+- Mount efi partition: `sudo mount /dev/nvme0n1p1 /mnt/boot/efi` - EFI System
 - Bind mount some other stuff `for i in /sys /proc /run /dev; do sudo mount --rbind "$i" "/mnt$i"; done`
 - `sudo chroot /mnt`
 - update grub `update-grub`
