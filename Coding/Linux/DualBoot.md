@@ -8,6 +8,7 @@ When starting up the computer, it goes straight to Windows, without giving me th
 Reason: Windows assumes it is the only operating system (OS) on the machine. During update it replaces GRUB with its own boot loader.
 
 Solution: Replace the Windows boot loader with GRUB.
+- After showing dell logo, press F12
 - Boot from the live USB, in "Try Ubuntu" mode
 - Determine the partition number of your main partition `sudo fdisk -l`
 - Mount linux partition: `sudo mount /dev/nvme0n1p5 /mnt` - Linux filesystem
@@ -17,6 +18,12 @@ Solution: Replace the Windows boot loader with GRUB.
 - update grub `update-grub`
 - reinstall grub `grub-install /dev/nvme0n1`
 - reboot `exit` and `sudo reboot`
+
+## fsck exited with status code 4
+The root filesystem on /dev/nvme0n1p5 requires a manual fsck
+```sh
+fsck /dev/nvme0n1p5 -y
+```
 
 ## Stuck at GRUB command line - GNU GRUB version 2.06-3~deb11u2
 This means the grub could not find the root system so we need to repair it.
