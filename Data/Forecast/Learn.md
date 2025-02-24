@@ -1,5 +1,8 @@
 # Learn
 
+## forecasting example using xgb, gru, cnn, lstm stc
+https://github.com/ritikdhame/Electricity_Demand_and_Price_forecasting
+
 ## kaggle
 https://www.kaggle.com/competitions/predict-energy-behavior-of-prosumers/discussion/472793
 
