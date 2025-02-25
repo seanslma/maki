@@ -36,6 +36,6 @@ kubectl delete -f aks01.yaml         #delete created objects
 
 ## upgrade
 ```sh
-az aks get-upgrades -n <cluster-name> -g <resource-group> --o table                #list available versions
+az aks get-upgrades -n <cluster-name> -g <resource-group> -o table                 #list available versions
 az aks upgrade -n <cluster-name> -g <resource-group> --kubernetes-version  1.25.5  #upgrade
 ```
