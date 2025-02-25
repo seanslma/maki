@@ -40,4 +40,4 @@ As we can see, each tool has its own use cases. We need to select the tool that 
 - If we already have our tasks running on Kubernetes cluster, for easy of deployment we might choose Argo Workflows.
 - If our tasks are more general and require high robustness and reliability, we had better to use Temporal.
 - If our workflows are complex, a tool using a programming language instead of yaml files might be more suitable.
-- If our workflows are simple and we do not want to invest too much time in learning, a tool with easy of use might be the best choice.
+- If our workflows are simple and we do not want to invest too much time in learning, a tool with ease of use might be the best choice.
