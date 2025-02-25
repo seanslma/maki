@@ -29,7 +29,7 @@ Argo Workflows is a container-native workflow engine for orchestrating jobs on K
 - Can only run on Kubernetes clusters
 
 ## Temporal
-while Airflow, Prefect and Argo Workflows focus primarily on data workflow orchestration, Temporal is a more general-purpose workflow tool.
+While Airflow, Prefect and Argo Workflows focus primarily on data workflow orchestration, Temporal is a more general-purpose workflow tool.
 - Workflows are defined using the language for the tasks
 - Provides robust features for state management, retries, and long-running processes
 - Requires more investment in learning - has a steep learning curve
