@@ -44,7 +44,7 @@ import pyomo.environ as pyo
 
 # create model and var
 m = pyo.ConcreteModel()
-m.x = pyo.Var(within=pe.NonNegativeReals)
+m.x = pyo.Var(within=pyo.NonNegativeReals)
 
 # create obj
 @m.Objective()
