@@ -49,7 +49,7 @@ m.x = pyo.Var(within=pyo.NonNegativeReals)
 # create obj
 @m.Objective()
 def obj(m):
-    return 0
+    return 0  # must add a placeholder via expr
 m.obj.pprint()
 
 # add a term
