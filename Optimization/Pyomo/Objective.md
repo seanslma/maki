@@ -49,7 +49,7 @@ m.x = pyo.Var(within=pyo.NonNegativeReals)
 # create obj
 @m.Objective()
 def obj(m):
-    return 0  # must add a placeholder via expr
+    return 0  # must add a placeholder via expr. will not work `model.obj = pyo.Objective(sense=pyo.minimize)` without `expr=0`
 m.obj.pprint()
 
 # add a term
