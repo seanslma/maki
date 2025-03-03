@@ -19,6 +19,13 @@ conda env remove --prefix c:\tmp\conda\my-env
 conda clean --all  # clean Up Conda Metadata, such as unused packages and caches
 ```
 
+## change default env location
+Open or create a `.condarc` file in home directory `~/.condarc` and add:
+```
+envs_dirs:
+  - ~/conda-envs/
+```
+
 ## create env and install packages
 https://stackoverflow.com/questions/66291897/conda-create-and-conda-install
 
