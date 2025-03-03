@@ -9,7 +9,14 @@ conda env list
 The `--all` flag ensures that all files associated with the environment, including packages and cache, are removed.
 ```sh
 conda deactivate
+conda remove -n <env-name> # or
 conda remove --name <env-name> --all
+
+# by path if there is no env name
+conda env remove --prefix c:\tmp\conda\my-env
+
+# always good to run
+conda clean --all  # clean Up Conda Metadata, such as unused packages and caches
 ```
 
 ## create env and install packages
