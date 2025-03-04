@@ -40,3 +40,13 @@ start((.|\n|\r|\r\n)(?!end))*?V056(.|\n|\r|\r\n)*?end
 #(?!end) means "not followed by end"
 #*? means "match as short as possible" (while * means "match as long as possible")
 ```
+
+### gurobi lp format using notepad++ regexp
+requirements:
+- add `\r\n` after `: `
+- add `\r\n` before ` +,-,>=,<=,=`
+- ignore `   +,-` etc.
+
+solution:
+- find: `(:\s)|(?<!\s{3})(\s[+\-<>=]=?)`
+- repl: `(?1\1\r\n   )(?2\r\n  \2)`
