@@ -21,3 +21,9 @@ jupyter lab build
 jupyter labextension install @jupyterlab/codemirror
 jupyter labextension update @krassowski/jupyterlab_go_to_definition
 ```
+
+## jupyter install a kernel
+```sh
+conda install ipykernel
+python -m ipykernel install --user --name <env-name> --display-name "<kernel-name>"
+```
