@@ -1,6 +1,9 @@
 # Matrix API
 
-## example 
+## gurobi matrix example
+https://docs.gurobi.com/projects/examples/en/current/examples/python/matrix1.html
+
+## brief example 
 ```py
 import time
 import numpy as np
