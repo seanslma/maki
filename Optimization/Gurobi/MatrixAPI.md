@@ -11,12 +11,30 @@ import scipy.sparse as sp
 import gurobipy as gp
 from gurobipy import GRB
 
+np.random.seed(42)
+
 try:
     # Create a model
     model = gp.Model('gurobi_test')
 
-    A = sp.diags([1,2,3]) # can also be a numpy 2d array
+    # constraints using 2d vars
+    m = 2
+    n = 3
+    # cv[0]: v[0,0] + v[0,1] + v[0,2] >= 11
+    # cv[1]: v[1,0] + v[1,1] + v[1,2] >= 11
+    V = model.addMVar((m, n), name='v')
+    M = np.full(n, 1)
+    H = np.full(m, 11)
+    cv = model.addConstr(V@M >= H, name='cv')
 
+    # objective 
+    N = np.array([[1,2,3], [4,5,6]])
+    # N = np.random.rand(m, n)
+    obj_expr += (N*V).sum()
+    # obj_expr += gp.quicksum(N[i, j] * V[i, j] for i in range(m) for j in range(n)) # very slow
+
+    # other constraints
+    A = sp.diags([1,2,3]) # can also be a numpy 2d array
     X = model.addMVar(3)
     C = np.array([1,2,3])
     model.addConstr(A@X >= C)
