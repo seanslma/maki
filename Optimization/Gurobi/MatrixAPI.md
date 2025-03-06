@@ -75,7 +75,6 @@ try:
         print('Model is optimal.')
         print(f'Objvalue: {model.objVal}')
         print(f'Solution: x = {X.x}, y = {Y.x}')
-        
     elif model.status == GRB.INFEASIBLE:
         print('Model is infeasible.')
     elif model.status == GRB.UNBOUNDED:
