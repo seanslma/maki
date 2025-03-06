@@ -19,7 +19,7 @@ Some features of Prefect:
 - Workflows are defined in Python, parameterized and dynamic
 - Can run each step in a container, but need to register docker with workflows in Prefect
 - Uses state management abstractions that allow for easy retries and failure handling within data workflows
-- Has built-in integrations with popular data engineering tools and platforms, such as Dask, DBT, and various cloud services.
+- Has built-in integrations with popular data engineering tools and platforms, such as Dask, DBT, and various cloud services
 
 ## Argo Workflows
 Argo Workflows is a container-native workflow engine for orchestrating jobs on Kubernetes. It naturally addresses the deployment issue in Airflow and Prefect.
@@ -41,3 +41,5 @@ As we can see, each tool has its own use cases. We need to select the tool that 
 - If our tasks are more general and require high robustness and reliability, we had better to use Temporal.
 - If our workflows are complex, a tool using a programming language instead of yaml files might be more suitable.
 - If our workflows are simple and we do not want to invest too much time in learning, a tool with ease of use might be the best choice.
+
+Want to know more tips about coding and other things, please visit: https://github.com/seanslma/maki
