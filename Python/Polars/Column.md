@@ -33,3 +33,13 @@ df.with_columns(
     pl.when(pl.col('x') > 0.5).then(0).otherwise(1).alias('y')
 )
 ```
+
+## list of float col to string
+```py
+df.with_columns(
+    pl.col('prices')
+    .list.eval(pl.element().cast(pl.Utf8))
+    .list.join(',')
+    .alias('prices')
+)
+```
