@@ -1,5 +1,4 @@
 # How to create dummy Pandas DataFrames for testing
-Learning faster Python fast with AI
 
 When working with Pandas in Python, constantly we need some DataFrames for different purposes, such as testing Python code to check errors and benchmarking code performance.
 

@@ -1,5 +1,4 @@
 # How to explode date ranges in a Pandas DataFrame 30x faster
-Learning faster Python fast with AI
 
 During data analysis, it is very common that we need to convert our data to the interval resolution from a lower time resolution such as quarterly or monthly to half hourly data.
 
