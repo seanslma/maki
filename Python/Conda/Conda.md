@@ -68,4 +68,5 @@ conda install -c conda-forge dash-bootstrap-components
 conda activate my-env
 conda install git pip
 pip install git+git://github.com/plotly/Kaleido@master
+# mamba install python-kaleido
 ```
