@@ -33,11 +33,17 @@ try:
     obj_expr += (N*V).sum()
     # obj_expr += gp.quicksum(N[i, j] * V[i, j] for i in range(m) for j in range(n)) # very slow
 
-    # other constraints
+    # other constraints using mvar
     A = sp.diags([1,2,3]) # can also be a numpy 2d array
     X = model.addMVar(3)
     C = np.array([1,2,3])
     model.addConstr(A@X >= C)
+
+    # constraints with shifted vars
+    # x[1] - x[0] >= 1 # -> x[1] >= C[1] + x[0]
+    # x[2] - x[1] >= 2
+    S = sp.diags(np.ones(n - 1), -1, shape=(n, n), format='csr')
+    cs = model.addConstr(X - S@X >= C)
 
     # m = 1024; n = 8192; d = 0.2
     # B = sp.random(m, n, d, format='csr')
