@@ -1,4 +1,4 @@
-# Make Python Loops 10x to 700x Faster Using Numba
+# Make Python Loops 5x to 10x Faster Using Numba
 
 Numba is a just-in-time (JIT) compiler for python that translates python code into highly optimized machine code at runtime. It can significantly improve the performance of numerical computations by enabling high-performance execution of functions, particularly those that make heavy use of numpy arrays.
 
@@ -124,7 +124,7 @@ def calculate_distances5(arr):
     return dist_arr
 # 8.20 ms ± 163 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 ```
-Numba is indeed good for loops. There is a `1.2x` performance improvement now.
+Numba is indeed good for loops. There is a `1.2x` performance improvement now, and it's about `5x` faster than the numpy version.
 
 ## Using numba.njit parallel mode
 Modern computers often have multiple cores. By leveraging parallel computing, we can significantly reduce execution time.
