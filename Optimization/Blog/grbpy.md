@@ -63,9 +63,9 @@ r1 = {
     ) for i in periods
 }
 
-# Update model and print problem creating time
+# Update model and print time for creatig problem
 model.update()
-print(f'Problem creating time: {time.time() - t0:.3f} seconds')
+print(f'Time for creating problem: {time.time() - t0:.3f} seconds')
 
 # Write problem to file in LP format
 model.write('c:/test/gurobi_test.lp')
