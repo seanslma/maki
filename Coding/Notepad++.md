@@ -48,5 +48,5 @@ requirements:
 - ignore `   +,-` etc.
 
 solution:
-- find: `(:\s)|(?<!\s{3})(\s[+\-<>=]=?)`
+- find: `(:\s)|(?<!\s{3})(\s[+\-<>=]=?\s)`
 - repl: `(?1\1\r\n   )(?2\r\n  \2)`
