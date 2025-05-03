@@ -79,11 +79,6 @@ systemctl list-unit-files | grep -i docker
 systemctl list-unit-files | grep -i 'state\|docker'
 ```
 
-## Dual boot OS selection time
-  * open /etc/default/grub
-  * change GRUB_TIMEOUT=10 [value in second] and save it
-  * sudo update-grub and reboot
-
 ## Colored terminal
   * Add this after the last 'fi' in .bashrc
 ```sh
