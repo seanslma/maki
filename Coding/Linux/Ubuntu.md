@@ -83,3 +83,9 @@ Reboot the system. The clock should now be in UTC time.
 ```sh
 Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_QWORD /d 1
 ```
+
+## Wifi setting is missing
+- power off
+- disconnect power cable
+- hold the power button for 30 seconds
+- wifi should be back
