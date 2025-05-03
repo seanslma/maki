@@ -1,5 +1,10 @@
 # Dual boot
 
+## Dual boot OS selection time
+- open /etc/default/grub
+- change GRUB_TIMEOUT=10 [value in second] and save it
+- sudo update-grub and reboot
+
 ## Repair grub efi overwritten by windows update
 https://askubuntu.com/questions/88384/how-can-i-repair-grub-how-to-get-ubuntu-back-after-installing-windows
 
