@@ -58,3 +58,24 @@ pa_convert_options = pv.ConvertOptions(
     }
 )
 ```
+
+## write csv with list type columns
+```py
+import polars as pl
+
+# Sample DataFrame
+df = pl.DataFrame({
+    'id': [1, 2],
+    'values': [[1, 2, 3], [4, 5]],
+    'tags': [['a', 'b'], ['x']],
+})
+
+# Convert the list cols to string
+df = df.with_columns(
+    pl.col(col).cast(pl.List(pl.String)).list.join(',') #.alias(col)
+    for col, dtype in zip(df.columns, df.dtypes)
+    if dtype == pl.List
+)
+
+print(df)
+```
