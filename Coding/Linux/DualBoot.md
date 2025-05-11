@@ -1,5 +1,11 @@
 # Dual boot
 
+## Dual boot change GRUB menu order
+- `ll /etc/grub.d/`: GRUB builds its menu using scripts in `/etc/grub.d/`. The numbers define the order - lower numbers appear first
+- Change Script File Order so Windows appear before Linux: `sudo mv /etc/grub.d/30_os-prober /etc/grub.d/09_os-prober`
+- Update GRUB `sudo update-grub`: This rebuilds /boot/grub/grub.cfg with the new order
+- `sudo reboot`
+
 ## Dual boot OS selection time
 - open /etc/default/grub
 - change GRUB_TIMEOUT=10 [value in second] and save it
