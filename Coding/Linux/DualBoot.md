@@ -72,3 +72,9 @@ sudo update-grub
 sudo grub-install /dev/nvme0n1p7
 ```
 Install the grub to the boot sector of your hard drive and not to a partition.
+
+## check security boot enabled or not
+`sudo mokutil --sb-state`:
+- SecureBoot enabled
+- SecureBoot disabled
+- SecureBoot disabled\nPlatform is in Setup Mode
