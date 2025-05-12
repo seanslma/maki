@@ -30,3 +30,9 @@ Swaps
 https://github.com/stochasticquant/Derivative-Pricing-in-Python
 - Risk neutral pricing 
 - Black Scholes pricing
+
+## stochastic optimization with risk
+https://www.gurobi.com/events/solving-simple-stochastic-optimization-problems-with-gurobi
+- Risk
+- VaR
+- CVaR
