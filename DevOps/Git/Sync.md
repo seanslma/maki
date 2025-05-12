@@ -66,14 +66,14 @@ git merge origin/master
 
 ## remote `azure` branch to local master
 ```
-# git pull <repo> <remote-branch>:<local-branch>
-# git pull azure <remote-branch>, Ok but better use
-git fetch azure <remote-branch>
+git checkout <local-branch>  
+git fetch azure
+git merge <repo>/<remote-branch> #merge to local checked-out branch
 
-git merge <remote-branch>    #merge to local master
-
-git checkout <local-branch>  #merge to local branch
-git merge <repo>/<remote-branch>
+# example
+git checkout main
+git fetch origin
+git merge origin/main
 ```
 
 ## remote `azure` branch to local new branch
