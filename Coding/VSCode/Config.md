@@ -98,6 +98,17 @@ Search `Explorer: Copy Relative Path Separator` in settings
 "editor.autoClosingBrackets": "never",
 ```    
 
+## disable spell check in problems
+in `settings.json` add:
+```json
+"cSpell.diagnosticLevel": "Hint",
+```
+For version >= 4.0, a better solution:
+```json
+"cSpell.useCustomDecorations": true,
+"cSpell.textDecoration": "underline wavy #fc9867 auto"
+```
+
 ## dockerfile
 mark files with some extension as docker file
 ```json
