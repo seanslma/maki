@@ -1,8 +1,11 @@
 # CSV
 
-WB.SaveAS issues:
+## WB.SaveAS issues
 - will drop first empty line
 - will save only Range.Text (not value/value2)
+
+## Excel to CSV: numerical data precision
+When saving excel to csv, to keep numerical data precision, we need to use text format!
 
 ## csv to sheet
 ```vb
