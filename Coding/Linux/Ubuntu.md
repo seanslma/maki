@@ -63,6 +63,10 @@ Set the timeout value:
 /etc/systemd/sleep.conf
 ```
 
+## 24.04 hibernation issues
+Solved?
+- https://askubuntu.com/questions/1525525/suspension-and-hibernation-on-ubuntu-24-04-dell-precision-5490
+
 ## Dual boot wrong time
 https://itsfoss.com/wrong-time-dual-boot/
 
