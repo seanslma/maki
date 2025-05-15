@@ -88,4 +88,6 @@ Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsU
 - power off
 - disconnect power cable
 - hold the power button for 30 seconds
-- wifi should be back
+- wifi should be back - but just a temporal solution (usually reboot works)
+
+Other solution for ubuntu 24.04: https://gist.github.com/UbuntuEvangelist/e36f6a1a9ef7cb0a0b24e592eb925b68
