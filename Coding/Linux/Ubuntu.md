@@ -71,6 +71,13 @@ Set the timeout value:
 Solved?
 - https://askubuntu.com/questions/1525525/suspension-and-hibernation-on-ubuntu-24-04-dell-precision-5490
 
+Check log:
+```sh
+journalctl --since "5 minutes ago" | grep -i "hibernate|swap|suspend"
+journalctl -p err -b | grep -i "power|hibernate|swap"
+journalctl -p crit -b | grep -i "power|hibernate|swap"
+```
+
 ## Dual boot wrong time
 https://itsfoss.com/wrong-time-dual-boot/
 
