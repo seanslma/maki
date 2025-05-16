@@ -30,6 +30,10 @@ sudo vi /etc/apt/sources.list
 ## gnome top bar to left
 https://askubuntu.com/questions/1162884/can-i-move-the-gnome-top-bar-and-status-icons-to-the-side
 
+## disable shutdown confirmation
+```sh
+gsettings set org.gnome.SessionManager logout-prompt false
+```
 
 ## Enable hibernate
 ```sh
