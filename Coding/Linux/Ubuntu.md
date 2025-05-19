@@ -1,13 +1,13 @@
 # Ubuntu
 
-## install libssl1.1 latest in ubuntu 22.04 
+## install libssl1.1 latest in ubuntu 22.04
 - https://github.com/microsoft/azure-pipelines-agent/blob/master/src/Misc/layoutbin/installdependencies.sh
 - https://stackoverflow.com/questions/72133316/libssl-so-1-1-cannot-open-shared-object-file-no-such-file-or-directory
 
 use wget
 ```sh
 package=$(wget -qO- http://security.ubuntu.com/ubuntu/pool/main/o/openssl/ | grep -oP '(libssl1.1_1.1.1f.*?_amd64.deb)' | head -1)
-wget "http://security.ubuntu.com/ubuntu/pool/main/o/openssl/${package}" && dpkg -i $package 
+wget "http://security.ubuntu.com/ubuntu/pool/main/o/openssl/${package}" && dpkg -i $package
 ```
 
 use curl
@@ -105,4 +105,7 @@ Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsU
 - hold the power button for 30 seconds
 - wifi should be back - but just a temporal solution (usually reboot works)
 
-Other solution for ubuntu 24.04: https://gist.github.com/UbuntuEvangelist/e36f6a1a9ef7cb0a0b24e592eb925b68
+Other solution for ubuntu 24.04:
+- https://gist.github.com/UbuntuEvangelist/e36f6a1a9ef7cb0a0b24e592eb925b68
+- https://askubuntu.com/questions/1536788/no-wifi-adapter-found-dual-boot-ubuntu-24-04-and-windows-11
+- https://community.frame.work/t/solved-bios-3-17-and-dual-boot-wifi/31424/4
