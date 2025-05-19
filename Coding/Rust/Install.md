@@ -20,3 +20,7 @@ rustup self uninstall # uninstall
 
 ## Install `rust-analyzer` extension in vs code
 https://code.visualstudio.com/docs/languages/rust
+
+## Install debugging support
+- Windows `Microsoft C++` (ms-vscode.cpptools): https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
+- Linux/MacOS `CodeLLDB` (vadimcn.vscode-lldb): https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb
