@@ -11,9 +11,12 @@
 - `rustup`: `curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh`
 - `linker` (C compiler includes a linker): GCC or Clang. For Ubuntu, install `build-essential` package
 
-## update
+## Update
 ```sh
 rustc --version
 rustup update         # update
 rustup self uninstall # uninstall
 ```
+
+## Install `rust-analyzer` extension in vs code
+https://code.visualstudio.com/docs/languages/rust
