@@ -86,7 +86,7 @@ A hardware clock which is also called RTC (real time clock) or CMOS/BIOS clock. 
 ### Solution 1
 Setup for Linux system to use the local time for the hardware clock (RTC)
 ```sh
-timedatectl set-local-rtc 1 #0 for UTC time standard,  1 for localtime time standard
+timedatectl set-local-rtc 1 #0 for UTC time standard, 1 for localtime time standard
 ```
 
 ### Solution 2

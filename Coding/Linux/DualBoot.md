@@ -78,3 +78,9 @@ Install the grub to the boot sector of your hard drive and not to a partition.
 - SecureBoot enabled
 - SecureBoot disabled
 - SecureBoot disabled\nPlatform is in Setup Mode
+
+## disable fast startup in windows
+https://www.windowscentral.com/software-apps/windows-11/how-to-enable-or-disable-fast-startup-on-windows-11
+- wifi disappeared after boot from windows
+- reboot ubuntu will bring back wifi
+- might due to windows fast startup
