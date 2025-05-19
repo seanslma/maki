@@ -21,6 +21,16 @@ rustup self uninstall # uninstall
 ## Install `rust-analyzer` extension in vs code
 https://code.visualstudio.com/docs/languages/rust
 
+disable inlay hints:
+```json
+// Enables the inlay hints in the editor.
+//  - on: Inlay hints are enabled
+//  - onUnlessPressed: Inlay hints are showing by default and hide when holding Ctrl+Alt
+//  - offUnlessPressed: Inlay hints are hidden by default and show when holding Ctrl+Alt
+//  - off: Inlay hints are disabled
+"editor.inlayHints.enabled": "on",
+```
+
 ## Install debugging support
 - Windows `Microsoft C++` (ms-vscode.cpptools): https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
 - Linux/MacOS `CodeLLDB` (vadimcn.vscode-lldb): https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb
