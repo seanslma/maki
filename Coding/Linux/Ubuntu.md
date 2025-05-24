@@ -73,15 +73,24 @@ Set the timeout value:
 ```
 
 ## 24.04 hibernation issues
-Solved?
-- https://askubuntu.com/questions/1525525/suspension-and-hibernation-on-ubuntu-24-04-dell-precision-5490
+After hibernation, the laptop will immediately wake up to the login screen.
 
-Check log:
+Solution:
+- after hibernation failed, quickly check log:
 ```sh
-journalctl --since "5 minutes ago" | grep -i "hibernate|swap|suspend"
-journalctl -p err -b | grep -i "power|hibernate|swap"
-journalctl -p crit -b | grep -i "power|hibernate|swap"
+journalctl --since "3 minutes ago" | grep -i "hiber"
+journalctl -p err -b | grep -i "power|hiber|swap"
+journalctl -p crit -b | grep -i "power|hiber|swap"
 ```
+- found the message `Wakeup event detected during hibernation, rolling back`
+- based on the message search online and found: https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/2057687
+- there are many worked solutions. #18 solved my issue as well.
+- #18: add the line `blacklist intel_hid` to `/etc/modprobe.d/blacklist.conf` and then run
+```sh
+sudo update-grub
+sudo update-initramfs -c -k all
+```
+- for similar discussion see also: https://bugzilla.kernel.org/show_bug.cgi?id=218634
 
 ## Dual boot wrong time
 https://itsfoss.com/wrong-time-dual-boot/
