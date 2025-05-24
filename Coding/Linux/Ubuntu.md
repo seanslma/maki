@@ -35,6 +35,11 @@ https://askubuntu.com/questions/1162884/can-i-move-the-gnome-top-bar-and-status-
 gsettings set org.gnome.SessionManager logout-prompt false
 ```
 
+## change font size
+```sh
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.05
+```
+
 ## Enable hibernate
 ```sh
 systemctl hibernate
