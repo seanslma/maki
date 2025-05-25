@@ -91,3 +91,37 @@ https://www.windowscentral.com/software-apps/windows-11/how-to-enable-or-disable
 - Change settings that are currently unavailable
 - Under the "Shutdown settings" section, check the "Turn off fast startup" option
 - Save Changes
+
+## Wifi setting is missing
+- power off
+- disconnect power cable
+- hold the power button for 30 seconds
+- wifi should be back - but just a temporal solution (usually reboot works)
+
+Other solution for ubuntu 24.04:
+- https://gist.github.com/UbuntuEvangelist/e36f6a1a9ef7cb0a0b24e592eb925b68
+- https://askubuntu.com/questions/1536788/no-wifi-adapter-found-dual-boot-ubuntu-24-04-and-windows-11
+- https://community.frame.work/t/solved-bios-3-17-and-dual-boot-wifi/31424/4
+
+When windows fast startup is enabled, windows will still own the wifi device after hibernation. Disabling fast startup worked.
+
+## Dual boot wrong time
+https://itsfoss.com/wrong-time-dual-boot/
+
+A hardware clock which is also called RTC (real time clock) or CMOS/BIOS clock. By default, Linux assumes that the time stored in the hardware clock is in UTC, while Windows thinks that the time stored on the hardware clock is local time.
+
+### Solution 1
+Setup for Linux system to use the local time for the hardware clock (RTC)
+```sh
+timedatectl set-local-rtc 1 #0 for UTC time standard, 1 for localtime time standard
+```
+
+### Solution 2
+Setup for Windows system to use the UTC for the hardware clock (RTC).
+
+For 64-bit Windows, open regedit then browse to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation.
+Create a new QWORD entry called RealTimeIsUniversal, then set its value to 1.
+Reboot the system. The clock should now be in UTC time.
+```sh
+Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_QWORD /d 1
+```
