@@ -46,10 +46,13 @@ git checkout -b <new-branch>  #create and switch to
 git checkout -b <new-branch> <commit-hash or HEAD~i>
 ```
 
-## restore deleted branch
+## create branch from remote branch
+create a new local branch and track a remote branch. For example, add commits to other's branch
 ```
-git reflog show --all             #get sha1 of the deleted branch
-git branch <NewBranchName> <sha1> #restore the branch
+git checkout -b <local-branch> origin/<remote-branch>
+...
+git push -u origin <branch-name> # local/remote branches have the same name, automatic tracking
+git push origin <local-branch>:<remote-branch> # push from specific local to remote branch, no automatic tracking
 ```
 
 ## Create branch from another branch
@@ -63,6 +66,12 @@ git checkout -b dev-test
 
 #push changes in dev-test to remote
 git push origin dev-test
+```
+
+## restore deleted branch
+```
+git reflog show --all             #get sha1 of the deleted branch
+git branch <NewBranchName> <sha1> #restore the branch
 ```
 
 ## Delete local branches
