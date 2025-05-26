@@ -45,4 +45,4 @@ Turn off underline from mut variable name:
 
 ## Install debugging support
 - Windows `Microsoft C++` (ms-vscode.cpptools): https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
-- Linux/MacOS `CodeLLDB` (vadimcn.vscode-lldb): https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb
+- Linux/MacOS `CodeLLDB` (vadimcn.vscode-lldb): https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb run in vscode (Ctrl + P): `ext install vadimcn.vscode-lldb`
