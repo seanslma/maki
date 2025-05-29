@@ -9,7 +9,10 @@ import get_database_config
 cfg = get_database_config('my-config-file')
 url = sa.engine.url.URL.create(**cfg)
 engine = sa.create_engine(url)
-session = sa.orm.Session(bind=engine)
+# session = sa.orm.Session(bind=engine)
+SessionLocal = sa.orm.sessionmaker(bind=engine)
+# with SessionLocal() as session:
+#   ...
 
 query = """
     select SALEDATE, REGION, ID, QUANTITY
