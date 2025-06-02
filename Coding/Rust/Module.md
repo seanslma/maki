@@ -14,4 +14,4 @@ src/
 - `foo.rs` or `foo/mod.rs` must contain a `mod bar;` line
 - `foo/bar.rs` or `foo/bar/mod.rs` must contain a `mod baz;` line
 
-When rust encounters `mod name;`, it goes and finds `name.rs` or `name/mod.rs` and uses its contents as the module at that site.sssssssssssssssssssssssssssssssssssssssssssss
+When rust encounters `mod name;`, it goes and finds `name.rs` or `name/mod.rs` and uses its contents as the module at that site.
