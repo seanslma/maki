@@ -8,6 +8,14 @@
 - Runs and is published every 5 minutes
 - Forecasts for the next 12 dispatch cycles (one hour)
 
+## Total demand
+`Gen - NetInterchange(export) = TotalDemand + Load - WDR_Dispatched + AllocatedInterconnectorLosses`
+
+link: https://aemo.com.au/-/media/files/electricity/nem/security_and_reliability/dispatch/policy_and_process/demand-terms-in-emms-data-model.pdf?la=en
+
+Table `dispatchregionsum`:
+- NetInterchange: negative for import
+
 ## Energy reserve
 `Reserve = AvailGen + AvailLoad - TotalDemand`
 
