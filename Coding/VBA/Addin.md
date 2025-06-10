@@ -1,7 +1,7 @@
 # Addin
 
 ## create
-Excel `xlam` file is a regular workbook, marked as add-in. Just save an Excel `xlsm` to `xlam`.
+Excel `xlam` file is a regular workbook, marked as add-in. Just save an Excel `xlsm` to `xlam`. It's better also to change `VBAProject` to your AddIn name.
 
 ## install
 File -> Options –> Add-ins.
