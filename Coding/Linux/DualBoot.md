@@ -40,6 +40,7 @@ The root filesystem on /dev/nvme0n1p5 requires a manual fsck
 ```sh
 fsck /dev/nvme0n1p5 -y
 ```
+After that run `exit`
 
 ## Stuck at GRUB command line - GNU GRUB version 2.06-3~deb11u2
 This means the grub could not find the root system so we need to repair it.
