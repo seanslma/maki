@@ -7,7 +7,7 @@ d1.merge(d2, how='outer', on=['i', 'j'], suffixes=('_x', '_y'), indicator=True)`
 
 ## join vs merge
 - `join`(... on=[...]) joins **index/columns** of left to **index keys** of right
-- `merge` joins **index/columns** of left to **index/columns** of right - less restricted
+- `merge` joins **index/columns** of left to **index/columns** of right - less restricted, also drops index not in `on`
 
 ## avoid `join` with duplicate index
 `join` with duplicate index will lead to `m x n` records (an outer join) - will blow out memory for large dataset.
