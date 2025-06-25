@@ -1,6 +1,14 @@
 # Maturin
 
 ## create a project
+Create a folder and add layout files:
+```sh
+maturin new ./proj --bindings pyo3
+cd proj
+maturin develop
+```
+
+From an existing folder/project and add layout files:
 ```sh
 mkdir my-proj && cd "$_"
 pip install maturin
