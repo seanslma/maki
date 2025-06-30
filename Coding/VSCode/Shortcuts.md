@@ -6,6 +6,11 @@ Ctrl + Shift + P
 ```
 Then search for what you need
 
+## open `keybindings.json`
+This file contains your custom keybindings. I
+- Open the Command Palette by pressing `Ctrl + Shift + P`
+- Type `Open Keyboard Shortcuts (JSON)` and select the corresponding command
+
 ## search text
 ```
 Ctrl + F         # search in the current file
