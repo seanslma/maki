@@ -29,6 +29,8 @@ table.take([1,3])
 import pyarrow.compute as pc
 expr = pc.field('year') <= 2020
 table.filter(expr)
+
+table.filter(pc.field('start_date') < pc.field('end_date'))
 ```
 
 ## get rows with zero-copy
