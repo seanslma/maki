@@ -9,15 +9,14 @@
 - Forecasts for the next 12 dispatch cycles (one hour)
 
 ## Total demand
-`Gen - NetInterchange(export) = TotalDemand + Load - WDR_Dispatched + AllocatedInterconnectorLosses`
-
-link: https://aemo.com.au/-/media/files/electricity/nem/security_and_reliability/dispatch/policy_and_process/demand-terms-in-emms-data-model.pdf?la=en
+https://aemo.com.au/-/media/files/electricity/nem/security_and_reliability/dispatch/policy_and_process/demand-terms-in-emms-data-model.pdf?la=en
 
 Table `dispatchregionsum`:
 - NetInterchange: negative for import
+- `Gen - NetInterchange(export) = TotalDemand + Load - WDR_Dispatched + AllocatedInterconnectorLosses`
 
 ## Energy reserve
-`Reserve = AvailGen + AvailLoad - TotalDemand`
+`Reserve = AvailGen - NetInterchange (Export) - TotalDemand`
 
 Table `predispatchregionsum`, `p5min_regionsolution`, `dispatchregionsum`: 
 - `TOTALDEMAND`: forecast total demand in MW (less normally on loads)
@@ -26,3 +25,19 @@ Table `predispatchregionsum`, `p5min_regionsolution`, `dispatchregionsum`:
 - `PREDISPATCHSEQNO` format: `yyyymmddxx`
 - `RUN_DATETIME` format: `yyyy-mm-dd 24hh:mi:ss`
 - `SETTLEMENT_DATE` format: `yyyy-mm-dd 24hh:mi:ss`
+
+## Regional excess supply
+https://www.aemo.com.au/-/media/files/electricity/nem/security_and_reliability/power_system_ops/reserve-level-declaration-guidelines.pdf
+Mainland regions:
+```
+RXS
+= + Aggregate Non-Energy Limited Capacity
+  + Aggregate Energy Limited Capacity
+  - Aggregate Semi-Scheduled Output
+  - Net Interconnector Export
+  + Aggregate Semi-Scheduled Output
+  - Scheduled Demand
+= + AvailGen
+  - NetInterchange (Export)
+  - TotalDemand
+```
