@@ -21,3 +21,14 @@ git pull
 git switch my-branch
 git rebase master
 ```
+
+## refusing to merge unrelated histories
+```
+$ git merge azure/main
+fatal: refusing to merge unrelated histories
+```
+- two repos do not have shared histories
+- force merge: `git merge azure/main --allow-unrelated-histories`
+- then solve the conflicts: `git add xxx; git commit yyy`
+- `not good`: will include all commits from the source repo
+- use `cherry-pick`?
