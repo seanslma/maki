@@ -112,7 +112,7 @@ For version >= 4.0, a better solution:
 ## disable inline values in debugger
 It's annoying that Python debugger in VS Code is showing inline variable values (faded text next to your code while debugging)
 ```json
-"debug.inlineValues": false
+"debug.inlineValues": "off"
 ```
 
 ## dockerfile
