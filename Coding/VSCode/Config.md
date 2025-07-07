@@ -106,7 +106,13 @@ in `settings.json` add:
 For version >= 4.0, a better solution:
 ```json
 "cSpell.useCustomDecorations": true,
-"cSpell.textDecoration": "underline wavy #fc9867 auto"
+"cSpell.textDecoration": "underline wavy #bbbbbb66", //"underline wavy #fc9867 auto", //
+```
+
+## disable inline values in debugger
+It's annoying that Python debugger in VS Code is showing inline variable values (faded text next to your code while debugging)
+```json
+"debug.inlineValues": false
 ```
 
 ## dockerfile
