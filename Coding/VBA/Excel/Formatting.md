@@ -1,6 +1,11 @@
 # Formatting
 https://docs.microsoft.com/en-us/office/vba/api/excel.databar.showvalue
 
+## change mix of text and number to text
+- simply format cells as text will not work after copying text
+- create a new line using `=text(a1, "@")`
+- copy value and format to new column
+
 ## cell chars font size
 ```VB
 With Sheets("Test").Range("A1")
