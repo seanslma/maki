@@ -103,3 +103,23 @@ git pull https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git branch-name
 #push merge to GitHub repo
 git push origin branch-name
 ```
+
+## cherry-pick
+cherry-pick from github repo to azure devops repo
+```
+git checkout -b sync-1
+git fetch azure
+git reset --hard azure/main
+
+git fetch github
+
+# one by one
+git cherry-pick <commit-hash-1>
+..
+git cherry-pick <commit-hash-n>
+
+# or in a range
+git cherry-pick <oldest-commit-hash>^..<newest-commit-hash>
+
+git push azure sync-1
+```
