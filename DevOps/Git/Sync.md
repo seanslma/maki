@@ -54,7 +54,10 @@ git checkout my-branch
 git stash
 git fetch upstream
 git rebase upstream/master #rebase my-branch from the upstream’s master branch
-git stash pop
+git stash 
+
+# if the local branch is already in a pr
+git push --force-with-lease origin my-branch # don't overwrite remote changes we don't have locally
 ```
 
 ## master to local branch
