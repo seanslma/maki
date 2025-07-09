@@ -1,5 +1,5 @@
 # How I reduced a Python app run time from two hours to 20 seconds?
-Pandas df.groupby.apply is too slow for two Dataframes
+Pandas `df.groupby.apply` is too slow for two Dataframes
 
 We have a Python app that was too slow. It took about two hours to extract product forecast data from a database and to merge it with actual records. After some refactorization and optimization, I managed to reduce the run time to less than 20 seconds.
 
@@ -10,7 +10,7 @@ Once there are missing records in the actual data, we believe that the actual re
 To finish this task, for each product, we need to first find the last consecutive date in the actual data and then get the forecast data after that date so we can merge the actual and forecast data together.
 
 ## Dummy data for testing
-The performance of different implementations has been tested using some dummy data. I created dummy data using a function `gen_rand_df` that is described in my previous post []. I also used a function `explode_date_range` in my another post [] to explode date ranges.
+The performance of different implementations has been tested using some dummy data. I created dummy data using a function `gen_rand_df` that is described in [my previous post](https://medium.com/@sean.lma/how-to-create-dummy-pandas-dataframes-for-testing-cf03c52878e3). I also used a function `explode_date_range` in [my another post](https://python.plainenglish.io/how-to-explode-date-ranges-in-a-pandas-dataframe-30x-faster-cb76519c7acf) to explode date ranges.
 
 Firstly, we create some product info with `product_id`, `start_date` and `end_date` for the actual sales records and expand the date ranges to daily records.
 ```python
@@ -74,7 +74,7 @@ d3 = gen_rand_df(
         'count': 2,
         'name': ['daily_revenue1', 'daily_revenue2'],
         'low': 0,
-        'high': 1e6,
+        'high': 1e3,
         'missing_pct': [0.1, 0],
     },
 )
@@ -148,10 +148,10 @@ df_v1 = (
     .apply(keep_records_after_consecutive_dates_v1, df_actual)
 )
 ```
-The run time is 327 seconds.
+The run time is **327 seconds**.
 
 ## Avoiding repeated query and filtering
-By checking the previous implementation, we can observe that we have a repeated query and filtering for each product on the actual sales DataFrame. That is likely to slowdown the process.
+By checking the previous implementation, we can observe that we have a repeated query and filtering for each product on the actual sales DataFrame. That is likely to slow down the process.
 
 Now we do the query for all products and group the product records in advance. Hopefully this will make it much faster.
 
@@ -177,10 +177,10 @@ df_keep2 = (
     .apply(keep_records_after_consecutive_dates_v2, grp_actual)
 )
 ```
-Now the run time is 17.6 seconds -- that's about 18x faster.
+Now the run time is **17.6 seconds** --- that's about **18x** faster.
 
 ## Using a Python for-loop
-The `.apply()` often has some overhead compared to a pure Python for-loop. We now replace the `.apply()` with a for-loop - at the same time we also avoid the index parsing for all product groups.
+The `.apply()` often has some overhead compared to a pure Python for-loop. We now replace the `.apply()` with a for-loop. At the same time we can remove the index parsing for all product groups.
 ```python
 def keep_records_after_consecutive_dates_v3(
     df_forecast: pd.DataFrame,
@@ -208,7 +208,7 @@ for product_id in product_ids:
     dfs.append(df)
 df_keep3 = pd.concat(dfs, axis=0)
 ```
-The run time is 9.8 seconds - that's about 1.8x faster than version #2.
+The run time is **9.8 seconds** --- that's about **1.8x** faster than version #2.
 
 ## Vectorized process without for-loop
 It's obvious that we can vectorize the calculation of the last consecutive date for all products. Pandas `groupby().apply()` on a Series can be very efficient, as it often operates on NumPy arrays internally.
@@ -242,7 +242,10 @@ def keep_records_after_consecutive_dates_v4(
     return df_forecast
 df_keep4 = keep_records_after_consecutive_dates_v4(df_forecast, df_actual)
 ```
-The final run time is 2.4 seconds - that's about 4x faster than version #3 and about 130x faster than the original version #1.
+The final run time is **2.4 seconds** - that's about **4x** faster than version #3 and about **130x** faster than the original version #1 (**327 seconds**).
 
 ## summary
 By avoiding repeated query and filtering operations and vectorization of some other operations, I successfully made a Python process running 130x faster. I also did some similar optimization for extracting forecast data from a database. Ultimately the application total execution time was reduced from over two hours to less than 20 seconds.
+
+
+Want to know more tips about coding and other things, please visit: https://github.com/seanslma/maki
