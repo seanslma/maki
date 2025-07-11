@@ -3,7 +3,7 @@ Pandas `df.groupby.apply` is too slow for two Dataframes
 
 We have a Python app that was too slow. It took about two hours to extract product forecast data from a database and to merge it with actual records. After some refactorization and optimization, I managed to reduce the run time to less than 20 seconds.
 
-Assume we have some products and each has some daily sales revenue - the actual records. We also have daily forecast revenue. The task is to merge the actual and forecast data together.
+Assume we have some products and each has some daily sales revenue, the actual records. We also have daily forecast revenue. The task is to merge the actual and forecast data together.
 
 Once there are missing records in the actual data, we believe that the actual revenue from that day are not reliable and they should be replaced with forecast data.
 
@@ -171,7 +171,7 @@ def keep_records_after_consecutive_dates_v2(
     return df_forecast
 
 grp_actual = df_actual.query('daily_revenue.notna()').groupby('product_id')
-df_keep2 = (
+df_v2 = (
     df_forecast
     .groupby('product_id', group_keys=False)
     .apply(keep_records_after_consecutive_dates_v2, grp_actual)
@@ -206,7 +206,7 @@ for product_id in product_ids:
     else:
         df = grp_forecast.get_group(product_id)
     dfs.append(df)
-df_keep3 = pd.concat(dfs, axis=0)
+df_v3 = pd.concat(dfs, axis=0)
 ```
 The run time is **9.8 seconds** --- that's about **1.8x** faster than version #2.
 
@@ -240,7 +240,8 @@ def keep_records_after_consecutive_dates_v4(
         .drop(columns='last_consecutive_date')
     )
     return df_forecast
-df_keep4 = keep_records_after_consecutive_dates_v4(df_forecast, df_actual)
+
+df_v4 = keep_records_after_consecutive_dates_v4(df_forecast, df_actual)
 ```
 The final run time is **2.4 seconds** - that's about **4x** faster than version #3 and about **130x** faster than the original version #1 (**327 seconds**).
 
