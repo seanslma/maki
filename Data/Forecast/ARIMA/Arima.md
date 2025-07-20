@@ -1,4 +1,7 @@
 # Arima
+- for data shows clear trends or seasonal patterns
+- ideal for short-term forecasts
+- can use differencing to remove non-stationary trend
 
 ## SARIMAX example 
 https://github.com/SamWachira/Electricity-Demand-Forecasting/blob/main/Time_Series_Electricity.ipynb
