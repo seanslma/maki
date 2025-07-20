@@ -8,3 +8,6 @@ https://news.ycombinator.com/item?id=37877443
 
 ## model history
 https://medium.com/@ycwong.joe/a-brief-history-of-time-series-models-38455c2cd78d
+
+## summary
+https://chartexpo.com/blog/time-series-forecasting
