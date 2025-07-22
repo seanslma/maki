@@ -38,3 +38,7 @@ if uigf (forecast, avail) is too low, the target (totalcleared) will be constrai
 
 ## relationship
 https://www.aemo.com.au/-/media/Files/Electricity/NEM/Security_and_Reliability/Dispatch/Policy_and_Process/Demand-terms-in-EMMS-Data-Model.pdf
+
+- `LHS = DispatchableGeneration + Net Interconnector Targets (into the Region)`
+- `RHS = TotalDemand + DispatchableLoad - WDR_Dispatched + Allocated Interconnector Losses`
+- `LHS = RHS = ClearedSupply`
