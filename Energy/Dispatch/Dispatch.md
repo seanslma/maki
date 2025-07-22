@@ -32,8 +32,9 @@ The “semi-dispatch compliance” requirement flag is set when either one of th
 if uigf (forecast, avail) is too low, the target (totalcleared) will be constrainted by ramp down rate, so target > avail. In this interval, the semicap flag = false, the actual generation can be lower or higher than the target.
 
 ## terms
-**INITIALMW** is the SCADA metered value nearest to the 5-minute interval at the time of running NEMDE.
+- **INITIALMW** is the SCADA metered value nearest to the 5-minute interval at the time of running NEMDE.
+- **TOTALCLEARED** is the dispatch target for the end of this dispatch interval (DI).
+- **AVAILABILITY** appears to be the Australian Solar Energy Forecasting System (ASEFS) forecast for the next 5-minutes ahead
 
-**TOTALCLEARED** is the dispatch target for the end of this dispatch interval (DI).
-
-**AVAILABILITY** appears to be the Australian Solar Energy Forecasting System (ASEFS) forecast for the next 5-minutes ahead
+## relationship
+https://www.aemo.com.au/-/media/Files/Electricity/NEM/Security_and_Reliability/Dispatch/Policy_and_Process/Demand-terms-in-EMMS-Data-Model.pdf
