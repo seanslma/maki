@@ -1,7 +1,7 @@
 # MkDocs
-https://www.mkdocs.org/user-guide/
-
-https://mkdocs.readthedocs.io/en/0.13.3/user-guide/styling-your-docs/
+- https://www.mkdocs.org/user-guide/
+- https://mkdocs.readthedocs.io/en/0.13.3/user-guide/styling-your-docs/
+- https://realpython.com/python-project-documentation-with-mkdocs/
 
 MkDocs is a fast and simple static site generator that’s geared towards building project documentation with Markdown.
 ```sh
@@ -10,6 +10,13 @@ mkdocs serve           #run in preview mode
 mkdocs build           #build the docs project
 mkdocs build --config-file <config-file> --site-dir <output-path>
 ```
+
+## packages
+- `mkdocs` (mkdocs): build static pages from Markdown
+- `mkdocstrings` (mkdocstrings-python): auto-generate documentation from docstrings in your code. It's the Python handler for mkdocstrings that allows mkdocstrings to parse Python code.
+- `material` (mkdocs-material): style mkdocs documentation
+
+
 ## navigation
 https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#instant-loading
 ```yaml
