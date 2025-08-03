@@ -6,9 +6,6 @@ Feature’s relative importance can be assessed through two approaches:
 - Shapley (python package `shap`) decompositions
 - Marginal performance loss through feature removal
 
-## lag features
-https://www.kaggle.com/code/ryanholbrook/time-series-as-features
-
 ## feature selection
 Best approach: use `featurewiz` to reduce feature size and then use `shap` to explain feature importance.
 
