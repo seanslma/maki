@@ -1,7 +1,7 @@
 # Example
 
 ## LightGBM vs XGBoost
-- LightGBM generally faster than XGBoost, especially for large datasets, does not support arrow
+- LightGBM generally faster than XGBoost, especially for large datasets, does not support polars (`df.to_arrow` and `sr.to_arrow` should work)
 - XGBoost might have slightly lower memory requirements compared to LightGBM
 
 ## parameters
