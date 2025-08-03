@@ -18,7 +18,7 @@ when we call `dataset`, it will:
 
 ### categorical features
 - LightGBM offers in-built options for encoding categorical features
-- specify which features are categorical by using the `categorical_feature` parameter
+- specify which features are categorical by using the `categorical_feature` parameter in `dataset`
 - convert categorical columns to a categorical data type in pandas before splitting data into training and test sets
 - take advantage of LightGBM's internal optimizations for categorical features rather than manually encoding these features
 
