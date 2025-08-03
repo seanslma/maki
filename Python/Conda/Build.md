@@ -6,7 +6,7 @@ https://docs.conda.io/projects/conda-build/en/latest/concepts/recipe.html
 ## parameters
 https://docs.conda.io/projects/conda-build/en/stable/resources/commands/conda-build.html
 
-Building a conda package requires a recipe. 
+Building a conda package requires a recipe.
 A conda-build recipe is a flat directory that contains the following files:
 - meta.yaml: Only `package/name` and `package/version` are required
 - build.sh: It is executed using the bash command for macOS and Linux.
@@ -27,7 +27,7 @@ $PYTHON setup.py install     # Python command to install the script
 ```
 
 ## build.sh
-You can define the `build.sh` script inline in the meta.yaml file otherwise conda-build will look for a `build.sh` script in the recipe directory 
+You can define the `build.sh` script inline in the meta.yaml file otherwise conda-build will look for a `build.sh` script in the recipe directory
 ```yaml
 build:
   number: 100
@@ -35,7 +35,9 @@ build:
 ```
 
 ## install conda-build
-must install cond-build in base env
+- Must install cond-build in `base` env.
+- https://docs.conda.io/projects/conda-build/en/stable/install-conda-build.html
+- For proper functioning, it is strongly recommended to install conda-build in the conda base environment. Not doing so may lead to problems.
 ```sh
 conda activate base
 conda install conda-build
@@ -44,7 +46,7 @@ conda install conda-build
 ## debug
 https://docs.conda.io/projects/conda-build/en/stable/user-guide/recipes/debugging.html
 
-debugging is a process of getting into or recreating the environment and 
+debugging is a process of getting into or recreating the environment and
 set of shell environment variables that conda-build creates during its build or test processes.
 ```sh
 conda debug recipe
@@ -74,7 +76,7 @@ conda build recipe --no-anaconda-upload --python 3.9 --croot c:/pkg/conda --no-t
 conda build recipe --no-anaconda-upload --python 3.9 --croot /build/path --no-test --channel ch1 --channel ch2
 conda build purge # remove source and build intermediates
 ```
-Note that without set `--python`, will build a package compatible to the python version in the current env. 
+Note that without set `--python`, will build a package compatible to the python version in the current env.
 We can also set the cli flags via env var `CONDA_PY` and the flag `--variants` which accepts JSON-formatted text.
 example: https://docs.conda.io/projects/conda-build/en/latest/resources/variants.html
 ```sh
