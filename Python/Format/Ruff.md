@@ -5,7 +5,11 @@ Ruff (flake8, PyLint) is a Python linting tool that checks your Python codebase 
 
 **caveat**: avoid ruff to automatically fix your code - auto fix without review can be questionable or wrong.
 
-## vscode extension
+## disable E741
+```toml
+[tool.ruff.lint]
+ignore = ["E741"] # ambiguous-variable-name: l (lowercase L), O (uppercase O), or I (uppercase I)
+```
 
 ## config file
 ```toml
