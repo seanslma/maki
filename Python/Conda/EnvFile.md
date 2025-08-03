@@ -1,6 +1,12 @@
 # Env file
 https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually
 
+`environment.yml` vs `meta.yaml`:
+- https://stackoverflow.com/questions/78309675/conda-build-duplication-of-requirements-in-environment-yml-and-meta-yml
+- `environment.yml` describes what goes into an environment, encompassing all necessary packages for a project
+- `meta.yaml` describes how to build a single Conda package, including its specific dependencies and build process
+- `environment.yml` can be exported after building a conda package
+
 ## create env from env.yml
 ```
 conda env create -f environment.yml
