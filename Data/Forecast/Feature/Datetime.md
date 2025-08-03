@@ -38,6 +38,8 @@ diff:
 - rbf can be computationally more expensive than sine/cosine features, especially for large datasets
   
 ## lag and lag diff/auto correlation
+lag features:
+https://www.kaggle.com/code/ryanholbrook/time-series-as-features
 ```py
 df['x_lag1'] = df.groupby(['id'])['x'].shift(1)
 df['x_lag1_diff'] = df['x'] - df['x'].groupby(['id']).shift(1)
