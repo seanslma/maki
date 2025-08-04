@@ -36,6 +36,16 @@ if uigf (forecast, avail) is too low, the target (totalcleared) will be constrai
 - **TOTALCLEARED** is the dispatch target for the end of this dispatch interval (DI).
 - **AVAILABILITY** appears to be the Australian Solar Energy Forecasting System (ASEFS) forecast for the next 5-minutes ahead
 
+## demand terms
+https://www.aemo.com.au/-/media/Files/Electricity/NEM/Security_and_Reliability/Dispatch/Policy_and_Process/Demand-terms-in-EMMS-Data-Model.pdf
+
+page 14 table 4:
+- native demand
+- operational demand
+- scheduled demand
+- cleared supply
+- total demand (excl. non-scheduled wind/solar/other, except gen, scheduled load/bdu, interconnector loasses)
+
 ## relationship
 https://www.aemo.com.au/-/media/Files/Electricity/NEM/Security_and_Reliability/Dispatch/Policy_and_Process/Demand-terms-in-EMMS-Data-Model.pdf
 
