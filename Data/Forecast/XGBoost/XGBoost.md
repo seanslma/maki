@@ -12,3 +12,6 @@ Each tree focuses on correcting the errors made by its predecessors.
 
 ## strength
 good for tabular data
+
+## multioutput
+https://xgboost.readthedocs.io/en/stable/tutorials/multioutput.html
