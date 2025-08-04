@@ -1,6 +1,8 @@
 # Datetime
-https://medium.com/data-science-at-microsoft/introduction-to-feature-engineering-for-time-series-forecasting-620aa55fcab0
+- https://medium.com/data-science-at-microsoft/introduction-to-feature-engineering-for-time-series-forecasting-620aa55fcab0
+- https://medium.com/@karanbhutani477/feature-engineering-for-time-series-data-a-deep-yet-intuitive-guide-b544aeb26ec2
 
+features:
 - month/day/hour
 - weekday/weekend/holiday
 - lag (shift): use previous data
