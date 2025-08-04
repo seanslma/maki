@@ -11,6 +11,11 @@ https://pythonspeed.com/articles/conda-vs-pip/#:~:text=The%20fundamental%20diffe
 - pip wheel can lead larger package size
 - pip wheel not include executables and tools
 
+## install conda
+don't install conda in a non-base env:
+- https://github.com/conda/conda/issues/11519
+- once activated that env will be shown as base
+
 ## show all conda info
 ```
 conda info --all
