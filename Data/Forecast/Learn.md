@@ -1,10 +1,13 @@
 # Learn
 
-## forecasting example using xgb, gru, cnn, lstm stc
+## forecasting example using xgb, gru, cnn, lstm stc (notebook)
 https://github.com/ritikdhame/Electricity_Demand_and_Price_forecasting
 
 ## kaggle
 https://www.kaggle.com/competitions/predict-energy-behavior-of-prosumers/discussion/472793
+
+lagged and rolling features (notebook):
+- https://www.kaggle.com/code/ymatioun/enefit-ym1
 
 ## Forecasting: Principles and Practice
 https://otexts.com/fpp3/index.html
