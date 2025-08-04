@@ -1,8 +1,13 @@
 # Feature
 
 ## time series features
-- `observed features` can only be lagged to the latest available date - so in forecast we have and can use these features
-- `forecast features` can be included directly or lagged, as long as they are available at time of forecasting
+- `observed features`:
+    - "target-dependent" features
+    - can only be lagged to the latest available date
+    - or used to calculate statistical rolling features
+    - so in forecast we have and can use these (lagged /rolling) features
+- `forecast features`:
+    - can be included directly or lagged, as long as they are available at time of forecasting
 
 ## Feature importance assessment
 Feature’s relative importance can be assessed through two approaches:
