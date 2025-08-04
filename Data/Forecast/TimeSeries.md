@@ -11,3 +11,10 @@ https://medium.com/@ycwong.joe/a-brief-history-of-time-series-models-38455c2cd78
 
 ## summary
 https://chartexpo.com/blog/time-series-forecasting
+
+## How to feed forecast into next step's input feature
+https://www.kaggle.com/code/ryanholbrook/forecasting-with-machine-learning
+- multioutput model
+- each model for one step
+- one model, update feature based on prevous forecast
+- each model for one step, update feature based on prevous forecast
