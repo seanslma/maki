@@ -43,6 +43,11 @@ conda activate base
 conda install conda-build
 ```
 
+## conda mambabuild
+avoid `boa` that is required by `conda mambabuild`. We can get the same use `conda build --solver=libmamba ...`:
+- https://github.com/conda/conda-build/issues/5351
+- `boa` appears to be a concluded project
+
 ## debug
 https://docs.conda.io/projects/conda-build/en/stable/user-guide/recipes/debugging.html
 
