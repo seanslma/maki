@@ -44,9 +44,10 @@ conda install conda-build
 ```
 
 ## conda mambabuild
-avoid `boa` that is required by `conda mambabuild`. We can get the same use `conda build --solver=libmamba ...`:
+`boa` has been deprecated in favor of `rattler‑build`, a substantially faster Rust-based alternative.
 - https://github.com/conda/conda-build/issues/5351
 - `boa` appears to be a concluded project
+- latest conda >= 23.10.0 by default use `libmamba` solver so there is no need to use `conda mambabuild` that requires `boa`
 
 ## debug
 https://docs.conda.io/projects/conda-build/en/stable/user-guide/recipes/debugging.html
