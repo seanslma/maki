@@ -56,7 +56,7 @@ debugging is a process of getting into or recreating the environment and
 set of shell environment variables that conda-build creates during its build or test processes.
 ```sh
 conda debug recipe
-conda debug recipe --python=3.9 --variants="{blas_impl: 'openblas'}"
+conda debug recipe --python=3.12 --variants="{blas_impl: 'openblas'}"
 cd /debug/path && source /debug/path/build_env_setup.sh
 conda build purge-all # remove previously built packages
 ```
@@ -70,7 +70,7 @@ We run the command inside the project root folder:
 Example:
 ```sh
 export VERSION=0.15.1
-conda build recipe --no-anaconda-upload --python 3.9 --croot ../conda-build --no-test
+conda build recipe --no-anaconda-upload --python 3.12 --croot ../conda-build --no-test
 ```
 - We assume in the meta.yaml file there is a variable named VERSION.
 - In the first line we pass the version value to the VERSION variable.
@@ -78,8 +78,8 @@ conda build recipe --no-anaconda-upload --python 3.9 --croot ../conda-build --no
 
 More options:
 ```sh
-conda build recipe --no-anaconda-upload --python 3.9 --croot c:/pkg/conda --no-test
-conda build recipe --no-anaconda-upload --python 3.9 --croot /build/path --no-test --channel ch1 --channel ch2
+conda build recipe --no-anaconda-upload --python 3.12 --croot c:/pkg/conda --no-test
+conda build recipe --no-anaconda-upload --python 3.12 --croot /build/path --no-test --channel ch1 --channel ch2
 conda build purge # remove source and build intermediates
 ```
 Note that without set `--python`, will build a package compatible to the python version in the current env.
@@ -91,7 +91,7 @@ conda build recipe --variants "{python: [2.7, 3.5], vc: [9, 14]}"
 
 ## pass variable value to meta.yaml
 before running `conda build`
-```
+```sh
 export VERSION=1.0.0
 ```
 
@@ -109,7 +109,7 @@ In this example, the values of env varables `NAME` and `VERSION` will be injecte
 https://stackoverflow.com/questions/38919840/get-package-version-for-conda-meta-yaml-from-source-file
 
 https://www.underworldcode.org/articles/build-conda-packages/
-```
+```yaml
 {% set NAME = "pkg" %}
 {% set VERSION = load_setup_py_data().version %}
 {% set GITHUB_URL = load_setup_py_data().url %}
@@ -172,8 +172,6 @@ outputs:
       summary: Doc dependencies for {{ NAME }}
 ```
 
-<!-- {% endraw %} -->
-
 ## issue
 https://stackoverflow.com/questions/69030813/doing-a-conda-build-does-not-find-any-files/69044365#69044365
 
@@ -207,3 +205,4 @@ def push_conda(
 filepath = '/path/to/conda-build/linux-64/my-build-0.1.0-py39_0.tar.bz2'
 push_conda(filepath)
 ```
+<!-- {% endraw %} -->
