@@ -2,7 +2,7 @@
 
 ## run `conda init` before `conda activate`
 https://stackoverflow.com/questions/77901825/unable-to-activate-environment-conda-prompted-to-run-conda-init-before-cond
-solution: `source activate base` before `conda activate my_env`?
+solution: `source activate base` before `conda activate my_env`? Yes, works.
 
 ## stuck on `solving environment`
 https://github.com/conda/conda/issues/11919
