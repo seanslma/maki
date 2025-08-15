@@ -44,7 +44,7 @@ conda install conda-build
 ```
 
 ## conda mambabuild
-`boa` has been deprecated in favor of `rattler‑build`, a substantially faster Rust-based alternative.
+`boa` has been deprecated in favor of `rattler‑build`, a substantially faster rust-based alternative.
 - https://github.com/conda/conda-build/issues/5351
 - `boa` appears to be a concluded project
 - latest conda >= 23.10.0 by default use `libmamba` solver so there is no need to use `conda mambabuild` that requires `boa`
@@ -80,13 +80,17 @@ More options:
 ```sh
 conda build recipe --no-anaconda-upload --python 3.12 --croot c:/pkg/conda --no-test
 conda build recipe --no-anaconda-upload --python 3.12 --croot /build/path --no-test --channel ch1 --channel ch2
-conda build purge # remove source and build intermediates
 ```
 Note that without set `--python`, will build a package compatible to the python version in the current env.
 We can also set the cli flags via env var `CONDA_PY` and the flag `--variants` which accepts JSON-formatted text.
 example: https://docs.conda.io/projects/conda-build/en/latest/resources/variants.html
 ```sh
 conda build recipe --variants "{python: [2.7, 3.5], vc: [9, 14]}"
+```
+
+## remove source and build intermediates
+```sh
+conda build purge
 ```
 
 ## pass variable value to meta.yaml

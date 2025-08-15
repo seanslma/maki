@@ -5,9 +5,14 @@ https://stackoverflow.com/questions/53724616/update-version-number-with-versione
 
 https://jacobtomlinson.dev/posts/2020/versioning-and-formatting-your-python-code/
 
+## install
+```sh
+mamba install versioneer -y
+```
+
 ## Python package version settings
 Option 1: versioneer (old way)
-- `versioneer install`: generate`versioneer.py` and `_version.py` files directly into project's source tree
+- `versioneer install --vendor`: generate`versioneer.py` and `_version.py` files directly into project's source tree
 - `_version.py` dynamically asks the VCS for version information at import time
 - for source distributions, it replaces the dynamic `_version.py` with a static one containing the computed version
 - requires `setup.py`, `setup.cfg/pyproject.toml`
@@ -15,7 +20,7 @@ Option 1: versioneer (old way)
 
 Option 2: setuptools_scm
 - More modern, works cleanly with pyproject.toml, Git-based, zero-config
-  
+
 ## versioneer vs setuptools-smc
 - https://setuptools-git-versioning.readthedocs.io/en/stable/comparison.html
 - https://rse.shef.ac.uk/blog/2023-09-18-python-packaging/#:~:text=Setuptools%2Dscm,on%20now%20deprecated%20setup.py%20.
@@ -46,4 +51,4 @@ parentdir_prefix = pkg-
 ```
 
 ## step 3: create `pkg/__init__.py`
-run `versioneer install`
+run `versioneer install --vendor`
