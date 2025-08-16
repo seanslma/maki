@@ -6,8 +6,8 @@
 ## Replace a failed master
 `Redis Sentinel` will monitor the Redis masters and slaves and automatically handles failover if the master goes down.
 
-Mannually replace a failed master: 
-```
+Mannually replace a failed master:
+```sh
 # connect to slave
 ssh root@redis.slave.vpn
 # run redis cli

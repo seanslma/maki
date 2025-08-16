@@ -2,15 +2,16 @@
 
 ## install redis-py
 `redis-py` client for Redis
-```
+```sh
 pip install redis[hiredis]
+mamba install redis-py hiredis
 ```
 
 ## methods
 `time` can be represented by int or a Python timedelta/datetime object
-- `r.setx(key, time, value)`	
+- `r.setx(key, time, value)`
   set value of key that expires in time seconds
-- `r.expire(key, time)`	
+- `r.expire(key, time)`
   set expire flag for time seconds
 - `r.psetex(key, time_ms, value)`
   set value of key that expires in time_ms milliseconds
@@ -22,12 +23,12 @@ pip install redis[hiredis]
   return the number of seconds until the key expires
 - `r.pttl(key)`
   return the number of milliseconds until the key expires
-  
+
 ## create server
 ```py
 import redis
 r = redis.Redis(host='localhost', port=6379, db=0)
-print(r.ping()) 
+print(r.ping())
 print(r.keys("*"))
 ```
 
@@ -49,7 +50,7 @@ print(rc.get_nodes())
 import redis
 
 r = redis.Redis(
-    host="my-redis.cloud.redislabs.com", 
+    host="my-redis.cloud.redislabs.com",
     port=6379,
     username="default", # use your Redis user. More info https://redis.io/docs/management/security/acl/
     password="secret", # use your Redis password
@@ -62,41 +63,41 @@ r = redis.Redis(
 
 ## examples
 ```py
-r.set('key', 'val')  
-r.get('key') 
+r.set('key', 'val')
+r.get('key')
 
-dv = {  
-    'a': 'x',  
-    'b': 'y'  
-}  
-r.mset(dv)  
-r.get('b')  
+dv = {
+    'a': 'x',
+    'b': 'y'
+}
+r.mset(dv)
+r.get('b')
 
 lv = ['a', 'b']
-r.sadd('lv', *lv)  
+r.sadd('lv', *lv)
 r.smembers('lv')
 
 lv = ['x', 'y']
-r.lpush('lp', *lv)  
-r.lrange('lp', 0, -1) 
+r.lpush('lp', *lv)
+r.lrange('lp', 0, -1)
 
-import json  
-jv = {  
-    'name': 'John',  
-    'age': 20,  
-    'address':{  
-        'number': 19,  
-        'street': 'Goldey',  
-        'suburb': 'Cuddly'  
-    },  
-    'skills': ['art', 'math']  
-}  
-r.set('jv', json.dumps(jv))  
-json.loads(r.get('jv'))  
+import json
+jv = {
+    'name': 'John',
+    'age': 20,
+    'address':{
+        'number': 19,
+        'street': 'Goldey',
+        'suburb': 'Cuddly'
+    },
+    'skills': ['art', 'math']
+}
+r.set('jv', json.dumps(jv))
+json.loads(r.get('jv'))
 ```
 
 ## difference between redis.Redis and redis.StrictRedis
-In the `redis-py` library, both `redis.Redis` and `redis.StrictRedis` are classes that provide a client interface 
+In the `redis-py` library, both `redis.Redis` and `redis.StrictRedis` are classes that provide a client interface
 for interacting with a Redis server. However, there is a subtle historical difference between them.
 
 1. **`redis.Redis` (Deprecated):**
@@ -110,7 +111,7 @@ for interacting with a Redis server. However, there is a subtle historical diffe
    - `StrictRedis` is more feature-complete, and its usage is considered best practice.
 
 **Usage:**
-```python
+```py
 # Recommended: Use StrictRedis
 import redis
 redis_client = redis.StrictRedis(host='localhost', port=6379, db=0, decode_responses=True)
@@ -120,6 +121,6 @@ redis_client = redis.StrictRedis(host='localhost', port=6379, db=0, decode_respo
 # redis_client = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
 ```
 
-In summary, while both `redis.Redis` and `redis.StrictRedis` can be used, it's strongly recommended to use `redis.StrictRedis` 
-in modern code to take advantage of the latest features, improvements, and best practices. 
+In summary, while both `redis.Redis` and `redis.StrictRedis` can be used, it's strongly recommended to use `redis.StrictRedis`
+in modern code to take advantage of the latest features, improvements, and best practices.
 If you encounter existing code that uses `redis.Redis`, consider updating it to use `redis.StrictRedis`.
