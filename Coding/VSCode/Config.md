@@ -4,13 +4,25 @@
 Customizing IntelliSense:
 https://code.visualstudio.com/docs/editor/intellisense
 
-## user vs workspace settings
+## User vs workspace settings
 Note: the workspace settings will overwrite the user settings
 
-## Hide title bar
-In user settings, add
+## Disable vs code breadcrumbs and sticky scroll
 ```json
-"window.titleBarStyle": "custom",
+    "breadcrumbs.enabled": false,                    // disable breadcrumbs
+    "editor.stickyScroll.enabled": false,            // disable sticky scroll
+    "editor.inlayHints.enabled": "offUnlessPressed", // disable rust inlay hints
+    "editor.semanticTokenColorCustomizations": {     // disable rust mut var underline
+        "enabled": true,
+        "rules": {
+            "*.mutable": {
+                "underline": false,
+            }
+        }
+    },
+    "window.zoomLevel": -0.1,                        // zoom in/out size of windows, -1:20% smaller, 1:20% larger
+    "window.titleBarStyle": "custom",                // reduce the height of the title bar
+    "window.density.editorTabHeight": "compact",     // reduce the height of the files tab bar
 ```
 
 ## Editor font size and line space
