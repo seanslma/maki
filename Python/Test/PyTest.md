@@ -1,5 +1,14 @@
 # PyTest
 
+## pytest debug
+- https://pytest-with-eric.com
+- https://python-basics-tutorial.readthedocs.io/en/latest/test/pytest/debug.html
+
+options:
+- `-s`: or `--capture=no`. disable the capturing of standard output (stdout) and standard error (stderr)
+- `-v`: low(`-v`)/medium(`-vv`)/high(`-vvv`) verbosity
+- `-q`: or `–quiet`. less output
+
 ## run from vscode terminal 
 ```
 pytest
@@ -17,26 +26,26 @@ pytest Test_myfile.py -sv -m "skip and login" #run test with specific mark or ca
 ## skip test method
 https://docs.pytest.org/en/latest/how-to/skipping.html#skipping-test-functions
 ```
-@pytest.mark.skip(reason="no way of currently testing this")
+@pytest.mark.skip(reason='no way of currently testing this')
 def test_my_method():
 ...
 
 #or skip during test
 def test_my_method():
     if not valid_config():
-        pytest.skip("unsupported configuration")
+        pytest.skip('unsupported configuration')
 ```
 
 ## skip the whole test module
 ```
-if not sys.platform.startswith("win"):
-    pytest.skip("skipping windows-only tests", allow_module_level=True)
+if not sys.platform.startswith('win'):
+    pytest.skip('skipping windows-only tests', allow_module_level=True)
 ```
 
 ## skip test module if import fails
 https://docs.pytest.org/en/stable/reference/reference.html#pytest-importorskip-ref
 ```
-docutils = pytest.importorskip("docutils")
+docutils = pytest.importorskip('docutils')
 ```
 
 ## check log message
