@@ -31,3 +31,12 @@ kubectl api-resources
 kubectl api-resources --verbs=list --namespaced -o name \
   | xargs -n 1 kubectl get --show-kind --ignore-not-found -n <namespace>
 ```
+
+## copy files
+copy files from local folder to k8s pod:
+- https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cp
+- Requires that the `tar` binary is present in your container image `sudo apt-get update; sudo apt-get install -y tar`
+```sh
+kubectl cp my_code.py my-namespace/my-pod-name:/tmp/my_code.py
+kubectl cp ./my_folder my-namespace/my-pod-name:/tmp/my_folder -c my-container
+```
