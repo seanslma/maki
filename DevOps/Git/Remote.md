@@ -9,3 +9,8 @@ git remote -v
 ```sh
 git remote set-url origin https://github.com/usr/repo.git
 ```
+
+## add remote
+```sh
+git remote add upstream https://github.com/prj/repo.git
+```
