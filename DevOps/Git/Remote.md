@@ -14,3 +14,8 @@ git remote set-url origin https://github.com/usr/repo.git
 ```sh
 git remote add upstream https://github.com/prj/repo.git
 ```
+
+## show remote branches
+```sh
+gt remote -vv
+```
