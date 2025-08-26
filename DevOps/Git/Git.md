@@ -36,14 +36,14 @@ git example
 https://forum.freecodecamp.org/t/push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too/13222
 
 ## commit changes
-```
+```sh
 git add .
 git commit
 git push
 ```
 
 ## work example
-```
+```sh
 git checkout master
 
 #create a new branch

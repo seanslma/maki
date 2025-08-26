@@ -5,7 +5,7 @@ https://git-scm.com/docs/gitignore
 
 ## list ignored files
 only for tracked files
-```
+```sh
 git status --ignored
 ```
 
@@ -22,6 +22,6 @@ git check-ignore **/*    #does not work
 https://git-scm.com/docs/git-check-ignore
 
 check why file (not) ignored
-```
+```sh
 git check-ignore --verbose ignored.file #git check-ignore -v ignored.file
 ```

@@ -35,3 +35,6 @@ kramdown:
 ## template
 - https://github.com/gangdong/gangdong.github.io (https://dqdongg.com/)
 - https://github.com/purplediane/purplediane.github.io (https://purplediane.github.io/)
+
+## training/book template
+- https://github.com/olohmann/azure-hands-on-labs/blob/master/labs/03_terraform/terraform.md (https://olohmann.github.io/azure-hands-on-labs/labs/01_serverless/serverless.html)

@@ -23,7 +23,7 @@ git rebase master
 ```
 
 ## refusing to merge unrelated histories
-```
+```sh
 $ git merge azure/main
 fatal: refusing to merge unrelated histories
 ```

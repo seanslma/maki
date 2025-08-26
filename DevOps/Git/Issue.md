@@ -4,7 +4,7 @@
 git command in conda env not show anything
 
 Under PowerShell, check the linked exe to git command:
-```
+```pwsh
 Get-Command git #will show the source path of git.exe
 ```
 Solution:
