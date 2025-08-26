@@ -35,3 +35,10 @@ https://pythonspeed.com/articles/activate-conda-dockerfile/
 
 ## python /docker perf
 https://pythonspeed.com
+
+## reduce pipeline time (run unit test in docker build)
+- build conda package
+- use multi-stage docker builds
+  - install the package in docker build
+  - run unit test, pipe unit test logs to a file
+  - remove unit test files 
