@@ -25,8 +25,6 @@ https://build5nines.com/tag/mcw/
 https://github.com/microsoft/TechnicalCommunityContent \
 https://azure-samples.github.io/azureiotlabs/
 
-https://olohmann.github.io/azure-hands-on-labs/labs/01_serverless/serverless.html
-
 https://azurelib.com/azure-data-factory-tutorial/
 
 PowerShell in Depth.pdf
