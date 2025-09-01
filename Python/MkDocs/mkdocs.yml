@@ -12,7 +12,7 @@ nav:
   - uat:
     - uat/index.md
     - uat/doc.md
-  - cli: python_code_docs/_cli_ref.md
+  - cli: code_docs/cli_ref.md
 
 # Repository
 repo_name: usr/example-repo
