@@ -29,8 +29,8 @@ fi
 exec "$@"
 ```
 
-## entrypoint vs cmd
-The main difference between `ENTRYPOINT` and `CMD` in a Dockerfile lies in how they are used and overridden when running a container.
+## cmd vs entrypoint
+The main difference between `CMD` and `ENTRYPOINT` in a Dockerfile lies in how they are used and overridden when running a container.
 
 ### CMD
 - The `CMD` instruction in a Dockerfile specifies the default command to run when the container starts. 
