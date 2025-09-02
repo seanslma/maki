@@ -9,4 +9,27 @@ Use tag or digest?
 FROM ubuntu:22.04
 FROM ubuntu@sha256:1aa979d85661c488ce030ac292876cf6ed04535d3a237e49f61542d8e5de5ae0
 FROM ubuntu:22.04@sha256:1aa979d85661c488ce030ac292876cf6ed04535d3a237e49f61542d8e5de5ae0
-``` 
+```
+
+## default shell
+use default shell or bash?
+- default shell: `/bin/sh`
+- overwride os' default shell to run commands such as RUN, CMD, or ENTRYPOINT
+- allows us to use features and syntax that are specific to the Bash shell, not available in default shell
+```dockerfile
+SHELL ["/bin/bash", "-c"]
+```
+
+## set env vars
+```dockerfile
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Australia/Sydney
+```
+
+## install packages
+```dockerfile
+USER root # switch to root if required
+RUN apt-get update && \
+    apt-get install -y vim curl dnsutils traceroute netcat telnet jq
+USER user-name # switch back to user
+```
