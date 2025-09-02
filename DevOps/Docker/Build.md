@@ -3,17 +3,6 @@
 - build context
 - pass value to ARG: `--build-arg NAME=my-app`
 
-## simple docker test
-```dockerfile
-FROM alpine
-
-ARG BASE_URL=https://example.com
-ARG FILE_URL=${BASE_URL}/file.txt
-
-RUN echo "Downloading from: ${FILE_URL}"
-```
-Then run it `docker build -f ./test.docker -t test .`
-
 ## build an image
 ```sh
 docker build https://github.com/dev/test.git#<branch>:<docker-dir>
