@@ -1,22 +1,22 @@
 # User
 
-http://redhatgov.io/workshops/security_containers/exercise1.2/
-
-Run app under user not root
+Run app under `user` not `root`:
+- http://redhatgov.io/workshops/security_containers/exercise1.2/
 
 ## Add user
 ```dockerfile
-RUN groupadd user_grp --gid 1000 \
-    && useradd user --uid 1000 --gid 1000 --no-log-init --shell /bin/bash --create-home --home /home/user \
-    && touch /home/user/.bashenv \
-    && chown user:user_grp /home/user/.bashenv \
-    && echo "source /home/user/.bashenv" >> /home/user/.bashrc
-USER user:user_grp
+RUN groupadd group_name --gid 1000 \
+    && useradd user_name --uid 1000 --gid 1000 \
+        --no-log-init --shell /bin/bash --create-home --home /home/user_name \
+    && touch /home/user_name/.bashenv \ # create file
+    && chown user_name:group_name /home/user_name/.bashenv \ # ensure user owns this file
+    && echo "source /home/user_name/.bashenv" >> /home/user_name/.bashrc # append command to .bashrc file
+USER user_name:group_name
 ```
 
 ## Switch between root and user
 ```dockerfile
-USER root
+USER root # switch to root
 RUN apt-update
-USER user:user_grp
+USER user_name:group_name # switch back to user_name
 ```
