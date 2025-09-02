@@ -2,7 +2,7 @@
 
 ## example
 ```dockerfile
-ARG BASE_IMAGE=ubuntu:18.04
+ARG BASE_IMAGE=ubuntu:22.04
 FROM ${BASE_IMAGE}
 SHELL ["/bin/bash", "-c"] #SHELL ["/bin/bash", "--login", "-c"]
 
@@ -26,7 +26,7 @@ ARG TIMESTAMP
 
 LABEL \
     org.opencontainers.image.authors="${AUTHORS}" \
-    org.opencontainers.image.authors="${RELEASE}" \
+    org.opencontainers.image.release="${RELEASE}" \
     org.opencontainers.image.created="${TIMESTAMP}"
 ```
 
