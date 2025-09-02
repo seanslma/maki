@@ -39,7 +39,26 @@ WORKDIR $HOME
 
 ## CMD vs ENTRYPOINT
 - CMD: Default parameters that ***can*** be overridden from the Docker CLI when a container is running.
-- ENTRYPOINT: Default parameters that ***cannot*** be overridden when THE Docker Container runs with CLI parameters.
+- ENTRYPOINT: Default parameters that ***cannot*** be overridden when the Docker Container runs with CLI parameters.
+- CMD provides default arguments to the ENTRYPOINT.
+| Feature           | `CMD`                                                                        | `ENTRYPOINT`                                                              |
+| ----------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Purpose           | Default command + args to run **if no command is given** during `docker run` | Command that **always runs** when container starts                        |
+| Can be overridden | Yes — by providing command/args in `docker run`                              | Yes — but you must explicitly override with `--entrypoint`                |
+| Syntax forms      | Shell form (string), Exec form (list)                                        | Exec form (list) recommended                                              |
+| Typical usage     | Default command with default args                                            | Main executable, often for making the container behave like an executable |
+
+Example #1:
 ```docker
+ENTRYPOINT ["python", "app.py"]
+CMD ["--help"]
+```
+- If you run `docker run my-image`, it runs: `python app.py --help`
+- If you run `docker run my-image --version`, it runs: `python app.py --version`
+
+Example #2
+```docker
+COPY docker/entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/bin/bash"]
 ```
