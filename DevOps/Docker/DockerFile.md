@@ -1,5 +1,16 @@
 # Dockerfile
 
+## simple test
+```dockerfile
+FROM alpine
+
+ARG BASE_URL=https://example.com
+ARG FILE_URL=${BASE_URL}/file.txt
+
+RUN echo "Downloading from: ${FILE_URL}"
+```
+Then run it `docker build -f ./test.docker -t test .`
+
 ## example
 ```dockerfile
 ARG BASE_IMAGE=ubuntu:22.04
