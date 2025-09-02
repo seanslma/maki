@@ -9,15 +9,16 @@ sudo service docker start
 ```
 
 ## run container from another entrypoint
-```
-sudo docker run -it --entrypoint /bin/bash [docker_image]
+```sh
+docker run -it <image-id>                        #from default entrypoint
+docker run -it --entrypoint /bin/bash <image-id> #from another entrypoint
 ```
 
 ## SSH into running container
-  * use `docker ps` to get the name of the existing container
-  * run `docker exec -it <container name> /bin/bash` to get a bash shell in the container
-  * run `docker exec -it <container name> <command>` to execute command in the container
-  * create a rsa key pair: `ssh-keygen -t rsa`
+- use `docker ps` to get the name of the existing container
+- run `docker exec -it <container name> /bin/bash` to get a bash shell in the container
+- run `docker exec -it <container name> <command>` to execute command in the container
+- create a rsa key pair: `ssh-keygen -t rsa`
 
 ## login to on-prem registry
 ```
