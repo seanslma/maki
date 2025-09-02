@@ -14,10 +14,20 @@
 | Use in RUN            | ✅ Yes                              | ✅ Yes                                     |
 | Use in CMD/ENTRYPOINT | ❌ Not available                    | ✅ Available                               |
 
+### arg
 Pass argument
 ```
 arguments: '--build-arg ubuntu_version=20.04 --build-arg image_version=1.0.0'
 ```
+
+```dockerfile
+ARG VERS=22.04
+FROM ubuntu:$VERS
+ARG VERS
+RUN echo version is $VERS
+```
+- Second `VERS` will get default value from the first `global` one
+- The ARG statement after a FROM is required to import the value into the build target
 
 ## ADD vs COPY
 https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#:~:text=ADD%20or%20COPY&text=COPY%20only%20supports%20the%20basic,rootfs.tar.xz%20%2F%20.
