@@ -31,7 +31,7 @@ Mainly used to build images and install applications and packages, creating a ne
 - Define the working directory of a Docker container at any given time
 - Any RUN, CMD, ADD, COPY, or ENTRYPOINT command will be executed in the specified working directory
 - If reused, the path of the new working directory must be given relative to the current working directory
-```docker
+```dockerfile
 ARG USER="user-name"
 ARG HOME="/home/${USER}"
 WORKDIR $HOME
@@ -41,6 +41,7 @@ WORKDIR $HOME
 - CMD: Default parameters that ***can*** be overridden from the Docker CLI when a container is running.
 - ENTRYPOINT: Default parameters that ***cannot*** be overridden when the Docker Container runs with CLI parameters.
 - CMD provides default arguments to the ENTRYPOINT.
+
 | Feature           | `CMD`                                                                        | `ENTRYPOINT`                                                              |
 | ----------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | Purpose           | Default command + args to run **if no command is given** during `docker run` | Command that **always runs** when container starts                        |
@@ -49,7 +50,7 @@ WORKDIR $HOME
 | Typical usage     | Default command with default args                                            | Main executable, often for making the container behave like an executable |
 
 Example #1:
-```docker
+```dockerfile
 ENTRYPOINT ["python", "app.py"]
 CMD ["--help"]
 ```
@@ -57,7 +58,7 @@ CMD ["--help"]
 - If you run `docker run my-image --version`, it runs: `python app.py --version`
 
 Example #2
-```docker
+```dockerfile
 COPY docker/entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/bin/bash"]
