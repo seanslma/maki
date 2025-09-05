@@ -6,6 +6,12 @@ Ctrl + Shift + P
 ```
 Then search for what you need
 
+## open hide sidebar/secondary panel
+```
+Ctrl + B         #open/hide sidebar
+Ctrl + Alt + B   #open/hide secondary panel
+```
+
 ## open `keybindings.json`
 This file contains your custom keybindings. I
 - Open the Command Palette by pressing `Ctrl + Shift + P`
