@@ -1,5 +1,12 @@
 # Issue
 
+
+## polars memory issue
+Allocated memory not released to OS:
+- https://github.com/pola-rs/polars/issues/23128
+
+Workaround: avoid unnecessary memory allocation. For example, `with_columns` will create a copy of the original columns. 
+
 ## polars integer calculation not upcasted
 Polars does not automatically upcast integer types during arithmetic
 ```py
