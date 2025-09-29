@@ -9,6 +9,35 @@ features:
 - windows (rolling average): mean for the last day/week etc.
 - expanding
 
+## timeseries feature engineering
+- https://www.kaggle.com/code/pinardogan/time-series-using-lightgbm-with-explanations/notebook
+- https://www.kaggle.com/code/zhikchen/forecasting-prediction-using-lightgbm-model
+
+note:
+- lag
+- rolling
+- ewma
+- lasso feature selection
+- customized evaluation function `feval`
+
+Feature types:
+| Feature Type       | Description                              | Effect on Accuracy             |
+|--------------------|------------------------------------------|-------------------------------|
+| Lag Features       | Values from previous time steps          | High for short-term trends    |
+| Rolling Statistics | Moving averages or standard deviations   | Medium for identifying trends |
+| Time-based         | Cyclical encodings (e.g., sine/cosine for time) | High for seasonal patterns    |
+
+## trend decomposition
+```py
+from statsmodels.tsa.seasonal import seasonal_decompose
+decompose_result = seasonal_decompose(decom_data, period=5, model='additive')
+
+observed = decompose_result.observed
+trend    = decompose_result.trend
+seasonal = decompose_result.seasonal
+residual = decompose_result.resid
+```
+
 ## datetime feature
 Usually the `day of year`, `day of week` and `hour` will cover all the season patterns.
 Each will encoded into the `sine` and `cosine` features.
