@@ -1,6 +1,6 @@
 # blog layout idea
 
-is it posible to create github blogs like this page so the left shows the blogs by category and we can also switch to another page showing the blogs by datetime: https://learn.microsoft.com/en-us/azure/virtual-network/tutorial-filter-network-traffic?tabs=portal?
+Is it possible to create github blogs like this page so the left shows the blogs by category and we can also switch to another page showing the blogs by datetime: https://learn.microsoft.com/en-us/azure/virtual-network/tutorial-filter-network-traffic?tabs=portal?
 
 Yes ✅ it’s possible to build a GitHub Pages blog that behaves like that Microsoft Docs page — with a **left-hand navigation tree (by category)** and a **switchable view (by date, tags, etc.)**.
 

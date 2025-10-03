@@ -58,3 +58,6 @@ Inside `_sass`, you create `.scss` files (partials like `_variables.scss`, `_but
 @import "buttons";
 ```
 Jekyll will compile Sass --> CSS when building the site. It’s for **styling structure and theming**.
+
+## header pages
+By default all `.md` files with a title under the root folder will be added to the header nav pages. By settng the `header_pages` in `_config.yml` file, we can control which file to be included and the order. These `.md` files will be added in the `header.html` file. More details: https://talk.jekyllrb.com/t/minima-header-html-functionality/6721
