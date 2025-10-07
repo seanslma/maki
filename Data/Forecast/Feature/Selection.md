@@ -1,8 +1,11 @@
 # feature selection
 
-summary of all feature selection methods (including python code):
+Summary of all feature selection methods (including python code):
 - https://github.com/Yimeng-Zhang/feature-engineering-and-feature-selection
 - A Short Guide for Feature Engineering and Feature Selection.pdf
+
+Feature selection implementations:
+- https://github.com/jundongl/scikit-feature
 
 pros and cons of different methods:
 - https://www.paypalobjects.com/ecm_assets/Feature%20Selection%20WP-PP-v1.pdf
