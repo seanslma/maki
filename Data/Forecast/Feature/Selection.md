@@ -1,4 +1,9 @@
 # feature selection
+
+summary of all feature selection methods (including python code):
+- https://github.com/Yimeng-Zhang/feature-engineering-and-feature-selection
+- A Short Guide for Feature Engineering and Feature Selection.pdf
+
 pros and cons of different methods:
 - https://www.paypalobjects.com/ecm_assets/Feature%20Selection%20WP-PP-v1.pdf
 - voting: time consuming
@@ -21,6 +26,17 @@ three widely used feature selection methods:
 - ANOVA
 - Mutual Information
 - Recursive Feature Elimination
+
+### tree based method
+Limitation:
+- correlated features show similar importance
+- correlated features importance is lower than real importance, when tree is build without its correlated
+counterparts
+- high carinal variable tend to show higher importance
+
+Effect of Correlated Features:
+- Lasso tends to pick one feature out of a correlated group and zero out the rest.
+- Boosted trees often split on multiple correlated features, sharing importance among them.
 
 use model build-in importance feature:
 - xgboost
@@ -68,7 +84,6 @@ X_filtered = X.drop(to_drop, axis=1)
 - vif is more robust for detecting multicollinearity, especially in linear models.
 - both are not good for tree based models like xgboost
 
-
 ## Filter methods
 - `f_classif` for numerical features and a categorical target
 - `chi-squared` for categorical features and a categorical target
@@ -107,9 +122,13 @@ mi_scores = mutual_info_classif(X, y, njob=-1, discrete_features=False, random_s
 ## Wrapper methods
 - use a machine learning model to evaluate the performance of different subsets of features
 
-### Permutation Importance
-Measures drop in model performance when each feature is shuffled
-- can be slow
+### Permutation Importance (Feature Shuffling)
+Randomly shuffle the values of a specific variable and determine how that permutation affects the performance metric (Measures drop in model performance when each feature is shuffled)
+- Permute the values of each feature, one at the time
+- If a variable is important, a random permutation of its values will decrease dramatically any of these metrics
+- Non-important variables should have little to no effect on the model performance metric
+- Can be slow
+
 ```py
 # Permutation Importance example
 from sklearn.ensemble import RandomForestRegressor
@@ -184,58 +203,6 @@ Time series feature generation:
 - `TSFresh` can automatically extract and filter useful time series features based on statistical tests
 - `Featuretools` can help with automated feature generation + selection (more for relational data, but flexible)
 
-## feature importance
-Effect of Correlated Features:
-- Lasso tends to pick one feature out of a correlated group and zero out the rest.
-- Boosted trees often split on multiple correlated features, sharing importance among them.
-
-```py
-import xgboost as xgb
-import lightgbm as lgb
-
-# XGBoost feature importance
-import xgboost as xgb
-# model = model = xgb.XGBClassifier(
-#     objective='binary:logistic',  # Default for binary classification
-#     eval_metric='logloss',        # Metric for evaluation
-# )
-model = xgb.XGBRegressor(
-    objective='reg:squarederror',  # Default for regression, minimizes squared error
-    eval_metric='rmse',            # Metric for evaluation
-)
-model.fit(X, y)
-importance = model.feature_importances_
-print(importance)
-
-# LightGBM feature importance
-train_data = lgb.Dataset(data=X.to_arrow(), label=y.to_arrow())
-# for small number of features, reduce `num_leaves` to avoid warnings
-# for small number of data points, reduce `min_data_in_leave` to avoid warnings
-# warnings #1: [Warning] No further splits with positive gain, best gain: -inf
-# warnings #2: There are no meaningful features which satisfy the provided configuration.
-# Decreasing Dataset parameters min_data_in_bin or min_data_in_leaf and re-constructing Dataset might resolve this warning.
-params = {'objective': 'regression', 'metric': 'rmse', 'num_leaves': 2, 'min_data_in_leaf': 2}
-model = lgb.train(params, train_data, num_boost_round=100)
-importances = model.feature_importance(importance_type='gain')
-print(importance)
-
-# Catboost feature importance, lgb: 35x faster, xgb: 15x faster
-# model = ctb.CatBoostClassifier(verbose=0)
-model = ctb.CatBoostRegressor(verbose=0)
-model.fit(X.to_pandas(), y.to_pandas())
-importance = model.get_feature_importance()
-print(importance)
-```
-
-## shap feature explainer
-```py
-import shap
-import numpy as np
-import matplotlib.pyplot as plt
-from statsmodels.graphics.tsaplots import (
-    plot_acf,
-    plot_pacf,
-)
 
 # create SHAP explainer (for tree base models)
 explainer = shap.TreeExplainer(model.regressor)
@@ -254,9 +221,3 @@ ax.set_title('SHAP Summary plot')
 ax.tick_params(labelsize=8)
 fig.set_size(10, 4.5)
 ```
-
-
-
-
-
-
