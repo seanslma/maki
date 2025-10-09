@@ -14,7 +14,9 @@ terraform destroy
 ```
 
 ## update
-- update terraform states to match current state of the actual resources: `terraform refresh`
+- update terraform states to match current state of the actual resources:
+  - `terraform refresh` alias of `terraform apply -refresh-only -auto-approve` depreciated
+  - `terraform apply -refresh-only` safer, suggested way
 - add manually created resource under source control: `terraform import`
 
 ## best practices
