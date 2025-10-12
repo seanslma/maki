@@ -21,3 +21,6 @@ https://www.linkedin.com/pulse/challenges-algorithmic-trading-short-term-energy-
 
 basic analysis using polars and duckdb:
 - https://medium.com/@codewithmuse/41ffb7090a38
+
+## blogs
+- https://quantfin.net
