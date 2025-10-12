@@ -1,5 +1,36 @@
 # String
 
+## YAML folding
+https://stackoverflow.com/questions/3790454/how-do-i-break-a-string-in-yaml-over-multiple-lines
+- `>`, `|`: "clip": keep the line feed, remove the trailing blank lines
+- `>-`, `|-`: "strip": remove the line feed, remove the trailing blank lines
+- `>+`, `|+`: "keep": keep the line feed, keep trailing blank lines
+
+Example:
+```yml
+- name: ENV_NAME
+  value: >-
+    X x
+    Y y
+    Z,123
+```
+Is the same as this:
+```yml
+- name: ENV_NAME
+  value: "X x Y y Z,123"
+```
+
+Only way to concatenate lines without spaces
+- `double-quoted style` (\ and " must be escaped by \, newlines can be inserted with a literal \n sequence)
+```yml
+Key: "this is my very very \"very\" loooo\
+  ng string.\n\nLove, YAML."
+```
+will be converted to:
+```yml
+Key: "this is my very very \"very\" loooong string.\n\nLove, YAML."
+```
+
 ## string quotes
 https://leopathu.com/content/string-quotes-yaml-file
 
