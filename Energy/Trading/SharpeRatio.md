@@ -28,4 +28,5 @@ The ratio is a powerful tool because it penalizes performance that is achieved s
 The Sharpe ratio was developed by Nobel laureate **William F. Sharpe** in 1966, originally published as the "reward-to-variability ratio." It is one of the most fundamental metrics in modern portfolio theory (MPT).
 
 ## How to use sharpe ratio
-https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5520741
+- https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5520741
+-  This paper reviews the pitfalls of naive Sharpe ratio analysis and provides a comprehensive framework for its proper use. 
