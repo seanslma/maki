@@ -61,3 +61,14 @@ Jekyll will compile Sass --> CSS when building the site. It’s for **styling st
 
 ## header pages
 By default all `.md` files with a title under the root folder will be added to the header nav pages. By settng the `header_pages` in `_config.yml` file, we can control which file to be included and the order. These `.md` files will be added in the `header.html` file. More details: https://talk.jekyllrb.com/t/minima-header-html-functionality/6721
+
+
+## width constraint only for `.wrapper` container
+In Minima’s layout, the width constraint (using `$content-width`) only applies to elements that are inside the `.wrapper` container.
+```html
+<header class="site-header">
+  <div class="wrapper">
+    <!-- nav, title, etc. -->
+  </div>
+</header>
+```

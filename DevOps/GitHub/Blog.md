@@ -20,7 +20,6 @@ gem "github-pages", "~> 232", group: :jekyll_plugins
   - `bundle exec jekyll serve`
 
 
-
 ## install rougify
 ```sh
 sudo apt install ruby-rouge
