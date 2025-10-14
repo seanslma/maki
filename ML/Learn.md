@@ -30,6 +30,7 @@ A collection of libraries for time series forecasting, optimized for speed and d
 ## https://github.com/cuge1995/awesome-time-series
 A list of papers, datasets, Kaggle competitions for various tasks in time series.
 
-## demand forecast best practices
-
-## Introduction to Time Series Analysis and Forecasting, 2nd Edition
+## books
+- python machine learning: https://github.com/rasbt/python-machine-learning-book-3rd-edition
+- demand forecast best practices
+- Introduction to Time Series Analysis and Forecasting, 2nd Edition
