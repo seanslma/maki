@@ -25,3 +25,6 @@ basic analysis using polars and duckdb:
 ## blogs
 - https://flex-power.energy/energyblog
 - https://quantfin.net
+
+## repos
+- https://github.com/tradytics/eiten: Algorithmic Investing Strategies for Everyone
