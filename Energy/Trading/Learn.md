@@ -23,4 +23,5 @@ basic analysis using polars and duckdb:
 - https://medium.com/@codewithmuse/41ffb7090a38
 
 ## blogs
+- https://flex-power.energy/energyblog
 - https://quantfin.net
