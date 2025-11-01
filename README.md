@@ -13,6 +13,7 @@ The contents in this repository are a collection of knowledge from different sou
 - cloud
 - data
 - sql
+- ml
 - viz
 - energy
 - optimization
