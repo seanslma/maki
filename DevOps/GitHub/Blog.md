@@ -58,3 +58,7 @@ kramdown:
 
 ## jekyll
 - http://simpleprimate.com/jekyll-for-designers/blog/css/
+
+
+## hits and page views
+https://wxguy.in/posts/how-to-enable-no-of-hits-page-view-counter-on-jekyll-github-blog-posts/
