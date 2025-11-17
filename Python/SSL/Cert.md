@@ -33,6 +33,20 @@ requests.get('https://my.example.com/', verify=False)
 requests.get('https://my.example.com/', verify='/etc/ssl/certs/ca-certificates.crt')
 ```
 
+## self-signed certificate in certificate chain
+Python `requests.get` will throw the error (in windows):
+```
+SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))
+```
+Solution (or add to env vars):
+```py
+import os
+os.environ['REQUESTS_CA_BUNDLE'] = 'c:/cert-path/cert.crt'
+# os.environ['SSL_CERT_FILE'] = 'c:/cert-path/cert.crt' # not required
+requests.get('https://my.example.com/')
+...
+```
+
 ## show cert path
 ```py
 #option 1
