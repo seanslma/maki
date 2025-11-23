@@ -53,5 +53,5 @@ max_depth = 5
 output_filename = "./polars_namespaces.txt"
 with open(output_filename, "w") as f:
     f.write("polars\n")
-    list_polars_namespaces_to_file(pl, f, indent=1, max_level=max
+    list_polars_namespaces_to_file(pl, f, indent=1, max_level=max)
 ```
