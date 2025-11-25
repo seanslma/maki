@@ -32,3 +32,24 @@ ignore = [
 fixable = ["ALL"]
 unfixable = []
 ```
+
+## double quotes
+- black forces double quotes, no option to choose
+- ruff is faster, together with linter, and >99.9% black-compatible style
+- use ruff is possible `Shift + Alt + F`
+
+In `settings.json` make the changes:
+```json
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff" //"ms-python.black-formatter"
+    },
+```
+
+Settings `in pyproject.toml`
+```toml
+[tool.ruff.lint]
+ignore = ["E741"] # ambiguous-variable-name: l (lowercase L), O (uppercase O), or I (uppercase I)
+
+[tool.ruff.format]
+quote-style = "single"
+```
