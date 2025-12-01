@@ -1,12 +1,16 @@
 # Predispatch
 
 ## 30-minute Predispatch (Predispatch)
+- https://www.aemo.com.au/-/media/files/electricity/nem/security_and_reliability/power_system_ops/procedures/so_op_3704-predispatch.pdf?la=en
 - Runs and is published every 30 minutes
 - forecasts out to the end of the next market day (4 AM the following day). It can cover a period of up to 48 hours or more.
 
 ## 5-minute Predispatch (P5MIN)
 - Runs and is published every 5 minutes
 - Forecasts for the next 12 dispatch cycles (one hour)
+
+## Extended Predispatch (PD7Day)
+https://www.aemo.com.au/-/media/Files/Electricity/NEM/Emergency_Management/2017/Guide-to-Extended-Predispatch-Report.pdf
 
 ## Total demand
 https://aemo.com.au/-/media/files/electricity/nem/security_and_reliability/dispatch/policy_and_process/demand-terms-in-emms-data-model.pdf?la=en
