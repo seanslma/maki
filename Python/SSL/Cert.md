@@ -15,9 +15,6 @@ ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 - certificates added by user (/usr/local/share/ca-certificates/)
 
 Note: If `verify` is set to a path to a directory, the directory must have been processed using the c_rehash utility supplied with OpenSSL.
-```
-
-```
 
 ## check https call OK
 ```sh
