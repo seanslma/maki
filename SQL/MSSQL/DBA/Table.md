@@ -43,7 +43,7 @@ END
 
 ### Delete all records if no longer in use
 ```sql
-TRUNCATE TABLE [enviro].[liability_estimate];
+TRUNCATE TABLE [my_schema].[sales];
 ```
 
 ### Re-enable system versioning and link to the history table again
