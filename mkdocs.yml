@@ -1,0 +1,81 @@
+site_name: maki
+site_url: https://seanslma.github.io/maki/
+repo_url: https://github.com/seanslma/maki
+
+# Use current directory (repo root) as docs source
+docs_dir: _docs
+
+# Build output goes to _site/
+site_dir: _site
+
+# Copyright notice
+copyright: |
+  <a href="/" title="Go to Main Home Page">🏠 Back to Home</a><br>
+  Copyright &copy; 2025 Sean Ma
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    # - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - navigation.prune
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+# Manual navigation referencing your existing structure
+# nav:
+#   - Home: README.md
+#   - Python:
+#       - python/basics.md
+#       - python/advanced.md
+#   - SQL:
+#       - sql/queries.md
+#       - sql/optimization.md
+#   - Data:
+#       - data/analysis.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - awesome-pages
+
+# # Exclude files from being processed
+# exclude_docs: |
+#   _site/
+#   .git/
+#   .github/
+#   .vscode/
+#   *.pyc
+
+extra_css:
+  - stylesheets/extra.css
