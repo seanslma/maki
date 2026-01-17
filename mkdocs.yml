@@ -11,7 +11,7 @@ site_dir: _site
 # Copyright notice
 copyright: |
   <a href="/" title="Go to Main Home Page">🏠 Back to Home</a><br>
-  Copyright &copy; 2025 Sean Ma
+  Copyright &copy; {year} Sean Ma
 
 theme:
   name: material
@@ -79,3 +79,6 @@ plugins:
 
 extra_css:
   - stylesheets/extra.css
+
+hooks:
+  - hooks.py

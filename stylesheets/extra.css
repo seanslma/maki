@@ -1,0 +1,6 @@
+/* Adjust the space between individual list items */
+li {
+    margin: 0;          /* Reset all margins on the item */
+    padding: 0.1em 0;   /* Add minimal vertical padding for separation */
+    line-height: 1.4;   /* Reduce line height for compact text */
+}

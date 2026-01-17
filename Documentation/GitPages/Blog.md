@@ -9,7 +9,7 @@ https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/test
 - install `Ruby`, `Gem`, and `Bundler`
 - create Gemfile in root folder
   - https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll
-```
+```sh
 source "https://rubygems.org"
 gem "github-pages", "~> 232", group: :jekyll_plugins
 ```
