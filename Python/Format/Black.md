@@ -1,4 +1,4 @@
-# Balck
+# Black
 
 https://black.readthedocs.io/
 

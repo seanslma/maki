@@ -1,4 +1,5 @@
-# SSL error unsafe legacy renegotiation disabled
+# Legacy
+`SSL error unsafe legacy renegotiation disabled`:
 https://stackoverflow.com/questions/71603314/ssl-error-unsafe-legacy-renegotiation-disabled/72245418#72245418
 
 ## enable using openssl.cng
@@ -38,7 +39,7 @@ def get_legacy_session():
     session = requests.session()
     session.mount('https://', CustomHttpAdapter(ctx))
     return session
-    
+
 # use it in place of the requests call:
 get_legacy_session().get("some-url")
 ```

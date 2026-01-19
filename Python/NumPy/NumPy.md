@@ -1,4 +1,4 @@
-# numpy
+# Numpy
 ```py
 x = np.arange(5)
 ```

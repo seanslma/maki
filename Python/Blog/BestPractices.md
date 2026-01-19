@@ -1,4 +1,4 @@
-# Python Programing Bets Practice
+# Python Programing Best Practice
 
 ## make action on your goal
 Don't just read -- read, create, then think about it and improve it.

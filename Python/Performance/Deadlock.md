@@ -1,4 +1,4 @@
-# deadlock
+# Deadlock
 
 https://pythonspeed.com/articles/python-multiprocessing/
 

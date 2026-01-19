@@ -1,4 +1,4 @@
-# Azure Pipeline Parameters
+# Parameters
 
 ## Purpose
 Parameters are used to define values that are passed to the pipeline at runtime. They are typically used to make your pipelines more flexible and reusable by allowing you to pass in different values when triggering the pipeline.

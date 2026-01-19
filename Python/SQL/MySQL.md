@@ -1,4 +1,4 @@
-# sql
+# MySQL
 
 To install MySQLdb on Windows go to this link: https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient \\
 Download the appropriate .whl for your Python version: python -m pip install mysqlclient-1.3.13-cp36-cp36m-win_amd64.whl

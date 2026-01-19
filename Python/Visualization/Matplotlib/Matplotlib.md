@@ -1,4 +1,4 @@
-# matplotlib
+# Matplotlib
 
 ## config
 first parameter can be 'figure' , 'axes' , 'xtick' , 'ytick' , 'grid' , 'legend'

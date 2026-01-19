@@ -1,4 +1,4 @@
-# Miniforge (Mambaforge)
+# Miniforge
 
 https://github.com/conda-forge/miniforge
 

@@ -1,4 +1,4 @@
-# dask example
+# Dask example
 ```py
 import os
 import time

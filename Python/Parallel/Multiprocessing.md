@@ -1,4 +1,4 @@
-# multiprocessing
+# Multiprocessing
 - threads share memory with the main process
 - processes have independent memory spaces. When a process ends, the OS cleans up its memory
 

@@ -1,6 +1,6 @@
 # NaN
 
-df groupby mean does not support "skipna=False"
+`df.groupby.mean` does not support "skipna=False"
 
 ## drop nan from array
 ```py

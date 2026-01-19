@@ -1,4 +1,4 @@
-# categorical
+# Categorical
 
 https://towardsdatascience.com/staying-sane-while-adopting-pandas-categorical-datatypes-78dbd19dcd8a
 
@@ -38,7 +38,7 @@ df['cat'].cat.rename_categories(str.upper) #even faster and still cat type
 can work on these values directly if there are no appropriate cat functions.
 
 ## merge
-`merge` dfs can lead category columns becoming string type 
+`merge` dfs can lead category columns becoming string type
 - merge(str, cat) => str
 - merge(cat, cat) => str
 - df.astype({'cat': df2['cat'].dtype}).merge(df2, on='cat') => cat
@@ -48,11 +48,11 @@ import numpy as np
 import pandas as pd
 
 d1 = pd.DataFrame({
-    'id': [5, 6], 
+    'id': [5, 6],
     'value': pd.Categorical(['b', 'c']),
 })
 d2 = pd.DataFrame({
-    'id': [5, 3, 6],  
+    'id': [5, 3, 6],
     'value': pd.Categorical(['a', 'b', 'c']),
 })
 

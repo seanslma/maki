@@ -1,4 +1,4 @@
-# csmooth
+# CSmooth
 
 ## interp
 ```py

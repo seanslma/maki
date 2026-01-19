@@ -1,4 +1,4 @@
-# perf (II)
+# Perf (II)
 
 ## ravel() vs flatten()
 np.ravel() will avoid copy if possible and thus faster than flatten()

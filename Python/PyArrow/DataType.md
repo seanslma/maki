@@ -1,4 +1,4 @@
-# data type
+# Data type
 
 https://arrow.apache.org/docs/python/api/datatypes.html
 

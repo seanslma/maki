@@ -1,4 +1,4 @@
-# curvefit
+# CurveFit
 
 ```py
 import numpy as np

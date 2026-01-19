@@ -1,4 +1,4 @@
-# broadcast
+# Broadcast
 
 ## multiindex
 reindex with level can broadcast the level. also df.div can broadcast only one level.

@@ -1,4 +1,4 @@
-# index
+# Index
 
 The `.loc/[]` operations can perform enlargement when setting a non-existent key for that axis.
 

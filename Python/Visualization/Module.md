@@ -1,4 +1,4 @@
-# module
+# Module
 
 ## Bokeh
 Bokeh supports interactive plots using its JavaScript API, BokehJS, to provide dynamic and interactive web-ready visualizations.
@@ -22,7 +22,7 @@ missingno is a small matplotlib based Python library helping show and explore mi
 ## atoti
 atoti works with all Python notebooks, with enhanced features in Jupyter
 
-## Exploratory Data Analysis (EDA) 
+## Exploratory Data Analysis (EDA)
 https://towardsdatascience.com/comparing-five-most-popular-eda-tools-dccdef05aa4c
 
 ### Dataprep
@@ -31,10 +31,10 @@ Dataprep (use Bokeh) is a library that provides easy-to-use functions for data c
 ### Autoviz
 Autoviz is a library that automatically generates visualizations for data exploration. It analyzes the dataset and generates a variety of charts and plots to help users understand the underlying patterns and relationships in the data. Autoviz can be useful for quickly getting insights from your data without the need for manual chart selection.
 
-### Sweetviz 
+### Sweetviz
 Sweetviz is another Python library for exploratory data analysis that focuses on generating detailed visual and statistical summaries of datasets. It provides a high-level API to quickly generate comprehensive reports with minimal code.
 
-### D-Tale 
+### D-Tale
 D-Tale (use Plotly) is a library that provides an interactive web-based interface for data exploration and analysis. It allows you to visualize your dataset, compute descriptive statistics, apply filters, and perform various other data manipulation tasks. D-Tale provides an intuitive way to interact with your data and gain insights through its user-friendly interface.
 
 ### Dabl

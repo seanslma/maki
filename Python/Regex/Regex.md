@@ -1,4 +1,4 @@
-# regex
+# Regex
 
 ## find a word after another word
 ```py

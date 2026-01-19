@@ -1,4 +1,4 @@
-# timeit
+# Timeit
 
 ## timeit in Jupyter
 ```py

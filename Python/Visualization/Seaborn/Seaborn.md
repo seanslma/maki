@@ -1,4 +1,4 @@
-# seaborn
+# Seaborn
 https://seaborn.pydata.org/tutorial/axis_grids.html
 
 ```py

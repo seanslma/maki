@@ -1,4 +1,4 @@
-# Azure Pipelines System Variables
+# System Variables
 
 Azure Pipelines provides a set of predefined system variables that you can use in your pipelines. These variables are automatically populated with information about the pipeline execution environment, agent, build, and more.
 

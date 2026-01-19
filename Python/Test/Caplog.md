@@ -1,11 +1,11 @@
-# caplog
+# Caplog
 
 https://docs.pytest.org/en/6.2.x/reference.html#caplog
 
 Access and control log capturing. Returns a `pytest.LogCaptureFixture` instance.
 
-The `caplog` is one of pytest's built-in fixtures. 
-The `fixture` is an argument that will be automatically passed to the test function by its name. 
+The `caplog` is one of pytest's built-in fixtures.
+The `fixture` is an argument that will be automatically passed to the test function by its name.
 Thus all we need to do is to define caplog as the function's argument and then use it in the method.
 
 Here we test the logger using the `caplog`. So the log messgaes are written to caplog and we can check the messages later.

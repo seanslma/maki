@@ -1,4 +1,4 @@
-# figure
+# Figure
 
 ## save figure
 ```

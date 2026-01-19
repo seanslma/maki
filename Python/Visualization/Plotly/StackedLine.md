@@ -1,4 +1,4 @@
-# stacked line chart
+# Stacked line chart
 
 https://plotly.com/python-api-reference/
 

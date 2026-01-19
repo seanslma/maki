@@ -1,4 +1,4 @@
-# lineplot
+# Lineplot
 
 ## line styles
 ```py

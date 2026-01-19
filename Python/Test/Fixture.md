@@ -1,4 +1,4 @@
-# fixture
+# Fixture
 
 ## data path fixture
 ```py

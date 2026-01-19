@@ -1,11 +1,11 @@
-# db connection
+# Database connection
 
 ## encrypt connection string in sql server
 - Ensure in the datbase server the `encryption` is enabled
 - In the connection string add `mssql+pyodbc` and `;encrypt=yes;trustservercertificate=no`
 
-When connecting to MS SQL Server with Python and pyodbc, 
-the `encrypt=yes` parameter is not a standalone encryption mechanism. 
+When connecting to MS SQL Server with Python and pyodbc,
+the `encrypt=yes` parameter is not a standalone encryption mechanism.
 It works in conjunction with TLS/SSL to enforce encrypted communication between the client and server.
 
 1. **TLS/SSL Configuration:**

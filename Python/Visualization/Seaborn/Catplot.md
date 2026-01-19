@@ -1,4 +1,4 @@
-# catplot
+# Catplot
 https://seaborn.pydata.org/generated/seaborn.catplot.html
 
 - `order`, `hue_order`: *lists of strings, optional*\
@@ -23,7 +23,7 @@ g = sns.catplot(
     col='time',
     col_order=time,
     sharey=False,
-    ci=None,                   #remove error bars    
+    ci=None,                   #remove error bars
     height=4,
     aspect=0.7,
 )

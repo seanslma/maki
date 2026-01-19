@@ -1,4 +1,4 @@
-# tips
+# Tips
 
 ## get list from Literal
 ```

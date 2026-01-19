@@ -1,4 +1,4 @@
-## basic
+## Basic
 ```py
 df.info()
 df.describe()

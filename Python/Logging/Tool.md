@@ -1,4 +1,4 @@
-# tool
+# Tool
 
 Seq for python:\
 https://docs.datalust.co/docs/using-python

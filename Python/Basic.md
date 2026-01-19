@@ -1,4 +1,4 @@
-# basic
+# Basic
 
 ## find the mpl_tools directory
 ```py

@@ -1,4 +1,4 @@
-# excel
+# Excel
 ```sh
 python -m pip install xlrd==1.2.0
 ```

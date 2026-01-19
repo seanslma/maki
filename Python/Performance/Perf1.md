@@ -1,4 +1,4 @@
-# perf (I)
+# Perf (I)
 
 - https://scipy.github.io/old-wiki/pages/PerformanceTips
 - https://llllllllll.github.io/principles-of-performance/index.html
