@@ -68,6 +68,11 @@ markdown_extensions:
 plugins:
   - search
   - awesome-pages
+  - git-revision-date-localized:
+      type: custom
+      custom_format: "%-d %b %Y"     # Results in: 19 Jan 2026
+      fallback_to_build_date: true   # Uses build date if file isn't in Git yet
+      enabled: true
 
 # # Exclude files from being processed
 # exclude_docs: |

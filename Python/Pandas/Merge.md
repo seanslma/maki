@@ -29,14 +29,14 @@ n = 1000000
 a1 = np.arange(n)
 np.random.shuffle(a1)
 d1 = (
-    pd.DataFrame({'x': a1, 'y': 2*a1})
+    pd.DataFrame({'x': a1, 'y': 2 * a1})
     # .astype({'x': 'category'})
 )
 
 a2 = a1.copy()
 np.random.shuffle(a2)
 d2 = (
-    pd.DataFrame({'x': a2, 'y': 2*a2})
+    pd.DataFrame({'x': a2, 'y': 2 * a2})
     # .astype({'x': 'category'})
 )
 
@@ -48,5 +48,5 @@ print(f'Merging on column time: {time.time()-t0:.3f}')
 # merge on index
 t0 = time.time()
 d1.set_index('x').merge(d2.set_index('x'), how='left', left_index=True, right_index=True)
-print(f'Merging on index  time: {time.time()-t0:.3f}')
+print(f'Merging on index  time: {time.time() - t0:.3f}')
 ```

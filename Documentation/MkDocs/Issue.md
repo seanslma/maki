@@ -78,3 +78,17 @@ for root, dirs, files in os.walk('_site'):
                 f.write(minified)
 "
 ```
+
+## Add `Last updated on d mmm yyyy`
+- `pip install mkdocs-git-revision-date-localized-plugin`
+- update `mkdocs.yml`
+```yaml
+plugins:
+- search
+- awesome-pages
+- git-revision-date-localized:
+    type: custom
+    custom_format: "%d %b %Y"  # Results in: 19 Jan 2026
+    enable_fallback: true      # Uses build date if file isn't in Git yet
+```
+- in `on_page_context` update footer such as `copyright`

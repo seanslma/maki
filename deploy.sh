@@ -32,16 +32,16 @@ for root, dirs, files in os.walk(site_dir):
                 print(f'⚠️ Could not minify {path}: {e}')
 "
 
-# 2. Ensure the destination exists
-mkdir -p "$MAKI_SUBFOLDER"
+# # 2. Ensure the destination exists
+# mkdir -p "$MAKI_SUBFOLDER"
 
-# 3. Clear old files in the destination (to prevent ghost files)
-echo "Cleaning old files in $MAKI_SUBFOLDER..."
-rm -rf "${MAKI_SUBFOLDER:?}"/*
+# # 3. Clear old files in the destination (to prevent ghost files)
+# echo "Cleaning old files in $MAKI_SUBFOLDER..."
+# rm -rf "${MAKI_SUBFOLDER:?}"/*
 
-# 4. Copy new files
-echo "Copying built files to main site repo..."
-cp -r _site/* "$MAKI_SUBFOLDER/"
+# # 4. Copy new files
+# echo "Copying built files to main site repo..."
+# cp -r _site/* "$MAKI_SUBFOLDER/"
 
 # 5. Navigate to main repo and push
 # echo "Committing and pushing to GitHub Pages..."

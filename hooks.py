@@ -17,18 +17,34 @@ def on_page_markdown(markdown, **kwargs):
 
 
 def on_config(config):
+    # Replace {year} once globally
     now = datetime.datetime.now()
-    year = now.year
-    date = now.strftime('%-d %b %Y')
-
-    # Replace {year} placeholder with current year
+    # date = now.strftime('%-d %b %Y')
     copyright = config.get('copyright', '')
-    copyright = copyright.replace('{year}', str(year))
-
-    # Define dynamic footer components
-    updated_at = f'Last updated on {date}'
-
-    # Combine them into the copyright variable
-    config['copyright'] = f'{copyright}<br>{updated_at}'
+    config['raw_copyright'] = copyright.replace('{year}', str(now.year))
 
     return config
+
+
+def on_page_context(context, page, config, nav):
+    # Determine which date to use
+    if page.is_homepage:
+        display_date = datetime.datetime.now().strftime('%-d %b %Y')
+    else:
+        # Try to get the Git date from plugin metadata
+        display_date = (
+            page.meta.get('git_revision_date_localized')
+            or page.meta.get('revision_date')
+            or datetime.datetime.now().strftime('%-d %b %Y')
+        )
+    updated_at = f'Last updated on {display_date}'
+
+    # Remove it from metadata to avoid auto creating `last updated` field
+    page.meta.pop('git_revision_date_localized', None)
+
+    # Build a per-page footer WITHOUT mutating the global config
+    # Use context['copyright'] instead of config['copyright']
+    copyright = config['raw_copyright']
+    context['config']['copyright'] = f'{copyright}<br>{updated_at}'
+
+    return context
