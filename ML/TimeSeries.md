@@ -12,6 +12,18 @@ https://medium.com/@ycwong.joe/a-brief-history-of-time-series-models-38455c2cd78
 ## summary
 https://chartexpo.com/blog/time-series-forecasting
 
+## multi-step forecast
+stratigies:
+- direct multi-step forecast
+    - develope a separate model for each forecast time step
+    - no dependence on different steps
+- recursive multi-step forecast
+    - prediction for the prior time step is used as an input for the following time step
+    - error will accumulate
+- direct-recursive hybrid multi-step forecast
+    - add previous prediction as input to next time step model
+- multiple output forecast
+
 ## How to feed forecast into next step's input feature
 https://www.kaggle.com/code/ryanholbrook/forecasting-with-machine-learning
 - multioutput model
