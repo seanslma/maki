@@ -33,6 +33,7 @@ SlicerFilter =
 RETURN
     IF(MAX(dim_tbl[col]) IN _val_in_fact2, 1, 0)
 ```
+Add the SlicerFilter measure to the slicer's Filters on this visual and set `is 1`.
 
 ## `blank` value issue
 Sometimes the slicer will show blank() even all tables do not have blank values.
