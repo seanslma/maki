@@ -3,6 +3,10 @@
 https://vincent-tseng.medium.com/dax-hasonevalue-vs-hasonefilter-724fab64f9aa
 https://www.sumproduct.com/blog/article/power-pivot-principles/ppp-hasonefilter-vs-hasonevalue-vs-isfiltered
 
+## ISINSCOPE
+Returns true when the specified column is the level in a hierarchy of levels.
+- can be used to determine it's in a row or total
+
 ## HASONEFILTER(columnName)
 Returns TRUE when the number of directly filtered values on columnName is one.
 - one value
