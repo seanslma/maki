@@ -1,6 +1,11 @@
 # mms
 
-AEMO tables
+## mms guide
+https://www.mdavis.xyz/mms-guide/
+
+how to parse aemo csv data files
+
+## AEMO tables
 
 https://github-wiki-see.page/m/UNSW-CEEM/NEMOSIS/wiki/AEMO-Tables
 
