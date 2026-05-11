@@ -13,5 +13,9 @@ Each tree focuses on correcting the errors made by its predecessors.
 ## strength
 good for tabular data
 
+## limits
+- need to pass trend and seasonality as external regressors
+- Tree based models are not known to do well in extrapolation
+
 ## multioutput
 https://xgboost.readthedocs.io/en/stable/tutorials/multioutput.html
