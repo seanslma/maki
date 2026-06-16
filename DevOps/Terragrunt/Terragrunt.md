@@ -30,6 +30,19 @@ terragrunt run-all refresh         #update state to match remote systems, can so
 terragrunt run-all show -json planfile
 ```
 
+# Show only the changes across all modules
+```sh
+terragrunt run-all plan -out=tfplan
+terragrunt run-all show tfplan
+```
+
+# Show summary only without resource property
+```sh
+terragrunt run-all plan -out=tfplan
+terragrunt run-all show -json tfplan | tf-summarize
+```
+
+
 ## execute terraform command on specific module
 - cd into that module and run command without run-all, or
 - use `--terragrunt-working-dir <module-path>` parameter
