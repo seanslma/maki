@@ -18,6 +18,11 @@ sudo mv terragrunt /usr/local/bin/terragrunt
 terragrunt --help
 ```
 
+## terraform and terragrunt version management
+Using dedicated tools like `tfenv` (for Terraform) and `tgenv` (for Terragrunt) comes with some massive benefits for DevOps work:
+- Instant Version Switching: With tfenv, just type `tfenv use 1.5.0` and it swaps instantly.
+- The `.terraform-version` file: Place a tiny text file named `.terraform-version` in project root. When cd into that directory, `tfenv` will automatically detect it and switch to the correct version for you.
+
 ## commands
 ```sh
 terragrunt run-all init            #initialize
