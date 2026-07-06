@@ -26,3 +26,10 @@ conda config --set auto_activate_base false
 
 ## Define new command for `uv pip`
 In the `AutoRun` bat file append the command `@DOSKEY pp=uv pip $*`
+
+## Change folder
+In the `AutoRun` bat file append:
+```bat
+@REM Change directory to dev folder
+@CD /D "C:\Users\my-name\dev"`
+```
