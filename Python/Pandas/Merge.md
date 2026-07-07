@@ -43,7 +43,7 @@ d2 = (
 # merge on column
 t0 = time.time()
 d1.merge(d2, how='left', left_on='x', right_on='x')
-print(f'Merging on column time: {time.time()-t0:.3f}')
+print(f'Merging on column time: {time.time() - t0:.3f}')
 
 # merge on index
 t0 = time.time()

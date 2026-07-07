@@ -58,12 +58,15 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
   - admonition
   - pymdownx.details
   - attr_list
   - md_in_html
   - toc:
       permalink: true
+
 
 plugins:
   - search
@@ -81,6 +84,10 @@ plugins:
 #   .github/
 #   .vscode/
 #   *.pyc
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
   - stylesheets/extra.css

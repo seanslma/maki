@@ -14,3 +14,4 @@ Solution:
 - `exclude_files` does not work
 - in workflows, add a step to copy the source folder to the `_site`
 - if that folder is one of your repo, disable github pages in that repo. Otherwise the repo github page will overwrite your `user.github.io/repo_name` page
+- also ensure that `.gitignore` not exclude any required folders, such as underscore folders

@@ -28,7 +28,6 @@ GitLens in VS code
 vscode-open-in-github
 
 ## other
-
 ```py
 #not supported
 ++i

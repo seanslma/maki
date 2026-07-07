@@ -1,9 +1,9 @@
 # Convex
 
-## bilinear problem
-- x * y
-- e^x y + y
-- sin(x  + y) - x^2
+## Bilinear problem
+- $x * y$
+- $e^x y + y$
+- $\sin(x  + y) - x^2$
 ```
 obj: x * y
 var: x, y
