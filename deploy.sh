@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # --- CONFIGURATION ---
-# Update these paths to match your Ubuntu folders
 MAIN_SITE_REPO="$HOME/dev/seanslma.github.io"
 MAKI_SUBFOLDER="$MAIN_SITE_REPO/maki"
 
@@ -44,10 +43,10 @@ echo "Copying built files to main site repo..."
 cp -r _site/* "$MAKI_SUBFOLDER/"
 
 # 5. Navigate to main repo and push
-echo "Committing and pushing to GitHub Pages..."
-cd "$MAIN_SITE_REPO"
-git add maki/
-git commit -m "Update maki docs at $(date '+%Y-%m-%d %H:%M:%S')"
-git push origin main
+# echo "Committing and pushing to GitHub Pages..."
+# cd "$MAIN_SITE_REPO"
+# git add maki/
+# git commit -m "Update maki docs at $(date '+%Y-%m-%d %H:%M:%S')"
+# git push origin main
 
 echo "Done! Site will update at seanslma.github.io/maki"
