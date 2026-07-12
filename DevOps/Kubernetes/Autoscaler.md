@@ -2,7 +2,6 @@
 
 https://www.replex.io/blog/kubernetes-in-production-best-practices-for-cluster-autoscaler-hpa-and-vpa
 
-
 ## cluster-autoscaler status
 Basic info - not really useful
 ```sh
@@ -91,6 +90,48 @@ spec:
           value: 10
           periodSeconds: 60
       selectPolicy: Max
+```
+
+## hpa with ArgoCD
+when using hpa, the scaler will try to up/down scale the deployment pod replicas count. At the same time ArgoCD will synchronize the replicas.count defined in the repo. So they fight each other and lead to scaling up and down constantly.
+
+Solution:
+in ArgoCD tf code add:
+```tf
+"ignoreDifferences" = [
+{
+    "group" = "apps"
+    "kind" = "Deployment"
+    # "name" = "your-aks-app"
+    "jsonPointers" = [
+    "/spec/replicas"
+    ]
+}
+]
+```
+
+In the full yaml file
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: your-aks-app
+  namespace: argocd
+spec:
+  source:
+    repoURL: 'https://github.com/your-repo/helm-chart'
+    targetRevision: HEAD
+    path: charts/my-app
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+
+  # ADD THIS BLOCK HERE:
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
 ```
 
 ## vertical pod autoscaler (VPA)
