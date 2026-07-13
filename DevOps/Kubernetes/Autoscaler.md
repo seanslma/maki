@@ -134,6 +134,27 @@ spec:
         - /spec/replicas
 ```
 
+## allow a pod to use spot if other nodes have limited resources
+```yaml
+spec:
+  tolerations:
+  - key: "kubernetes.azure.com/scalesetpriority"
+    operator: "Equal"
+    value: "spot"
+    effect: "NoSchedule"
+
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        preference:
+          matchExpressions:
+          - key: kubernetes.azure.com/scalesetpriority
+            operator: NotIn
+            values:
+            - spot
+```
+
 ## vertical pod autoscaler (VPA)
 https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler
 
