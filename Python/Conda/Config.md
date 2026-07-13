@@ -21,7 +21,8 @@ conda config --set auto_activate_base false
 ## REQUESTS_CA_BUNDLE
 
 ## Auto activate conda env in windows cmd
-- Add `AutoRun` with value `if exists "c:/users/usr/int_cmd.bat" "c:/users/usr/int_cmd.bat"` in `regedit` path `HKEY_CURRENT_USER->Software->Microsoft->Command Processer`
+- In `regedit` open path `HKEY_CURRENT_USER->Software->Microsoft->Command Processer`
+- Add `AutoRun` with value `if exists "c:/users/usr/init_cmd.bat" "c:/users/usr/init_cmd.bat"`
 - If `AutoRun` already there, append the command `@CALL "%CONDA_BAT%" activate my-env` to that bat file.
 
 ## Define new command for `uv pip`
