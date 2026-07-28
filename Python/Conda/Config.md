@@ -25,12 +25,18 @@ conda config --set auto_activate_base false
 - Add `AutoRun` with value `if exists "c:/users/usr/init_cmd.bat" "c:/users/usr/init_cmd.bat"`
 - If `AutoRun` already there, append the command `@CALL "%CONDA_BAT%" activate my-env` to that bat file.
 
-## Define new command for `uv pip`
-In the `AutoRun` bat file append the command `@DOSKEY pp=uv pip $*`
-
 ## Change folder
 In the `AutoRun` bat file append:
 ```bat
 @REM Change directory to dev folder
 @CD /D "C:\Users\my-name\dev"`
+```
+
+## Define new command for `uv pip`
+In the `AutoRun` bat file append the command `@DOSKEY pp=uv pip $*`
+
+Better solution: Instead of adding that in `conda_hook.bat`, create a file `pp.cmd` under the Path so it will be available anywhere.
+```bat
+@echo off
+uv pip %*
 ```
