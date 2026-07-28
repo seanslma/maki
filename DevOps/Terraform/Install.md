@@ -15,3 +15,8 @@ sudo unzip <zip_file_downloaded_in_previous_step>
 sudo mv terraform /usr/bin/
 sudo rm <zip_file_downloaded_in_previous_step>
 ```
+
+## install terraform and terragrunt using conda
+```sh
+conda install terraform terragrunt -y
+```
