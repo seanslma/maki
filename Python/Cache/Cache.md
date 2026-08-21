@@ -24,6 +24,18 @@ my solution using aiocache (borrowed code from the following link)
 https://github.com/Krukov/cashews/pull/123/files#diff-3df331569a7628a330e72e831d8f338342ef954c7cb3897c6195565a85c32b6fR1
 
 Note that the code can also be updated to fallback to a default memory cache if redis server (ping) is not available.
+
+TODO:
+- the streaming response will write the key first
+- then after creating the streaming response, during streaming write the chunks
+- if two calls writing to the same cache and the first is not finished, the cache is not complete
+- to fix that we need to do these things
+- write the n_chunks after all chunks have been cached
+- before access the cache, check n_chunks. if not available return None to force recalculation
+- when get cache failed, delete the cache key to force recalculation
+- during setting cache chunk, if failed, delete cached chunks, n_chunks and key
+- during getting cache chunk, if failed, throw RuntimeError. Thuis happens during streaming. Too late to catch it in the code. The client need to catch the error and try again.
+  
 ```py
 class stream_cached(cached):
     async def set_in_cache(self, key, value):
