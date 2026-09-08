@@ -1,4 +1,4 @@
-# Use `delta_scan` instead of `to_pyarrow_dataset` for performace in reading delta lake data
+# Use `delta_scan` instead of `to_pyarrow_dataset` in reading delta lake data
 
 When querying Delta Lake tables stored in Azure Data Lake Storage (ADLS) with DuckDB, I found two common approaches:
 
