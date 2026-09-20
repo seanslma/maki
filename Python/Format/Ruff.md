@@ -53,3 +53,44 @@ ignore = ["E741"] # ambiguous-variable-name: l (lowercase L), O (uppercase O), o
 [tool.ruff.format]
 quote-style = "single"
 ```
+
+## ruff format: ruff pre-commit
+create file: `.pre-commit-config.yaml` to add the Ruff hooks
+```yaml
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.7
+    hooks:
+      # 1. Run the linter and fix safe errors (like sorting imports)
+      - id: ruff-check
+        args: [--fix]
+      # 2. Run the formatter
+      - id: ruff-format
+```
+
+install `pre-commit` and activate the hook in Git
+```sh
+pip install pre-commit
+pre-commit install
+```
+
+## ruff format: ci format check
+Add the format and lint validation to CI pipeline
+```yaml
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+
+- script: |
+    pip install ruff
+    ruff format --check .
+    ruff check .
+  displayName: 'Ruff format and lint validation'
+```
