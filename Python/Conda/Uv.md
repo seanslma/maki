@@ -126,3 +126,18 @@ xgboost
 xlsxwriter
 zstandard
 ```
+
+## uv publish to ado artifacts
+https://docs.astral.sh/uv/guides/integration/azure/
+
+pyproject.toml
+```toml
+[[tool.uv.index]]
+name = "<my_feed>"
+url = "https://pkgs.dev.azure.com/<ORGANIZATION>/<PROJECT>/_packaging/<FEED>/pypi/simple/"
+```
+
+setup:
+- https://blog.nathanv.me/posts/azure-artifacts-uv/
+- https://www.linkedin.com/pulse/part-3-microsoft-fabric-azure-devops-ci-projects-harsha-guggilla-bb2nc
+
