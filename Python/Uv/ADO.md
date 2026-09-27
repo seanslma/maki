@@ -13,7 +13,9 @@ set UV_INDEX_STRATEGY=first-index
 ```
 
 ## build package
+The dependencies might come from the feed as well.
 ```sh
+az login # az devops login
 uv build
 ```
 
