@@ -23,3 +23,23 @@ pip install --no-deps --editable .
 # wrong? delete it: pip uninstall repo
 code .
 ```
+
+## push to new repo
+```sh
+git init
+git remote add origin https://github.com/<org>/<repo>
+
+git add .
+git commit -m "Initial commit"
+
+git branch -M main
+git push -u origin main
+```
+After that setup pipeline and run it for the first time.
+
+## switch to azure repo
+```sh
+git remote add azure ...
+git fetch azure
+git checkout -b main azure/main
+```
