@@ -22,3 +22,19 @@ setting can be specific to Azure Repos
 ```sh
 git config --global credential.https://dev.azure.com.useHttpPath true
 ```
+
+## git clone mirror
+import repot from github to azure devops
+- also rename master to main.
+- pull requests cann't be importted to ado
+
+```sh
+git clone --mirror https://my.github.com/<org>/<my-repo>.git
+cd <my-repo>.git
+git branch -m master main
+git remote add ado https://<org>@dev.azure.com/<org>/<proj>/_git/<new-repo>
+git push ado --all  # "refs/heads/*:refs/heads/*"
+git push ado --tags # "refs/tags/*:refs/tags/*"
+
+# git push --mirror ado # do not use it - pull will be rejected
+```
