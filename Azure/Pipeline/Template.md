@@ -1,6 +1,12 @@
 # Template
 https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops
 
+## azure pipeline templates
+- create validation pipeline so each change in the templates repo will be tested by itself
+- create a tests folder with different test scenarios: build conda, unit test, build docker image etc.
+- scripts must be copied and in the right folder, otherwise it cannot be found
+- sometimes variables can be used to replace scripts
+
 ## order
 script(bash, task etc.) must in the first line. generally in this order:
 - script
